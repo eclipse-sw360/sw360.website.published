@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://www.eclipse.org/sw360/presentations/</loc>
+    <lastmod>2018-09-10T16:06:41+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/sw360/resources/</loc>
+    <lastmod>2018-09-06T14:38:06+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/sw360/about/</loc>
+    <lastmod>2018-09-06T14:29:18+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/sw360/blog/2017/07/11/ecf2017/</loc>
+    <lastmod>2017-07-11T11:27:33+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/sw360/blog/</loc>
+    <lastmod>2017-07-11T11:27:33+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/sw360/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/sw360/tags/ecf17/</loc>
+    <lastmod>2017-07-11T11:27:33+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/sw360/</loc>
+    <lastmod>2018-09-10T16:06:41+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/sw360/categories/introduction/</loc>
+    <lastmod>2017-07-11T11:27:33+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/sw360/tags/</loc>
+    <lastmod>2017-07-11T11:27:33+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/sw360/categories/talk/</loc>
+    <lastmod>2017-07-11T11:27:33+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/sw360/categories/video/</loc>
+    <lastmod>2017-07-11T11:27:33+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+</urlset>
