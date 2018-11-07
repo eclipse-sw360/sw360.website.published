@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Eclipse SW360</title>
+    <link>https://www.eclipse.org/sw360/</link>
+    <description>Recent content on Eclipse SW360</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 10 Sep 2018 16:06:41 +0200</lastBuildDate>
+    
+	<atom:link href="https://www.eclipse.org/sw360/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Eclipse SW360 - Presentations</title>
+      <link>https://www.eclipse.org/sw360/presentations/</link>
+      <pubDate>Mon, 10 Sep 2018 16:06:41 +0200</pubDate>
+      
+      <guid>https://www.eclipse.org/sw360/presentations/</guid>
+      <description>Events and Presentations 2018  Bitkom Forum Open Source 2018: &amp;ldquo;Eclipse SW360 – Lessons Learned From Automated License Compliance&amp;rdquo; (Johannes Kristan, Bosch Software Innovations GmbH &amp;amp; Michael C. Jaeger, Siemens AG) Inner Source Commons 2018: &amp;ldquo;Committing to Change: Inner Source at Siemens&amp;rdquo; (Karsten Gerloff, Siemens AG) The Free Software Legal and Licensing Workshop 2018: &amp;ldquo;Eclipse SW360: Generating License Information for Products with SDPX Docs&amp;rdquo; (Michael C. Jaeger, Siemens AG) Yanking the Chain: Open Source Software Compliance in the Supply Chain: &amp;ldquo;Eclipse SW360 – Open Source Management with Open Source&amp;rdquo; (Michael C.</description>
+    </item>
+    
+    <item>
+      <title>Eclipse SW360 - Resources</title>
+      <link>https://www.eclipse.org/sw360/resources/</link>
+      <pubDate>Thu, 06 Sep 2018 14:38:06 +0200</pubDate>
+      
+      <guid>https://www.eclipse.org/sw360/resources/</guid>
+      <description> GitHub Repository  Eclipse SW360: https://github.com/eclipse/sw360 Eclipse SW360antenna: https://github.com/eclipse/antenna Eclipse SW360 Website: https://github.com/eclipse/sw360.website  Documentation  Eclipse SW360: https://github.com/eclipse/sw360/wiki  Builds  Travis: https://travis-ci.org/eclipse/sw360  </description>
+    </item>
+    
+    <item>
+      <title>Eclipse SW360 - About</title>
+      <link>https://www.eclipse.org/sw360/about/</link>
+      <pubDate>Thu, 06 Sep 2018 14:29:18 +0200</pubDate>
+      
+      <guid>https://www.eclipse.org/sw360/about/</guid>
+      <description>In most cases, software today is not built from scratch, but rather assembled from various prepackaged third-party software components. As a result, organizations face the following challenges:
+ Verifying various aspects of compliance when using third-party software components: license compliance, ECC checks, IP assessments, etc. Sharing knowledge about software components and their qualities. For example, which software components should be recommended, which should be phased out based on which criteria?</description>
+    </item>
+    
+    <item>
+      <title>Eclipse Con France 2017 Talk</title>
+      <link>https://www.eclipse.org/sw360/blog/2017/07/11/ecf2017/</link>
+      <pubDate>Tue, 11 Jul 2017 11:27:33 +0200</pubDate>
+      
+      <guid>https://www.eclipse.org/sw360/blog/2017/07/11/ecf2017/</guid>
+      <description> Talk @EclipseCon France 2017 Eclipse SW360 was presented at EclipseCon France 2017 by Johannes Kristan.
+  </description>
+    </item>
+    
+  </channel>
+</rss>

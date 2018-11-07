@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blogs on Eclipse SW360</title>
+    <link>https://www.eclipse.org/sw360/blog/</link>
+    <description>Recent content in Blogs on Eclipse SW360</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 11 Jul 2017 11:27:33 +0200</lastBuildDate>
+    
+	<atom:link href="https://www.eclipse.org/sw360/blog/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Eclipse Con France 2017 Talk</title>
+      <link>https://www.eclipse.org/sw360/blog/2017/07/11/ecf2017/</link>
+      <pubDate>Tue, 11 Jul 2017 11:27:33 +0200</pubDate>
+      
+      <guid>https://www.eclipse.org/sw360/blog/2017/07/11/ecf2017/</guid>
+      <description> Talk @EclipseCon France 2017 Eclipse SW360 was presented at EclipseCon France 2017 by Johannes Kristan.
+  </description>
+    </item>
+    
+  </channel>
+</rss>
