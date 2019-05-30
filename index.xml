@@ -6,10 +6,20 @@
     <description>Recent content on Eclipse SW360</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 10 Sep 2018 16:06:41 +0200</lastBuildDate>
+    <lastBuildDate>Wed, 29 May 2019 14:38:06 +0200</lastBuildDate>
     
 	<atom:link href="https://www.eclipse.org/sw360/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Eclipse SW360 - Screenshots</title>
+      <link>https://www.eclipse.org/sw360/screenshots/</link>
+      <pubDate>Wed, 29 May 2019 14:38:06 +0200</pubDate>
+      
+      <guid>https://www.eclipse.org/sw360/screenshots/</guid>
+      <description>A picture is worth a thousand words The SW360 application is divided into several sections around managing a catalogue of software components and the software bill-of-material of your software projects, products or services. The menu bar as shown on home screen cover the following main sections.
+Home A dashboard listing the components and projects created by the user logged in. With this overview, the own projects and components can be directly accessed.</description>
+    </item>
     
     <item>
       <title>Eclipse SW360 - Presentations</title>
@@ -26,7 +36,7 @@
       <pubDate>Thu, 06 Sep 2018 14:38:06 +0200</pubDate>
       
       <guid>https://www.eclipse.org/sw360/resources/</guid>
-      <description>GitHub Repository  Eclipse SW360: https://github.com/eclipse/sw360 Eclipse SW360antenna: https://github.com/eclipse/antenna Eclipse SW360 Website: https://github.com/eclipse/sw360.website  More SW360-Related Projects on Guthub  sw360chores, a docker-compose-based deployment environment: https://github.com/sw360/sw360chores sw360vagrant, deploying sw360 using puppet and vagrant: https://github.com/sw360/sw360vagrant sw360bdpimporter, a import implementation for importing proejcts from other applications: https://github.com/sw360/sw360bdpImportService ldapOrganizationMappingExt, small module to perform a mapping between (maybe more detailed) LDAP groups and (maybe less detailed) groups in SW360: https://github.com/sw360/ldapOrganizationMappingExt  Documentation  sw360slides, a collection powerpoint of slides for various presentations: https://github.</description>
+      <description>GitHub Repository  Eclipse SW360: https://github.com/eclipse/sw360 Eclipse SW360antenna: https://github.com/eclipse/antenna Eclipse SW360 Website: https://github.com/eclipse/sw360.website  More SW360-Related Projects on Github  sw360chores, a docker-compose-based deployment environment: https://github.com/sw360/sw360chores sw360vagrant, deploying sw360 using puppet and vagrant: https://github.com/sw360/sw360vagrant sw360bdpimporter, a import implementation for importing proejcts from other applications: https://github.com/sw360/sw360bdpImportService ldapOrganizationMappingExt, small module to perform a mapping between (maybe more detailed) LDAP groups and (maybe less detailed) groups in SW360: https://github.com/sw360/ldapOrganizationMappingExt  Documentation  sw360slides, a collection powerpoint of slides for various presentations: https://github.</description>
     </item>
     
     <item>
@@ -41,10 +51,10 @@
     
     <item>
       <title>Eclipse Con France 2017 Talk</title>
-      <link>https://www.eclipse.org/sw360/blog/2017/07/11/ecf2017/</link>
+      <link>https://www.eclipse.org/sw360/blog/ecf2017/</link>
       <pubDate>Tue, 11 Jul 2017 11:27:33 +0200</pubDate>
       
-      <guid>https://www.eclipse.org/sw360/blog/2017/07/11/ecf2017/</guid>
+      <guid>https://www.eclipse.org/sw360/blog/ecf2017/</guid>
       <description> Talk @EclipseCon France 2017 Eclipse SW360 was presented at EclipseCon France 2017 by Johannes Kristan.
   </description>
     </item>
