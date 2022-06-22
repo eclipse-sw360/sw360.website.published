@@ -14267,6 +14267,17 @@ nav.foldable-nav .with-child ul {
     content: "\f122";
     padding-right: 0.5em; }
 
+.article-teaser.card, .td-content .article-teaser.highlight {
+  padding: 1.0em;
+  margin-bottom: 1.5em; }
+
+.article-teaser .breadcrumb {
+  margin-bottom: 0em;
+  font-size: 0.85rem; }
+
+.article-teaser .article-meta {
+  margin-bottom: 0em; }
+
 div.drawio {
   display: inline-block;
   position: relative; }
@@ -14298,6 +14309,70 @@ div.drawioframe {
     top: 5%;
     left: 5%;
     z-index: 1010; }
+
+.td-content .highlight {
+  margin: 0rem 0 2rem 0; }
+
+.tab-content .tab-pane {
+  margin: 0rem;
+  max-width: 80%;
+  border-left: none;
+  border-right: none;
+  border-bottom: none; }
+  .tab-content .tab-pane .highlight {
+    border: none;
+    max-width: 100%; }
+  .tab-content .tab-pane pre {
+    border-left: 1px solid rgba(0, 0, 0, 0.125);
+    border-right: 1px solid rgba(0, 0, 0, 0.125);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125); }
+
+.tab-body {
+  font-weight: 500;
+  background: #f8f9fa;
+  color: inherit;
+  border-radius: 0;
+  padding: 1.5rem; }
+  .tab-body-primary {
+    border-style: solid;
+    border-color: #1a3f51; }
+  .tab-body-secondary {
+    border-style: solid;
+    border-color: #102129; }
+  .tab-body-success {
+    border-style: solid;
+    border-color: #3772FF; }
+  .tab-body-info {
+    border-style: solid;
+    border-color: #C0E0DE; }
+  .tab-body-warning {
+    border-style: solid;
+    border-color: #ED6A5A; }
+  .tab-body-danger {
+    border-style: solid;
+    border-color: #ED6A5A; }
+  .tab-body-light {
+    border-style: solid;
+    border-color: #D3F3EE; }
+  .tab-body-dark {
+    border-style: solid;
+    border-color: #403F4C; }
+
+.card-deck {
+  max-width: 83%; }
+
+.card, .td-content .highlight {
+  max-width: 80%; }
+  .card .highlight, .td-content .highlight .highlight {
+    border: none; }
+
+.card-body.code {
+  background-color: #f8f9fa;
+  padding: 0 0 0 1ex; }
+
+.card-body pre {
+  margin: 0;
+  padding: 0 1rem 1rem 1rem; }
 
 footer {
   min-height: 150px; }
