@@ -1,0 +1,170 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Eclipse SW360 – Bare Metal</title>
+    <link>https://www.eclipse.org/sw360/docs/deployment/baremetal/</link>
+    <description>Recent content in Bare Metal on Eclipse SW360</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+	  <atom:link href="https://www.eclipse.org/sw360/docs/deployment/baremetal/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: Ubuntu 18.04 LTS, Java 11</title>
+      <link>https://www.eclipse.org/sw360/docs/deployment/baremetal/deploy-natively-11/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/sw360/docs/deployment/baremetal/deploy-natively-11/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;We are covering the update for ubuntu 18.04 LTS here, because that is our main / agreed base system for running sw360. sw360 may run on a varienty of other linux distributions or OSes such as macosx, but in order to avoid problem we agreed on having a reference OS, which are the ubuntu long term releases. The author of this guide also uses macosx and homebrew which also works fairly well.&lt;/p&gt;
+&lt;p&gt;Please note that during the time, the dependencies are updated and the version info might change.&lt;/p&gt;
+&lt;h2 id=&#34;overview&#34;&gt;Overview&lt;/h2&gt;
+&lt;p&gt;The installation consists of quite some tasks, as an overview:&lt;/p&gt;
+&lt;ol start=&#34;5&#34;&gt;
+&lt;li&gt;Java 11&lt;/li&gt;
+&lt;li&gt;Postgresql, if we want to use it instead of hypersonic db&lt;/li&gt;
+&lt;li&gt;CouchDB 2.X at the time of starting this guide, but 3.1.X seems to work well&lt;/li&gt;
+&lt;li&gt;Thrift to 0.13, later updated to 0.14&lt;/li&gt;
+&lt;li&gt;Liferay CE 7.3.3 and 7.3.4 has been also tested&lt;/li&gt;
+&lt;li&gt;Adjust &lt;code&gt;/etc/ini.d/tomcat&lt;/code&gt; with path of new liferay&lt;/li&gt;
+&lt;li&gt;Adjust &lt;code&gt;$liferay_install&lt;/code&gt; variable&lt;/li&gt;
+&lt;li&gt;add Java prerequisites to OSGi container&lt;/li&gt;
+&lt;li&gt;Install couchdb-lucene (2.1)&lt;/li&gt;
+&lt;li&gt;Deploy new version of sw360&lt;/li&gt;
+&lt;li&gt;Go ahead with Liferay steps&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;initial-steps&#34;&gt;Initial steps&lt;/h2&gt;
+&lt;p&gt;In order to &amp;ldquo;calibrate the system&amp;rdquo; just run the update / upgrade cycle once:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;# sudo apt update&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;# sudo apt upgrade&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;postgresql&#34;&gt;PostgreSQL&lt;/h2&gt;
+&lt;p&gt;You can go ahead install postgresql 10:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;sudo apt install postgresql-10&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;or whatever package version is suitable here, for example version 12 for ubuntu 20.04.&lt;/p&gt;
+&lt;p&gt;The configuration for Liferay will come later.&lt;/p&gt;
+&lt;h2 id=&#34;couchdb&#34;&gt;CouchDB&lt;/h2&gt;
+&lt;p&gt;CouchDB is not part of the Ubuntu package management anymore. Thus, you need to add the Apache CouchDB package repository to install it, first the key for signing:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;curl -L https://couchdb.apache.org/repo/bintray-pubkey.asc | sudo apt-key add -&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;The add the repo to the sources:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;echo &amp;quot;deb https://apache.bintray.com/couchdb-deb bionic main&amp;quot; | sudo tee -a /etc/apt/sources.list&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Then, add its contents to the package database by updating apt:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;sudo apt-get update -y&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Ultimately install CouchDB, we tried with 2.1.2 install:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;sudo apt-get install -y couchdb=2.1.2~bionic&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;The installer will ask a couple of questions:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Bind address: for CouchDB and SW360 &lt;code&gt;127.0.0.1&lt;/code&gt; (localhost) is a good bind address, if you would like to access the server from a remote computer because your sw360 runs as a server in the network, you would need to change accordingly.&lt;/li&gt;
+&lt;li&gt;Admin user: For fresh installation for sure a very good idea. You can set the password at sw360 for CouchDB in &lt;code&gt;couchdb.properties&lt;/code&gt; and place it centrally in &lt;code&gt;/etc/sw360&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;In case you added an admin accidentally and would like to remove it,&lt;/p&gt;
+&lt;h2 id=&#34;thrift&#34;&gt;Thrift&lt;/h2&gt;
+&lt;p&gt;For thrift, we need version 0.13. The installation script in &lt;code&gt;scripts/install-thrift.sh&lt;/code&gt; will help you:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;sudo ./install-thrift.sh&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;In case there is thrift in the package management of the OS you re running on, just make sure, you have version 0.13&lt;/p&gt;
+&lt;h2 id=&#34;openjdk-11&#34;&gt;OpenJDK 11&lt;/h2&gt;
+&lt;p&gt;First check, what is installed.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;# sudo apt list openjdk* --installed&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Then you could check what is available:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;# sudo apt list openjdk*&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;And install OpenJDK 11&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;# sudo apt install openjdk-11-jdk&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Then the &lt;code&gt;$JAVA_HOME&lt;/code&gt; needs to be updated, most likely in &lt;code&gt;/etc/environment&lt;/code&gt;. Please check for your installation how to set the &lt;code&gt;$JAVA_HOME&lt;/code&gt; correctly (most likely: &lt;code&gt;JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64&lt;/code&gt;).&lt;/p&gt;
+&lt;h2 id=&#34;liferay-ce-733&#34;&gt;Liferay CE 7.3.3&lt;/h2&gt;
+&lt;p&gt;Download Liferay from this link&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://sourceforge.net/projects/lportal/files/Liferay%20Portal/7.3.3%20GA4/liferay-ce-portal-tomcat-7.3.3-ga4-20200701015330959.tar.gz&#34;&gt;https://sourceforge.net/projects/lportal/files/Liferay%20Portal/7.3.3%20GA4/liferay-ce-portal-tomcat-7.3.3-ga4-20200701015330959.tar.gz&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;and unpack it, ideally in the &lt;code&gt;/opt&lt;/code&gt; directory, so resulting path would look like &lt;code&gt;/opt/liferay-ce-portal-7.3.3-ga4&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Then, you need to update the &lt;code&gt;$LIFERAY_INSTALL&lt;/code&gt; in &lt;code&gt;/etc/environment&lt;/code&gt; from &lt;code&gt;LIFERAY_INSTALL=/opt/liferay-portal-7.2.0-ga1/ &lt;/code&gt; to `LIFERAY_INSTALL=/opt/liferay-ce-portal-7.3.3-ga4.&lt;/p&gt;
+&lt;h3 id=&#34;auto-start&#34;&gt;Auto Start&lt;/h3&gt;
+&lt;p&gt;For auto start, you need an according init.d entry. It could be a file like &lt;code&gt;/etc/init.d/tomcat&lt;/code&gt;. The file could be created if not there already, with the following contents:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#099&#34;&gt;#!/bin/bash
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#099&#34;&gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;### BEGIN INIT INFO&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;# Provides:        tomcat7&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;# Required-Start:  $network&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;# Required-Stop:   $network&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;# Default-Start:   2 3 4 5&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;# Default-Stop:    0 1 6&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;# Short-Description: Start/Stop Tomcat server&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;### END INIT INFO&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#033&#34;&gt;PATH&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;/sbin:/bin:/usr/sbin:/usr/bin
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;start&lt;span style=&#34;color:#555&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#555&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; su -l siemagrant -c /opt/liferay-ce-portal-7.3.3-ga4/tomcat-9.0.33/bin/startup.sh
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#555&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;stop&lt;span style=&#34;color:#555&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#555&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; su -l siemagrant -c /opt/liferay-ce-portal-7.3.3-ga4/tomcat-9.0.33/bin/shutdown.sh
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#555&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;case&lt;/span&gt; &lt;span style=&#34;color:#033&#34;&gt;$1&lt;/span&gt; in
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  start|stop&lt;span style=&#34;color:#555&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#033&#34;&gt;$1&lt;/span&gt;;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  restart&lt;span style=&#34;color:#555&#34;&gt;)&lt;/span&gt; stop; start;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  *&lt;span style=&#34;color:#555&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#366&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color:#c30&#34;&gt;&amp;#34;Run as &lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;$0&lt;/span&gt;&lt;span style=&#34;color:#c30&#34;&gt; &amp;lt;start|stop|restart&amp;gt;&amp;#34;&lt;/span&gt;; &lt;span style=&#34;color:#366&#34;&gt;exit&lt;/span&gt; 1;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;esac&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Te user &lt;code&gt;siemagrant&lt;/code&gt; is used in the sw360vagrant project. it is the username of the user where the liefray / sw360 server should run under. In the ideal case, it is unprivileged user.&lt;/p&gt;
+&lt;h3 id=&#34;adjust-memory&#34;&gt;Adjust Memory&lt;/h3&gt;
+&lt;p&gt;When you have downloaded the liferay distribution, Tomcat is likely configured with very basic memory settings. For trying sw360, the standard memory settings are OK. But of course, the memory settings in &lt;code&gt;$LIFERAY_HOME/tomcat-X.0.XX/bin/setenv.sh&lt;/code&gt; should be adapted again.&lt;/p&gt;
+&lt;h3 id=&#34;postgresql-instead-of-hypersonic&#34;&gt;PostgreSQL instead of Hypersonic&lt;/h3&gt;
+&lt;p&gt;Liferay CE comes with the hypersonic database. Just for making a long-term setup in the berginning, we are advising to use postgresql from the start. The settings for postgrsql can be found in &lt;code&gt;portal-ext.properties&lt;/code&gt;. Please do not forget to create the user and the database in the database server first.&lt;/p&gt;
+&lt;h2 id=&#34;install-prerequisites&#34;&gt;Install Prerequisites&lt;/h2&gt;
+&lt;p&gt;There are some install libraries to be downloaded and installed as OSGi modules. You can check the download script from the sw360vaghrant project for list of URLs that help you.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/sw360/sw360vagrant/blob/master/download-packages.sh&#34;&gt;https://github.com/sw360/sw360vagrant/blob/master/download-packages.sh&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;An URL for libtrift is:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://repo1.maven.org/maven2/org/apache/thrift/libthrift/0.13.0/libthrift-0.13.0.jar&#34;&gt;https://repo1.maven.org/maven2/org/apache/thrift/libthrift/0.13.0/libthrift-0.13.0.jar&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;An URL for commons-compress is:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://repo1.maven.org/maven2/org/apache/commons/commons-compress/1.20/commons-compress-1.20.jar&#34;&gt;https://repo1.maven.org/maven2/org/apache/commons/commons-compress/1.20/commons-compress-1.20.jar&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;If you have downloaded every thing, copy them to the &lt;code&gt;deploy&lt;/code&gt; folder of your liferay installation:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# cp libthrift-0.13.0.jar $LIFEARY_HOME/deploy/
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# cp commons-lang-2.4.jar $LIFERAY_HOME/deploy
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# cp commons-io-2.6.jar $LIFERAY_HOME/deploy
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# cp commons-csv-1.4.jar $LIFERAY_HOME/deploy
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# cp commons-collections4-4.4.jar $LIFERAY_HOME/deploy
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# cp commons-codec-1.12.jar $LIFERAY_HOME/deploy
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# cp commons-compress-1.20.jar $LIFERAY_HOME/deploy
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# cp commons-logging-1.2.jar $LIFERAY_HOME/deploy
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# cp gson-2.8.5.jar $LIFERAY_HOME/deploy
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# cp guava-21.0.jar $LIFERAY_HOME/deploy
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# cp jackson-annotations-2.11.3.jar $LIFERAY_HOME/deploy
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# cp jackson-core-2.11.3.jar $LIFERAY_HOME/deploy
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# cp jackson-databind-2.11.3.jar $LIFERAY_HOME/deploy
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;if you use PostgreSQL as your database, you need to install  postgres.jar in Liferay.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# wget https://jdbc.postgresql.org/download/postgresql-42.2.9.jar postgresql-42.2.9.jar
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# cp postgresql-42.2.9.jar $LIFERAY_HOME/tomcat-9.0.33/lib/ext
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;[Note] In case you use other database with Liferay, you need to set other jar file of corresponding database.&lt;/p&gt;
+&lt;h2 id=&#34;install-couchdb-lucene&#34;&gt;Install Couchdb Lucene&lt;/h2&gt;
+&lt;p&gt;SW360 uses for searching the contents of the couchdb databases a lucene-based server named couchdb-lucene. The main issue here is that it requires a patch for the use in the normal SW3360 setups. The reason for the patch is that the developers presume that couchdb-lucene runs as the only component in the application server, while in the sw360 setup, there is a setup in which couchdb-lucene runs along with other components in the same application container.&lt;/p&gt;
+&lt;p&gt;Start with downloading the couchdb-lucene and rename the archive so the resulting URL path element will be &lt;code&gt;couchdb-lucene&lt;/code&gt;:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;# wget https://github.com/rnewson/couchdb-lucene/archive/v2.1.0.tar.gz ./couchdb-lucene.tar.gz&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Please refer to the script in sw360vagrant how to apply the patch to couchdb-lucene:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/sw360/sw360vagrant/blob/master/shared/scripts/install-lucene.sh&#34;&gt;https://github.com/sw360/sw360vagrant/blob/master/shared/scripts/install-lucene.sh&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Please note that the patching issue is well known in the project and it is unclear why it is not merged:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/rnewson/couchdb-lucene/issues/161&#34;&gt;https://github.com/rnewson/couchdb-lucene/issues/161&lt;/a&gt; &amp;ldquo;allow context-root other than &amp;ldquo;/&amp;rdquo; when running in servlet container&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/rnewson/couchdb-lucene/pull/162&#34;&gt;https://github.com/rnewson/couchdb-lucene/pull/162&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/rnewson/couchdb-lucene/pull/152&#34;&gt;https://github.com/rnewson/couchdb-lucene/pull/152&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;deploy-new-sw360&#34;&gt;Deploy New SW360&lt;/h2&gt;
+&lt;p&gt;You will need to checkout new Java-11 based version of the SW360, which is either tagged version 11 (or later) or some few commits before that. Then build in the sw360 project root using:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;mvn clean install -DskipTests&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;This will install new artfacts, such as lib-datahandler in your maven repostiory. Then apply in the same directory:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;#&lt;/span&gt; mvn clean &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;package&lt;/span&gt; &lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;P deploy &lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;Dbase.deploy.dir=. &lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;Dliferay.deploy.dir=&lt;span style=&#34;color:#555&#34;&gt;/&lt;/span&gt;opt&lt;span style=&#34;color:#555&#34;&gt;/&lt;/span&gt;liferay&lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;ce&lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;portal&lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#f60&#34;&gt;7.3.3&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;ga4&lt;span style=&#34;color:#555&#34;&gt;/&lt;/span&gt;deploy&lt;span style=&#34;color:#555&#34;&gt;/&lt;/span&gt; &lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;Dbackend.deploy.dir=&lt;span style=&#34;color:#555&#34;&gt;/&lt;/span&gt;opt&lt;span style=&#34;color:#555&#34;&gt;/&lt;/span&gt;liferay&lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;ce&lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;portal&lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#f60&#34;&gt;7.3.3&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;ga4&lt;span style=&#34;color:#555&#34;&gt;/&lt;/span&gt;tomcat&lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#f60&#34;&gt;9.0.33&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;/&lt;/span&gt;webapps&lt;span style=&#34;color:#555&#34;&gt;/&lt;/span&gt; &lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;Drest.deploy.dir=&lt;span style=&#34;color:#555&#34;&gt;/&lt;/span&gt;opt&lt;span style=&#34;color:#555&#34;&gt;/&lt;/span&gt;liferay&lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;ce&lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;portal&lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#f60&#34;&gt;7.3.3&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;ga4&lt;span style=&#34;color:#555&#34;&gt;/&lt;/span&gt;tomcat&lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#f60&#34;&gt;9.0.33&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;/&lt;/span&gt;webapps&lt;span style=&#34;color:#555&#34;&gt;/&lt;/span&gt; &lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;DskipTests
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Skipping tests has the reason that usually, the sw360 is tested in the CI and thus, local tests are note necessary, if the code has not been changed locally. Note that the REST API documentation framework is based on building test cases and thus for deploying a version with REST API documentation, tests should be executed:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;#&lt;/span&gt; cd rest
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;#&lt;/span&gt; mvn clean &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;package&lt;/span&gt; &lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;P deploy &lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;Dbase.deploy.dir=. &lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;Dliferay.deploy.dir=&lt;span style=&#34;color:#555&#34;&gt;/&lt;/span&gt;opt&lt;span style=&#34;color:#555&#34;&gt;/&lt;/span&gt;liferay&lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;ce&lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;portal&lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#f60&#34;&gt;7.3.3&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;ga4&lt;span style=&#34;color:#555&#34;&gt;/&lt;/span&gt;deploy&lt;span style=&#34;color:#555&#34;&gt;/&lt;/span&gt; &lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;Dbackend.deploy.dir=&lt;span style=&#34;color:#555&#34;&gt;/&lt;/span&gt;opt&lt;span style=&#34;color:#555&#34;&gt;/&lt;/span&gt;liferay&lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;ce&lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;portal&lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#f60&#34;&gt;7.3.3&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;ga4&lt;span style=&#34;color:#555&#34;&gt;/&lt;/span&gt;tomcat&lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#f60&#34;&gt;9.0.33&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;/&lt;/span&gt;webapps&lt;span style=&#34;color:#555&#34;&gt;/&lt;/span&gt; &lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;Drest.deploy.dir=&lt;span style=&#34;color:#555&#34;&gt;/&lt;/span&gt;opt&lt;span style=&#34;color:#555&#34;&gt;/&lt;/span&gt;liferay&lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;ce&lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;portal&lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#f60&#34;&gt;7.3.3&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;ga4&lt;span style=&#34;color:#555&#34;&gt;/&lt;/span&gt;tomcat&lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#f60&#34;&gt;9.0.33&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;/&lt;/span&gt;webapps&lt;span style=&#34;color:#555&#34;&gt;/&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;final-steps-in-liferay&#34;&gt;Final Steps in Liferay&lt;/h2&gt;
+&lt;p&gt;Liferay CE 7.3 will need to have some manual steps applied in order to complete the setup. Unfortunately, these cannot be automated (if you know how, please let us know). For earlier versions of Liferay, please refer to the main wiki page. For Liferay CE 7.3.3 please continue here:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/eclipse/sw360/wiki/Deploy-Liferay7.3&#34;&gt;https://github.com/eclipse/sw360/wiki/Deploy-Liferay7.3&lt;/a&gt;&lt;/p&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

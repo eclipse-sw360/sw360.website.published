@@ -1,63 +1,16 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Eclipse SW360</title>
+    <title>Eclipse SW360 – SW360</title>
     <link>https://www.eclipse.org/sw360/</link>
-    <description>Recent content on Eclipse SW360</description>
+    <description>Recent content in SW360 on Eclipse SW360</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Wed, 29 May 2019 14:38:06 +0200</lastBuildDate>
     
-	<atom:link href="https://www.eclipse.org/sw360/index.xml" rel="self" type="application/rss+xml" />
+	  <atom:link href="https://www.eclipse.org/sw360/index.xml" rel="self" type="application/rss+xml" />
     
     
-    <item>
-      <title>Eclipse SW360 - Screenshots</title>
-      <link>https://www.eclipse.org/sw360/screenshots/</link>
-      <pubDate>Wed, 29 May 2019 14:38:06 +0200</pubDate>
       
-      <guid>https://www.eclipse.org/sw360/screenshots/</guid>
-      <description>A picture is worth a thousand words The SW360 application is divided into several sections around managing a catalogue of software components and the software bill-of-material of your software projects, products or services. The menu bar as shown on home screen cover the following main sections.
-Home A dashboard listing the components and projects created by the user logged in. With this overview, the own projects and components can be directly accessed.</description>
-    </item>
-    
-    <item>
-      <title>Eclipse SW360 - Presentations</title>
-      <link>https://www.eclipse.org/sw360/presentations/</link>
-      <pubDate>Mon, 10 Sep 2018 16:06:41 +0200</pubDate>
       
-      <guid>https://www.eclipse.org/sw360/presentations/</guid>
-      <description>Events and Presentations 2018  Bitkom Forum Open Source 2018: &amp;ldquo;Eclipse SW360 – Lessons Learned From Automated License Compliance&amp;rdquo; (Johannes Kristan, Bosch Software Innovations GmbH &amp;amp; Michael C. Jaeger, Siemens AG) Inner Source Commons 2018: &amp;ldquo;Committing to Change: Inner Source at Siemens&amp;rdquo; (Karsten Gerloff, Siemens AG) The Free Software Legal and Licensing Workshop 2018: &amp;ldquo;Eclipse SW360: Generating License Information for Products with SDPX Docs&amp;rdquo; (Michael C. Jaeger, Siemens AG) Yanking the Chain: Open Source Software Compliance in the Supply Chain: &amp;ldquo;Eclipse SW360 – Open Source Management with Open Source&amp;rdquo; (Michael C.</description>
-    </item>
     
-    <item>
-      <title>Eclipse SW360 - Resources</title>
-      <link>https://www.eclipse.org/sw360/resources/</link>
-      <pubDate>Thu, 06 Sep 2018 14:38:06 +0200</pubDate>
-      
-      <guid>https://www.eclipse.org/sw360/resources/</guid>
-      <description>GitHub Repository  Eclipse SW360: https://github.com/eclipse/sw360 Eclipse SW360antenna: https://github.com/eclipse/antenna Eclipse SW360 Website: https://github.com/eclipse/sw360.website  More SW360-Related Projects on Github  sw360chores, a docker-compose-based deployment environment: https://github.com/sw360/sw360chores sw360vagrant, deploying sw360 using puppet and vagrant: https://github.com/sw360/sw360vagrant sw360bdpimporter, a import implementation for importing proejcts from other applications: https://github.com/sw360/sw360bdpImportService ldapOrganizationMappingExt, small module to perform a mapping between (maybe more detailed) LDAP groups and (maybe less detailed) groups in SW360: https://github.com/sw360/ldapOrganizationMappingExt  Documentation  sw360slides, a collection powerpoint of slides for various presentations: https://github.</description>
-    </item>
-    
-    <item>
-      <title>Eclipse SW360 - About</title>
-      <link>https://www.eclipse.org/sw360/about/</link>
-      <pubDate>Thu, 06 Sep 2018 14:29:18 +0200</pubDate>
-      
-      <guid>https://www.eclipse.org/sw360/about/</guid>
-      <description>In most cases, software today is not built from scratch, but rather assembled from various prepackaged third-party software components. As a result, organizations face the following challenges:
- Verifying various aspects of compliance when using third-party software components: license compliance, ECC checks, IP assessments, etc. Sharing knowledge about software components and their qualities. For example, which software components should be recommended, which should be phased out based on which criteria?</description>
-    </item>
-    
-    <item>
-      <title>Eclipse Con France 2017 Talk</title>
-      <link>https://www.eclipse.org/sw360/blog/ecf2017/</link>
-      <pubDate>Tue, 11 Jul 2017 11:27:33 +0200</pubDate>
-      
-      <guid>https://www.eclipse.org/sw360/blog/ecf2017/</guid>
-      <description> Talk @EclipseCon France 2017 Eclipse SW360 was presented at EclipseCon France 2017 by Johannes Kristan.
-  </description>
-    </item>
     
   </channel>
 </rss>
