@@ -1,7 +1,7 @@
 {
 	"version": 3,
 	"file": "main.css",
-	"sourceRoot": "/home/jenkins/agent/workspace/sw360.website.staging/hugo",
+	"sourceRoot": "/home/jenkins/agent/workspace/sw360.website/hugo",
 	"sources": [
 		"/tmp/modules/filecache/modules/pkg/mod/github.com/google/docsy@v0.3.0/assets/scss/main.scss",
 		"../../../../../../tmp/modules/filecache/modules/pkg/mod/github.com/google/docsy@v0.3.0/assets/scss/support/_functions.scss",
