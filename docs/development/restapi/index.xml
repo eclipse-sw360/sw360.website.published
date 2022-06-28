@@ -1,0 +1,594 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Eclipse SW360 – SW360 RESTful API</title>
+    <link>https://www.eclipse.org/sw360/docs/development/restapi/</link>
+    <description>Recent content in SW360 RESTful API on Eclipse SW360</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+	  <atom:link href="https://www.eclipse.org/sw360/docs/development/restapi/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: API Access</title>
+      <link>https://www.eclipse.org/sw360/docs/development/restapi/access/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/sw360/docs/development/restapi/access/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;how-to-get-access&#34;&gt;How to get Access&lt;/h2&gt;
+&lt;p&gt;There are the following steps&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Open a browser with developer tools&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Go to
+&lt;code&gt;https://&amp;lt;my_sw360_server&amp;gt;/authorization/client-management&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;To add a new client, enter the following javascript in the dev tools
+console&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt; xmlHttpRequest = new XMLHttpRequest();
+ xmlHttpRequest.open(&#39;POST&#39;, &#39;/authorization/client-management&#39;, false);
+ xmlHttpRequest.setRequestHeader(&#39;Content-Type&#39;, &#39;application/json&#39;);
+ xmlHttpRequest.setRequestHeader(&#39;Accept&#39;, &#39;application/json&#39;);
+ xmlHttpRequest.send(JSON.stringify(
+   {
+     &amp;quot;description&amp;quot; : &amp;quot;my first test client&amp;quot;,
+     &amp;quot;authorities&amp;quot; : [ &amp;quot;BASIC&amp;quot; ],
+     &amp;quot;scope&amp;quot; : [ &amp;quot;READ&amp;quot; ],
+     &amp;quot;access_token_validity&amp;quot; : 3600,
+     &amp;quot;refresh_token_validity&amp;quot; : 3600
+   }
+ ));
+ console.log(xmlHttpRequest.responseText);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;To manipulate an existing client, do the same but add the clientid to
+the data object&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;&amp;quot;client_id&amp;quot; : &amp;quot;9e358ca832ce4ce99a770c7bd0f8e066&amp;quot;&lt;/code&gt;&lt;br&gt;
+to remove an existing client, enter the following javascript in the
+dev tools console&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt; xmlHttpRequest = new XMLHttpRequest();
+ xmlHttpRequest.open(&#39;DELETE&#39;, &#39;/authorization/client-management/9e358ca832ce4ce99a770c7bd0f8e066&#39;, false);
+ xmlHttpRequest.setRequestHeader(&#39;Content-Type&#39;, &#39;application/json&#39;);
+ xmlHttpRequest.setRequestHeader(&#39;Accept&#39;, &#39;application/json&#39;);
+ xmlHttpRequest.send();
+ console.log(xmlHttpRequest.responseText);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;You receive the token from such request, which looks like&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt; {
+   &amp;quot;access_token&amp;quot; : &amp;quot;eyJhbGciOiJSUzI...&amp;quot;,
+   &amp;quot;token_type&amp;quot; : &amp;quot;bearer&amp;quot;,
+   &amp;quot;refresh_token&amp;quot; : &amp;quot;eyJhbGciOiJSUzI1...&amp;quot;,
+   &amp;quot;expires_in&amp;quot; : 599,
+   &amp;quot;scope&amp;quot; : &amp;quot;READ WRITE&amp;quot;,
+   &amp;quot;jti&amp;quot; : &amp;quot;42539b0d-...&amp;quot;
+ }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;You can try a request which uses for example the tool curl:
+&lt;code&gt;curl -X GET -H &amp;quot;Authorization: Bearer [token]&amp;quot; -H &amp;quot;Content-Type: application/json&amp;quot;&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;You can get a new token (you must get a new token) after expiration using client id and secret:
+&lt;code&gt;https://&amp;lt;my_sw360_server&amp;gt;/authorization/oauth/token?grant_type=refresh_token&amp;amp;refresh_token=[refresh_token]&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;deprecated-method-access-tokens-from-the-sw360-ui&#34;&gt;Deprecated Method: Access Tokens from the SW360 UI&lt;/h2&gt;
+&lt;p&gt;Recently SW360 has changed, username/password authentication is not possible anymore. So after successful entitlement login, the user is able to obtain a token with limited validity of time.&lt;/p&gt;
+&lt;p&gt;Our tests have confirmed that, if you have used the JWT authentication workflow, the change means for you:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;No interaction with authorization service is necessary.&lt;/li&gt;
+&lt;li&gt;The token needs to be provided as with the JWT.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Please find attached, where to obtain the token:&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/img/SW360RESTfulAPIImages/Preferences-AccessToke.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;p&gt;And then find the interface for issuing the tokens:&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/img/SW360RESTfulAPIImages/Preferences-AccessToke1.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;h3 id=&#34;token-into-which-header&#34;&gt;Token into which Header?&lt;/h3&gt;
+&lt;p&gt;If you are used to REST clients, you might know that you need some kind of authentication info. Below are the previous and current ways of adding the authentication info to the HTTP header. Now you should add to the header the token value that you can obtain from the sw360 UI (see above):&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Authorization: Token &amp;lt;Token-Value&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Previously, when you got the authentication info via the authorization service, it was:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Authorization: Bearer &amp;lt;JWT-Value&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;example-powershell-script&#34;&gt;Example: PowerShell Script&lt;/h3&gt;
+&lt;p&gt;This is an example Thomas Graf has sent around one - might be good to see how this works in general:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-powershell&#34; data-lang=&#34;powershell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#033&#34;&gt;$baseUri&lt;/span&gt; = &lt;span style=&#34;color:#c30&#34;&gt;&amp;#34;https://&amp;lt;my_sw360_server&amp;gt;/resource/&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#033&#34;&gt;$uri&lt;/span&gt; = &lt;span style=&#34;color:#033&#34;&gt;$baseUri&lt;/span&gt; + &lt;span style=&#34;color:#c30&#34;&gt;&amp;#34;api/projects&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#033&#34;&gt;$data&lt;/span&gt; = &lt;span style=&#34;color:#c30&#34;&gt;@&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c30&#34;&gt;{   &amp;#34;name&amp;#34; : &amp;#34;My 5th Dummy Project&amp;#34;,
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c30&#34;&gt;    &amp;#34;description&amp;#34; : &amp;#34;Read/write test&amp;#34;,
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c30&#34;&gt;    &amp;#34;version&amp;#34;: &amp;#34;1.0&amp;#34;,
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c30&#34;&gt;    &amp;#34;tag&amp;#34;: &amp;#34;my tag&amp;#34;,
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c30&#34;&gt;    &amp;#34;ownerGroup&amp;#34;: &amp;#34;GROUP&amp;#34;,
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c30&#34;&gt;    &amp;#34;projectType&amp;#34;: &amp;#34;PRODUCT&amp;#34;,
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c30&#34;&gt;    &amp;#34;linkedProjects&amp;#34;: {},
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c30&#34;&gt;    &amp;#34;linkedReleases&amp;#34;: {}
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c30&#34;&gt;} &amp;#34;@
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c30&#34;&gt;$headers = New-Object &amp;#34;System.Collections.Generic.Dictionary[[String],[String]]&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c30&#34;&gt;$headers.Add(&amp;#39;Content-Type&amp;#39;, &amp;#39;application/hal+json&amp;#39;)
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c30&#34;&gt;$headers.Add(&amp;#39;Authorization&amp;#39;, &amp;#39;Token &amp;#39; + $env:SW360StageToken)
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c30&#34;&gt;$headers.Add(&amp;#39;Accept&amp;#39;, &amp;#39;application/hal+json&amp;#39;)
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c30&#34;&gt;Invoke-WebRequest $uri -Method POST -Body $data -Headers $headers
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;deprecated-method-authentication-with-username-and-password&#34;&gt;Deprecated Method: Authentication with Username and Password&lt;/h2&gt;
+&lt;h3 id=&#34;if-i-am-not-using-token-but-sw360-elsewhere-how-do-i-obtain-tokens&#34;&gt;If I am not using token, but SW360 elsewhere: how do I obtain tokens?&lt;/h3&gt;
+&lt;p&gt;There are two steps you need to do with your client. First, Obtain an authorization token. This can be done by executing on the development instance for example be:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;curl -X POST --user &lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;trusted-sw360-client:sw360-secret&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;&lt;/span&gt;-d &lt;span style=&#34;color:#033&#34;&gt;grant_type&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;password&amp;amp;&lt;span style=&#34;color:#033&#34;&gt;username&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;user@sw360.org&amp;amp;&lt;span style=&#34;color:#033&#34;&gt;password&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f60&#34;&gt;12345&lt;/span&gt; &lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;&lt;/span&gt;https://&amp;lt;my_sw360_server&amp;gt;/authorization/oauth/token -k
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Of course, for the staging instance, the user must be your user credentials and the trusted client secret looks different.&lt;/p&gt;
+&lt;p&gt;Second you need to parameterize your request with this token. Pls. see the link at the very top &amp;lsquo;Technical Information&amp;rsquo;: &lt;a href=&#34;https://www.eclipse.org/sw360/docs/development/restapi/dev-rest-api/&#34; title=&#34;Rest API&#34;&gt;Rest API&lt;/a&gt; for more information.&lt;/p&gt;
+&lt;h3 id=&#34;faq&#34;&gt;FAQ&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;When I use the JWT approach I used curl to retrieve the token and get&lt;/p&gt;
+&lt;p&gt;{&amp;ldquo;error&amp;rdquo;:&amp;ldquo;unauthorized&amp;rdquo;,&amp;ldquo;error_description&amp;rdquo;:&amp;ldquo;No AuthenticationProvider found for org.springframework.security.authentication.UsernamePasswordAuthenticationToken&amp;rdquo;}&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Your password seems to be wrong.&lt;/p&gt;
+&lt;p&gt;Note, that with curl - you have to escape special characters in your password. E.g. password
+123$abc
+results in the following request&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;curl -X POST --user &lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;trusted-sw360-client:sw360-secret&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;&lt;/span&gt;-d &lt;span style=&#34;color:#033&#34;&gt;grant_type&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;password&amp;amp;&lt;span style=&#34;color:#033&#34;&gt;username&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;user@sw360.org&amp;amp;&lt;span style=&#34;color:#033&#34;&gt;password&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;123&lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;\$&lt;/span&gt;abc &lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;&lt;/span&gt;https://&amp;lt;my_sw360_server&amp;gt;/authorization/oauth/token -k
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: SW360 Rest API</title>
+      <link>https://www.eclipse.org/sw360/docs/development/restapi/dev-rest-api/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/sw360/docs/development/restapi/dev-rest-api/</guid>
+      <description>
+        
+        
+        &lt;p&gt;The sw360 REST API provides access to sw360 resources for external clients. It consists currently of three Maven modules aggregated in one parent module &lt;code&gt;rest&lt;/code&gt; in the sw360 distribution.&lt;/p&gt;
+&lt;h1 id=&#34;module-structure&#34;&gt;Module Structure&lt;/h1&gt;
+&lt;p&gt;The &lt;code&gt;rest&lt;/code&gt; module provides a REST API infrastructure for sw360 including:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Module &lt;code&gt;authorization-server&lt;/code&gt; - OAuth2 Authorization Server, offering typical authorization steps of an OAuth2 workflow.&lt;/li&gt;
+&lt;li&gt;Module &lt;code&gt;resource-server&lt;/code&gt; - REST API Gateway, providing access to the data for authenticated and authorized users / clients.&lt;/li&gt;
+&lt;li&gt;Module &lt;code&gt;rest-common&lt;/code&gt; - only library code that is shared between the other rest modules.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The REST API implementation uses:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Module &lt;code&gt;authorization-server&lt;/code&gt; uses the Liferay user management via the Liferay REST API to authenticate users and the users thrift backend service to access user profile data.&lt;/li&gt;
+&lt;li&gt;Module &lt;code&gt;resource-server&lt;/code&gt; uses thrift backend services for accessing sw360 data to deliver it to the external clients.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;api-principles&#34;&gt;API Principles&lt;/h1&gt;
+&lt;h2 id=&#34;security-principles&#34;&gt;Security Principles&lt;/h2&gt;
+&lt;p&gt;The basic security principles are following the OAuth2 standards. So there should be an authorization server which can be the one contained in this project. That one provides access tokens after it authenticated the client and the user using this client. In addition it checks which authorities this client should receive for operating in the user&amp;rsquo;s name.
+With this OAuth2 access token the client can query the resource server which will restrict access to the given authorities.
+Every client gets an access token as well as an refresh token. As long as the refresh token is valid, the client can gather a new access token without the need of re-authorization of the user.&lt;/p&gt;
+&lt;p&gt;There are currently three different possibilities for an OAuth2 authorization server implemented:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Using the contained authorization-server with username/password that are known by Liferay, no matter if Liferay is hosting the credentials itself or is attached to some central user management which it uses to authenticate users.&lt;/li&gt;
+&lt;li&gt;Using the contained authorization-server inside an SSO network where an existing proxy can take care of the authentication and passing authenticated user information in configurable headers to the authorization-server which then performs authorization on top.&lt;/li&gt;
+&lt;li&gt;Using keycloak as authorization-server. This case is not part of this wiki page and might need special configuration.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;data-principles&#34;&gt;Data Principles&lt;/h2&gt;
+&lt;p&gt;The REST API provides Hypermedia using &lt;a href=&#34;http://stateless.co/hal_specification.html&#34;&gt;HAL&lt;/a&gt; (Hypertext Application Language).
+The following example shows some ideas of the REST API. It can be obtained by&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;https://[hostname]:[port]/resource/api/browser/index.html#/resource/api
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Note that the response below is maybe not the exact same response of your current version:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#309;font-weight:bold&#34;&gt;&amp;#34;_links&amp;#34;&lt;/span&gt;: {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#309;font-weight:bold&#34;&gt;&amp;#34;sw360:attachments&amp;#34;&lt;/span&gt;: {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#309;font-weight:bold&#34;&gt;&amp;#34;href&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#c30&#34;&gt;&amp;#34;https://dev.sw360.siemens.com/resource/api/attachments{?sha1}&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#309;font-weight:bold&#34;&gt;&amp;#34;templated&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;true&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    },
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#309;font-weight:bold&#34;&gt;&amp;#34;sw360:components&amp;#34;&lt;/span&gt;: {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#309;font-weight:bold&#34;&gt;&amp;#34;href&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#c30&#34;&gt;&amp;#34;https://dev.sw360.siemens.com/resource/api/components&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    },
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#309;font-weight:bold&#34;&gt;&amp;#34;sw360:licenses&amp;#34;&lt;/span&gt;: {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#309;font-weight:bold&#34;&gt;&amp;#34;href&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#c30&#34;&gt;&amp;#34;https://dev.sw360.siemens.com/resource/api/licenses&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    },
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#309;font-weight:bold&#34;&gt;&amp;#34;sw360:licenseinfo&amp;#34;&lt;/span&gt;: {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#309;font-weight:bold&#34;&gt;&amp;#34;href&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#c30&#34;&gt;&amp;#34;https://dev.sw360.siemens.com/resource/api/licenseinfo&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    },
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#309;font-weight:bold&#34;&gt;&amp;#34;sw360:projects&amp;#34;&lt;/span&gt;: {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#309;font-weight:bold&#34;&gt;&amp;#34;href&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#c30&#34;&gt;&amp;#34;https://dev.sw360.siemens.com/resource/api/projects&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    },
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#309;font-weight:bold&#34;&gt;&amp;#34;sw360:releases&amp;#34;&lt;/span&gt;: {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#309;font-weight:bold&#34;&gt;&amp;#34;href&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#c30&#34;&gt;&amp;#34;https://dev.sw360.siemens.com/resource/api/releases&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    },
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#309;font-weight:bold&#34;&gt;&amp;#34;sw360:users&amp;#34;&lt;/span&gt;: {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#309;font-weight:bold&#34;&gt;&amp;#34;href&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#c30&#34;&gt;&amp;#34;https://dev.sw360.siemens.com/resource/api/users&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    },
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#309;font-weight:bold&#34;&gt;&amp;#34;sw360:vendors&amp;#34;&lt;/span&gt;: {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#309;font-weight:bold&#34;&gt;&amp;#34;href&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#c30&#34;&gt;&amp;#34;https://dev.sw360.siemens.com/resource/api/vendors&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    },
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#309;font-weight:bold&#34;&gt;&amp;#34;sw360:vulnerabilities&amp;#34;&lt;/span&gt;: {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#309;font-weight:bold&#34;&gt;&amp;#34;href&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#c30&#34;&gt;&amp;#34;https://dev.sw360.siemens.com/resource/api/vulnerabilities&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    },
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#309;font-weight:bold&#34;&gt;&amp;#34;profile&amp;#34;&lt;/span&gt;: {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#309;font-weight:bold&#34;&gt;&amp;#34;href&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#c30&#34;&gt;&amp;#34;https://dev.sw360.siemens.com/resource/api/profile&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    },
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#309;font-weight:bold&#34;&gt;&amp;#34;curies&amp;#34;&lt;/span&gt;: [
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#309;font-weight:bold&#34;&gt;&amp;#34;href&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#c30&#34;&gt;&amp;#34;https://dev.sw360.siemens.com/resource/docs/{rel}.html&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#309;font-weight:bold&#34;&gt;&amp;#34;name&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#c30&#34;&gt;&amp;#34;sw360&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#309;font-weight:bold&#34;&gt;&amp;#34;templated&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;true&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    ]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;api-installation&#34;&gt;API Installation&lt;/h1&gt;
+&lt;p&gt;Both, the &lt;code&gt;authorization-server&lt;/code&gt; and the &lt;code&gt;resource-server&lt;/code&gt; can be build using Maven like the rest of the project. Each is generating a Spring Boot server that can be deployed in an application container, e.g. Tomcat.&lt;/p&gt;
+&lt;h1 id=&#34;api-configuration&#34;&gt;API Configuration&lt;/h1&gt;
+&lt;p&gt;Since the &lt;code&gt;authorization-server&lt;/code&gt; and the &lt;code&gt;resource-server&lt;/code&gt; are Spring Boot servers, they are configured as usual via &lt;code&gt;/src/main/resources/application.yml&lt;/code&gt;. In addition some configuration comes historically from &lt;code&gt;sw360.properties&lt;/code&gt;. Please note that all configurations could be provided centrally in the &lt;code&gt;/etc/sw360/&lt;/code&gt; directory. As such, the &lt;code&gt;sw360.properties&lt;/code&gt; sits directly in &lt;code&gt;/etc/sw360/&lt;/code&gt;. For rest-specific configurations the application considers the location &lt;code&gt;/etc/sw360/rest&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;authorization-server-configuration&#34;&gt;Authorization Server Configuration&lt;/h2&gt;
+&lt;h3 id=&#34;special-liferay-credentials-configuration&#34;&gt;Special Liferay Credentials Configuration&lt;/h3&gt;
+&lt;p&gt;In addition to the general properties in &lt;a href=&#34;#general-config&#34;&gt;here&lt;/a&gt; the following needs to be configured in the &lt;code&gt;application.yml&lt;/code&gt; when the authentication via Liferay username/password credentials should be possible:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Key&lt;/th&gt;
+&lt;th&gt;Values&lt;/th&gt;
+&lt;th&gt;Default&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;sw360:sw360-portal-server-url&lt;/td&gt;
+&lt;td&gt;the url of the Liferay instance&lt;/td&gt;
+&lt;td&gt;n/a (but could be given if environment variable is used like &lt;code&gt;${SW360_PORTAL_SERVER_URL:http://127.0.0.1:8080}&lt;/code&gt;)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;sw360:sw360-liferay-company-id&lt;/td&gt;
+&lt;td&gt;the id of the company in Liferay that sw360 is run for&lt;/td&gt;
+&lt;td&gt;(but could be given if environment variable is used like &lt;code&gt;${SW360_LIFERAY_COMPANY_ID:20155}&lt;/code&gt;)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;special-sso-configuration&#34;&gt;Special SSO Configuration&lt;/h3&gt;
+&lt;p&gt;In addition to the general properties in &lt;a href=&#34;#general-config&#34;&gt;here&lt;/a&gt; the following needs to be configured in the &lt;code&gt;application.yml&lt;/code&gt; when the authentication via SSO should be possible:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Key&lt;/th&gt;
+&lt;th&gt;Values&lt;/th&gt;
+&lt;th&gt;Default&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;security:customheader:enabled&lt;/td&gt;
+&lt;td&gt;Flag if the components needed for SSO should be active&lt;/td&gt;
+&lt;td&gt;false&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;security:customheader:headername:intermediateauthstore&lt;/td&gt;
+&lt;td&gt;the name of the header that can be used for internal data transfer inside one roundtrip - it can be configured here because the proxy has to make sure that this header will not be passed from clients and will be used truly internal only&lt;/td&gt;
+&lt;td&gt;custom-header-auth-marker&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;security:customheader:headername:email&lt;/td&gt;
+&lt;td&gt;the name of the header that holds the email of the authenticated user (should be set be the proxy and must never be passed from clients)&lt;/td&gt;
+&lt;td&gt;authenticated-email&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;security:customheader:headername:extid&lt;/td&gt;
+&lt;td&gt;the name of the header that holds the extid of the authenticated user (should be set be the proxy and must never be passed from clients)&lt;/td&gt;
+&lt;td&gt;authenticated-extid&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;:heavy_exclamation_mark: Please configure your SSO server and the proxy accordingly. In general, no unauthenticated request should reach the authorization server. And the configured headers should only be set by the proxy. If they are already contained in client requests, they must be removed!&lt;/p&gt;
+&lt;h4 id=&#34;removing-headers-in-apache&#34;&gt;Removing Headers in Apache&lt;/h4&gt;
+&lt;p&gt;In Apache you may use the &lt;a href=&#34;https://httpd.apache.org/docs/current/mod/mod_headers.html&#34;&gt;&lt;code&gt;mod_headers&lt;/code&gt;&lt;/a&gt; module to remove headers from the client. Using the default values from the table above, at least the following directives should be present in your configuration for all requests that are routed to the &lt;code&gt;authorization-server&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;RequestHeader unset custom-header-auth-marker
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;RequestHeader unset authenticated-email
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;RequestHeader unset authenticated-extid
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;a-namegeneral-configageneral-configuration&#34;&gt;&lt;a name=&#34;general-config&#34;&gt;&lt;/a&gt;General Configuration&lt;/h3&gt;
+&lt;p&gt;Possible properties in &lt;code&gt;sw360.properties&lt;/code&gt; file are:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Key&lt;/th&gt;
+&lt;th&gt;Values&lt;/th&gt;
+&lt;th&gt;Default&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;backend.url&lt;/td&gt;
+&lt;td&gt;the url where the thrift services can be found&lt;/td&gt;
+&lt;td&gt;http://127.0.0.1:8080&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;rest.write.access.usergroup&lt;/td&gt;
+&lt;td&gt;the user group level (`USER&lt;/td&gt;
+&lt;td&gt;CLEARING_ADMIN&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;rest.admin.access.usergroup&lt;/td&gt;
+&lt;td&gt;the user group level (`USER&lt;/td&gt;
+&lt;td&gt;CLEARING_ADMIN&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;The values in &lt;code&gt;sw360.properties&lt;/code&gt; should be migrated to the &lt;code&gt;application.yml&lt;/code&gt; in the future.&lt;/p&gt;
+&lt;p&gt;Further important properties in &lt;code&gt;application.yml&lt;/code&gt; file are:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Key&lt;/th&gt;
+&lt;th&gt;Values&lt;/th&gt;
+&lt;th&gt;Default&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;couchdb:url&lt;/td&gt;
+&lt;td&gt;the url of the CouchDB to use as client store&lt;/td&gt;
+&lt;td&gt;n/a&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;couchdb:database&lt;/td&gt;
+&lt;td&gt;the database name of the CouchDB database to use as client store&lt;/td&gt;
+&lt;td&gt;n/a&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;couchdb:username&lt;/td&gt;
+&lt;td&gt;if the CouchDB database needs authentication, enter the username here - if it does not need authentication, do not set this property at all, not even with an empty value&lt;/td&gt;
+&lt;td&gt;null&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;couchdb:password&lt;/td&gt;
+&lt;td&gt;if the CouchDB database needs authentication, enter the password here - if it does not need authentication, do not set this property at all, not even with an empty value&lt;/td&gt;
+&lt;td&gt;null&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;sw360:cors:allowed-origin&lt;/td&gt;
+&lt;td&gt;value for cross origin resource sharing&lt;/td&gt;
+&lt;td&gt;n/a&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;security:oauth2:resource:id&lt;/td&gt;
+&lt;td&gt;should just be the same then in the resource server&lt;/td&gt;
+&lt;td&gt;n/a&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;After this configuration is done the normal REST service for client management should be usable. This one is only accessible for authenticated users that get the &lt;code&gt;ADMIN&lt;/code&gt; authority (remember, the therefore necessary sw360 usergroup has just been configured). So the clients can be configured now.&lt;/p&gt;
+&lt;h1 id=&#34;client-management&#34;&gt;Client Management&lt;/h1&gt;
+&lt;p&gt;In the scenarios of this page, the shipped authorization server is used. So the next step is to configure a valid OAuth2 client in this authorization server. There should be one OAuth2 client per external REST API client (which in turn can have many different users). Therefore the authorization server offers a REST API for basic CRUD operations for configuring the clients that are stored in the just configured CouchDB. Since sw360-&lt;code&gt;ADMIN&lt;/code&gt; privileges are needed for client management, an authentication is needed to work with this API.&lt;/p&gt;
+&lt;p&gt;For SSO users (basic-auth Liferay users can use other tools as well because other tools can handle basic auth - but they can also use this workflow):&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Open a browser with developer tools capabilities&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Open&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;https://[hostname]:[port]/authorization/client-management
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This page always shows the currently configured clients and can be refreshed after every manipulation of a client.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;To add a new client, enter the following javascript in the dev tools console in the current browser tab - of course after manipulating the client data to suit your needs&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;xmlHttpRequest = new XMLHttpRequest();
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;xmlHttpRequest.open(&amp;#39;POST&amp;#39;, &amp;#39;/authorization/client-management&amp;#39;, false);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;xmlHttpRequest.setRequestHeader(&amp;#39;Content-Type&amp;#39;, &amp;#39;application/json&amp;#39;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;xmlHttpRequest.setRequestHeader(&amp;#39;Accept&amp;#39;, &amp;#39;application/json&amp;#39;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;xmlHttpRequest.send(JSON.stringify(
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &amp;#34;description&amp;#34; : &amp;#34;my first test client&amp;#34;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &amp;#34;authorities&amp;#34; : [ &amp;#34;BASIC&amp;#34; ],
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &amp;#34;scope&amp;#34; : [ &amp;#34;READ&amp;#34; ],
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &amp;#34;access_token_validity&amp;#34; : 3600,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &amp;#34;refresh_token_validity&amp;#34; : 3600
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;));
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;console.log(xmlHttpRequest.responseText);
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;to manipulate an existing client, do the same but add the clientid to the data object&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &amp;#34;client_id&amp;#34; : &amp;#34;9e358ca832ce4ce99a770c7bd0f8e066&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;to remove an existing client, enter the following javascript in the dev tools console&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;xmlHttpRequest = new XMLHttpRequest();
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;xmlHttpRequest.open(&amp;#39;DELETE&amp;#39;, &amp;#39;/authorization/client-management/9e358ca832ce4ce99a770c7bd0f8e066&amp;#39;, false);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;xmlHttpRequest.setRequestHeader(&amp;#39;Content-Type&amp;#39;, &amp;#39;application/json&amp;#39;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;xmlHttpRequest.setRequestHeader(&amp;#39;Accept&amp;#39;, &amp;#39;application/json&amp;#39;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;xmlHttpRequest.send();
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;console.log(xmlHttpRequest.responseText);
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;This way the session cookie of the SSO login will be used for the REST calls. This might also be possible in postman or curl or similar tools if you want to try to copy cookies (depending also on the SSO configuration). As said before, if Liferay username/password credentials can be used to authenticate then a tool like postman or curl can be used for the whole process. Just pass the credentials as basic-auth.&lt;/p&gt;
+&lt;h3 id=&#34;client-management-via-curl&#34;&gt;Client Management via Curl&lt;/h3&gt;
+&lt;p&gt;The above described call to create a rest client can also be done directly via one curl call:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#033&#34;&gt;SW360_USER&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=[&lt;/span&gt;admin sw360 user&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#033&#34;&gt;SW360_PW&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=[&lt;/span&gt;corresponding sw360 admin user password&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;curl -s -S &lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;&lt;/span&gt;     --user &lt;span style=&#34;color:#c30&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#a00&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;SW360_USER&lt;/span&gt;&lt;span style=&#34;color:#a00&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#c30&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#a00&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;SW360_PW&lt;/span&gt;&lt;span style=&#34;color:#a00&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#c30&#34;&gt;&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;&lt;/span&gt;     --header &lt;span style=&#34;color:#c30&#34;&gt;&amp;#34;Content-Type: application/json&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;&lt;/span&gt;     --header &lt;span style=&#34;color:#c30&#34;&gt;&amp;#34;Accept: application/json&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;&lt;/span&gt;     -X POST https://&lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;hostname&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt;:&lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;port&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt;/authorization/client-management &lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;&lt;/span&gt;     -d @- &lt;span style=&#34;color:#c30&#34;&gt;&amp;lt;&amp;lt;EOF
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c30&#34;&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c30&#34;&gt;    &amp;#34;description&amp;#34; : &amp;#34;my first test client&amp;#34;,
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c30&#34;&gt;    &amp;#34;authorities&amp;#34; : [ &amp;#34;BASIC&amp;#34; ],
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c30&#34;&gt;    &amp;#34;scope&amp;#34; : [ &amp;#34;READ&amp;#34; ],
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c30&#34;&gt;    &amp;#34;access_token_validity&amp;#34; : 3600,
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c30&#34;&gt;    &amp;#34;refresh_token_validity&amp;#34; : 3600
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c30&#34;&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c30&#34;&gt;EOF&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This only works with the liferay basic-auth mechanism, SSO is not supported via curl.&lt;/p&gt;
+&lt;h2 id=&#34;oauth2-access-token&#34;&gt;OAuth2 Access Token&lt;/h2&gt;
+&lt;p&gt;Now with a configured client it is possible to retrieve an access token for the REST API from the authorization server. There is again a difference in SSO environments and Liferay username/password environments.&lt;/p&gt;
+&lt;h3 id=&#34;sso-backed-access-token&#34;&gt;SSO Backed Access Token&lt;/h3&gt;
+&lt;p&gt;Probably the browser has to be used again because many SSO environments are based on certificates that are read from keycards and the necessary libs are often built into the browser. So just call the URL&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;https://[hostname]:[port]/authorization/oauth/token?grant_type=password&amp;amp;client_id=[clientid]&amp;amp;client_secret=[clientsecret]
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Of course the client id and the client secret should be replaced by the values of the configured client. The received response should look similar to&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#309;font-weight:bold&#34;&gt;&amp;#34;access_token&amp;#34;&lt;/span&gt; : &lt;span style=&#34;color:#c30&#34;&gt;&amp;#34;eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsic3czNjAtUkVTVC1BUEkiXSwidXNlcl9uYW1lIjoiYWRtaW5Ac3czNjAub3JnIiwic2NvcGUiOlsiUkVBRCJdLCJleHAiOjE1NjM4MDYwNDQsImF1dGhvcml0aWVzIjpbIlJFQUQiXSwianRpIjoiZDY4ZWY1YWEtZTQ5My00Y2YxLWI2NGQtNWE5MTdkY2M2ZTYwIiwiY2xpZW50X2lkIjoiMTcyMmZmYzdkZWE3MTU3OGQ5ZWE1ZTZhNmMwMDA4NzMifQ.iO5sLrqRcZfzvMP5gjaJhk3caWyZLkUesdbMfqCGy4V5rbnU9QP1LjdybY0Udh8hvAvhlpqPfaxeKe1c3-gQs5MYlqG0lNQCyWcb7NRHj8VFlwLPuJRZJNk3tybvgITVm9r14pfAXogpVE0S4KihD2W1_SoKH4NzTa2vOEG0CK4VzCLetxUlUuePxZH8ugouqbS2d0SpyeeMTm-PzxzzeTb_4ulGpg63eE1v7GvTsI23uh2WfIgHBa1GRr5jWtE0Meq-5UFCVQkhMm8P-r8wO2iuRblCu6a-bWwy7bfdj3S2VDnqSQskE2dVrC_qMs-V2AGvCV1xvlF0P8A4tgwL-w&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#309;font-weight:bold&#34;&gt;&amp;#34;token_type&amp;#34;&lt;/span&gt; : &lt;span style=&#34;color:#c30&#34;&gt;&amp;#34;bearer&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#309;font-weight:bold&#34;&gt;&amp;#34;refresh_token&amp;#34;&lt;/span&gt; : &lt;span style=&#34;color:#c30&#34;&gt;&amp;#34;eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsic3czNjAtUkVTVC1BUEkiXSwidXNlcl9uYW1lIjoiYWRtaW5Ac3czNjAub3JnIiwic2NvcGUiOlsiUkVBRCJdLCJhdGkiOiJkNjhlZjVhYS1lNDkzLTRjZjEtYjY0ZC01YTkxN2RjYzZlNjAiLCJleHAiOjE1NjM4MDYwNDQsImF1dGhvcml0aWVzIjpbIlJFQUQiXSwianRpIjoiM2VkZDcxODAtMTBlYi00Y2MwLTg0NTUtMGYwZmIyMWMwYmU0IiwiY2xpZW50X2lkIjoiMTcyMmZmYzdkZWE3MTU3OGQ5ZWE1ZTZhNmMwMDA4NzMifQ.iMGfdHWpJNseoxIk7tKCNTyC1w4_AJ4cSv6kO64_BkF54MLudvyf9uVSIHpAeHhSFdvhbjksynRqq_u78vW8ptY1la65Qx8glHz0sktWBfMDJsUA4ynU2iZbKU92f2OOf3wQRVt38-Y1mBUsDMIStyKTDeIXGT3LJr_8k5dRAGvayixaezxDFw3dWK2M6P9h-ZnfEP47HpIUZrG8cgwPmNCZ9gBXsqVnueDYZth6TaEKIvWbkZtwY0ikWKyJL2xLm78O1ii3lA5ENt5I0DTfTm8QuK_zcm679W9jF0jvwIR71fM0JSWjkBoXd2h9oLmE2CF2sFVaJor_ermk-L0LsA&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#309;font-weight:bold&#34;&gt;&amp;#34;expires_in&amp;#34;&lt;/span&gt; : &lt;span style=&#34;color:#f60&#34;&gt;3599&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#309;font-weight:bold&#34;&gt;&amp;#34;scope&amp;#34;&lt;/span&gt; : &lt;span style=&#34;color:#c30&#34;&gt;&amp;#34;READ&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#309;font-weight:bold&#34;&gt;&amp;#34;jti&amp;#34;&lt;/span&gt; : &lt;span style=&#34;color:#c30&#34;&gt;&amp;#34;d68ef5aa-e493-4cf1-b64d-5a917dcc6e60&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;From this response the value of the &lt;code&gt;access_token&lt;/code&gt; and probably &lt;code&gt;refresh_token&lt;/code&gt; field is the one to copy-paste for later usage.&lt;/p&gt;
+&lt;h3 id=&#34;liferay-backed-access-token&#34;&gt;Liferay Backed Access Token&lt;/h3&gt;
+&lt;p&gt;With a Liferay backed authentication all REST clients that offer basic auth support can be used. For example &lt;code&gt;curl&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-Bash&#34; data-lang=&#34;Bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;curl -X POST --user &lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;[clientid]:[clientsecret]&amp;#39;&lt;/span&gt; -d &lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;grant_type=password&amp;amp;username=[username]&amp;amp;password=[password]&amp;#39;&lt;/span&gt; https://&lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;hostname&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt;:&lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;port&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt;/authorization/oauth/token -k
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Example response:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#309;font-weight:bold&#34;&gt;&amp;#34;access_token&amp;#34;&lt;/span&gt; : &lt;span style=&#34;color:#c30&#34;&gt;&amp;#34;eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsic3czNjAtUkVTVC1BUEkiXSwidXNlcl9uYW1lIjoiYWRtaW5Ac3czNjAub3JnIiwic2NvcGUiOlsiUkVBRCJdLCJleHAiOjE1NjM4MDYwNDQsImF1dGhvcml0aWVzIjpbIlJFQUQiXSwianRpIjoiZDY4ZWY1YWEtZTQ5My00Y2YxLWI2NGQtNWE5MTdkY2M2ZTYwIiwiY2xpZW50X2lkIjoiMTcyMmZmYzdkZWE3MTU3OGQ5ZWE1ZTZhNmMwMDA4NzMifQ.iO5sLrqRcZfzvMP5gjaJhk3caWyZLkUesdbMfqCGy4V5rbnU9QP1LjdybY0Udh8hvAvhlpqPfaxeKe1c3-gQs5MYlqG0lNQCyWcb7NRHj8VFlwLPuJRZJNk3tybvgITVm9r14pfAXogpVE0S4KihD2W1_SoKH4NzTa2vOEG0CK4VzCLetxUlUuePxZH8ugouqbS2d0SpyeeMTm-PzxzzeTb_4ulGpg63eE1v7GvTsI23uh2WfIgHBa1GRr5jWtE0Meq-5UFCVQkhMm8P-r8wO2iuRblCu6a-bWwy7bfdj3S2VDnqSQskE2dVrC_qMs-V2AGvCV1xvlF0P8A4tgwL-w&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#309;font-weight:bold&#34;&gt;&amp;#34;token_type&amp;#34;&lt;/span&gt; : &lt;span style=&#34;color:#c30&#34;&gt;&amp;#34;bearer&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#309;font-weight:bold&#34;&gt;&amp;#34;refresh_token&amp;#34;&lt;/span&gt; : &lt;span style=&#34;color:#c30&#34;&gt;&amp;#34;eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsic3czNjAtUkVTVC1BUEkiXSwidXNlcl9uYW1lIjoiYWRtaW5Ac3czNjAub3JnIiwic2NvcGUiOlsiUkVBRCJdLCJhdGkiOiJkNjhlZjVhYS1lNDkzLTRjZjEtYjY0ZC01YTkxN2RjYzZlNjAiLCJleHAiOjE1NjM4MDYwNDQsImF1dGhvcml0aWVzIjpbIlJFQUQiXSwianRpIjoiM2VkZDcxODAtMTBlYi00Y2MwLTg0NTUtMGYwZmIyMWMwYmU0IiwiY2xpZW50X2lkIjoiMTcyMmZmYzdkZWE3MTU3OGQ5ZWE1ZTZhNmMwMDA4NzMifQ.iMGfdHWpJNseoxIk7tKCNTyC1w4_AJ4cSv6kO64_BkF54MLudvyf9uVSIHpAeHhSFdvhbjksynRqq_u78vW8ptY1la65Qx8glHz0sktWBfMDJsUA4ynU2iZbKU92f2OOf3wQRVt38-Y1mBUsDMIStyKTDeIXGT3LJr_8k5dRAGvayixaezxDFw3dWK2M6P9h-ZnfEP47HpIUZrG8cgwPmNCZ9gBXsqVnueDYZth6TaEKIvWbkZtwY0ikWKyJL2xLm78O1ii3lA5ENt5I0DTfTm8QuK_zcm679W9jF0jvwIR71fM0JSWjkBoXd2h9oLmE2CF2sFVaJor_ermk-L0LsA&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#309;font-weight:bold&#34;&gt;&amp;#34;expires_in&amp;#34;&lt;/span&gt; : &lt;span style=&#34;color:#f60&#34;&gt;3599&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#309;font-weight:bold&#34;&gt;&amp;#34;scope&amp;#34;&lt;/span&gt; : &lt;span style=&#34;color:#c30&#34;&gt;&amp;#34;READ&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#309;font-weight:bold&#34;&gt;&amp;#34;jti&amp;#34;&lt;/span&gt; : &lt;span style=&#34;color:#c30&#34;&gt;&amp;#34;d68ef5aa-e493-4cf1-b64d-5a917dcc6e60&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Of course, the username and password must be your user credentials and the client id and secret have to be replaced with the configured values. And again, the wanted value is the value of the field &lt;code&gt;access_token&lt;/code&gt; and probably &lt;code&gt;refresh_token&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;More Links:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;OAuth2 more information: &lt;a href=&#34;https://oauth.net/2/&#34;&gt;https://oauth.net/2/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Decode Bearer tokens at: &lt;a href=&#34;https://jwt.io/&#34;&gt;https://jwt.io/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;oauth2-refresh-token&#34;&gt;OAuth2 Refresh Token&lt;/h2&gt;
+&lt;p&gt;The authorization server supports so called refresh tokens to generate new access tokens after they have been expired. New access tokens can be generated with the use of the &lt;code&gt;refresh_token&lt;/code&gt; without further re-authorization of the user. The following url must be used:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  http://localhost/authorization/oauth/token?grant_type=refresh_token&amp;amp;refresh_token=&amp;lt;REFRESH_TOKEN&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The client must pass its credentials via basic authentication. Though a user authentication is not necessary.
+If you are authentication your users on a proxy, you have to configure that proxy in a way that it does not block requests to the above url. As marker the &amp;lsquo;grant_type=refresh_token&amp;rsquo; query parameter may be used.&lt;/p&gt;
+&lt;h2 id=&#34;example-apache-configuration&#34;&gt;Example Apache configuration&lt;/h2&gt;
+&lt;p&gt;The following example shows the relevant part for an Apache proxy to configure
+authentication of the &lt;code&gt;authorization-server&lt;/code&gt; properly:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-apache&#34; data-lang=&#34;apache&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#309;font-weight:bold&#34;&gt;&amp;lt;Location&lt;/span&gt; &lt;span style=&#34;color:#c30&#34;&gt;/authorization/oauth/token&lt;/span&gt;&lt;span style=&#34;color:#309;font-weight:bold&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#366&#34;&gt;Order&lt;/span&gt; allow,deny
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#366&#34;&gt;Allow&lt;/span&gt; from &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;all&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#309;font-weight:bold&#34;&gt;&amp;lt;If&lt;/span&gt; &lt;span style=&#34;color:#c30&#34;&gt;&amp;#34;%{QUERY_STRING} =~ /^grant_type=refresh_token\&amp;amp;/&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#309;font-weight:bold&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;# No authentication needed&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#309;font-weight:bold&#34;&gt;&amp;lt;/If&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#309;font-weight:bold&#34;&gt;&amp;lt;Else&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;# Configure your authentication here&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#309;font-weight:bold&#34;&gt;&amp;lt;/Else&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#366&#34;&gt;ProxyPass&lt;/span&gt; https://localhost:8443/authorization/oauth/token
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#366&#34;&gt;ProxyPassReverse&lt;/span&gt; https://localhost:8443/authorization/oauth/token
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#309;font-weight:bold&#34;&gt;&amp;lt;/Location&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;resource-server-configuration&#34;&gt;Resource Server Configuration&lt;/h1&gt;
+&lt;p&gt;Now that access tokens can be generated, the resource server has to be configured. The same general ideas of &lt;a href=&#34;#general-config&#34;&gt;general config&lt;/a&gt; apply. The properties of the &lt;code&gt;application.yml&lt;/code&gt; are&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Key&lt;/th&gt;
+&lt;th&gt;Values&lt;/th&gt;
+&lt;th&gt;Default&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;sw360:thrift-server-url&lt;/td&gt;
+&lt;td&gt;the url where the thrift services can be found, e.g. http://localhost:8080&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;sw360:test-user-id&lt;/td&gt;
+&lt;td&gt;only for developing, simple test user short cut, must be pulled off for productive&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;sw360:test-user-passwors&lt;/td&gt;
+&lt;td&gt;see above&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;sw360:couchdb-url&lt;/td&gt;
+&lt;td&gt;the url of the CouhDB server for attachment handling, e.g. https://localhost:5984&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;sw360:cors:allowed-origin&lt;/td&gt;
+&lt;td&gt;value for cross origin resource sharing&lt;/td&gt;
+&lt;td&gt;n/a&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;The REST API is now completely usable via an own client or testwise with integrated tools.&lt;/p&gt;
+&lt;h1 id=&#34;tools&#34;&gt;Tools&lt;/h1&gt;
+&lt;p&gt;To get data and interact with the sw360 REST API the HAL-Browser is recommended. Currently, the HAL-Browser is also deployed on the sw360 development instance, but this is likely to change once the REST API has evolved more. Currently the URL of HAL-Browser is:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;https://[hostname]:[port]/resource/api/browser/index.html#/resource/api
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;An example for a screenshot is as follows:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://user-images.githubusercontent.com/29916928/39576770-90b2b576-4edf-11e8-9d1b-742c10d88b8e.png&#34; alt=&#34;rest-hal-explorer&#34;&gt;&lt;/p&gt;
+&lt;p&gt;When using other tools the access token has to be set as header parameter in the REST request. Please add a new header:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Key: Authorization&lt;/li&gt;
+&lt;li&gt;As value you need to enter: &lt;code&gt;Bearer [ACCESS_TOKEN]&lt;/code&gt; where &lt;code&gt;[ACCESS_TOKEN]&lt;/code&gt; actually contains the token&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;example--get-a-list-of-projects&#34;&gt;Example – Get a list of projects&lt;/h2&gt;
+&lt;p&gt;Here is an example how to query for all projects as HTTP GET Request. As for the resource endpoint, the request:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;https://sw360.org/resource/api/projects (or /resource/api/projects)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;will return the following response:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://user-images.githubusercontent.com/29916928/39579586-6b1d1736-4ee7-11e8-8faf-da71c8776680.png&#34; alt=&#34;rest-explorer2&#34;&gt;&lt;/p&gt;
+&lt;h1 id=&#34;api-documentation&#34;&gt;API Documentation&lt;/h1&gt;
+&lt;p&gt;sw360 deploys a REST API documentation at every instance. There are the following URLs offered at each instance&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;URL&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;https://[hostname]:[port]/resource/docs/index.html&lt;/td&gt;
+&lt;td&gt;Small overview page&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;https://[hostname]:[port]/resource/docs/api-guide.html&lt;/td&gt;
+&lt;td&gt;The API description for the currently running server&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;https://[hostname]:[port]/resource/api/browser/index.html#/resource/api&lt;/td&gt;
+&lt;td&gt;Integrated HAL browser to directly use the API&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h1 id=&#34;known-problems&#34;&gt;Known Problems&lt;/h1&gt;
+&lt;p&gt;If you use Nginx or Apache as request front end server there maybe some configuration caveats: The REST API objects provides self links to reference to other objects also including the protocol prefix. These links are realized on Hypertext Application Language (HAL) for example you will find in REST responses:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c30&#34;&gt;&amp;#34;_links&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;:&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#309;font-weight:bold&#34;&gt;&amp;#34;self&amp;#34;&lt;/span&gt;: {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#309;font-weight:bold&#34;&gt;&amp;#34;href&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#c30&#34;&gt;&amp;#34;https://localhost:8443/resource/api/projects/065f3aa45c2683297fd1bb39296f519d&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The REST spring boot applications are using the Tomcat environment configuration to generate the HAL links. If the Tomcat is only configured as HTTP, the generated links will contain the &lt;code&gt;http&lt;/code&gt; protocol and port - which is a problem if the server should be contacted over &lt;code&gt;https&lt;/code&gt;only. This problem occurs, if tomcat is used together with Nginx, Apache httpd or other Web servers, which are configured to repsond only to &lt;code&gt;https&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Solution is to set for example in Nginx HTTP &amp;lsquo;X-Forward-*&amp;rsquo; headers on a reverse proxy, for example:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-nginx&#34; data-lang=&#34;nginx&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;location&lt;/span&gt; &lt;span style=&#34;color:#c30&#34;&gt;/&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;...&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   &lt;span style=&#34;color:#c30&#34;&gt;proxy_set_header&lt;/span&gt;        &lt;span style=&#34;color:#c30&#34;&gt;X-Forwarded-Port&lt;/span&gt;   &lt;span style=&#34;color:#f60&#34;&gt;443&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;proxy_set_header&lt;/span&gt;        &lt;span style=&#34;color:#c30&#34;&gt;X-Forwarded-Proto&lt;/span&gt;  &lt;span style=&#34;color:#c30&#34;&gt;https&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; }
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;For other Web severs, there might a similar solution.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

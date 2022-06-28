@@ -1,0 +1,489 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Eclipse SW360 – SW360 Best Practices</title>
+    <link>https://www.eclipse.org/sw360/docs/userguide/bestpractices/</link>
+    <description>Recent content in SW360 Best Practices on Eclipse SW360</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+	  <atom:link href="https://www.eclipse.org/sw360/docs/userguide/bestpractices/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: License Naming</title>
+      <link>https://www.eclipse.org/sw360/docs/userguide/bestpractices/license-naming/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/sw360/docs/userguide/bestpractices/license-naming/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;guidelines&#34;&gt;Guidelines&lt;/h2&gt;
+&lt;p&gt;Generally the license naming should conform with the SPDX Spec and the SPDX License List&lt;/p&gt;
+&lt;p&gt;Please see the &amp;ldquo;License List Fields&amp;rdquo; from &lt;a href=&#34;https://spdx.org/spdx-license-list/license-list-overview#fields&#34;&gt;&lt;span style=&#34;color:red&#34;&gt;↗&lt;/span&gt; https://spdx.org/spdx-license-list/license-list-overview#fields&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;where there is especially for identifier:&lt;/p&gt;
+&lt;h4 id=&#34;license-or-exception-identifier-aka-spdx-short-identifier&#34;&gt;License or Exception Identifier (aka &amp;ldquo;SPDX Short Identifier&amp;rdquo;)&lt;/h4&gt;
+&lt;p&gt;Short identifier to be used to identify a license or exception match to licenses or exceptions contained on the SPDX License List in the context of an SPDX file, in source file, or elsewhere&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Short identifiers have no spaces in them&lt;/li&gt;
+&lt;li&gt;Short identifiers consist of an abbreviation based on a common short name or acronym for the license or exception&lt;/li&gt;
+&lt;li&gt;Where applicable, the abbreviation will be followed by a dash and then the version number, in X.Y format&lt;/li&gt;
+&lt;li&gt;Where applicable, and if possible, the short identifier should be harmonised with other well-known open source naming sources (i.e., OSI, Fedora, etc.)&lt;/li&gt;
+&lt;li&gt;Short identifiers should be as short in length as possible while staying consistent with all other naming criteria&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This lead to expressions like &amp;ldquo;Apache-2.0&amp;rdquo; or &amp;ldquo;GPL-2.0&amp;rdquo;.&lt;/p&gt;
+&lt;h2 id=&#34;license-exceptions&#34;&gt;License Exceptions&lt;/h2&gt;
+&lt;p&gt;As a provisoric handling advise, the exception text shall be combined with the license text as a license entry. This ensures that license and exception appear together in the clearing report.&lt;/p&gt;
+&lt;p&gt;Class Path Exception&lt;/p&gt;
+&lt;p&gt;Linking this library statically or dynamically with other modules is making a combined work based on this library. Thus, the terms and conditions of the GNU General Public License cover the whole combination.&lt;/p&gt;
+&lt;p&gt;As a special exception, the copyright holders of this library give you permission to link this library with independent modules to produce an executable, regardless of the license terms of these independent modules, and to copy and distribute the resulting executable under terms of your choice, provided that you also meet, for each linked independent module, the terms and conditions of the license of that module. An independent module is a module which is not derived from or based on this library. If you modify this library, you may&lt;/p&gt;
+&lt;h2 id=&#34;dual-licenses&#34;&gt;Dual Licenses&lt;/h2&gt;
+&lt;p&gt;There is the need to have a dual license text. FOSSology offers the dual license tag for this. The idea is to use this tag also for more than two licenses.&lt;/p&gt;
+&lt;p&gt;Consider the following example:&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/img/ImagesBasic/dual_license.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;p&gt;The fact that it is &amp;ldquo;LGPL-3.0+&amp;rdquo; is confusing for these texts. It should be changed to the following:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The License results shall be changed &amp;ldquo;Dual-License&amp;rdquo;. This is among other things required, to have the obligation to understand that for this component a license must be chosen&lt;/li&gt;
+&lt;li&gt;In the acknowledgement, there shall be documented which license decision comes is documented&lt;/li&gt;
+&lt;li&gt;For the referring files, also the different other licenses must be added as conclusions, so the texts are printed out.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;quick-checklist&#34;&gt;Quick Checklist&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Shortname: No spaces, No slashses, No unserscore or similar spcial charaters, just use dashes&lt;/li&gt;
+&lt;li&gt;Consider existing SPDX short names&lt;/li&gt;
+&lt;li&gt;Do not use &amp;ldquo;Or later&amp;rdquo; but &amp;ldquo;+&amp;rdquo; or &amp;ldquo;-or-later&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;For triple licensing, use prefix &amp;ldquo;Triple&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;ERASE COMMENT CHARACTERS! also erase prefix spaces at every line&lt;/li&gt;
+&lt;li&gt;Preserve paragraphs and line breaks&lt;/li&gt;
+&lt;li&gt;Avid markup in the license text except it is part of the licensing&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;multi-dual--licensing&#34;&gt;Multi (DUAL-) Licensing&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;VERY Important, as conclusion, use the FOSSology &amp;ldquo;Dual-license&amp;rdquo;, please do not consider your own candidate just designating &amp;ldquo;Dual License&amp;rdquo; (because OR operators will not work in reporting)&lt;/li&gt;
+&lt;li&gt;For Dual License texts use prefix &amp;ldquo;Dual-&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;For Triple, use &amp;ldquo;Triple-&amp;rdquo; (and for more &amp;ldquo;Quadruple-&amp;rdquo;)&lt;/li&gt;
+&lt;li&gt;For Dual Licensing, use alphabetical order to name the licenses&lt;/li&gt;
+&lt;li&gt;SPDX provides the rule to have this merged with &amp;ldquo;OR&amp;rdquo; (in capital letters) like &amp;ldquo;Dual-MIT-OR-BSD&amp;rdquo;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;examples-for-renaming&#34;&gt;Examples for Renaming&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Example Licence Short Name&lt;/th&gt;
+&lt;th&gt;Corrected Licence Short Name&lt;/th&gt;
+&lt;th&gt;Remarks&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;BSD-3-Clause-Farin Urlaub&lt;/td&gt;
+&lt;td&gt;BSD-3-Clause-farin-urlaub&lt;/td&gt;
+&lt;td&gt;no empty spaces&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;GPL-2.0+_Variant Old address&lt;/td&gt;
+&lt;td&gt;GPL-2.0+-variant-old-address&lt;/td&gt;
+&lt;td&gt;no underscore&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&amp;ndash;Freeware&lt;/td&gt;
+&lt;td&gt;Freeware-variant-dumbumchong&lt;/td&gt;
+&lt;td&gt;no prefix dashes&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;BSD-3-Clause\IBM&lt;/td&gt;
+&lt;td&gt;&amp;hellip;&lt;/td&gt;
+&lt;td&gt;do not use slashes (back and forward)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Permission Notice Gordon Sumner&lt;/td&gt;
+&lt;td&gt;HPND-gordon-sumner&lt;/td&gt;
+&lt;td&gt;consider SPDX shot name &amp;ldquo;HPND&amp;rdquo; for permission notice&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;BSD-3-Clause_Ajax.org B.V.&lt;/td&gt;
+&lt;td&gt;BSD-3-Clause-ajax&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;BSD-3-Clause_Yahoo! Inc&lt;/td&gt;
+&lt;td&gt;BSD-3-Clause-yahoo&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;BSD-2-Clause CISCO&lt;/td&gt;
+&lt;td&gt;BSD-2-Clause-cisco&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&amp;ndash;zlib-style&lt;/td&gt;
+&lt;td&gt;Zlib-variant-01&lt;/td&gt;
+&lt;td&gt;This license could be deleted anyway. (no text)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;woodstock&lt;/td&gt;
+&lt;td&gt;Woodstok-Reference-Disclaimer&lt;/td&gt;
+&lt;td&gt;1. All short names shall begin with capital letter,&lt;br&gt;2. (not shown), the license text is not a license text actually, but just a reference in a header with disclaimer.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Visual Studio SDK license terms&lt;/td&gt;
+&lt;td&gt;Microsoft-Visual-Studio-SDK-2015&lt;/td&gt;
+&lt;td&gt;looking at the text, it is from the 2015 version of the SDK&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Trip MPL GPL Apache&lt;/td&gt;
+&lt;td&gt;Triple-Apache-2.0-LGPL-2.1-MPL-1.1&lt;/td&gt;
+&lt;td&gt;(looking at the text it was LGPL in fact)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&amp;ndash;FIPL-1.0&lt;/td&gt;
+&lt;td&gt;FIPL-1.0&lt;/td&gt;
+&lt;td&gt;Double dash is an old thing coming from mainline ops. Currently there is no similar convention known for FOSSologyNG.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Qt License Agreement_CEM&lt;/td&gt;
+&lt;td&gt;Qt-reference-commercial&lt;/td&gt;
+&lt;td&gt;In this case, it was reference text only and also only pointing to the commercial licensees only.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&amp;ndash;Beer-ware-license-CEM01&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;Beerware&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The text says actually revision 42, revision 42 is a joke. It must be checked if the license is already there&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;FundsXpress License&lt;/td&gt;
+&lt;td&gt;FXL&lt;/td&gt;
+&lt;td&gt;Either FundsXpress or FXL because the point is to have a short name and thus, it would make sense to shorten it.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;GFDL - 1.2+&lt;/td&gt;
+&lt;td&gt;GFDL-1.2+&lt;/td&gt;
+&lt;td&gt;just without spaces please&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;lgpl 2.1 J&lt;/td&gt;
+&lt;td&gt;LGPL-2.1-header&lt;/td&gt;
+&lt;td&gt;(was a header in this case, because lic text is already there) What does J mean? - no J needed&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;MIT !&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;do not use candidate licenses&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;Actual text was: &amp;ldquo;This program is made available under the terms of the MIT License.&amp;rdquo; - actually, not a license text!&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Note&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;do not use this with candidates&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;Actual text was: &amp;ldquo;(&amp;ldquo;See &lt;a href=&#34;http://oxyplot.codeplex.com&#34;&gt;&lt;span style=&#34;color:red&#34;&gt;↗&lt;/span&gt; http://oxyplot.codeplex.com&lt;/a&gt; for more information.&amp;rdquo;)&amp;rdquo;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Permission_Notice_Timothy O&amp;rsquo;Malley&lt;/td&gt;
+&lt;td&gt;HPND-omalley&lt;/td&gt;
+&lt;td&gt;do not use special chars, do use SPDX identfiers&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;notice-file&#34;&gt;Notice File&lt;/h2&gt;
+&lt;p&gt;The following text is not a license statement nor a reference to licensing but a notice file in the sense of the apache 2.0 license. As such, it is not suitable for being collected as a license.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;== NOTICE file corresponding to the section 4 d of ==&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;== the Apache License, Version 2.0, ==&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;== in this case for the Apache Ant distribution. ==&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;=========================================================================&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;This product includes software developed by&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;The Apache Software Foundation&lt;/code&gt; (&lt;a href=&#34;http://www.apache.org/&#34;&gt;&lt;span style=&#34;color:red&#34;&gt;↗&lt;/span&gt; http://www.apache.org&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;This product includes also software developed by :&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;the W3C consortium&lt;/code&gt; (&lt;a href=&#34;http://www.w3c.org&#34;&gt;&lt;span style=&#34;color:red&#34;&gt;↗&lt;/span&gt; http://www.w3c.org&lt;/a&gt;),&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;the SAX project&lt;/code&gt; (&lt;a href=&#34;http://www.saxproject.org&#34;&gt;&lt;span style=&#34;color:red&#34;&gt;↗&lt;/span&gt; http://www.saxproject.org&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;code&gt;Please read the different LICENSE files present in the root directory of this distribution.&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;open-questions&#34;&gt;Open Questions&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;How to deal with notice files&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;(1) &lt;a href=&#34;https://spdx.org/spdx-specification-21-web-version&#34;&gt;&lt;span style=&#34;color:red&#34;&gt;↗&lt;/span&gt; https://spdx.org/spdx-specification-21-web-version&lt;/a&gt;&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Naming a Component</title>
+      <link>https://www.eclipse.org/sw360/docs/userguide/bestpractices/component-naming/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/sw360/docs/userguide/bestpractices/component-naming/</guid>
+      <description>
+        
+        
+        &lt;p&gt;&lt;strong&gt;The name is the most important criteria to identify software components. Unfortunately there is no common naming scheme available.&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;usage-and-handling-of-components&#34;&gt;Usage and Handling of Components&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;If you create a component entry, most likely you will go ahead with a release entry, otherwise, the component stays an empty shell&lt;/li&gt;
+&lt;li&gt;Uploading source packages / actual software as attachment makes sense at the release, not at the component&lt;/li&gt;
+&lt;li&gt;If you have created a component and release entry, you can go ahead and assign a vendor to a release.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This very clear approach enables a number of issues, please keep the following goals in mind:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Duplicate entries need to be removed&lt;/li&gt;
+&lt;li&gt;Separating vendor from components names and release tags brings clarity to component naming&lt;/li&gt;
+&lt;li&gt;Interaction with other systems is a must today. As such we need to support external ids such as the CPE standard which also implement this 3-parts separation&lt;/li&gt;
+&lt;li&gt;Having the clear modelling of data enables better search and filtering abilities of the component catalogue.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;checklist&#34;&gt;Checklist&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Does the component already exist on SW360 (think about possible different names)?&lt;/li&gt;
+&lt;li&gt;What is the name of the component homepage?&lt;/li&gt;
+&lt;li&gt;What is the name of the community? Please note that repositories like Maven, GitHub, CodePlex, - CodeGuru are not vendors in our understanding!&lt;/li&gt;
+&lt;li&gt;How is component called on repositories like Maven, NuGet, etc.?&lt;/li&gt;
+&lt;li&gt;Take care: use the name and not the id!&lt;/li&gt;
+&lt;li&gt;Search SW360 for the component repository id.&lt;/li&gt;
+&lt;li&gt;Search SW360 for all possible name variations.&lt;/li&gt;
+&lt;li&gt;Ask your local software clearing expert for help.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;naming-a-component---special-cases&#34;&gt;Naming a Component - Special Cases&lt;/h2&gt;
+&lt;h3 id=&#34;net-component-from-github&#34;&gt;.Net Component from GitHub&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;SW360_NamingaComponentimage/draft_30.png&#34; alt=&#34;draft_30&#34;&gt; In some case it is difficult to determine the real name of a component, like for example &lt;em&gt;Microsoft Entity Framework for .Net Core (or Entity Framework Core or Aspnet EntityFrameworkCore or ASP.NET EntityFrameworkCore)&lt;/em&gt;. In these cases it might be the best way to use that package name as specified on Nuget, in this case &lt;strong&gt;Microsoft.EntityFrameworkCore&lt;/strong&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;java-components&#34;&gt;Java Components&lt;/h3&gt;
+&lt;p&gt;The name of a Java component should be how it is called by the Java community. Typically this is the name as it can be found on the project homepage or on the source code repository page.&lt;/p&gt;
+&lt;p&gt;Examples:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&amp;lsquo;Spring Framework&amp;rsquo; (from project home page &lt;a href=&#34;https://spring.io/projects&#34;&gt;&lt;span style=&#34;color:red&#34;&gt;↗&lt;/span&gt; https://spring.io/projects&lt;/a&gt; or also from source code repository &lt;a href=&#34;https://github.com/spring-projects/spring-framework&#34;&gt;&lt;span style=&#34;color:red&#34;&gt;↗&lt;/span&gt; https://github.com/spring-projects/spring-framework&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;&amp;lsquo;Spring Data Redis&amp;rsquo; (from project home page &lt;a href=&#34;https://spring.io/projects/spring-data&#34;&gt;&lt;span style=&#34;color:red&#34;&gt;↗&lt;/span&gt; https://spring.io/projects/spring-data&lt;/a&gt; or also from source code repository &lt;a href=&#34;https://github.com/spring-projects/spring-data-redis&#34;&gt;&lt;span style=&#34;color:red&#34;&gt;↗&lt;/span&gt; https://github.com/spring-projects/spring-data-redis&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;&amp;lsquo;Thymeleaf&amp;rsquo; (from project home page &lt;a href=&#34;https://www.thymeleaf.org/&#34;&gt;&lt;span style=&#34;color:red&#34;&gt;↗&lt;/span&gt; https://www.thymeleaf.org/&lt;/a&gt;; source code repository &lt;a href=&#34;https://github.com/thymeleaf/thymeleaf&#34;&gt;&lt;span style=&#34;color:red&#34;&gt;↗&lt;/span&gt; https://github.com/thymeleaf/thymeleaf&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;&amp;lsquo;Thymeleaf Spring 5 Integration&amp;rsquo; (from project home page &lt;a href=&#34;https://www.thymeleaf.org/download.html&#34;&gt;&lt;span style=&#34;color:red&#34;&gt;↗&lt;/span&gt; https://www.thymeleaf.org/download.html&lt;/a&gt; or source code repository page &lt;a href=&#34;https://github.com/thymeleaf/thymeleaf-spring&#34;&gt;&lt;span style=&#34;color:red&#34;&gt;↗&lt;/span&gt; https://github.com/thymeleaf/thymeleaf-spring&lt;/a&gt; → &lt;a href=&#34;https://github.com/thymeleaf/thymeleaf-spring/tree/3.0-master/thymeleaf-spring5&#34;&gt;&lt;span style=&#34;color:red&#34;&gt;↗&lt;/span&gt; thymeleaf-spring5&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&amp;lsquo;Commons Codec&amp;rsquo; (from project home page &lt;a href=&#34;https://commons.apache.org/proper/commons-codec/&#34;&gt;&lt;span style=&#34;color:red&#34;&gt;↗&lt;/span&gt; https://commons.apache.org/proper/commons-codec/&lt;/a&gt; or source code repository page &lt;a href=&#34;https://github.com/apache/commons-codec&#34;&gt;&lt;span style=&#34;color:red&#34;&gt;↗&lt;/span&gt; https://github.com/apache/commons-codec&lt;/a&gt;) [or better &amp;lsquo;Apache Commons Codec&amp;rsquo;? But &amp;lsquo;Apache&amp;rsquo; is already the vendor&amp;rsquo;]&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Do not use jar names or Gradle/Maven artifactIds, like &amp;lsquo;spring-framework&amp;rsquo;. Main reason is that from such a name one cannot see if this component is a whole component (here the Spring Framework) or only the Java archive spring-framework-&lt;version&gt;.jar (which is only a subset of the Spring Framework)!&lt;/p&gt;
+&lt;p&gt;Hierarchical Java components:&lt;/p&gt;
+&lt;p&gt;Java components often consist of multiple subcomponents (typically jars) where the sources are stored in a hierarchical structure in the source code repoistory. E.g. for &amp;lsquo;Spring Framework&amp;rsquo; there is one repository &lt;a href=&#34;https://github.com/spring-projects/spring-framework&#34;&gt;&lt;span style=&#34;color:red&#34;&gt;↗&lt;/span&gt; https://github.com/spring-projects/spring-framework&lt;/a&gt; with several sub folders for individual jars. In general for such cases there should be only one (main) component in SW360 covering all the subcomponents.&lt;/p&gt;
+&lt;p&gt;In some exceptional cases one wants to do the clearing only for one subcomponent or a subset of a hierarchical components. In such a case one can either add the name of the sub component to the component name to mark the subset (like &amp;lsquo;Thymeleaf Spring 5 Integration&amp;rsquo; above, showing that only the Spring 5 related is covered, and not Spring 3 or 4) or one could use the name of the top level component (like &amp;lsquo;Thymeleaf Spring Integration&amp;rsquo;) and have seprate releases for the subset (&amp;lsquo;3.0.9.RELEASE Spring 5&amp;rsquo;).&lt;/p&gt;
+&lt;p&gt;Identifying a (new or existing) SW360 component for a java archive:&lt;/p&gt;
+&lt;p&gt;Java developers typically have to start with a Java archive which they want to add to a product, or with the related Gradle/Maven coordinates (groupId/artifactId/version). Possible ways to identify the related component (name) are: examine the related pom.xml or the MANIFEST.MF file of the jar. There one can often find more information like the community homepage or source code repository URL from which then again to determine the component (name).&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Unfortunately SW360 does not provide any support here (besides searching for the artifactId and thus hopefully find the related component). It would be a good idea to store also the Gradle/Maven coordinates of Java binaries with the SW360 components and make them searchable (note: multiple artifactIds per component need to be supported!) and/or to also upload and store the binaries of a registerd SW360 component (or at least the file hashes) and provide additional functionality to identify an unknown binary by uploading the same to SW360.&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id=&#34;component-scope&#34;&gt;Component Scope&lt;/h2&gt;
+&lt;p&gt;We base software clearing for open source components on the scan of the source code. If there is only one common source code for a group of components, then it does not make sense to have a lot of distinct (sub)component that all point to a common source.&lt;/p&gt;
+&lt;h3 id=&#34;example&#34;&gt;Example&lt;/h3&gt;
+&lt;p&gt;There is a Java component called Logback (&lt;a href=&#34;https://logback.qos.ch/&#34;&gt;&lt;span style=&#34;color:red&#34;&gt;↗&lt;/span&gt; https://logback.qos.ch/&lt;/a&gt;). There is only one singe source (and binary) archive available from the original authors. This archive contains three Java libraries: logback-core.jar, logback-access.jar and logback-classic.jar. In &lt;strong&gt;SW360 there should be only one component Logback!&lt;/strong&gt; It is confusing to have also &amp;ldquo;Logback core&amp;rdquo;, &amp;ldquo;logback-core&amp;rdquo;, &amp;ldquo;logback core&amp;rdquo;, &amp;ldquo;logback classic&amp;rdquo; and &amp;ldquo;logback-classic&amp;rdquo;.&lt;/p&gt;
+&lt;h2 id=&#34;naming-a-component--span-stylecolorredbad-examplesspan&#34;&gt;Naming a Component – &lt;span style=&#34;color:red&#34;&gt;Bad Examples&lt;/span&gt;&lt;/h2&gt;
+&lt;h3 id=&#34;jsonnet&#34;&gt;Json.Net&lt;/h3&gt;
+&lt;p&gt;There is a component that is available on NuGet by the name &amp;lsquo;Json.NET&amp;rsquo; and the id &amp;lsquo;Newtonsoft.Json&amp;rsquo;. On the component homepage &lt;a href=&#34;http://www.newtonsoft.com/json&#34;&gt;&lt;span style=&#34;color:red&#34;&gt;↗&lt;/span&gt; http://www.newtonsoft.com/json&lt;/a&gt; it is called &amp;lsquo;Json.NET&amp;rsquo;.&lt;/p&gt;
+&lt;p&gt;Just some examples of naming and how it could be improved:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;14 x Vendor = &amp;lsquo;Open Source Software&amp;rsquo;, Name = &amp;lsquo;Json.NET&amp;rsquo; =&amp;gt; &lt;strong&gt;wrong&lt;/strong&gt;!&lt;/li&gt;
+&lt;li&gt;1 x Vendor = &amp;lsquo;Newtonsoft&amp;rsquo;, Name = &amp;lsquo;Json.NET (COTS)&amp;rsquo; =&amp;gt; &lt;strong&gt;wrong&lt;/strong&gt;!&lt;/li&gt;
+&lt;li&gt;2 x Vendor = &amp;lsquo;NuGet Gallery&amp;rsquo;, Name = Json.NET&amp;rsquo; =&amp;gt; &lt;strong&gt;wrong&lt;/strong&gt;!&lt;/li&gt;
+&lt;li&gt;1 x Vendor = &amp;lsquo;CodePlex&amp;rsquo;, Name = Json.NET&amp;rsquo; =&amp;gt; &lt;strong&gt;wrong&lt;/strong&gt;!&lt;/li&gt;
+&lt;li&gt;4 x Vendor = &amp;lsquo;Open Source Software&amp;rsquo;, Name = &amp;lsquo;Newtonsoft Json.NET&amp;rsquo; =&amp;gt; &lt;strong&gt;wrong&lt;/strong&gt;!&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The proper identification (Vendor = &amp;lsquo;Newtonsoft&amp;rsquo;, Name = &amp;lsquo;Json.NET&amp;rsquo;) has to be used!&lt;/p&gt;
+&lt;h3 id=&#34;oracle-javabeans-activation-framework&#34;&gt;Oracle JavaBeans Activation Framework&lt;/h3&gt;
+&lt;p&gt;Just some examples of naming and how it could be improved:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;3 x Vendor = &amp;lsquo;Open Source Software&amp;rsquo;, Name = &amp;lsquo;Activation&amp;rsquo; =&amp;gt; &lt;strong&gt;wrong&lt;/strong&gt;!&lt;/li&gt;
+&lt;li&gt;3 x Vendor = &amp;lsquo;Open Source Software&amp;rsquo;, Name = &amp;lsquo;Oracle JavaBeans Activation Framework&amp;rsquo;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;oracle-java-mail&#34;&gt;Oracle Java Mail&lt;/h3&gt;
+&lt;p&gt;Just some examples of naming and how it could be improved:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;3 x Vendor = &amp;lsquo;Open Source Software&amp;rsquo;, Name = &amp;lsquo;Mail&amp;rsquo; =&amp;gt; &lt;strong&gt;wrong&lt;/strong&gt;!&lt;/li&gt;
+&lt;li&gt;5 x Vendor = &amp;lsquo;Open Source Software&amp;rsquo;, Name = &amp;lsquo;Oracle JavaMail API&amp;rsquo; =&amp;gt; &lt;strong&gt;wrong&lt;/strong&gt;!&lt;/li&gt;
+&lt;li&gt;4 x Vendor = &amp;lsquo;Oracle&amp;rsquo;, Name = &amp;lsquo;Oracle JavaMail API&amp;rsquo;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;momentjs&#34;&gt;Moment.js&lt;/h3&gt;
+&lt;p&gt;Just some examples of naming and how it could be improved:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;7 x Vendor = &amp;lsquo;GitHub&amp;rsquo;, Name = &amp;lsquo;moment&amp;rsquo; =&amp;gt; &lt;strong&gt;wrong&lt;/strong&gt;!&lt;/li&gt;
+&lt;li&gt;2 x Vendor = &amp;lsquo;Open Source Software&amp;rsquo;, Name = &amp;lsquo;moment&amp;rsquo; =&amp;gt; &lt;strong&gt;wrong&lt;/strong&gt;!&lt;/li&gt;
+&lt;li&gt;2 x Vendor = &amp;lsquo;Open Source Software&amp;rsquo;, Name = &amp;lsquo;Moment JS&amp;rsquo; =&amp;gt; &lt;strong&gt;wrong&lt;/strong&gt;!&lt;/li&gt;
+&lt;li&gt;3 x Vendor = &amp;lsquo;Open Source Software&amp;rsquo;, Name = &amp;lsquo;MomentJS&amp;rsquo; =&amp;gt; &lt;strong&gt;wrong&lt;/strong&gt;!&lt;/li&gt;
+&lt;li&gt;3 x Vendor = &amp;lsquo;Open Source Software&amp;rsquo;, Name = &amp;lsquo;Moment.js&amp;rsquo;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Just look on the community homepage: there is the name in bold letters:
+Moment.js – consider this name.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Record Creation</title>
+      <link>https://www.eclipse.org/sw360/docs/userguide/bestpractices/good-record-creation-structure/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/sw360/docs/userguide/bestpractices/good-record-creation-structure/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;how-to-create-component-entries&#34;&gt;How to Create (Component) Entries?&lt;/h2&gt;
+&lt;p&gt;In order to have a clean and useful catalogue, data hygiene is very important. The main goal is to have clean component / release datasets that allow for versatile use and seamless integration with other systems (see the Handling of Components above). When creating a component, please consider the following rules:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;What is the name of the vendor, the name of the component and what is the release designator?&lt;/li&gt;
+&lt;li&gt;For the Vendor
+&lt;ul&gt;
+&lt;li&gt;Does a CPE entry exist?
+&lt;ul&gt;
+&lt;li&gt;Look here: &lt;a href=&#34;https://nvd.nist.gov/cpe.cfm&#34;&gt;&lt;span style=&#34;color:red&#34;&gt;↗&lt;/span&gt; https://nvd.nist.gov/cpe.cfm&lt;/a&gt; or &lt;a href=&#34;http://scap.nist.gov/specifications/cpe/dictionary.html&#34;&gt;&lt;span style=&#34;color:red&#34;&gt;↗&lt;/span&gt; http://scap.nist.gov/specifications/cpe/dictionary.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Use the same writing as found in the CPE dictionary&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;A CPE does not exist?
+&lt;ul&gt;
+&lt;li&gt;Who is the copyright holder: an organization?
+&lt;ul&gt;
+&lt;li&gt;Use this organization name without &amp;ldquo;inc&amp;rdquo;, &amp;ldquo;Gmbh&amp;rdquo;, etc.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;A person
+&lt;ul&gt;
+&lt;li&gt;Look at the CPE dictionaries for example&lt;/li&gt;
+&lt;li&gt;They use first name last name with &amp;ldquo;_&amp;rdquo;, for example &amp;ldquo;Wedge_Antilles&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;For a component
+&lt;ul&gt;
+&lt;li&gt;Again, does a CPE entry exist?&lt;/li&gt;
+&lt;li&gt;Separate Component name from release designation&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;For a release
+&lt;ul&gt;
+&lt;li&gt;Do not repeat the component name&lt;/li&gt;
+&lt;li&gt;Use the release designation as provided by the software package&lt;/li&gt;
+&lt;li&gt;Avoid prefixes, such as &amp;ldquo;version&amp;rdquo;, &amp;ldquo;v&amp;rdquo; etc&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;For special cases:
+&lt;ul&gt;
+&lt;li&gt;If you upload a part of a release software package, create a &lt;strong&gt;separate&lt;/strong&gt; release for this&lt;/li&gt;
+&lt;li&gt;For example &amp;ldquo;2.0-MODIFIED&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;Consider that leaving items out from a software release is actually a modification&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;how-to-create-vendors&#34;&gt;How to Create Vendors&lt;/h2&gt;
+&lt;p&gt;In order to have a vendor record in the sw360, then choosing a name is important. The vendor in SW360 is the real &amp;ldquo;manufacturer&amp;rdquo; independently from where you download it.&lt;/p&gt;
+&lt;p&gt;There are different cases:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;COTS:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Obvious case: use vendor short name in CPE style and long name for the actual company name (Apple Inc. vs. Apple)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;You could even search for an existing vendor entry in the CPE dictionary to get existing vendor naming rules and use this as short name.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Consider the following link: &lt;a href=&#34;https://nvd.nist.gov/products/cpe/search&#34;&gt;&lt;span style=&#34;color:red&#34;&gt;↗&lt;/span&gt;  https://nvd.nist.gov/products/cpe/search&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Vendor is actually entity that is contract partner, but is confusing: for Microsoft products, there could be a Microsoft certified solution partner which is the vendor, this must mapped differently in the SW360.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;General rule&lt;/strong&gt;: Vendor is meant to be manufacturing party not distributing / delivering party.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Freeware&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Problem is that freeware has an author, but also different &amp;ldquo;vendors&amp;rdquo; in terms of where it could be downloaded from. This is difficult because different download Web site may involve different licensing conditions.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;OSS:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Community name, e.g. zlib project for zlib.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Or the org name of the github orgname or sourceforge group name&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Do not use &amp;ldquo;Github&amp;rdquo; or &amp;ldquo;Sourceforge&amp;rdquo; as vendor&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;However, foundations, publishing the software would be a vendor, e.g. &amp;ldquo;Apache&amp;rdquo;, &amp;ldquo;Eclipse&amp;rdquo;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;But eclipse has a github organization anyway, for example&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;With single author projects should you take the author name. A &amp;ldquo;john_doe&amp;rdquo; from John Doe as short name.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Note that very release has its own vendor. as a consequence:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;There could be a release from one Web page and one release downloaded from another Web page. If there is different licensing or sources involved, this could be a solution.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;naming-a-vendor&#34;&gt;Naming a Vendor&lt;/h2&gt;
+&lt;p&gt;Each release of a component has a vendor or community. Having unambiguous vendor names is very helpful for managing 3rd party software components.&lt;/p&gt;
+&lt;p&gt;Required information:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Full name&lt;/strong&gt; - The full name of the company, organization or person.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Short name&lt;/strong&gt; - A good short name, compatible to CPE (see section 8.3)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;URL&lt;/strong&gt; - The URL of the organization or a URL where we can get more information about a person.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;how-to-find-a-good-vendor-name&#34;&gt;How to find a (good) vendor name?&lt;/h3&gt;
+&lt;p&gt;Some guidelines&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;If there is a company (Microsoft, Oracle, Pivotal, etc.) behind the component, that&amp;rsquo;s most probably the right vendor name.&lt;/li&gt;
+&lt;li&gt;If there is an well known open source community (Apache, Eclipse, etc.) behind the component, that&amp;rsquo;s is the right vendor name.&lt;/li&gt;
+&lt;li&gt;If there is only a single person developing the component, then this is the vendor.&lt;/li&gt;
+&lt;li&gt;If there is a GitHub organization name or person name available, use this one.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;No vendor names are&lt;/strong&gt;: &amp;lsquo;Open Source Software&amp;rsquo;, &amp;lsquo;NuGet Gallery&amp;rsquo;, &amp;lsquo;CodePlex&amp;rsquo;, &amp;lsquo;Codeguru&amp;rsquo;, &amp;lsquo;Stack Overflow&amp;rsquo;, &amp;lsquo;CodeProject&amp;rsquo;, etc. as these or only platform, where vendors can offer the projects and these name do not help to identify projects.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;examples&#34;&gt;Examples&lt;/h3&gt;
+&lt;h4 id=&#34;microsoft&#34;&gt;Microsoft&lt;/h4&gt;
+&lt;p&gt;Full name = Microsoft Corporation&lt;/p&gt;
+&lt;p&gt;Short name = Microsoft&lt;/p&gt;
+&lt;p&gt;URL = &lt;a href=&#34;https://www.microsoft.com/en-in/&#34;&gt;&lt;span style=&#34;color:red&#34;&gt;↗&lt;/span&gt; www.microsoft.com&lt;/a&gt;&lt;/p&gt;
+&lt;h4 id=&#34;apache&#34;&gt;Apache&lt;/h4&gt;
+&lt;p&gt;Full name = Apache Software Foundation&lt;/p&gt;
+&lt;p&gt;Short name = Apache&lt;/p&gt;
+&lt;p&gt;URL = &lt;a href=&#34;http://www.apache.org/&#34;&gt;&lt;span style=&#34;color:red&#34;&gt;↗&lt;/span&gt; http://www.apache.org/&lt;/a&gt;&lt;/p&gt;
+&lt;h4 id=&#34;constantin-titarenko&#34;&gt;Constantin Titarenko&lt;/h4&gt;
+&lt;p&gt;Full name = Constantin Titarenko&lt;/p&gt;
+&lt;p&gt;Short name = constantin_titarenko (Note the underscore!)&lt;/p&gt;
+&lt;p&gt;URL = &lt;a href=&#34;https://github.com/titarenko&#34;&gt;&lt;span style=&#34;color:red&#34;&gt;↗&lt;/span&gt; https://github.com/titarenko&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;how-to-determine-the-cpe&#34;&gt;How to determine the CPE?&lt;/h2&gt;
+&lt;p&gt;The Common Platform Enumeration (CPE) is used to have an unambiguous identification of a specific component release. This information is especially needed to find matching security vulnerability information.&lt;/p&gt;
+&lt;h3 id=&#34;syntax-of-a-cpe-entry&#34;&gt;Syntax of a CPE Entry&lt;/h3&gt;
+&lt;p&gt;The syntax of a CPE entry is defined as:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;cpe:&amp;lt;CPE-Version&amp;gt;:&amp;lt;part&amp;gt;:&amp;lt;vendor&amp;gt;:&amp;lt;product&amp;gt;:&amp;lt;version&amp;gt;:&amp;lt;update&amp;gt;:&amp;lt;edition&amp;gt;:&amp;lt;language&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;CPE-Version&lt;/strong&gt; refers to the CPE naming format version. We will always use version 2.3&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;part&lt;/strong&gt; refers to the type of the component (a = application, o = operating system, h =hardware device)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;vendor&lt;/strong&gt; refers to the vendor or author of the component. Only small letters are allowed.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;product&lt;/strong&gt; refers to the name of the product. Only small letters are allowed.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;version&lt;/strong&gt; refers to the version of the product.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;update&lt;/strong&gt; refers to the updates of this specific version&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;edition&lt;/strong&gt; and &lt;strong&gt;language&lt;/strong&gt; can be used to specify more details&lt;/p&gt;
+&lt;p&gt;Non-existing or unknown party can get replaced by the placeholder &amp;lsquo;*&amp;rsquo;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt;: only small letters are allowed. Spaces have to be replaced by underlines &amp;lsquo;_&amp;rsquo;.&lt;/p&gt;
+&lt;h3 id=&#34;examples-1&#34;&gt;Examples&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Microsoft .Net Framework, version 1.0 SP2&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;cpe:2.3:a:microsoft:.net_framework:1.0:sp2:*:*:*:*:*:*&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Apache ActiveMQ, version 4.0&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;cpe:2.3:a:apache:activemq:4.0:*:*:*:*:*:*:*&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Apache log4net, version 1.2.9 beta&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;cpe:2.3:a:apache:log4net:1.2.9_beta:*:*:*:*:*:*:*&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Oracle Java Runtime, version 1.7.0, update 51&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;cpe:2.3:a:oracle:jre:1.7.0:update_51:*:*:*:*:*:*&lt;/code&gt;&lt;/p&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

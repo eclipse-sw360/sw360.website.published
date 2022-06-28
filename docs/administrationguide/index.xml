@@ -1,0 +1,142 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Eclipse SW360 – Administration Guide</title>
+    <link>https://www.eclipse.org/sw360/docs/administrationguide/</link>
+    <description>Recent content in Administration Guide on Eclipse SW360</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+	  <atom:link href="https://www.eclipse.org/sw360/docs/administrationguide/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: Administrator Menu</title>
+      <link>https://www.eclipse.org/sw360/docs/administrationguide/menu/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/sw360/docs/administrationguide/menu/</guid>
+      <description>
+        
+        
+        &lt;p&gt;The &lt;strong&gt;admin menu&lt;/strong&gt; consists of the following items:&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/img/ImagesBasic/admin_menu.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;User&lt;/strong&gt;: Displays the list of &lt;strong&gt;Liferay Users&lt;/strong&gt;. One can also download or upload new users in this section&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Vendors&lt;/strong&gt;: Displays the list of the &lt;strong&gt;Vendors&lt;/strong&gt; that can be managed by the admin&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Bulk License Edit&lt;/strong&gt;: List of licenses can be edited together in this section&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Licenses&lt;/strong&gt;: Functions such as Download License Archive, Upload License Archive, Import SPDX Information and Delete License Information can be done in this section&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Obligations&lt;/strong&gt;: To manage different types of Obligations on the basis of obligation level and obligation type&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Schedule&lt;/strong&gt;: To schedule tasks such as CVE Search&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Fosology&lt;/strong&gt;: Connection to the Fossology server&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Import and Export&lt;/strong&gt;: Can Import and Export &lt;strong&gt;Component&lt;/strong&gt;, &lt;strong&gt;Release&lt;/strong&gt; and &lt;strong&gt;License&lt;/strong&gt; information&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Attachment Cleanup&lt;/strong&gt;: To cleanup attachment database&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Database Sanitization&lt;/strong&gt;: Helps in searching for duplicate identifiers&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: User Management Roles</title>
+      <link>https://www.eclipse.org/sw360/docs/administrationguide/user-management-roles/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/sw360/docs/administrationguide/user-management-roles/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Every user can create records and edit own created records. However, to change records of others, approval is required. Approval in SW360 is a so called moderation request. A moderation request is a set of proposed changed not applied to record immediately, but will be routed to;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The creator of the record&lt;/li&gt;
+&lt;li&gt;The moderators for a record&lt;/li&gt;
+&lt;li&gt;The clearing admins of the same group in SW360.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Then, the proposed changes can be approved by them.&lt;/p&gt;
+&lt;h2 id=&#34;general-sw360-roles-and-access&#34;&gt;General SW360 Roles and Access&lt;/h2&gt;
+&lt;p&gt;There are two main types of roles. The first type are general roles on the system that apply in the default case:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;User&lt;/strong&gt; - A user is the default, in order to apply modifications, a user can pose moderation requests, except for the data items that a user has created.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Clearing Expert&lt;/strong&gt; - Member of the clearing team. Has the rights to work on the projects of the own group and to edit licenses. Can also work on clearing requests.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Clearing Admin&lt;/strong&gt; - A clearing admin has the rights to work on the projects of the own group and to edit licenses.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;ECC Admin&lt;/strong&gt; - The only users who can edit (or approve as moderation request) ECC classifications.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Secuirty Admin&lt;/strong&gt; - The only users to edit relevance for security vulnerabilities.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;SW360 Admin&lt;/strong&gt; - An admin has full rights on all (visible!) data items. Can elevate permissions of other users.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;In addition there are ACL-style roles, meaning that per data item access settings can be made:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Creator&lt;/strong&gt; - A creator can modify in addition to the user&amp;rsquo;s read abilities, a user can be creator of a data item.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Moderator&lt;/strong&gt; - A creator can define moderators for a data item. Moderators can change a data item as a creator can.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Contributor&lt;/strong&gt; (Component) - Is a contributor to a component, project, similar (but not the same) to a moderator. In addition to moderator, this role has been added to identify contributors (or that contributors get the fame). In contrast, the contributor cannot delete data items.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Project Owner&lt;/strong&gt; - A user who owns the project.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Lead Architect&lt;/strong&gt; (Project) - Is a contributor, just named differently to identify the responsible person. an architect refers to the person who has that role of the project or product. This role has been added to identify architects to have a contact person for technical questions.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Project Responsible&lt;/strong&gt; (Project) - Is a contributor, just named differently to identify the responsible person.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Security Responsible&lt;/strong&gt; - Users responsible for the security of the project.&lt;/li&gt;
+&lt;/ol&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Properties</title>
+      <link>https://www.eclipse.org/sw360/docs/administrationguide/properties/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/sw360/docs/administrationguide/properties/</guid>
+      <description>
+        
+        
+        &lt;p&gt;&lt;strong&gt;Frontend Properties&lt;/strong&gt;: All the sw360 frontend properties are mentioned in &lt;a href=&#34;https://github.com/eclipse/sw360/blob/master/frontend/sw360-portlet/src/main/resources/sw360.properties&#34;&gt;sw360.properties&lt;/a&gt; file.
+For example;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Different categories for components,&lt;/p&gt;
+&lt;p&gt;component.categories=[ &amp;ldquo;framework&amp;rdquo;, &amp;ldquo;SDK&amp;rdquo;, &amp;ldquo;big-data&amp;rdquo;, &amp;ldquo;build-management&amp;rdquo;, &amp;ldquo;cloud&amp;rdquo;, &amp;ldquo;content&amp;rdquo;, &amp;ldquo;database&amp;rdquo;, &amp;ldquo;graphics&amp;rdquo;, &amp;ldquo;http&amp;rdquo;, &amp;ldquo;javaee&amp;rdquo;, &amp;ldquo;library&amp;rdquo;, &amp;ldquo;mail&amp;rdquo;, &amp;ldquo;mobile&amp;rdquo;, &amp;ldquo;network-client&amp;rdquo;, &amp;ldquo;network-server&amp;rdquo;, &amp;ldquo;osgi&amp;rdquo;, &amp;ldquo;security&amp;rdquo;, &amp;ldquo;testing&amp;rdquo;, &amp;ldquo;virtual-machine&amp;rdquo;, &amp;ldquo;web-framework&amp;rdquo;, &amp;ldquo;xml&amp;rdquo;]&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Dropdown for project type,&lt;/p&gt;
+&lt;p&gt;project.type=[ &amp;ldquo;Customer Project&amp;rdquo;, &amp;ldquo;Internal Project&amp;rdquo;, &amp;ldquo;Product&amp;rdquo;, &amp;ldquo;Service&amp;rdquo;, &amp;ldquo;Inner Source&amp;rdquo; ]&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;API Token generation,&lt;/p&gt;
+&lt;p&gt;rest.apitoken.generator.enable=false&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Activation of portlets and components&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Backend Properties&lt;/strong&gt;: This, &lt;a href=&#34;https://github.com/eclipse/sw360/blob/master/backend/src-common/src/main/resources/sw360.properties&#34;&gt;sw360.properties&lt;/a&gt; file contains the sw360 backend properties. This file contains the common properties for the backend services and also holds the setting for the mail utility.&lt;/p&gt;
+&lt;p&gt;You can change these default values by mentioning it in the sw360.properties file, present in /etc/sw360 folder. This path is to be created by the admin. After changing the properties, server needs to be restarted in order to make the changes effective. If the properties file is not present in the required folder, the default values will be selected.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

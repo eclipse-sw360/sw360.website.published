@@ -14,6 +14,141 @@
     
     
     <item>
+      <title>Docs: SW360 Best Practices</title>
+      <link>https://www.eclipse.org/sw360/docs/userguide/bestpractices/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/sw360/docs/userguide/bestpractices/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;sw360-usage-and-handling-of-components&#34;&gt;SW360 Usage and Handling of Components&lt;/h2&gt;
+&lt;p&gt;The above mentioned data model has consequences for the usage of SW360:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;If you create a component entry, most likely you will go ahead with a release entry, otherwise, the component stays an empty shell&lt;/li&gt;
+&lt;li&gt;Uploading source packages / actual software as attachment makes sense at the release, not at the component&lt;/li&gt;
+&lt;li&gt;If you have created a component and release entry, you can go ahead and assign a vendor to a release.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This very clear approach enables a number of issues, please keep the following goals in mind:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Duplicate entries need to be removed&lt;/li&gt;
+&lt;li&gt;Separating vendor from components names and release tags brings clarity to component naming&lt;/li&gt;
+&lt;li&gt;Interaction with other systems is a must today. As such we need to support the CPE standard which also implement this 3-parts separation&lt;/li&gt;
+&lt;li&gt;Having the clear modeling of data enables better search and filtering abilities of the component catalogue.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;how-to-create-component-entries&#34;&gt;How to Create (Component) Entries?&lt;/h2&gt;
+&lt;p&gt;In order to have a clean and useful catalogue, data hygiene is very important. The main goal is to have clean component / release datasets that allow for versatile use and seamless integration with other systems (see the Handling of Components above). When creating a component, please consider the following rules:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;What is the name of the vendor, the name of the component and what is the release designator?&lt;/li&gt;
+&lt;li&gt;For the Vendor
+&lt;ul&gt;
+&lt;li&gt;Does a CPE entry exist?
+&lt;ul&gt;
+&lt;li&gt;Look here: &lt;a href=&#34;https://nvd.nist.gov/cpe.cfm&#34;&gt;&lt;span style=&#34;color:red&#34;&gt;↗&lt;/span&gt; https://nvd.nist.gov/cpe.cfm&lt;/a&gt; or &lt;a href=&#34;http://scap.nist.gov/specifications/cpe/dictionary.html&#34;&gt;&lt;span style=&#34;color:red&#34;&gt;↗&lt;/span&gt; http://scap.nist.gov/specifications/cpe/dictionary.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Use the same writing as found in the CPE dictionary&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;A CPE does not exist?
+&lt;ul&gt;
+&lt;li&gt;Who is the copyright holder: an organization?
+&lt;ul&gt;
+&lt;li&gt;Use this organization name without &amp;ldquo;inc&amp;rdquo;, &amp;ldquo;Gmbh&amp;rdquo;, etc.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;A person
+&lt;ul&gt;
+&lt;li&gt;Look at the CPE dictionaries for example&lt;/li&gt;
+&lt;li&gt;They use first name last name with &amp;ldquo;_&amp;rdquo;, for example &amp;ldquo;Wedge_Antilles&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;For a component
+&lt;ul&gt;
+&lt;li&gt;Again, does a CPE entry exist?&lt;/li&gt;
+&lt;li&gt;Separate Component name from release designation&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;For a release
+&lt;ul&gt;
+&lt;li&gt;Do not repeat the component name&lt;/li&gt;
+&lt;li&gt;Use the release designation as provided by the software package&lt;/li&gt;
+&lt;li&gt;Avoid prefixes, such as &amp;ldquo;version&amp;rdquo;, &amp;ldquo;v&amp;rdquo; etc&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;For special cases:
+&lt;ul&gt;
+&lt;li&gt;If you upload a part of a release software package, create a &lt;strong&gt;separate&lt;/strong&gt; release for this&lt;/li&gt;
+&lt;li&gt;For example &amp;ldquo;2.0-MODIFIED&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;Consider that leaving items out from a software release is actually a modification&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;how-to-create-vendors&#34;&gt;How to Create Vendors&lt;/h2&gt;
+&lt;p&gt;In order to have a vendor record in the sw360, then choosing a name is important. The vendor in SW360 is the real &amp;ldquo;manufacturer&amp;rdquo; independently from where you download it.&lt;/p&gt;
+&lt;p&gt;There are different cases:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;COTS:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Obvious case: use vendor short name in CPE style and long name for the actual company name (Apple Inc. vs. Apple)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;You could even search for an existing vendor entry in the CPE dictionary to get existing vendor naming rules and use this as short name.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Consider the following link: &lt;a href=&#34;https://nvd.nist.gov/products/cpe/search&#34;&gt;&lt;span style=&#34;color:red&#34;&gt;↗&lt;/span&gt;  https://nvd.nist.gov/products/cpe/search&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Vendor is actually entity that is contract partner, but is confusing: for Microsoft products, there could be a Microsoft certified solution partner which is the vendor, this must mapped differently in the SW360.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;General rule&lt;/strong&gt;: Vendor is meant to be manufacturing party not distributing / delivering party.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Freeware&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Problem is that freeware has an author, but also different &amp;ldquo;vendors&amp;rdquo; in terms of where it could be downloaded from. This is difficult because different download Web site may involve different licensing conditions.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;OSS:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Community name, e.g. zlib project for zlib.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Or the org name of the github orgname or sourceforge group name&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Do not use &amp;ldquo;Github&amp;rdquo; or &amp;ldquo;Sourceforge&amp;rdquo; as vendor&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;However, foundations, publishing the software would be a vendor, e.g. &amp;ldquo;Apache&amp;rdquo;, &amp;ldquo;Eclipse&amp;rdquo;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;But eclipse has a github organization anyway, for example&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;With single author projects should you take the author name. A &amp;ldquo;john_doe&amp;rdquo; from John Doe as short name.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Note that very release has its own vendor. as a consequence:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;There could be a release from one Web page and one release downloaded from another Web page. If there is different licensing or sources involved, this could be a solution.&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
       <title>Docs: Vulnerability Management</title>
       <link>https://www.eclipse.org/sw360/docs/userguide/vulnerabilitymanagement/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -125,6 +260,78 @@ cvesearch.default.cutoff=6
     </item>
     
     <item>
+      <title>Docs: SW360 User Frequently Asked Questions</title>
+      <link>https://www.eclipse.org/sw360/docs/userguide/faq/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/sw360/docs/userguide/faq/</guid>
+      <description>
+        
+        
+        &lt;h5 id=&#34;q-who-should-be-listed-as-moderator&#34;&gt;&lt;strong&gt;Q&lt;/strong&gt;: Who should be listed as Moderator?&lt;/h5&gt;
+&lt;p&gt;&lt;strong&gt;A&lt;/strong&gt;: Moderator are persons who need to review changes done on certain items (project, component, release or attachment) by persons who do not have the user right to actually do these changes. For BT moderators are the persons with the role &amp;lsquo;Software Clearing Site Representative&amp;rsquo;.&lt;/p&gt;
+&lt;h5 id=&#34;q-who-should-be-listed-as-contributor&#34;&gt;&lt;strong&gt;Q&lt;/strong&gt;: Who should be listed as Contributor?&lt;/h5&gt;
+&lt;p&gt;&lt;strong&gt;A&lt;/strong&gt;: By default only the owner (or creator) of an item (project, component, release) is allowed to modify this item. Often it is useful that additional people are allowed to edit an item. These additional people (software architects, developers, additional experts) should get listed as contributors.&lt;/p&gt;
+&lt;h5 id=&#34;q-i-have-changed-a-project-component-release-or-attachment-but-sw360-does-not-show-the-changes&#34;&gt;&lt;strong&gt;Q&lt;/strong&gt;: I have changed a project, component, release or attachment, but SW360 does not show the changes?&lt;/h5&gt;
+&lt;p&gt;&lt;strong&gt;A&lt;/strong&gt;: It might be that you have tried to change something that needs to be review by someone else. In such cases a so called &amp;lsquo;Moderation Request&amp;rsquo; is generated. A Moderator needs to approve your changes. Go to the Home view an check the box &amp;lsquo;My Task Submissions&amp;rsquo;, the project, component, or release should be listed there.&lt;/p&gt;
+&lt;h5 id=&#34;q-what-should-i-enter-in-the-field-visibility&#34;&gt;&lt;strong&gt;Q&lt;/strong&gt;: What should I enter in the field &amp;lsquo;Visibility&amp;rsquo;.&lt;/h5&gt;
+&lt;p&gt;&lt;strong&gt;A&lt;/strong&gt;: Visibility controls which group of people is allowed to see a project. The default setting is &amp;lsquo;Everyone&amp;rsquo;, i.e. everyone within an organisation can see the project and all its releases.&lt;/p&gt;
+&lt;h5 id=&#34;q-how-can-i-change-the-clearing-state-of-a-release&#34;&gt;&lt;strong&gt;Q&lt;/strong&gt;: How can I change the &amp;lsquo;Clearing State&amp;rsquo; of a release?&lt;/h5&gt;
+&lt;p&gt;&lt;strong&gt;A&lt;/strong&gt;: There is no direct way to do it. If there is no clearing report available, the clearing state will be &amp;lsquo;New&amp;rsquo;. If a clearing report available it will be &amp;lsquo;Clearing report available&amp;rsquo;. If at least one clearing report has been approved, the clearing state will be &amp;lsquo;Approved&amp;rsquo;.&lt;/p&gt;
+&lt;h5 id=&#34;q-i-cant-find-a-specific-release-inside-my-project--what-can-i-do&#34;&gt;&lt;strong&gt;Q&lt;/strong&gt;: I can&amp;rsquo;t find a specific release inside my project – what can I do?&lt;/h5&gt;
+&lt;p&gt;&lt;strong&gt;A&lt;/strong&gt;: You can sort each column by clicking on the column name, i.e. you can sort the entries by name, project origin, clearing state, mainline state or project mainline state – normally that helps finding a certain release.&lt;/p&gt;
+&lt;h5 id=&#34;q-i-cant-delete-my-component-called-toms-test-component&#34;&gt;&lt;strong&gt;Q&lt;/strong&gt;: I can&amp;rsquo;t delete my component called &amp;lsquo;Tom&amp;rsquo;s Test Component&amp;rsquo;.&lt;/h5&gt;
+&lt;p&gt;&lt;strong&gt;A&lt;/strong&gt;: Do not use special characters like single or double quotes. To be able to delete such a component or release you&amp;rsquo;ll first have to rename it…&lt;/p&gt;
+&lt;h5 id=&#34;q-what-is-copyleft-effect&#34;&gt;&lt;strong&gt;Q&lt;/strong&gt;: What is Copyleft Effect?&lt;/h5&gt;
+&lt;p&gt;&lt;strong&gt;A&lt;/strong&gt;: &lt;strong&gt;Copyleft&lt;/strong&gt; effect is the reverse idea of &lt;strong&gt;copyright&lt;/strong&gt;. Goal is that software licensed under such license is always free and can never get a privatised software asset. The user gets the freedom to run, copy, modify and distribute the software, but it is not possible to add any further restrictions. This implies that &lt;strong&gt;modified software&lt;/strong&gt; must also be free and becomes available to the community.&lt;/p&gt;
+&lt;h5 id=&#34;q-different-classification-of-the-open-source-licenses&#34;&gt;&lt;strong&gt;Q&lt;/strong&gt;: Different Classification of the Open Source Licenses.&lt;/h5&gt;
+&lt;p&gt;&lt;strong&gt;A&lt;/strong&gt;: There are hundreds of OSS licenses, the following table will give a brief overview about the most common OSS licenses, the risks and the obligations that need to be fulfilled when using them:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;License Class&lt;/th&gt;
+&lt;th&gt;License Name(s)&lt;/th&gt;
+&lt;th&gt;Risks&lt;/th&gt;
+&lt;th&gt;Obligations&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;span style=&#34;color:white;font-size:2em;&#34;&gt;⚫&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;White Licenses&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;MIT, BSD (except for BSD-4-Clause), BSL-1.0, CPOL-1.02, MsPL, zLib, Apache-1.1, Apache-2.0 (if no code changes are done)&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;low risk&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Mostly standard obligations: display license text, display copyrights&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;span style=&#34;color:yellow;font-size:2em;&#34;&gt;⚫&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Yellow Licenses&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;CDDL-1.0, CPL-1.0, EPL-1.0, eCos License, MPL, NPL&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;medium risk&lt;/strong&gt; - because of non-standard obligtions in some cases&lt;/td&gt;
+&lt;td&gt;Display license text; display copyrights; all changes of the component code must become OSS as well; possible license incompatibility with red licenses&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;span style=&#34;color:red;font-size:2em;&#34;&gt;⚫&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Red Licenses&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;GPL-2.0, GPL-3.0, LGPL-2.1, LGPL-3.0, AGPL&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;check before use&lt;/strong&gt; some special obligation which might be not in line with your lans&lt;/td&gt;
+&lt;td&gt;Display license text; display copyrights; take care about copyleft effect - get in contact with your software clearing experts; all distributions must clearly state that (L)GPL license code is used&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;span style=&#34;color:red;font-size:2em;&#34;&gt;⚫&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Red Licenses&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;SleepyCat, Aladdin Free Public License; Berkeley DB licenses&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;really check before use&lt;/strong&gt;  because of nearly unlimited copy left effect&lt;/td&gt;
+&lt;td&gt;Before thinking about components licensed under these license, get in contact with your software licensing experts!&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+      </description>
+    </item>
+    
+    <item>
       <title>Docs: Workflows</title>
       <link>https://www.eclipse.org/sw360/docs/userguide/workflows/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -138,7 +345,11 @@ cvesearch.default.cutoff=6
 &lt;p&gt;So, the user would like to create an entry for zlib-1.2.8 for example in sw360. The main thing to know (see page basic concepts)is that sw360 separates releases from components: the release is the zlib-1.2.8 but the component is the zlib. By this approach, components as a kind of container type in sw360, holding several releases.&lt;/p&gt;
 &lt;p&gt;Therefore, for a new component the user needs to create a component entry first, and then add a release to it. Just adding a release will not work. If a component with a different release already exists, the users add a release to the existing component.&lt;/p&gt;
 &lt;p&gt;The intended roles for this can be a developer that would like to start caring for an OSS component or release. In addition a project owner / project owner can care for the components and releases part of the product or process.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://github.com/eclipse/sw360/wiki/images-workflow/worklfow-adding-component-and-release-to-a-project.png&#34; alt=&#34;worklfow-adding-component-and-release-to-a-project&#34;&gt;&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/img/workflow/worklfow-adding-component-and-release-to-a-project.png&#34;/&gt; 
+&lt;/figure&gt;
+
 &lt;h3 id=&#34;create-a-project&#34;&gt;Create a Project&lt;/h3&gt;
 &lt;p&gt;A project is a structure to keep track on releases inside project, as well as other projects. Please note that a project can be also a product, depending on the type of business. the use of the term &amp;lsquo;project&amp;rsquo; is used also for subsuming the term &amp;lsquo;product&amp;rsquo;.&lt;/p&gt;
 &lt;p&gt;As for the integration case with the OSS software FOSSology, the project view allows for an overview, which of the used components have been analyzed with FOSSology already.&lt;/p&gt;
@@ -154,7 +365,11 @@ cvesearch.default.cutoff=6
 &lt;li&gt;Project contacts&lt;/li&gt;
 &lt;li&gt;Important Dates for the project&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img src=&#34;https://github.com/eclipse/sw360/wiki/images-workflow/workflow-add-project.png&#34; alt=&#34;workflow-add-project&#34;&gt;&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/img/workflow/workflow-add-project.png&#34;/&gt; 
+&lt;/figure&gt;
+
 &lt;h3 id=&#34;moderation&#34;&gt;Moderation&lt;/h3&gt;
 &lt;p&gt;The moderation is the basic way of applying changes if the document is not created by someone else. In sw360 the following person can edit documents right away (without moderation request):&lt;/p&gt;
 &lt;ul&gt;
@@ -164,7 +379,7 @@ cvesearch.default.cutoff=6
 &lt;li&gt;Moderators of this document&lt;/li&gt;
 &lt;li&gt;Other special roles, such as project responsible&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Please see the page &lt;a href=&#34;https://github.com/eclipse/sw360/wiki/Dev-Role-Authorisation-Model&#34;&gt;about the Role Authorization Model&lt;/a&gt; for more information.&lt;/p&gt;
+&lt;p&gt;Please see the page &lt;a href=&#34;https://www.eclipse.org/sw360/docs/development/dev-role-authorisation-model/&#34; title=&#34;Dev Role&#34;&gt;about the Role Authorization Model&lt;/a&gt; for more information.&lt;/p&gt;
 &lt;p&gt;If the user who wishes to change a document and is not one of these, the moderator workflow kicks in. Then changes applied to the document are not really applied, but are sent to a moderator. Moderators are:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;The creator of a document (document is a project entry, a release entry etc)&lt;/li&gt;
@@ -173,7 +388,11 @@ cvesearch.default.cutoff=6
 &lt;li&gt;Moderators of this document&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;The moderator can review, approve or decline the request. Then, the requesting user can delete the request. The moderator request workflow is shown below.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://github.com/eclipse/sw360/wiki/images-workflow/workflow-moderation.png&#34; alt=&#34;workflow-moderation&#34;&gt;&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/img/workflow/workflow-moderation.png&#34;/&gt; 
+&lt;/figure&gt;
+
 
       </description>
     </item>

@@ -15,10 +15,10 @@
     
     <item>
       <title>Docs: How to add a backend portlet to sw360</title>
-      <link>https://www.eclipse.org/sw360/docs/developers/dev-adding-a-new-portlet-backend/</link>
+      <link>https://www.eclipse.org/sw360/docs/development/dev-adding-a-new-portlet-backend/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://www.eclipse.org/sw360/docs/developers/dev-adding-a-new-portlet-backend/</guid>
+      <guid>https://www.eclipse.org/sw360/docs/development/dev-adding-a-new-portlet-backend/</guid>
       <description>
         
         
@@ -109,10 +109,10 @@ In the ComponentDatabaseHandler.java we actually do some work and implement the 
     
     <item>
       <title>Docs: How to add a frontend portlet to sw360</title>
-      <link>https://www.eclipse.org/sw360/docs/developers/dev-adding-a-new-portlet-frontend/</link>
+      <link>https://www.eclipse.org/sw360/docs/development/dev-adding-a-new-portlet-frontend/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://www.eclipse.org/sw360/docs/developers/dev-adding-a-new-portlet-frontend/</guid>
+      <guid>https://www.eclipse.org/sw360/docs/development/dev-adding-a-new-portlet-frontend/</guid>
       <description>
         
         
@@ -240,11 +240,205 @@ Then we change the theme of Private Pages back to SW360-Theme.&lt;/p&gt;
     </item>
     
     <item>
-      <title>Docs: SW360 Development Branches</title>
-      <link>https://www.eclipse.org/sw360/docs/developers/dev-branches/</link>
+      <title>Docs: Administrator Menu</title>
+      <link>https://www.eclipse.org/sw360/docs/administrationguide/menu/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://www.eclipse.org/sw360/docs/developers/dev-branches/</guid>
+      <guid>https://www.eclipse.org/sw360/docs/administrationguide/menu/</guid>
+      <description>
+        
+        
+        &lt;p&gt;The &lt;strong&gt;admin menu&lt;/strong&gt; consists of the following items:&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/img/ImagesBasic/admin_menu.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;User&lt;/strong&gt;: Displays the list of &lt;strong&gt;Liferay Users&lt;/strong&gt;. One can also download or upload new users in this section&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Vendors&lt;/strong&gt;: Displays the list of the &lt;strong&gt;Vendors&lt;/strong&gt; that can be managed by the admin&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Bulk License Edit&lt;/strong&gt;: List of licenses can be edited together in this section&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Licenses&lt;/strong&gt;: Functions such as Download License Archive, Upload License Archive, Import SPDX Information and Delete License Information can be done in this section&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Obligations&lt;/strong&gt;: To manage different types of Obligations on the basis of obligation level and obligation type&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Schedule&lt;/strong&gt;: To schedule tasks such as CVE Search&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Fosology&lt;/strong&gt;: Connection to the Fossology server&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Import and Export&lt;/strong&gt;: Can Import and Export &lt;strong&gt;Component&lt;/strong&gt;, &lt;strong&gt;Release&lt;/strong&gt; and &lt;strong&gt;License&lt;/strong&gt; information&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Attachment Cleanup&lt;/strong&gt;: To cleanup attachment database&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Database Sanitization&lt;/strong&gt;: Helps in searching for duplicate identifiers&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: API Access</title>
+      <link>https://www.eclipse.org/sw360/docs/development/restapi/access/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/sw360/docs/development/restapi/access/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;how-to-get-access&#34;&gt;How to get Access&lt;/h2&gt;
+&lt;p&gt;There are the following steps&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Open a browser with developer tools&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Go to
+&lt;code&gt;https://&amp;lt;my_sw360_server&amp;gt;/authorization/client-management&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;To add a new client, enter the following javascript in the dev tools
+console&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt; xmlHttpRequest = new XMLHttpRequest();
+ xmlHttpRequest.open(&#39;POST&#39;, &#39;/authorization/client-management&#39;, false);
+ xmlHttpRequest.setRequestHeader(&#39;Content-Type&#39;, &#39;application/json&#39;);
+ xmlHttpRequest.setRequestHeader(&#39;Accept&#39;, &#39;application/json&#39;);
+ xmlHttpRequest.send(JSON.stringify(
+   {
+     &amp;quot;description&amp;quot; : &amp;quot;my first test client&amp;quot;,
+     &amp;quot;authorities&amp;quot; : [ &amp;quot;BASIC&amp;quot; ],
+     &amp;quot;scope&amp;quot; : [ &amp;quot;READ&amp;quot; ],
+     &amp;quot;access_token_validity&amp;quot; : 3600,
+     &amp;quot;refresh_token_validity&amp;quot; : 3600
+   }
+ ));
+ console.log(xmlHttpRequest.responseText);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;To manipulate an existing client, do the same but add the clientid to
+the data object&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;&amp;quot;client_id&amp;quot; : &amp;quot;9e358ca832ce4ce99a770c7bd0f8e066&amp;quot;&lt;/code&gt;&lt;br&gt;
+to remove an existing client, enter the following javascript in the
+dev tools console&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt; xmlHttpRequest = new XMLHttpRequest();
+ xmlHttpRequest.open(&#39;DELETE&#39;, &#39;/authorization/client-management/9e358ca832ce4ce99a770c7bd0f8e066&#39;, false);
+ xmlHttpRequest.setRequestHeader(&#39;Content-Type&#39;, &#39;application/json&#39;);
+ xmlHttpRequest.setRequestHeader(&#39;Accept&#39;, &#39;application/json&#39;);
+ xmlHttpRequest.send();
+ console.log(xmlHttpRequest.responseText);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;You receive the token from such request, which looks like&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt; {
+   &amp;quot;access_token&amp;quot; : &amp;quot;eyJhbGciOiJSUzI...&amp;quot;,
+   &amp;quot;token_type&amp;quot; : &amp;quot;bearer&amp;quot;,
+   &amp;quot;refresh_token&amp;quot; : &amp;quot;eyJhbGciOiJSUzI1...&amp;quot;,
+   &amp;quot;expires_in&amp;quot; : 599,
+   &amp;quot;scope&amp;quot; : &amp;quot;READ WRITE&amp;quot;,
+   &amp;quot;jti&amp;quot; : &amp;quot;42539b0d-...&amp;quot;
+ }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;You can try a request which uses for example the tool curl:
+&lt;code&gt;curl -X GET -H &amp;quot;Authorization: Bearer [token]&amp;quot; -H &amp;quot;Content-Type: application/json&amp;quot;&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;You can get a new token (you must get a new token) after expiration using client id and secret:
+&lt;code&gt;https://&amp;lt;my_sw360_server&amp;gt;/authorization/oauth/token?grant_type=refresh_token&amp;amp;refresh_token=[refresh_token]&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;deprecated-method-access-tokens-from-the-sw360-ui&#34;&gt;Deprecated Method: Access Tokens from the SW360 UI&lt;/h2&gt;
+&lt;p&gt;Recently SW360 has changed, username/password authentication is not possible anymore. So after successful entitlement login, the user is able to obtain a token with limited validity of time.&lt;/p&gt;
+&lt;p&gt;Our tests have confirmed that, if you have used the JWT authentication workflow, the change means for you:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;No interaction with authorization service is necessary.&lt;/li&gt;
+&lt;li&gt;The token needs to be provided as with the JWT.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Please find attached, where to obtain the token:&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/img/SW360RESTfulAPIImages/Preferences-AccessToke.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;p&gt;And then find the interface for issuing the tokens:&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/img/SW360RESTfulAPIImages/Preferences-AccessToke1.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;h3 id=&#34;token-into-which-header&#34;&gt;Token into which Header?&lt;/h3&gt;
+&lt;p&gt;If you are used to REST clients, you might know that you need some kind of authentication info. Below are the previous and current ways of adding the authentication info to the HTTP header. Now you should add to the header the token value that you can obtain from the sw360 UI (see above):&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Authorization: Token &amp;lt;Token-Value&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Previously, when you got the authentication info via the authorization service, it was:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Authorization: Bearer &amp;lt;JWT-Value&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;example-powershell-script&#34;&gt;Example: PowerShell Script&lt;/h3&gt;
+&lt;p&gt;This is an example Thomas Graf has sent around one - might be good to see how this works in general:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-powershell&#34; data-lang=&#34;powershell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#033&#34;&gt;$baseUri&lt;/span&gt; = &lt;span style=&#34;color:#c30&#34;&gt;&amp;#34;https://&amp;lt;my_sw360_server&amp;gt;/resource/&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#033&#34;&gt;$uri&lt;/span&gt; = &lt;span style=&#34;color:#033&#34;&gt;$baseUri&lt;/span&gt; + &lt;span style=&#34;color:#c30&#34;&gt;&amp;#34;api/projects&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#033&#34;&gt;$data&lt;/span&gt; = &lt;span style=&#34;color:#c30&#34;&gt;@&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c30&#34;&gt;{   &amp;#34;name&amp;#34; : &amp;#34;My 5th Dummy Project&amp;#34;,
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c30&#34;&gt;    &amp;#34;description&amp;#34; : &amp;#34;Read/write test&amp;#34;,
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c30&#34;&gt;    &amp;#34;version&amp;#34;: &amp;#34;1.0&amp;#34;,
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c30&#34;&gt;    &amp;#34;tag&amp;#34;: &amp;#34;my tag&amp;#34;,
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c30&#34;&gt;    &amp;#34;ownerGroup&amp;#34;: &amp;#34;GROUP&amp;#34;,
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c30&#34;&gt;    &amp;#34;projectType&amp;#34;: &amp;#34;PRODUCT&amp;#34;,
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c30&#34;&gt;    &amp;#34;linkedProjects&amp;#34;: {},
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c30&#34;&gt;    &amp;#34;linkedReleases&amp;#34;: {}
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c30&#34;&gt;} &amp;#34;@
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c30&#34;&gt;$headers = New-Object &amp;#34;System.Collections.Generic.Dictionary[[String],[String]]&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c30&#34;&gt;$headers.Add(&amp;#39;Content-Type&amp;#39;, &amp;#39;application/hal+json&amp;#39;)
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c30&#34;&gt;$headers.Add(&amp;#39;Authorization&amp;#39;, &amp;#39;Token &amp;#39; + $env:SW360StageToken)
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c30&#34;&gt;$headers.Add(&amp;#39;Accept&amp;#39;, &amp;#39;application/hal+json&amp;#39;)
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c30&#34;&gt;Invoke-WebRequest $uri -Method POST -Body $data -Headers $headers
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;deprecated-method-authentication-with-username-and-password&#34;&gt;Deprecated Method: Authentication with Username and Password&lt;/h2&gt;
+&lt;h3 id=&#34;if-i-am-not-using-token-but-sw360-elsewhere-how-do-i-obtain-tokens&#34;&gt;If I am not using token, but SW360 elsewhere: how do I obtain tokens?&lt;/h3&gt;
+&lt;p&gt;There are two steps you need to do with your client. First, Obtain an authorization token. This can be done by executing on the development instance for example be:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;curl -X POST --user &lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;trusted-sw360-client:sw360-secret&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;&lt;/span&gt;-d &lt;span style=&#34;color:#033&#34;&gt;grant_type&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;password&amp;amp;&lt;span style=&#34;color:#033&#34;&gt;username&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;user@sw360.org&amp;amp;&lt;span style=&#34;color:#033&#34;&gt;password&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f60&#34;&gt;12345&lt;/span&gt; &lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;&lt;/span&gt;https://&amp;lt;my_sw360_server&amp;gt;/authorization/oauth/token -k
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Of course, for the staging instance, the user must be your user credentials and the trusted client secret looks different.&lt;/p&gt;
+&lt;p&gt;Second you need to parameterize your request with this token. Pls. see the link at the very top &amp;lsquo;Technical Information&amp;rsquo;: &lt;a href=&#34;https://www.eclipse.org/sw360/docs/development/restapi/dev-rest-api/&#34; title=&#34;Rest API&#34;&gt;Rest API&lt;/a&gt; for more information.&lt;/p&gt;
+&lt;h3 id=&#34;faq&#34;&gt;FAQ&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;When I use the JWT approach I used curl to retrieve the token and get&lt;/p&gt;
+&lt;p&gt;{&amp;ldquo;error&amp;rdquo;:&amp;ldquo;unauthorized&amp;rdquo;,&amp;ldquo;error_description&amp;rdquo;:&amp;ldquo;No AuthenticationProvider found for org.springframework.security.authentication.UsernamePasswordAuthenticationToken&amp;rdquo;}&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Your password seems to be wrong.&lt;/p&gt;
+&lt;p&gt;Note, that with curl - you have to escape special characters in your password. E.g. password
+123$abc
+results in the following request&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;curl -X POST --user &lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;trusted-sw360-client:sw360-secret&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;&lt;/span&gt;-d &lt;span style=&#34;color:#033&#34;&gt;grant_type&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;password&amp;amp;&lt;span style=&#34;color:#033&#34;&gt;username&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;user@sw360.org&amp;amp;&lt;span style=&#34;color:#033&#34;&gt;password&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;123&lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;\$&lt;/span&gt;abc &lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;&lt;/span&gt;https://&amp;lt;my_sw360_server&amp;gt;/authorization/oauth/token -k
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: SW360 Development Branches</title>
+      <link>https://www.eclipse.org/sw360/docs/development/dev-branches/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/sw360/docs/development/dev-branches/</guid>
       <description>
         
         
@@ -261,10 +455,10 @@ Then we change the theme of Private Pages back to SW360-Theme.&lt;/p&gt;
     
     <item>
       <title>Docs: How to add fields to an existing class</title>
-      <link>https://www.eclipse.org/sw360/docs/developers/dev-adding-new-fields-to-existing-classes/</link>
+      <link>https://www.eclipse.org/sw360/docs/development/dev-adding-new-fields-to-existing-classes/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://www.eclipse.org/sw360/docs/developers/dev-adding-new-fields-to-existing-classes/</guid>
+      <guid>https://www.eclipse.org/sw360/docs/development/dev-adding-new-fields-to-existing-classes/</guid>
       <description>
         
         
@@ -311,10 +505,10 @@ We will add the license text to licenses in the thrift file:&lt;/p&gt;
     
     <item>
       <title>Docs: Component / Release</title>
-      <link>https://www.eclipse.org/sw360/docs/developers/testcases/test-cases-components/</link>
+      <link>https://www.eclipse.org/sw360/docs/development/testcases/test-cases-components/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://www.eclipse.org/sw360/docs/developers/testcases/test-cases-components/</guid>
+      <guid>https://www.eclipse.org/sw360/docs/development/testcases/test-cases-components/</guid>
       <description>
         
         
@@ -783,10 +977,10 @@ We will add the license text to licenses in the thrift file:&lt;/p&gt;
     
     <item>
       <title>Docs: CouchDB External Documents</title>
-      <link>https://www.eclipse.org/sw360/docs/developers/dev-external-documents-with-couchdb/</link>
+      <link>https://www.eclipse.org/sw360/docs/development/dev-external-documents-with-couchdb/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://www.eclipse.org/sw360/docs/developers/dev-external-documents-with-couchdb/</guid>
+      <guid>https://www.eclipse.org/sw360/docs/development/dev-external-documents-with-couchdb/</guid>
       <description>
         
         
@@ -1102,10 +1296,10 @@ The following classes are needed:&lt;/p&gt;
     
     <item>
       <title>Docs: Database migration using Costco</title>
-      <link>https://www.eclipse.org/sw360/docs/developers/dev-database-migration-using-costco/</link>
+      <link>https://www.eclipse.org/sw360/docs/development/dev-database-migration-using-costco/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://www.eclipse.org/sw360/docs/developers/dev-database-migration-using-costco/</guid>
+      <guid>https://www.eclipse.org/sw360/docs/development/dev-database-migration-using-costco/</guid>
       <description>
         
         
@@ -1194,10 +1388,10 @@ The following classes are needed:&lt;/p&gt;
     
     <item>
       <title>Docs: Definition of Done</title>
-      <link>https://www.eclipse.org/sw360/docs/developers/dev-dod-and-style/</link>
+      <link>https://www.eclipse.org/sw360/docs/development/dev-dod-and-style/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://www.eclipse.org/sw360/docs/developers/dev-dod-and-style/</guid>
+      <guid>https://www.eclipse.org/sw360/docs/development/dev-dod-and-style/</guid>
       <description>
         
         
@@ -1306,10 +1500,10 @@ The following classes are needed:&lt;/p&gt;
     
     <item>
       <title>Docs: Filtering in Portlets</title>
-      <link>https://www.eclipse.org/sw360/docs/developers/dev-filtering-in-portlets/</link>
+      <link>https://www.eclipse.org/sw360/docs/development/dev-filtering-in-portlets/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://www.eclipse.org/sw360/docs/developers/dev-filtering-in-portlets/</guid>
+      <guid>https://www.eclipse.org/sw360/docs/development/dev-filtering-in-portlets/</guid>
       <description>
         
         
@@ -1331,10 +1525,10 @@ The following classes are needed:&lt;/p&gt;
     
     <item>
       <title>Docs: Fossology Integration</title>
-      <link>https://www.eclipse.org/sw360/docs/developers/dev-fossology-integration/</link>
+      <link>https://www.eclipse.org/sw360/docs/development/dev-fossology-integration/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://www.eclipse.org/sw360/docs/developers/dev-fossology-integration/</guid>
+      <guid>https://www.eclipse.org/sw360/docs/development/dev-fossology-integration/</guid>
       <description>
         
         
@@ -1390,10 +1584,10 @@ In order to make the clearing decisions available a reuser needs to be scheduled
     
     <item>
       <title>Docs: Licenses</title>
-      <link>https://www.eclipse.org/sw360/docs/developers/testcases/test-cases-licenses/</link>
+      <link>https://www.eclipse.org/sw360/docs/development/testcases/test-cases-licenses/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://www.eclipse.org/sw360/docs/developers/testcases/test-cases-licenses/</guid>
+      <guid>https://www.eclipse.org/sw360/docs/development/testcases/test-cases-licenses/</guid>
       <description>
         
         
@@ -1554,10 +1748,10 @@ In order to make the clearing decisions available a reuser needs to be scheduled
     
     <item>
       <title>Docs: Liferay Friendly</title>
-      <link>https://www.eclipse.org/sw360/docs/developers/dev-liferay-friendly-url/</link>
+      <link>https://www.eclipse.org/sw360/docs/development/dev-liferay-friendly-url/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://www.eclipse.org/sw360/docs/developers/dev-liferay-friendly-url/</guid>
+      <guid>https://www.eclipse.org/sw360/docs/development/dev-liferay-friendly-url/</guid>
       <description>
         
         
@@ -1634,10 +1828,10 @@ It is helpful to generate &lt;code&gt;&amp;lt;portlet:renderURL&amp;gt;&lt;/code
     
     <item>
       <title>Docs: Moderation</title>
-      <link>https://www.eclipse.org/sw360/docs/developers/testcases/test-cases-moderations/</link>
+      <link>https://www.eclipse.org/sw360/docs/development/testcases/test-cases-moderations/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://www.eclipse.org/sw360/docs/developers/testcases/test-cases-moderations/</guid>
+      <guid>https://www.eclipse.org/sw360/docs/development/testcases/test-cases-moderations/</guid>
       <description>
         
         
@@ -1858,10 +2052,10 @@ It is helpful to generate &lt;code&gt;&amp;lt;portlet:renderURL&amp;gt;&lt;/code
     
     <item>
       <title>Docs: Moderation Requests</title>
-      <link>https://www.eclipse.org/sw360/docs/developers/dev-moderation-requests/</link>
+      <link>https://www.eclipse.org/sw360/docs/development/dev-moderation-requests/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://www.eclipse.org/sw360/docs/developers/dev-moderation-requests/</guid>
+      <guid>https://www.eclipse.org/sw360/docs/development/dev-moderation-requests/</guid>
       <description>
         
         
@@ -1937,10 +2131,10 @@ On selecting the moderation requests, both documents (original and the updated o
     
     <item>
       <title>Docs: Projects</title>
-      <link>https://www.eclipse.org/sw360/docs/developers/testcases/test-cases-projects/</link>
+      <link>https://www.eclipse.org/sw360/docs/development/testcases/test-cases-projects/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://www.eclipse.org/sw360/docs/developers/testcases/test-cases-projects/</guid>
+      <guid>https://www.eclipse.org/sw360/docs/development/testcases/test-cases-projects/</guid>
       <description>
         
         
@@ -2294,10 +2488,10 @@ On selecting the moderation requests, both documents (original and the updated o
     
     <item>
       <title>Docs: Release and Versioning</title>
-      <link>https://www.eclipse.org/sw360/docs/developers/dev-releasing-sw360/</link>
+      <link>https://www.eclipse.org/sw360/docs/development/dev-releasing-sw360/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://www.eclipse.org/sw360/docs/developers/dev-releasing-sw360/</guid>
+      <guid>https://www.eclipse.org/sw360/docs/development/dev-releasing-sw360/</guid>
       <description>
         
         
@@ -2377,11 +2571,755 @@ $ mvn install
     </item>
     
     <item>
-      <title>Docs: REST API</title>
-      <link>https://www.eclipse.org/sw360/docs/developers/dev-rest-api/</link>
+      <title>Docs: Roles and Authorization</title>
+      <link>https://www.eclipse.org/sw360/docs/development/dev-role-authorisation-model/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://www.eclipse.org/sw360/docs/developers/dev-rest-api/</guid>
+      <guid>https://www.eclipse.org/sw360/docs/development/dev-role-authorisation-model/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Like any other system, SW360 allows for setting different levels of access for different users. Technically, the decision when user should be able to see or to do something happens (generally) on the backend server. This ensures consistency between the REST API and the portal application.&lt;/p&gt;
+&lt;p&gt;For setting roles of a user, the Liferay control panel is being used (Admin menu -&amp;gt; Control Panel -&amp;gt; Users and Organisations -&amp;gt; Users -&amp;gt; select one user and Edit -&amp;gt; Roles). Setting access at individual records happens in the edit view of that record.&lt;/p&gt;
+&lt;h2 id=&#34;roles-overview&#34;&gt;Roles Overview&lt;/h2&gt;
+&lt;p&gt;SW360 offers two choices for doing the roles: one is setting access rights at every record individually. Another are general roles that can be set for every user. An admin of SW360 can set user roles at the Liferay Users and Roles UI.&lt;/p&gt;
+&lt;h4 id=&#34;setup-admin-liferay-role&#34;&gt;Setup Admin (Liferay Role)&lt;/h4&gt;
+&lt;p&gt;The setup admin is the Liferay administrator, which can configure the entire liferay app, such as which portlets are shown on which page.&lt;/p&gt;
+&lt;h4 id=&#34;sw360-admin-liferay-role&#34;&gt;SW360 Admin (Liferay Role)&lt;/h4&gt;
+&lt;p&gt;The SW360 admin can change all data and promote users for more access rights, such as promoting a user to role &lt;code&gt;CLEARING_ADMIN&lt;/code&gt;. This role can change data from other groups, limited by visibility setting of a project.&lt;/p&gt;
+&lt;h4 id=&#34;clearing-admin-liferay-role&#34;&gt;Clearing Admin (Liferay Role)&lt;/h4&gt;
+&lt;p&gt;The clearing admin can change all component and release records and project records of the same group. This can be seen as group administrator.&lt;/p&gt;
+&lt;h4 id=&#34;security-admin-liferay-role&#34;&gt;Security Admin (Liferay Role)&lt;/h4&gt;
+&lt;p&gt;In addition to the user rights, the security admin can set security vulnerabilities to irrelevant&lt;/p&gt;
+&lt;h4 id=&#34;ecc-admin-liferay-role&#34;&gt;ECC Admin (Liferay Role)&lt;/h4&gt;
+&lt;p&gt;In addition to the user rights, the ECC admin can manipulate ECC data.&lt;/p&gt;
+&lt;h4 id=&#34;user&#34;&gt;User&lt;/h4&gt;
+&lt;p&gt;A user can create, modify and delete all own (=self created) records. A user cannot change records of others&lt;/p&gt;
+&lt;h3 id=&#34;moderation-requests&#34;&gt;Moderation Requests&lt;/h3&gt;
+&lt;p&gt;If a user with user or other access role rights is not entitled to write or change a record, a moderation request will be created. The moderation request contains the changes an will be routed for approval to the users who can write this record.&lt;/p&gt;
+&lt;p&gt;In addition there are ACL-style roles, meaning that per data item access settings can be made:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;creator&lt;/strong&gt; - a creator can modify in addition to the user&amp;rsquo;s read abilities, a user can be creator of a data item&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;moderator&lt;/strong&gt; - a creator can define moderators for a data item. Moderators can change a data item as a creator can.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;contributor&lt;/strong&gt; (Component) - is a contributor to a component, project, similar (but not the same) to a moderator. In addition to moderator, this role has been added to identify contributors (or that contributors get the fame).
+In contrast, the contributor cannot delete data items.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;project responsible&lt;/strong&gt; (Project) - is a contributor, just named differently to identify the responsible person.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;lead architect&lt;/strong&gt; (Project) - is a contributor, just named differently to identify the responsible person. an architect refers to the person who has that role of the project or product. This role has been added to identify architects to have a contact person for technical questions.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;contact&lt;/strong&gt; (Release) - deprecated, should be renamed to contributor see #100.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;code&gt;group (department)&lt;/code&gt;, &lt;code&gt;contributor&lt;/code&gt;, &lt;code&gt;moderator&lt;/code&gt; and &lt;code&gt;owner&lt;/code&gt; roles are entity specific, &lt;code&gt;user&lt;/code&gt;, &lt;code&gt;clearing admin&lt;/code&gt; and &lt;code&gt;admin&lt;/code&gt; are roles assigned to a user.&lt;/p&gt;
+&lt;h3 id=&#34;additional-project-visibility&#34;&gt;Additional Project Visibility&lt;/h3&gt;
+&lt;p&gt;In addition to the roles mentioned above, each project has a separate visibility setting (technically an attribute of the project document). There are four project visibility levels:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Private - no one but the creator can read.&lt;/li&gt;
+&lt;li&gt;Me and moderators - involves all moderators and contributors, basically all names that are named among the attributes (lead architect, project responsible, contributors)&lt;/li&gt;
+&lt;li&gt;Department / business unit (should be renamed) - refer to the group the users are in.&lt;/li&gt;
+&lt;li&gt;Public - all registered users of the liferay / sw360 application (login required).&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;The access rules are implemented in&lt;code&gt;lib-datahandler&lt;/code&gt;. In the package, &lt;code&gt;com.siemens.sw360.datahandler.permissions&lt;/code&gt; this is implemented in &lt;code&gt;ProjectPermissions&lt;/code&gt;. See methods &lt;code&gt;isVisible&lt;/code&gt; and &lt;code&gt;userIsEquivalentToModeratorinProject()&lt;/code&gt; for the actual rules.&lt;/p&gt;
+&lt;h3 id=&#34;overall-access-matrix&#34;&gt;Overall Access Matrix&lt;/h3&gt;
+&lt;p&gt;The following table presents the SW360 Role-Authorisation-Model.&lt;/p&gt;
+&lt;p&gt;The row specifies which action to take, the column the role of the actor. Cell entries specify which entity type can be acted upon.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;creator&lt;/th&gt;
+&lt;th&gt;moderator&lt;/th&gt;
+&lt;th&gt;contributor&lt;/th&gt;
+&lt;th&gt;user&lt;/th&gt;
+&lt;th&gt;clearing admin&lt;/th&gt;
+&lt;th&gt;(sw360)admin&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;create&lt;/td&gt;
+&lt;td&gt;-&lt;/td&gt;
+&lt;td&gt;-&lt;/td&gt;
+&lt;td&gt;-&lt;/td&gt;
+&lt;td&gt;PCRV&lt;/td&gt;
+&lt;td&gt;PCRVL&lt;/td&gt;
+&lt;td&gt;PCRVL&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;read&lt;/td&gt;
+&lt;td&gt;P&lt;/td&gt;
+&lt;td&gt;P&lt;/td&gt;
+&lt;td&gt;P&lt;/td&gt;
+&lt;td&gt;(P²)CRVL&lt;/td&gt;
+&lt;td&gt;(P²)CRVL&lt;/td&gt;
+&lt;td&gt;PCRVL&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;edit&lt;/td&gt;
+&lt;td&gt;PCR&lt;/td&gt;
+&lt;td&gt;PCR&lt;/td&gt;
+&lt;td&gt;PCR&lt;/td&gt;
+&lt;td&gt;(all created ones)&lt;/td&gt;
+&lt;td&gt;PCRVL&lt;/td&gt;
+&lt;td&gt;PCRVL&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;delete&lt;/td&gt;
+&lt;td&gt;PCR&lt;/td&gt;
+&lt;td&gt;PCR&lt;/td&gt;
+&lt;td&gt;-&lt;/td&gt;
+&lt;td&gt;(all created ones)&lt;/td&gt;
+&lt;td&gt;L&lt;/td&gt;
+&lt;td&gt;PCRVL&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;P² : only if the user is member of the group of the project (or has created the project)&lt;/p&gt;
+&lt;p&gt;Note that ECC Admins and Security Admins have only the ability to write ECC and security data respectively at given records. However, as for the other access rights this role does not enhance anything above users.&lt;/p&gt;
+&lt;h4 id=&#34;legend&#34;&gt;Legend&lt;/h4&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;acronym&lt;/th&gt;
+&lt;th&gt;description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;P&lt;/td&gt;
+&lt;td&gt;project&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;C&lt;/td&gt;
+&lt;td&gt;component&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;R&lt;/td&gt;
+&lt;td&gt;release&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;V&lt;/td&gt;
+&lt;td&gt;vendor&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;L&lt;/td&gt;
+&lt;td&gt;license&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;technical-info&#34;&gt;Technical Info&lt;/h2&gt;
+&lt;p&gt;The role access rules are put into &lt;code&gt;lib-datahandler&lt;/code&gt;. In the package, &lt;code&gt;com.siemens.sw360.datahandler.permissions&lt;/code&gt; there are implementing classes of a template class &lt;code&gt;DocumentPermissions&lt;/code&gt;. As an example, &lt;code&gt;ProjectPermissions&lt;/code&gt; extends abstract class &lt;code&gt;DocumentPermissions&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;At run time, a permissions object consisting of a document and a user is created: In &lt;code&gt;PermissionUtils&lt;/code&gt; (same package) there is a static method &lt;code&gt;makePermissions&amp;lt;T&amp;gt;()&lt;/code&gt; that creates a permissions object. The received permissions object instance can be asked if a particular operation is allowed.&lt;/p&gt;
+&lt;p&gt;Note that the general application of these permission operations runs in the backend (Thrift services). An application in the front end of &lt;code&gt;PermissionUtils&lt;/code&gt; for example, is for displaying buttons depending on the user main role (user, clearing admin or admin). Then the portlet makes plain use of the &lt;code&gt;lib-datahandler&lt;/code&gt; library.&lt;/p&gt;
+&lt;h2 id=&#34;further-plans&#34;&gt;Further plans&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Actually, creating stuff should be checked in lib-datahandler, starting with creation of licenses,which should ot be permitted to users: &lt;a href=&#34;https://github.com/siemens/sw360portal/issues/106&#34;&gt;Issue #106&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/siemens/sw360portal/issues/101&#34;&gt;Issue #101&lt;/a&gt; for&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;contributor&lt;/th&gt;
+&lt;th&gt;moderator&lt;/th&gt;
+&lt;th&gt;creator&lt;/th&gt;
+&lt;th&gt;user&lt;/th&gt;
+&lt;th&gt;clearing admin&lt;/th&gt;
+&lt;th&gt;admin&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;download OSS sources&lt;/td&gt;
+&lt;td&gt;-&lt;/td&gt;
+&lt;td&gt;-&lt;/td&gt;
+&lt;td&gt;-&lt;/td&gt;
+&lt;td&gt;R&lt;/td&gt;
+&lt;td&gt;R&lt;/td&gt;
+&lt;td&gt;R&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;download internal sources&lt;/td&gt;
+&lt;td&gt;R&lt;/td&gt;
+&lt;td&gt;R&lt;/td&gt;
+&lt;td&gt;R&lt;/td&gt;
+&lt;td&gt;-&lt;/td&gt;
+&lt;td&gt;-&lt;/td&gt;
+&lt;td&gt;R&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/siemens/sw360portal/issues/102&#34;&gt;Issue #102&lt;/a&gt; for&lt;/li&gt;
+&lt;/ol&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;contributor&lt;/th&gt;
+&lt;th&gt;moderator&lt;/th&gt;
+&lt;th&gt;creator&lt;/th&gt;
+&lt;th&gt;user&lt;/th&gt;
+&lt;th&gt;clearing admin&lt;/th&gt;
+&lt;th&gt;admin&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;send to clearing&lt;/td&gt;
+&lt;td&gt;-&lt;/td&gt;
+&lt;td&gt;P&lt;/td&gt;
+&lt;td&gt;P&lt;/td&gt;
+&lt;td&gt;-&lt;/td&gt;
+&lt;td&gt;-&lt;/td&gt;
+&lt;td&gt;PCRL&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/siemens/sw360portal/issues/103&#34;&gt;Issue #103&lt;/a&gt; for&lt;/li&gt;
+&lt;/ol&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;contributor&lt;/th&gt;
+&lt;th&gt;moderator&lt;/th&gt;
+&lt;th&gt;creator&lt;/th&gt;
+&lt;th&gt;user&lt;/th&gt;
+&lt;th&gt;clearing admin&lt;/th&gt;
+&lt;th&gt;admin&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;edit clearing report&lt;/td&gt;
+&lt;td&gt;-&lt;/td&gt;
+&lt;td&gt;R&lt;/td&gt;
+&lt;td&gt;R&lt;/td&gt;
+&lt;td&gt;-&lt;/td&gt;
+&lt;td&gt;R?&lt;/td&gt;
+&lt;td&gt;PCRL&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Semantic Commits</title>
+      <link>https://www.eclipse.org/sw360/docs/development/dev-semantic-commits/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/sw360/docs/development/dev-semantic-commits/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;the-reason-and-benefit-of-semantic-commit-messages&#34;&gt;The reason and benefit of semantic commit messages&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;automatic generating of the changelog&lt;/li&gt;
+&lt;li&gt;simple navigation through git history (e.g. ignoring style changes)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;semantic-commit-message-structure&#34;&gt;Semantic commit message structure&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;&amp;lt;type&amp;gt;(&amp;lt;scope&amp;gt;): &amp;lt;commit message&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;the-following-types-are-supported&#34;&gt;The following &lt;types&gt; are supported&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;feat (new feature for the user, not a new feature for build script)&lt;/li&gt;
+&lt;li&gt;fix (bug fix for the user, not a fix to a build script)&lt;/li&gt;
+&lt;li&gt;docs (changes to the documentation)&lt;/li&gt;
+&lt;li&gt;style (formatting, missing semi colons, etc; no production code change)&lt;/li&gt;
+&lt;li&gt;refactor (refactoring production code, eg. renaming a variable)&lt;/li&gt;
+&lt;li&gt;test (adding missing tests, refactoring tests; no production code change)&lt;/li&gt;
+&lt;li&gt;chore (updating grunt tasks etc; no production code change)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Example &lt;scope&gt; values:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;ui (user interface)&lt;/li&gt;
+&lt;li&gt;rest (REST API)&lt;/li&gt;
+&lt;li&gt;thrift (apache thrift services)&lt;/li&gt;
+&lt;li&gt;project (project portlet)&lt;/li&gt;
+&lt;li&gt;component (component portlet)&lt;/li&gt;
+&lt;li&gt;user (user portlet)&lt;/li&gt;
+&lt;li&gt;etc.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;example-of-semantic-commit-message&#34;&gt;Example of semantic commit message&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;fix(rest): change maven plugin order to generate the documentation correctly&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;&amp;lt;type&amp;gt;(&amp;lt;scope&amp;gt;): &amp;lt;commit message&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;referencing-issues&#34;&gt;Referencing issues&lt;/h2&gt;
+&lt;p&gt;Please reference in the pull request to the open issue&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;closes eclipse/sw360#&amp;lt;issue-number&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;closes eclipse/sw360#758&lt;/code&gt;&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Testing Frameworks</title>
+      <link>https://www.eclipse.org/sw360/docs/development/dev-testing-frameworks/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/sw360/docs/development/dev-testing-frameworks/</guid>
+      <description>
+        
+        
+        &lt;p&gt;The implementation of complicated rules is not always easy to read.
+A good way to document and explain the behaviour of rule engines are natural language tests.
+A frame work we use for that is &lt;a href=&#34;http://jgiven.org/&#34;&gt;jgiven&lt;/a&gt;.
+We write the tests using the [dataprovider] (&lt;a href=&#34;https://github.com/TNG/junit-dataprovider&#34;&gt;https://github.com/TNG/junit-dataprovider&lt;/a&gt;) runner.
+This is basically a runner that allows to use parametrized tests.&lt;/p&gt;
+&lt;p&gt;The basic testing frame work is still &lt;a href=&#34;http://junit.org/&#34;&gt;JUnit4&lt;/a&gt;, assertions are made using &lt;a href=&#34;https://code.google.com/p/hamcrest/wiki/Tutorial&#34;&gt;hamcrest&lt;/a&gt; and we mock complicated input classes with &lt;a href=&#34;http://mockito.org/&#34;&gt;mockito&lt;/a&gt;.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Troubleshooting</title>
+      <link>https://www.eclipse.org/sw360/docs/development/dev-troubleshooting/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/sw360/docs/development/dev-troubleshooting/</guid>
+      <description>
+        
+        
+        &lt;h3 id=&#34;development-problems-building-sw360portal-with-maven&#34;&gt;Development: problems building sw360portal with maven?&lt;/h3&gt;
+&lt;p&gt;Before building the sw360portal with maven, ensure that the following components are installed in the development environment:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A git client&lt;/li&gt;
+&lt;li&gt;Apache Maven 3.0.X&lt;/li&gt;
+&lt;li&gt;Apache Thrift 0.9.3&lt;/li&gt;
+&lt;li&gt;Java 1.8.X&lt;/li&gt;
+&lt;li&gt;CouchDB, at least 1.5 (only if the tests will be executed locally)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;development-problems-using-eclipse&#34;&gt;Development: problems using Eclipse?&lt;/h3&gt;
+&lt;p&gt;Please do not use Eclipse, because the integration of Apache Thrift is an open issue and we found no plugin for Eclipse to solve the shown compiler errors.
+Recommended is IntelliJ IDEA or NetBeans.&lt;/p&gt;
+&lt;h3 id=&#34;liferay-problems-with-displaying-changes-to-page&#34;&gt;Liferay: problems with displaying changes to page?&lt;/h3&gt;
+&lt;p&gt;When developing changes to a page and these changes do not show in browser - even after redeployment, then the internal liferay optimisation mechanisms may kick in. Try to add to the URL string the following key value parameters:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;js_fast_load=0&amp;amp;css_fast_load=0&amp;amp;strip=0
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;liferay-where-are-the-initial-admin-user-settings&#34;&gt;Liferay: where are the initial admin user settings?&lt;/h3&gt;
+&lt;p&gt;It is the file &lt;code&gt;portal-ext.properties&lt;/code&gt; in sw360/opt.&lt;/p&gt;
+&lt;h3 id=&#34;maven-build-generally-fails&#34;&gt;Maven: build generally fails&lt;/h3&gt;
+&lt;p&gt;You just try to compile parts or all of it and it fails? Most of the stuff depends on the module /build-configuration. Execute either &amp;ldquo;mvn install&amp;rdquo; on top level or inside build configuration.&lt;/p&gt;
+&lt;h4 id=&#34;backend-problems-with-company-proxy&#34;&gt;Backend: problems with company proxy?&lt;/h4&gt;
+&lt;p&gt;maybe try instead:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/opt/apache-tomcat-/bin/startup.sh
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;just this:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;CATALINA_OPTS=&amp;#34;-Dhttps.proxy...&amp;#34; /opt/apache-tomcat-/bin/startup.sh
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;for lucene it might be necessary to add:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;[httpd_global_handlers]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;_fti = {couch_httpd_proxy, handle_proxy_req, &amp;lt;&amp;lt;&amp;#34;http://127.0.0.1:8085/couchdblucene&amp;#34;&amp;gt;&amp;gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;in lucene.ini of local.d of your CouchDB installation&lt;/p&gt;
+&lt;h4 id=&#34;backend-are-thrift-services-up&#34;&gt;Backend: are thrift services up?&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;Check tomcat manager (if the services are there)&lt;/li&gt;
+&lt;li&gt;Check if the service is accessible:
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;http://your.url.to.server.com:8085/components  
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;Should return &amp;ldquo;Welcome to &amp;hellip;&amp;rdquo;.&lt;/li&gt;
+&lt;li&gt;Check if the service thrift page is there:
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;http://your.url.to.server.com:8085/components/thrift
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;Should return HTTP status code 500, because in the browser, no valid thrift message was formed.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;backend-orgektorpdbaccessexception&#34;&gt;Backend: org.ektorp.DbAccessException&lt;/h4&gt;
+&lt;p&gt;What do I do if I get: org.ektorp.DbAccessException: com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException: Unrecognized field &amp;ldquo;_id&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;You add the class you have been trying to serialize to
+THRIFT_CLASSES in
+sw360/src/libraries/lib-datahandler/src/main/java/com/siemens/sw360/datahandler/thrift/ThriftUtils.java&lt;/p&gt;
+&lt;h4 id=&#34;backend-maven-failed-tomcat7-deploy&#34;&gt;Backend: maven failed tomcat7 deploy&lt;/h4&gt;
+&lt;p&gt;If the deployment via maven of the backend does fail with an error like this&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-Bash&#34; data-lang=&#34;Bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Uploading: http://localhost:8085/manager/text/deploy?path&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;%2Flicenses
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;2302/17930 KB   
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Uploading: http://localhost:8085/manager/text/deploy?path&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;%2Flicenses
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;2102/17930 KB   
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Uploading: http://localhost:8085/manager/text/deploy?path&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;%2Flicenses
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;2064/17930 KB   
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Uploading: http://localhost:8085/manager/text/deploy?path&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;%2Flicenses
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;2064/17930 KB   
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;INFO&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt; ------------------------------------------------------------------------
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;INFO&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt; Reactor Summary:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;INFO&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;INFO&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt; backend ........................................... SUCCESS &lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;2.579s&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;INFO&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt; backend-src ....................................... SUCCESS &lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;0.058s&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;INFO&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt; src-licenses ...................................... SUCCESS &lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;10.544s&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;INFO&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt; src-users ......................................... SUCCESS &lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;1.485s&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;INFO&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt; src-vendors ....................................... SUCCESS &lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;6.929s&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;INFO&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt; src-search ........................................ SUCCESS &lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;5.837s&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;INFO&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt; src-components .................................... SUCCESS &lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;19.439s&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;INFO&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt; src-projects ...................................... SUCCESS &lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;14.280s&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;INFO&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt; src-attachments ................................... SUCCESS &lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;6.188s&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;INFO&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt; src-moderation .................................... SUCCESS &lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;1.169s&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;INFO&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt; src-fossology ..................................... SUCCESS &lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;6.259s&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;INFO&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt; backend-svc ....................................... SUCCESS &lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;0.038s&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;INFO&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt; svc-licenses ...................................... FAILURE &lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;3.630s&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;INFO&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt; svc-users ......................................... SKIPPED
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;INFO&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt; svc-vendors ....................................... SKIPPED
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;INFO&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt; svc-search ........................................ SKIPPED
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;INFO&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt; svc-components .................................... SKIPPED
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;INFO&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt; svc-projects ...................................... SKIPPED
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;INFO&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt; svc-attachments ................................... SKIPPED
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;INFO&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt; svc-moderation .................................... SKIPPED
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;INFO&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt; svc-fossology ..................................... SKIPPED
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;INFO&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt; backend-utils ..................................... SKIPPED
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;INFO&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt; ------------------------------------------------------------------------
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;INFO&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt; BUILD FAILURE
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;INFO&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt; ------------------------------------------------------------------------
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;INFO&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt; Total time: 1:19.836s
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;INFO&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt; Finished at: Mon May &lt;span style=&#34;color:#f60&#34;&gt;04&lt;/span&gt; 15:57:46 CEST &lt;span style=&#34;color:#f60&#34;&gt;2015&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;INFO&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt; Final Memory: 24M/311M
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;INFO&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt; ------------------------------------------------------------------------
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;ERROR&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt; Failed to execute goal org.apache.tomcat.maven:tomcat7-maven-plugin:2.2:deploy &lt;span style=&#34;color:#555&#34;&gt;(&lt;/span&gt;default-cli&lt;span style=&#34;color:#555&#34;&gt;)&lt;/span&gt; on project svc-licenses: Cannot invoke Tomcat manager: Broken pipe -&amp;gt; &lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;Help 1&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;ERROR&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;ERROR&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt; To see the full stack trace of the errors, re-run Maven with the -e switch.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;ERROR&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt; Re-run Maven using the -X switch to &lt;span style=&#34;color:#366&#34;&gt;enable&lt;/span&gt; full debug logging.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;ERROR&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;ERROR&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt; For more information about the errors and possible solutions, please &lt;span style=&#34;color:#366&#34;&gt;read&lt;/span&gt; the following articles:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;ERROR&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;Help 1&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt; http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;ERROR&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;ERROR&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt; After correcting the problems, you can resume the build with the &lt;span style=&#34;color:#366&#34;&gt;command&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;ERROR&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt;   mvn &amp;lt;goals&amp;gt; -rf :svc-licenses
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;voyager:backend sam$
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;One solution is that you deployed already and the tomcat7 plugin does not like to have multiple deploy commands. Instead you will need to issue a &lt;code&gt;mvn tomcat7:redeploy&lt;/code&gt; command.&lt;/p&gt;
+&lt;h4 id=&#34;deployment-liferay-not-accessible&#34;&gt;Deployment: liferay not accessible&lt;/h4&gt;
+&lt;p&gt;If the virtual machine was shut down and started up again, the backend services and frontend liferay require manual restart. Please contribute a change in the vagrant deployment if you feel that this could be changed. The actual places to call are:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-Bash&#34; data-lang=&#34;Bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/opt/apache-tomcat-.../bin/.startup.sh
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/opt/liferay-.../tomcat-.../bin/.startup.sh
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Using RequireJS fro Javascript Modules</title>
+      <link>https://www.eclipse.org/sw360/docs/development/dev-using-requirejs-for-javascript-modules/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/sw360/docs/development/dev-using-requirejs-for-javascript-modules/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Today most of the javascript code runs in the global namespace. This increases the risk of overwriting symbols in the global namespace due to different libraries and snippets.&lt;/p&gt;
+&lt;h1 id=&#34;goal&#34;&gt;Goal&lt;/h1&gt;
+&lt;p&gt;We want to use RequireJS (&lt;a href=&#34;http://requirejs.org/&#34;&gt;http://requirejs.org/&lt;/a&gt;) to modularize our code and to have clear namespaces for each component. In addition some of the code may be reused more easily. Other advantages:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;libraries like jquery or datatables can be imported by name but without a specified version&lt;/li&gt;
+&lt;li&gt;if necessary, specific versions can be imported for parts of the page&lt;/li&gt;
+&lt;li&gt;it is very easy to only load needed dependencies&lt;/li&gt;
+&lt;li&gt;good support of webjars due to webjars-locator. Webjars a are automatically accessible through RequireJS.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;how-to-use---example&#34;&gt;How to use - example&lt;/h1&gt;
+&lt;p&gt;There is a new jspf-file to be included in jsps to enable RequireJS support:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;%@ include file=&amp;quot;/html/utils/includes/requirejs.jspf&amp;quot; %&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;When RequireJS is enabled with the above include, all libraries can be accessed and code can be scoped:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;require([&#39;jquery&#39;, &#39;module/quickfilter&#39;, &#39;module/confirm&#39;, /* jquery-plugins: */ &#39;datatables&#39;, &#39;jquery-ui&#39;], function($, quickfilter, confirm) {
+    // code goes here, libraries can be used through the variables $, quickfilter and confirm
+    // Note: jquery-plugins does not have to be bound to variables since they directly register themselves in the jquery object
+});
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;NOTE/WARNING&lt;/strong&gt;: since not all code is using RequireJS at the moment it is highly recommended to include RequireJS just before the script tag using it. DO NOT include it at the beginning of the file! Therefore use the following pattern:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;%@ include file=&amp;quot;/html/utils/includes/requirejs.jspf&amp;quot; %&amp;gt;
+&amp;lt;script&amp;gt;
+    require([&#39;jquery&#39;], function($) {
+        // js stuff
+    });
+&amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;Explanation&lt;/strong&gt;: some the the jQuery-plugins are already module safe. This means the look if something like RequireJS is available and - if this is the case - register themselves as anonymous modules. If someone in some include in the page loads such a plugin via script plugin it may happen that the plugins registers itself twice as an anonymous module which causes errors in RequireJS. Loading RequireJS after all script tags will prevent this and ensure that every plugin is only registered once.&lt;/p&gt;
+&lt;h1 id=&#34;migration&#34;&gt;Migration&lt;/h1&gt;
+&lt;h2 id=&#34;migrate-a-jsp&#34;&gt;Migrate a JSP&lt;/h2&gt;
+&lt;p&gt;To migrate a JSP to use RequireJS the following steps have to be done:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Enable RequireJS support by including &lt;code&gt;requirejs.jspf&lt;/code&gt;. Do it JUST before the script tag with the main code (see NOTE above).&lt;/li&gt;
+&lt;li&gt;Enclose the existing code in a &lt;code&gt;require&lt;/code&gt;-function (&lt;strong&gt;Attention:&lt;/strong&gt; Also read &amp;ldquo;Co-existence with AUI().use()&amp;rdquo; below)&lt;/li&gt;
+&lt;li&gt;Remove existing &lt;code&gt;script&lt;/code&gt;-tags that loads the javascript files &amp;ldquo;manually&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;Rewrite code that access functions inside the new &lt;code&gt;require&lt;/code&gt;-function from outside (e.g. click handlers, see below)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;co-existence-with-auiuse&#34;&gt;Co-existence with AUI().use()&lt;/h2&gt;
+&lt;p&gt;If you need to use AUI().use() in your code, e.g. to grab the PortletURL object, you have to call this function first and call &lt;code&gt;require&lt;/code&gt; inside. Otherwise the code may not be executed correclty if the &amp;lsquo;Drag&amp;amp;Drop&amp;rsquo; error occurs to early during page loading:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;AUI().use(&#39;liferay-portlet-url&#39;, function () {
+    require([&#39;jquery&#39;, &#39;module/quickfilter&#39;) {
+        // AUI and require modules loaded and available
+    });
+});
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;migrate-click-handlers&#34;&gt;Migrate click-handlers&lt;/h2&gt;
+&lt;p&gt;Since none of the defined functions remains in the global scope click handlers defined in the attributes of a tag would no longer work. Use jQuery to attach a click handler instead:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$(&#39;#exportSpreadsheetButton&#39;).on(&#39;click.components&#39;, exportSpreadsheet)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This click handler is added inside the RequireJS-scope where the function &lt;code&gt;exportSpreadsheet&lt;/code&gt; is defined.
+You may also attach handler for distinct elements in each row of a table:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$(&#39;#componentsTable&#39;).on(&#39;click.components&#39;, &#39;img.delete&#39;, function(event) {
+     // do stuff
+});
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;make-a-module-out-of-a-jspf-include&#34;&gt;Make a module out of a jspf-include&lt;/h2&gt;
+&lt;p&gt;There are many jspf-includes which contain html as well as javascript code. They should be converted as followed:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Move the javascript code to an own file. Place it below the &amp;lsquo;html/js&amp;rsquo;-folder, following the same structure as the jspf-file. If the jspf-file is &lt;code&gt;html/components/includes/vendors/addVendor.jspf&lt;/code&gt; place the javascript code in the file &lt;code&gt;js/components/includes/vendors/addVendor.js&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Enclose the code in a define statement to define a new module:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt; define(&#39;components/includes/vendors/addVendor&#39;, [ /* dependencies */ ], function() {
+     // define module code
+ });
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;In order to use the new module include the jspf-file and load the js-code via RequireJS:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;%@ include &amp;quot;html/components/includes/vendors/addVendor.jspf&amp;quot; %&amp;gt;
+    
+require([&#39;components/includes/vendors/addVendor&#39;], function(addVendor) {
+    // use addVendor
+});
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;make-a-module-out-of-a-javascript-file-or-function&#34;&gt;Make a module out of a javascript file or function&lt;/h2&gt;
+&lt;p&gt;There are several javascript files and functions below `/html/js&amp;rsquo;. They can be make compatible to RequireJS as follows:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Create a new file inside &lt;code&gt;/html/js/component&lt;/code&gt; with a proper name that describes the functionality for the new component&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Define the module and point to the legacy function, e.g.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt; define(&#39;module/confirm&#39;, [&#39;jquery&#39;, /* jquery-plugins: */ &#39;jquery-confirm&#39;, /* legacy code */ &#39;main&#39; ], function($) {
+     return {
+         confirmDeletion: deleteConfirmed /* pointer to legacy method in main.js */
+     };
+ });
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Afterwards the module can be loaded using the name &lt;code&gt;component/confirm&lt;/code&gt;, e.g.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt; require([&#39;module/confirm&#39;], function(confirm) {
+     confirm.confirmDeletion(/*...*/);
+ });
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt; The legacy function should be moved inside the module as soon as the function is no longer accessed directly but via RequireJS only.
+&lt;strong&gt;Note&lt;/strong&gt; You can also require legacy javascript files if you need them as dependency as pointed out in the examples above.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: User Management Roles</title>
+      <link>https://www.eclipse.org/sw360/docs/administrationguide/user-management-roles/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/sw360/docs/administrationguide/user-management-roles/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Every user can create records and edit own created records. However, to change records of others, approval is required. Approval in SW360 is a so called moderation request. A moderation request is a set of proposed changed not applied to record immediately, but will be routed to;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The creator of the record&lt;/li&gt;
+&lt;li&gt;The moderators for a record&lt;/li&gt;
+&lt;li&gt;The clearing admins of the same group in SW360.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Then, the proposed changes can be approved by them.&lt;/p&gt;
+&lt;h2 id=&#34;general-sw360-roles-and-access&#34;&gt;General SW360 Roles and Access&lt;/h2&gt;
+&lt;p&gt;There are two main types of roles. The first type are general roles on the system that apply in the default case:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;User&lt;/strong&gt; - A user is the default, in order to apply modifications, a user can pose moderation requests, except for the data items that a user has created.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Clearing Expert&lt;/strong&gt; - Member of the clearing team. Has the rights to work on the projects of the own group and to edit licenses. Can also work on clearing requests.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Clearing Admin&lt;/strong&gt; - A clearing admin has the rights to work on the projects of the own group and to edit licenses.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;ECC Admin&lt;/strong&gt; - The only users who can edit (or approve as moderation request) ECC classifications.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Secuirty Admin&lt;/strong&gt; - The only users to edit relevance for security vulnerabilities.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;SW360 Admin&lt;/strong&gt; - An admin has full rights on all (visible!) data items. Can elevate permissions of other users.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;In addition there are ACL-style roles, meaning that per data item access settings can be made:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Creator&lt;/strong&gt; - A creator can modify in addition to the user&amp;rsquo;s read abilities, a user can be creator of a data item.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Moderator&lt;/strong&gt; - A creator can define moderators for a data item. Moderators can change a data item as a creator can.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Contributor&lt;/strong&gt; (Component) - Is a contributor to a component, project, similar (but not the same) to a moderator. In addition to moderator, this role has been added to identify contributors (or that contributors get the fame). In contrast, the contributor cannot delete data items.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Project Owner&lt;/strong&gt; - A user who owns the project.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Lead Architect&lt;/strong&gt; (Project) - Is a contributor, just named differently to identify the responsible person. an architect refers to the person who has that role of the project or product. This role has been added to identify architects to have a contact person for technical questions.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Project Responsible&lt;/strong&gt; (Project) - Is a contributor, just named differently to identify the responsible person.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Security Responsible&lt;/strong&gt; - Users responsible for the security of the project.&lt;/li&gt;
+&lt;/ol&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Properties</title>
+      <link>https://www.eclipse.org/sw360/docs/administrationguide/properties/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/sw360/docs/administrationguide/properties/</guid>
+      <description>
+        
+        
+        &lt;p&gt;&lt;strong&gt;Frontend Properties&lt;/strong&gt;: All the sw360 frontend properties are mentioned in &lt;a href=&#34;https://github.com/eclipse/sw360/blob/master/frontend/sw360-portlet/src/main/resources/sw360.properties&#34;&gt;sw360.properties&lt;/a&gt; file.
+For example;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Different categories for components,&lt;/p&gt;
+&lt;p&gt;component.categories=[ &amp;ldquo;framework&amp;rdquo;, &amp;ldquo;SDK&amp;rdquo;, &amp;ldquo;big-data&amp;rdquo;, &amp;ldquo;build-management&amp;rdquo;, &amp;ldquo;cloud&amp;rdquo;, &amp;ldquo;content&amp;rdquo;, &amp;ldquo;database&amp;rdquo;, &amp;ldquo;graphics&amp;rdquo;, &amp;ldquo;http&amp;rdquo;, &amp;ldquo;javaee&amp;rdquo;, &amp;ldquo;library&amp;rdquo;, &amp;ldquo;mail&amp;rdquo;, &amp;ldquo;mobile&amp;rdquo;, &amp;ldquo;network-client&amp;rdquo;, &amp;ldquo;network-server&amp;rdquo;, &amp;ldquo;osgi&amp;rdquo;, &amp;ldquo;security&amp;rdquo;, &amp;ldquo;testing&amp;rdquo;, &amp;ldquo;virtual-machine&amp;rdquo;, &amp;ldquo;web-framework&amp;rdquo;, &amp;ldquo;xml&amp;rdquo;]&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Dropdown for project type,&lt;/p&gt;
+&lt;p&gt;project.type=[ &amp;ldquo;Customer Project&amp;rdquo;, &amp;ldquo;Internal Project&amp;rdquo;, &amp;ldquo;Product&amp;rdquo;, &amp;ldquo;Service&amp;rdquo;, &amp;ldquo;Inner Source&amp;rdquo; ]&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;API Token generation,&lt;/p&gt;
+&lt;p&gt;rest.apitoken.generator.enable=false&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Activation of portlets and components&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Backend Properties&lt;/strong&gt;: This, &lt;a href=&#34;https://github.com/eclipse/sw360/blob/master/backend/src-common/src/main/resources/sw360.properties&#34;&gt;sw360.properties&lt;/a&gt; file contains the sw360 backend properties. This file contains the common properties for the backend services and also holds the setting for the mail utility.&lt;/p&gt;
+&lt;p&gt;You can change these default values by mentioning it in the sw360.properties file, present in /etc/sw360 folder. This path is to be created by the admin. After changing the properties, server needs to be restarted in order to make the changes effective. If the properties file is not present in the required folder, the default values will be selected.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: SW360 User Frequently Asked Questions</title>
+      <link>https://www.eclipse.org/sw360/docs/userguide/faq/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/sw360/docs/userguide/faq/</guid>
+      <description>
+        
+        
+        &lt;h5 id=&#34;q-who-should-be-listed-as-moderator&#34;&gt;&lt;strong&gt;Q&lt;/strong&gt;: Who should be listed as Moderator?&lt;/h5&gt;
+&lt;p&gt;&lt;strong&gt;A&lt;/strong&gt;: Moderator are persons who need to review changes done on certain items (project, component, release or attachment) by persons who do not have the user right to actually do these changes. For BT moderators are the persons with the role &amp;lsquo;Software Clearing Site Representative&amp;rsquo;.&lt;/p&gt;
+&lt;h5 id=&#34;q-who-should-be-listed-as-contributor&#34;&gt;&lt;strong&gt;Q&lt;/strong&gt;: Who should be listed as Contributor?&lt;/h5&gt;
+&lt;p&gt;&lt;strong&gt;A&lt;/strong&gt;: By default only the owner (or creator) of an item (project, component, release) is allowed to modify this item. Often it is useful that additional people are allowed to edit an item. These additional people (software architects, developers, additional experts) should get listed as contributors.&lt;/p&gt;
+&lt;h5 id=&#34;q-i-have-changed-a-project-component-release-or-attachment-but-sw360-does-not-show-the-changes&#34;&gt;&lt;strong&gt;Q&lt;/strong&gt;: I have changed a project, component, release or attachment, but SW360 does not show the changes?&lt;/h5&gt;
+&lt;p&gt;&lt;strong&gt;A&lt;/strong&gt;: It might be that you have tried to change something that needs to be review by someone else. In such cases a so called &amp;lsquo;Moderation Request&amp;rsquo; is generated. A Moderator needs to approve your changes. Go to the Home view an check the box &amp;lsquo;My Task Submissions&amp;rsquo;, the project, component, or release should be listed there.&lt;/p&gt;
+&lt;h5 id=&#34;q-what-should-i-enter-in-the-field-visibility&#34;&gt;&lt;strong&gt;Q&lt;/strong&gt;: What should I enter in the field &amp;lsquo;Visibility&amp;rsquo;.&lt;/h5&gt;
+&lt;p&gt;&lt;strong&gt;A&lt;/strong&gt;: Visibility controls which group of people is allowed to see a project. The default setting is &amp;lsquo;Everyone&amp;rsquo;, i.e. everyone within an organisation can see the project and all its releases.&lt;/p&gt;
+&lt;h5 id=&#34;q-how-can-i-change-the-clearing-state-of-a-release&#34;&gt;&lt;strong&gt;Q&lt;/strong&gt;: How can I change the &amp;lsquo;Clearing State&amp;rsquo; of a release?&lt;/h5&gt;
+&lt;p&gt;&lt;strong&gt;A&lt;/strong&gt;: There is no direct way to do it. If there is no clearing report available, the clearing state will be &amp;lsquo;New&amp;rsquo;. If a clearing report available it will be &amp;lsquo;Clearing report available&amp;rsquo;. If at least one clearing report has been approved, the clearing state will be &amp;lsquo;Approved&amp;rsquo;.&lt;/p&gt;
+&lt;h5 id=&#34;q-i-cant-find-a-specific-release-inside-my-project--what-can-i-do&#34;&gt;&lt;strong&gt;Q&lt;/strong&gt;: I can&amp;rsquo;t find a specific release inside my project – what can I do?&lt;/h5&gt;
+&lt;p&gt;&lt;strong&gt;A&lt;/strong&gt;: You can sort each column by clicking on the column name, i.e. you can sort the entries by name, project origin, clearing state, mainline state or project mainline state – normally that helps finding a certain release.&lt;/p&gt;
+&lt;h5 id=&#34;q-i-cant-delete-my-component-called-toms-test-component&#34;&gt;&lt;strong&gt;Q&lt;/strong&gt;: I can&amp;rsquo;t delete my component called &amp;lsquo;Tom&amp;rsquo;s Test Component&amp;rsquo;.&lt;/h5&gt;
+&lt;p&gt;&lt;strong&gt;A&lt;/strong&gt;: Do not use special characters like single or double quotes. To be able to delete such a component or release you&amp;rsquo;ll first have to rename it…&lt;/p&gt;
+&lt;h5 id=&#34;q-what-is-copyleft-effect&#34;&gt;&lt;strong&gt;Q&lt;/strong&gt;: What is Copyleft Effect?&lt;/h5&gt;
+&lt;p&gt;&lt;strong&gt;A&lt;/strong&gt;: &lt;strong&gt;Copyleft&lt;/strong&gt; effect is the reverse idea of &lt;strong&gt;copyright&lt;/strong&gt;. Goal is that software licensed under such license is always free and can never get a privatised software asset. The user gets the freedom to run, copy, modify and distribute the software, but it is not possible to add any further restrictions. This implies that &lt;strong&gt;modified software&lt;/strong&gt; must also be free and becomes available to the community.&lt;/p&gt;
+&lt;h5 id=&#34;q-different-classification-of-the-open-source-licenses&#34;&gt;&lt;strong&gt;Q&lt;/strong&gt;: Different Classification of the Open Source Licenses.&lt;/h5&gt;
+&lt;p&gt;&lt;strong&gt;A&lt;/strong&gt;: There are hundreds of OSS licenses, the following table will give a brief overview about the most common OSS licenses, the risks and the obligations that need to be fulfilled when using them:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;License Class&lt;/th&gt;
+&lt;th&gt;License Name(s)&lt;/th&gt;
+&lt;th&gt;Risks&lt;/th&gt;
+&lt;th&gt;Obligations&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;span style=&#34;color:white;font-size:2em;&#34;&gt;⚫&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;White Licenses&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;MIT, BSD (except for BSD-4-Clause), BSL-1.0, CPOL-1.02, MsPL, zLib, Apache-1.1, Apache-2.0 (if no code changes are done)&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;low risk&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Mostly standard obligations: display license text, display copyrights&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;span style=&#34;color:yellow;font-size:2em;&#34;&gt;⚫&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Yellow Licenses&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;CDDL-1.0, CPL-1.0, EPL-1.0, eCos License, MPL, NPL&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;medium risk&lt;/strong&gt; - because of non-standard obligtions in some cases&lt;/td&gt;
+&lt;td&gt;Display license text; display copyrights; all changes of the component code must become OSS as well; possible license incompatibility with red licenses&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;span style=&#34;color:red;font-size:2em;&#34;&gt;⚫&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Red Licenses&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;GPL-2.0, GPL-3.0, LGPL-2.1, LGPL-3.0, AGPL&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;check before use&lt;/strong&gt; some special obligation which might be not in line with your lans&lt;/td&gt;
+&lt;td&gt;Display license text; display copyrights; take care about copyleft effect - get in contact with your software clearing experts; all distributions must clearly state that (L)GPL license code is used&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;span style=&#34;color:red;font-size:2em;&#34;&gt;⚫&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Red Licenses&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;SleepyCat, Aladdin Free Public License; Berkeley DB licenses&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;really check before use&lt;/strong&gt;  because of nearly unlimited copy left effect&lt;/td&gt;
+&lt;td&gt;Before thinking about components licensed under these license, get in contact with your software licensing experts!&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Workflows</title>
+      <link>https://www.eclipse.org/sw360/docs/userguide/workflows/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/sw360/docs/userguide/workflows/</guid>
+      <description>
+        
+        
+        &lt;p&gt;This page is one of the basic user workflow documentation pages. It can give orientation how the sw360 can be used - as guidance or orientation. There is no particular need to follow these workflows, it is just one way. Workflows are shown as flow charts.&lt;/p&gt;
+&lt;h3 id=&#34;create-component-and-release&#34;&gt;Create Component and Release&lt;/h3&gt;
+&lt;p&gt;So, the user would like to create an entry for zlib-1.2.8 for example in sw360. The main thing to know (see page basic concepts)is that sw360 separates releases from components: the release is the zlib-1.2.8 but the component is the zlib. By this approach, components as a kind of container type in sw360, holding several releases.&lt;/p&gt;
+&lt;p&gt;Therefore, for a new component the user needs to create a component entry first, and then add a release to it. Just adding a release will not work. If a component with a different release already exists, the users add a release to the existing component.&lt;/p&gt;
+&lt;p&gt;The intended roles for this can be a developer that would like to start caring for an OSS component or release. In addition a project owner / project owner can care for the components and releases part of the product or process.&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/img/workflow/worklfow-adding-component-and-release-to-a-project.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;h3 id=&#34;create-a-project&#34;&gt;Create a Project&lt;/h3&gt;
+&lt;p&gt;A project is a structure to keep track on releases inside project, as well as other projects. Please note that a project can be also a product, depending on the type of business. the use of the term &amp;lsquo;project&amp;rsquo; is used also for subsuming the term &amp;lsquo;product&amp;rsquo;.&lt;/p&gt;
+&lt;p&gt;As for the integration case with the OSS software FOSSology, the project view allows for an overview, which of the used components have been analyzed with FOSSology already.&lt;/p&gt;
+&lt;p&gt;In the diagram, the &amp;ldquo;clearing process&amp;rdquo; is mentioned, because the clearing process affects the software components of a project. The main approach is the following:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A project responsible sets up a project with used releases.&lt;/li&gt;
+&lt;li&gt;For the releases that were not analyzed before, the project responsible requests a clearing - source files can be transferred to FOSSology.&lt;/li&gt;
+&lt;li&gt;Once analyses for all releases are complete, the &amp;ldquo;clearing process&amp;rdquo; is finished for this project.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;A project it self does not need much information, it is just about the name and the version. Note that some of the information is like to be set at that time:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Visibility level&lt;/li&gt;
+&lt;li&gt;Project contacts&lt;/li&gt;
+&lt;li&gt;Important Dates for the project&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/img/workflow/workflow-add-project.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;h3 id=&#34;moderation&#34;&gt;Moderation&lt;/h3&gt;
+&lt;p&gt;The moderation is the basic way of applying changes if the document is not created by someone else. In sw360 the following person can edit documents right away (without moderation request):&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The creator of a document (document is a project entry, a release entry etc)&lt;/li&gt;
+&lt;li&gt;Admins&lt;/li&gt;
+&lt;li&gt;Clearing admins&lt;/li&gt;
+&lt;li&gt;Moderators of this document&lt;/li&gt;
+&lt;li&gt;Other special roles, such as project responsible&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Please see the page &lt;a href=&#34;https://www.eclipse.org/sw360/docs/development/dev-role-authorisation-model/&#34; title=&#34;Dev Role&#34;&gt;about the Role Authorization Model&lt;/a&gt; for more information.&lt;/p&gt;
+&lt;p&gt;If the user who wishes to change a document and is not one of these, the moderator workflow kicks in. Then changes applied to the document are not really applied, but are sent to a moderator. Moderators are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The creator of a document (document is a project entry, a release entry etc)&lt;/li&gt;
+&lt;li&gt;Admins&lt;/li&gt;
+&lt;li&gt;Clearing admins&lt;/li&gt;
+&lt;li&gt;Moderators of this document&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The moderator can review, approve or decline the request. Then, the requesting user can delete the request. The moderator request workflow is shown below.&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/img/workflow/workflow-moderation.png&#34;/&gt; 
+&lt;/figure&gt;
+
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: SW360 Rest API</title>
+      <link>https://www.eclipse.org/sw360/docs/development/restapi/dev-rest-api/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/sw360/docs/development/restapi/dev-rest-api/</guid>
       <description>
         
         
@@ -2806,538 +3744,6 @@ authentication of the &lt;code&gt;authorization-server&lt;/code&gt; properly:&lt
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;proxy_set_header&lt;/span&gt;        &lt;span style=&#34;color:#c30&#34;&gt;X-Forwarded-Proto&lt;/span&gt;  &lt;span style=&#34;color:#c30&#34;&gt;https&lt;/span&gt;;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; }
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;For other Web severs, there might a similar solution.&lt;/p&gt;
-
-      </description>
-    </item>
-    
-    <item>
-      <title>Docs: Roles and Authorization</title>
-      <link>https://www.eclipse.org/sw360/docs/developers/dev-role-authorisation-model/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.eclipse.org/sw360/docs/developers/dev-role-authorisation-model/</guid>
-      <description>
-        
-        
-        &lt;p&gt;Like any other system, SW360 allows for setting different levels of access for different users. Technically, the decision when user should be able to see or to do something happens (generally) on the backend server. This ensures consistency between the REST API and the portal application.&lt;/p&gt;
-&lt;p&gt;For setting roles of a user, the Liferay control panel is being used (Admin menu -&amp;gt; Control Panel -&amp;gt; Users and Organisations -&amp;gt; Users -&amp;gt; select one user and Edit -&amp;gt; Roles). Setting access at individual records happens in the edit view of that record.&lt;/p&gt;
-&lt;h2 id=&#34;roles-overview&#34;&gt;Roles Overview&lt;/h2&gt;
-&lt;p&gt;SW360 offers two choices for doing the roles: one is setting access rights at every record individually. Another are general roles that can be set for every user. An admin of SW360 can set user roles at the Liferay Users and Roles UI.&lt;/p&gt;
-&lt;h4 id=&#34;setup-admin-liferay-role&#34;&gt;Setup Admin (Liferay Role)&lt;/h4&gt;
-&lt;p&gt;The setup admin is the Liferay administrator, which can configure the entire liferay app, such as which portlets are shown on which page.&lt;/p&gt;
-&lt;h4 id=&#34;sw360-admin-liferay-role&#34;&gt;SW360 Admin (Liferay Role)&lt;/h4&gt;
-&lt;p&gt;The SW360 admin can change all data and promote users for more access rights, such as promoting a user to role &lt;code&gt;CLEARING_ADMIN&lt;/code&gt;. This role can change data from other groups, limited by visibility setting of a project.&lt;/p&gt;
-&lt;h4 id=&#34;clearing-admin-liferay-role&#34;&gt;Clearing Admin (Liferay Role)&lt;/h4&gt;
-&lt;p&gt;The clearing admin can change all component and release records and project records of the same group. This can be seen as group administrator.&lt;/p&gt;
-&lt;h4 id=&#34;security-admin-liferay-role&#34;&gt;Security Admin (Liferay Role)&lt;/h4&gt;
-&lt;p&gt;In addition to the user rights, the security admin can set security vulnerabilities to irrelevant&lt;/p&gt;
-&lt;h4 id=&#34;ecc-admin-liferay-role&#34;&gt;ECC Admin (Liferay Role)&lt;/h4&gt;
-&lt;p&gt;In addition to the user rights, the ECC admin can manipulate ECC data.&lt;/p&gt;
-&lt;h4 id=&#34;user&#34;&gt;User&lt;/h4&gt;
-&lt;p&gt;A user can create, modify and delete all own (=self created) records. A user cannot change records of others&lt;/p&gt;
-&lt;h3 id=&#34;moderation-requests&#34;&gt;Moderation Requests&lt;/h3&gt;
-&lt;p&gt;If a user with user or other access role rights is not entitled to write or change a record, a moderation request will be created. The moderation request contains the changes an will be routed for approval to the users who can write this record.&lt;/p&gt;
-&lt;p&gt;In addition there are ACL-style roles, meaning that per data item access settings can be made:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;creator&lt;/strong&gt; - a creator can modify in addition to the user&amp;rsquo;s read abilities, a user can be creator of a data item&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;moderator&lt;/strong&gt; - a creator can define moderators for a data item. Moderators can change a data item as a creator can.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;contributor&lt;/strong&gt; (Component) - is a contributor to a component, project, similar (but not the same) to a moderator. In addition to moderator, this role has been added to identify contributors (or that contributors get the fame).
-In contrast, the contributor cannot delete data items.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;project responsible&lt;/strong&gt; (Project) - is a contributor, just named differently to identify the responsible person.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;lead architect&lt;/strong&gt; (Project) - is a contributor, just named differently to identify the responsible person. an architect refers to the person who has that role of the project or product. This role has been added to identify architects to have a contact person for technical questions.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;contact&lt;/strong&gt; (Release) - deprecated, should be renamed to contributor see #100.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;&lt;code&gt;group (department)&lt;/code&gt;, &lt;code&gt;contributor&lt;/code&gt;, &lt;code&gt;moderator&lt;/code&gt; and &lt;code&gt;owner&lt;/code&gt; roles are entity specific, &lt;code&gt;user&lt;/code&gt;, &lt;code&gt;clearing admin&lt;/code&gt; and &lt;code&gt;admin&lt;/code&gt; are roles assigned to a user.&lt;/p&gt;
-&lt;h3 id=&#34;additional-project-visibility&#34;&gt;Additional Project Visibility&lt;/h3&gt;
-&lt;p&gt;In addition to the roles mentioned above, each project has a separate visibility setting (technically an attribute of the project document). There are four project visibility levels:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Private - no one but the creator can read.&lt;/li&gt;
-&lt;li&gt;Me and moderators - involves all moderators and contributors, basically all names that are named among the attributes (lead architect, project responsible, contributors)&lt;/li&gt;
-&lt;li&gt;Department / business unit (should be renamed) - refer to the group the users are in.&lt;/li&gt;
-&lt;li&gt;Public - all registered users of the liferay / sw360 application (login required).&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;The access rules are implemented in&lt;code&gt;lib-datahandler&lt;/code&gt;. In the package, &lt;code&gt;com.siemens.sw360.datahandler.permissions&lt;/code&gt; this is implemented in &lt;code&gt;ProjectPermissions&lt;/code&gt;. See methods &lt;code&gt;isVisible&lt;/code&gt; and &lt;code&gt;userIsEquivalentToModeratorinProject()&lt;/code&gt; for the actual rules.&lt;/p&gt;
-&lt;h3 id=&#34;overall-access-matrix&#34;&gt;Overall Access Matrix&lt;/h3&gt;
-&lt;p&gt;The following table presents the SW360 Role-Authorisation-Model.&lt;/p&gt;
-&lt;p&gt;The row specifies which action to take, the column the role of the actor. Cell entries specify which entity type can be acted upon.&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;&lt;/th&gt;
-&lt;th&gt;creator&lt;/th&gt;
-&lt;th&gt;moderator&lt;/th&gt;
-&lt;th&gt;contributor&lt;/th&gt;
-&lt;th&gt;user&lt;/th&gt;
-&lt;th&gt;clearing admin&lt;/th&gt;
-&lt;th&gt;(sw360)admin&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;create&lt;/td&gt;
-&lt;td&gt;-&lt;/td&gt;
-&lt;td&gt;-&lt;/td&gt;
-&lt;td&gt;-&lt;/td&gt;
-&lt;td&gt;PCRV&lt;/td&gt;
-&lt;td&gt;PCRVL&lt;/td&gt;
-&lt;td&gt;PCRVL&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;read&lt;/td&gt;
-&lt;td&gt;P&lt;/td&gt;
-&lt;td&gt;P&lt;/td&gt;
-&lt;td&gt;P&lt;/td&gt;
-&lt;td&gt;(P²)CRVL&lt;/td&gt;
-&lt;td&gt;(P²)CRVL&lt;/td&gt;
-&lt;td&gt;PCRVL&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;edit&lt;/td&gt;
-&lt;td&gt;PCR&lt;/td&gt;
-&lt;td&gt;PCR&lt;/td&gt;
-&lt;td&gt;PCR&lt;/td&gt;
-&lt;td&gt;(all created ones)&lt;/td&gt;
-&lt;td&gt;PCRVL&lt;/td&gt;
-&lt;td&gt;PCRVL&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;delete&lt;/td&gt;
-&lt;td&gt;PCR&lt;/td&gt;
-&lt;td&gt;PCR&lt;/td&gt;
-&lt;td&gt;-&lt;/td&gt;
-&lt;td&gt;(all created ones)&lt;/td&gt;
-&lt;td&gt;L&lt;/td&gt;
-&lt;td&gt;PCRVL&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;P² : only if the user is member of the group of the project (or has created the project)&lt;/p&gt;
-&lt;p&gt;Note that ECC Admins and Security Admins have only the ability to write ECC and security data respectively at given records. However, as for the other access rights this role does not enhance anything above users.&lt;/p&gt;
-&lt;h4 id=&#34;legend&#34;&gt;Legend&lt;/h4&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;acronym&lt;/th&gt;
-&lt;th&gt;description&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;P&lt;/td&gt;
-&lt;td&gt;project&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;C&lt;/td&gt;
-&lt;td&gt;component&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;R&lt;/td&gt;
-&lt;td&gt;release&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;V&lt;/td&gt;
-&lt;td&gt;vendor&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;L&lt;/td&gt;
-&lt;td&gt;license&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2 id=&#34;technical-info&#34;&gt;Technical Info&lt;/h2&gt;
-&lt;p&gt;The role access rules are put into &lt;code&gt;lib-datahandler&lt;/code&gt;. In the package, &lt;code&gt;com.siemens.sw360.datahandler.permissions&lt;/code&gt; there are implementing classes of a template class &lt;code&gt;DocumentPermissions&lt;/code&gt;. As an example, &lt;code&gt;ProjectPermissions&lt;/code&gt; extends abstract class &lt;code&gt;DocumentPermissions&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;At run time, a permissions object consisting of a document and a user is created: In &lt;code&gt;PermissionUtils&lt;/code&gt; (same package) there is a static method &lt;code&gt;makePermissions&amp;lt;T&amp;gt;()&lt;/code&gt; that creates a permissions object. The received permissions object instance can be asked if a particular operation is allowed.&lt;/p&gt;
-&lt;p&gt;Note that the general application of these permission operations runs in the backend (Thrift services). An application in the front end of &lt;code&gt;PermissionUtils&lt;/code&gt; for example, is for displaying buttons depending on the user main role (user, clearing admin or admin). Then the portlet makes plain use of the &lt;code&gt;lib-datahandler&lt;/code&gt; library.&lt;/p&gt;
-&lt;h2 id=&#34;further-plans&#34;&gt;Further plans&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;Actually, creating stuff should be checked in lib-datahandler, starting with creation of licenses,which should ot be permitted to users: &lt;a href=&#34;https://github.com/siemens/sw360portal/issues/106&#34;&gt;Issue #106&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&#34;https://github.com/siemens/sw360portal/issues/101&#34;&gt;Issue #101&lt;/a&gt; for&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;&lt;/th&gt;
-&lt;th&gt;contributor&lt;/th&gt;
-&lt;th&gt;moderator&lt;/th&gt;
-&lt;th&gt;creator&lt;/th&gt;
-&lt;th&gt;user&lt;/th&gt;
-&lt;th&gt;clearing admin&lt;/th&gt;
-&lt;th&gt;admin&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;download OSS sources&lt;/td&gt;
-&lt;td&gt;-&lt;/td&gt;
-&lt;td&gt;-&lt;/td&gt;
-&lt;td&gt;-&lt;/td&gt;
-&lt;td&gt;R&lt;/td&gt;
-&lt;td&gt;R&lt;/td&gt;
-&lt;td&gt;R&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;download internal sources&lt;/td&gt;
-&lt;td&gt;R&lt;/td&gt;
-&lt;td&gt;R&lt;/td&gt;
-&lt;td&gt;R&lt;/td&gt;
-&lt;td&gt;-&lt;/td&gt;
-&lt;td&gt;-&lt;/td&gt;
-&lt;td&gt;R&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;ol start=&#34;3&#34;&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/siemens/sw360portal/issues/102&#34;&gt;Issue #102&lt;/a&gt; for&lt;/li&gt;
-&lt;/ol&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;&lt;/th&gt;
-&lt;th&gt;contributor&lt;/th&gt;
-&lt;th&gt;moderator&lt;/th&gt;
-&lt;th&gt;creator&lt;/th&gt;
-&lt;th&gt;user&lt;/th&gt;
-&lt;th&gt;clearing admin&lt;/th&gt;
-&lt;th&gt;admin&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;send to clearing&lt;/td&gt;
-&lt;td&gt;-&lt;/td&gt;
-&lt;td&gt;P&lt;/td&gt;
-&lt;td&gt;P&lt;/td&gt;
-&lt;td&gt;-&lt;/td&gt;
-&lt;td&gt;-&lt;/td&gt;
-&lt;td&gt;PCRL&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;ol start=&#34;4&#34;&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/siemens/sw360portal/issues/103&#34;&gt;Issue #103&lt;/a&gt; for&lt;/li&gt;
-&lt;/ol&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;&lt;/th&gt;
-&lt;th&gt;contributor&lt;/th&gt;
-&lt;th&gt;moderator&lt;/th&gt;
-&lt;th&gt;creator&lt;/th&gt;
-&lt;th&gt;user&lt;/th&gt;
-&lt;th&gt;clearing admin&lt;/th&gt;
-&lt;th&gt;admin&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;edit clearing report&lt;/td&gt;
-&lt;td&gt;-&lt;/td&gt;
-&lt;td&gt;R&lt;/td&gt;
-&lt;td&gt;R&lt;/td&gt;
-&lt;td&gt;-&lt;/td&gt;
-&lt;td&gt;R?&lt;/td&gt;
-&lt;td&gt;PCRL&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
-      </description>
-    </item>
-    
-    <item>
-      <title>Docs: Semantic Commits</title>
-      <link>https://www.eclipse.org/sw360/docs/developers/dev-semantic-commits/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.eclipse.org/sw360/docs/developers/dev-semantic-commits/</guid>
-      <description>
-        
-        
-        &lt;h2 id=&#34;the-reason-and-benefit-of-semantic-commit-messages&#34;&gt;The reason and benefit of semantic commit messages&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;automatic generating of the changelog&lt;/li&gt;
-&lt;li&gt;simple navigation through git history (e.g. ignoring style changes)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;semantic-commit-message-structure&#34;&gt;Semantic commit message structure&lt;/h2&gt;
-&lt;p&gt;&lt;code&gt;&amp;lt;type&amp;gt;(&amp;lt;scope&amp;gt;): &amp;lt;commit message&amp;gt;&lt;/code&gt;&lt;/p&gt;
-&lt;h2 id=&#34;the-following-types-are-supported&#34;&gt;The following &lt;types&gt; are supported&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;feat (new feature for the user, not a new feature for build script)&lt;/li&gt;
-&lt;li&gt;fix (bug fix for the user, not a fix to a build script)&lt;/li&gt;
-&lt;li&gt;docs (changes to the documentation)&lt;/li&gt;
-&lt;li&gt;style (formatting, missing semi colons, etc; no production code change)&lt;/li&gt;
-&lt;li&gt;refactor (refactoring production code, eg. renaming a variable)&lt;/li&gt;
-&lt;li&gt;test (adding missing tests, refactoring tests; no production code change)&lt;/li&gt;
-&lt;li&gt;chore (updating grunt tasks etc; no production code change)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Example &lt;scope&gt; values:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;ui (user interface)&lt;/li&gt;
-&lt;li&gt;rest (REST API)&lt;/li&gt;
-&lt;li&gt;thrift (apache thrift services)&lt;/li&gt;
-&lt;li&gt;project (project portlet)&lt;/li&gt;
-&lt;li&gt;component (component portlet)&lt;/li&gt;
-&lt;li&gt;user (user portlet)&lt;/li&gt;
-&lt;li&gt;etc.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;example-of-semantic-commit-message&#34;&gt;Example of semantic commit message&lt;/h2&gt;
-&lt;p&gt;&lt;code&gt;fix(rest): change maven plugin order to generate the documentation correctly&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;&amp;lt;type&amp;gt;(&amp;lt;scope&amp;gt;): &amp;lt;commit message&amp;gt;&lt;/code&gt;&lt;/p&gt;
-&lt;h2 id=&#34;referencing-issues&#34;&gt;Referencing issues&lt;/h2&gt;
-&lt;p&gt;Please reference in the pull request to the open issue&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;closes eclipse/sw360#&amp;lt;issue-number&amp;gt;&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;closes eclipse/sw360#758&lt;/code&gt;&lt;/p&gt;
-
-      </description>
-    </item>
-    
-    <item>
-      <title>Docs: Testing Frameworks</title>
-      <link>https://www.eclipse.org/sw360/docs/developers/dev-testing-frameworks/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.eclipse.org/sw360/docs/developers/dev-testing-frameworks/</guid>
-      <description>
-        
-        
-        &lt;p&gt;The implementation of complicated rules is not always easy to read.
-A good way to document and explain the behaviour of rule engines are natural language tests.
-A frame work we use for that is &lt;a href=&#34;http://jgiven.org/&#34;&gt;jgiven&lt;/a&gt;.
-We write the tests using the [dataprovider] (&lt;a href=&#34;https://github.com/TNG/junit-dataprovider&#34;&gt;https://github.com/TNG/junit-dataprovider&lt;/a&gt;) runner.
-This is basically a runner that allows to use parametrized tests.&lt;/p&gt;
-&lt;p&gt;The basic testing frame work is still &lt;a href=&#34;http://junit.org/&#34;&gt;JUnit4&lt;/a&gt;, assertions are made using &lt;a href=&#34;https://code.google.com/p/hamcrest/wiki/Tutorial&#34;&gt;hamcrest&lt;/a&gt; and we mock complicated input classes with &lt;a href=&#34;http://mockito.org/&#34;&gt;mockito&lt;/a&gt;.&lt;/p&gt;
-
-      </description>
-    </item>
-    
-    <item>
-      <title>Docs: Troubleshooting</title>
-      <link>https://www.eclipse.org/sw360/docs/developers/dev-troubleshooting/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.eclipse.org/sw360/docs/developers/dev-troubleshooting/</guid>
-      <description>
-        
-        
-        &lt;h3 id=&#34;development-problems-building-sw360portal-with-maven&#34;&gt;Development: problems building sw360portal with maven?&lt;/h3&gt;
-&lt;p&gt;Before building the sw360portal with maven, ensure that the following components are installed in the development environment:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;A git client&lt;/li&gt;
-&lt;li&gt;Apache Maven 3.0.X&lt;/li&gt;
-&lt;li&gt;Apache Thrift 0.9.3&lt;/li&gt;
-&lt;li&gt;Java 1.8.X&lt;/li&gt;
-&lt;li&gt;CouchDB, at least 1.5 (only if the tests will be executed locally)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;development-problems-using-eclipse&#34;&gt;Development: problems using Eclipse?&lt;/h3&gt;
-&lt;p&gt;Please do not use Eclipse, because the integration of Apache Thrift is an open issue and we found no plugin for Eclipse to solve the shown compiler errors.
-Recommended is IntelliJ IDEA or NetBeans.&lt;/p&gt;
-&lt;h3 id=&#34;liferay-problems-with-displaying-changes-to-page&#34;&gt;Liferay: problems with displaying changes to page?&lt;/h3&gt;
-&lt;p&gt;When developing changes to a page and these changes do not show in browser - even after redeployment, then the internal liferay optimisation mechanisms may kick in. Try to add to the URL string the following key value parameters:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;js_fast_load=0&amp;amp;css_fast_load=0&amp;amp;strip=0
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;liferay-where-are-the-initial-admin-user-settings&#34;&gt;Liferay: where are the initial admin user settings?&lt;/h3&gt;
-&lt;p&gt;It is the file &lt;code&gt;portal-ext.properties&lt;/code&gt; in sw360/opt.&lt;/p&gt;
-&lt;h3 id=&#34;maven-build-generally-fails&#34;&gt;Maven: build generally fails&lt;/h3&gt;
-&lt;p&gt;You just try to compile parts or all of it and it fails? Most of the stuff depends on the module /build-configuration. Execute either &amp;ldquo;mvn install&amp;rdquo; on top level or inside build configuration.&lt;/p&gt;
-&lt;h4 id=&#34;backend-problems-with-company-proxy&#34;&gt;Backend: problems with company proxy?&lt;/h4&gt;
-&lt;p&gt;maybe try instead:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/opt/apache-tomcat-/bin/startup.sh
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;just this:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;CATALINA_OPTS=&amp;#34;-Dhttps.proxy...&amp;#34; /opt/apache-tomcat-/bin/startup.sh
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;for lucene it might be necessary to add:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;[httpd_global_handlers]
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;_fti = {couch_httpd_proxy, handle_proxy_req, &amp;lt;&amp;lt;&amp;#34;http://127.0.0.1:8085/couchdblucene&amp;#34;&amp;gt;&amp;gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;in lucene.ini of local.d of your CouchDB installation&lt;/p&gt;
-&lt;h4 id=&#34;backend-are-thrift-services-up&#34;&gt;Backend: are thrift services up?&lt;/h4&gt;
-&lt;ol&gt;
-&lt;li&gt;Check tomcat manager (if the services are there)&lt;/li&gt;
-&lt;li&gt;Check if the service is accessible:
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;http://your.url.to.server.com:8085/components  
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;Should return &amp;ldquo;Welcome to &amp;hellip;&amp;rdquo;.&lt;/li&gt;
-&lt;li&gt;Check if the service thrift page is there:
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;http://your.url.to.server.com:8085/components/thrift
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;Should return HTTP status code 500, because in the browser, no valid thrift message was formed.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h4 id=&#34;backend-orgektorpdbaccessexception&#34;&gt;Backend: org.ektorp.DbAccessException&lt;/h4&gt;
-&lt;p&gt;What do I do if I get: org.ektorp.DbAccessException: com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException: Unrecognized field &amp;ldquo;_id&amp;rdquo;&lt;/p&gt;
-&lt;p&gt;You add the class you have been trying to serialize to
-THRIFT_CLASSES in
-sw360/src/libraries/lib-datahandler/src/main/java/com/siemens/sw360/datahandler/thrift/ThriftUtils.java&lt;/p&gt;
-&lt;h4 id=&#34;backend-maven-failed-tomcat7-deploy&#34;&gt;Backend: maven failed tomcat7 deploy&lt;/h4&gt;
-&lt;p&gt;If the deployment via maven of the backend does fail with an error like this&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-Bash&#34; data-lang=&#34;Bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Uploading: http://localhost:8085/manager/text/deploy?path&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;%2Flicenses
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;2302/17930 KB   
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Uploading: http://localhost:8085/manager/text/deploy?path&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;%2Flicenses
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;2102/17930 KB   
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Uploading: http://localhost:8085/manager/text/deploy?path&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;%2Flicenses
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;2064/17930 KB   
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Uploading: http://localhost:8085/manager/text/deploy?path&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;%2Flicenses
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;2064/17930 KB   
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;INFO&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt; ------------------------------------------------------------------------
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;INFO&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt; Reactor Summary:
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;INFO&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt; 
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;INFO&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt; backend ........................................... SUCCESS &lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;2.579s&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;INFO&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt; backend-src ....................................... SUCCESS &lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;0.058s&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;INFO&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt; src-licenses ...................................... SUCCESS &lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;10.544s&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;INFO&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt; src-users ......................................... SUCCESS &lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;1.485s&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;INFO&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt; src-vendors ....................................... SUCCESS &lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;6.929s&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;INFO&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt; src-search ........................................ SUCCESS &lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;5.837s&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;INFO&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt; src-components .................................... SUCCESS &lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;19.439s&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;INFO&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt; src-projects ...................................... SUCCESS &lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;14.280s&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;INFO&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt; src-attachments ................................... SUCCESS &lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;6.188s&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;INFO&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt; src-moderation .................................... SUCCESS &lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;1.169s&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;INFO&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt; src-fossology ..................................... SUCCESS &lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;6.259s&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;INFO&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt; backend-svc ....................................... SUCCESS &lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;0.038s&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;INFO&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt; svc-licenses ...................................... FAILURE &lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;3.630s&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;INFO&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt; svc-users ......................................... SKIPPED
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;INFO&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt; svc-vendors ....................................... SKIPPED
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;INFO&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt; svc-search ........................................ SKIPPED
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;INFO&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt; svc-components .................................... SKIPPED
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;INFO&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt; svc-projects ...................................... SKIPPED
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;INFO&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt; svc-attachments ................................... SKIPPED
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;INFO&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt; svc-moderation .................................... SKIPPED
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;INFO&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt; svc-fossology ..................................... SKIPPED
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;INFO&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt; backend-utils ..................................... SKIPPED
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;INFO&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt; ------------------------------------------------------------------------
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;INFO&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt; BUILD FAILURE
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;INFO&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt; ------------------------------------------------------------------------
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;INFO&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt; Total time: 1:19.836s
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;INFO&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt; Finished at: Mon May &lt;span style=&#34;color:#f60&#34;&gt;04&lt;/span&gt; 15:57:46 CEST &lt;span style=&#34;color:#f60&#34;&gt;2015&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;INFO&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt; Final Memory: 24M/311M
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;INFO&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt; ------------------------------------------------------------------------
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;ERROR&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt; Failed to execute goal org.apache.tomcat.maven:tomcat7-maven-plugin:2.2:deploy &lt;span style=&#34;color:#555&#34;&gt;(&lt;/span&gt;default-cli&lt;span style=&#34;color:#555&#34;&gt;)&lt;/span&gt; on project svc-licenses: Cannot invoke Tomcat manager: Broken pipe -&amp;gt; &lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;Help 1&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;ERROR&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt; 
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;ERROR&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt; To see the full stack trace of the errors, re-run Maven with the -e switch.
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;ERROR&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt; Re-run Maven using the -X switch to &lt;span style=&#34;color:#366&#34;&gt;enable&lt;/span&gt; full debug logging.
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;ERROR&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt; 
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;ERROR&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt; For more information about the errors and possible solutions, please &lt;span style=&#34;color:#366&#34;&gt;read&lt;/span&gt; the following articles:
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;ERROR&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;Help 1&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt; http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;ERROR&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt; 
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;ERROR&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt; After correcting the problems, you can resume the build with the &lt;span style=&#34;color:#366&#34;&gt;command&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;ERROR&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt;   mvn &amp;lt;goals&amp;gt; -rf :svc-licenses
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;voyager:backend sam$
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;One solution is that you deployed already and the tomcat7 plugin does not like to have multiple deploy commands. Instead you will need to issue a &lt;code&gt;mvn tomcat7:redeploy&lt;/code&gt; command.&lt;/p&gt;
-&lt;h4 id=&#34;deployment-liferay-not-accessible&#34;&gt;Deployment: liferay not accessible&lt;/h4&gt;
-&lt;p&gt;If the virtual machine was shut down and started up again, the backend services and frontend liferay require manual restart. Please contribute a change in the vagrant deployment if you feel that this could be changed. The actual places to call are:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-Bash&#34; data-lang=&#34;Bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/opt/apache-tomcat-.../bin/.startup.sh
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/opt/liferay-.../tomcat-.../bin/.startup.sh
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-      </description>
-    </item>
-    
-    <item>
-      <title>Docs: Using RequireJS fro Javascript Modules</title>
-      <link>https://www.eclipse.org/sw360/docs/developers/dev-using-requirejs-for-javascript-modules/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.eclipse.org/sw360/docs/developers/dev-using-requirejs-for-javascript-modules/</guid>
-      <description>
-        
-        
-        &lt;p&gt;Today most of the javascript code runs in the global namespace. This increases the risk of overwriting symbols in the global namespace due to different libraries and snippets.&lt;/p&gt;
-&lt;h1 id=&#34;goal&#34;&gt;Goal&lt;/h1&gt;
-&lt;p&gt;We want to use RequireJS (&lt;a href=&#34;http://requirejs.org/&#34;&gt;http://requirejs.org/&lt;/a&gt;) to modularize our code and to have clear namespaces for each component. In addition some of the code may be reused more easily. Other advantages:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;libraries like jquery or datatables can be imported by name but without a specified version&lt;/li&gt;
-&lt;li&gt;if necessary, specific versions can be imported for parts of the page&lt;/li&gt;
-&lt;li&gt;it is very easy to only load needed dependencies&lt;/li&gt;
-&lt;li&gt;good support of webjars due to webjars-locator. Webjars a are automatically accessible through RequireJS.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h1 id=&#34;how-to-use---example&#34;&gt;How to use - example&lt;/h1&gt;
-&lt;p&gt;There is a new jspf-file to be included in jsps to enable RequireJS support:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;%@ include file=&amp;quot;/html/utils/includes/requirejs.jspf&amp;quot; %&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;When RequireJS is enabled with the above include, all libraries can be accessed and code can be scoped:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;require([&#39;jquery&#39;, &#39;module/quickfilter&#39;, &#39;module/confirm&#39;, /* jquery-plugins: */ &#39;datatables&#39;, &#39;jquery-ui&#39;], function($, quickfilter, confirm) {
-    // code goes here, libraries can be used through the variables $, quickfilter and confirm
-    // Note: jquery-plugins does not have to be bound to variables since they directly register themselves in the jquery object
-});
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;strong&gt;NOTE/WARNING&lt;/strong&gt;: since not all code is using RequireJS at the moment it is highly recommended to include RequireJS just before the script tag using it. DO NOT include it at the beginning of the file! Therefore use the following pattern:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;%@ include file=&amp;quot;/html/utils/includes/requirejs.jspf&amp;quot; %&amp;gt;
-&amp;lt;script&amp;gt;
-    require([&#39;jquery&#39;], function($) {
-        // js stuff
-    });
-&amp;lt;/script&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;strong&gt;Explanation&lt;/strong&gt;: some the the jQuery-plugins are already module safe. This means the look if something like RequireJS is available and - if this is the case - register themselves as anonymous modules. If someone in some include in the page loads such a plugin via script plugin it may happen that the plugins registers itself twice as an anonymous module which causes errors in RequireJS. Loading RequireJS after all script tags will prevent this and ensure that every plugin is only registered once.&lt;/p&gt;
-&lt;h1 id=&#34;migration&#34;&gt;Migration&lt;/h1&gt;
-&lt;h2 id=&#34;migrate-a-jsp&#34;&gt;Migrate a JSP&lt;/h2&gt;
-&lt;p&gt;To migrate a JSP to use RequireJS the following steps have to be done:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Enable RequireJS support by including &lt;code&gt;requirejs.jspf&lt;/code&gt;. Do it JUST before the script tag with the main code (see NOTE above).&lt;/li&gt;
-&lt;li&gt;Enclose the existing code in a &lt;code&gt;require&lt;/code&gt;-function (&lt;strong&gt;Attention:&lt;/strong&gt; Also read &amp;ldquo;Co-existence with AUI().use()&amp;rdquo; below)&lt;/li&gt;
-&lt;li&gt;Remove existing &lt;code&gt;script&lt;/code&gt;-tags that loads the javascript files &amp;ldquo;manually&amp;rdquo;&lt;/li&gt;
-&lt;li&gt;Rewrite code that access functions inside the new &lt;code&gt;require&lt;/code&gt;-function from outside (e.g. click handlers, see below)&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id=&#34;co-existence-with-auiuse&#34;&gt;Co-existence with AUI().use()&lt;/h2&gt;
-&lt;p&gt;If you need to use AUI().use() in your code, e.g. to grab the PortletURL object, you have to call this function first and call &lt;code&gt;require&lt;/code&gt; inside. Otherwise the code may not be executed correclty if the &amp;lsquo;Drag&amp;amp;Drop&amp;rsquo; error occurs to early during page loading:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;AUI().use(&#39;liferay-portlet-url&#39;, function () {
-    require([&#39;jquery&#39;, &#39;module/quickfilter&#39;) {
-        // AUI and require modules loaded and available
-    });
-});
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&#34;migrate-click-handlers&#34;&gt;Migrate click-handlers&lt;/h2&gt;
-&lt;p&gt;Since none of the defined functions remains in the global scope click handlers defined in the attributes of a tag would no longer work. Use jQuery to attach a click handler instead:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;$(&#39;#exportSpreadsheetButton&#39;).on(&#39;click.components&#39;, exportSpreadsheet)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;This click handler is added inside the RequireJS-scope where the function &lt;code&gt;exportSpreadsheet&lt;/code&gt; is defined.
-You may also attach handler for distinct elements in each row of a table:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;$(&#39;#componentsTable&#39;).on(&#39;click.components&#39;, &#39;img.delete&#39;, function(event) {
-     // do stuff
-});
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&#34;make-a-module-out-of-a-jspf-include&#34;&gt;Make a module out of a jspf-include&lt;/h2&gt;
-&lt;p&gt;There are many jspf-includes which contain html as well as javascript code. They should be converted as followed:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;Move the javascript code to an own file. Place it below the &amp;lsquo;html/js&amp;rsquo;-folder, following the same structure as the jspf-file. If the jspf-file is &lt;code&gt;html/components/includes/vendors/addVendor.jspf&lt;/code&gt; place the javascript code in the file &lt;code&gt;js/components/includes/vendors/addVendor.js&lt;/code&gt;.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Enclose the code in a define statement to define a new module:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt; define(&#39;components/includes/vendors/addVendor&#39;, [ /* dependencies */ ], function() {
-     // define module code
- });
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;In order to use the new module include the jspf-file and load the js-code via RequireJS:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;%@ include &amp;quot;html/components/includes/vendors/addVendor.jspf&amp;quot; %&amp;gt;
-    
-require([&#39;components/includes/vendors/addVendor&#39;], function(addVendor) {
-    // use addVendor
-});
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&#34;make-a-module-out-of-a-javascript-file-or-function&#34;&gt;Make a module out of a javascript file or function&lt;/h2&gt;
-&lt;p&gt;There are several javascript files and functions below `/html/js&amp;rsquo;. They can be make compatible to RequireJS as follows:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;Create a new file inside &lt;code&gt;/html/js/component&lt;/code&gt; with a proper name that describes the functionality for the new component&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Define the module and point to the legacy function, e.g.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt; define(&#39;module/confirm&#39;, [&#39;jquery&#39;, /* jquery-plugins: */ &#39;jquery-confirm&#39;, /* legacy code */ &#39;main&#39; ], function($) {
-     return {
-         confirmDeletion: deleteConfirmed /* pointer to legacy method in main.js */
-     };
- });
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Afterwards the module can be loaded using the name &lt;code&gt;component/confirm&lt;/code&gt;, e.g.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt; require([&#39;module/confirm&#39;], function(confirm) {
-     confirm.confirmDeletion(/*...*/);
- });
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt; The legacy function should be moved inside the module as soon as the function is no longer accessed directly but via RequireJS only.
-&lt;strong&gt;Note&lt;/strong&gt; You can also require legacy javascript files if you need them as dependency as pointed out in the examples above.&lt;/p&gt;
 
       </description>
     </item>
@@ -5942,6 +6348,304 @@ Vulnerabilities that have been classified as &lt;code&gt;INCORRECT&lt;/code&gt; 
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;final-steps-in-liferay&#34;&gt;Final Steps in Liferay&lt;/h2&gt;
 &lt;p&gt;Liferay CE 7.3 will need to have some manual steps applied in order to complete the setup. Unfortunately, these cannot be automated (if you know how, please let us know). For earlier versions of Liferay, please refer to the main wiki page. For Liferay CE 7.3.3 please continue here:&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://github.com/eclipse/sw360/wiki/Deploy-Liferay7.3&#34;&gt;https://github.com/eclipse/sw360/wiki/Deploy-Liferay7.3&lt;/a&gt;&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: License Naming</title>
+      <link>https://www.eclipse.org/sw360/docs/userguide/bestpractices/license-naming/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/sw360/docs/userguide/bestpractices/license-naming/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;guidelines&#34;&gt;Guidelines&lt;/h2&gt;
+&lt;p&gt;Generally the license naming should conform with the SPDX Spec and the SPDX License List&lt;/p&gt;
+&lt;p&gt;Please see the &amp;ldquo;License List Fields&amp;rdquo; from &lt;a href=&#34;https://spdx.org/spdx-license-list/license-list-overview#fields&#34;&gt;&lt;span style=&#34;color:red&#34;&gt;↗&lt;/span&gt; https://spdx.org/spdx-license-list/license-list-overview#fields&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;where there is especially for identifier:&lt;/p&gt;
+&lt;h4 id=&#34;license-or-exception-identifier-aka-spdx-short-identifier&#34;&gt;License or Exception Identifier (aka &amp;ldquo;SPDX Short Identifier&amp;rdquo;)&lt;/h4&gt;
+&lt;p&gt;Short identifier to be used to identify a license or exception match to licenses or exceptions contained on the SPDX License List in the context of an SPDX file, in source file, or elsewhere&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Short identifiers have no spaces in them&lt;/li&gt;
+&lt;li&gt;Short identifiers consist of an abbreviation based on a common short name or acronym for the license or exception&lt;/li&gt;
+&lt;li&gt;Where applicable, the abbreviation will be followed by a dash and then the version number, in X.Y format&lt;/li&gt;
+&lt;li&gt;Where applicable, and if possible, the short identifier should be harmonised with other well-known open source naming sources (i.e., OSI, Fedora, etc.)&lt;/li&gt;
+&lt;li&gt;Short identifiers should be as short in length as possible while staying consistent with all other naming criteria&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This lead to expressions like &amp;ldquo;Apache-2.0&amp;rdquo; or &amp;ldquo;GPL-2.0&amp;rdquo;.&lt;/p&gt;
+&lt;h2 id=&#34;license-exceptions&#34;&gt;License Exceptions&lt;/h2&gt;
+&lt;p&gt;As a provisoric handling advise, the exception text shall be combined with the license text as a license entry. This ensures that license and exception appear together in the clearing report.&lt;/p&gt;
+&lt;p&gt;Class Path Exception&lt;/p&gt;
+&lt;p&gt;Linking this library statically or dynamically with other modules is making a combined work based on this library. Thus, the terms and conditions of the GNU General Public License cover the whole combination.&lt;/p&gt;
+&lt;p&gt;As a special exception, the copyright holders of this library give you permission to link this library with independent modules to produce an executable, regardless of the license terms of these independent modules, and to copy and distribute the resulting executable under terms of your choice, provided that you also meet, for each linked independent module, the terms and conditions of the license of that module. An independent module is a module which is not derived from or based on this library. If you modify this library, you may&lt;/p&gt;
+&lt;h2 id=&#34;dual-licenses&#34;&gt;Dual Licenses&lt;/h2&gt;
+&lt;p&gt;There is the need to have a dual license text. FOSSology offers the dual license tag for this. The idea is to use this tag also for more than two licenses.&lt;/p&gt;
+&lt;p&gt;Consider the following example:&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/img/ImagesBasic/dual_license.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;p&gt;The fact that it is &amp;ldquo;LGPL-3.0+&amp;rdquo; is confusing for these texts. It should be changed to the following:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The License results shall be changed &amp;ldquo;Dual-License&amp;rdquo;. This is among other things required, to have the obligation to understand that for this component a license must be chosen&lt;/li&gt;
+&lt;li&gt;In the acknowledgement, there shall be documented which license decision comes is documented&lt;/li&gt;
+&lt;li&gt;For the referring files, also the different other licenses must be added as conclusions, so the texts are printed out.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;quick-checklist&#34;&gt;Quick Checklist&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Shortname: No spaces, No slashses, No unserscore or similar spcial charaters, just use dashes&lt;/li&gt;
+&lt;li&gt;Consider existing SPDX short names&lt;/li&gt;
+&lt;li&gt;Do not use &amp;ldquo;Or later&amp;rdquo; but &amp;ldquo;+&amp;rdquo; or &amp;ldquo;-or-later&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;For triple licensing, use prefix &amp;ldquo;Triple&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;ERASE COMMENT CHARACTERS! also erase prefix spaces at every line&lt;/li&gt;
+&lt;li&gt;Preserve paragraphs and line breaks&lt;/li&gt;
+&lt;li&gt;Avid markup in the license text except it is part of the licensing&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;multi-dual--licensing&#34;&gt;Multi (DUAL-) Licensing&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;VERY Important, as conclusion, use the FOSSology &amp;ldquo;Dual-license&amp;rdquo;, please do not consider your own candidate just designating &amp;ldquo;Dual License&amp;rdquo; (because OR operators will not work in reporting)&lt;/li&gt;
+&lt;li&gt;For Dual License texts use prefix &amp;ldquo;Dual-&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;For Triple, use &amp;ldquo;Triple-&amp;rdquo; (and for more &amp;ldquo;Quadruple-&amp;rdquo;)&lt;/li&gt;
+&lt;li&gt;For Dual Licensing, use alphabetical order to name the licenses&lt;/li&gt;
+&lt;li&gt;SPDX provides the rule to have this merged with &amp;ldquo;OR&amp;rdquo; (in capital letters) like &amp;ldquo;Dual-MIT-OR-BSD&amp;rdquo;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;examples-for-renaming&#34;&gt;Examples for Renaming&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Example Licence Short Name&lt;/th&gt;
+&lt;th&gt;Corrected Licence Short Name&lt;/th&gt;
+&lt;th&gt;Remarks&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;BSD-3-Clause-Farin Urlaub&lt;/td&gt;
+&lt;td&gt;BSD-3-Clause-farin-urlaub&lt;/td&gt;
+&lt;td&gt;no empty spaces&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;GPL-2.0+_Variant Old address&lt;/td&gt;
+&lt;td&gt;GPL-2.0+-variant-old-address&lt;/td&gt;
+&lt;td&gt;no underscore&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&amp;ndash;Freeware&lt;/td&gt;
+&lt;td&gt;Freeware-variant-dumbumchong&lt;/td&gt;
+&lt;td&gt;no prefix dashes&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;BSD-3-Clause\IBM&lt;/td&gt;
+&lt;td&gt;&amp;hellip;&lt;/td&gt;
+&lt;td&gt;do not use slashes (back and forward)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Permission Notice Gordon Sumner&lt;/td&gt;
+&lt;td&gt;HPND-gordon-sumner&lt;/td&gt;
+&lt;td&gt;consider SPDX shot name &amp;ldquo;HPND&amp;rdquo; for permission notice&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;BSD-3-Clause_Ajax.org B.V.&lt;/td&gt;
+&lt;td&gt;BSD-3-Clause-ajax&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;BSD-3-Clause_Yahoo! Inc&lt;/td&gt;
+&lt;td&gt;BSD-3-Clause-yahoo&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;BSD-2-Clause CISCO&lt;/td&gt;
+&lt;td&gt;BSD-2-Clause-cisco&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&amp;ndash;zlib-style&lt;/td&gt;
+&lt;td&gt;Zlib-variant-01&lt;/td&gt;
+&lt;td&gt;This license could be deleted anyway. (no text)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;woodstock&lt;/td&gt;
+&lt;td&gt;Woodstok-Reference-Disclaimer&lt;/td&gt;
+&lt;td&gt;1. All short names shall begin with capital letter,&lt;br&gt;2. (not shown), the license text is not a license text actually, but just a reference in a header with disclaimer.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Visual Studio SDK license terms&lt;/td&gt;
+&lt;td&gt;Microsoft-Visual-Studio-SDK-2015&lt;/td&gt;
+&lt;td&gt;looking at the text, it is from the 2015 version of the SDK&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Trip MPL GPL Apache&lt;/td&gt;
+&lt;td&gt;Triple-Apache-2.0-LGPL-2.1-MPL-1.1&lt;/td&gt;
+&lt;td&gt;(looking at the text it was LGPL in fact)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&amp;ndash;FIPL-1.0&lt;/td&gt;
+&lt;td&gt;FIPL-1.0&lt;/td&gt;
+&lt;td&gt;Double dash is an old thing coming from mainline ops. Currently there is no similar convention known for FOSSologyNG.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Qt License Agreement_CEM&lt;/td&gt;
+&lt;td&gt;Qt-reference-commercial&lt;/td&gt;
+&lt;td&gt;In this case, it was reference text only and also only pointing to the commercial licensees only.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&amp;ndash;Beer-ware-license-CEM01&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;Beerware&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The text says actually revision 42, revision 42 is a joke. It must be checked if the license is already there&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;FundsXpress License&lt;/td&gt;
+&lt;td&gt;FXL&lt;/td&gt;
+&lt;td&gt;Either FundsXpress or FXL because the point is to have a short name and thus, it would make sense to shorten it.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;GFDL - 1.2+&lt;/td&gt;
+&lt;td&gt;GFDL-1.2+&lt;/td&gt;
+&lt;td&gt;just without spaces please&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;lgpl 2.1 J&lt;/td&gt;
+&lt;td&gt;LGPL-2.1-header&lt;/td&gt;
+&lt;td&gt;(was a header in this case, because lic text is already there) What does J mean? - no J needed&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;MIT !&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;do not use candidate licenses&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;Actual text was: &amp;ldquo;This program is made available under the terms of the MIT License.&amp;rdquo; - actually, not a license text!&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Note&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;do not use this with candidates&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;Actual text was: &amp;ldquo;(&amp;ldquo;See &lt;a href=&#34;http://oxyplot.codeplex.com&#34;&gt;&lt;span style=&#34;color:red&#34;&gt;↗&lt;/span&gt; http://oxyplot.codeplex.com&lt;/a&gt; for more information.&amp;rdquo;)&amp;rdquo;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Permission_Notice_Timothy O&amp;rsquo;Malley&lt;/td&gt;
+&lt;td&gt;HPND-omalley&lt;/td&gt;
+&lt;td&gt;do not use special chars, do use SPDX identfiers&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;notice-file&#34;&gt;Notice File&lt;/h2&gt;
+&lt;p&gt;The following text is not a license statement nor a reference to licensing but a notice file in the sense of the apache 2.0 license. As such, it is not suitable for being collected as a license.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;== NOTICE file corresponding to the section 4 d of ==&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;== the Apache License, Version 2.0, ==&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;== in this case for the Apache Ant distribution. ==&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;=========================================================================&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;This product includes software developed by&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;The Apache Software Foundation&lt;/code&gt; (&lt;a href=&#34;http://www.apache.org/&#34;&gt;&lt;span style=&#34;color:red&#34;&gt;↗&lt;/span&gt; http://www.apache.org&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;This product includes also software developed by :&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;the W3C consortium&lt;/code&gt; (&lt;a href=&#34;http://www.w3c.org&#34;&gt;&lt;span style=&#34;color:red&#34;&gt;↗&lt;/span&gt; http://www.w3c.org&lt;/a&gt;),&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;the SAX project&lt;/code&gt; (&lt;a href=&#34;http://www.saxproject.org&#34;&gt;&lt;span style=&#34;color:red&#34;&gt;↗&lt;/span&gt; http://www.saxproject.org&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;code&gt;Please read the different LICENSE files present in the root directory of this distribution.&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;open-questions&#34;&gt;Open Questions&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;How to deal with notice files&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;(1) &lt;a href=&#34;https://spdx.org/spdx-specification-21-web-version&#34;&gt;&lt;span style=&#34;color:red&#34;&gt;↗&lt;/span&gt; https://spdx.org/spdx-specification-21-web-version&lt;/a&gt;&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Naming a Component</title>
+      <link>https://www.eclipse.org/sw360/docs/userguide/bestpractices/component-naming/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/sw360/docs/userguide/bestpractices/component-naming/</guid>
+      <description>
+        
+        
+        &lt;p&gt;&lt;strong&gt;The name is the most important criteria to identify software components. Unfortunately there is no common naming scheme available.&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;usage-and-handling-of-components&#34;&gt;Usage and Handling of Components&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;If you create a component entry, most likely you will go ahead with a release entry, otherwise, the component stays an empty shell&lt;/li&gt;
+&lt;li&gt;Uploading source packages / actual software as attachment makes sense at the release, not at the component&lt;/li&gt;
+&lt;li&gt;If you have created a component and release entry, you can go ahead and assign a vendor to a release.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This very clear approach enables a number of issues, please keep the following goals in mind:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Duplicate entries need to be removed&lt;/li&gt;
+&lt;li&gt;Separating vendor from components names and release tags brings clarity to component naming&lt;/li&gt;
+&lt;li&gt;Interaction with other systems is a must today. As such we need to support external ids such as the CPE standard which also implement this 3-parts separation&lt;/li&gt;
+&lt;li&gt;Having the clear modelling of data enables better search and filtering abilities of the component catalogue.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;checklist&#34;&gt;Checklist&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Does the component already exist on SW360 (think about possible different names)?&lt;/li&gt;
+&lt;li&gt;What is the name of the component homepage?&lt;/li&gt;
+&lt;li&gt;What is the name of the community? Please note that repositories like Maven, GitHub, CodePlex, - CodeGuru are not vendors in our understanding!&lt;/li&gt;
+&lt;li&gt;How is component called on repositories like Maven, NuGet, etc.?&lt;/li&gt;
+&lt;li&gt;Take care: use the name and not the id!&lt;/li&gt;
+&lt;li&gt;Search SW360 for the component repository id.&lt;/li&gt;
+&lt;li&gt;Search SW360 for all possible name variations.&lt;/li&gt;
+&lt;li&gt;Ask your local software clearing expert for help.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;naming-a-component---special-cases&#34;&gt;Naming a Component - Special Cases&lt;/h2&gt;
+&lt;h3 id=&#34;net-component-from-github&#34;&gt;.Net Component from GitHub&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;SW360_NamingaComponentimage/draft_30.png&#34; alt=&#34;draft_30&#34;&gt; In some case it is difficult to determine the real name of a component, like for example &lt;em&gt;Microsoft Entity Framework for .Net Core (or Entity Framework Core or Aspnet EntityFrameworkCore or ASP.NET EntityFrameworkCore)&lt;/em&gt;. In these cases it might be the best way to use that package name as specified on Nuget, in this case &lt;strong&gt;Microsoft.EntityFrameworkCore&lt;/strong&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;java-components&#34;&gt;Java Components&lt;/h3&gt;
+&lt;p&gt;The name of a Java component should be how it is called by the Java community. Typically this is the name as it can be found on the project homepage or on the source code repository page.&lt;/p&gt;
+&lt;p&gt;Examples:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&amp;lsquo;Spring Framework&amp;rsquo; (from project home page &lt;a href=&#34;https://spring.io/projects&#34;&gt;&lt;span style=&#34;color:red&#34;&gt;↗&lt;/span&gt; https://spring.io/projects&lt;/a&gt; or also from source code repository &lt;a href=&#34;https://github.com/spring-projects/spring-framework&#34;&gt;&lt;span style=&#34;color:red&#34;&gt;↗&lt;/span&gt; https://github.com/spring-projects/spring-framework&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;&amp;lsquo;Spring Data Redis&amp;rsquo; (from project home page &lt;a href=&#34;https://spring.io/projects/spring-data&#34;&gt;&lt;span style=&#34;color:red&#34;&gt;↗&lt;/span&gt; https://spring.io/projects/spring-data&lt;/a&gt; or also from source code repository &lt;a href=&#34;https://github.com/spring-projects/spring-data-redis&#34;&gt;&lt;span style=&#34;color:red&#34;&gt;↗&lt;/span&gt; https://github.com/spring-projects/spring-data-redis&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;&amp;lsquo;Thymeleaf&amp;rsquo; (from project home page &lt;a href=&#34;https://www.thymeleaf.org/&#34;&gt;&lt;span style=&#34;color:red&#34;&gt;↗&lt;/span&gt; https://www.thymeleaf.org/&lt;/a&gt;; source code repository &lt;a href=&#34;https://github.com/thymeleaf/thymeleaf&#34;&gt;&lt;span style=&#34;color:red&#34;&gt;↗&lt;/span&gt; https://github.com/thymeleaf/thymeleaf&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;&amp;lsquo;Thymeleaf Spring 5 Integration&amp;rsquo; (from project home page &lt;a href=&#34;https://www.thymeleaf.org/download.html&#34;&gt;&lt;span style=&#34;color:red&#34;&gt;↗&lt;/span&gt; https://www.thymeleaf.org/download.html&lt;/a&gt; or source code repository page &lt;a href=&#34;https://github.com/thymeleaf/thymeleaf-spring&#34;&gt;&lt;span style=&#34;color:red&#34;&gt;↗&lt;/span&gt; https://github.com/thymeleaf/thymeleaf-spring&lt;/a&gt; → &lt;a href=&#34;https://github.com/thymeleaf/thymeleaf-spring/tree/3.0-master/thymeleaf-spring5&#34;&gt;&lt;span style=&#34;color:red&#34;&gt;↗&lt;/span&gt; thymeleaf-spring5&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&amp;lsquo;Commons Codec&amp;rsquo; (from project home page &lt;a href=&#34;https://commons.apache.org/proper/commons-codec/&#34;&gt;&lt;span style=&#34;color:red&#34;&gt;↗&lt;/span&gt; https://commons.apache.org/proper/commons-codec/&lt;/a&gt; or source code repository page &lt;a href=&#34;https://github.com/apache/commons-codec&#34;&gt;&lt;span style=&#34;color:red&#34;&gt;↗&lt;/span&gt; https://github.com/apache/commons-codec&lt;/a&gt;) [or better &amp;lsquo;Apache Commons Codec&amp;rsquo;? But &amp;lsquo;Apache&amp;rsquo; is already the vendor&amp;rsquo;]&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Do not use jar names or Gradle/Maven artifactIds, like &amp;lsquo;spring-framework&amp;rsquo;. Main reason is that from such a name one cannot see if this component is a whole component (here the Spring Framework) or only the Java archive spring-framework-&lt;version&gt;.jar (which is only a subset of the Spring Framework)!&lt;/p&gt;
+&lt;p&gt;Hierarchical Java components:&lt;/p&gt;
+&lt;p&gt;Java components often consist of multiple subcomponents (typically jars) where the sources are stored in a hierarchical structure in the source code repoistory. E.g. for &amp;lsquo;Spring Framework&amp;rsquo; there is one repository &lt;a href=&#34;https://github.com/spring-projects/spring-framework&#34;&gt;&lt;span style=&#34;color:red&#34;&gt;↗&lt;/span&gt; https://github.com/spring-projects/spring-framework&lt;/a&gt; with several sub folders for individual jars. In general for such cases there should be only one (main) component in SW360 covering all the subcomponents.&lt;/p&gt;
+&lt;p&gt;In some exceptional cases one wants to do the clearing only for one subcomponent or a subset of a hierarchical components. In such a case one can either add the name of the sub component to the component name to mark the subset (like &amp;lsquo;Thymeleaf Spring 5 Integration&amp;rsquo; above, showing that only the Spring 5 related is covered, and not Spring 3 or 4) or one could use the name of the top level component (like &amp;lsquo;Thymeleaf Spring Integration&amp;rsquo;) and have seprate releases for the subset (&amp;lsquo;3.0.9.RELEASE Spring 5&amp;rsquo;).&lt;/p&gt;
+&lt;p&gt;Identifying a (new or existing) SW360 component for a java archive:&lt;/p&gt;
+&lt;p&gt;Java developers typically have to start with a Java archive which they want to add to a product, or with the related Gradle/Maven coordinates (groupId/artifactId/version). Possible ways to identify the related component (name) are: examine the related pom.xml or the MANIFEST.MF file of the jar. There one can often find more information like the community homepage or source code repository URL from which then again to determine the component (name).&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Unfortunately SW360 does not provide any support here (besides searching for the artifactId and thus hopefully find the related component). It would be a good idea to store also the Gradle/Maven coordinates of Java binaries with the SW360 components and make them searchable (note: multiple artifactIds per component need to be supported!) and/or to also upload and store the binaries of a registerd SW360 component (or at least the file hashes) and provide additional functionality to identify an unknown binary by uploading the same to SW360.&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id=&#34;component-scope&#34;&gt;Component Scope&lt;/h2&gt;
+&lt;p&gt;We base software clearing for open source components on the scan of the source code. If there is only one common source code for a group of components, then it does not make sense to have a lot of distinct (sub)component that all point to a common source.&lt;/p&gt;
+&lt;h3 id=&#34;example&#34;&gt;Example&lt;/h3&gt;
+&lt;p&gt;There is a Java component called Logback (&lt;a href=&#34;https://logback.qos.ch/&#34;&gt;&lt;span style=&#34;color:red&#34;&gt;↗&lt;/span&gt; https://logback.qos.ch/&lt;/a&gt;). There is only one singe source (and binary) archive available from the original authors. This archive contains three Java libraries: logback-core.jar, logback-access.jar and logback-classic.jar. In &lt;strong&gt;SW360 there should be only one component Logback!&lt;/strong&gt; It is confusing to have also &amp;ldquo;Logback core&amp;rdquo;, &amp;ldquo;logback-core&amp;rdquo;, &amp;ldquo;logback core&amp;rdquo;, &amp;ldquo;logback classic&amp;rdquo; and &amp;ldquo;logback-classic&amp;rdquo;.&lt;/p&gt;
+&lt;h2 id=&#34;naming-a-component--span-stylecolorredbad-examplesspan&#34;&gt;Naming a Component – &lt;span style=&#34;color:red&#34;&gt;Bad Examples&lt;/span&gt;&lt;/h2&gt;
+&lt;h3 id=&#34;jsonnet&#34;&gt;Json.Net&lt;/h3&gt;
+&lt;p&gt;There is a component that is available on NuGet by the name &amp;lsquo;Json.NET&amp;rsquo; and the id &amp;lsquo;Newtonsoft.Json&amp;rsquo;. On the component homepage &lt;a href=&#34;http://www.newtonsoft.com/json&#34;&gt;&lt;span style=&#34;color:red&#34;&gt;↗&lt;/span&gt; http://www.newtonsoft.com/json&lt;/a&gt; it is called &amp;lsquo;Json.NET&amp;rsquo;.&lt;/p&gt;
+&lt;p&gt;Just some examples of naming and how it could be improved:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;14 x Vendor = &amp;lsquo;Open Source Software&amp;rsquo;, Name = &amp;lsquo;Json.NET&amp;rsquo; =&amp;gt; &lt;strong&gt;wrong&lt;/strong&gt;!&lt;/li&gt;
+&lt;li&gt;1 x Vendor = &amp;lsquo;Newtonsoft&amp;rsquo;, Name = &amp;lsquo;Json.NET (COTS)&amp;rsquo; =&amp;gt; &lt;strong&gt;wrong&lt;/strong&gt;!&lt;/li&gt;
+&lt;li&gt;2 x Vendor = &amp;lsquo;NuGet Gallery&amp;rsquo;, Name = Json.NET&amp;rsquo; =&amp;gt; &lt;strong&gt;wrong&lt;/strong&gt;!&lt;/li&gt;
+&lt;li&gt;1 x Vendor = &amp;lsquo;CodePlex&amp;rsquo;, Name = Json.NET&amp;rsquo; =&amp;gt; &lt;strong&gt;wrong&lt;/strong&gt;!&lt;/li&gt;
+&lt;li&gt;4 x Vendor = &amp;lsquo;Open Source Software&amp;rsquo;, Name = &amp;lsquo;Newtonsoft Json.NET&amp;rsquo; =&amp;gt; &lt;strong&gt;wrong&lt;/strong&gt;!&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The proper identification (Vendor = &amp;lsquo;Newtonsoft&amp;rsquo;, Name = &amp;lsquo;Json.NET&amp;rsquo;) has to be used!&lt;/p&gt;
+&lt;h3 id=&#34;oracle-javabeans-activation-framework&#34;&gt;Oracle JavaBeans Activation Framework&lt;/h3&gt;
+&lt;p&gt;Just some examples of naming and how it could be improved:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;3 x Vendor = &amp;lsquo;Open Source Software&amp;rsquo;, Name = &amp;lsquo;Activation&amp;rsquo; =&amp;gt; &lt;strong&gt;wrong&lt;/strong&gt;!&lt;/li&gt;
+&lt;li&gt;3 x Vendor = &amp;lsquo;Open Source Software&amp;rsquo;, Name = &amp;lsquo;Oracle JavaBeans Activation Framework&amp;rsquo;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;oracle-java-mail&#34;&gt;Oracle Java Mail&lt;/h3&gt;
+&lt;p&gt;Just some examples of naming and how it could be improved:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;3 x Vendor = &amp;lsquo;Open Source Software&amp;rsquo;, Name = &amp;lsquo;Mail&amp;rsquo; =&amp;gt; &lt;strong&gt;wrong&lt;/strong&gt;!&lt;/li&gt;
+&lt;li&gt;5 x Vendor = &amp;lsquo;Open Source Software&amp;rsquo;, Name = &amp;lsquo;Oracle JavaMail API&amp;rsquo; =&amp;gt; &lt;strong&gt;wrong&lt;/strong&gt;!&lt;/li&gt;
+&lt;li&gt;4 x Vendor = &amp;lsquo;Oracle&amp;rsquo;, Name = &amp;lsquo;Oracle JavaMail API&amp;rsquo;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;momentjs&#34;&gt;Moment.js&lt;/h3&gt;
+&lt;p&gt;Just some examples of naming and how it could be improved:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;7 x Vendor = &amp;lsquo;GitHub&amp;rsquo;, Name = &amp;lsquo;moment&amp;rsquo; =&amp;gt; &lt;strong&gt;wrong&lt;/strong&gt;!&lt;/li&gt;
+&lt;li&gt;2 x Vendor = &amp;lsquo;Open Source Software&amp;rsquo;, Name = &amp;lsquo;moment&amp;rsquo; =&amp;gt; &lt;strong&gt;wrong&lt;/strong&gt;!&lt;/li&gt;
+&lt;li&gt;2 x Vendor = &amp;lsquo;Open Source Software&amp;rsquo;, Name = &amp;lsquo;Moment JS&amp;rsquo; =&amp;gt; &lt;strong&gt;wrong&lt;/strong&gt;!&lt;/li&gt;
+&lt;li&gt;3 x Vendor = &amp;lsquo;Open Source Software&amp;rsquo;, Name = &amp;lsquo;MomentJS&amp;rsquo; =&amp;gt; &lt;strong&gt;wrong&lt;/strong&gt;!&lt;/li&gt;
+&lt;li&gt;3 x Vendor = &amp;lsquo;Open Source Software&amp;rsquo;, Name = &amp;lsquo;Moment.js&amp;rsquo;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Just look on the community homepage: there is the name in bold letters:
+Moment.js – consider this name.&lt;/p&gt;
 
       </description>
     </item>
