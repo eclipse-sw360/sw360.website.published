@@ -15,10 +15,10 @@
     <lastmod>2022-06-28T20:46:15+02:00</lastmod>
   </url><url>
     <loc>https://www.eclipse.org/sw360/docs/administrationguide/menu/</loc>
-    <lastmod>2022-06-28T20:23:29+02:00</lastmod>
+    <lastmod>2022-06-28T22:06:55+02:00</lastmod>
   </url><url>
     <loc>https://www.eclipse.org/sw360/docs/development/restapi/access/</loc>
-    <lastmod>2022-06-28T20:46:15+02:00</lastmod>
+    <lastmod>2022-06-28T22:06:55+02:00</lastmod>
   </url><url>
     <loc>https://www.eclipse.org/sw360/docs/deployment/baremetal/</loc>
     <lastmod>2022-06-22T22:10:18+02:00</lastmod>
@@ -78,13 +78,13 @@
     <lastmod>2022-06-28T20:46:15+02:00</lastmod>
   </url><url>
     <loc>https://www.eclipse.org/sw360/docs/userguide/</loc>
-    <lastmod>2022-06-22T22:10:18+02:00</lastmod>
+    <lastmod>2022-06-28T22:06:55+02:00</lastmod>
   </url><url>
     <loc>https://www.eclipse.org/sw360/docs/development/dev-using-requirejs-for-javascript-modules/</loc>
     <lastmod>2022-06-28T20:46:15+02:00</lastmod>
   </url><url>
     <loc>https://www.eclipse.org/sw360/docs/administrationguide/</loc>
-    <lastmod>2022-06-28T20:23:29+02:00</lastmod>
+    <lastmod>2022-06-28T22:06:55+02:00</lastmod>
   </url><url>
     <loc>https://www.eclipse.org/sw360/docs/userguide/bestpractices/</loc>
     <lastmod>2022-06-28T21:11:56+02:00</lastmod>
@@ -99,7 +99,7 @@
     <lastmod>2022-06-28T21:11:56+02:00</lastmod>
   </url><url>
     <loc>https://www.eclipse.org/sw360/docs/administrationguide/properties/</loc>
-    <lastmod>2022-06-28T20:23:29+02:00</lastmod>
+    <lastmod>2022-06-28T22:06:55+02:00</lastmod>
   </url><url>
     <loc>https://www.eclipse.org/sw360/docs/deployment/</loc>
     <lastmod>2022-06-28T20:23:29+02:00</lastmod>
@@ -111,16 +111,13 @@
     <lastmod>2022-06-28T18:31:48+02:00</lastmod>
   </url><url>
     <loc>https://www.eclipse.org/sw360/docs/userguide/workflows/</loc>
-    <lastmod>2022-06-28T21:11:56+02:00</lastmod>
+    <lastmod>2022-06-28T22:06:55+02:00</lastmod>
   </url><url>
     <loc>https://www.eclipse.org/sw360/docs/development/</loc>
     <lastmod>2022-06-28T20:46:15+02:00</lastmod>
   </url><url>
     <loc>https://www.eclipse.org/sw360/docs/development/restapi/dev-rest-api/</loc>
     <lastmod>2022-06-28T20:46:15+02:00</lastmod>
-  </url><url>
-    <loc>https://www.eclipse.org/sw360/docs/userguide/user-attachment-file-types/</loc>
-    <lastmod>2022-06-22T22:10:18+02:00</lastmod>
   </url><url>
     <loc>https://www.eclipse.org/sw360/docs/deployment/deploy-authorization-concept/</loc>
     <lastmod>2022-06-22T22:10:18+02:00</lastmod>
@@ -134,19 +131,10 @@
     <loc>https://www.eclipse.org/sw360/docs/deployment/deploy-cve-search/</loc>
     <lastmod>2022-06-22T22:10:18+02:00</lastmod>
   </url><url>
-    <loc>https://www.eclipse.org/sw360/docs/userguide/user-scheduling-cve-search-by-admins/</loc>
-    <lastmod>2022-06-22T22:10:18+02:00</lastmod>
-  </url><url>
     <loc>https://www.eclipse.org/sw360/docs/deployment/deploy-docker/</loc>
     <lastmod>2022-06-22T22:10:18+02:00</lastmod>
   </url><url>
-    <loc>https://www.eclipse.org/sw360/docs/userguide/user-data-model-enumerations/</loc>
-    <lastmod>2022-06-22T22:10:18+02:00</lastmod>
-  </url><url>
     <loc>https://www.eclipse.org/sw360/docs/deployment/deploy-export-and-import/</loc>
-    <lastmod>2022-06-22T22:10:18+02:00</lastmod>
-  </url><url>
-    <loc>https://www.eclipse.org/sw360/docs/userguide/user-bdp-import/</loc>
     <lastmod>2022-06-22T22:10:18+02:00</lastmod>
   </url><url>
     <loc>https://www.eclipse.org/sw360/docs/deployment/legacy/deploy-liferay/</loc>
@@ -159,9 +147,6 @@
     <lastmod>2022-06-28T18:31:48+02:00</lastmod>
   </url><url>
     <loc>https://www.eclipse.org/sw360/docs/deployment/upgrading/deploy-upgrade-to-liferay-7.3-and-java-11/</loc>
-    <lastmod>2022-06-22T22:10:18+02:00</lastmod>
-  </url><url>
-    <loc>https://www.eclipse.org/sw360/docs/userguide/user-search/</loc>
     <lastmod>2022-06-22T22:10:18+02:00</lastmod>
   </url><url>
     <loc>https://www.eclipse.org/sw360/docs/userguide/vulnerabilitymanagement/user-check-vulnerabilities-for-your-project/</loc>
@@ -182,14 +167,32 @@
     <loc>https://www.eclipse.org/sw360/about/</loc>
     <lastmod>2022-06-22T22:10:18+02:00</lastmod>
   </url><url>
+    <loc>https://www.eclipse.org/sw360/docs/userguide/user-attachment-file-types/</loc>
+    <lastmod>2022-06-28T22:06:55+02:00</lastmod>
+  </url><url>
+    <loc>https://www.eclipse.org/sw360/docs/userguide/component-and-releases/</loc>
+    <lastmod>2022-06-28T22:06:55+02:00</lastmod>
+  </url><url>
+    <loc>https://www.eclipse.org/sw360/docs/userguide/user-scheduling-cve-search-by-admins/</loc>
+    <lastmod>2022-06-28T22:06:55+02:00</lastmod>
+  </url><url>
     <loc>https://www.eclipse.org/sw360/docs/</loc>
-    <lastmod>2022-06-28T18:31:48+02:00</lastmod>
+    <lastmod>2022-06-28T22:06:55+02:00</lastmod>
   </url><url>
     <loc>https://www.eclipse.org/sw360/</loc>
-    <lastmod>2022-06-28T19:46:53+02:00</lastmod>
+    <lastmod>2022-06-28T22:06:55+02:00</lastmod>
+  </url><url>
+    <loc>https://www.eclipse.org/sw360/docs/userguide/user-data-model-enumerations/</loc>
+    <lastmod>2022-06-28T22:06:55+02:00</lastmod>
+  </url><url>
+    <loc>https://www.eclipse.org/sw360/docs/userguide/user-bdp-import/</loc>
+    <lastmod>2022-06-28T22:06:55+02:00</lastmod>
   </url><url>
     <loc>https://www.eclipse.org/sw360/docs/userguide/bestpractices/license-naming/</loc>
-    <lastmod>2022-06-28T21:11:56+02:00</lastmod>
+    <lastmod>2022-06-28T22:06:55+02:00</lastmod>
+  </url><url>
+    <loc>https://www.eclipse.org/sw360/docs/userguide/login/</loc>
+    <lastmod>2022-06-28T22:06:55+02:00</lastmod>
   </url><url>
     <loc>https://www.eclipse.org/sw360/docs/userguide/bestpractices/component-naming/</loc>
     <lastmod>2022-06-28T21:11:56+02:00</lastmod>
@@ -197,10 +200,19 @@
     <loc>https://www.eclipse.org/sw360/presentations/</loc>
     <lastmod>2022-06-22T22:10:18+02:00</lastmod>
   </url><url>
+    <loc>https://www.eclipse.org/sw360/docs/userguide/projects/</loc>
+    <lastmod>2022-06-28T22:06:55+02:00</lastmod>
+  </url><url>
     <loc>https://www.eclipse.org/sw360/docs/userguide/bestpractices/good-record-creation-structure/</loc>
     <lastmod>2022-06-28T21:11:56+02:00</lastmod>
   </url><url>
     <loc>https://www.eclipse.org/sw360/screenshots/</loc>
-    <lastmod>2022-06-22T22:10:18+02:00</lastmod>
+    <lastmod>2022-06-28T22:06:55+02:00</lastmod>
+  </url><url>
+    <loc>https://www.eclipse.org/sw360/docs/userguide/user-search/</loc>
+    <lastmod>2022-06-28T22:06:55+02:00</lastmod>
+  </url><url>
+    <loc>https://www.eclipse.org/sw360/docs/userguide/tasks-for-experts/</loc>
+    <lastmod>2022-06-28T22:06:55+02:00</lastmod>
   </url>
 </urlset>

@@ -96,13 +96,13 @@ dev tools console&lt;/p&gt;
 &lt;p&gt;Please find attached, where to obtain the token:&lt;/p&gt;
 
 &lt;figure&gt;
-    &lt;img src=&#34;https://www.eclipse.org/sw360/img/SW360RESTfulAPIImages/Preferences-AccessToke.png&#34;/&gt; 
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/SW360RESTfulAPIImages/Preferences-AccessToke.png&#34;/&gt; 
 &lt;/figure&gt;
 
 &lt;p&gt;And then find the interface for issuing the tokens:&lt;/p&gt;
 
 &lt;figure&gt;
-    &lt;img src=&#34;https://www.eclipse.org/sw360/img/SW360RESTfulAPIImages/Preferences-AccessToke1.png&#34;/&gt; 
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/SW360RESTfulAPIImages/Preferences-AccessToke1.png&#34;/&gt; 
 &lt;/figure&gt;
 
 &lt;h3 id=&#34;token-into-which-header&#34;&gt;Token into which Header?&lt;/h3&gt;

@@ -1,8 +1,8 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Eclipse SW360 – Administration Guide</title>
+    <title>Eclipse SW360 – Administration Guides</title>
     <link>https://www.eclipse.org/sw360/docs/administrationguide/</link>
-    <description>Recent content in Administration Guide on Eclipse SW360</description>
+    <description>Recent content in Administration Guides on Eclipse SW360</description>
     <generator>Hugo -- gohugo.io</generator>
     
 	  <atom:link href="https://www.eclipse.org/sw360/docs/administrationguide/index.xml" rel="self" type="application/rss+xml" />
@@ -25,7 +25,7 @@
         &lt;p&gt;The &lt;strong&gt;admin menu&lt;/strong&gt; consists of the following items:&lt;/p&gt;
 
 &lt;figure&gt;
-    &lt;img src=&#34;https://www.eclipse.org/sw360/img/ImagesBasic/admin_menu.png&#34;/&gt; 
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/ImagesBasic/admin_menu.png&#34;/&gt; 
 &lt;/figure&gt;
 
 &lt;ul&gt;
@@ -114,7 +114,8 @@
         
         
         &lt;p&gt;&lt;strong&gt;Frontend Properties&lt;/strong&gt;: All the sw360 frontend properties are mentioned in &lt;a href=&#34;https://github.com/eclipse/sw360/blob/master/frontend/sw360-portlet/src/main/resources/sw360.properties&#34;&gt;sw360.properties&lt;/a&gt; file.
-For example;&lt;/p&gt;
+For example;
+&lt;a href=&#34;https://github.com/eclipse/sw360/wiki/&#34;&gt;https://github.com/eclipse/sw360/wiki/&lt;/a&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;Different categories for components,&lt;/p&gt;

@@ -46,7 +46,7 @@
 &lt;p&gt;Consider the following example:&lt;/p&gt;
 
 &lt;figure&gt;
-    &lt;img src=&#34;https://www.eclipse.org/sw360/img/ImagesBasic/dual_license.png&#34;/&gt; 
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/ImagesBasic/dual_license.png&#34;/&gt; 
 &lt;/figure&gt;
 
 &lt;p&gt;The fact that it is &amp;ldquo;LGPL-3.0+&amp;rdquo; is confusing for these texts. It should be changed to the following:&lt;/p&gt;

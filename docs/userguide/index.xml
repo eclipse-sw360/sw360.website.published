@@ -347,7 +347,7 @@ cvesearch.default.cutoff=6
 &lt;p&gt;The intended roles for this can be a developer that would like to start caring for an OSS component or release. In addition a project owner / project owner can care for the components and releases part of the product or process.&lt;/p&gt;
 
 &lt;figure&gt;
-    &lt;img src=&#34;https://www.eclipse.org/sw360/img/workflow/worklfow-adding-component-and-release-to-a-project.png&#34;/&gt; 
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/workflow/worklfow-adding-component-and-release-to-a-project.png&#34;/&gt; 
 &lt;/figure&gt;
 
 &lt;h3 id=&#34;create-a-project&#34;&gt;Create a Project&lt;/h3&gt;
@@ -367,7 +367,7 @@ cvesearch.default.cutoff=6
 &lt;/ul&gt;
 
 &lt;figure&gt;
-    &lt;img src=&#34;https://www.eclipse.org/sw360/img/workflow/workflow-add-project.png&#34;/&gt; 
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/workflow/workflow-add-project.png&#34;/&gt; 
 &lt;/figure&gt;
 
 &lt;h3 id=&#34;moderation&#34;&gt;Moderation&lt;/h3&gt;
@@ -390,7 +390,7 @@ cvesearch.default.cutoff=6
 &lt;p&gt;The moderator can review, approve or decline the request. Then, the requesting user can delete the request. The moderator request workflow is shown below.&lt;/p&gt;
 
 &lt;figure&gt;
-    &lt;img src=&#34;https://www.eclipse.org/sw360/img/workflow/workflow-moderation.png&#34;/&gt; 
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/workflow/workflow-moderation.png&#34;/&gt; 
 &lt;/figure&gt;
 
 
@@ -505,6 +505,384 @@ cvesearch.default.cutoff=6
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Component and Releases</title>
+      <link>https://www.eclipse.org/sw360/docs/userguide/component-and-releases/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/sw360/docs/userguide/component-and-releases/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;search-for-a-component&#34;&gt;Search for a Component&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Switch to Components view&lt;/li&gt;
+&lt;li&gt;Use filters to refine search&lt;/li&gt;
+&lt;li&gt;Following filters can be used to make the seach efficient and faster:
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Component Name&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Categories&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Component Type&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Languages&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Software Platforms&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Operating System&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Vendors&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Main Licenses&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Created By(email)&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Created On&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;create-a-new-component&#34;&gt;Create a New Component&lt;/h2&gt;
+&lt;p&gt;&lt;span style=&#34;color:blue&#34;&gt;&lt;strong&gt;NOTE&lt;/strong&gt;: Before adding a new component, search for the component to ensure that it does not already exist.
+Think also about other potential names of the component.&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;The menu item &lt;strong&gt;Components&lt;/strong&gt; shows a list of all available components. There are three important buttons on the page:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Add new Component&lt;/strong&gt;: Opens a dialog window for creating a new component&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Export Spreadsheet&lt;/strong&gt;: Makes components available for other users&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Import SPDX BOM&lt;/strong&gt;: Import Components and Projects from the SPDX&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The dialog for creating a component contains the following entries.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;General Information&lt;/strong&gt; includes the following fields:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Name&lt;/strong&gt;&lt;span style=&#34;color:red;&#34;&gt;*&lt;/span&gt;: Unique name of the component&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Created By&lt;/strong&gt;: Owner of the componenet, will be set automatically&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Categories&lt;/strong&gt;&lt;span style=&#34;color:red;&#34;&gt;*&lt;/span&gt;: Possible values can be Library, Cloud, Mobile etc&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Component Type&lt;/strong&gt;&lt;span style=&#34;color:red;&#34;&gt;*&lt;/span&gt;: Types of component can be OSS, COTS, Internal, Service, Freeware, Inner Source, Code Snippet&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Default Vendor&lt;/strong&gt;: To set the vendor&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Homepage URL&lt;/strong&gt;: Link that leads to the homepage of the component&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Blog URL&lt;/strong&gt;: Link that leads to the discussion or informational website of the component&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Wiki URL&lt;/strong&gt;: Link that leads to the wiki of the component&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Mailing List URL&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Short Description&lt;/strong&gt;: Explanation for the newly created component&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Roles&lt;/strong&gt; includes the following fields:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Component Owner&lt;/strong&gt;: Holder of the component&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Owner Accounting Unit&lt;/strong&gt;: The owner accounting unit of the component&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Owner billing Group&lt;/strong&gt;: The owner billing unit of the component&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Owner Country&lt;/strong&gt;: Country from which the owner belongs&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Moderators&lt;/strong&gt;: A list of moderators responsible for the component.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;At the bottom there are buttons to add &lt;strong&gt;Additional Roles&lt;/strong&gt;, &lt;strong&gt;External Ids&lt;/strong&gt;, and &lt;strong&gt;Additional Data&lt;/strong&gt; for the new component.&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/ImagesBasic/new_comp.png&#34;/&gt; 
+&lt;/figure&gt;
+
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/ImagesBasic/comp_pg2.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;p&gt;After pressing the &lt;strong&gt;Create Component&lt;/strong&gt; button you get a feedback, wether the creation was sucessful or not.&lt;/p&gt;
+&lt;p&gt;Now you can go ahead with the creation of a new release.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;NOTE&lt;/strong&gt;: Depending on the rights of the user, new component do not appear immediately in the component list. In this case this action created a so called &lt;em&gt;moderation request&lt;/em&gt; which first needs to get approved by an administrator.&lt;/p&gt;
+&lt;h2 id=&#34;adding-a-release-to-a-component&#34;&gt;Adding a Release to a Component&lt;/h2&gt;
+&lt;p&gt;To add a release to a component, select the component first. This can be accomplished in two ways:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Go to the home page and select the component from the &amp;ldquo;My Components&amp;rdquo; list&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Click the &amp;ldquo;Components&amp;rdquo; button from the top menu and search for the component.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In this case we choose the new created component &amp;ldquo;Android&amp;rdquo; from the home page list. The detail page for the component &amp;ldquo;Android&amp;rdquo; contains two buttons:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Edit Component&lt;/strong&gt;: Here you can change component information and add releases to the component&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Subscribe&lt;/strong&gt;: Subscribe to the component to get notifications, when any changes of the component occur.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;On the left side the detail page contains a menu for:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Summary&lt;/strong&gt;: Show this page&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Release Overview&lt;/strong&gt;: Show a list of the associated releases of the component&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Attachments&lt;/strong&gt;: Show the attachments of the component; attachments can be source code, documents, clearing reports, &amp;hellip;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Vulnerabilities&lt;/strong&gt;: A link to the vulnerabilities&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Change Log&lt;/strong&gt;: Shows the changes done on the release&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/ImagesBasic/comp_view.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;p&gt;Press the button &amp;ldquo;Edit Component&amp;rdquo; for the component &amp;ldquo;Android&amp;rdquo;. A detail page for the component is shown, then go to &lt;strong&gt;Releases&lt;/strong&gt; section where you can find a button &amp;ldquo;Add Releases&amp;rdquo;.&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/ImagesBasic/add_release.png&#34;/&gt; 
+&lt;/figure&gt;
+
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/ImagesBasic/create_release_new.png&#34;/&gt; 
+&lt;/figure&gt;
+
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/ImagesBasic/AddReleaseScreenWithoutData2.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;p&gt;A detail page for the release is opened. Mandatory fields are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Name&lt;/strong&gt;: The name of the component, e.g. &amp;ldquo;Android&amp;rdquo;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Version&lt;/strong&gt;: A version number of the release, e.g. &amp;ldquo;0.8.13&amp;rdquo;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Additional information for the release can be entered:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Programming Languages&lt;/strong&gt;: A list of used programming languages&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Operating Systems&lt;/strong&gt;: List of Operating Systems.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;CPE ID&lt;/strong&gt;: Common Platform enumeration id should be unique&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Software Platforms&lt;/strong&gt;: List of softwares required for the release&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Release Date&lt;/strong&gt;: Date of the release&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Download URL&lt;/strong&gt;: URL from where the source of the release can be downloaded&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Clearing State&lt;/strong&gt;: Possible values are &amp;ldquo;New&amp;rdquo;, &amp;ldquo;Sent to Fossology&amp;rdquo;, &amp;ldquo;Under Clearing&amp;rdquo; and &amp;ldquo;Report Available&amp;rdquo;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Mainline State&lt;/strong&gt;: Status of the release if it has been already recorded in &amp;ldquo;Mainline&amp;rdquo;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Contributors&lt;/strong&gt;: A pointer (e.g. email address) to a contributors for the release&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Moderators&lt;/strong&gt;: A list of moderators responsible for the component.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;After entering the information, press the button &amp;ldquo;Create Release&amp;rdquo; to add the new release to the component.&lt;/p&gt;
+&lt;p&gt;It is possible to edit the basic data for the release and update the information (button &lt;strong&gt;Update Release&lt;/strong&gt;). With the menu on the left side further information can be entered.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Release Summary&lt;/strong&gt; Show the detailed information about the release.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Linked Releases&lt;/strong&gt; In order to link a release to the current release&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Release Clearing&lt;/strong&gt; Information.&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/ImagesBasic/clearing_detail.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;Vendors&lt;/strong&gt;&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/ImagesBasic/SearchVendor.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;Attachments&lt;/strong&gt;
+This page shows a list of all attachments associated with the component. To add a new attachment press the button &lt;strong&gt;Add Attachment&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/ImagesBasic/new_attachment.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;p&gt;A new dialog box is shown where you can drop a file or use a file browser to choose an attachment. In the example a zipped archive is choosen and the type of the attachment is set to source. To finish the action press &lt;strong&gt;Update Release&lt;/strong&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;external-ids&#34;&gt;External Ids&lt;/h2&gt;
+&lt;p&gt;SW360 allows to add so called &amp;rsquo;external ids&amp;rsquo; to a release. This can be links to other systems, see table below. Especially we recommend to add information about package management system to allow a &lt;strong&gt;unique identification&lt;/strong&gt; of a release.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;External ID Name&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Example Value&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Description&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;nuget-id&lt;/td&gt;
+&lt;td&gt;common.logging.2.2.1&lt;/td&gt;
+&lt;td&gt;ID of the release in Nuget, format is (component ID).(version) or use a package url: pkg:nuget/common.logging@2.2.1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;maven-id&lt;/td&gt;
+&lt;td&gt;javax.activation:activation:1.1.1&lt;/td&gt;
+&lt;td&gt;ID of the release at Maven, format is (group ID):(artifact ID):(version) or use a package url: pkg:javax.activation/activation@1.1.1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;npm-id&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;mailto:moment@2.19.1&#34;&gt;moment@2.19.1&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;ID of the release at NPM, format is (package)@(version) (like npm install (package)@(version)) or use a package url: pkg:npm/moment@2.19.1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;bower-id&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;(TBD)&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;ID of the release at Bower, format is (package)#(version) (like bower install jQuery#2.1.4)&lt;br&gt;??? no unique package id ???&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;package-url&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;pkg:nuget/EnterpriseLibrary.Common@6.0.1304&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;A package URL, based on the specification available here: &lt;a href=&#34;https://github.com/package-url/purl-spec&#34;&gt;&lt;span style=&#34;color:red&#34;&gt;↗&lt;/span&gt; https://github.com/package-url/purl-spec&lt;/a&gt;. The goal is&lt;br&gt;a) to have ONE external id name and not multiple names like nuget-id, maven-id, etc.&lt;br&gt;b) conform to some kind of standard&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;(golang =&amp;gt; use package-url)&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;pkg:golang/google.golang.org/genproto#googleapis/api/annotations&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;see package url specification&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;NOTE&lt;/strong&gt;: Changes to the export control information done by normal users always requires the approval of one the assigned export control experts.&lt;/p&gt;
+&lt;h2 id=&#34;adding-attachments&#34;&gt;Adding Attachments&lt;/h2&gt;
+&lt;p&gt;Attachments can get added to a release, a component or a project.&lt;/p&gt;
+&lt;p&gt;The most important attachment types are:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Symbol&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;SRC&lt;/td&gt;
+&lt;td&gt;Source Code&lt;/td&gt;
+&lt;td&gt;Source code of a release, required for OSS components, only for releases&lt;br&gt;This shall be the original source code from the developers of the component, &lt;strong&gt;not&lt;/strong&gt; from NuGet, &lt;strong&gt;not&lt;/strong&gt; from Maven, etc.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;CRT&lt;/td&gt;
+&lt;td&gt;Clearing Report&lt;/td&gt;
+&lt;td&gt;Clearing report, for releases or projects&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;CLX&lt;/td&gt;
+&lt;td&gt;Component License Information (XML)&lt;/td&gt;
+&lt;td&gt;Input for Readme_OSS generation, only for releases&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;DOC&lt;/td&gt;
+&lt;td&gt;Document&lt;/td&gt;
+&lt;td&gt;Any kind of document&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;BIN&lt;/td&gt;
+&lt;td&gt;Binaries&lt;/td&gt;
+&lt;td&gt;Binaries of a COTS or OSS component. Binaries for OSS component should only get uploaded if the software clearing team has allowed the use of the binary&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;DRT&lt;/td&gt;
+&lt;td&gt;Decision report&lt;/td&gt;
+&lt;td&gt;Used by some Divisions to document a clearing decision&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;LRT&lt;/td&gt;
+&lt;td&gt;Legal evaluation report&lt;/td&gt;
+&lt;td&gt;Documentation by the legal team&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;LAT&lt;/td&gt;
+&lt;td&gt;License agreement&lt;/td&gt;
+&lt;td&gt;License agreement document, nearly always required for commercial components (COTS). Before uploading please ensure that you are &lt;strong&gt;allowed&lt;/strong&gt; to upload such a document&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;SCR&lt;/td&gt;
+&lt;td&gt;Screenshot of website&lt;/td&gt;
+&lt;td&gt;Helpful, when there is no license information inside the source code but on the component website&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;RDM&lt;/td&gt;
+&lt;td&gt;Readme_OSS&lt;/td&gt;
+&lt;td&gt;Third-party software information. Summary of the information about 3rd party software components shipped together with a product.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;OTH&lt;/td&gt;
+&lt;td&gt;Other&lt;/td&gt;
+&lt;td&gt;Any other kind of file&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;NOTE&lt;/strong&gt;: Choosing the wrong attachment type may slow down or stop the further processing of a release or product!&lt;/span&gt;&lt;/p&gt;
+&lt;h2 id=&#34;add-a-new-component-to-a-project&#34;&gt;Add a New Component to a Project&lt;/h2&gt;
+&lt;p&gt;Step-by-step:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;The component must already exist in SW360 – if not please add the new component&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Search for the project&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Select the project and click on &amp;lsquo;Edit Project&amp;rsquo;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Select &amp;lsquo;Linked Releases and Projects&amp;rsquo; (on the left side)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Select the &amp;lsquo;Add Release&amp;rsquo; button&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Search for the release&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Click &amp;lsquo;Select&amp;rsquo;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Click &amp;lsquo;Update Project&amp;rsquo;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;remove-a-componentrelease-from-a-project&#34;&gt;Remove a Component/Release from a Project&lt;/h2&gt;
+&lt;p&gt;Step-by-step:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Go to &amp;lsquo;Projects&amp;rsquo;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Search for the project&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Select the project and click on &amp;lsquo;Edit Project&amp;rsquo;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Select &amp;lsquo;Linked Releases And Projects&amp;rsquo; (left side)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Scroll down to section &amp;lsquo;Linked Releases&amp;rsquo;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Click on the trash bin icon on the right side of the component release you&amp;rsquo;d like to remove&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Acknowledge remove warning&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Click &amp;lsquo;Update Project&amp;rsquo;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;NOTE&lt;/strong&gt;: Only software clearing experts can remove releases or components from SW360. If you have created releases or components that should get removed please contact your local software clearing site expert.&lt;/p&gt;
 
       </description>
     </item>
@@ -1172,6 +1550,146 @@ Note that a &lt;code&gt;component&lt;/code&gt; in BDP becomes a &lt;code&gt;rele
     </item>
     
     <item>
+      <title>Docs: Login</title>
+      <link>https://www.eclipse.org/sw360/docs/userguide/login/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/sw360/docs/userguide/login/</guid>
+      <description>
+        
+        
+        &lt;p&gt;You need a username and a password to access the software. After reaching the SW360 site you will be in the public area of your account. Liferay distinguishes between public and private area, where the private area is protected by login.&lt;/p&gt;
+&lt;p&gt;You will see a &amp;ldquo;Welcome to SW360!&amp;rdquo; homepage which is a public area with &lt;strong&gt;Sign In&lt;/strong&gt; and &lt;strong&gt;Create Account&lt;/strong&gt; buttons.
+The Sign In button will redirect to the private area in order to work with the portal.&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/ImagesBasic/duo.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;p&gt;Your private area contains an overview of your &lt;strong&gt;Projects&lt;/strong&gt; and &lt;strong&gt;Components&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/ImagesBasic/homepage.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;p&gt;The idea of &amp;ldquo;Your&amp;rdquo; refers to the projects and components that you have created. Further there are the tasks you have submitted or which are assigned to you. Tasks are basically change requests of elements that are sent to the owner or moderator for approval. This is a basic concept for allowing change when providing a multiple set of users. On the right side of the screen you can see the last releases which have been added to SW360.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Projects</title>
+      <link>https://www.eclipse.org/sw360/docs/userguide/projects/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/sw360/docs/userguide/projects/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;create-a-new-project&#34;&gt;Create a New Project&lt;/h2&gt;
+&lt;p&gt;Navigate to your project overview by clicking the menu item &lt;strong&gt;Projects&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;On top of the project list you can find a button &lt;strong&gt;Add Project&lt;/strong&gt;. The activation of the button shows a screen where you can add information about your project.&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/ImagesBasic/new_proj.png&#34;/&gt; 
+&lt;/figure&gt;
+
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/ImagesBasic/proj_pg2.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;SUMMARY SECTION&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;General Information&lt;/strong&gt; includes the following fields:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Name&lt;/strong&gt;&lt;span style=&#34;color:red;&#34;&gt;*&lt;/span&gt;: Project name&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Version&lt;/strong&gt;: Form of something that is different in some way from other forms. Version of the project&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Project Visibility&lt;/strong&gt;&lt;span style=&#34;color:red;&#34;&gt;*&lt;/span&gt;: Possible values can be Everyone(default), Me and Moderators, Group and Moderators, Private&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Created By&lt;/strong&gt;: Owner of the project which will be set automatically&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Homepage URL&lt;/strong&gt;: Link that leads to the homepage&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Wiki URL&lt;/strong&gt;: Link that leads to the wiki&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Project Type&lt;/strong&gt;&lt;span style=&#34;color:red;&#34;&gt;*&lt;/span&gt;: Different types can be Product(default), Inner Source, Service, Internal Project, Customer Project&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Tag&lt;/strong&gt;: One word tag, to make the search faster&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Description&lt;/strong&gt;: Explanation regarding the newly created project&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Domain&lt;/strong&gt;: The domain, possible values are Application Software, Documentation, Embedded Software, Hardware, Test, Diagnostics&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Roles&lt;/strong&gt; includes the following fields:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Group&lt;/strong&gt;&lt;span style=&#34;color:red;&#34;&gt;*&lt;/span&gt;: The group of the project owner&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Project Manager&lt;/strong&gt;: User that manages the project&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Project Owner&lt;/strong&gt;: Holder of the project&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Owner Accounting Unit&lt;/strong&gt;: The owner accounting unit of the project&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Owner Billing Unit&lt;/strong&gt;: The owner billing unit of the project&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Owner Country&lt;/strong&gt;: The owner country of the project&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Lead Architect&lt;/strong&gt;: The lead architect of the project&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Moderators&lt;/strong&gt;: List of moderators responsible for the project&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Contributors&lt;/strong&gt;: List of contributers responsible for the project&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Security Responsibles&lt;/strong&gt;: List of users responsible for security of the project&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Can also add &lt;strong&gt;Additional Roles&lt;/strong&gt;, &lt;strong&gt;External Ids&lt;/strong&gt; and &lt;strong&gt;Additional Data&lt;/strong&gt; in this section.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;ADMINISTRATION SECTION&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Clearing&lt;/strong&gt; includes the following fields:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Project clearing state&lt;/strong&gt;: Different states can be Open, Closed, In Progress&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Clearing Team&lt;/strong&gt;: Team responsible for the project clearing&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Deadline for pre-evaluation&lt;/strong&gt;: Pre-evaluation date in the format, YYYY-MM-DD&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Obligations and other comment fields&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Lifecycle&lt;/strong&gt; includes the following fields:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Project State&lt;/strong&gt;&lt;span style=&#34;color:red;&#34;&gt;*&lt;/span&gt;: Different states can be Active, Phaseout, Unknown&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;System Test Begin&lt;/strong&gt;: Date of the project system begin phase&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;System Test End&lt;/strong&gt;: Date of the project system end phase&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Delivery Start Date&lt;/strong&gt;: The project delivery start date&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Phase-out Date&lt;/strong&gt;: The project phase-out date&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This section also includes &lt;strong&gt;License Info Header&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;LINKED RELEASES AND PROJECTS SECTION&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;In this section we can link the existing &lt;strong&gt;Projects&lt;/strong&gt; and &lt;strong&gt;Releases&lt;/strong&gt; to the new project.&lt;/p&gt;
+&lt;p&gt;To finish the creation of the new project press the button &amp;ldquo;Create Project&amp;rdquo;. The list of projects is updated and should contain the newly created project.&lt;/p&gt;
+&lt;h2 id=&#34;create-a-new-version-copy-of-an-existing-project&#34;&gt;Create a New Version (copy) of an Existing Project&lt;/h2&gt;
+&lt;p&gt;Step-by-step:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Go to &amp;lsquo;Projects&amp;rsquo;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Search for the project&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Click on the &amp;lsquo;Duplicate&amp;rsquo; symbol in right-most &amp;lsquo;Actions&amp;rsquo; column(third symbol)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Click &amp;lsquo;Update Project&amp;rsquo;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Done&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;remove-a-project&#34;&gt;Remove a Project&lt;/h2&gt;
+&lt;p&gt;Step-by-step:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Go to &amp;lsquo;Projects&amp;rsquo;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Search for the project&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Click on the trash can icon on the right side of the project&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Acknowledge remove warning&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Done&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+
+      </description>
+    </item>
+    
+    <item>
       <title>Docs: Search</title>
       <link>https://www.eclipse.org/sw360/docs/userguide/user-search/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -1180,15 +1698,26 @@ Note that a &lt;code&gt;component&lt;/code&gt; in BDP becomes a &lt;code&gt;rele
       <description>
         
         
-        &lt;p&gt;&lt;img src=&#34;https://github.com/eclipse/sw360/wiki/images/general-search.png&#34; alt=&#34;general-search&#34;&gt;&lt;/p&gt;
+        
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/ImagesBasic/general-search.png&#34;/&gt; 
+&lt;/figure&gt;
+
 &lt;p&gt;The user can use the general Search. He can find that under Search at the navigation bar. There he can choose, for what elements (Projects, Components, Releases, Licences, Users, Vendors) he wants to search. Therefore he toogle the elements which should be included in the search.&lt;/p&gt;
 &lt;h3 id=&#34;wildcards&#34;&gt;Wildcards&lt;/h3&gt;
 &lt;p&gt;The user can search with wildcards. A wildcard is a character which substitue for zero or more characters in a string. For a single character users can use &amp;lsquo;?&amp;rsquo; and for multiple character wildcard he can use &amp;lsquo;*&amp;rsquo;. The Wildcard can stand in the middle of characters or at the end, but not at the beginning.&lt;/p&gt;
 &lt;h2 id=&#34;search-in-projects-components-and-licenses&#34;&gt;Search in Projects, Components and Licenses&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;https://github.com/eclipse/sw360/wiki/images/navigationbar-search.png&#34; alt=&#34;specific-search&#34;&gt;&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/ImagesBasic/navigationbar-search.png&#34;/&gt; 
+&lt;/figure&gt;
+
 &lt;p&gt;The user can use besides of the general search the specific search at the specific view of projects, components and licenses. There he has a Quickfilter and the Advanced Search where he has the option to search more refined.&lt;/p&gt;
-&lt;h2 id=&#34;heading&#34;&gt;&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;https://github.com/eclipse/sw360/wiki/images/sw360_specific_search.png&#34;/&gt;&lt;img src=&#34;https://github.com/eclipse/sw360/wiki/images/specific-search.png&#34;/&gt;&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/ImagesBasic/sw360_specific_search.png&#34;/&gt; 
+&lt;/figure&gt;
+
 &lt;h3 id=&#34;quickfilter&#34;&gt;Quickfilter&lt;/h3&gt;
 &lt;p&gt;The Quickfilter let the user see the search result immediately when he starts typing. Therefore the Data has to be loaded. At the specific search for components, the user can choose under &amp;rsquo;loading&amp;rsquo; how much components sw360 should load. He can choose between the &amp;lsquo;200 newest&amp;rsquo; up to &amp;lsquo;all&amp;rsquo;.  If the user did not use the quickfilter, it makes sense to set the loading option on 200 newest, so he does not unnecessarily slow down the site. &lt;br&gt;
 At the specific search for projects, the user has the option to choose the group for the projects which should get loaded for the quick filter. If the user is just interested in the projects of his group, he should set the group to his group. So he does not load unnecessary projects every time he goes on the project site. Note that you cannot use wildcards for the quick search.&lt;/p&gt;
@@ -1196,7 +1725,154 @@ At the specific search for projects, the user has the option to choose the group
 &lt;p&gt;The user has for components and projects the option to use the advanced search if he wants a more refined search. At the advanced search, the user can search for the different attributes projects or components have. For example, the user wants to search for all components which are for Linux; therefore he writes Linux in the field &amp;lsquo;Operating System&amp;rsquo; and click search. For the advanced search, the search result does not depend on the setting the user has chosen at the loading selection.&lt;/p&gt;
 &lt;h3 id=&#34;export-spreadsheet&#34;&gt;Export Spreadsheet&lt;/h3&gt;
 &lt;p&gt;With the Export Spreadsheet button at the bottom of the site, users can export the search result as a xlsx file (Excel). He can choose between a file with &amp;lsquo;only components&amp;rsquo; or &amp;lsquo;components with releases&amp;rsquo;. If he chooses &amp;lsquo;only components&amp;rsquo; he gets a file with just the Components and its attributes. If the user chooses the option &amp;lsquo;with release&amp;rsquo;, he will get all the release of the components with their attributes, for example the clearing state of releases, in the xlsx file.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://github.com/eclipse/sw360/wiki/images/Export-Spreadsheet.png&#34; alt=&#34;Export-Spreadsheet&#34;&gt;&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/ImagesBasic/Export-Spreadsheet.png&#34;/&gt; 
+&lt;/figure&gt;
+
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Tasks for Experts</title>
+      <link>https://www.eclipse.org/sw360/docs/userguide/tasks-for-experts/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/sw360/docs/userguide/tasks-for-experts/</guid>
+      <description>
+        
+        
+        &lt;!---
+## Tasks for Experts
+
+###  Find a Project
+
+Step-by-step:
+
+1. Go to &#39;Projects&#39;
+
+2. Use the &#39;Advanced Search&#39; (case insensitive prefix)
+
+3. Done
+
+### Add/Modify Export Control Information
+
+Step-by-step:
+
+1. Go to &#39;Components&#39;
+
+2. Search for the component…
+
+3. Click on the component name
+
+4. Select &#39;Release Overview&#39;
+
+5. Click on the version number
+
+6. Click &#39;Edit Release&#39;
+
+7. Select &#39;ECC Details&#39;
+
+8. Enter/update the ECC Information
+
+9. Click &#39;Update Release&#39;
+
+10. Done
+
+![Information](ImagesBasic/Information.png) **Note**: changes to the export control information done by other users always requires the approval of one the assigned export control experts. You will find this as a task assigned to you.
+---&gt;
+&lt;h2 id=&#34;moderation-requests&#34;&gt;Moderation Requests&lt;/h2&gt;
+&lt;p&gt;Details: &lt;a href=&#34;https://github.com/sw360/sw360portal/wiki/Dev-Moderation-Requests&#34;&gt;&lt;span style=&#34;color:red&#34;&gt;↗&lt;/span&gt; https://github.com/sw360/sw360portal/wiki/Dev-Moderation-Requests&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The concept of moderation is good for two things:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;To cope with a large number of potential edits on documents&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;To allow every user to propose edits.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Allowing every user to edit opposed to propose edits would lead to a large number of changes, potentially, not making everyone happy. As such, the changes should be reviewed by an experienced person and can be then approved.&lt;/p&gt;
+&lt;p&gt;See &lt;a href=&#34;https://github.com/sw360/sw360portal/wiki/User-Workflows:-sw360&#34;&gt;&lt;span style=&#34;color:red&#34;&gt;↗&lt;/span&gt; https://github.com/sw360/sw360portal/wiki/User-Workflows:-sw360&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The moderation is the basic way of applying changes if the document is not created by someone else. In sw360 the following person can edit documents right away (without moderation request):&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;The creator of a document (document is a project entry, a release entry etc)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Admins&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Clearing admins&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Moderators of this document&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Other special roles, such as project responsible&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;If the user who wishes to change a document and is not one of these, the moderator workflow kicks in. Then changes applied to the document are not really applied, but are sent to a moderator. Moderators are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;The creator of a document (document is a project entry, a release entry etc)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Admins&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Clearing admins&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Moderators of this document&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The moderator can review, approve or decline the request. Then, the requesting user can delete the request. The moderator request workflow is shown below.&lt;/p&gt;
+&lt;h2 id=&#34;clearing-requests&#34;&gt;Clearing Requests&lt;/h2&gt;
+&lt;p&gt;There are two ways to create a clearing request.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;From Clearing Status tab in project details page&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Second is from the square check-box icon under the Actions column in the projects home page&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Enter the required details to create the request. Then the clearing team will confirm on the agreed clearing date.
+You can view the Open Clearing Requests under the Request tab.&lt;/p&gt;
+&lt;h2 id=&#34;get-clearing-state-overview&#34;&gt;Get Clearing State Overview&lt;/h2&gt;
+&lt;h5 id=&#34;find-all-projects-with-open-components&#34;&gt;Find all Projects with Open Components&lt;/h5&gt;
+&lt;p&gt;Not yet possible. One idea for the future is that we can sort the projects view by the clearing status field (or parts of this field).&lt;/p&gt;
+&lt;h5 id=&#34;get-clearing-state-overview-for-a-single-project&#34;&gt;Get Clearing State Overview for a Single Project&lt;/h5&gt;
+&lt;p&gt;Step-by-step:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Go to &amp;lsquo;Projects&amp;rsquo;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Search for the project&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Click on &amp;lsquo;Clearing Status&amp;rsquo;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;You&amp;rsquo;ll see a list of all subcomponents, their type (OSS/COTS) and their different states.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h5 id=&#34;get-clearing-state-overview-for-all-project-of-a-certain-organization&#34;&gt;Get Clearing State Overview for All Project (of a certain organization)&lt;/h5&gt;
+&lt;p&gt;Step-by-step:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Go to &amp;lsquo;Projects&amp;rsquo;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Apply filter (for organization)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Check the &amp;lsquo;Clearing Status&amp;rsquo; column&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
 
       </description>
     </item>
