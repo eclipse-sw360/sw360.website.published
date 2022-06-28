@@ -211,6 +211,25 @@
   
 </li>
   </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-sw360docsdeploymentlegacy-li">
+  <input type="checkbox" id="m-sw360docsdeploymentlegacy-check"/>
+  <label for="m-sw360docsdeploymentlegacy-check"><a href="/sw360/docs/deployment/legacy/" title="Legacy Deployment Guides" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-sw360docsdeploymentlegacy"><span class="">Legacy Guides</span></a></label>
+  
+  <ul class="ul-3 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-sw360docsdeploymentlegacydeploy-liferay-li">
+  <input type="checkbox" id="m-sw360docsdeploymentlegacydeploy-liferay-check"/>
+  <label for="m-sw360docsdeploymentlegacydeploy-liferay-check"><a href="/sw360/docs/deployment/legacy/deploy-liferay/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-sw360docsdeploymentlegacydeploy-liferay"><span class="">Initial Setup of Liferay 6.2 and sw360</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-sw360docsdeploymentlegacydeploy-liferay7-li">
+  <input type="checkbox" id="m-sw360docsdeploymentlegacydeploy-liferay7-check"/>
+  <label for="m-sw360docsdeploymentlegacydeploy-liferay7-check"><a href="/sw360/docs/deployment/legacy/deploy-liferay7/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-sw360docsdeploymentlegacydeploy-liferay7"><span class="">Initial Setup of Liferay 7.2 and sw360</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-sw360docsdeploymentlegacydeploy-liferay73-li">
+  <input type="checkbox" id="m-sw360docsdeploymentlegacydeploy-liferay73-check"/>
+  <label for="m-sw360docsdeploymentlegacydeploy-liferay73-check"><a href="/sw360/docs/deployment/legacy/deploy-liferay7.3/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-sw360docsdeploymentlegacydeploy-liferay73"><span class="">Initial Setup of Liferay 7.3 and sw360</span></a></label>
+  
+</li>
+  </ul>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-sw360docsdeploymentdeploy-authorization-concept-li">
   <input type="checkbox" id="m-sw360docsdeploymentdeploy-authorization-concept-check"/>
   <label for="m-sw360docsdeploymentdeploy-authorization-concept-check"><a href="/sw360/docs/deployment/deploy-authorization-concept/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-sw360docsdeploymentdeploy-authorization-concept"><span class="">Authorization Concept</span></a></label>
@@ -238,6 +257,10 @@
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-sw360docsdeploymentdeploy-secure-deployment-li">
   <input type="checkbox" id="m-sw360docsdeploymentdeploy-secure-deployment-check"/>
   <label for="m-sw360docsdeploymentdeploy-secure-deployment-check"><a href="/sw360/docs/deployment/deploy-secure-deployment/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-sw360docsdeploymentdeploy-secure-deployment"><span class="">Security</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-sw360docsdeploymentdeploy-specialdeployment-li">
+  <input type="checkbox" id="m-sw360docsdeploymentdeploy-specialdeployment-check"/>
+  <label for="m-sw360docsdeploymentdeploy-specialdeployment-check"><a href="/sw360/docs/deployment/deploy-specialdeployment/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-sw360docsdeploymentdeploy-specialdeployment"><span class="">Special Deployment Guides</span></a></label>
   
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-sw360docsdeploymentdeploy-requirements-li">
   <input type="checkbox" id="m-sw360docsdeploymentdeploy-requirements-check"/>
@@ -372,7 +395,6 @@
 <div class="td-toc"><nav id="TableOfContents">
   <ul>
     <li><a href="#getting-started">Getting started</a></li>
-    <li><a href="#naming-policies-for-this-wiki">Naming Policies for this Wiki</a></li>
   </ul>
 
   <ul>
@@ -380,30 +402,6 @@
       <ul>
         <li><a href="#general">General</a></li>
         <li><a href="#special">Special</a></li>
-      </ul>
-    </li>
-  </ul>
-
-  <ul>
-    <li>
-      <ul>
-        <li><a href="#frequently-experienced-problems">Frequently Experienced Problems</a></li>
-        <li><a href="#general-deployment-guides">General Deployment Guides</a></li>
-        <li><a href="#special-deployment-guides">Special Deployment Guides</a></li>
-        <li><a href="#general-topcis">General Topcis</a></li>
-        <li><a href="#special-topics">Special Topics</a></li>
-      </ul>
-    </li>
-  </ul>
-
-  <ul>
-    <li>
-      <ul>
-        <li><a href="#submitting-issues">Submitting Issues</a></li>
-        <li><a href="#contribution-workflow">Contribution Workflow</a></li>
-        <li><a href="#architecture">Architecture</a></li>
-        <li><a href="#general-1">General</a></li>
-        <li><a href="#special-1">Special</a></li>
       </ul>
     </li>
   </ul>
@@ -505,14 +503,6 @@
 </tr>
 </tbody>
 </table>
-<h2 id="naming-policies-for-this-wiki">Naming Policies for this Wiki</h2>
-<p>Please start every page with a prefix</p>
-<ol>
-<li><strong>User</strong>: topics suitable for admins and end users</li>
-<li><strong>Deploy</strong>: All things about deployment</li>
-<li><strong>Dev</strong>: All topics for developers</li>
-<li><strong>Test</strong>: Also a topic for developers, but also around testing</li>
-</ol>
 <h1 id="using-sw360">Using sw360</h1>
 <p>For using the sw360 as a user, please see the following basic workflows:</p>
 <ul>
@@ -533,146 +523,6 @@
 <li>Find information about the <a href="https://github.com/eclipse/sw360/wiki/Dev-Role-Authorisation-Model">role and access model</a></li>
 <li>If you are interested in the concept about <a href="https://github.com/eclipse/sw360/wiki/Dev-Moderation-Requests">moderation requests</a>, read the documentation here.</li>
 <li>Explaining [[enumerations used in SW360|https://github.com/eclipse/sw360/wiki/User-Data-Model-Enumerations]]</li>
-</ol>
-<h1 id="deploying-sw360">Deploying sw360</h1>
-<p>For the deployment of the SW360, it is about deploying a Liferay server application. Please understand, that apart from trying sw360 for a short while, for deployments of SW360 in your organisation you will need knowledge about how to deploy Java server applications. Regardless of the deployment approach the following main elements need to be considered:</p>
-<ul>
-<li>A <a href="https://www.liferay.com/de/downloads-community">Liferay Community Edition bundeled with Tomcat</a>.</li>
-<li>Install CouchDB (this is where SW360 stores all the source code, SPDX files and metadata), depending on your platform, there are a number of ways to use CouchDB. Currently, we tested with CouchDB 2.1.2, other versions of CouchDB may work as well.</li>
-<li>For productive deployments, you do not want to go with the (Hypersonic) DB bundled with Tomcat, but install some normal DB server. We use PostgreSQL. The relation DB server is used by Liferay and should be thus compatible to it.</li>
-<li>For searches, consider CouchDB Lucene <a href="https://github.com/rnewson/couchdb-lucene/archive/v1.0.2.tar.gz">CouchDb Lucene</a>.</li>
-<li>There is a number of additional &ldquo;prerequisites&rdquo; for SW360, more detailed <a href="https://github.com/sw360/sw360vagrant/blob/master/download-packages.sh">in the Vagrant deployment setup</a>.</li>
-</ul>
-<p>In order to install sw360, you can choose between the following ways:</p>
-<ul>
-<li>Use the Vagrant-based installation. Please refer to the <a href="https://github.com/sw360/sw360vagrant">sw360 vagrant project</a> and the included Readme file. Basic prerequisites are
-<ul>
-<li>VirtualBox</li>
-<li>Vagrant and some vagrant plugins</li>
-<li>Presumeably a git client</li>
-</ul>
-</li>
-<li>You could install the sw360portal project natively on the machine. This will require more work in order to install the prerequisites. The above mentioned vagrant project documents very precisely what to do in order to install the sw360portal.</li>
-<li>Checkout the docker suite <a href="https://github.com/sw360/sw360chores">sw360chores</a> and generate a pre-built container where you can deploy the <code>*.war</code> files of sw360portal (both frontend and backend). <strong>Important</strong> this is work in progress now and likely not working out of the box.</li>
-</ul>
-<h3 id="frequently-experienced-problems">Frequently Experienced Problems</h3>
-<ol>
-<li>
-<p>The most experienced confusion is about the Liferay setup user: the setup user cannot be used to work with the sw360 because the setup user is missing an organisation assignment. For every user an organisation assignment is required for sw360 to work properly. Unfortunately, you cannot assign a liferay setup user to an organisation. So you do need to import users or create users with organisation.</p>
-</li>
-<li>
-<p>Currently, you need Java 11, we test it with OpenJDK. Newer or older versions may work, but currently, reports tell that for example Java 8 does not work.</p>
-</li>
-<li>
-<p>Thrift: for compiling the software you need to install <a href="https://github.com/apache/thrift">Apache Thrift</a> (a command line tool). We test with version 0.13.</p>
-</li>
-</ol>
-<h3 id="general-deployment-guides">General Deployment Guides</h3>
-<ul>
-<li><a href="https://qiita.com/K-Hama/items/1582b4e1bf248025eabb">Comprehensive blog post on SW360 Installation in Japanese</a></li>
-<li><a href="https://github.com/sw360/sw360vagrant">Install sw360 using Vagrant and Puppet</a>: Please have a look at the sw360vagrant project itself how to go ahead with the installation.</li>
-<li><a href="Deploy-Liferay">Initial Setup of Liferay 6.2 and sw360</a>: From the beginning until sw360 version 4</li>
-<li><a href="Deploy-Liferay7">Initial Setup of Liferay 7.2 and sw360</a>: From sw360 version 5 onwards and until sw360 version 10</li>
-<li><a href="Deploy-Liferay7.3">Initial Setup of Liferay 7.3 and sw360</a>: From sw360 version 11 onwards</li>
-<li><a href="Deploy-Natively">Install sw360 manually with Liferay 7.2</a>: From sw360 version 5 onwards and until sw360 version 10</li>
-<li><a href="Deploy-Natively-11">Install sw360 manually with Liferay 7.3</a>: From sw360 version 11 onwards</li>
-<li><a href="Deploy-sw360docs">Generate Documentation (sw360docs) into Artefacts</a>: From sw360 version 13.5 onwards</li>
-<li><a href="Deploy-CVE-search">Setting CVE Search</a>: Get vulnerability information from an external provider of Common Vulnerability Enumeration (CVE) data.</li>
-</ul>
-<h3 id="special-deployment-guides">Special Deployment Guides</h3>
-<ul>
-<li><a href="Deploy-Upgrade-to-Liferay-7.2">Migrate from Liferay 6.2 and sw360 4 to Liferay 7.2 and sw360 5</a></li>
-<li><a href="Deploy-Upgrade-to-Liferay-7.3-and-Java-11">Migrate from Liferay 7.2 and sw360 10 to Liferay 7.3 and sw360 11</a></li>
-<li><a href="Deploy-sw360-on-Windows-(with-Vagrant)">Install sw360 on Windows using vagrant</a>. some particular notes for the Windows platform.</li>
-<li><a href="Deploy-Docker">Install sw360 with Docker</a></li>
-<li><a href="https://github.com/sw360/sw360chores">More Install Information using Docker with sw360chores</a> : Please have a look at the sw360chores project itself how to go ahead with the installation. Note that currently (Sept 2020) the docker setup is currently wip and thus does not work out of the box.</li>
-</ul>
-<h3 id="general-topcis">General Topcis</h3>
-<ul>
-<li><a href="Deploy-authorization-concept">Deployment Authorization Concept</a></li>
-<li><a href="Deploy-Configuration-Files">Properties explained</a></li>
-<li><a href="Deploy-FOSSology">Setup of connection with Fossology</a></li>
-<li><a href="Deploy-Requirements">Deployment Requirements</a></li>
-<li><a href="Deploy-Secure-Deployment">Secure Deployment Notes</a></li>
-</ul>
-<h3 id="special-topics">Special Topics</h3>
-<p>After installing sw360 more topics may include:</p>
-<ol>
-<li><a href="Deploy-configuration-country-codes">Special Coverage of Country Codes</a>, when countries are displayed, then it uses country codes in the DB</li>
-<li><a href="Deploy-Export-and-Import">How to export data and import it to a new instance</a></li>
-<li><a href="Deploy-Migrating-to-a-new-Server">How to migrate an existing sw360portal to a new instance</a></li>
-<li><a href="Dev-Database-Migration-using-Costco">Using costco to modify the couchdb database</a></li>
-</ol>
-<h1 id="developing-sw360">Developing sw360</h1>
-<p>The sw360 is Java-based application consisting of two main parts:</p>
-<ol>
-<li>A Liferay/based front end application that allows users to work with sw360</li>
-<li>A Java-based servlet infrastructure Thrift interfaces that allows the Liferay part and other applications to manage and store data</li>
-<li>In the backend, couchdb is used for storing project, component, release and license information as well as attachments.</li>
-</ol>
-<h3 id="submitting-issues">Submitting Issues</h3>
-<p>Please report issues to the issue tracker, but please keep also in mind that someone else has to read them! Issues should include:</p>
-<ul>
-<li>What you intended to do?</li>
-<li>What did you observe?</li>
-<li>Why do you think it is wrong?</li>
-<li>Screenshots of what you have observed presumably gone wrong or link to pages were another person can follow</li>
-<li>Version where you have observed this.</li>
-<li>Common written English and use of line breaks!!! Use the preview function!</li>
-</ul>
-<p>Please refer to the following pages for writing issues:</p>
-<ul>
-<li><a href="https://issues.apache.org/bugwritinghelp.html">https://issues.apache.org/bugwritinghelp.html</a></li>
-<li><a href="https://developer.mozilla.org/en-US/docs/Mozilla/QA/Bug_writing_guidelines">https://developer.mozilla.org/en-US/docs/Mozilla/QA/Bug_writing_guidelines</a></li>
-<li><a href="https://www.joelonsoftware.com/2000/11/08/painless-bug-tracking/">https://www.joelonsoftware.com/2000/11/08/painless-bug-tracking/</a></li>
-</ul>
-<h3 id="contribution-workflow">Contribution Workflow</h3>
-<p>As basic introduction, the dev ops works as following:</p>
-<ol>
-<li>We are issue-based, please do not hesitate to create issues - also for <em>questions</em> (and set the issue tag)</li>
-<li>The issues are organised by milestones which <a href="Dev-Releasing-SW360">do not represent releases anymore</a>. Milestone are meant to be useful packages of work done</li>
-<li>Contributions are made through pull requests</li>
-<li>We do conversations directly on issues and pull requests</li>
-</ol>
-<p>More topics regarding &ldquo;how&rdquo; to develop:</p>
-<ol>
-<li><a href="Dev-DoD-and-Style">Definition of done and code style</a></li>
-<li><a href="Dev-Releasing-SW360">Creating a sw360 release</a></li>
-<li><a href="Dev-Testing-Frameworks">Brief notes on the jgiven testing</a></li>
-<li><a href="Dev-Troubleshooting">For help with problems, you might want to check that</a></li>
-</ol>
-<h3 id="architecture">Architecture</h3>
-<p>sw360 is a server application using Java servlets. It did some faint steps towards micro services (ie. one maintaining licenses, another for vulnerabilities), the front end is a portlet applications using good old JSPs.</p>
-<ol>
-<li><a href="Dev-Arch-General">Introduction and Scope</a></li>
-<li><a href="Dev-Arch-View">High Level View</a></li>
-<li><a href="Dev-Arch-Topics">Architecture Topics</a></li>
-</ol>
-<h3 id="general-1">General</h3>
-<ol>
-<li><a href="https://github.com/eclipse/sw360/wiki/Dev-Adding-a-new-portlet:-Frontend">How to write a new portlet</a></li>
-<li><a href="https://github.com/eclipse/sw360/wiki/Dev-Adding-a-new-portlet:-Backend">Adding a new backend service</a></li>
-<li><a href="Dev-Adding-New-Fields-to-Existing-Classes">Changing the data model</a></li>
-<li><a href="Dev-REST-API">REST API overview</a></li>
-<li><a href="Dev-Using-RequireJS-for-javascript-modules">Migrating to Javascript modules</a></li>
-</ol>
-<h3 id="special-1">Special</h3>
-<ol>
-<li><a href="Dev-Filtering-in-Portlets">Filtering in portlets</a></li>
-<li><a href="Dev-Fossology-Integration">The FOSSology integration</a></li>
-<li><a href="Dev-Moderation-Requests">How moderation requests work</a></li>
-<li><a href="Dev-Role-Authorisation-Model">Roles and access rights</a></li>
-<li><a href="Dev-Attachment-File-Types">Attachment Types Description</a></li>
-<li><a href="https://wiki.eclipse.org/Google_Summer_of_Code_2019_Ideas#Eclipse_SW360">Our ideas of Google-Summer-of-Code 2019</a></li>
-<li><a href="Dev-Liferay-Friendly-URL">How Friendly URLs work with the Liferay Portlets</a></li>
-</ol>
-<h1 id="testing-sw360">Testing sw360</h1>
-<p>Generally, all modules have unit tests and these are executed (including deployment of couchdb) at CI times. In addtion, to test the front end, there are defined integration test cases for a manual check, if the sw360 is working properly in general:</p>
-<ol>
-<li><a href="Test-Cases-Components">Test Cases: Components Functionality</a></li>
-<li><a href="Test-Cases-Licenses">Test Cases: Licenses Functionality</a></li>
-<li><a href="Test-Cases-Moderations">Test Cases: Moderations Functionality</a></li>
-<li><a href="Test-Cases-Projects">Test Cases: Projects Functionality</a></li>
 </ol>
 
         <div class="section-index">
@@ -716,7 +566,7 @@
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified June 22, 2022: <a href="https://github.com/eclipse/sw360.website/commit/032e0f60817fa17b0036ac6db37d09342a714890">SW360 website remodeling (#9) (032e0f6)</a>
+  Last modified June 28, 2022: <a href="https://github.com/eclipse/sw360.website/commit/8d4a6e6115656996691732fe7db41f298837aa8f">fix(docs): Move content to proper areas (8d4a6e6)</a>
 </div>
 
 </div>

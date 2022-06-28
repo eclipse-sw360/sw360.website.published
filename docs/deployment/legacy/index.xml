@@ -1,0 +1,283 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Eclipse SW360 – Legacy Deployment Guides</title>
+    <link>https://www.eclipse.org/sw360/docs/deployment/legacy/</link>
+    <description>Recent content in Legacy Deployment Guides on Eclipse SW360</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+	  <atom:link href="https://www.eclipse.org/sw360/docs/deployment/legacy/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: Initial Setup of Liferay 6.2 and sw360</title>
+      <link>https://www.eclipse.org/sw360/docs/deployment/legacy/deploy-liferay/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/sw360/docs/deployment/legacy/deploy-liferay/</guid>
+      <description>
+        
+        
+        &lt;h3 id=&#34;liferay-administrator-steps&#34;&gt;Liferay administrator steps&lt;/h3&gt;
+&lt;p&gt;This part describes how to setup a new liferay instance after you went through the initial Liferay setup: create an admin account, confirm the license and terms and fill out your personal details. Alternatively in the &lt;a href=&#34;https://github.com/sw360/sw360vagrant&#34;&gt;sw360vagrant&lt;/a&gt; or the &lt;a href=&#34;https://github.com/sw360/sw360chores&#34;&gt;sw360chores&lt;/a&gt; deployment, the default setup user credentials are &lt;code&gt;setup@sw360.org&lt;/code&gt; with the unsafe password &lt;code&gt;sw360fossy&lt;/code&gt;.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Login as setup administrator (if you are using the default unsafe password, you should replace it on productive instances)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Go to&lt;/p&gt;
+&lt;p&gt;Menu Admin -&amp;gt; Item Control Panel -&amp;gt; Section Users, Password Policies -&amp;gt; Default Password Policy -&amp;gt; Actions -&amp;gt; Edit&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Then&lt;/p&gt;
+&lt;p&gt;uncheck &lt;code&gt;Change Required&lt;/code&gt; and then
+save&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Then we need to grant new users the right to see SW360&lt;/p&gt;
+&lt;p&gt;Control Panel -&amp;gt; Configuration -&amp;gt; Users(on the right) -&amp;gt;  Default User Associations&lt;/p&gt;
+&lt;p&gt;check &lt;code&gt;Apply to Existing Users&lt;/code&gt;
+write in Sites: &lt;code&gt;SW360 &lt;/code&gt;
+save (on the right)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Do not allow stranger to create accounts &amp;hellip;&lt;/p&gt;
+&lt;p&gt;Control Panel -&amp;gt; Configuration -&amp;gt; Users(on the right) -&amp;gt;  Authentication&lt;/p&gt;
+&lt;p&gt;uncheck &lt;code&gt;Allow strangers to create ...&lt;/code&gt;
+uncheck &lt;code&gt;Allow strangers to verify ...&lt;/code&gt;
+save (on the right)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Then, to deactivate self registration&lt;/p&gt;
+&lt;p&gt;Control Panel -&amp;gt; Authentication -&amp;gt; remove checkmarks for creating accounts by strangers
+save (on the right)&lt;/p&gt;
+&lt;p&gt;Note, disabling self registration is required because the current Liferay self registration does not create accounts in the backend service. (hence using the importer is required)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Then we go to&lt;/p&gt;
+&lt;p&gt;Admin -&amp;gt; Pages&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;and import the lar files from&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;frontend/configuration/public_pages.lar
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;frontend/configuration/private_pages.lar
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;for the respective pages, using the tabs &lt;code&gt;Public Pages&lt;/code&gt; and &lt;code&gt;Private Pages&lt;/code&gt;. Please note that the provided *.lar files are for Liferay 6.2 GA5 only (fun!). If you run a different liferay version, you will need to add the portlets manually until the *.lar files are updated manually.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;( DO NOT CHECK Pages -&amp;gt; Change -&amp;gt; Delete Missing Pages)&lt;/p&gt;
+&lt;p&gt;We check on first page&lt;/p&gt;
+&lt;p&gt;Application Configuration -&amp;gt; Choose Applications (leave all checked)&lt;/p&gt;
+&lt;p&gt;Permissions -&amp;gt; Permissions&lt;/p&gt;
+&lt;p&gt;Permissions -&amp;gt; Permissions Assigned to Roles&lt;/p&gt;
+&lt;p&gt;=&amp;gt; Click Continue&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;We check on second page of the import agent:&lt;/p&gt;
+&lt;p&gt;Update Data -&amp;gt; Mirror with overwriting&lt;/p&gt;
+&lt;p&gt;Authorship of the Content -&amp;gt; Use the Current User as Author&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;If this was successful we can go to&lt;/p&gt;
+&lt;p&gt;Private Pages -&amp;gt; users&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;We can then import a csv file that looks like that&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; GivenName,Lastname,Email,Department,UserGroup,GID,isMale,PasswdHash
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; user last name, user first name, first.last@sw360.org,TOP ORG CODE TEAM,USER,SW360_0004,true,AAAAoAAB9ACem9mZj9zptlEjFSMEF5MdOSUzgyxFDmKDGQDK
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Note that&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;1. The GID must be unique
+1. The hash here means &amp;quot;t&amp;quot;
+1. The GID is called external Id in the thrift-based datamodel
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;some-notes-and-troubleshooting&#34;&gt;Some notes and troubleshooting&lt;/h3&gt;
+&lt;h4 id=&#34;check-liferay-configuration-options&#34;&gt;Check Liferay Configuration Options&lt;/h4&gt;
+&lt;p&gt;There are plenty of useful settings to setup for your instance - you should check them depending on your desired use. Just a few examples, you could disable or enable:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Auto login or self registration functionality&lt;/li&gt;
+&lt;li&gt;Site statistics&lt;/li&gt;
+&lt;li&gt;Password policies&lt;/li&gt;
+&lt;li&gt;Configurability options&lt;/li&gt;
+&lt;li&gt;many more, it makes sense to browse the Liferay Admin area (in the optimal case, using the setup-admin login) and check all the options.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;liferay-crashes-at-startup-with-exception-dockbar&#34;&gt;Liferay crashes at startup with exception: Dockbar&lt;/h4&gt;
+&lt;p&gt;If the dockbar error occurs, the file named in the error log must be replaced with an original one, because it is corrupted. Note that this represents a bug of the Liferay 6.2 (search in your favorite search engine for dockbar liferay problem &amp;hellip;).&lt;/p&gt;
+&lt;h4 id=&#34;strange-behavior&#34;&gt;Strange behavior&lt;/h4&gt;
+&lt;p&gt;If the server has problems in terms of long running requests, maybe the memory setting is not allright, consider:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;CATALINA_OPTS=&amp;#34;$CATALINA_OPTS -Xms2048m -Xmx2048m
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;- -XX:NewSize=512m -XX:MaxNewSize=512m -XX:PermSize=512m
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;- -XX:MaxPermSize=512m&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;if you run Java prior to 8.&lt;/p&gt;
+&lt;h4 id=&#34;surfing-to-the-main-page-shows-blank-page-with-exception-message&#34;&gt;Surfing to the main page shows blank page with exception message&lt;/h4&gt;
+&lt;p&gt;If the &amp;ldquo;null pointer page&amp;rdquo; shows up (just a simple white page saying a null pointer exception occurred), remove the hsql folder inside the data folder from the liferay distro (shutdown before and restart after).&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Initial Setup of Liferay 7.2 and sw360</title>
+      <link>https://www.eclipse.org/sw360/docs/deployment/legacy/deploy-liferay7/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/sw360/docs/deployment/legacy/deploy-liferay7/</guid>
+      <description>
+        
+        
+        &lt;h1 id=&#34;starting-sw360-for-the-first-time&#34;&gt;Starting SW360 for the First Time&lt;/h1&gt;
+&lt;p&gt;So, the vagrant setup has deployed sw360, but unfortunately, there is some major issue: With Liferay, certain configuration need to be applied manually in the UI. If you would know how to import *.lar files and apply some setting from the command line (without implementing an approach based on HTML testing frameworks, like selenium), please let us know.&lt;/p&gt;
+&lt;p&gt;Until then, some tasks need to be done manually, after everything has been built up:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;import *.lar files&lt;/li&gt;
+&lt;li&gt;set password policies not to change after first login (it is annoying when developing)&lt;/li&gt;
+&lt;li&gt;set the default area to be SW360 when users login to liferay&lt;/li&gt;
+&lt;li&gt;apply some more settings, like users cannot create accounts on their own&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;setup-login&#34;&gt;Setup Login&lt;/h1&gt;
+&lt;p&gt;After successful installation, the screen should look like this. If there is weird html output without images and plain text, then likely some port settings did not work and the pages generated have wrong URLs inside.&lt;/p&gt;
+&lt;p&gt;[[screenshots/Screenshot 2020-01-24 at 14.38.53.png]]&lt;/p&gt;
+&lt;p&gt;Sign in at the icon at the upper left corner. If you did not change the values in &lt;code&gt;configuration.rb&lt;/code&gt;the default login is &lt;code&gt;setup@sw360.org&lt;/code&gt; and &lt;code&gt;sw360fossy&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;[[screenshots/Screenshot 2020-01-24 at 14.39.06.png]]&lt;/p&gt;
+&lt;h1 id=&#34;user-settings-in-sw360&#34;&gt;User Settings in SW360&lt;/h1&gt;
+&lt;p&gt;Go into the control panel area which can be unfold by clicking in the upper left corner. In this area, go for Users &amp;gt; Password Policies and disable &lt;code&gt;change Required&lt;/code&gt; if you wish to do so. Click on Save to save the selection.&lt;/p&gt;
+&lt;p&gt;[[screenshots/Screenshot 2020-01-24 at 14.39.56.png]]&lt;/p&gt;
+&lt;p&gt;Then, in &lt;code&gt;Configuration&lt;/code&gt; &amp;gt;  &lt;code&gt;Instance Settings&lt;/code&gt; &amp;gt; &lt;code&gt;Users&lt;/code&gt; &amp;gt; &lt;code&gt;Default User Associations&lt;/code&gt; to enter SW360 and apply it also to existing users. Click on Save to save the selection.&lt;/p&gt;
+&lt;p&gt;[[screenshots/Screenshot 2020-01-24 at 14.43.32.png]]&lt;/p&gt;
+&lt;p&gt;Then, in &lt;code&gt;Configuration&lt;/code&gt; &amp;gt;  &lt;code&gt;Instance Settings&lt;/code&gt; &amp;gt; &lt;code&gt;User Authentication&lt;/code&gt; &amp;gt; &lt;code&gt;General&lt;/code&gt; to disable all kind of auto login to make sure only authenticated users can log in.&lt;/p&gt;
+&lt;p&gt;[[screenshots/Screenshot 2020-01-24 at 14.46.49.png]]&lt;/p&gt;
+&lt;p&gt;Depending on your preferences make appropriate selections according to the screenshot. It is not advisable to allow users to self register in order to access the SW360 data.&lt;/p&gt;
+&lt;p&gt;[[screenshots/Screenshot 2020-01-24 at 14.47.03.png]]&lt;/p&gt;
+&lt;h1 id=&#34;import-lar-files&#34;&gt;Import *.lar Files&lt;/h1&gt;
+&lt;p&gt;Then, in the &lt;code&gt;SW360&lt;/code&gt; area &amp;gt;  &lt;code&gt;Publishing&lt;/code&gt; &amp;gt; &lt;code&gt;Import&lt;/code&gt; klick on the plus sign in order to import the *.lar file for public pages.&lt;/p&gt;
+&lt;p&gt;[[screenshots/Screenshot 2020-01-24 at 14.49.41.png]]&lt;/p&gt;
+&lt;p&gt;As for import settings, follow the selection as shown on the screenshot. It is very important that for the &lt;code&gt;PublicPages.lar&lt;/code&gt; file the selection &lt;code&gt;Public Pages&lt;/code&gt; is made.&lt;/p&gt;
+&lt;p&gt;[[screenshots/Screenshot 2020-01-24 at 14.51.10.png]]&lt;/p&gt;
+&lt;p&gt;Importing permission makes sure that pages are visible according to users rights. For public pages, it is irrelevant at the moment.&lt;/p&gt;
+&lt;p&gt;[[screenshots/Screenshot 2020-01-24 at 14.52.14.png]]&lt;/p&gt;
+&lt;p&gt;Overwriting and the write as current user needs to be selected.&lt;/p&gt;
+&lt;p&gt;[[screenshots/Screenshot 2020-01-24 at 14.51.21.png]]&lt;/p&gt;
+&lt;p&gt;After successful importing the following view should appear.&lt;/p&gt;
+&lt;p&gt;[[screenshots/Screenshot 2020-01-24 at 14.52.23.png]]&lt;/p&gt;
+&lt;p&gt;The same steps shall be repeated for the &lt;code&gt;PrivatePages.lar&lt;/code&gt; file.&lt;/p&gt;
+&lt;p&gt;[[screenshots/Screenshot 2020-01-24 at 14.52.36.png]]&lt;/p&gt;
+&lt;p&gt;Make sure that &lt;code&gt;Private Pages&lt;/code&gt; is selected. Follow the other selections made as shown on the screenshots.&lt;/p&gt;
+&lt;p&gt;[[screenshots/Screenshot 2020-01-24 at 14.52.58.png]]&lt;/p&gt;
+&lt;p&gt;Importing permissions &amp;hellip;&lt;/p&gt;
+&lt;p&gt;[[screenshots/Screenshot 2020-01-24 at 14.53.01.png]]&lt;/p&gt;
+&lt;p&gt;Mirror with overwriting, use the current author &amp;hellip;&lt;/p&gt;
+&lt;p&gt;[[screenshots/Screenshot 2020-01-24 at 14.53.04.png]]&lt;/p&gt;
+&lt;p&gt;Then the successful result should be shown like this:&lt;/p&gt;
+&lt;p&gt;[[screenshots/Screenshot 2020-01-24 at 14.54.14.png]]&lt;/p&gt;
+&lt;p&gt;If you click then the liferay logo at the upper left corner where the SW360 is, you will return to the application and the following screen should appear. Click &lt;code&gt;Start&lt;/code&gt; to open the private pages. You are still logged in, so the setup account is used to view the pages.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Important&lt;/strong&gt; The setup account does not belong to a group. Thus, not all view are functional because they require a group membership to work correctly.&lt;/p&gt;
+&lt;p&gt;[[screenshots/Screenshot 2020-01-24 at 14.54.38.png]]&lt;/p&gt;
+&lt;h1 id=&#34;import-user-accounts-for-testing&#34;&gt;Import User Accounts for Testing&lt;/h1&gt;
+&lt;p&gt;Assuming you are still logged in, the main view of SW360 looks as follows:&lt;/p&gt;
+&lt;p&gt;[[screenshots/Screenshot 2020-01-24 at 14.54.55.png]]&lt;/p&gt;
+&lt;p&gt;Click the SW360 &lt;code&gt;Admin&lt;/code&gt; menu which is at the right and selection the &lt;code&gt;User&lt;/code&gt; item.&lt;/p&gt;
+&lt;p&gt;[[screenshots/Screenshot 2020-01-24 at 14.55.00.png]]&lt;/p&gt;
+&lt;p&gt;At the bottom of that view, select a User file to import for testing. Skip it if you will create users differently.&lt;/p&gt;
+&lt;p&gt;[[screenshots/Screenshot 2020-01-24 at 14.55.12.png]]&lt;/p&gt;
+&lt;p&gt;You can find a user file to import in the &lt;code&gt;sw360vagrant&lt;/code&gt; project in the folder &lt;code&gt;shared&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;[[screenshots/Screenshot 2020-01-24 at 14.55.38.png]]&lt;/p&gt;
+&lt;p&gt;After the user have been imported successfully, they should appear in the table view.&lt;/p&gt;
+&lt;p&gt;[[screenshots/Screenshot 2020-01-24 at 14.55.59.png]]&lt;/p&gt;
+&lt;p&gt;After the user have been imported successfully, they should appear in the table view.&lt;/p&gt;
+&lt;h1 id=&#34;real-login&#34;&gt;Real Login&lt;/h1&gt;
+&lt;p&gt;One example user is &lt;code&gt;user@sw360.org&lt;/code&gt; with the password &lt;code&gt;12345&lt;/code&gt;. Note that in the import file with the example accounts, the passwort is provided with a hash. If you would like to generate new (salted) hashes, you can change your password and export the user list using the same portlet where you have imported the users. This functionality can be also used to migrate accounts between users.&lt;/p&gt;
+&lt;p&gt;[[screenshots/Screenshot 2020-01-24 at 14.56.06.png]]&lt;/p&gt;
+&lt;p&gt;After the successful login, SW360 will look as follows.&lt;/p&gt;
+&lt;p&gt;[[screenshots/Screenshot 2020-01-24 at 14.56.16.png]]&lt;/p&gt;
+&lt;p&gt;After the successful login, SW360 will look as in the following screenshot.&lt;/p&gt;
+&lt;p&gt;[[screenshots/Screenshot 2020-01-24 at 14.56.33.png]]&lt;/p&gt;
+&lt;p&gt;For example, click on &lt;code&gt;Projects&lt;/code&gt; to see that no projects have been created so far &amp;hellip;&lt;/p&gt;
+&lt;p&gt;[[screenshots/Screenshot 2020-01-24 at 14.57.08.png]]&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Initial Setup of Liferay 7.3 and sw360</title>
+      <link>https://www.eclipse.org/sw360/docs/deployment/legacy/deploy-liferay7.3/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/sw360/docs/deployment/legacy/deploy-liferay7.3/</guid>
+      <description>
+        
+        
+        &lt;p&gt;After successful installation, the vagrant ends like the following terminal output:&lt;/p&gt;
+&lt;p&gt;[[screenshots/Screenshot 2020-08-13 at 20.07.32.png]]&lt;/p&gt;
+&lt;p&gt;Then if you open the server with the URL &lt;code&gt;https://localhost:8443/&lt;/code&gt; the following screen should appear:&lt;/p&gt;
+&lt;p&gt;[[screenshots/Screenshot 2020-08-13 at 20.09.12.png]]&lt;/p&gt;
+&lt;p&gt;Note that the actual image changes with every liferay version. If there is weird html output without images and plain text, then likely some port settings did not work and the pages generated have wrong URLs inside.&lt;/p&gt;
+&lt;p&gt;Sign in at the icon at the upper left corner. If you did not change the values in &lt;code&gt;configuration.rb&lt;/code&gt;the default login is &lt;code&gt;setup@sw360.org&lt;/code&gt; and &lt;code&gt;sw360fossy&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;[[screenshots/Screenshot 2020-08-13 at 20.09.26.png]]&lt;/p&gt;
+&lt;p&gt;After login the sw360 is not setup, thus the server does not display much, but a screen like the following:&lt;/p&gt;
+&lt;p&gt;[[screenshots/Screenshot 2020-08-13 at 20.09.33.png]]&lt;/p&gt;
+&lt;h1 id=&#34;user-and-login-settings-in-liferay&#34;&gt;User and Login Settings in Liferay&lt;/h1&gt;
+&lt;p&gt;Go into the control panel area by clicking the items icon (nine small cubes) in the upper right corner and select the control panel tab:&lt;/p&gt;
+&lt;p&gt;[[screenshots/Screenshot 2020-08-13 at 20.09.41.png]]&lt;/p&gt;
+&lt;p&gt;In this area, go for Security &amp;gt; Password Policies:&lt;/p&gt;
+&lt;p&gt;[[screenshots/Screenshot 2020-08-13 at 20.09.53.png]]&lt;/p&gt;
+&lt;p&gt;Edit this password policy and disable &lt;code&gt;change Required&lt;/code&gt; if you wish to do so. Click on Save at the bottom of the page to save the selection.&lt;/p&gt;
+&lt;p&gt;[[screenshots/Screenshot 2020-08-13 at 20.09.59.png]]&lt;/p&gt;
+&lt;p&gt;Then, go: in &lt;code&gt;Configuration&lt;/code&gt; &amp;gt;  &lt;code&gt;Instance Settings&lt;/code&gt; &amp;gt; &lt;code&gt;Users&lt;/code&gt; &amp;gt;&lt;/p&gt;
+&lt;p&gt;[[screenshots/Screenshot 2020-08-13 at 20.10.17.png]]&lt;/p&gt;
+&lt;p&gt;In this area, select &lt;code&gt;Default User Associations&lt;/code&gt; to enter SW360 and apply it also to existing users. Click on Save to save the selection:&lt;/p&gt;
+&lt;p&gt;[[screenshots/Screenshot 2020-08-13 at 20.10.30.png]]&lt;/p&gt;
+&lt;p&gt;Then, in &lt;code&gt;Configuration&lt;/code&gt; &amp;gt;  &lt;code&gt;Instance Settings&lt;/code&gt; &amp;gt; &lt;code&gt;User Authentication&lt;/code&gt; &amp;gt; &lt;code&gt;General&lt;/code&gt; to disable all kind of auto login to make sure only authenticated users can log in. You may want to switch off the e-mail verification, because for most of the development times it will not be of much value.&lt;/p&gt;
+&lt;p&gt;[[screenshots/Screenshot 2020-08-13 at 20.10.50.png]]&lt;/p&gt;
+&lt;p&gt;Finally, sice Liferay 7.3 some of the bundled modules need to be activated:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;jquery&lt;/li&gt;
+&lt;li&gt;font awesome&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In oder to do this, please select from the &lt;code&gt;Configuration&lt;/code&gt; &amp;gt;  &lt;code&gt;System Settings&lt;/code&gt; &amp;gt; &lt;code&gt;Third Party&lt;/code&gt; and go to jquery, select the enablement and click on Update:&lt;/p&gt;
+&lt;p&gt;[[screenshots/Screenshot 2020-08-13 at 20.27.08.png]]&lt;/p&gt;
+&lt;p&gt;Do the same for Font Awesome:&lt;/p&gt;
+&lt;p&gt;[[screenshots/Screenshot 2020-08-13 at 20.27.13.png]]&lt;/p&gt;
+&lt;p&gt;Note that you need to reload the browser or load a new browser window to take changes to effect.&lt;/p&gt;
+&lt;h1 id=&#34;setup-sw360-for-liferay-import-lar-files&#34;&gt;Setup SW360 for Liferay: Import *.lar Files&lt;/h1&gt;
+&lt;p&gt;For the setup of SW360 in Liferay, the portal description files, &lt;code&gt;*.lar&lt;/code&gt; files need not be imported. there is no way except from doing this in the UI. If we are wrong with this, please let us know, because it is very annoying that these ever occurring steps cannot be automated with Liferay.&lt;/p&gt;
+&lt;p&gt;In order to go ahead, switch to the &lt;code&gt;SW360&lt;/code&gt; area where you can apply site settings:&lt;/p&gt;
+&lt;p&gt;[[screenshots/Screenshot 2020-08-13 at 20.11.20.png]]&lt;/p&gt;
+&lt;p&gt;The go into &amp;gt;  &lt;code&gt;Publishing&lt;/code&gt; &amp;gt; &lt;code&gt;Import&lt;/code&gt; which shows like this:&lt;/p&gt;
+&lt;p&gt;[[screenshots/Screenshot 2020-08-13 at 20.11.25.png]]&lt;/p&gt;
+&lt;p&gt;Then, click on the plus sign in order to import the *.lar file for public pages. You will find the lar files in the &lt;a href=&#34;https://github.com/eclipse/sw360/tree/master/frontend/configuration&#34;&gt;frontend/configuration&lt;/a&gt; folder of the sw360 repository.&lt;/p&gt;
+&lt;p&gt;[[screenshots/Screenshot 2020-08-13 at 20.23.15.png]]&lt;/p&gt;
+&lt;p&gt;As for import settings, follow the selection as shown on the screenshot. It is very important that for the &lt;code&gt;PublicPages.lar&lt;/code&gt; file the selection &lt;code&gt;Public Pages&lt;/code&gt; is made.&lt;/p&gt;
+&lt;p&gt;[[screenshots/Screenshot 2020-08-13 at 20.23.26.png]]&lt;/p&gt;
+&lt;p&gt;Importing permission makes sure that pages are visible according to users rights. For public pages, it is irrelevant at the moment. Overwriting and the write as current user needs to be selected.&lt;/p&gt;
+&lt;p&gt;After successful importing, the same steps shall be repeated for the &lt;code&gt;PrivatePages.lar&lt;/code&gt; file.&lt;/p&gt;
+&lt;p&gt;[[screenshots/Screenshot 2020-08-13 at 20.23.48.png]]&lt;/p&gt;
+&lt;p&gt;Make sure that &lt;code&gt;Private Pages&lt;/code&gt; is selected. Follow the other selections made as shown on the screenshot &amp;hellip; importing permissions &amp;hellip; mirror with overwriting, use the current author &amp;hellip;&lt;/p&gt;
+&lt;p&gt;[[screenshots/Screenshot 2020-08-13 at 20.23.53.png]]&lt;/p&gt;
+&lt;p&gt;If you click then the liferay logo at the upper left corner where the SW360 is, you will return to the application and the following screen should appear:&lt;/p&gt;
+&lt;p&gt;[[screenshots/Screenshot 2020-08-13 at 20.24.18.png]]&lt;/p&gt;
+&lt;p&gt;You can close the left menu area by clicking on the upper left icon:&lt;/p&gt;
+&lt;p&gt;[[screenshots/Screenshot 2020-08-13 at 20.24.21.png]]&lt;/p&gt;
+&lt;p&gt;Click &lt;code&gt;Start&lt;/code&gt; to open the private pages. You are still logged in, so the setup account is used to view the pages.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Important&lt;/strong&gt; The setup account does not belong to a group. Thus, not all view are functional because they require a group membership to work correctly.&lt;/p&gt;
+&lt;p&gt;[[screenshots/Screenshot 2020-08-13 at 20.24.31.png]]&lt;/p&gt;
+&lt;h1 id=&#34;import-user-accounts-for-testing&#34;&gt;Import User Accounts for Testing&lt;/h1&gt;
+&lt;p&gt;Click the SW360 &lt;code&gt;Admin&lt;/code&gt; menu which is at the right and selection the &lt;code&gt;User&lt;/code&gt; item.&lt;/p&gt;
+&lt;p&gt;[[screenshots/Screenshot 2020-08-13 at 20.24.48.png]]&lt;/p&gt;
+&lt;p&gt;At the bottom of that view, select a User file to import for testing. Skip it if you will create users differently. You can find a &lt;a href=&#34;https://github.com/sw360/sw360vagrant/blob/master/shared/test_users_with_passwords_12345.csv&#34;&gt;user account import file&lt;/a&gt; to import in the &lt;code&gt;sw360vagrant&lt;/code&gt; project in the folder &lt;code&gt;shared&lt;/code&gt;. After the user have been imported successfully, they should appear in the table view.&lt;/p&gt;
+&lt;p&gt;[[screenshots/Screenshot 2020-08-13 at 20.24.53.png]]&lt;/p&gt;
+&lt;p&gt;After the user have been imported successfully, they should appear in the table view. You can logout for now and use one of the just added accounts (see below):&lt;/p&gt;
+&lt;p&gt;[[screenshots/Screenshot 2020-08-13 at 20.24.58.png]]&lt;/p&gt;
+&lt;h1 id=&#34;real-login&#34;&gt;Real Login&lt;/h1&gt;
+&lt;p&gt;One example user is &lt;code&gt;user@sw360.org&lt;/code&gt; with the password &lt;code&gt;12345&lt;/code&gt;. Note that in the import file with the example accounts, the passwort is provided with a hash. If you would like to generate new (salted) hashes, you can change your password and export the user list using the same portlet where you have imported the users. This functionality can be also used to migrate accounts between servers.&lt;/p&gt;
+&lt;p&gt;[[screenshots/Screenshot 2020-08-13 at 20.25.07.png]]&lt;/p&gt;
+&lt;p&gt;After the successful login, SW360 will look as follows.&lt;/p&gt;
+&lt;p&gt;[[screenshots/Screenshot 2020-08-13 at 20.27.32.png]]&lt;/p&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

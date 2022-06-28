@@ -18,22 +18,26 @@
 <link rel="icon" type="image/png" href="/sw360/favicons/android-144x144.png" sizes="144x144">
 <link rel="icon" type="image/png" href="/sw360/favicons/android-192x192.png" sizes="192x192">
 
-<title>Testing Frameworks | Eclipse SW360</title>
-<meta name="description" content="Behaviour testing">
-<meta property="og:title" content="Testing Frameworks" />
-<meta property="og:description" content="Behaviour testing" />
+<title>Initial Setup of Liferay 7.2 and sw360 | Eclipse SW360</title>
+<meta name="description" content="Starting SW360 for the First Time
+So, the vagrant setup has deployed sw360, but unfortunately, there is some major issue: With Liferay, certain …">
+<meta property="og:title" content="Initial Setup of Liferay 7.2 and sw360" />
+<meta property="og:description" content="Starting SW360 for the First Time So, the vagrant setup has deployed sw360, but unfortunately, there is some major issue: With Liferay, certain configuration need to be applied manually in the UI. If you would know how to import *.lar files and apply some setting from the command line (without implementing an approach based on HTML testing frameworks, like selenium), please let us know.
+Until then, some tasks need to be done manually, after everything has been built up:" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://www.eclipse.org/sw360/docs/developers/dev-testing-frameworks/" /><meta property="article:section" content="docs" />
+<meta property="og:url" content="https://www.eclipse.org/sw360/docs/deployment/legacy/deploy-liferay7/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2022-06-22T22:10:18+02:00" /><meta property="og:site_name" content="Eclipse SW360" />
+<meta property="article:modified_time" content="2022-06-28T18:31:48+02:00" /><meta property="og:site_name" content="Eclipse SW360" />
 
-<meta itemprop="name" content="Testing Frameworks">
-<meta itemprop="description" content="Behaviour testing">
-<meta itemprop="dateModified" content="2022-06-22T22:10:18+02:00" />
-<meta itemprop="wordCount" content="77">
+<meta itemprop="name" content="Initial Setup of Liferay 7.2 and sw360">
+<meta itemprop="description" content="Starting SW360 for the First Time So, the vagrant setup has deployed sw360, but unfortunately, there is some major issue: With Liferay, certain configuration need to be applied manually in the UI. If you would know how to import *.lar files and apply some setting from the command line (without implementing an approach based on HTML testing frameworks, like selenium), please let us know.
+Until then, some tasks need to be done manually, after everything has been built up:">
+<meta itemprop="dateModified" content="2022-06-28T18:31:48+02:00" />
+<meta itemprop="wordCount" content="839">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Testing Frameworks"/>
-<meta name="twitter:description" content="Behaviour testing"/>
+<meta name="twitter:title" content="Initial Setup of Liferay 7.2 and sw360"/>
+<meta name="twitter:description" content="Starting SW360 for the First Time So, the vagrant setup has deployed sw360, but unfortunately, there is some major issue: With Liferay, certain configuration need to be applied manually in the UI. If you would know how to import *.lar files and apply some setting from the command line (without implementing an approach based on HTML testing frameworks, like selenium), please let us know.
+Until then, some tasks need to be done manually, after everything has been built up:"/>
 
 
 
@@ -188,8 +192,8 @@
   
 </li>
   </ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-sw360docsdeployment-li">
-  <input type="checkbox" id="m-sw360docsdeployment-check"/>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-sw360docsdeployment-li">
+  <input type="checkbox" id="m-sw360docsdeployment-check" checked/>
   <label for="m-sw360docsdeployment-check"><a href="/sw360/docs/deployment/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-sw360docsdeployment"><i class="fas fa-tools"></i><span class="">Deployment</span></a></label>
   
   <ul class="ul-2 foldable">
@@ -215,8 +219,8 @@
   
 </li>
   </ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-sw360docsdeploymentlegacy-li">
-  <input type="checkbox" id="m-sw360docsdeploymentlegacy-check"/>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-sw360docsdeploymentlegacy-li">
+  <input type="checkbox" id="m-sw360docsdeploymentlegacy-check" checked/>
   <label for="m-sw360docsdeploymentlegacy-check"><a href="/sw360/docs/deployment/legacy/" title="Legacy Deployment Guides" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-sw360docsdeploymentlegacy"><span class="">Legacy Guides</span></a></label>
   
   <ul class="ul-3 foldable">
@@ -224,9 +228,9 @@
   <input type="checkbox" id="m-sw360docsdeploymentlegacydeploy-liferay-check"/>
   <label for="m-sw360docsdeploymentlegacydeploy-liferay-check"><a href="/sw360/docs/deployment/legacy/deploy-liferay/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-sw360docsdeploymentlegacydeploy-liferay"><span class="">Initial Setup of Liferay 6.2 and sw360</span></a></label>
   
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-sw360docsdeploymentlegacydeploy-liferay7-li">
-  <input type="checkbox" id="m-sw360docsdeploymentlegacydeploy-liferay7-check"/>
-  <label for="m-sw360docsdeploymentlegacydeploy-liferay7-check"><a href="/sw360/docs/deployment/legacy/deploy-liferay7/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-sw360docsdeploymentlegacydeploy-liferay7"><span class="">Initial Setup of Liferay 7.2 and sw360</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-sw360docsdeploymentlegacydeploy-liferay7-li">
+  <input type="checkbox" id="m-sw360docsdeploymentlegacydeploy-liferay7-check" checked/>
+  <label for="m-sw360docsdeploymentlegacydeploy-liferay7-check"><a href="/sw360/docs/deployment/legacy/deploy-liferay7/" class="align-left pl-0  active td-sidebar-link td-sidebar-link__page" id="m-sw360docsdeploymentlegacydeploy-liferay7"><span class="td-sidebar-nav-active-item">Initial Setup of Liferay 7.2 and sw360</span></a></label>
   
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-sw360docsdeploymentlegacydeploy-liferay73-li">
   <input type="checkbox" id="m-sw360docsdeploymentlegacydeploy-liferay73-check"/>
@@ -272,8 +276,8 @@
   
 </li>
   </ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-sw360docsdevelopers-li">
-  <input type="checkbox" id="m-sw360docsdevelopers-check" checked/>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-sw360docsdevelopers-li">
+  <input type="checkbox" id="m-sw360docsdevelopers-check"/>
   <label for="m-sw360docsdevelopers-check"><a href="/sw360/docs/developers/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-sw360docsdevelopers"><i class="fab fa-github"></i><span class="">Development</span></a></label>
   
   <ul class="ul-2 foldable">
@@ -337,9 +341,9 @@
   <input type="checkbox" id="m-sw360docsdevelopersdev-semantic-commits-check"/>
   <label for="m-sw360docsdevelopersdev-semantic-commits-check"><a href="/sw360/docs/developers/dev-semantic-commits/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-sw360docsdevelopersdev-semantic-commits"><span class="">Semantic Commits</span></a></label>
   
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-sw360docsdevelopersdev-testing-frameworks-li">
-  <input type="checkbox" id="m-sw360docsdevelopersdev-testing-frameworks-check" checked/>
-  <label for="m-sw360docsdevelopersdev-testing-frameworks-check"><a href="/sw360/docs/developers/dev-testing-frameworks/" class="align-left pl-0  active td-sidebar-link td-sidebar-link__page" id="m-sw360docsdevelopersdev-testing-frameworks"><span class="td-sidebar-nav-active-item">Testing Frameworks</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-sw360docsdevelopersdev-testing-frameworks-li">
+  <input type="checkbox" id="m-sw360docsdevelopersdev-testing-frameworks-check"/>
+  <label for="m-sw360docsdevelopersdev-testing-frameworks-check"><a href="/sw360/docs/developers/dev-testing-frameworks/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-sw360docsdevelopersdev-testing-frameworks"><span class="">Testing Frameworks</span></a></label>
   
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-sw360docsdevelopersdev-troubleshooting-li">
   <input type="checkbox" id="m-sw360docsdevelopersdev-troubleshooting-check"/>
@@ -385,10 +389,10 @@
           <aside class="d-none d-xl-block col-xl-2 td-sidebar-toc d-print-none">
             
 <div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
-<a href="https://github.com/eclipse/sw360.website/tree/master/content/en/docs/Developers/Dev-Testing-Frameworks.md" class="td-page-meta--view" target="_blank" rel="noopener"><i class="fa fa-file-alt fa-fw"></i> View page source</a>
-  <a href="https://github.com/eclipse/sw360.website/edit/master/content/en/docs/Developers/Dev-Testing-Frameworks.md" class="td-page-meta--edit" target="_blank" rel="noopener"><i class="fa fa-edit fa-fw"></i> Edit this page</a>
-  <a href="https://github.com/eclipse/sw360.website/new/master/content/en/docs/Developers/Dev-Testing-Frameworks.md?filename=change-me.md&amp;value=---%0Atitle%3A&#43;%22Long&#43;Page&#43;Title%22%0AlinkTitle%3A&#43;%22Short&#43;Nav&#43;Title%22%0Aweight%3A&#43;100%0Adescription%3A&#43;%3E-%0A&#43;&#43;&#43;&#43;&#43;Page&#43;description&#43;for&#43;heading&#43;and&#43;indexes.%0A---%0A%0A%23%23&#43;Heading%0A%0AEdit&#43;this&#43;template&#43;to&#43;create&#43;your&#43;new&#43;page.%0A%0A%2A&#43;Give&#43;it&#43;a&#43;good&#43;name%2C&#43;ending&#43;in&#43;%60.md%60&#43;-&#43;e.g.&#43;%60getting-started.md%60%0A%2A&#43;Edit&#43;the&#43;%22front&#43;matter%22&#43;section&#43;at&#43;the&#43;top&#43;of&#43;the&#43;page&#43;%28weight&#43;controls&#43;how&#43;its&#43;ordered&#43;amongst&#43;other&#43;pages&#43;in&#43;the&#43;same&#43;directory%3B&#43;lowest&#43;number&#43;first%29.%0A%2A&#43;Add&#43;a&#43;good&#43;commit&#43;message&#43;at&#43;the&#43;bottom&#43;of&#43;the&#43;page&#43;%28%3C80&#43;characters%3B&#43;use&#43;the&#43;extended&#43;description&#43;field&#43;for&#43;more&#43;detail%29.%0A%2A&#43;Create&#43;a&#43;new&#43;branch&#43;so&#43;you&#43;can&#43;preview&#43;your&#43;new&#43;file&#43;and&#43;request&#43;a&#43;review&#43;via&#43;Pull&#43;Request.%0A" class="td-page-meta--child" target="_blank" rel="noopener"><i class="fa fa-edit fa-fw"></i> Create child page</a>
-  <a href="https://github.com/eclipse/sw360.website/issues/new?title=Testing%20Frameworks" class="td-page-meta--issue" target="_blank" rel="noopener"><i class="fas fa-tasks fa-fw"></i> Create documentation issue</a>
+<a href="https://github.com/eclipse/sw360.website/tree/master/content/en/docs/Deployment/Legacy/Deploy-Liferay7.md" class="td-page-meta--view" target="_blank" rel="noopener"><i class="fa fa-file-alt fa-fw"></i> View page source</a>
+  <a href="https://github.com/eclipse/sw360.website/edit/master/content/en/docs/Deployment/Legacy/Deploy-Liferay7.md" class="td-page-meta--edit" target="_blank" rel="noopener"><i class="fa fa-edit fa-fw"></i> Edit this page</a>
+  <a href="https://github.com/eclipse/sw360.website/new/master/content/en/docs/Deployment/Legacy/Deploy-Liferay7.md?filename=change-me.md&amp;value=---%0Atitle%3A&#43;%22Long&#43;Page&#43;Title%22%0AlinkTitle%3A&#43;%22Short&#43;Nav&#43;Title%22%0Aweight%3A&#43;100%0Adescription%3A&#43;%3E-%0A&#43;&#43;&#43;&#43;&#43;Page&#43;description&#43;for&#43;heading&#43;and&#43;indexes.%0A---%0A%0A%23%23&#43;Heading%0A%0AEdit&#43;this&#43;template&#43;to&#43;create&#43;your&#43;new&#43;page.%0A%0A%2A&#43;Give&#43;it&#43;a&#43;good&#43;name%2C&#43;ending&#43;in&#43;%60.md%60&#43;-&#43;e.g.&#43;%60getting-started.md%60%0A%2A&#43;Edit&#43;the&#43;%22front&#43;matter%22&#43;section&#43;at&#43;the&#43;top&#43;of&#43;the&#43;page&#43;%28weight&#43;controls&#43;how&#43;its&#43;ordered&#43;amongst&#43;other&#43;pages&#43;in&#43;the&#43;same&#43;directory%3B&#43;lowest&#43;number&#43;first%29.%0A%2A&#43;Add&#43;a&#43;good&#43;commit&#43;message&#43;at&#43;the&#43;bottom&#43;of&#43;the&#43;page&#43;%28%3C80&#43;characters%3B&#43;use&#43;the&#43;extended&#43;description&#43;field&#43;for&#43;more&#43;detail%29.%0A%2A&#43;Create&#43;a&#43;new&#43;branch&#43;so&#43;you&#43;can&#43;preview&#43;your&#43;new&#43;file&#43;and&#43;request&#43;a&#43;review&#43;via&#43;Pull&#43;Request.%0A" class="td-page-meta--child" target="_blank" rel="noopener"><i class="fa fa-edit fa-fw"></i> Create child page</a>
+  <a href="https://github.com/eclipse/sw360.website/issues/new?title=Initial%20Setup%20of%20Liferay%207.2%20and%20sw360" class="td-page-meta--issue" target="_blank" rel="noopener"><i class="fas fa-tasks fa-fw"></i> Create documentation issue</a>
   <a href="https://github.com/eclipse/sw360/issues/new" class="td-page-meta--project-issue" target="_blank" rel="noopener"><i class="fas fa-tasks fa-fw"></i> Create project issue</a>
   
 </div>
@@ -427,17 +431,19 @@
   <ol class="breadcrumb">
   <li class="breadcrumb-item"><a href="https://www.eclipse.org/sw360/docs/">Documentation</a>
     </li>
-  <li class="breadcrumb-item"><a href="https://www.eclipse.org/sw360/docs/developers/">Development</a>
+  <li class="breadcrumb-item"><a href="https://www.eclipse.org/sw360/docs/deployment/">Deployment</a>
+    </li>
+  <li class="breadcrumb-item"><a href="https://www.eclipse.org/sw360/docs/deployment/legacy/">Legacy Guides</a>
     </li>
   <li class="breadcrumb-item active">
-      <span>Testing Frameworks</span>
+      <span>Initial Setup of Liferay 7.2 and sw360</span>
     </li>
   </ol>
 </nav>
             
 <div class="td-content">
-	<h1>Testing Frameworks</h1>
-	<div class="lead">Behaviour testing</div>
+	<h1>Initial Setup of Liferay 7.2 and sw360</h1>
+	
 	<header class="article-meta">
 		
 
@@ -453,17 +459,79 @@
 
 		
 	</header>    
-	<p>The implementation of complicated rules is not always easy to read.
-A good way to document and explain the behaviour of rule engines are natural language tests.
-A frame work we use for that is <a href="http://jgiven.org/">jgiven</a>.
-We write the tests using the [dataprovider] (<a href="https://github.com/TNG/junit-dataprovider">https://github.com/TNG/junit-dataprovider</a>) runner.
-This is basically a runner that allows to use parametrized tests.</p>
-<p>The basic testing frame work is still <a href="http://junit.org/">JUnit4</a>, assertions are made using <a href="https://code.google.com/p/hamcrest/wiki/Tutorial">hamcrest</a> and we mock complicated input classes with <a href="http://mockito.org/">mockito</a>.</p>
+	<h1 id="starting-sw360-for-the-first-time">Starting SW360 for the First Time</h1>
+<p>So, the vagrant setup has deployed sw360, but unfortunately, there is some major issue: With Liferay, certain configuration need to be applied manually in the UI. If you would know how to import *.lar files and apply some setting from the command line (without implementing an approach based on HTML testing frameworks, like selenium), please let us know.</p>
+<p>Until then, some tasks need to be done manually, after everything has been built up:</p>
+<ul>
+<li>import *.lar files</li>
+<li>set password policies not to change after first login (it is annoying when developing)</li>
+<li>set the default area to be SW360 when users login to liferay</li>
+<li>apply some more settings, like users cannot create accounts on their own</li>
+</ul>
+<h1 id="setup-login">Setup Login</h1>
+<p>After successful installation, the screen should look like this. If there is weird html output without images and plain text, then likely some port settings did not work and the pages generated have wrong URLs inside.</p>
+<p>[[screenshots/Screenshot 2020-01-24 at 14.38.53.png]]</p>
+<p>Sign in at the icon at the upper left corner. If you did not change the values in <code>configuration.rb</code>the default login is <code>setup@sw360.org</code> and <code>sw360fossy</code>.</p>
+<p>[[screenshots/Screenshot 2020-01-24 at 14.39.06.png]]</p>
+<h1 id="user-settings-in-sw360">User Settings in SW360</h1>
+<p>Go into the control panel area which can be unfold by clicking in the upper left corner. In this area, go for Users &gt; Password Policies and disable <code>change Required</code> if you wish to do so. Click on Save to save the selection.</p>
+<p>[[screenshots/Screenshot 2020-01-24 at 14.39.56.png]]</p>
+<p>Then, in <code>Configuration</code> &gt;  <code>Instance Settings</code> &gt; <code>Users</code> &gt; <code>Default User Associations</code> to enter SW360 and apply it also to existing users. Click on Save to save the selection.</p>
+<p>[[screenshots/Screenshot 2020-01-24 at 14.43.32.png]]</p>
+<p>Then, in <code>Configuration</code> &gt;  <code>Instance Settings</code> &gt; <code>User Authentication</code> &gt; <code>General</code> to disable all kind of auto login to make sure only authenticated users can log in.</p>
+<p>[[screenshots/Screenshot 2020-01-24 at 14.46.49.png]]</p>
+<p>Depending on your preferences make appropriate selections according to the screenshot. It is not advisable to allow users to self register in order to access the SW360 data.</p>
+<p>[[screenshots/Screenshot 2020-01-24 at 14.47.03.png]]</p>
+<h1 id="import-lar-files">Import *.lar Files</h1>
+<p>Then, in the <code>SW360</code> area &gt;  <code>Publishing</code> &gt; <code>Import</code> klick on the plus sign in order to import the *.lar file for public pages.</p>
+<p>[[screenshots/Screenshot 2020-01-24 at 14.49.41.png]]</p>
+<p>As for import settings, follow the selection as shown on the screenshot. It is very important that for the <code>PublicPages.lar</code> file the selection <code>Public Pages</code> is made.</p>
+<p>[[screenshots/Screenshot 2020-01-24 at 14.51.10.png]]</p>
+<p>Importing permission makes sure that pages are visible according to users rights. For public pages, it is irrelevant at the moment.</p>
+<p>[[screenshots/Screenshot 2020-01-24 at 14.52.14.png]]</p>
+<p>Overwriting and the write as current user needs to be selected.</p>
+<p>[[screenshots/Screenshot 2020-01-24 at 14.51.21.png]]</p>
+<p>After successful importing the following view should appear.</p>
+<p>[[screenshots/Screenshot 2020-01-24 at 14.52.23.png]]</p>
+<p>The same steps shall be repeated for the <code>PrivatePages.lar</code> file.</p>
+<p>[[screenshots/Screenshot 2020-01-24 at 14.52.36.png]]</p>
+<p>Make sure that <code>Private Pages</code> is selected. Follow the other selections made as shown on the screenshots.</p>
+<p>[[screenshots/Screenshot 2020-01-24 at 14.52.58.png]]</p>
+<p>Importing permissions &hellip;</p>
+<p>[[screenshots/Screenshot 2020-01-24 at 14.53.01.png]]</p>
+<p>Mirror with overwriting, use the current author &hellip;</p>
+<p>[[screenshots/Screenshot 2020-01-24 at 14.53.04.png]]</p>
+<p>Then the successful result should be shown like this:</p>
+<p>[[screenshots/Screenshot 2020-01-24 at 14.54.14.png]]</p>
+<p>If you click then the liferay logo at the upper left corner where the SW360 is, you will return to the application and the following screen should appear. Click <code>Start</code> to open the private pages. You are still logged in, so the setup account is used to view the pages.</p>
+<p><strong>Important</strong> The setup account does not belong to a group. Thus, not all view are functional because they require a group membership to work correctly.</p>
+<p>[[screenshots/Screenshot 2020-01-24 at 14.54.38.png]]</p>
+<h1 id="import-user-accounts-for-testing">Import User Accounts for Testing</h1>
+<p>Assuming you are still logged in, the main view of SW360 looks as follows:</p>
+<p>[[screenshots/Screenshot 2020-01-24 at 14.54.55.png]]</p>
+<p>Click the SW360 <code>Admin</code> menu which is at the right and selection the <code>User</code> item.</p>
+<p>[[screenshots/Screenshot 2020-01-24 at 14.55.00.png]]</p>
+<p>At the bottom of that view, select a User file to import for testing. Skip it if you will create users differently.</p>
+<p>[[screenshots/Screenshot 2020-01-24 at 14.55.12.png]]</p>
+<p>You can find a user file to import in the <code>sw360vagrant</code> project in the folder <code>shared</code>.</p>
+<p>[[screenshots/Screenshot 2020-01-24 at 14.55.38.png]]</p>
+<p>After the user have been imported successfully, they should appear in the table view.</p>
+<p>[[screenshots/Screenshot 2020-01-24 at 14.55.59.png]]</p>
+<p>After the user have been imported successfully, they should appear in the table view.</p>
+<h1 id="real-login">Real Login</h1>
+<p>One example user is <code>user@sw360.org</code> with the password <code>12345</code>. Note that in the import file with the example accounts, the passwort is provided with a hash. If you would like to generate new (salted) hashes, you can change your password and export the user list using the same portlet where you have imported the users. This functionality can be also used to migrate accounts between users.</p>
+<p>[[screenshots/Screenshot 2020-01-24 at 14.56.06.png]]</p>
+<p>After the successful login, SW360 will look as follows.</p>
+<p>[[screenshots/Screenshot 2020-01-24 at 14.56.16.png]]</p>
+<p>After the successful login, SW360 will look as in the following screenshot.</p>
+<p>[[screenshots/Screenshot 2020-01-24 at 14.56.33.png]]</p>
+<p>For example, click on <code>Projects</code> to see that no projects have been created so far &hellip;</p>
+<p>[[screenshots/Screenshot 2020-01-24 at 14.57.08.png]]</p>
 
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified June 22, 2022: <a href="https://github.com/eclipse/sw360.website/commit/032e0f60817fa17b0036ac6db37d09342a714890">SW360 website remodeling (#9) (032e0f6)</a>
+  Last modified June 28, 2022: <a href="https://github.com/eclipse/sw360.website/commit/8d4a6e6115656996691732fe7db41f298837aa8f">fix(docs): Move content to proper areas (8d4a6e6)</a>
 </div>
 
 </div>

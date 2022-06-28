@@ -40,6 +40,19 @@
     </item>
     
     <item>
+      <title>Docs: Legacy Deployment Guides</title>
+      <link>https://www.eclipse.org/sw360/docs/deployment/legacy/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/sw360/docs/deployment/legacy/</guid>
+      <description>
+        
+        
+        
+      </description>
+    </item>
+    
+    <item>
       <title>Docs: Authorization Concept</title>
       <link>https://www.eclipse.org/sw360/docs/deployment/deploy-authorization-concept/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -965,6 +978,23 @@ Nevertheless this scenario is not intended and maybe there are unforeseen side e
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Note that the Linux vagrant scripts applies somesecurity measures already on the OS level.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Special Deployment Guides</title>
+      <link>https://www.eclipse.org/sw360/docs/deployment/deploy-specialdeployment/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/sw360/docs/deployment/deploy-specialdeployment/</guid>
+      <description>
+        
+        
+        &lt;h3 id=&#34;general-deployment-guides&#34;&gt;General Deployment Guides&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://qiita.com/K-Hama/items/1582b4e1bf248025eabb&#34;&gt;Comprehensive blog post on SW360 Installation in Japanese&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
       </description>
     </item>
