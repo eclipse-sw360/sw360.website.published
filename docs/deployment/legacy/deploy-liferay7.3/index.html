@@ -20,34 +20,35 @@
 
 <title>Initial Setup of Liferay 7.3 and sw360 | Eclipse SW360</title>
 <meta name="description" content="After successful installation, the vagrant ends like the following terminal output:
-[[screenshots/Screenshot 2020-08-13 at 20.07.32.png]]
-Then if you …">
+
+
+     
+
+
+Then if you open the server with the URL …">
 <meta property="og:title" content="Initial Setup of Liferay 7.3 and sw360" />
 <meta property="og:description" content="After successful installation, the vagrant ends like the following terminal output:
-[[screenshots/Screenshot 2020-08-13 at 20.07.32.png]]
-Then if you open the server with the URL https://localhost:8443/ the following screen should appear:
-[[screenshots/Screenshot 2020-08-13 at 20.09.12.png]]
-Note that the actual image changes with every liferay version. If there is weird html output without images and plain text, then likely some port settings did not work and the pages generated have wrong URLs inside." />
+  Then if you open the server with the URL https://localhost:8443/ the following screen should appear:
+  Note that the actual image changes with every liferay version. If there is weird html output without images and plain text, then likely some port settings did not work and the pages generated have wrong URLs inside.
+Sign in_the icon_the upper left corner." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.eclipse.org/sw360/docs/deployment/legacy/deploy-liferay7.3/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2022-06-28T18:31:48+02:00" /><meta property="og:site_name" content="Eclipse SW360" />
+<meta property="article:modified_time" content="2022-07-08T12:18:26+02:00" /><meta property="og:site_name" content="Eclipse SW360" />
 
 <meta itemprop="name" content="Initial Setup of Liferay 7.3 and sw360">
 <meta itemprop="description" content="After successful installation, the vagrant ends like the following terminal output:
-[[screenshots/Screenshot 2020-08-13 at 20.07.32.png]]
-Then if you open the server with the URL https://localhost:8443/ the following screen should appear:
-[[screenshots/Screenshot 2020-08-13 at 20.09.12.png]]
-Note that the actual image changes with every liferay version. If there is weird html output without images and plain text, then likely some port settings did not work and the pages generated have wrong URLs inside.">
-<meta itemprop="dateModified" content="2022-06-28T18:31:48+02:00" />
-<meta itemprop="wordCount" content="918">
+  Then if you open the server with the URL https://localhost:8443/ the following screen should appear:
+  Note that the actual image changes with every liferay version. If there is weird html output without images and plain text, then likely some port settings did not work and the pages generated have wrong URLs inside.
+Sign in_the icon_the upper left corner.">
+<meta itemprop="dateModified" content="2022-07-08T12:18:26+02:00" />
+<meta itemprop="wordCount" content="802">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Initial Setup of Liferay 7.3 and sw360"/>
 <meta name="twitter:description" content="After successful installation, the vagrant ends like the following terminal output:
-[[screenshots/Screenshot 2020-08-13 at 20.07.32.png]]
-Then if you open the server with the URL https://localhost:8443/ the following screen should appear:
-[[screenshots/Screenshot 2020-08-13 at 20.09.12.png]]
-Note that the actual image changes with every liferay version. If there is weird html output without images and plain text, then likely some port settings did not work and the pages generated have wrong URLs inside."/>
+  Then if you open the server with the URL https://localhost:8443/ the following screen should appear:
+  Note that the actual image changes with every liferay version. If there is weird html output without images and plain text, then likely some port settings did not work and the pages generated have wrong URLs inside.
+Sign in_the icon_the upper left corner."/>
 
 
 
@@ -539,76 +540,180 @@ Note that the actual image changes with every liferay version. If there is weird
 		
 	</header>    
 	<p>After successful installation, the vagrant ends like the following terminal output:</p>
-<p>[[screenshots/Screenshot 2020-08-13 at 20.07.32.png]]</p>
+
+<figure>
+    <img src="/sw360/img/sw360screenshots/deploy73/2020-08-13_20.07.32.png"/> 
+</figure>
+
 <p>Then if you open the server with the URL <code>https://localhost:8443/</code> the following screen should appear:</p>
-<p>[[screenshots/Screenshot 2020-08-13 at 20.09.12.png]]</p>
+
+<figure>
+    <img src="/sw360/img/sw360screenshots/deploy73/2020-08-13_20.09.12.png"/> 
+</figure>
+
 <p>Note that the actual image changes with every liferay version. If there is weird html output without images and plain text, then likely some port settings did not work and the pages generated have wrong URLs inside.</p>
-<p>Sign in at the icon at the upper left corner. If you did not change the values in <code>configuration.rb</code>the default login is <code>setup@sw360.org</code> and <code>sw360fossy</code>.</p>
-<p>[[screenshots/Screenshot 2020-08-13 at 20.09.26.png]]</p>
+<p>Sign in_the icon_the upper left corner. If you did not change the values in <code>configuration.rb</code>the default login is <code>setup@sw360.org</code> and <code>sw360fossy</code>.</p>
+
+<figure>
+    <img src="/sw360/img/sw360screenshots/deploy73/2020-08-13_20.09.26.png"/> 
+</figure>
+
 <p>After login the sw360 is not setup, thus the server does not display much, but a screen like the following:</p>
-<p>[[screenshots/Screenshot 2020-08-13 at 20.09.33.png]]</p>
+
+<figure>
+    <img src="/sw360/img/sw360screenshots/deploy73/2020-08-13_20.09.33.png"/> 
+</figure>
+
 <h1 id="user-and-login-settings-in-liferay">User and Login Settings in Liferay</h1>
 <p>Go into the control panel area by clicking the items icon (nine small cubes) in the upper right corner and select the control panel tab:</p>
-<p>[[screenshots/Screenshot 2020-08-13 at 20.09.41.png]]</p>
+
+<figure>
+    <img src="/sw360/img/sw360screenshots/deploy73/2020-08-13_20.09.41.png"/> 
+</figure>
+
 <p>In this area, go for Security &gt; Password Policies:</p>
-<p>[[screenshots/Screenshot 2020-08-13 at 20.09.53.png]]</p>
-<p>Edit this password policy and disable <code>change Required</code> if you wish to do so. Click on Save at the bottom of the page to save the selection.</p>
-<p>[[screenshots/Screenshot 2020-08-13 at 20.09.59.png]]</p>
+
+<figure>
+    <img src="/sw360/img/sw360screenshots/deploy73/2020-08-13_20.09.53.png"/> 
+</figure>
+
+<p>Edit this password policy and disable <code>change Required</code> if you wish to do so. Click on Save_the bottom of the page to save the selection.</p>
+
+<figure>
+    <img src="/sw360/img/sw360screenshots/deploy73/2020-08-13_20.09.59.png"/> 
+</figure>
+
 <p>Then, go: in <code>Configuration</code> &gt;  <code>Instance Settings</code> &gt; <code>Users</code> &gt;</p>
-<p>[[screenshots/Screenshot 2020-08-13 at 20.10.17.png]]</p>
+
+<figure>
+    <img src="/sw360/img/sw360screenshots/deploy73/2020-08-13_20.10.17.png"/> 
+</figure>
+
 <p>In this area, select <code>Default User Associations</code> to enter SW360 and apply it also to existing users. Click on Save to save the selection:</p>
-<p>[[screenshots/Screenshot 2020-08-13 at 20.10.30.png]]</p>
+
+<figure>
+    <img src="/sw360/img/sw360screenshots/deploy73/2020-08-13_20.10.30.png"/> 
+</figure>
+
 <p>Then, in <code>Configuration</code> &gt;  <code>Instance Settings</code> &gt; <code>User Authentication</code> &gt; <code>General</code> to disable all kind of auto login to make sure only authenticated users can log in. You may want to switch off the e-mail verification, because for most of the development times it will not be of much value.</p>
-<p>[[screenshots/Screenshot 2020-08-13 at 20.10.50.png]]</p>
+
+<figure>
+    <img src="/sw360/img/sw360screenshots/deploy73/2020-08-13_20.10.50.png"/> 
+</figure>
+
 <p>Finally, sice Liferay 7.3 some of the bundled modules need to be activated:</p>
 <ul>
 <li>jquery</li>
 <li>font awesome</li>
 </ul>
 <p>In oder to do this, please select from the <code>Configuration</code> &gt;  <code>System Settings</code> &gt; <code>Third Party</code> and go to jquery, select the enablement and click on Update:</p>
-<p>[[screenshots/Screenshot 2020-08-13 at 20.27.08.png]]</p>
+
+<figure>
+    <img src="/sw360/img/sw360screenshots/deploy73/2020-08-13_20.27.08.png"/> 
+</figure>
+
 <p>Do the same for Font Awesome:</p>
-<p>[[screenshots/Screenshot 2020-08-13 at 20.27.13.png]]</p>
+
+<figure>
+    <img src="/sw360/img/sw360screenshots/deploy73/2020-08-13_20.27.13.png"/> 
+</figure>
+
 <p>Note that you need to reload the browser or load a new browser window to take changes to effect.</p>
 <h1 id="setup-sw360-for-liferay-import-lar-files">Setup SW360 for Liferay: Import *.lar Files</h1>
 <p>For the setup of SW360 in Liferay, the portal description files, <code>*.lar</code> files need not be imported. there is no way except from doing this in the UI. If we are wrong with this, please let us know, because it is very annoying that these ever occurring steps cannot be automated with Liferay.</p>
 <p>In order to go ahead, switch to the <code>SW360</code> area where you can apply site settings:</p>
-<p>[[screenshots/Screenshot 2020-08-13 at 20.11.20.png]]</p>
+
+<figure>
+    <img src="/sw360/img/sw360screenshots/deploy73/2020-08-13_20.11.20.png"/> 
+</figure>
+
 <p>The go into &gt;  <code>Publishing</code> &gt; <code>Import</code> which shows like this:</p>
-<p>[[screenshots/Screenshot 2020-08-13 at 20.11.25.png]]</p>
+
+<figure>
+    <img src="/sw360/img/sw360screenshots/deploy73/2020-08-13_20.11.25.png"/> 
+</figure>
+
 <p>Then, click on the plus sign in order to import the *.lar file for public pages. You will find the lar files in the <a href="https://github.com/eclipse/sw360/tree/master/frontend/configuration">frontend/configuration</a> folder of the sw360 repository.</p>
-<p>[[screenshots/Screenshot 2020-08-13 at 20.23.15.png]]</p>
+
+<figure>
+    <img src="/sw360/img/sw360screenshots/deploy73/2020-08-13_20.23.15.png"/> 
+</figure>
+
 <p>As for import settings, follow the selection as shown on the screenshot. It is very important that for the <code>PublicPages.lar</code> file the selection <code>Public Pages</code> is made.</p>
-<p>[[screenshots/Screenshot 2020-08-13 at 20.23.26.png]]</p>
-<p>Importing permission makes sure that pages are visible according to users rights. For public pages, it is irrelevant at the moment. Overwriting and the write as current user needs to be selected.</p>
+
+<figure>
+    <img src="/sw360/img/sw360screenshots/deploy73/2020-08-13_20.23.26.png"/> 
+</figure>
+
+<p>Importing permission makes sure that pages are visible according to users rights. For public pages, it is irrelevant_the moment. Overwriting and the write as current user needs to be selected.</p>
 <p>After successful importing, the same steps shall be repeated for the <code>PrivatePages.lar</code> file.</p>
-<p>[[screenshots/Screenshot 2020-08-13 at 20.23.48.png]]</p>
+
+<figure>
+    <img src="/sw360/img/sw360screenshots/deploy73/2020-08-13_20.23.48.png"/> 
+</figure>
+
 <p>Make sure that <code>Private Pages</code> is selected. Follow the other selections made as shown on the screenshot &hellip; importing permissions &hellip; mirror with overwriting, use the current author &hellip;</p>
-<p>[[screenshots/Screenshot 2020-08-13 at 20.23.53.png]]</p>
-<p>If you click then the liferay logo at the upper left corner where the SW360 is, you will return to the application and the following screen should appear:</p>
-<p>[[screenshots/Screenshot 2020-08-13 at 20.24.18.png]]</p>
+
+<figure>
+    <img src="/sw360/img/sw360screenshots/deploy73/2020-08-13_20.23.53.png"/> 
+</figure>
+
+<p>If you click then the liferay logo_the upper left corner where the SW360 is, you will return to the application and the following screen should appear:</p>
+
+<figure>
+    <img src="/sw360/img/sw360screenshots/deploy73/2020-08-13_20.24.18.png"/> 
+</figure>
+
 <p>You can close the left menu area by clicking on the upper left icon:</p>
-<p>[[screenshots/Screenshot 2020-08-13 at 20.24.21.png]]</p>
+
+<figure>
+    <img src="/sw360/img/sw360screenshots/deploy73/2020-08-13_20.24.21.png"/> 
+</figure>
+
 <p>Click <code>Start</code> to open the private pages. You are still logged in, so the setup account is used to view the pages.</p>
 <p><strong>Important</strong> The setup account does not belong to a group. Thus, not all view are functional because they require a group membership to work correctly.</p>
-<p>[[screenshots/Screenshot 2020-08-13 at 20.24.31.png]]</p>
+
+<figure>
+    <img src="/sw360/img/sw360screenshots/deploy73/2020-08-13_20.24.31.png"/> 
+</figure>
+
 <h1 id="import-user-accounts-for-testing">Import User Accounts for Testing</h1>
-<p>Click the SW360 <code>Admin</code> menu which is at the right and selection the <code>User</code> item.</p>
-<p>[[screenshots/Screenshot 2020-08-13 at 20.24.48.png]]</p>
+<p>Click the SW360 <code>Admin</code> menu which is_the right and selection the <code>User</code> item.</p>
+
+<figure>
+    <img src="/sw360/img/sw360screenshots/deploy73/2020-08-13_20.24.48.png"/> 
+</figure>
+
 <p>At the bottom of that view, select a User file to import for testing. Skip it if you will create users differently. You can find a <a href="https://github.com/sw360/sw360vagrant/blob/master/shared/test_users_with_passwords_12345.csv">user account import file</a> to import in the <code>sw360vagrant</code> project in the folder <code>shared</code>. After the user have been imported successfully, they should appear in the table view.</p>
-<p>[[screenshots/Screenshot 2020-08-13 at 20.24.53.png]]</p>
+
+<figure>
+    <img src="/sw360/img/sw360screenshots/deploy73/2020-08-13_20.24.53.png"/> 
+</figure>
+
 <p>After the user have been imported successfully, they should appear in the table view. You can logout for now and use one of the just added accounts (see below):</p>
-<p>[[screenshots/Screenshot 2020-08-13 at 20.24.58.png]]</p>
+
+<figure>
+    <img src="/sw360/img/sw360screenshots/deploy73/2020-08-13_20.24.58.png"/> 
+</figure>
+
 <h1 id="real-login">Real Login</h1>
 <p>One example user is <code>user@sw360.org</code> with the password <code>12345</code>. Note that in the import file with the example accounts, the passwort is provided with a hash. If you would like to generate new (salted) hashes, you can change your password and export the user list using the same portlet where you have imported the users. This functionality can be also used to migrate accounts between servers.</p>
-<p>[[screenshots/Screenshot 2020-08-13 at 20.25.07.png]]</p>
+
+<figure>
+    <img src="/sw360/img/sw360screenshots/deploy73/2020-08-13_20.25.07.png"/> 
+</figure>
+
 <p>After the successful login, SW360 will look as follows.</p>
-<p>[[screenshots/Screenshot 2020-08-13 at 20.27.32.png]]</p>
+
+<figure>
+    <img src="/sw360/img/sw360screenshots/deploy73/2020-08-13_20.27.32.png"/> 
+</figure>
+
 
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified June 28, 2022: <a href="https://github.com/eclipse/sw360.website/commit/8d4a6e6115656996691732fe7db41f298837aa8f">fix(docs): Move content to proper areas (8d4a6e6)</a>
+  Last modified July 8, 2022: <a href="https://github.com/eclipse/sw360.website/commit/c558e8fd39a748612a7d5d08dc28002008080ff5">fix(content): Import legacy screenshots for Deploy73 (c558e8f)</a>
 </div>
 
 </div>
