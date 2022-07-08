@@ -4753,63 +4753,167 @@ save (on the right)&lt;/p&gt;
 &lt;/ul&gt;
 &lt;h1 id=&#34;setup-login&#34;&gt;Setup Login&lt;/h1&gt;
 &lt;p&gt;After successful installation, the screen should look like this. If there is weird html output without images and plain text, then likely some port settings did not work and the pages generated have wrong URLs inside.&lt;/p&gt;
-&lt;p&gt;[[screenshots/Screenshot 2020-01-24 at 14.38.53.png]]&lt;/p&gt;
-&lt;p&gt;Sign in at the icon at the upper left corner. If you did not change the values in &lt;code&gt;configuration.rb&lt;/code&gt;the default login is &lt;code&gt;setup@sw360.org&lt;/code&gt; and &lt;code&gt;sw360fossy&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;[[screenshots/Screenshot 2020-01-24 at 14.39.06.png]]&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-01-24_14.38.53.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;p&gt;Sign in_the icon_the upper left corner. If you did not change the values in &lt;code&gt;configuration.rb&lt;/code&gt;the default login is &lt;code&gt;setup@sw360.org&lt;/code&gt; and &lt;code&gt;sw360fossy&lt;/code&gt;.&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-01-24_14.39.06.png&#34;/&gt; 
+&lt;/figure&gt;
+
 &lt;h1 id=&#34;user-settings-in-sw360&#34;&gt;User Settings in SW360&lt;/h1&gt;
 &lt;p&gt;Go into the control panel area which can be unfold by clicking in the upper left corner. In this area, go for Users &amp;gt; Password Policies and disable &lt;code&gt;change Required&lt;/code&gt; if you wish to do so. Click on Save to save the selection.&lt;/p&gt;
-&lt;p&gt;[[screenshots/Screenshot 2020-01-24 at 14.39.56.png]]&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-01-24_14.39.56.png&#34;/&gt; 
+&lt;/figure&gt;
+
 &lt;p&gt;Then, in &lt;code&gt;Configuration&lt;/code&gt; &amp;gt;  &lt;code&gt;Instance Settings&lt;/code&gt; &amp;gt; &lt;code&gt;Users&lt;/code&gt; &amp;gt; &lt;code&gt;Default User Associations&lt;/code&gt; to enter SW360 and apply it also to existing users. Click on Save to save the selection.&lt;/p&gt;
-&lt;p&gt;[[screenshots/Screenshot 2020-01-24 at 14.43.32.png]]&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-01-24_14.43.32.png&#34;/&gt; 
+&lt;/figure&gt;
+
 &lt;p&gt;Then, in &lt;code&gt;Configuration&lt;/code&gt; &amp;gt;  &lt;code&gt;Instance Settings&lt;/code&gt; &amp;gt; &lt;code&gt;User Authentication&lt;/code&gt; &amp;gt; &lt;code&gt;General&lt;/code&gt; to disable all kind of auto login to make sure only authenticated users can log in.&lt;/p&gt;
-&lt;p&gt;[[screenshots/Screenshot 2020-01-24 at 14.46.49.png]]&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-01-24_14.46.49.png&#34;/&gt; 
+&lt;/figure&gt;
+
 &lt;p&gt;Depending on your preferences make appropriate selections according to the screenshot. It is not advisable to allow users to self register in order to access the SW360 data.&lt;/p&gt;
-&lt;p&gt;[[screenshots/Screenshot 2020-01-24 at 14.47.03.png]]&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-01-24_14.47.03.png&#34;/&gt; 
+&lt;/figure&gt;
+
 &lt;h1 id=&#34;import-lar-files&#34;&gt;Import *.lar Files&lt;/h1&gt;
 &lt;p&gt;Then, in the &lt;code&gt;SW360&lt;/code&gt; area &amp;gt;  &lt;code&gt;Publishing&lt;/code&gt; &amp;gt; &lt;code&gt;Import&lt;/code&gt; klick on the plus sign in order to import the *.lar file for public pages.&lt;/p&gt;
-&lt;p&gt;[[screenshots/Screenshot 2020-01-24 at 14.49.41.png]]&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-01-24_14.49.41.png&#34;/&gt; 
+&lt;/figure&gt;
+
 &lt;p&gt;As for import settings, follow the selection as shown on the screenshot. It is very important that for the &lt;code&gt;PublicPages.lar&lt;/code&gt; file the selection &lt;code&gt;Public Pages&lt;/code&gt; is made.&lt;/p&gt;
-&lt;p&gt;[[screenshots/Screenshot 2020-01-24 at 14.51.10.png]]&lt;/p&gt;
-&lt;p&gt;Importing permission makes sure that pages are visible according to users rights. For public pages, it is irrelevant at the moment.&lt;/p&gt;
-&lt;p&gt;[[screenshots/Screenshot 2020-01-24 at 14.52.14.png]]&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-01-24_14.51.10.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;p&gt;Importing permission makes sure that pages are visible according to users rights. For public pages, it is irrelevant_the moment.&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-01-24_14.52.14.png&#34;/&gt; 
+&lt;/figure&gt;
+
 &lt;p&gt;Overwriting and the write as current user needs to be selected.&lt;/p&gt;
-&lt;p&gt;[[screenshots/Screenshot 2020-01-24 at 14.51.21.png]]&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-01-24_14.51.21.png&#34;/&gt; 
+&lt;/figure&gt;
+
 &lt;p&gt;After successful importing the following view should appear.&lt;/p&gt;
-&lt;p&gt;[[screenshots/Screenshot 2020-01-24 at 14.52.23.png]]&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-01-24_14.52.23.png&#34;/&gt; 
+&lt;/figure&gt;
+
 &lt;p&gt;The same steps shall be repeated for the &lt;code&gt;PrivatePages.lar&lt;/code&gt; file.&lt;/p&gt;
-&lt;p&gt;[[screenshots/Screenshot 2020-01-24 at 14.52.36.png]]&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-01-24_14.52.36.png&#34;/&gt; 
+&lt;/figure&gt;
+
 &lt;p&gt;Make sure that &lt;code&gt;Private Pages&lt;/code&gt; is selected. Follow the other selections made as shown on the screenshots.&lt;/p&gt;
-&lt;p&gt;[[screenshots/Screenshot 2020-01-24 at 14.52.58.png]]&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-01-24_14.52.58.png&#34;/&gt; 
+&lt;/figure&gt;
+
 &lt;p&gt;Importing permissions &amp;hellip;&lt;/p&gt;
-&lt;p&gt;[[screenshots/Screenshot 2020-01-24 at 14.53.01.png]]&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-01-24_14.53.01.png&#34;/&gt; 
+&lt;/figure&gt;
+
 &lt;p&gt;Mirror with overwriting, use the current author &amp;hellip;&lt;/p&gt;
-&lt;p&gt;[[screenshots/Screenshot 2020-01-24 at 14.53.04.png]]&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-01-24_14.53.04.png&#34;/&gt; 
+&lt;/figure&gt;
+
 &lt;p&gt;Then the successful result should be shown like this:&lt;/p&gt;
-&lt;p&gt;[[screenshots/Screenshot 2020-01-24 at 14.54.14.png]]&lt;/p&gt;
-&lt;p&gt;If you click then the liferay logo at the upper left corner where the SW360 is, you will return to the application and the following screen should appear. Click &lt;code&gt;Start&lt;/code&gt; to open the private pages. You are still logged in, so the setup account is used to view the pages.&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-01-24_14.54.14.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;p&gt;If you click then the liferay logo_the upper left corner where the SW360 is, you will return to the application and the following screen should appear. Click &lt;code&gt;Start&lt;/code&gt; to open the private pages. You are still logged in, so the setup account is used to view the pages.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Important&lt;/strong&gt; The setup account does not belong to a group. Thus, not all view are functional because they require a group membership to work correctly.&lt;/p&gt;
-&lt;p&gt;[[screenshots/Screenshot 2020-01-24 at 14.54.38.png]]&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-01-24_14.54.38.png&#34;/&gt; 
+&lt;/figure&gt;
+
 &lt;h1 id=&#34;import-user-accounts-for-testing&#34;&gt;Import User Accounts for Testing&lt;/h1&gt;
 &lt;p&gt;Assuming you are still logged in, the main view of SW360 looks as follows:&lt;/p&gt;
-&lt;p&gt;[[screenshots/Screenshot 2020-01-24 at 14.54.55.png]]&lt;/p&gt;
-&lt;p&gt;Click the SW360 &lt;code&gt;Admin&lt;/code&gt; menu which is at the right and selection the &lt;code&gt;User&lt;/code&gt; item.&lt;/p&gt;
-&lt;p&gt;[[screenshots/Screenshot 2020-01-24 at 14.55.00.png]]&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-01-24_14.54.55.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;p&gt;Click the SW360 &lt;code&gt;Admin&lt;/code&gt; menu which is_the right and selection the &lt;code&gt;User&lt;/code&gt; item.&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-01-24_14.55.00.png&#34;/&gt; 
+&lt;/figure&gt;
+
 &lt;p&gt;At the bottom of that view, select a User file to import for testing. Skip it if you will create users differently.&lt;/p&gt;
-&lt;p&gt;[[screenshots/Screenshot 2020-01-24 at 14.55.12.png]]&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-01-24_14.55.12.png&#34;/&gt; 
+&lt;/figure&gt;
+
 &lt;p&gt;You can find a user file to import in the &lt;code&gt;sw360vagrant&lt;/code&gt; project in the folder &lt;code&gt;shared&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;[[screenshots/Screenshot 2020-01-24 at 14.55.38.png]]&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-01-24_14.55.38.png&#34;/&gt; 
+&lt;/figure&gt;
+
 &lt;p&gt;After the user have been imported successfully, they should appear in the table view.&lt;/p&gt;
-&lt;p&gt;[[screenshots/Screenshot 2020-01-24 at 14.55.59.png]]&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-01-24_14.55.59.png&#34;/&gt; 
+&lt;/figure&gt;
+
 &lt;p&gt;After the user have been imported successfully, they should appear in the table view.&lt;/p&gt;
 &lt;h1 id=&#34;real-login&#34;&gt;Real Login&lt;/h1&gt;
 &lt;p&gt;One example user is &lt;code&gt;user@sw360.org&lt;/code&gt; with the password &lt;code&gt;12345&lt;/code&gt;. Note that in the import file with the example accounts, the passwort is provided with a hash. If you would like to generate new (salted) hashes, you can change your password and export the user list using the same portlet where you have imported the users. This functionality can be also used to migrate accounts between users.&lt;/p&gt;
-&lt;p&gt;[[screenshots/Screenshot 2020-01-24 at 14.56.06.png]]&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-01-24_14.56.06.png&#34;/&gt; 
+&lt;/figure&gt;
+
 &lt;p&gt;After the successful login, SW360 will look as follows.&lt;/p&gt;
-&lt;p&gt;[[screenshots/Screenshot 2020-01-24 at 14.56.16.png]]&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-01-24_14.56.16.png&#34;/&gt; 
+&lt;/figure&gt;
+
 &lt;p&gt;After the successful login, SW360 will look as in the following screenshot.&lt;/p&gt;
-&lt;p&gt;[[screenshots/Screenshot 2020-01-24 at 14.56.33.png]]&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-01-24_14.56.33.png&#34;/&gt; 
+&lt;/figure&gt;
+
 &lt;p&gt;For example, click on &lt;code&gt;Projects&lt;/code&gt; to see that no projects have been created so far &amp;hellip;&lt;/p&gt;
-&lt;p&gt;[[screenshots/Screenshot 2020-01-24 at 14.57.08.png]]&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-01-24_14.57.08.png&#34;/&gt; 
+&lt;/figure&gt;
+
 
       </description>
     </item>

@@ -27,13 +27,13 @@ Until then, some tasks need to be done manually, after everything has been built
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.eclipse.org/sw360/docs/deployment/legacy/deploy-liferay7/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2022-06-28T18:31:48+02:00" /><meta property="og:site_name" content="Eclipse SW360" />
+<meta property="article:modified_time" content="2022-07-08T12:29:11+02:00" /><meta property="og:site_name" content="Eclipse SW360" />
 
 <meta itemprop="name" content="Initial Setup of Liferay 7.2 and sw360">
 <meta itemprop="description" content="Starting SW360 for the First Time So, the vagrant setup has deployed sw360, but unfortunately, there is some major issue: With Liferay, certain configuration need to be applied manually in the UI. If you would know how to import *.lar files and apply some setting from the command line (without implementing an approach based on HTML testing frameworks, like selenium), please let us know.
 Until then, some tasks need to be done manually, after everything has been built up:">
-<meta itemprop="dateModified" content="2022-06-28T18:31:48+02:00" />
-<meta itemprop="wordCount" content="839">
+<meta itemprop="dateModified" content="2022-07-08T12:29:11+02:00" />
+<meta itemprop="wordCount" content="725">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Initial Setup of Liferay 7.2 and sw360"/>
 <meta name="twitter:description" content="Starting SW360 for the First Time So, the vagrant setup has deployed sw360, but unfortunately, there is some major issue: With Liferay, certain configuration need to be applied manually in the UI. If you would know how to import *.lar files and apply some setting from the command line (without implementing an approach based on HTML testing frameworks, like selenium), please let us know.
@@ -539,68 +539,172 @@ Until then, some tasks need to be done manually, after everything has been built
 </ul>
 <h1 id="setup-login">Setup Login</h1>
 <p>After successful installation, the screen should look like this. If there is weird html output without images and plain text, then likely some port settings did not work and the pages generated have wrong URLs inside.</p>
-<p>[[screenshots/Screenshot 2020-01-24 at 14.38.53.png]]</p>
-<p>Sign in at the icon at the upper left corner. If you did not change the values in <code>configuration.rb</code>the default login is <code>setup@sw360.org</code> and <code>sw360fossy</code>.</p>
-<p>[[screenshots/Screenshot 2020-01-24 at 14.39.06.png]]</p>
+
+<figure>
+    <img src="/sw360/img/sw360screenshots/deploy73/2020-01-24_14.38.53.png"/> 
+</figure>
+
+<p>Sign in_the icon_the upper left corner. If you did not change the values in <code>configuration.rb</code>the default login is <code>setup@sw360.org</code> and <code>sw360fossy</code>.</p>
+
+<figure>
+    <img src="/sw360/img/sw360screenshots/deploy73/2020-01-24_14.39.06.png"/> 
+</figure>
+
 <h1 id="user-settings-in-sw360">User Settings in SW360</h1>
 <p>Go into the control panel area which can be unfold by clicking in the upper left corner. In this area, go for Users &gt; Password Policies and disable <code>change Required</code> if you wish to do so. Click on Save to save the selection.</p>
-<p>[[screenshots/Screenshot 2020-01-24 at 14.39.56.png]]</p>
+
+<figure>
+    <img src="/sw360/img/sw360screenshots/deploy73/2020-01-24_14.39.56.png"/> 
+</figure>
+
 <p>Then, in <code>Configuration</code> &gt;  <code>Instance Settings</code> &gt; <code>Users</code> &gt; <code>Default User Associations</code> to enter SW360 and apply it also to existing users. Click on Save to save the selection.</p>
-<p>[[screenshots/Screenshot 2020-01-24 at 14.43.32.png]]</p>
+
+<figure>
+    <img src="/sw360/img/sw360screenshots/deploy73/2020-01-24_14.43.32.png"/> 
+</figure>
+
 <p>Then, in <code>Configuration</code> &gt;  <code>Instance Settings</code> &gt; <code>User Authentication</code> &gt; <code>General</code> to disable all kind of auto login to make sure only authenticated users can log in.</p>
-<p>[[screenshots/Screenshot 2020-01-24 at 14.46.49.png]]</p>
+
+<figure>
+    <img src="/sw360/img/sw360screenshots/deploy73/2020-01-24_14.46.49.png"/> 
+</figure>
+
 <p>Depending on your preferences make appropriate selections according to the screenshot. It is not advisable to allow users to self register in order to access the SW360 data.</p>
-<p>[[screenshots/Screenshot 2020-01-24 at 14.47.03.png]]</p>
+
+<figure>
+    <img src="/sw360/img/sw360screenshots/deploy73/2020-01-24_14.47.03.png"/> 
+</figure>
+
 <h1 id="import-lar-files">Import *.lar Files</h1>
 <p>Then, in the <code>SW360</code> area &gt;  <code>Publishing</code> &gt; <code>Import</code> klick on the plus sign in order to import the *.lar file for public pages.</p>
-<p>[[screenshots/Screenshot 2020-01-24 at 14.49.41.png]]</p>
+
+<figure>
+    <img src="/sw360/img/sw360screenshots/deploy73/2020-01-24_14.49.41.png"/> 
+</figure>
+
 <p>As for import settings, follow the selection as shown on the screenshot. It is very important that for the <code>PublicPages.lar</code> file the selection <code>Public Pages</code> is made.</p>
-<p>[[screenshots/Screenshot 2020-01-24 at 14.51.10.png]]</p>
-<p>Importing permission makes sure that pages are visible according to users rights. For public pages, it is irrelevant at the moment.</p>
-<p>[[screenshots/Screenshot 2020-01-24 at 14.52.14.png]]</p>
+
+<figure>
+    <img src="/sw360/img/sw360screenshots/deploy73/2020-01-24_14.51.10.png"/> 
+</figure>
+
+<p>Importing permission makes sure that pages are visible according to users rights. For public pages, it is irrelevant_the moment.</p>
+
+<figure>
+    <img src="/sw360/img/sw360screenshots/deploy73/2020-01-24_14.52.14.png"/> 
+</figure>
+
 <p>Overwriting and the write as current user needs to be selected.</p>
-<p>[[screenshots/Screenshot 2020-01-24 at 14.51.21.png]]</p>
+
+<figure>
+    <img src="/sw360/img/sw360screenshots/deploy73/2020-01-24_14.51.21.png"/> 
+</figure>
+
 <p>After successful importing the following view should appear.</p>
-<p>[[screenshots/Screenshot 2020-01-24 at 14.52.23.png]]</p>
+
+<figure>
+    <img src="/sw360/img/sw360screenshots/deploy73/2020-01-24_14.52.23.png"/> 
+</figure>
+
 <p>The same steps shall be repeated for the <code>PrivatePages.lar</code> file.</p>
-<p>[[screenshots/Screenshot 2020-01-24 at 14.52.36.png]]</p>
+
+<figure>
+    <img src="/sw360/img/sw360screenshots/deploy73/2020-01-24_14.52.36.png"/> 
+</figure>
+
 <p>Make sure that <code>Private Pages</code> is selected. Follow the other selections made as shown on the screenshots.</p>
-<p>[[screenshots/Screenshot 2020-01-24 at 14.52.58.png]]</p>
+
+<figure>
+    <img src="/sw360/img/sw360screenshots/deploy73/2020-01-24_14.52.58.png"/> 
+</figure>
+
 <p>Importing permissions &hellip;</p>
-<p>[[screenshots/Screenshot 2020-01-24 at 14.53.01.png]]</p>
+
+<figure>
+    <img src="/sw360/img/sw360screenshots/deploy73/2020-01-24_14.53.01.png"/> 
+</figure>
+
 <p>Mirror with overwriting, use the current author &hellip;</p>
-<p>[[screenshots/Screenshot 2020-01-24 at 14.53.04.png]]</p>
+
+<figure>
+    <img src="/sw360/img/sw360screenshots/deploy73/2020-01-24_14.53.04.png"/> 
+</figure>
+
 <p>Then the successful result should be shown like this:</p>
-<p>[[screenshots/Screenshot 2020-01-24 at 14.54.14.png]]</p>
-<p>If you click then the liferay logo at the upper left corner where the SW360 is, you will return to the application and the following screen should appear. Click <code>Start</code> to open the private pages. You are still logged in, so the setup account is used to view the pages.</p>
+
+<figure>
+    <img src="/sw360/img/sw360screenshots/deploy73/2020-01-24_14.54.14.png"/> 
+</figure>
+
+<p>If you click then the liferay logo_the upper left corner where the SW360 is, you will return to the application and the following screen should appear. Click <code>Start</code> to open the private pages. You are still logged in, so the setup account is used to view the pages.</p>
 <p><strong>Important</strong> The setup account does not belong to a group. Thus, not all view are functional because they require a group membership to work correctly.</p>
-<p>[[screenshots/Screenshot 2020-01-24 at 14.54.38.png]]</p>
+
+<figure>
+    <img src="/sw360/img/sw360screenshots/deploy73/2020-01-24_14.54.38.png"/> 
+</figure>
+
 <h1 id="import-user-accounts-for-testing">Import User Accounts for Testing</h1>
 <p>Assuming you are still logged in, the main view of SW360 looks as follows:</p>
-<p>[[screenshots/Screenshot 2020-01-24 at 14.54.55.png]]</p>
-<p>Click the SW360 <code>Admin</code> menu which is at the right and selection the <code>User</code> item.</p>
-<p>[[screenshots/Screenshot 2020-01-24 at 14.55.00.png]]</p>
+
+<figure>
+    <img src="/sw360/img/sw360screenshots/deploy73/2020-01-24_14.54.55.png"/> 
+</figure>
+
+<p>Click the SW360 <code>Admin</code> menu which is_the right and selection the <code>User</code> item.</p>
+
+<figure>
+    <img src="/sw360/img/sw360screenshots/deploy73/2020-01-24_14.55.00.png"/> 
+</figure>
+
 <p>At the bottom of that view, select a User file to import for testing. Skip it if you will create users differently.</p>
-<p>[[screenshots/Screenshot 2020-01-24 at 14.55.12.png]]</p>
+
+<figure>
+    <img src="/sw360/img/sw360screenshots/deploy73/2020-01-24_14.55.12.png"/> 
+</figure>
+
 <p>You can find a user file to import in the <code>sw360vagrant</code> project in the folder <code>shared</code>.</p>
-<p>[[screenshots/Screenshot 2020-01-24 at 14.55.38.png]]</p>
+
+<figure>
+    <img src="/sw360/img/sw360screenshots/deploy73/2020-01-24_14.55.38.png"/> 
+</figure>
+
 <p>After the user have been imported successfully, they should appear in the table view.</p>
-<p>[[screenshots/Screenshot 2020-01-24 at 14.55.59.png]]</p>
+
+<figure>
+    <img src="/sw360/img/sw360screenshots/deploy73/2020-01-24_14.55.59.png"/> 
+</figure>
+
 <p>After the user have been imported successfully, they should appear in the table view.</p>
 <h1 id="real-login">Real Login</h1>
 <p>One example user is <code>user@sw360.org</code> with the password <code>12345</code>. Note that in the import file with the example accounts, the passwort is provided with a hash. If you would like to generate new (salted) hashes, you can change your password and export the user list using the same portlet where you have imported the users. This functionality can be also used to migrate accounts between users.</p>
-<p>[[screenshots/Screenshot 2020-01-24 at 14.56.06.png]]</p>
+
+<figure>
+    <img src="/sw360/img/sw360screenshots/deploy73/2020-01-24_14.56.06.png"/> 
+</figure>
+
 <p>After the successful login, SW360 will look as follows.</p>
-<p>[[screenshots/Screenshot 2020-01-24 at 14.56.16.png]]</p>
+
+<figure>
+    <img src="/sw360/img/sw360screenshots/deploy73/2020-01-24_14.56.16.png"/> 
+</figure>
+
 <p>After the successful login, SW360 will look as in the following screenshot.</p>
-<p>[[screenshots/Screenshot 2020-01-24 at 14.56.33.png]]</p>
+
+<figure>
+    <img src="/sw360/img/sw360screenshots/deploy73/2020-01-24_14.56.33.png"/> 
+</figure>
+
 <p>For example, click on <code>Projects</code> to see that no projects have been created so far &hellip;</p>
-<p>[[screenshots/Screenshot 2020-01-24 at 14.57.08.png]]</p>
+
+<figure>
+    <img src="/sw360/img/sw360screenshots/deploy73/2020-01-24_14.57.08.png"/> 
+</figure>
+
 
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified June 28, 2022: <a href="https://github.com/eclipse/sw360.website/commit/8d4a6e6115656996691732fe7db41f298837aa8f">fix(docs): Move content to proper areas (8d4a6e6)</a>
+  Last modified July 8, 2022: <a href="https://github.com/eclipse/sw360.website/commit/c5bf4e6d0ddd8d79a9be944efdf4108adbe5321d">fix(content): Import legacy screenshots for Deploy7 (c5bf4e6)</a>
 </div>
 
 </div>
