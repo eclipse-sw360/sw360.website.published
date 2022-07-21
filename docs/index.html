@@ -532,21 +532,18 @@ SW360 is a software catalogue application designed to provide a central place fo
 		
 	</header>
 	<h2 id="overview">Overview</h2>
-<p><strong>SW360</strong> is a software catalogue application designed to provide a central place for sharing information about software components used by an organization. It is designed to neatly integrate into existing infrastructures related to the management of software artifacts and projects by providing separate backend services for distinct tasks and a set of portlets to access these services. A complete deployment unit exists (vagrant box or docker container) that contains a complete configuration of all services and portlets.</p>
+<p><strong>SW360</strong> is a software catalogue application designed to provide a central place for sharing information about software components used by an organization. The main goal is to handle SW license information, which is supported by workflows. The analysis of the sourcecode concerning licenses, copyrights etc. is done by license scanners like FOSSology which is integrated.</p>
+<p>It is designed to neatly integrate into existing infrastructures related to the management of software artifacts and projects by providing separate backend services for distinct tasks and a set of portlets to access these services. A complete deployment unit exists (vagrant box or docker container) that contains a complete configuration of all services and portlets.</p>
 <p>SW360 comprises the following main use case areas:</p>
 <ul>
-<li>Component: Handling of information and processes related to components, e.g. name, vendor</li>
-<li>License: Handling of information regarding licenses, e.g. obligations, license texts etc</li>
-<li>Project: handling of project information providing a context for the use of components</li>
+<li>Project: Handling of project information with all contained Open Source SW components and other Third Party SW Components and Snippets.</li>
+<li>Component/Releases: Handling of information and processes related to components, e.g. name, vendor, version, ECCN information, license compliance information</li>
+<li>License: Handling of information regarding licenses, e.g. license texts, copyrights, acknowledgements, obligations etc.</li>
 <li>Vulnerability: Collecting Security Vulnerability Management Information and matching them with components stored in the component service</li>
+<li>License Compliance documentation: all relevant documents (e.g. Readme, source code bundle) can be created, supported by workflows.</li>
 </ul>
 <h2 id="functionality">Functionality</h2>
-<p>The SW360 is a software catalogue application which is:</p>
-<ul>
-<li>Based on the Open Source Liferay portal server</li>
-<li>Integrated with Fossology</li>
-</ul>
-<p>With SW360, you can</p>
+<p>The SW360 is a software catalogue application with which you can:</p>
 <ul>
 <li>Manage your components and projects</li>
 <li>Send source packages to the clearing tool Fossology</li>
@@ -554,11 +551,17 @@ SW360 is a software catalogue application designed to provide a central place fo
 <li>Import cleared components with clearing reports and other documents</li>
 <li>Browse licenses and their obligations</li>
 </ul>
+<p>SW360 is</p>
+<ul>
+<li>Based on the Open Source Liferay portal server</li>
+<li>Integrated with Fossology</li>
+</ul>
 <p>In order to work with SW360, please note a fundamental setup in the data model when dealing with components:</p>
 <ul>
-<li>A component is a list of releases with metadata. vice versa, releases refer to a component.</li>
-<li>A vendor is separate from a component and releases. The link to the vendor is set at the release. (think of Sun and Oracle)</li>
+<li>A component is a list of releases with metadata.</li>
+<li>A Release is a version of a component with metadata and specific attachments.</li>
 <li>A project refers to a number of releases of components accordingly, not components.</li>
+<li>A vendor is separate from a component and releases. The link to the vendor is set at the release. (think of Sun and Oracle where the owner changed with a new release)</li>
 </ul>
 <h2 id="getting-started">Getting started</h2>
 <table>
@@ -652,7 +655,7 @@ SW360 is a software catalogue application designed to provide a central place fo
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified July 1, 2022: <a href="https://github.com/eclipse/sw360.website/commit/3d5860e8eb8b2000dbe7d46dc4e393435ae0f2cc">fix(content): Add missing intro page (3d5860e)</a>
+  Last modified July 21, 2022: <a href="https://github.com/eclipse/sw360.website/commit/6ddc41436a3a1b392c4a8be14e65f3326c59142b">Update _index.md (6ddc414)</a>
 </div>
 
 </div>
