@@ -488,15 +488,320 @@ save (on the right)&lt;/p&gt;
     </item>
     
     <item>
-      <title>Docs: Native-Install 14 </title>
-      <link>https://www.eclipse.org/sw360/docs/deployment/legacy/native-install-sw360-version-14.0.0/</link>
+      <title>Docs: Native Install v14 and v16</title>
+      <link>https://www.eclipse.org/sw360/docs/deployment/legacy/native-install-sw360-version-14.0.0-and-16.0.0/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://www.eclipse.org/sw360/docs/deployment/legacy/native-install-sw360-version-14.0.0/</guid>
+      <guid>https://www.eclipse.org/sw360/docs/deployment/legacy/native-install-sw360-version-14.0.0-and-16.0.0/</guid>
       <description>
         
         
-        &lt;h1 id=&#34;sw360-version-up-test&#34;&gt;SW360 Version up test&lt;/h1&gt;
+        &lt;h1 id=&#34;how-to-install-and-run-sw360-v1600&#34;&gt;How to install and run SW360 v16.0.0&lt;/h1&gt;
+&lt;h1 id=&#34;these-instructions-worked-on-ubuntu-2004-and-has-detailed-explanations-for-newcomers&#34;&gt;These instructions worked on Ubuntu 20.04 and has detailed explanations for newcomers.&lt;/h1&gt;
+&lt;h3 id=&#34;this-is-a-guide-with-detailed-explanation-of-how-to-install-and-run-sw360-natively-on-you-local-machine&#34;&gt;This is a guide with detailed explanation of how to install and run SW360 natively on you local machine.&lt;/h3&gt;
+&lt;h3 id=&#34;it-includes-installation-of-all-dependencies-manually-which-will-not-use-docker-or-other-container-system-during-the-installation-or-run&#34;&gt;It includes installation of all dependencies manually, which will not use docker or other container system during the installation or run.&lt;/h3&gt;
+&lt;p&gt;SW360 is an Open Source project. The &lt;a href=&#34;https://www.eclipse.org/sw360/docs/&#34;&gt;SW360&lt;/a&gt; repository and &lt;a href=&#34;https://github.com/eclipse/sw360.website&#34;&gt;SW360 website&lt;/a&gt; repositories are published on GitHub.&lt;/p&gt;
+&lt;h2 id=&#34;in-this-file-you-will-find-how-to&#34;&gt;In this file you will find how to:&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Install SW360 and its dependencies&lt;/li&gt;
+&lt;li&gt;Run SW360 and its dependencies&lt;/li&gt;
+&lt;li&gt;Check all services are working&lt;/li&gt;
+&lt;li&gt;Be aware of cautions and notes&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;what-does-sw360-use-to-construct-the-ui&#34;&gt;What does SW360 use to construct the UI.&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.oracle.com/en/java/javase/11/install/installation-jdk-linux-platforms.html#GUID-79FBE4A9-4254-461E-8EA7-A02D7979A161&#34;&gt;Java&lt;/a&gt; - Java is a class-based, object-oriented programming language.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://maven.apache.org/install.html&#34;&gt;Maven&lt;/a&gt; - Maven is a build automation tool for Java projects.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://learn.liferay.com/dxp/latest/en/installation-and-upgrades/installing-liferay/installing-a-liferay-tomcat-bundle.html&#34;&gt;Liferay bundled with Tomcat&lt;/a&gt; - Liferay is a Java-based web application platform for the development of customizable portals and websites.
+And Apache Tomcat provides a &amp;ldquo;pure Java&amp;rdquo; HTTP web server environment in which Java code can run.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.postgresql.org/download/linux/ubuntu/&#34;&gt;PostgreSQL&lt;/a&gt; - PostgreSQL or Postgres, is a relational database management system.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.couchdb.org/en/stable/install/unix.html&#34;&gt;Couchdb&lt;/a&gt; - Apache CouchDB is a document-oriented NoSQL database, it uses JSON to store data, and provides HTTP for an API.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/cve-search/cve-search&#34;&gt;CVE-Search&lt;/a&gt; - CVE-Search is a tool to perform local searches for known vulnerabilities (CVE - Common Vulnerabilities and Exposures).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;1-install-sw360-and-its-dependencies&#34;&gt;1. Install SW360 and its dependencies&lt;/h2&gt;
+&lt;h3 id=&#34;11-clone-the-sw360-github-repository-and-checkout-to-stable-version&#34;&gt;1.1 Clone the SW360 Github repository and checkout to stable version.&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ git clone https://github.com/eclipse/sw360.git
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ &lt;span style=&#34;color:#366&#34;&gt;cd&lt;/span&gt; sw360/
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ git checkout sw360-16.0.0-M1
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;Check if you have correct repository version&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ git branch
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;12-install-java-maven&#34;&gt;1.2. Install Java, Maven&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Install java and maven:&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ sudo apt install openjdk-11-jre-headless
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;You may use this &amp;ldquo;$ sudo apt install default-jdk&amp;rdquo; command instead.
+Check if java is installed:&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ java --version   &lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;check&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;Install maven:&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ sudo apt update
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ sudo apt install maven
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;Check if Maven is installed:&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ mvn --version   
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;13-install-liferay-portal-and-its-dependencies&#34;&gt;1.3. Install Liferay portal and its dependencies&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ ./scripts/docker-config/download_dependencies.sh
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ ls -la ./deps     &lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;check &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;if&lt;/span&gt; all dependencies have proper sizes&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ ./scripts/install-thrift.sh
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ thrift --version   &lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;check&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;After this step, check whether the &amp;ldquo;./deps/jars/libthriftxxx.jar&amp;rdquo; has version at the end of its name instead of xxx, and has size of 345Kb. If no, download the correct jar from this link:&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ wget https://repo1.maven.org/maven2/org/apache/thrift/libthrift/0.16.0/libthrift-0.16.0.jar
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ mv libthrift-0.16.0.jar ./deps/jars
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;Once the correct Thrift library is found, install Liferay and copy dependency &amp;ldquo;.jar&amp;rdquo; files under &amp;ldquo;liferay_xxx/osgi/modules&amp;rdquo; folder:&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ tar -xzvf liferay-ce-portal-tomcat-7.3.4-ga5-20200811154319029.tar.gz
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ cp ./deps/jars/* deps/liferay-ce-portal-7.3.4-ga5/osgi/modules/
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;Now set all environment variables of SW360 path to your local &amp;ldquo;.bashrc&amp;rdquo;:
+You may use other text editor instead of vim.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ vim ~/.bashrc
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;Scroll till the end of the .bashrc file and add following lines, make sure to put correct absolute paths of your local machine in the place of {absolute path to sw360 repository folder}.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#366&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#033&#34;&gt;JAVA_HOME&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;$(&lt;/span&gt;dirname &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;$(&lt;/span&gt;dirname &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;$(&lt;/span&gt;readlink -f &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;$(&lt;/span&gt;which java&lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;))))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#366&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#033&#34;&gt;PATH&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;$PATH&lt;/span&gt;:&lt;span style=&#34;color:#033&#34;&gt;$JAVA_HOME&lt;/span&gt;/bin
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#366&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#033&#34;&gt;LIFERAY_INSTALL&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#c30&#34;&gt;&amp;#34;/{absolute path to sw360 repository folder}/sw360/deps/liferay-ce-portal-7.3.4-ga5&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#366&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#033&#34;&gt;SW360_DIR_INSTALL&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#c30&#34;&gt;&amp;#34;{absolute path to sw360 repository folder}/sw360&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;Save the .bashrc file and run it:&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ &lt;span style=&#34;color:#366&#34;&gt;source&lt;/span&gt; ~/.bashrc
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;14-make-and-build-sw360&#34;&gt;1.4. Make and build SW360&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Go to sw360 repository folder and type:
+&amp;ldquo;sudo&amp;rdquo; might not be necessary, and this will take time, around 5 min]&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ mvn clean
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ sudo mvn install -DskipTests    
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;If the installation was successful, then need to deploy the project to be able to run.
+Check which tomcat version do you have and put that in the place of {existing version 9.0.33}, normally it should be just &amp;ldquo;tomcat-9.0.33&amp;rdquo;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo mvn package -P deploy -Dbase.deploy.dir&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;. -Dliferay.deploy.dir&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#a00&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;LIFERAY_INSTALL&lt;/span&gt;&lt;span style=&#34;color:#a00&#34;&gt;}&lt;/span&gt;/deploy -Dbackend.deploy.dir&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#a00&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;LIFERAY_INSTALL&lt;/span&gt;&lt;span style=&#34;color:#a00&#34;&gt;}&lt;/span&gt;/tomcat-&lt;span style=&#34;color:#555&#34;&gt;{&lt;/span&gt;existing version 9.0.33&lt;span style=&#34;color:#555&#34;&gt;}&lt;/span&gt;/webapps -Drest.deploy.dir&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#a00&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;LIFERAY_INSTALL&lt;/span&gt;&lt;span style=&#34;color:#a00&#34;&gt;}&lt;/span&gt;/tomcat-&lt;span style=&#34;color:#555&#34;&gt;{&lt;/span&gt;existing version 9.0.33&lt;span style=&#34;color:#555&#34;&gt;}&lt;/span&gt;/webapps -DskipTests      
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;This will create /deploy under root, so sudo is necessary, however you can chmod /deploy.
+This will take time, around 5 - 10 min.
+After this step, you should be able to run Tomcat server and see the index page of SW360 portal. &lt;a href=&#34;http://localhost:8080&#34;&gt;Check SW360&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;15-install-postgresql&#34;&gt;1.5. Install PostgreSQL&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Install PostgerSQL manually, you can install through &amp;ldquo;apt install&amp;rdquo; too:&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ sudo apt install zlib1g-dev -y
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ sudo apt install libreadline-dev -y
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ wget https://download.postgresql.org/pub/source/v10.14/postgresql-10.14.tar.gz
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ tar -xvf postgresql-10.14.tar.gz 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ &lt;span style=&#34;color:#366&#34;&gt;cd&lt;/span&gt; postgresql-10.14/
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ mkdir -p  /PATH_TO/sw360postgres
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ ./configure -prefix&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;/PATH_TO/sw360postgres
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ make
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ sudo make install
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;Set the paths for Postgres in the .bashrc otherwise you have to export them each time. Use same procedure as before in 3rd step.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ vim ~/.bashrc
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;Got to the end of the .bashrc file and add following lines, make sure to add correct paths of previously configured sw360postgres. Here $HOME is the absolute path of your user, such as &amp;ldquo;/home/username&amp;rdquo;:&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ &lt;span style=&#34;color:#366&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#033&#34;&gt;PATH&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;$HOME&lt;/span&gt;/sw360postgres/bin:&lt;span style=&#34;color:#033&#34;&gt;$PATH&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ &lt;span style=&#34;color:#366&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#033&#34;&gt;PGDATA&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;$HOME&lt;/span&gt;/sw360postgres/data
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ &lt;span style=&#34;color:#366&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#033&#34;&gt;LD_LIBRARY_PATH&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;$HOME&lt;/span&gt;/sw360postgres/lib
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ &lt;span style=&#34;color:#366&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#033&#34;&gt;PGPORT&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f60&#34;&gt;5432&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;Check if paths have been set, result must be the absolute paths:&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ &lt;span style=&#34;color:#366&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color:#033&#34;&gt;$PATH&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ &lt;span style=&#34;color:#366&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color:#033&#34;&gt;$PGDATA&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ &lt;span style=&#34;color:#366&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color:#033&#34;&gt;$LD_LIBRARY_PATH&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ &lt;span style=&#34;color:#366&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color:#033&#34;&gt;$PGPORT&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;After paths are set, postgres service can be run:&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$  &lt;span style=&#34;color:#366&#34;&gt;cd&lt;/span&gt; /PATH_TO/sw360postgres/bin
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ ./initdb --encoding&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;UTF8 --no-locale
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ ./pg_ctl start
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;You will see that the server has started.
+Note: If you installed through &amp;ldquo;apt install&amp;rdquo; then start the postgres service by following command, where after @ comes the installed version, if postgres isn&amp;rsquo;t running you won&amp;rsquo;t be able to connect to the server, and the error message is not explaining well that server isn&amp;rsquo;t actually running at the moment:&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo systemctl status postgresql@12-main.service
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo systemctl start postgresql@12-main.service
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Normally, Default postgres creates user &amp;ldquo;postgres&amp;rdquo; with &amp;ldquo;postgres&amp;rdquo; password, use that to enter PostgreSQL terminal:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ sudo -i -u postgres
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ psql
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;You will be logged in as user named &amp;ldquo;postgres&amp;rdquo;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ psql postgres
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#033&#34;&gt;postgres&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;# \du&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#033&#34;&gt;postgres&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;# create database lportal;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#033&#34;&gt;postgres&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;# ALTER USER postgres WITH PASSWORD &amp;#39;sw360fossy&amp;#39;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#033&#34;&gt;postgres&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;# ALTER ROLE postgres with superuser;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#033&#34;&gt;postgres&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;# \q&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;Connect to postgres shell, and check users information&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ psql -d lportal
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;# \du&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;# \dt&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;# \l&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;16-install-couch-db&#34;&gt;1.6. Install Couch DB&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;To install from aptitute  type:&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ sudo apt update
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ sudo apt install -y couchdb
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;You may refer to the bottom Native Installation 14 version CouchDB manual configuration for seting credentials.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;After, run CouchDb service, check if it&amp;rsquo;s working:&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ sudo systemctl start couchdb.service
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;Check if CouchDB is responding:&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ curl localhost:5984
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;This should return json containing version information
+You can use &amp;ldquo;start/stop/status/restart&amp;rdquo; command with systemctl for controlling CouchDB service.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;17-install-cve-search&#34;&gt;1.7. Install CVE-Search&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Follow these detailed instructions:&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;https://github.com/cve-search/cve-search/blob/master/docs/source/getting_started/installation.rst&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;To connect it to SW360, see following instructions:&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;https://www.eclipse.org/sw360/docs/deployment/deploy-cve-search/
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h5 id=&#34;notes&#34;&gt;Notes:&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;In the instruction be careful with setting apt link for mongodb, if somehow it destroys your &amp;ldquo;sudo apt update&amp;rdquo; command, go to &amp;ldquo;/etc/apt/sources.list&amp;rdquo; file and comment out the broken line, that&amp;rsquo;s probably the one you lately added at the end of the file. This happens because some PPA are outdated but remain in the instructions.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;18-configure-sw360&#34;&gt;1.8. Configure SW360&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Before going to configuration page, need to start the Liferay Tomcat server:&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ &lt;span style=&#34;color:#555&#34;&gt;{&lt;/span&gt;path to sw360 installation&lt;span style=&#34;color:#555&#34;&gt;}&lt;/span&gt;/./deps_backup/liferay-ce-portal-7.3.4-ga5/tomcat-9.0.33/bin/startup.sh
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;You can use &amp;hellip;bin/shutdown.sh script to stop the server.
+If startup.sh script responded &amp;ldquo;Tomcat started. Then you are close to see SW360 portal page:
+To do so, open this url from your browser:&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;http://127.0.0.1:8080
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;This will take time, around 5 min.
+If you can see liferay page, then go to the following links to configure SW360 portal.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://qiita.com/K-Hama/items/1582b4e1bf248025eabb#liferaygui%E8%A8%AD%E5%AE%9A&#34;&gt;https://qiita.com/K-Hama/items/1582b4e1bf248025eabb#liferaygui%E8%A8%AD%E5%AE%9A&lt;/a&gt; - instructions in Japanese.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.eclipse.org/sw360/docs/deployment/legacy/deploy-liferay7.3&#34;&gt;https://www.eclipse.org/sw360/docs/deployment/legacy/deploy-liferay7.3&lt;/a&gt; - instrutions in English&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5 id=&#34;notes-1&#34;&gt;Notes:&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Probably your postgres user and password are different, then replace the configurations &amp;ldquo;deps/liferay-ce-portal-7.3.4-ga5/portal-setup-wizard.properties&amp;rdquo; file or add the new user into postgres with required credentials.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;After creating user, if you can&amp;rsquo;t sign in to SW360 portal &lt;a href=&#34;https://www.eclipse.org/sw360/img/sw360screenshots/deploy73/2020-08-13_20.09.26.png&#34;&gt;https://www.eclipse.org/sw360/img/sw360screenshots/deploy73/2020-08-13_20.09.26.png&lt;/a&gt; try to login with &amp;ldquo;test&amp;rdquo; password and the same email  &amp;ldquo;&lt;a href=&#34;mailto:setup@sw360.org&#34;&gt;setup@sw360.org&lt;/a&gt;&amp;rdquo; as you set in during configuration.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;2-run-sw360-and-its-dependencies&#34;&gt;2. Run SW360 and its dependencies&lt;/h2&gt;
+&lt;h3 id=&#34;21-run-dependencies&#34;&gt;2.1. Run dependencies&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Turn on the CouchDB and Postgres services&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ sudo systemctl start couchdb.service
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ sudo systemctl start postgres@@12-main.service
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;Check if both are running:&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ sudo systemctl status couchdb.service
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ sudo systemctl status postgres@@12-main.service
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;You should be able to see something like this:&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;... systemd&lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;1&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt;: Started PostgreSQL Cluster 12-main.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;...
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;... halt systemd&lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;1&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt;: Started Apache CouchDB.
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;Run Liferay portal&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ ./deps/liferay-ce-portal-7.3.4-ga5/tomcat-9.0.33/bin/startup.sh
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;Make sure to type correct path to the startup.sh file.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;23-run-sw360&#34;&gt;2.3. Run SW360&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Open the localhost:8080 page from the browser
+If all the previous steps were successfuly done you will be able to see this page:
+&lt;a href=&#34;https://www.eclipse.org/sw360/img/sw360screenshots/deploy73/2020-08-13_20.24.21.png&#34;&gt;https://www.eclipse.org/sw360/img/sw360screenshots/deploy73/2020-08-13_20.24.21.png&lt;/a&gt;
+Now enjoy SW360 portal!&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;check-all-services-are-working&#34;&gt;Check all services are working&lt;/h2&gt;
+&lt;p&gt;To fully use SW360 you need to have following services running, please check one by one by opening your browser and typing url, or using curl from command line:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Service&lt;/th&gt;
+&lt;th&gt;URL/Port&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Tomcat&lt;/td&gt;
+&lt;td&gt;http://127.0.0.1:8080&lt;/td&gt;
+&lt;td&gt;When Tomcat is installed without liferay it uses same 8080 port&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Liferay&lt;/td&gt;
+&lt;td&gt;http://127.0.0.1:8080&lt;/td&gt;
+&lt;td&gt;If Liferay version is correct you will see Liferay white-blue index page not Tomcat yellow-green page.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;PostgreSQL&lt;/td&gt;
+&lt;td&gt;http://127.0.0.1:5432&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;CouchDB&lt;/td&gt;
+&lt;td&gt;http://127.0.0.1:5984/_utils&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;CVE-Search&lt;/td&gt;
+&lt;td&gt;http://127.0.0.1:5000/admin&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;be-aware-of-cautions-and-notes&#34;&gt;Be aware of cautions and notes&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;There are various versions of Tomcat with or without Liferay, however here we use Liferay which has already bundled Tomcat inside it&amp;rsquo;s installation archive, that means you don&amp;rsquo;t have to install Tomcat separately. In this case, when script liferay- xxx / tomcat- yyy/start.sh is run, the 8080 page will be visible, and will be overwritten by Liferay.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;If the service has problem with Liferay then you will not see Liferay blue-white page. If you see other than that then you need to go through 3rd step of Liferay installation, check it&amp;rsquo;s version and reinstall it.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;If you still face the problem with Thrift or Liferay page isn&amp;rsquo;t responding properly, type this command in the shell, to set the missing Thrift version environment variable, and run the ./scripts/install-thrift.sh again, then start from 3rd step of installation again:&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#033&#34;&gt;THRIFT_VERSION&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#a00&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;THRIFT_VERSION&lt;/span&gt;&lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;:-&lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;0&lt;/span&gt;.16.0&lt;span style=&#34;color:#a00&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h1 id=&#34;native-install-sw360-version-1400&#34;&gt;Native Install SW360 Version-14.0.0&lt;/h1&gt;
+&lt;h1 id=&#34;sw360-version-up-test&#34;&gt;SW360 Version up test&lt;/h1&gt;
 &lt;h2 id=&#34;1-overview&#34;&gt;1. Overview&lt;/h2&gt;
 &lt;h3 id=&#34;11-sw360-portal&#34;&gt;1.1 SW360 Portal&lt;/h3&gt;
 &lt;p&gt;A software component catalogue application - designed to work with FOSSology.&lt;/p&gt;
@@ -1479,7 +1784,20 @@ beginning and click &lt;code&gt;Upload Users&lt;/code&gt; on the right side. &lt
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        #sw360changelog.config.file.location=/etc/sw360/log4j2.xml
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        enable.sw360.change.log=false
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        sw360changelog.output.path=sw360changelog/sw360changelog
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;references-for-more-information&#34;&gt;References for more information&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.eclipse.org/sw360/docs/&#34;&gt;SW360&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/cve-search/cve-search&#34;&gt;CVE-Search&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.oracle.com/en/java/javase/11/install/installation-jdk-linux-platforms.html#GUID-79FBE4A9-4254-461E-8EA7-A02D7979A161&#34;&gt;Java&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://maven.apache.org/install.html&#34;&gt;Maven&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://thrift.apache.org/&#34;&gt;Thrift&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://learn.liferay.com/dxp/latest/en/installation-and-upgrades/installing-liferay/installing-a-liferay-tomcat-bundle.html&#34;&gt;Liferay bundled with Tomcat&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.postgresql.org/download/linux/ubuntu/&#34;&gt;PostgreSQL&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.couchdb.org/en/stable/install/unix.html&#34;&gt;CouchDB&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;license&#34;&gt;License&lt;/h2&gt;
+&lt;p&gt;[SPDX-License-Identifier: EPL-2.0]&lt;/p&gt;
+
       </description>
     </item>
     
