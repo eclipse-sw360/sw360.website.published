@@ -25,12 +25,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.eclipse.org/sw360/docs/deployment/legacy/native-install-sw360-version-14.0.0-and-16.0.0/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2022-09-28T16:45:22+09:00" /><meta property="og:site_name" content="Eclipse SW360" />
+<meta property="article:modified_time" content="2022-11-10T11:32:56+09:00" /><meta property="og:site_name" content="Eclipse SW360" />
 
 <meta itemprop="name" content="Native Install v14 and v16">
 <meta itemprop="description" content="Native-Install-Version-14-and-Version-16">
-<meta itemprop="dateModified" content="2022-09-28T16:45:22+09:00" />
-<meta itemprop="wordCount" content="3550">
+<meta itemprop="dateModified" content="2022-11-10T11:32:56+09:00" />
+<meta itemprop="wordCount" content="3678">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Native Install v14 and v16"/>
 <meta name="twitter:description" content="Native-Install-Version-14-and-Version-16"/>
@@ -682,7 +682,29 @@ You may use other text editor instead of vim.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ <span style="color:#366">source</span> ~/.bashrc
 </span></span></code></pre></div><h3 id="14-make-and-build-sw360">1.4. Make and build SW360</h3>
 <blockquote>
-<p>Go to sw360 repository folder and type:
+<p>Go to sw360 repository folder firstly.</p>
+</blockquote>
+<blockquote>
+<p>We also suggest you change the environment settings (frontend/configuration/setenv.sh) to avoid the lack of memory before making and building SW360.</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ vim frontend/configuration/setenv.sh
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#09f;font-style:italic"># The following settings should be adapted to your needs</span>
+</span></span><span style="display:flex;"><span><span style="color:#033">JAVA_MEMORY_MIN</span><span style="color:#555">=</span><span style="color:#c30">&#34;3g&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#033">JAVA_MEMORY_MAX</span><span style="color:#555">=</span><span style="color:#c30">&#34;6g&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"># The following settings should not be touched unless you know what you are doing</span>
+</span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"># Misconfiguration may be lead to an unusable instance.</span>
+</span></span><span style="display:flex;"><span><span style="color:#033">JAVA_OPTS</span><span style="color:#555">=</span><span style="color:#c30">&#34;</span><span style="color:#033">$JAVA_OPTS</span><span style="color:#c30"> -Dfile.encoding=UTF8&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#033">JAVA_OPTS</span><span style="color:#555">=</span><span style="color:#c30">&#34;</span><span style="color:#033">$JAVA_OPTS</span><span style="color:#c30"> -Dorg.apache.catalina.loader.WebappClassLoader.ENABLE_CLEAR_REFERENCES=false&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#033">JAVA_OPTS</span><span style="color:#555">=</span><span style="color:#c30">&#34;</span><span style="color:#033">$JAVA_OPTS</span><span style="color:#c30"> -Duser.timezone=GMT&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#033">JAVA_OPTS</span><span style="color:#555">=</span><span style="color:#c30">&#34;</span><span style="color:#033">$JAVA_OPTS</span><span style="color:#c30"> -Xms</span><span style="color:#a00">${</span><span style="color:#033">JAVA_MEMORY_MIN</span><span style="color:#a00">}</span><span style="color:#c30"> -Xmx</span><span style="color:#a00">${</span><span style="color:#033">JAVA_MEMORY_MAX</span><span style="color:#a00">}</span><span style="color:#c30">&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#033">JAVA_OPTS</span><span style="color:#555">=</span><span style="color:#c30">&#34;</span><span style="color:#033">$JAVA_OPTS</span><span style="color:#c30"> -XX:+UseG1GC&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#033">JAVA_OPTS</span><span style="color:#555">=</span><span style="color:#c30">&#34;</span><span style="color:#033">$JAVA_OPTS</span><span style="color:#c30"> -XX:+CMSParallelRemarkEnabled&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#033">JAVA_OPTS</span><span style="color:#555">=</span><span style="color:#c30">&#34;</span><span style="color:#033">$JAVA_OPTS</span><span style="color:#c30"> -XX:SurvivorRatio=20&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#033">JAVA_OPTS</span><span style="color:#555">=</span><span style="color:#c30">&#34;</span><span style="color:#033">$JAVA_OPTS</span><span style="color:#c30"> -Dlog4j2.formatMsgNoLookups=true&#34;</span>
+</span></span></code></pre></div><blockquote>
+<p>Then we can type the following command to install:
 &ldquo;sudo&rdquo; might not be necessary, and this will take time, around 5 min]</p>
 </blockquote>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ mvn clean
@@ -695,7 +717,16 @@ Check which tomcat version do you have and put that in the place of {existing ve
 </span></span></code></pre></div><blockquote>
 <p>This will create /deploy under root, so sudo is necessary, however you can chmod /deploy.
 This will take time, around 5 - 10 min.
-After this step, you should be able to run Tomcat server and see the index page of SW360 portal. <a href="http://localhost:8080">Check SW360</a></p>
+After deploying the project, you should copy the portal-ext.properties to the place of the Liferay.</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>cp frontend/configuration/portal-ext.properties <span style="color:#a00">${</span><span style="color:#033">LIFERAY_INSTALL</span><span style="color:#a00">}</span>/
+</span></span></code></pre></div><blockquote>
+<p>Then modify the file: setup.wizard.enabled=false -&gt; setup.wizard.enabled=true
+Then copy the files in the directory scripts/docker-config/etc_sw360/ to the directory /etc/sw360/. If the directory /etc/sw360/ does not exist, create it and chmod it.</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>cp -r scripts/docker-config/etc_sw360/* /etc/sw360/
+</span></span></code></pre></div><blockquote>
+<p>After this step, you should be able to run Tomcat server and see the index page of SW360 portal. <a href="http://localhost:8080">Check SW360</a></p>
 </blockquote>
 <h3 id="15-install-postgresql">1.5. Install PostgreSQL</h3>
 <blockquote>
@@ -1904,7 +1935,7 @@ beginning and click <code>Upload Users</code> on the right side. <a href="https:
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified September 28, 2022: <a href="https://github.com/eclipse/sw360.website/commit/ccb0f3351553b442e262b975d314bac4dd80744d">Add instructions for version 16.0.0 and rename (ccb0f33)</a>
+  Last modified November 10, 2022: <a href="https://github.com/eclipse/sw360.website/commit/4427ebe36d8eeee2f9ba5e940638c628e6f07f5b">Update Native-Install-SW360-Version-14.0.0-and-16.0.0.md (4427ebe)</a>
 </div>
 
 </div>
