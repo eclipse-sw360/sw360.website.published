@@ -164,8 +164,11 @@
     <loc>https://www.eclipse.org/sw360/docs/deployment/deploy-requirements/</loc>
     <lastmod>2022-06-22T22:10:18+02:00</lastmod>
   </url><url>
-    <loc>https://www.eclipse.org/sw360/docs/deployment/baremetal/deploy-natively-11/</loc>
-    <lastmod>2022-06-22T22:10:18+02:00</lastmod>
+    <loc>https://www.eclipse.org/sw360/docs/deployment/legacy/deploy-natively-11/</loc>
+    <lastmod>2022-11-24T16:37:26+01:00</lastmod>
+  </url><url>
+    <loc>https://www.eclipse.org/sw360/docs/deployment/baremetal/deploy-natively/</loc>
+    <lastmod>2022-11-24T16:37:26+01:00</lastmod>
   </url><url>
     <loc>https://www.eclipse.org/sw360/docs/deployment/upgrading/upgrade-sw360-from-14.0.0-to-15.0.0/</loc>
     <lastmod>2022-07-07T09:02:59+07:00</lastmod>
