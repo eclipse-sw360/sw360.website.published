@@ -5363,10 +5363,10 @@ save (on the right)&lt;/p&gt;
     
     <item>
       <title>Docs: Native Install v14 and v16</title>
-      <link>https://www.eclipse.org/sw360/docs/deployment/legacy/native-install-sw360-version-14.0.0-and-16.0.0/</link>
+      <link>https://www.eclipse.org/sw360/docs/deployment/nativeinstall/native-install-sw360-version-14.0.0-and-16.0.0/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://www.eclipse.org/sw360/docs/deployment/legacy/native-install-sw360-version-14.0.0-and-16.0.0/</guid>
+      <guid>https://www.eclipse.org/sw360/docs/deployment/nativeinstall/native-install-sw360-version-14.0.0-and-16.0.0/</guid>
       <description>
         
         
@@ -6707,6 +6707,866 @@ beginning and click &lt;code&gt;Upload Users&lt;/code&gt; on the right side. &lt
     </item>
     
     <item>
+      <title>Docs: Native Install v17</title>
+      <link>https://www.eclipse.org/sw360/docs/deployment/nativeinstall/native-install-sw360-version-17.0.0/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/sw360/docs/deployment/nativeinstall/native-install-sw360-version-17.0.0/</guid>
+      <description>
+        
+        
+        &lt;h1 id=&#34;how-to-install-and-run-sw360-v1700&#34;&gt;How to install and run SW360 v17.0.0&lt;/h1&gt;
+&lt;h1 id=&#34;these-instructions-worked-on-ubuntu-2004-and-has-detailed-explanations-for-newcomers&#34;&gt;These instructions worked on Ubuntu 20.04 and has detailed explanations for newcomers.&lt;/h1&gt;
+&lt;h2 id=&#34;this-is-a-guide-with-detailed-explanation-of-how-to-install-and-run-sw360-natively-on-you-local-machine&#34;&gt;This is a guide with detailed explanation of how to install and run SW360 natively on you local machine.&lt;/h2&gt;
+&lt;h2 id=&#34;it-includes-installation-of-all-dependencies-manually-which-will-not-use-docker-or-other-container-system-during-the-installation-or-run&#34;&gt;It includes installation of all dependencies manually, which will not use docker or other container system during the installation or run.&lt;/h2&gt;
+&lt;p&gt;SW360 is an Open Source project. The &lt;a href=&#34;https://www.eclipse.org/sw360/docs/&#34;&gt;SW360&lt;/a&gt; repository and &lt;a href=&#34;https://github.com/eclipse/sw360.website&#34;&gt;SW360 website&lt;/a&gt; repositories are published on GitHub.&lt;/p&gt;
+&lt;h2 id=&#34;1-overview&#34;&gt;1. Overview&lt;/h2&gt;
+&lt;h3 id=&#34;11-sw360-portal&#34;&gt;1.1 SW360 Portal&lt;/h3&gt;
+&lt;p&gt;A software component catalogue application - designed to work with FOSSology.&lt;/p&gt;
+&lt;p&gt;SW360 is a server with a REST interface and a Liferay CE portal application to maintain your projects / products and the software components within.
+It can manage SPDX files for maintaining the license conditions and maintain license information.&lt;/p&gt;
+&lt;p&gt;This material helps user to install SW360 17.0.0&lt;/p&gt;
+&lt;h3 id=&#34;12-environment&#34;&gt;1.2 Environment&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Package Name&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Version&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Ubuntu&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;20.04&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Apt&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;2.0.2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Wget&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;1.20.3&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Curl&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;7.68.0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Git&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;2.25.1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Maven&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;3.6.0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;OpenJDK&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;11.0.5&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;2install--config-proxy-for-environment&#34;&gt;2.Install &amp;amp; Config proxy for Environment&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;2.1 Apt
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;2.2 Wget
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;2.3 Curl
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;2.4 Git
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;2.5 Maven
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;2.6 OpenJDK 
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;21-apt&#34;&gt;2.1 Apt&lt;/h3&gt;
+&lt;h4 id=&#34;create-file-with-name-proxyconf-in-folder-etcaptaptconfd&#34;&gt;Create file with name proxy.conf in folder &lt;code&gt;/etc/apt/apt.conf.d&lt;/code&gt;&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;$  sudo gedit /etc/apt/apt.conf.d/proxy.conf&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;add-the-following-line-few-files-proxyconf&#34;&gt;Add the following line few files &lt;code&gt;proxy.conf&lt;/code&gt;&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    Acquire {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        HTTP::proxy &amp;#34;http://username:password@server:port&amp;#34;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        HTTPS::proxy &amp;#34;http://username:password@server:port&amp;#34;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;22-wget&#34;&gt;2.2 Wget&lt;/h3&gt;
+&lt;h4 id=&#34;create-file-wgetrc&#34;&gt;Create file &lt;code&gt;~/.wgetrc&lt;/code&gt;&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;$  sudo gedit ~/.wgetrc&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;add-the-following-line-few-files-wgetrc&#34;&gt;Add the following line few files &lt;code&gt;~/.wgetrc&lt;/code&gt;&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	use_proxy=yes
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	  http_proxy=http://username:password@server:port
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	  https_proxy=http://username:password@server:port
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;23-curl&#34;&gt;2.3 Curl&lt;/h3&gt;
+&lt;h4 id=&#34;231-install-curl&#34;&gt;2.3.1 Install Curl&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;$ sudo apt update&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;$ sudo apt install curl&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;232-config-proxy&#34;&gt;2.3.2 Config proxy&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Create file &lt;code&gt;~/.curlrc&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;$  sudo gedit ~/.curlrc&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Add the following line few files &lt;code&gt;~/.curlrc&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    proxy=http://username:password@server:port/
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;24-git&#34;&gt;2.4 Git&lt;/h3&gt;
+&lt;h4 id=&#34;241-install-git&#34;&gt;2.4.1 Install Git&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;$ sudo apt update&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;$ sudo apt install git&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;242-config-proxy&#34;&gt;2.4.2 Config proxy&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Create file &lt;code&gt;~/.gitconfig&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;$  sudo gedit ~/.gitconfig&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Add the following line few files &lt;code&gt;~/.gitconfig&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; [http]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;     proxy = http://username:password@server:port
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;     sslverify = false
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; [https]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;     proxy = http://username:password@server:port
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;25-maven&#34;&gt;2.5 Maven&lt;/h3&gt;
+&lt;h4 id=&#34;251-install-maven&#34;&gt;2.5.1 Install Maven&lt;/h4&gt;
+&lt;p&gt;*Go to back Home in Terminal&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;$ sudo apt update&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;$ sudo apt install maven&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;252-config-proxy-for-maven&#34;&gt;2.5.2 Config proxy for Maven&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Create Folder with  path &lt;code&gt;/home/user/.m2&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;$ mkdir /home/user/.m2&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+&lt;li&gt;Create File in Folder &lt;code&gt;.m2&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;$ touch /home/user/.m2/settings.xml&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Copy the following lines into tag &lt;proxies&gt;&lt;/proxies&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;      &amp;lt;settings&amp;gt;
+          &amp;lt;proxies&amp;gt;
+              &amp;lt;proxy&amp;gt;
+
+                  &amp;lt;id&amp;gt;optional1&amp;lt;/id&amp;gt;
+
+                  &amp;lt;active&amp;gt;true&amp;lt;/active&amp;gt;       
+
+                  &amp;lt;protocol&amp;gt;http&amp;lt;/protocol&amp;gt;
+
+                  &amp;lt;username&amp;gt;username&amp;lt;/username&amp;gt;
+
+                  &amp;lt;password&amp;gt;password&amp;lt;/password&amp;gt;
+
+                  &amp;lt;host&amp;gt;server&amp;lt;/host&amp;gt;
+
+                  &amp;lt;port&amp;gt;port&amp;lt;/port&amp;gt;
+
+                  &amp;lt;nonProxyHosts&amp;gt;local.net&amp;lt;/nonProxyHosts&amp;gt;
+
+              &amp;lt;/proxy&amp;gt;
+
+              &amp;lt;proxy&amp;gt;
+
+                 &amp;lt;id&amp;gt;optional1&amp;lt;/id&amp;gt;
+
+                  &amp;lt;active&amp;gt;true&amp;lt;/active&amp;gt;       
+
+                  &amp;lt;protocol&amp;gt;http&amp;lt;/protocol&amp;gt;
+
+                  &amp;lt;username&amp;gt;username&amp;lt;/username&amp;gt;
+
+                  &amp;lt;password&amp;gt;password&amp;lt;/password&amp;gt;
+
+                  &amp;lt;host&amp;gt;server&amp;lt;/host&amp;gt;
+
+                  &amp;lt;port&amp;gt;port&amp;lt;/port&amp;gt;
+
+                  &amp;lt;nonProxyHosts&amp;gt;local.net&amp;lt;/nonProxyHosts&amp;gt;
+
+              &amp;lt;/proxy&amp;gt;
+          &amp;lt;/proxies&amp;gt;
+      &amp;lt;/settings&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;26-openjdk-11&#34;&gt;2.6 OpenJDK 11&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;And install OpenJDK 11
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;$ sudo apt install openjdk-11-jdk&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Check version:
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;$ java --version&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Output:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      openjdk version &amp;#34;11.0.15&amp;#34; 2022-04-19
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      OpenJDK Runtime Environment (build 11.0.15+10-Ubuntu-0ubuntu0.18.04.1)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      OpenJDK 64-Bit Server VM (build 11.0.15+10-Ubuntu-0ubuntu0.18.04.1, mixed mode, sharing)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;Install JDK successfully&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;3-native-install-1700-without-docker-compose&#34;&gt;3. Native install 17.0.0 (without docker-compose)&lt;/h2&gt;
+&lt;h3 id=&#34;the-installation-consists-of-some-tasks&#34;&gt;The installation consists of some tasks::&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;3.1 Install A Liferay Community Edition bundled with Tomcat and download dependencies as OSGi modules
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;3.2 Install Couchdb version 3.2.2 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;3.3 Install Couchdb Lucene
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;3.4 Clone Project sw360 with version 17.0.0
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;3.5 Install Thrift version 16.0
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;3.6 Compiling and deploying
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;3.7 Version Management Table
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;31-install-a-liferay-community-edition-bundled-with-tomcat&#34;&gt;3.1 Install A Liferay Community Edition bundled with Tomcat&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Make folder &lt;code&gt;work&lt;/code&gt; in path of work: &lt;code&gt;/home/user&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;$ mkdir work&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Download Liferay Portal CE 7.4.3.18 GA18&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;$ cd work&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;$ wget  https://github.com/liferay/liferay-portal/releases/download/7.4.3.18-ga18/liferay-ce-portal-tomcat-7.4.3.18-ga18-20220329092001364.tar.gz -O liferay-ce-portal-tomcat-7.4.3.18-ga18.tar.gz&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Extract downloaded file&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;$ tar -xzf liferay-ce-portal-tomcat-7.4.3.18-ga18.tar.gz&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Set Environment for &lt;code&gt;${LIFERAY_INSTALL}&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;$ export LIFERAY_INSTALL=/opt/liferay-ce-portal-7.4.3.18-ga18&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Create &lt;code&gt;portal-ext.properties&lt;/code&gt; file in &lt;code&gt;liferay-ce-portal-7.4.3.18-ga18&lt;/code&gt; folder&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Copy content from  &lt;a href=&#34;https://github.com/eclipse/sw360/blob/sw360-17.0.0-M1/frontend/configuration/portal-ext.properties&#34;&gt;https://github.com/eclipse/sw360/blob/sw360-17.0.0-M1/frontend/configuration/portal-ext.properties&lt;/a&gt; to portal-ext.properties&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Edit &lt;code&gt;portal-ext.properties&lt;/code&gt;: uncomment below lines&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;  # default.admin.password=sw360fossy
+
+  # default.admin.screen.name=setup
+
+  # default.admin.email.address.prefix=setup
+
+  # default.admin.first.name=Setup
+
+  # default.admin.last.name=Administrator
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Remove files in folder &lt;code&gt;hypersonic&lt;/code&gt; with path: &lt;code&gt;/home/user/work/liferay-ce-portal-7.4.3.18-ga18/data/hypersonic&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;$ rm -rf /home/user/work/liferay-ce-portal-7.4.3.18-ga18/data/hypersonic/*&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Move folder &lt;code&gt;liferay-ce-portal-7.4.3.18-ga18&lt;/code&gt; to &lt;code&gt;/opt&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;$ sudo mv liferay-ce-portal-7.4.3.18-ga18 /opt&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;32-install-database&#34;&gt;3.2 Install Database&lt;/h3&gt;
+&lt;h4 id=&#34;321-install-couch-db&#34;&gt;3.2.1 Install Couch DB&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;To install from aptitute  type:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ sudo apt update
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ sudo apt install -y couchdb
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;You may refer to the bottom Native Installation 14 version CouchDB manual configuration for setting credentials.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;After, run CouchDb service, check if it&amp;rsquo;s working:&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ sudo systemctl start couchdb.service
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;Check if CouchDB is responding:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ curl localhost:5984
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;This should return json containing version information&lt;/li&gt;
+&lt;li&gt;You can use &amp;ldquo;start/stop/status/restart&amp;rdquo; command with systemctl for controlling CouchDB service.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;3211-install-couchdb-lucene&#34;&gt;3.2.1.1 Install Couchdb Lucene&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;SW360 uses for searching the contents of the couchdb databases a lucene-based server named couchdb-lucene&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Run command download Couchdb Lucene&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;wget --no-check-certificate https://github.com/rnewson/couchdb-lucene/archive/v2.1.0.tar.gz -O couchdb-lucene.tar.gz&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Note Extract liferay To folder &lt;code&gt;work&lt;/code&gt; with path of work: &lt;code&gt;/home/user/work&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;tar -xzf couchdb-lucene.tar.gz&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Run command:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;cd couchdb-lucene-2.1.0&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;sed -i &amp;quot;s/allowLeadingWildcard=false/allowLeadingWildcard=true/&amp;quot; ./src/main/resources/couchdb-lucene.ini &lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;sed -i &amp;quot;s/localhost:5984/admin:password@localhost:5984/&amp;quot; ./src/main/resources/couchdb-lucene.ini &lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;wget https://raw.githubusercontent.com/sw360/sw360vagrant/master/shared/couchdb-lucene.patch &lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;patch -p1 &amp;lt; couchdb-lucene.patch &lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;mvn clean install war:war&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;cp target/couchdb-lucene-*.war /opt/liferay-ce-portal-7.4.3.18-ga18/tomcat-9.0.56/webapps/couchdb-lucene.war&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;321-install-postgresql&#34;&gt;3.2.1 Install PostgreSQL&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Install PostgerSQL manually, you can install through &amp;ldquo;apt install&amp;rdquo; too:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ sudo apt install zlib1g-dev -y
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ sudo apt install libreadline-dev -y
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ wget https://download.postgresql.org/pub/source/v10.14/postgresql-10.14.tar.gz
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ tar -xvf postgresql-10.14.tar.gz 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ &lt;span style=&#34;color:#366&#34;&gt;cd&lt;/span&gt; postgresql-10.14/
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ mkdir -p  /PATH_TO/sw360postgres
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ ./configure -prefix&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;/PATH_TO/sw360postgres
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ make
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ sudo make install
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;Set the paths for Postgres in the .bashrc otherwise you have to export them each time. Use same procedure as before in 3rd step.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ vim ~/.bashrc
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;Got to the end of the .bashrc file and add following lines, make sure to add correct paths of previously configured sw360postgres. Here $HOME is the absolute path of your user, such as &amp;ldquo;/home/username&amp;rdquo;:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ &lt;span style=&#34;color:#366&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#033&#34;&gt;PATH&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;$HOME&lt;/span&gt;/sw360postgres/bin:&lt;span style=&#34;color:#033&#34;&gt;$PATH&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ &lt;span style=&#34;color:#366&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#033&#34;&gt;PGDATA&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;$HOME&lt;/span&gt;/sw360postgres/data
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ &lt;span style=&#34;color:#366&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#033&#34;&gt;LD_LIBRARY_PATH&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;$HOME&lt;/span&gt;/sw360postgres/lib
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ &lt;span style=&#34;color:#366&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#033&#34;&gt;PGPORT&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f60&#34;&gt;5432&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;Check if paths have been set, result must be the absolute paths:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ &lt;span style=&#34;color:#366&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color:#033&#34;&gt;$PATH&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ &lt;span style=&#34;color:#366&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color:#033&#34;&gt;$PGDATA&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ &lt;span style=&#34;color:#366&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color:#033&#34;&gt;$LD_LIBRARY_PATH&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ &lt;span style=&#34;color:#366&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color:#033&#34;&gt;$PGPORT&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;After paths are set, postgres service can be run:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$  &lt;span style=&#34;color:#366&#34;&gt;cd&lt;/span&gt; /PATH_TO/sw360postgres/bin
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ ./initdb --encoding&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;UTF8 --no-locale
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ ./pg_ctl start
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;You will see that the server has started.&lt;/li&gt;
+&lt;li&gt;Note: If you installed through &amp;ldquo;apt install&amp;rdquo; then start the postgres service by following command, where after @ comes the installed version, if postgres isn&amp;rsquo;t running you won&amp;rsquo;t be able to connect to the server, and the error message is not explaining well that server isn&amp;rsquo;t actually running at the moment:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo systemctl status postgresql@12-main.service
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo systemctl start postgresql@12-main.service
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Normally, Default postgres creates user &amp;ldquo;postgres&amp;rdquo; with &amp;ldquo;postgres&amp;rdquo; password, use that to enter PostgreSQL terminal:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ sudo -i -u postgres
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ psql
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;You will be logged in as user named &amp;ldquo;postgres&amp;rdquo;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ psql postgres
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#033&#34;&gt;postgres&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;# \du&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#033&#34;&gt;postgres&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;# create database lportal;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#033&#34;&gt;postgres&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;# ALTER USER postgres WITH PASSWORD &amp;#39;sw360fossy&amp;#39;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#033&#34;&gt;postgres&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;# ALTER ROLE postgres with superuser;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#033&#34;&gt;postgres&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;# \q&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;Connect to postgres shell, and check users information&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ psql -d lportal
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;# \du&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;# \dt&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;# \l&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;33-install-cve-search&#34;&gt;3.3 Install CVE-Search&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Follow these detailed instructions:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;https://github.com/cve-search/cve-search/blob/master/docs/source/getting_started/installation.rst&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;To connect it to SW360, see following instructions:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;https://www.eclipse.org/sw360/docs/deployment/deploy-cve-search/
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h5 id=&#34;notes&#34;&gt;Notes:&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;In the instruction be careful with setting apt link for mongodb, if somehow it destroys your &amp;ldquo;sudo apt update&amp;rdquo; command, go to &amp;ldquo;/etc/apt/sources.list&amp;rdquo; file and comment out the broken line, that&amp;rsquo;s probably the one you lately added at the end of the file. This happens because some PPA are outdated but remain in the instructions.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;34-clone-sw360-with-version-1700&#34;&gt;3.4 Clone sw360 with version 17.0.0&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Clone sw360 source code to folder &lt;code&gt;work&lt;/code&gt; with path: &lt;code&gt;/home/user/work&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;$ git clone https://github.com/eclipse/sw360&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Checkout to tag 17.0.0 version&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;$ cd sw360&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;$ git checkout  sw360-17.0.0-M1&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;export path to repository sw360&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;$ export SW360_REPOSITORY=/home/user/work/sw360&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;35-install-thrift-version-016&#34;&gt;3.5 Install Thrift version 0.16&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;For thrift, we need version 0.16. The installation script in Path: &lt;code&gt;${SW360_REPOSITORY}/scripts/install-thrift.sh&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Run command:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;$ chmod +x install-thrift.sh&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;$ sudo ./install-thrift.sh&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In case there is thrift in the package management of the OS you re running on, just make sure, you have version 0.16&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Check version thrift&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;$ thrift --version&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Output:&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    Thrift version 0.16.0
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;Install Thrift successfully&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;36-config-properties-files-with-sw360-sw360-1700&#34;&gt;3.6 Config properties files with Sw360 (sw360 17.0.0)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Create folder &lt;code&gt;sw360&lt;/code&gt; in path &lt;code&gt;/etc/&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;sudo mkdir sw360&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Create 2 folder &lt;code&gt;authorization&lt;/code&gt; and &lt;code&gt;rest&lt;/code&gt; in path &lt;code&gt;/etc/sw360&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;sudo mkdir authorization&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;sudo mkdir rest&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Create file &lt;code&gt;application.yml&lt;/code&gt; in path &lt;code&gt;/etc/sw360/authorizaton&lt;/code&gt; with content:&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        #
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        # Copyright Siemens AG, 2017, 2019. Part of the SW360 Portal Project.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        #
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        # This program and the accompanying materials are made
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        # available under the terms of the Eclipse Public License 2.0
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        # which is available at https://www.eclipse.org/legal/epl-2.0/
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        #
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        # SPDX-License-Identifier: EPL-2.0
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        #
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        # Port to open in standalone mode
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        server:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        port: 8090
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        # Connection to the couch databases. Will be used to store client credentials
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        couchdb:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        url: http://localhost:5984
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        database: sw360oauthclients
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        # if your couchdb does not use authentication, pls just don&amp;#39;t use the settings for username and password
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        username: admin
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        password: password
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        jwt:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        secretkey: sw360SecretKey
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        spring:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        jackson:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            serialization:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            indent_output: true
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        # Common SW360 properties
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        sw360:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        # The url of the Liferay instance
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        sw360-portal-server-url: ${SW360_PORTAL_SERVER_URL:http://127.0.0.1:8080}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        # The id of the company in Liferay that sw360 is run for
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        sw360-liferay-company-id: ${SW360_LIFERAY_COMPANY_ID:20101}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        # Allowed origins that should be set in the header
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        cors:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            allowed-origin: ${SW360_CORS_ALLOWED_ORIGIN:#{null}}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        security:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        # Configuration for enabling authorization via headers, e.g. when using SSO
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        # in combination with a reverse proxy server
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        customheader:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            headername:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            # You have to enable authorization by headers explicitly here
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            enabled: false
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            # Attention: please make sure that the proxy is removing there headers
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            # if they are coming from anywhere else then the authentication server
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            intermediateauthstore: custom-header-auth-marker
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            email: authenticated-email
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            extid: authenticated-extid
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            # also available - at least in saml pre auth - are &amp;#34;givenname&amp;#34;, &amp;#34;surname&amp;#34; and &amp;#34;department&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        oauth2:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            resource:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            id: sw360-REST-API
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;Create file &lt;code&gt;application.yml&lt;/code&gt; in path &lt;code&gt;/etc/sw360/rest&lt;/code&gt; with content:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        #
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        # Copyright Siemens AG, 2017. Part of the SW360 Portal Project.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        # Copyright Bosch.IO GmbH 2020
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        #
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        # This program and the accompanying materials are made
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        # available under the terms of the Eclipse Public License 2.0
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        # which is available at https://www.eclipse.org/legal/epl-2.0/
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        #
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        # SPDX-License-Identifier: EPL-2.0
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        #
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        server:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        port: 8091
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        management:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        endpoints:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            enabled-by-default: false
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            web:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            base-path:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        endpoint:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            health:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            enabled: true
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            show-details: always
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            info:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            enabled: true
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            web:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            base-path: /
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        spring:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        servlet:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            multipart:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            max-file-size: 500MB
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            max-request-size: 600MB
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        # logging:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        #   level:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        #     org.springframework.web: DEBUG
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        security:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        oauth2:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            resource:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            id: sw360-REST-API
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            jwt:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                keyValue: |
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                -----BEGIN PUBLIC KEY-----
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEApz8Cr1o5yHMv/FUdF5uy
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                VptilqdWtNvw5S6Tr4IaQ4XR9QPt8nlRsjOngfG4QCcKMBWJISldFg8PlJWUBeV+
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                6TwQUidxokl2GbO6/+QA+lz1a5Ei1Y1pcnvFeRb2pdYlH3Yg6fXMxS6QwDLk27pZ
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                5xbpSDIGISDesyaIMvwaKdhAbFW/tTb/oJY7rCPvmYLT80kJzilijJ/W01jMMSHg
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                9Yi5cCt1eU/s78co+pxHzwNXO0Ul4iRpo/CXprQCsSIsdWkJTo6btal1xzd292Da
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                d+9xq499JEsNbcqLfCq8DBQ7CEz6aJjMvPkvZiCrFIGxC/Gqmw35DQ4688rbkKSJ
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                PQIDAQAB
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                -----END PUBLIC KEY-----
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        sw360:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        thrift-server-url: ${SW360_THRIFT_SERVER_URL:http://localhost:8080}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        test-user-id: admin@sw360.org
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        test-user-password: sw360-password
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        couchdb-url: ${SW360_COUCHDB_URL:http://localhost:5984}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        cors:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            allowed-origin: ${SW360_CORS_ALLOWED_ORIGIN:#{null}}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;Create file &lt;code&gt;couchdb.properties&lt;/code&gt; in path &lt;code&gt;/etc/sw360&lt;/code&gt; with content:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        #
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        # Copyright Siemens AG, 2020. Part of the SW360 Portal Project.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        #
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        # This program and the accompanying materials are made
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        # available under the terms of the Eclipse Public License 2.0
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        # which is available at https://www.eclipse.org/legal/epl-2.0/
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        #
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        # SPDX-License-Identifier: EPL-2.0
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        #
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        couchdb.url = http://localhost:5984
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        couchdb.user = admin
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        couchdb.password = password
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        couchdb.database = sw360db
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        couchdb.usersdb = sw360users
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        couchdb.attachments = sw360attachments
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        lucenesearch.limit = 10000
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;Create file &lt;code&gt;sw360.properties&lt;/code&gt; and &lt;code&gt;/etc/sw360&lt;/code&gt; with content:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        # Copyright Siemens AG, 2016-2017. Part of the SW360 Portal Project.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        #
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        # This program and the accompanying materials are made
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        # available under the terms of the Eclipse Public License 2.0
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        # which is available at https://www.eclipse.org/legal/epl-2.0/
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        #
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        # SPDX-License-Identifier: EPL-2.0
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        #
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        # common property file for the backend services
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        backend.url= http://localhost:8080
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        licenseinfo.spdxparser.use-license-info-from-files=true
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        mainline.state.enabled.for.user=false
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        # settings for the mail utility:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        # if host is not set, e-mailing is disabled
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        MailUtil_host=
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        MailUtil_from=__No_Reply__@sw360.org
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        MailUtil_port=25
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        MailUtil_enableStarttls=
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        MailUtil_enableSsl=
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        MailUtil_isAuthenticationNecessary=
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        MailUtil_login=
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        MailUtil_password=
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        MailUtil_enableDebug=
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        MailUtil_supportMailAddress=
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        # text patterns for mail utility
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        defaultBegin = \
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        *** This is an automatically generated email, please do not reply. ***\n\n\
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        Dear SW360-user,\n\n
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        defaultEnd = \
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        With best regards,\n\
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        SW360-support
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        unsubscribeNoticeBefore =\n\n*** If you do not wish to receive mails from SW360, please notify:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        unsubscribeNoticeAfter =. ***
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        subjectForNewModerationRequest= New moderation request
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        subjectForUpdateModerationRequest= Update on moderation request
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        subjectForAcceptedModerationRequest= Your moderation request has been accepted
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        subjectForDeclinedModerationRequest= Your moderation request has been declined
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        subjectForDeclinedUserModerationRequest= Your request for a SW360 user account has been declined
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        subjectForNewComponent= New component created
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        subjectForUpdateComponent= Component updated
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        subjectForNewRelease= New release created
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        subjectForUpdateRelease= Release updated
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        subjectForNewProject= New project created
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        subjectForUpdateProject= Project updated
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        subjectForNewClearingRequest= New clearing request &amp;lt;%s&amp;gt; for Project &amp;lt;%s&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        subjectForClearingRequestComment= New comment added in clearing request &amp;lt;%s&amp;gt; for Project &amp;lt;%s&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        subjectForUpdatedClearingRequest= Your clearing request &amp;lt;%s&amp;gt; has been updated for Project &amp;lt;%s&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        subjectForClosedClearingRequest= Your clearing request &amp;lt;%s&amp;gt; has been closed for Project &amp;lt;%s&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        subjectForRejectedClearingRequest= Your clearing request &amp;lt;%s&amp;gt; has been rejected for Project &amp;lt;%s&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        subjectForUpdatedProjectWithClearingRequest= Project &amp;lt;%s&amp;gt; with clearing request &amp;lt;%s&amp;gt; updated
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        textForNewModerationRequest= a new moderation request has been added to your SW360-account.\n\n
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        textForUpdateModerationRequest= \
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        one of the moderation requests previously added to your \
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        SW360-account has been updated.\n\n
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        textForAcceptedModerationRequest= your moderation request to change the %s %s has been accepted by one of the moderators.\n\n
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        textForDeclinedModerationRequest= your moderation request to change the %s %s has been declined by one of the moderators.\n\n
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        textForDeclinedUserModerationRequest= your request for a SW360 user account has been declined by one of the administrators.\n\n
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        textForNewComponent= a new component %s, in which you take part, has been created.\n\n
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        textForUpdateComponent= the component %s, in which you take part, has been updated.\n\n
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        textForNewRelease= a new release %s %s, in which you take part, has been created.\n\n
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        textForUpdateRelease= the release %s %s, in which you take part, has been updated.\n\n
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        textForNewProject= a new project %s %s, in which you take part, has been created.\n\n
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        textForUpdateProject= the project %s %s, in which you take part, has been updated.\n\n
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        textForClosedClearingRequest= your clearing request with id: %s for the project %s has been closed by the clearing team.\n\n
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        textForRejectedClearingRequest= your clearing request with id: %s for the project %s has been rejected by the clearing team.\n\n
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        #attachment.store.file.system.location=/opt/sw360tempattachments
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        #enable.attachment.store.to.file.system=false
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        #attachment.store.file.system.permission=rwx------
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        #attachemnt.delete.no.of.days=30
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        #Uncomment the below file location if the log4j2.xml file is placed inside etc/sw360 folder.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        #sw360changelog.config.file.location=/etc/sw360/log4j2.xml
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        enable.sw360.change.log=false
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        sw360changelog.output.path=sw360changelog/sw360changelog
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;37-compile-and-deploy&#34;&gt;3.7 Compile and deploy&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Start Database&lt;/li&gt;
+&lt;li&gt;Turn on the CouchDB and Postgres services&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ sudo systemctl start couchdb.service
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ sudo systemctl start postgres@@12-main.service
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;Check if both are running:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ sudo systemctl status couchdb.service
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ sudo systemctl status postgres@@12-main.service
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;You should be able to see something like this:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;... systemd&lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;1&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt;: Started PostgreSQL Cluster 12-main.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;...
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;... halt systemd&lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;1&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt;: Started Apache CouchDB.
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;Set Environment for &lt;code&gt;${LIFERAY_INSTALL}&lt;/code&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;$ cd /home/user/work/sw360&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;$ export LIFERAY_INSTALL=/opt/liferay-ce-portal-7.4.3.18-ga18&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;To clean everything and  install without running the tests&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;$ mvn clean install -DskipTests &lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;For deployment run the command&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;mvn package -P deploy -Dbase.deploy.dir=. -Dliferay.deploy.dir=${LIFERAY_INSTALL}/deploy -Dbackend.deploy.dir=${LIFERAY_INSTALL}/tomcat-9.0.56/webapps -Drest.deploy.dir=${LIFERAY_INSTALL}/tomcat-9.0.56/webapps -DskipTests&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;371-start-and-configure-liferay&#34;&gt;3.7.1 Start and Configure Liferay&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Set Environment for &lt;code&gt;${LIFERAY_INSTALL}&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;$ export LIFERAY_INSTALL=/opt/liferay-ce-portal-7.4.3.18-ga18&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;After run command &amp;ldquo;mvn clean install -DskipTests&amp;rdquo; above, copy dependency in folder &lt;code&gt;/home/user/work/sw360/deploy/jars&lt;/code&gt; to deploy folder in liferay &lt;code&gt;${LIFERAY_INSTALL}/deploy&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;$ cd /home/user/work/sw360/deploy/jars&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;$ sudo cp *.jar /opt/liferay-ce-portal-7.4.3.18-ga18/deploy&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;We also suggest you change the environment settings (frontend/configuration/setenv.sh) to avoid the lack of memory before making and building SW360.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;$ sudo rm -rf ${LIFERAY_INSTALL}/tomcat-9.0.56/bin/setenv.sh&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;$ sudo cp /home/user/work/sw360/frontend/configuration/setenv.sh ${LIFERAY_INSTALL}/tomcat-9.0.56/bin/&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Start liferay&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;$ ${LIFERAY_INSTALL}/tomcat-9.0.56/bin/startup.sh&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Log&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;$ tail -f ${LIFERAY_INSTALL}/tomcat-9.0.56/logs/*&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Url SW360 : &lt;code&gt;https://localhost:8080&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;372-configure-liferay-portal&#34;&gt;3.7.2 Configure Liferay Portal&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Can follow the steps in the following link &lt;a href=&#34;https://www.eclipse.org/sw360/docs/deployment/legacy/deploy-liferay7.3&#34;&gt;https://www.eclipse.org/sw360/docs/deployment/legacy/deploy-liferay7.3&lt;/a&gt; or follow these steps:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+&lt;li&gt;Import users
+&lt;ol&gt;
+&lt;li&gt;Open the panel on the left side by clicking the button on the top left.&lt;/li&gt;
+&lt;li&gt;Click on &lt;code&gt;SW360&lt;/code&gt; on the top right to go to the homepage.&lt;/li&gt;
+&lt;li&gt;Click on &lt;code&gt;Start&lt;/code&gt; inside the &amp;ldquo;Welcome&amp;rdquo; section.&lt;/li&gt;
+&lt;li&gt;Go to &lt;code&gt;Admin&lt;/code&gt; -&amp;gt; &lt;code&gt;User&lt;/code&gt; (URL: &lt;code&gt;/group/guest/users&lt;/code&gt;).&lt;/li&gt;
+&lt;li&gt;Scroll down to section &lt;code&gt;UPLOAD USERS&lt;/code&gt;, select a user file from the very
+beginning and click &lt;code&gt;Upload Users&lt;/code&gt; on the right side. &lt;a href=&#34;https://github.com/sw360/sw360vagrant/blob/master/shared/test_users_with_passwords_12345.csv&#34;&gt;A user file can be found here in the sw360vagrant project&lt;/a&gt;
+* Download: &lt;code&gt;$ wget https://github.com/sw360/sw360vagrant/blob/master/shared/test_users_with_passwords_12345.csv&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;38-version-management-table-sw360-1700&#34;&gt;3.8 Version Management Table (sw360 17.0.0)&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Package Name&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Version&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Liferay&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;7.4.3.18&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Tomcat&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;9.0.56&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Couchdb&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;3.2.2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Open JDK&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;11.0.15&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Thrift&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;0.16.0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;SW360&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;17.0.0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;references-for-more-information&#34;&gt;References for more information&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.eclipse.org/sw360/docs/&#34;&gt;SW360&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/cve-search/cve-search&#34;&gt;CVE-Search&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.oracle.com/en/java/javase/11/install/installation-jdk-linux-platforms.html#GUID-79FBE4A9-4254-461E-8EA7-A02D7979A161&#34;&gt;Java&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://maven.apache.org/install.html&#34;&gt;Maven&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://thrift.apache.org/&#34;&gt;Thrift&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://learn.liferay.com/dxp/latest/en/installation-and-upgrades/installing-liferay/installing-a-liferay-tomcat-bundle.html&#34;&gt;Liferay bundled with Tomcat&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.postgresql.org/download/linux/ubuntu/&#34;&gt;PostgreSQL&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.couchdb.org/en/stable/install/unix.html&#34;&gt;CouchDB&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;license&#34;&gt;License&lt;/h2&gt;
+&lt;p&gt;[SPDX-License-Identifier: EPL-2.0]&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
       <title>Docs: Search Vulnerabilities</title>
       <link>https://www.eclipse.org/sw360/docs/userguide/vulnerabilitymanagement/user-check-vulnerabilities-for-your-project/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -7878,589 +8738,6 @@ Moreover, the configuration, i.e. &lt;code&gt;offset&lt;/code&gt;, &lt;code&gt;i
 &lt;h2 id=&#34;setup-of-a-local-instance&#34;&gt;Setup of a local instance&lt;/h2&gt;
 &lt;p&gt;It is recommended to set up and use a local instance instead of the public cve-search instance.
 The accompanying project sw360-chores contains a Dockerfile that can easily setup this service.&lt;/p&gt;
-
-      </description>
-    </item>
-    
-    <item>
-      <title>Docs: Enumerations</title>
-      <link>https://www.eclipse.org/sw360/docs/userguide/user-data-model-enumerations/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.eclipse.org/sw360/docs/userguide/user-data-model-enumerations/</guid>
-      <description>
-        
-        
-        &lt;p&gt;SW360 thrift API is comprised of the following methods:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;attachments&lt;/li&gt;
-&lt;li&gt;codescoop&lt;/li&gt;
-&lt;li&gt;components&lt;/li&gt;
-&lt;li&gt;cvesearch&lt;/li&gt;
-&lt;li&gt;fossology&lt;/li&gt;
-&lt;li&gt;importstatus&lt;/li&gt;
-&lt;li&gt;licenseinfo&lt;/li&gt;
-&lt;li&gt;licenses&lt;/li&gt;
-&lt;li&gt;moderation&lt;/li&gt;
-&lt;li&gt;projectimport&lt;/li&gt;
-&lt;li&gt;projects&lt;/li&gt;
-&lt;li&gt;schedule&lt;/li&gt;
-&lt;li&gt;search&lt;/li&gt;
-&lt;li&gt;sw360&lt;/li&gt;
-&lt;li&gt;users&lt;/li&gt;
-&lt;li&gt;vendors&lt;/li&gt;
-&lt;li&gt;vulnerabilities&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Reference: &lt;a href=&#34;https://github.com/eclipse/sw360/tree/master/libraries/lib-datahandler/src/main/thrift&#34;&gt;https://github.com/eclipse/sw360/tree/master/libraries/lib-datahandler/src/main/thrift&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&#34;attachments&#34;&gt;Attachments&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/attachments.thrift&#34;&gt;https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/attachments.thrift&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&#34;attachmenttype&#34;&gt;AttachmentType&lt;/h3&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Value&lt;/th&gt;
-&lt;th&gt;Description.&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;DOCUMENT&lt;/td&gt;
-&lt;td&gt;justa document&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;SOURCE&lt;/td&gt;
-&lt;td&gt;original course code&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;DESIGN&lt;/td&gt;
-&lt;td&gt;design document&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;REQUIREMENT&lt;/td&gt;
-&lt;td&gt;requirements document&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;CLEARING_REPORT&lt;/td&gt;
-&lt;td&gt;OSS licensing reporting&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;COMPONENT_LICENSE_INFO_XML&lt;/td&gt;
-&lt;td&gt;XML document with licenseing information - e.g. SPDX&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;COMPONENT_LICENSE_INFO_COMBINED&lt;/td&gt;
-&lt;td&gt;XML document with licensing information covering multiple componnts at once - e.g. SPDX&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;SCAN_RESULT_REPORT&lt;/td&gt;
-&lt;td&gt;Output what a scanner for licenses has found&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;SCAN_RESULT_REPORT_XML&lt;/td&gt;
-&lt;td&gt;Output what a scanner for licenses has found this time in XML&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;SOURCE_SELF&lt;/td&gt;
-&lt;td&gt;Self assembled source code distribution&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;BINARY&lt;/td&gt;
-&lt;td&gt;Binary of component from vendor&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;BINARY_SELF&lt;/td&gt;
-&lt;td&gt;Self built binary&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;DECISION_REPORT&lt;/td&gt;
-&lt;td&gt;documenting importing decisions for using this item&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;LEGAL_EVALUATION&lt;/td&gt;
-&lt;td&gt;Some legal evaluation created for this item&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;LICENSE_AGREEMENT&lt;/td&gt;
-&lt;td&gt;A ruling license agreement for this item, note that this could be for commercial software for example&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;SCREENSHOT&lt;/td&gt;
-&lt;td&gt;Screenshot, usually screenshot of the Website with licensing information&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;OTHER&lt;/td&gt;
-&lt;td&gt;anything that dos not match to the given above&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h3 id=&#34;checkstatus&#34;&gt;CheckStatus&lt;/h3&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Value&lt;/th&gt;
-&lt;th&gt;Description.&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;NOTCHECKED&lt;/td&gt;
-&lt;td&gt;Default value after upload.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;ACCEPTED&lt;/td&gt;
-&lt;td&gt;Reviewed and confirmed attachment.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;REJECTED&lt;/td&gt;
-&lt;td&gt;Document or attachment cannot be used.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2 id=&#34;codescoop-thrift-file&#34;&gt;CodeScoop Thrift File&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/codescoop.thrift&#34;&gt;https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/codescoop.thrift&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&#34;components&#34;&gt;Components&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/components.thrift&#34;&gt;https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/components.thrift&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&#34;cvesearch&#34;&gt;cvesearch&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/cvesearch.thrift&#34;&gt;https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/cvesearch.thrift&lt;/a&gt;&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Value&lt;/th&gt;
-&lt;th&gt;Description&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;NEW&lt;/td&gt;
-&lt;td&gt;&amp;hellip;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;UPDATED&lt;/td&gt;
-&lt;td&gt;New information for a notification message, so it is updated&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;OLD&lt;/td&gt;
-&lt;td&gt;&amp;hellip;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;FAILED&lt;/td&gt;
-&lt;td&gt;&amp;hellip;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2 id=&#34;fossology&#34;&gt;Fossology&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/fossology.thrift&#34;&gt;https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/fossology.thrift&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;No enumerations provided&lt;/em&gt;&lt;/p&gt;
-&lt;h2 id=&#34;importstatus&#34;&gt;Importstatus&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/importstatus.thrift&#34;&gt;https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/importstatus.thrift&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;No enumerations provided&lt;/em&gt;&lt;/p&gt;
-&lt;h2 id=&#34;license-info&#34;&gt;License Info&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/licenseinfo.thrift&#34;&gt;https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/licenseinfo.thrift&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;No enumerations provided&lt;/em&gt;&lt;/p&gt;
-&lt;h3 id=&#34;licenseinforequeststatus&#34;&gt;LicenseInfoRequestStatus&lt;/h3&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Value&lt;/th&gt;
-&lt;th&gt;Description&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;SUCCESS&lt;/td&gt;
-&lt;td&gt;&amp;hellip;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;NO_APPLICABLE_SOURCE&lt;/td&gt;
-&lt;td&gt;&amp;hellip;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;FAILURE&lt;/td&gt;
-&lt;td&gt;&amp;hellip;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h3 id=&#34;outputformatvariant&#34;&gt;OutputFormatVariant&lt;/h3&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Value&lt;/th&gt;
-&lt;th&gt;Description&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;REPORT&lt;/td&gt;
-&lt;td&gt;&amp;hellip;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;DISCLOSURE&lt;/td&gt;
-&lt;td&gt;&amp;hellip;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2 id=&#34;licenses&#34;&gt;Licenses&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/licenses.thrift&#34;&gt;https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/licenses.thrift&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;No enumerations provided&lt;/em&gt;&lt;/p&gt;
-&lt;h2 id=&#34;moderation&#34;&gt;Moderation&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/moderation.thrift&#34;&gt;https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/moderation.thrift&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&#34;documenttype&#34;&gt;DocumentType&lt;/h3&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Value&lt;/th&gt;
-&lt;th&gt;Description&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;COMPONENT&lt;/td&gt;
-&lt;td&gt;&amp;hellip;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;RELEASE&lt;/td&gt;
-&lt;td&gt;&amp;hellip;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;PROJECT&lt;/td&gt;
-&lt;td&gt;&amp;hellip;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;LICENSE&lt;/td&gt;
-&lt;td&gt;&amp;hellip;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;USER&lt;/td&gt;
-&lt;td&gt;&amp;hellip;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2 id=&#34;project-import&#34;&gt;Project Import&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/projectimport.thrift&#34;&gt;https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/projectimport.thrift&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;No enumerations provided&lt;/em&gt;&lt;/p&gt;
-&lt;h2 id=&#34;projects&#34;&gt;Projects&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/projects.thrift&#34;&gt;https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/projects.thrift&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&#34;project-state&#34;&gt;Project State&lt;/h3&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Value&lt;/th&gt;
-&lt;th&gt;Description&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;ACTIVE&lt;/td&gt;
-&lt;td&gt;&lt;em&gt;well&lt;/em&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;PHASE_OUT&lt;/td&gt;
-&lt;td&gt;&lt;em&gt;well&lt;/em&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;UNKNOWN&lt;/td&gt;
-&lt;td&gt;&lt;em&gt;well&lt;/em&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h3 id=&#34;project-type&#34;&gt;Project Type&lt;/h3&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Value&lt;/th&gt;
-&lt;th&gt;Description&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;CUSTOMER&lt;/td&gt;
-&lt;td&gt;Project that delivers artifacts to customer outside organisation&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;INTERNAL&lt;/td&gt;
-&lt;td&gt;Project that provides artifacts or service for internal use&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;PRODUCT&lt;/td&gt;
-&lt;td&gt;Just that it is a product instead of a project&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;SERVICE&lt;/td&gt;
-&lt;td&gt;Project that provides services to customer outside organisation&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;INNER_SOURCE&lt;/td&gt;
-&lt;td&gt;Inner source project, meaning that everyone inside org can use it&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h3 id=&#34;project-relationship&#34;&gt;Project Relationship&lt;/h3&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Value&lt;/th&gt;
-&lt;th&gt;Description&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;UNKNOWN&lt;/td&gt;
-&lt;td&gt;&lt;em&gt;unknown&lt;/em&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;REFERRED&lt;/td&gt;
-&lt;td&gt;Sister project&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;CONTAINED&lt;/td&gt;
-&lt;td&gt;Sub project&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;DUPLICATE&lt;/td&gt;
-&lt;td&gt;&lt;em&gt;duplicate&lt;/em&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h3 id=&#34;project-clearing-state&#34;&gt;Project Clearing State&lt;/h3&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Value&lt;/th&gt;
-&lt;th&gt;Description&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;OPEN&lt;/td&gt;
-&lt;td&gt;not started&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;IN_PROGRESS&lt;/td&gt;
-&lt;td&gt;&amp;hellip;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;CLOSED&lt;/td&gt;
-&lt;td&gt;&amp;hellip;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2 id=&#34;schedule&#34;&gt;Schedule&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/schedule.thrift&#34;&gt;https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/schedule.thrift&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;No enumerations provided&lt;/em&gt;&lt;/p&gt;
-&lt;h2 id=&#34;search&#34;&gt;Search&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/search.thrift&#34;&gt;https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/search.thrift&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;No enumerations provided&lt;/em&gt;&lt;/p&gt;
-&lt;h2 id=&#34;general-sw360-thrift&#34;&gt;General SW360 Thrift&lt;/h2&gt;
-&lt;h3 id=&#34;software-mainline-states&#34;&gt;Software Mainline States&lt;/h3&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Value&lt;/th&gt;
-&lt;th&gt;Description&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;OPEN&lt;/td&gt;
-&lt;td&gt;Not decided so far&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;MAINLINE&lt;/td&gt;
-&lt;td&gt;Organisation or person thinks that use of this software is recommended, which included multiple versions.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;SPECIFIC&lt;/td&gt;
-&lt;td&gt;The software is not recommended in general, but for special use case or for this particular version it is acceptable.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;PHASE_OUT&lt;/td&gt;
-&lt;td&gt;The software has issues, please consider removing it soon, if in use.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;DENIED&lt;/td&gt;
-&lt;td&gt;Software which is not allowed for use. For example, software that does not have licensing.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2 id=&#34;general-sw360-thrift-1&#34;&gt;General SW360 Thrift&lt;/h2&gt;
-&lt;h3 id=&#34;software-mainline-states-1&#34;&gt;Software Mainline States&lt;/h3&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Value&lt;/th&gt;
-&lt;th&gt;Description.&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;OPEN&lt;/td&gt;
-&lt;td&gt;Not decided so far&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;MAINLINE&lt;/td&gt;
-&lt;td&gt;Organisation or person thinks that use of this software is recommended, which included multiple versions.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;SPECIFIC&lt;/td&gt;
-&lt;td&gt;The software is not recommended in general, but for special use case or for this particular version it is acceptable.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;PHASE_OUT&lt;/td&gt;
-&lt;td&gt;The software has issues, please consider removing it soon, if in use.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;DENIED&lt;/td&gt;
-&lt;td&gt;Software which is not allowed for use. For example, software that does not have licensing.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h3 id=&#34;moderation-states&#34;&gt;Moderation States&lt;/h3&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Value&lt;/th&gt;
-&lt;th&gt;Description&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;PENDING&lt;/td&gt;
-&lt;td&gt;Not opened so far.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;APPROVED&lt;/td&gt;
-&lt;td&gt;A person who has received the moderation request (which could be creator of the document, a clearing admin, a moderator, etc.) has approved the moderation request. It could be deleted then.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;REJECTED&lt;/td&gt;
-&lt;td&gt;A person who has received the moderation request (which could be creator of the document, a clearing admin, a moderator, etc.) has rejected the moderation request.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;INPROGRESS&lt;/td&gt;
-&lt;td&gt;A person who has received the moderation request (which could be creator of the document, a clearing admin, a moderator, etc.) has opened / viewed the moderation request, but did not decide.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h3 id=&#34;visibility&#34;&gt;Visibility&lt;/h3&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Value&lt;/th&gt;
-&lt;th&gt;Description&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;PRIVATE&lt;/td&gt;
-&lt;td&gt;Only visible by creator (and admin which applies to all visibility levels).&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;ME_AND_MODERATORS&lt;/td&gt;
-&lt;td&gt;Visible by creator and moderators.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;BUISNESSUNIT_AND_MODERATORS&lt;/td&gt;
-&lt;td&gt;All users of the same group and the moderators.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;EVERYONE&lt;/td&gt;
-&lt;td&gt;Every user who is logged into the system.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h3 id=&#34;verification-state&#34;&gt;Verification State&lt;/h3&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Value&lt;/th&gt;
-&lt;th&gt;Description&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;NOT_CHECKED&lt;/td&gt;
-&lt;td&gt;No one has yet looked at this and verified it.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;CHECKED&lt;/td&gt;
-&lt;td&gt;It is verified.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;INCORRECT&lt;/td&gt;
-&lt;td&gt;It was decided that the verification should be rejected.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h3 id=&#34;release-relationship&#34;&gt;Release Relationship&lt;/h3&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Value&lt;/th&gt;
-&lt;th&gt;Description&lt;/th&gt;
-&lt;th&gt;Clearing releav nt&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;CONTAINED&lt;/td&gt;
-&lt;td&gt;If you just do not know whether it is dynamically linked.&lt;/td&gt;
-&lt;td&gt;Yes&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;REFERRED&lt;/td&gt;
-&lt;td&gt;Referencing a stand alone used other part.&lt;/td&gt;
-&lt;td&gt;No&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;UNKNOWN&lt;/td&gt;
-&lt;td&gt;If you just do not know.&lt;/td&gt;
-&lt;td&gt;Yes&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;DYNAMICALLY_LINKED&lt;/td&gt;
-&lt;td&gt;Software dynamically linked - as the name says.&lt;/td&gt;
-&lt;td&gt;Yes&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;STATICALLY_LINKED&lt;/td&gt;
-&lt;td&gt;Software statically linked - as the name says.&lt;/td&gt;
-&lt;td&gt;Yes&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;SIDE_BY_SIDE&lt;/td&gt;
-&lt;td&gt;Not decided so far.&lt;/td&gt;
-&lt;td&gt;Yes&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;STANDALONE&lt;/td&gt;
-&lt;td&gt;Software is given as standalone delivery, ie. not technically connected.&lt;/td&gt;
-&lt;td&gt;Yes&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;INTERNAL_USE&lt;/td&gt;
-&lt;td&gt;Used for creating or building or  ? the product or projects but not delivered.&lt;/td&gt;
-&lt;td&gt;Yes&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;OPTIONAL&lt;/td&gt;
-&lt;td&gt;Is not mandatory part of the installation.&lt;/td&gt;
-&lt;td&gt;Yes&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;TO_BE_REPLACED&lt;/td&gt;
-&lt;td&gt;Is there but should be moved out.&lt;/td&gt;
-&lt;td&gt;Yes&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2 id=&#34;users&#34;&gt;Users&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/users.thrift&#34;&gt;https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/users.thrift&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&#34;vendors&#34;&gt;Vendors&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/vendors.thrift&#34;&gt;https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/vendors.thrift&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;No enumerations provided&lt;/em&gt;&lt;/p&gt;
-&lt;h2 id=&#34;vulnerabilities&#34;&gt;Vulnerabilities&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/vulnerabilities.thrift&#34;&gt;https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/vulnerabilities.thrift&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;No enumerations provided&lt;/em&gt;&lt;/p&gt;
 
       </description>
     </item>
