@@ -82,7 +82,7 @@ In the ComponentDatabaseHandler.java we actually do some work and implement the 
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;final&lt;/span&gt; Map&lt;span style=&#34;color:#555&#34;&gt;&amp;lt;&lt;/span&gt;String&lt;span style=&#34;color:#555&#34;&gt;,&lt;/span&gt; List&lt;span style=&#34;color:#555&#34;&gt;&amp;lt;&lt;/span&gt;String&lt;span style=&#34;color:#555&#34;&gt;&amp;gt;&amp;gt;&lt;/span&gt; duplicateComponents &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; handler&lt;span style=&#34;color:#555&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#309&#34;&gt;getDuplicateComponents&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;();&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    assertThat&lt;span style=&#34;color:#555&#34;&gt;(&lt;/span&gt;duplicateComponents&lt;span style=&#34;color:#555&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#309&#34;&gt;size&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;(),&lt;/span&gt; is&lt;span style=&#34;color:#555&#34;&gt;(&lt;/span&gt;1&lt;span style=&#34;color:#555&#34;&gt;));&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    assertThat&lt;span style=&#34;color:#555&#34;&gt;(&lt;/span&gt;duplicateComponents&lt;span style=&#34;color:#555&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#309&#34;&gt;size&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;(),&lt;/span&gt; is&lt;span style=&#34;color:#555&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#f60&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;));&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    assertThat&lt;span style=&#34;color:#555&#34;&gt;(&lt;/span&gt;duplicateComponents&lt;span style=&#34;color:#555&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#309&#34;&gt;get&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;(&lt;/span&gt;printName&lt;span style=&#34;color:#555&#34;&gt;(&lt;/span&gt;tmp&lt;span style=&#34;color:#555&#34;&gt;)),&lt;/span&gt; containsInAnyOrder&lt;span style=&#34;color:#555&#34;&gt;(&lt;/span&gt;newComponentId&lt;span style=&#34;color:#555&#34;&gt;,&lt;/span&gt;originalComponentId&lt;span style=&#34;color:#555&#34;&gt;));&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#555&#34;&gt;}&lt;/span&gt;
@@ -99,7 +99,7 @@ In the ComponentDatabaseHandler.java we actually do some work and implement the 
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;final&lt;/span&gt; Map&lt;span style=&#34;color:#555&#34;&gt;&amp;lt;&lt;/span&gt;String&lt;span style=&#34;color:#555&#34;&gt;,&lt;/span&gt; List&lt;span style=&#34;color:#555&#34;&gt;&amp;lt;&lt;/span&gt;String&lt;span style=&#34;color:#555&#34;&gt;&amp;gt;&amp;gt;&lt;/span&gt; duplicateReleases &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; handler&lt;span style=&#34;color:#555&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#309&#34;&gt;getDuplicateReleases&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;();&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    assertThat&lt;span style=&#34;color:#555&#34;&gt;(&lt;/span&gt;duplicateReleases&lt;span style=&#34;color:#555&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#309&#34;&gt;size&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;(),&lt;/span&gt; is&lt;span style=&#34;color:#555&#34;&gt;(&lt;/span&gt;1&lt;span style=&#34;color:#555&#34;&gt;));&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    assertThat&lt;span style=&#34;color:#555&#34;&gt;(&lt;/span&gt;duplicateReleases&lt;span style=&#34;color:#555&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#309&#34;&gt;size&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;(),&lt;/span&gt; is&lt;span style=&#34;color:#555&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#f60&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;));&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    assertThat&lt;span style=&#34;color:#555&#34;&gt;(&lt;/span&gt;duplicateReleases&lt;span style=&#34;color:#555&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#309&#34;&gt;get&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;(&lt;/span&gt;printName&lt;span style=&#34;color:#555&#34;&gt;(&lt;/span&gt;tmp&lt;span style=&#34;color:#555&#34;&gt;)),&lt;/span&gt; containsInAnyOrder&lt;span style=&#34;color:#555&#34;&gt;(&lt;/span&gt;newReleaseId&lt;span style=&#34;color:#555&#34;&gt;,&lt;/span&gt;originalReleaseId&lt;span style=&#34;color:#555&#34;&gt;));&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#555&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Then we install the backend to make our methods available.&lt;/p&gt;
@@ -400,11 +400,11 @@ dev tools console&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c30&#34;&gt;    &amp;#34;linkedProjects&amp;#34;: {},
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c30&#34;&gt;    &amp;#34;linkedReleases&amp;#34;: {}
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c30&#34;&gt;} &amp;#34;@
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c30&#34;&gt;$headers = New-Object &amp;#34;System.Collections.Generic.Dictionary[[String],[String]]&amp;#34;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c30&#34;&gt;$headers.Add(&amp;#39;Content-Type&amp;#39;, &amp;#39;application/hal+json&amp;#39;)
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c30&#34;&gt;$headers.Add(&amp;#39;Authorization&amp;#39;, &amp;#39;Token &amp;#39; + $env:SW360StageToken)
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c30&#34;&gt;$headers.Add(&amp;#39;Accept&amp;#39;, &amp;#39;application/hal+json&amp;#39;)
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c30&#34;&gt;Invoke-WebRequest $uri -Method POST -Body $data -Headers $headers
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c30&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;$headers&lt;/span&gt;&lt;span style=&#34;color:#c30&#34;&gt; = New-Object &amp;#34;System.Collections.Generic.Dictionary[[String],[String]]&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c30&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;$headers&lt;/span&gt;&lt;span style=&#34;color:#c30&#34;&gt;.Add(&amp;#39;Content-Type&amp;#39;, &amp;#39;application/hal+json&amp;#39;)
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c30&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;$headers&lt;/span&gt;&lt;span style=&#34;color:#c30&#34;&gt;.Add(&amp;#39;Authorization&amp;#39;, &amp;#39;Token &amp;#39; + &lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;$env:SW360StageToken&lt;/span&gt;&lt;span style=&#34;color:#c30&#34;&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c30&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;$headers&lt;/span&gt;&lt;span style=&#34;color:#c30&#34;&gt;.Add(&amp;#39;Accept&amp;#39;, &amp;#39;application/hal+json&amp;#39;)
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c30&#34;&gt;Invoke-WebRequest &lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;$uri&lt;/span&gt;&lt;span style=&#34;color:#c30&#34;&gt; -Method POST -Body &lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;$data&lt;/span&gt;&lt;span style=&#34;color:#c30&#34;&gt; -Headers &lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;$headers&lt;/span&gt;&lt;span style=&#34;color:#c30&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;deprecated-method-authentication-with-username-and-password&#34;&gt;Deprecated Method: Authentication with Username and Password&lt;/h2&gt;
 &lt;h3 id=&#34;if-i-am-not-using-token-but-sw360-elsewhere-how-do-i-obtain-tokens&#34;&gt;If I am not using token, but SW360 elsewhere: how do I obtain tokens?&lt;/h3&gt;
 &lt;p&gt;There are two steps you need to do with your client. First, Obtain an authorization token. This can be done by executing on the development instance for example be:&lt;/p&gt;
@@ -1415,7 +1415,7 @@ The following classes are needed:&lt;/p&gt;
 &lt;li&gt;
 &lt;p&gt;Create Branches for sw360&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Please use conventional branch names for sw360 (&lt;a href=&#34;https://github.com/eclipse/sw360/wiki/Dev-Branches&#34;&gt;Dev-Branches&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Please use conventional branch names for sw360 &lt;a href=&#34;https://www.eclipse.org/sw360/sw360/docs/development/dev-branches/&#34;&gt;Dev-Branches&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
@@ -1425,9 +1425,6 @@ The following classes are needed:&lt;/p&gt;
 &lt;li&gt;Rebase onto current master so that a fast forward merge is possible&lt;/li&gt;
 &lt;li&gt;That means that merge to master is prepared&lt;/li&gt;
 &lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;use conventional change log for commit messages (&lt;a href=&#34;https://github.com/eclipse/sw360/wiki/Dev-Semantic-Commits&#34;&gt;Dev-Semantic-Commits&lt;/a&gt;) &lt;br&gt; For more information please go to &lt;a href=&#34;https://conventionalcommits.org/&#34;&gt;https://conventionalcommits.org/&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;No breaking test&lt;/p&gt;
@@ -1453,7 +1450,7 @@ The following classes are needed:&lt;/p&gt;
 &lt;p&gt;Commit style&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;try to squash commits. In the ideal case, a feature is contained in one commit.&lt;/li&gt;
-&lt;li&gt;try to use conventional changelog for commit messages. (&lt;a href=&#34;https://github.com/eclipse/sw360/wiki/Dev-Semantic-Commits&#34;&gt;Dev-Semantic-Commits&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;try to use conventional changelog for commit messages. &lt;a href=&#34;https://www.eclipse.org/sw360/sw360/docs/development/dev-semantic-commits/&#34;&gt;Dev-Semantic-Commits&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
