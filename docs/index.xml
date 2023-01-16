@@ -5102,6 +5102,176 @@ save (on the right)&lt;/p&gt;
     </item>
     
     <item>
+      <title>Docs: Initial Setup of Liferay 7.4 and sw360</title>
+      <link>https://www.eclipse.org/sw360/docs/deployment/legacy/deploy-liferay7.4/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/sw360/docs/deployment/legacy/deploy-liferay7.4/</guid>
+      <description>
+        
+        
+        &lt;p&gt;After successful , Then if you open the server with the URL &lt;code&gt;https://localhost:8080/&lt;/code&gt; the following screen should appear:&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/1.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;p&gt;Note that the actual image changes with every liferay version. If there is weird html output without images and plain text, then likely some port settings did not work and the pages generated have wrong URLs inside.&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/2.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;p&gt;After login the sw360 is not setup, thus the server does not display much, but a screen like the following:&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/3.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;h1 id=&#34;user-and-login-settings-in-liferay&#34;&gt;User and Login Settings in Liferay&lt;/h1&gt;
+&lt;p&gt;Go into the control panel area by clicking the items icon (nine small cubes) in the upper right corner and select the control panel tab:&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/4.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;p&gt;Edit this password policy and disable &lt;code&gt;change Required&lt;/code&gt; if you wish to do so. Click on Save_the bottom of the page to save the selection.&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/6.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;p&gt;Then, go: in &lt;code&gt;Configuration&lt;/code&gt; &amp;gt;  &lt;code&gt;Instance Settings&lt;/code&gt; &amp;gt; &lt;code&gt;Users&lt;/code&gt; &amp;gt;&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/7.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;p&gt;In this area, select &lt;code&gt;Default User Associations&lt;/code&gt; to enter SW360 and apply it also to existing users. Click on Save to save the selection:&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/8.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;p&gt;Then, in &lt;code&gt;Configuration&lt;/code&gt; &amp;gt;  &lt;code&gt;Instance Settings&lt;/code&gt; &amp;gt; &lt;code&gt;User Authentication&lt;/code&gt; &amp;gt; &lt;code&gt;General&lt;/code&gt; to disable all kind of auto login to make sure only authenticated users can log in. You may want to switch off the e-mail verification, because for most of the development times it will not be of much value.&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/9.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;p&gt;Finally, sice Liferay 7.4 some of the bundled modules need to be activated:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;jquery&lt;/li&gt;
+&lt;li&gt;font awesome&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In oder to do this, please select from the &lt;code&gt;Configuration&lt;/code&gt; &amp;gt;  &lt;code&gt;System Settings&lt;/code&gt; &amp;gt; &lt;code&gt;Third Party&lt;/code&gt; and go to jquery, select the enablement and click on Update:&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/10.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;p&gt;Do the same for Font Awesome:&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/11.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;p&gt;Note that you need to reload the browser or load a new browser window to take changes to effect.&lt;/p&gt;
+&lt;h1 id=&#34;setup-sw360-for-liferay-import-lar-files&#34;&gt;Setup SW360 for Liferay: Import *.lar Files&lt;/h1&gt;
+&lt;p&gt;For the setup of SW360 in Liferay, the portal description files, &lt;code&gt;*.lar&lt;/code&gt; files need not be imported. there is no way except from doing this in the UI. If we are wrong with this, please let us know, because it is very annoying that these ever occurring steps cannot be automated with Liferay.&lt;/p&gt;
+&lt;p&gt;In order to go ahead, switch to the &lt;code&gt;SW360&lt;/code&gt; area where you can apply site settings:&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/12.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;p&gt;The go into &amp;gt;  &lt;code&gt;Publishing&lt;/code&gt; &amp;gt; &lt;code&gt;Import&lt;/code&gt; which shows like this:&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/13.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;p&gt;Then, click on the plus sign in order to import the *.lar file for public pages. You will find the lar files in the &lt;a href=&#34;https://github.com/eclipse/sw360/tree/master/frontend/configuration&#34;&gt;frontend/configuration&lt;/a&gt; folder of the sw360 repository.&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/14.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;p&gt;As for import settings, follow the selection as shown on the screenshot. It is very important that for the &lt;code&gt;Public_Pages_7_4_3_18_GA18.lar&lt;/code&gt; file the selection &lt;code&gt;Public_Pages_7_4_3_18_GA18.lar&lt;/code&gt; is made.&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/15.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;p&gt;Importing permission makes sure that pages are visible according to users rights. For public pages, it is irrelevant_the moment. Overwriting and the write as current user needs to be selected.&lt;/p&gt;
+&lt;p&gt;After successful importing, the same steps shall be repeated for the &lt;code&gt;Private_Pages_7_4_3_18_GA18.lar&lt;/code&gt; file.&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/16.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;p&gt;Make sure that &lt;code&gt;Private_Pages_7_4_3_18_GA18.lar &lt;/code&gt; is selected. Follow the other selections made as shown on the screenshot &amp;hellip; importing permissions &amp;hellip; mirror with overwriting, use the current author &amp;hellip;&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/17.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;p&gt;If you click then the liferay logo_the upper left corner where the SW360 is, you will return to the application and the following screen should appear:&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/18.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;p&gt;You can close the left menu area by clicking on the upper left icon:&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/19.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;p&gt;Click &lt;code&gt;Start&lt;/code&gt; to open the private pages. You are still logged in, so the setup account is used to view the pages.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Important&lt;/strong&gt; The setup account does not belong to a group. Thus, not all view are functional because they require a group membership to work correctly.&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/20.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;h1 id=&#34;import-user-accounts-for-testing&#34;&gt;Import User Accounts for Testing&lt;/h1&gt;
+&lt;p&gt;Click the SW360 &lt;code&gt;Admin&lt;/code&gt; menu which is_the right and selection the &lt;code&gt;User&lt;/code&gt; item.&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/21.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;p&gt;At the bottom of that view, select a User file to import for testing. Skip it if you will create users differently. You can find a &lt;a href=&#34;https://github.com/sw360/sw360vagrant/blob/master/shared/test_users_with_passwords_12345.csv&#34;&gt;user account import file&lt;/a&gt; to import in the &lt;code&gt;sw360vagrant&lt;/code&gt; project in the folder &lt;code&gt;shared&lt;/code&gt;. After the user have been imported successfully, they should appear in the table view.&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/22.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;p&gt;After the user have been imported successfully, they should appear in the table view. You can logout for now and use one of the just added accounts (see below):&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/23.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;h1 id=&#34;real-login&#34;&gt;Real Login&lt;/h1&gt;
+&lt;p&gt;One example user is &lt;code&gt;user@sw360.org&lt;/code&gt; with the password &lt;code&gt;12345&lt;/code&gt;. Note that in the import file with the example accounts, the password is provided with a hash. If you would like to generate new (salted) hashes, you can change your password and export the user list using the same portlet where you have imported the users. This functionality can be also used to migrate accounts between servers.&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/24.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;p&gt;After the successful login, SW360 will look as follows.&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/25.png&#34;/&gt; 
+&lt;/figure&gt;
+
+
+      </description>
+    </item>
+    
+    <item>
       <title>Docs: Liferay 7.3 and Java 11</title>
       <link>https://www.eclipse.org/sw360/docs/deployment/upgrading/deploy-upgrade-to-liferay-7.3-and-java-11/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -6979,8 +7149,27 @@ It can manage SPDX files for maintaining the license conditions and maintain lic
   # default.admin.last.name=Administrator
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Add lines to setup Postgres. Change jdbc.default.username, jdbc.default.password&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
-&lt;ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    # Postgres configuration
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    jdbc.default.driverClassName=org.postgresql.Driver
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    jdbc.default.url=jdbc:postgresql://localhost:5432/lportal
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    jdbc.default.username=${postgres_user}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    jdbc.default.password=${postgres_password}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;Add lines to setup passsword policies&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    # Passsword policies
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    passwords.default.policy.change.required=false
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    company.security.send.password.reset.link=false
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    company.security.auto.login=false
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    company.security.auth.type=emailAddress
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    company.security.strangers=false
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    company.security.strangers.with.mx=false
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    company.security.strangers.verify=false
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;Remove files in folder &lt;code&gt;hypersonic&lt;/code&gt; with path: &lt;code&gt;/home/user/work/liferay-ce-portal-7.4.3.18-ga18/data/hypersonic&lt;/code&gt;&lt;/p&gt;
 &lt;ul&gt;
@@ -7091,17 +7280,15 @@ It can manage SPDX files for maintaining the license conditions and maintain lic
 &lt;/ul&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo systemctl status postgresql@12-main.service
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo systemctl start postgresql@12-main.service
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Normally, Default postgres creates user &amp;ldquo;postgres&amp;rdquo; with &amp;ldquo;postgres&amp;rdquo; password, use that to enter PostgreSQL terminal:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ sudo -i -u postgres
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ psql
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
-&lt;li&gt;You will be logged in as user named &amp;ldquo;postgres&amp;rdquo;.&lt;/li&gt;
+&lt;li&gt;Postgres will create an user with username ${ubuntu_user} (username login to ubuntu)&lt;/li&gt;
+&lt;li&gt;Use theses command to change password of user ${ubuntu_user} in postgres sql.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ psql postgres
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#033&#34;&gt;postgres&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;# \du&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#033&#34;&gt;postgres&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;# create database lportal;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#033&#34;&gt;postgres&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;# ALTER USER postgres WITH PASSWORD &amp;#39;sw360fossy&amp;#39;;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#033&#34;&gt;postgres&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;# ALTER ROLE postgres with superuser;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#033&#34;&gt;postgres&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;# ALTER USER ${ubuntu_user} WITH PASSWORD &amp;#39;sw360fossy&amp;#39;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#033&#34;&gt;postgres&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;# ALTER ROLE ${ubuntu_user} with superuser;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#033&#34;&gt;postgres&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;# \q&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
 &lt;li&gt;Connect to postgres shell, and check users information&lt;/li&gt;
@@ -7151,6 +7338,16 @@ It can manage SPDX files for maintaining the license conditions and maintain lic
 &lt;p&gt;For thrift, we need version 0.16. The installation script in Path: &lt;code&gt;${SW360_REPOSITORY}/scripts/install-thrift.sh&lt;/code&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
+&lt;p&gt;Run command to install libraries:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;$ sudo apt-get install -y clang-tidy&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;$ sudo apt-get install flex&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;$ sudo apt-get install -y clang-tools&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;$ sudo apt-get install bison&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;$ sudo apt-get install cmake&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
 &lt;p&gt;Run command:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;$ chmod +x install-thrift.sh&lt;/code&gt;&lt;/li&gt;
@@ -7195,230 +7392,230 @@ It can manage SPDX files for maintaining the license conditions and maintain lic
 &lt;p&gt;Create file &lt;code&gt;application.yml&lt;/code&gt; in path &lt;code&gt;/etc/sw360/authorizaton&lt;/code&gt; with content:&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        #
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        # Copyright Siemens AG, 2017, 2019. Part of the SW360 Portal Project.
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        #
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        # This program and the accompanying materials are made
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        # available under the terms of the Eclipse Public License 2.0
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        # which is available at https://www.eclipse.org/legal/epl-2.0/
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        #
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        # SPDX-License-Identifier: EPL-2.0
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        #
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;#
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# Copyright Siemens AG, 2017, 2019. Part of the SW360 Portal Project.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;#
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# This program and the accompanying materials are made
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# available under the terms of the Eclipse Public License 2.0
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# which is available at https://www.eclipse.org/legal/epl-2.0/
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;#
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# SPDX-License-Identifier: EPL-2.0
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;#
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        # Port to open in standalone mode
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        server:
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        port: 8090
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# Port to open in standalone mode
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;server:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  port: 8090
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        # Connection to the couch databases. Will be used to store client credentials
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        couchdb:
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        url: http://localhost:5984
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        database: sw360oauthclients
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        # if your couchdb does not use authentication, pls just don&amp;#39;t use the settings for username and password
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        username: admin
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        password: password
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# Connection to the couch databases. Will be used to store client credentials
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;couchdb:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  url: http://localhost:5984
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  database: sw360oauthclients
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  # if your couchdb does not use authentication, pls just don&amp;#39;t use the settings for username and password
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  username: admin
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  password: password
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        jwt:
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        secretkey: sw360SecretKey
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;jwt:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  secretkey: sw360SecretKey
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        spring:
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        jackson:
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            serialization:
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            indent_output: true
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;spring:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  jackson:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    serialization:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      indent_output: true
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        # Common SW360 properties
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        sw360:
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        # The url of the Liferay instance
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        sw360-portal-server-url: ${SW360_PORTAL_SERVER_URL:http://127.0.0.1:8080}
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        # The id of the company in Liferay that sw360 is run for
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        sw360-liferay-company-id: ${SW360_LIFERAY_COMPANY_ID:20101}
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        # Allowed origins that should be set in the header
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        cors:
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            allowed-origin: ${SW360_CORS_ALLOWED_ORIGIN:#{null}}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# Common SW360 properties
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sw360:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  # The url of the Liferay instance
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  sw360-portal-server-url: ${SW360_PORTAL_SERVER_URL:http://127.0.0.1:8080}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  # The id of the company in Liferay that sw360 is run for
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  sw360-liferay-company-id: ${SW360_LIFERAY_COMPANY_ID:20101}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  # Allowed origins that should be set in the header
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  cors:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    allowed-origin: ${SW360_CORS_ALLOWED_ORIGIN:#{null}}
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        security:
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        # Configuration for enabling authorization via headers, e.g. when using SSO
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        # in combination with a reverse proxy server
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        customheader:
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            headername:
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            # You have to enable authorization by headers explicitly here
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            enabled: false
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            # Attention: please make sure that the proxy is removing there headers
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            # if they are coming from anywhere else then the authentication server
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            intermediateauthstore: custom-header-auth-marker
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            email: authenticated-email
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            extid: authenticated-extid
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            # also available - at least in saml pre auth - are &amp;#34;givenname&amp;#34;, &amp;#34;surname&amp;#34; and &amp;#34;department&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;security:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  # Configuration for enabling authorization via headers, e.g. when using SSO
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  # in combination with a reverse proxy server
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  customheader:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    headername:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      # You have to enable authorization by headers explicitly here
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      enabled: false
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      # Attention: please make sure that the proxy is removing there headers
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      # if they are coming from anywhere else then the authentication server
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      intermediateauthstore: custom-header-auth-marker
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      email: authenticated-email
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      extid: authenticated-extid
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      # also available - at least in saml pre auth - are &amp;#34;givenname&amp;#34;, &amp;#34;surname&amp;#34; and &amp;#34;department&amp;#34;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        oauth2:
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            resource:
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            id: sw360-REST-API
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  oauth2:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    resource:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      id: sw360-REST-API
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
 &lt;li&gt;Create file &lt;code&gt;application.yml&lt;/code&gt; in path &lt;code&gt;/etc/sw360/rest&lt;/code&gt; with content:&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        #
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        # Copyright Siemens AG, 2017. Part of the SW360 Portal Project.
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        # Copyright Bosch.IO GmbH 2020
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        #
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        # This program and the accompanying materials are made
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        # available under the terms of the Eclipse Public License 2.0
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        # which is available at https://www.eclipse.org/legal/epl-2.0/
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        #
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        # SPDX-License-Identifier: EPL-2.0
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        #
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;#
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# Copyright Siemens AG, 2017. Part of the SW360 Portal Project.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# Copyright Bosch.IO GmbH 2020
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;#
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# This program and the accompanying materials are made
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# available under the terms of the Eclipse Public License 2.0
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# which is available at https://www.eclipse.org/legal/epl-2.0/
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;#
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# SPDX-License-Identifier: EPL-2.0
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;#
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        server:
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        port: 8091
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;server:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  port: 8091
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        management:
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        endpoints:
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            enabled-by-default: false
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            web:
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            base-path:
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        endpoint:
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            health:
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            enabled: true
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            show-details: always
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            info:
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            enabled: true
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            web:
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            base-path: /
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;management:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  endpoints:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    enabled-by-default: false
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    web:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      base-path:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  endpoint:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    health:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      enabled: true
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      show-details: always
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    info:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      enabled: true
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    web:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      base-path: /
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        spring:
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        servlet:
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            multipart:
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            max-file-size: 500MB
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            max-request-size: 600MB
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;spring:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  servlet:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    multipart:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      max-file-size: 500MB
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      max-request-size: 600MB
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        # logging:
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        #   level:
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        #     org.springframework.web: DEBUG
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# logging:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;#   level:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;#     org.springframework.web: DEBUG
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        security:
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        oauth2:
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            resource:
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            id: sw360-REST-API
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            jwt:
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                keyValue: |
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                -----BEGIN PUBLIC KEY-----
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEApz8Cr1o5yHMv/FUdF5uy
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                VptilqdWtNvw5S6Tr4IaQ4XR9QPt8nlRsjOngfG4QCcKMBWJISldFg8PlJWUBeV+
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                6TwQUidxokl2GbO6/+QA+lz1a5Ei1Y1pcnvFeRb2pdYlH3Yg6fXMxS6QwDLk27pZ
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                5xbpSDIGISDesyaIMvwaKdhAbFW/tTb/oJY7rCPvmYLT80kJzilijJ/W01jMMSHg
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                9Yi5cCt1eU/s78co+pxHzwNXO0Ul4iRpo/CXprQCsSIsdWkJTo6btal1xzd292Da
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                d+9xq499JEsNbcqLfCq8DBQ7CEz6aJjMvPkvZiCrFIGxC/Gqmw35DQ4688rbkKSJ
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                PQIDAQAB
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                -----END PUBLIC KEY-----
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;security:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  oauth2:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    resource:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      id: sw360-REST-API
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      jwt:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        keyValue: |
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          -----BEGIN PUBLIC KEY-----
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEApz8Cr1o5yHMv/FUdF5uy
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          VptilqdWtNvw5S6Tr4IaQ4XR9QPt8nlRsjOngfG4QCcKMBWJISldFg8PlJWUBeV+
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          6TwQUidxokl2GbO6/+QA+lz1a5Ei1Y1pcnvFeRb2pdYlH3Yg6fXMxS6QwDLk27pZ
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          5xbpSDIGISDesyaIMvwaKdhAbFW/tTb/oJY7rCPvmYLT80kJzilijJ/W01jMMSHg
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          9Yi5cCt1eU/s78co+pxHzwNXO0Ul4iRpo/CXprQCsSIsdWkJTo6btal1xzd292Da
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          d+9xq499JEsNbcqLfCq8DBQ7CEz6aJjMvPkvZiCrFIGxC/Gqmw35DQ4688rbkKSJ
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          PQIDAQAB
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          -----END PUBLIC KEY-----
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        sw360:
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        thrift-server-url: ${SW360_THRIFT_SERVER_URL:http://localhost:8080}
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        test-user-id: admin@sw360.org
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        test-user-password: sw360-password
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        couchdb-url: ${SW360_COUCHDB_URL:http://localhost:5984}
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        cors:
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            allowed-origin: ${SW360_CORS_ALLOWED_ORIGIN:#{null}}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sw360:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  thrift-server-url: ${SW360_THRIFT_SERVER_URL:http://localhost:8080}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  test-user-id: admin@sw360.org
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  test-user-password: sw360-password
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  couchdb-url: ${SW360_COUCHDB_URL:http://localhost:5984}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  cors:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    allowed-origin: ${SW360_CORS_ALLOWED_ORIGIN:#{null}}
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
 &lt;li&gt;Create file &lt;code&gt;couchdb.properties&lt;/code&gt; in path &lt;code&gt;/etc/sw360&lt;/code&gt; with content:&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        #
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        # Copyright Siemens AG, 2020. Part of the SW360 Portal Project.
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        #
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        # This program and the accompanying materials are made
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        # available under the terms of the Eclipse Public License 2.0
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        # which is available at https://www.eclipse.org/legal/epl-2.0/
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        #
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        # SPDX-License-Identifier: EPL-2.0
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        #
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;#
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# Copyright Siemens AG, 2020. Part of the SW360 Portal Project.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;#
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# This program and the accompanying materials are made
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# available under the terms of the Eclipse Public License 2.0
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# which is available at https://www.eclipse.org/legal/epl-2.0/
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;#
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# SPDX-License-Identifier: EPL-2.0
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;#
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        couchdb.url = http://localhost:5984
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        couchdb.user = admin
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        couchdb.password = password
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        couchdb.database = sw360db
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        couchdb.usersdb = sw360users
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        couchdb.attachments = sw360attachments
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        lucenesearch.limit = 10000
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;couchdb.url = http://localhost:5984
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;couchdb.user = admin
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;couchdb.password = password
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;couchdb.database = sw360db
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;couchdb.usersdb = sw360users
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;couchdb.attachments = sw360attachments
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;lucenesearch.limit = 10000
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
 &lt;li&gt;Create file &lt;code&gt;sw360.properties&lt;/code&gt; and &lt;code&gt;/etc/sw360&lt;/code&gt; with content:&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        # Copyright Siemens AG, 2016-2017. Part of the SW360 Portal Project.
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        #
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        # This program and the accompanying materials are made
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        # available under the terms of the Eclipse Public License 2.0
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        # which is available at https://www.eclipse.org/legal/epl-2.0/
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        #
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        # SPDX-License-Identifier: EPL-2.0
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        #
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# Copyright Siemens AG, 2016-2017. Part of the SW360 Portal Project.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;#
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# This program and the accompanying materials are made
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# available under the terms of the Eclipse Public License 2.0
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# which is available at https://www.eclipse.org/legal/epl-2.0/
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;#
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# SPDX-License-Identifier: EPL-2.0
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;#
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        # common property file for the backend services
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        backend.url= http://localhost:8080
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# common property file for the backend services
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;backend.url= http://localhost:8080
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        licenseinfo.spdxparser.use-license-info-from-files=true
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        mainline.state.enabled.for.user=false
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;licenseinfo.spdxparser.use-license-info-from-files=true
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;mainline.state.enabled.for.user=false
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        # settings for the mail utility:
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        # if host is not set, e-mailing is disabled
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        MailUtil_host=
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        MailUtil_from=__No_Reply__@sw360.org
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        MailUtil_port=25
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        MailUtil_enableStarttls=
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        MailUtil_enableSsl=
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        MailUtil_isAuthenticationNecessary=
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        MailUtil_login=
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        MailUtil_password=
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        MailUtil_enableDebug=
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        MailUtil_supportMailAddress=
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# settings for the mail utility:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# if host is not set, e-mailing is disabled
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;MailUtil_host=
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;MailUtil_from=__No_Reply__@sw360.org
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;MailUtil_port=25
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;MailUtil_enableStarttls=
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;MailUtil_enableSsl=
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;MailUtil_isAuthenticationNecessary=
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;MailUtil_login=
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;MailUtil_password=
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;MailUtil_enableDebug=
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;MailUtil_supportMailAddress=
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        # text patterns for mail utility
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        defaultBegin = \
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        *** This is an automatically generated email, please do not reply. ***\n\n\
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        Dear SW360-user,\n\n
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        defaultEnd = \
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        With best regards,\n\
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        SW360-support
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        unsubscribeNoticeBefore =\n\n*** If you do not wish to receive mails from SW360, please notify:
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        unsubscribeNoticeAfter =. ***
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# text patterns for mail utility
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;defaultBegin = \
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;*** This is an automatically generated email, please do not reply. ***\n\n\
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Dear SW360-user,\n\n
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;defaultEnd = \
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;With best regards,\n\
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;SW360-support
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;unsubscribeNoticeBefore =\n\n*** If you do not wish to receive mails from SW360, please notify:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;unsubscribeNoticeAfter =. ***
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        subjectForNewModerationRequest= New moderation request
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        subjectForUpdateModerationRequest= Update on moderation request
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        subjectForAcceptedModerationRequest= Your moderation request has been accepted
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        subjectForDeclinedModerationRequest= Your moderation request has been declined
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        subjectForDeclinedUserModerationRequest= Your request for a SW360 user account has been declined
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        subjectForNewComponent= New component created
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        subjectForUpdateComponent= Component updated
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        subjectForNewRelease= New release created
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        subjectForUpdateRelease= Release updated
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        subjectForNewProject= New project created
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        subjectForUpdateProject= Project updated
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        subjectForNewClearingRequest= New clearing request &amp;lt;%s&amp;gt; for Project &amp;lt;%s&amp;gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        subjectForClearingRequestComment= New comment added in clearing request &amp;lt;%s&amp;gt; for Project &amp;lt;%s&amp;gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        subjectForUpdatedClearingRequest= Your clearing request &amp;lt;%s&amp;gt; has been updated for Project &amp;lt;%s&amp;gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        subjectForClosedClearingRequest= Your clearing request &amp;lt;%s&amp;gt; has been closed for Project &amp;lt;%s&amp;gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        subjectForRejectedClearingRequest= Your clearing request &amp;lt;%s&amp;gt; has been rejected for Project &amp;lt;%s&amp;gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        subjectForUpdatedProjectWithClearingRequest= Project &amp;lt;%s&amp;gt; with clearing request &amp;lt;%s&amp;gt; updated
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;subjectForNewModerationRequest= New moderation request
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;subjectForUpdateModerationRequest= Update on moderation request
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;subjectForAcceptedModerationRequest= Your moderation request has been accepted
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;subjectForDeclinedModerationRequest= Your moderation request has been declined
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;subjectForDeclinedUserModerationRequest= Your request for a SW360 user account has been declined
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;subjectForNewComponent= New component created
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;subjectForUpdateComponent= Component updated
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;subjectForNewRelease= New release created
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;subjectForUpdateRelease= Release updated
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;subjectForNewProject= New project created
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;subjectForUpdateProject= Project updated
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;subjectForNewClearingRequest= New clearing request &amp;lt;%s&amp;gt; for Project &amp;lt;%s&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;subjectForClearingRequestComment= New comment added in clearing request &amp;lt;%s&amp;gt; for Project &amp;lt;%s&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;subjectForUpdatedClearingRequest= Your clearing request &amp;lt;%s&amp;gt; has been updated for Project &amp;lt;%s&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;subjectForClosedClearingRequest= Your clearing request &amp;lt;%s&amp;gt; has been closed for Project &amp;lt;%s&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;subjectForRejectedClearingRequest= Your clearing request &amp;lt;%s&amp;gt; has been rejected for Project &amp;lt;%s&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;subjectForUpdatedProjectWithClearingRequest= Project &amp;lt;%s&amp;gt; with clearing request &amp;lt;%s&amp;gt; updated
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        textForNewModerationRequest= a new moderation request has been added to your SW360-account.\n\n
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        textForUpdateModerationRequest= \
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        one of the moderation requests previously added to your \
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        SW360-account has been updated.\n\n
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        textForAcceptedModerationRequest= your moderation request to change the %s %s has been accepted by one of the moderators.\n\n
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        textForDeclinedModerationRequest= your moderation request to change the %s %s has been declined by one of the moderators.\n\n
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        textForDeclinedUserModerationRequest= your request for a SW360 user account has been declined by one of the administrators.\n\n
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        textForNewComponent= a new component %s, in which you take part, has been created.\n\n
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        textForUpdateComponent= the component %s, in which you take part, has been updated.\n\n
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        textForNewRelease= a new release %s %s, in which you take part, has been created.\n\n
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        textForUpdateRelease= the release %s %s, in which you take part, has been updated.\n\n
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        textForNewProject= a new project %s %s, in which you take part, has been created.\n\n
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        textForUpdateProject= the project %s %s, in which you take part, has been updated.\n\n
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        textForClosedClearingRequest= your clearing request with id: %s for the project %s has been closed by the clearing team.\n\n
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        textForRejectedClearingRequest= your clearing request with id: %s for the project %s has been rejected by the clearing team.\n\n
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        #attachment.store.file.system.location=/opt/sw360tempattachments
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        #enable.attachment.store.to.file.system=false
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        #attachment.store.file.system.permission=rwx------
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        #attachemnt.delete.no.of.days=30
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;textForNewModerationRequest= a new moderation request has been added to your SW360-account.\n\n
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;textForUpdateModerationRequest= \
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;one of the moderation requests previously added to your \
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;SW360-account has been updated.\n\n
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;textForAcceptedModerationRequest= your moderation request to change the %s %s has been accepted by one of the moderators.\n\n
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;textForDeclinedModerationRequest= your moderation request to change the %s %s has been declined by one of the moderators.\n\n
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;textForDeclinedUserModerationRequest= your request for a SW360 user account has been declined by one of the administrators.\n\n
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;textForNewComponent= a new component %s, in which you take part, has been created.\n\n
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;textForUpdateComponent= the component %s, in which you take part, has been updated.\n\n
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;textForNewRelease= a new release %s %s, in which you take part, has been created.\n\n
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;textForUpdateRelease= the release %s %s, in which you take part, has been updated.\n\n
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;textForNewProject= a new project %s %s, in which you take part, has been created.\n\n
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;textForUpdateProject= the project %s %s, in which you take part, has been updated.\n\n
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;textForClosedClearingRequest= your clearing request with id: %s for the project %s has been closed by the clearing team.\n\n
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;textForRejectedClearingRequest= your clearing request with id: %s for the project %s has been rejected by the clearing team.\n\n
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;#attachment.store.file.system.location=/opt/sw360tempattachments
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;#enable.attachment.store.to.file.system=false
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;#attachment.store.file.system.permission=rwx------
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;#attachemnt.delete.no.of.days=30
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        #Uncomment the below file location if the log4j2.xml file is placed inside etc/sw360 folder.
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        #sw360changelog.config.file.location=/etc/sw360/log4j2.xml
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        enable.sw360.change.log=false
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        sw360changelog.output.path=sw360changelog/sw360changelog
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;#Uncomment the below file location if the log4j2.xml file is placed inside etc/sw360 folder.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;#sw360changelog.config.file.location=/etc/sw360/log4j2.xml
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;enable.sw360.change.log=false
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sw360changelog.output.path=sw360changelog/sw360changelog
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;37-compile-and-deploy&#34;&gt;3.7 Compile and deploy&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;Start Database&lt;/li&gt;
@@ -7438,7 +7635,32 @@ It can manage SPDX files for maintaining the license conditions and maintain lic
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;...
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;... halt systemd&lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;1&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt;: Started Apache CouchDB.
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
-&lt;li&gt;Set Environment for &lt;code&gt;${LIFERAY_INSTALL}&lt;/code&gt;
+&lt;li&gt;
+&lt;p&gt;install python and pip&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;$ sudo apt-get install python3 -y&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;$ sudo -E apt-get install python3-pip -y&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;install mkdocs&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Without proxy:
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;$ sudo -E pip3 install mkdocs&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;$ sudo -E pip3 install mkdocs-material&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Via proxy:
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;$ sudo -E pip3 install --proxy=&amp;quot;http://username:password@hostname:port&amp;quot; mkdocs&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;$ sudo -E pip3 install --proxy=&amp;quot;http://username:password@hostname:port&amp;quot; mkdocs-material&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Set Environment for &lt;code&gt;${LIFERAY_INSTALL}&lt;/code&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;$ cd /home/user/work/sw360&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;$ export LIFERAY_INSTALL=/opt/liferay-ce-portal-7.4.3.18-ga18&lt;/code&gt;&lt;/li&gt;
@@ -7455,7 +7677,7 @@ It can manage SPDX files for maintaining the license conditions and maintain lic
 &lt;li&gt;
 &lt;p&gt;For deployment run the command&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;code&gt;mvn package -P deploy -Dbase.deploy.dir=. -Dliferay.deploy.dir=${LIFERAY_INSTALL}/deploy -Dbackend.deploy.dir=${LIFERAY_INSTALL}/tomcat-9.0.56/webapps -Drest.deploy.dir=${LIFERAY_INSTALL}/tomcat-9.0.56/webapps -DskipTests&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;mvn clean package -P deploy -Dbase.deploy.dir=. -Dliferay.deploy.dir=${LIFERAY_INSTALL}/deploy -Dbackend.deploy.dir=${LIFERAY_INSTALL}/tomcat-9.0.56/webapps -Drest.deploy.dir=${LIFERAY_INSTALL}/tomcat-9.0.56/webapps -Dtest=org/eclipse/sw360/rest/resourceserver/restdocs/* -Dhelp-docs=true -Dsurefire.failIfNoSpecifiedTests=false&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
@@ -7468,10 +7690,10 @@ It can manage SPDX files for maintaining the license conditions and maintain lic
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;After run command &amp;ldquo;mvn clean install -DskipTests&amp;rdquo; above, copy dependency in folder &lt;code&gt;/home/user/work/sw360/deploy/jars&lt;/code&gt; to deploy folder in liferay &lt;code&gt;${LIFERAY_INSTALL}/deploy&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;After run command &amp;ldquo;mvn clean install -DskipTests&amp;rdquo; above, copy dependency in folder &lt;code&gt;/home/user/work/sw360/utils/deploy/jars&lt;/code&gt; to  &lt;code&gt;${LIFERAY_INSTALL}/osgi/modules&lt;/code&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;code&gt;$ cd /home/user/work/sw360/deploy/jars&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;$ sudo cp *.jar /opt/liferay-ce-portal-7.4.3.18-ga18/deploy&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;$ cd /home/user/work/sw360/utils/deploy/jars&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;$ sudo cp *.jar /opt/liferay-ce-portal-7.4.3.18-ga18/osgi/modules/&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
@@ -7490,7 +7712,7 @@ It can manage SPDX files for maintaining the license conditions and maintain lic
 &lt;li&gt;
 &lt;p&gt;Log&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;code&gt;$ tail -f ${LIFERAY_INSTALL}/tomcat-9.0.56/logs/*&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;$ tail -f ${LIFERAY_INSTALL}/tomcat-9.0.56/logs/catalina.out&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
@@ -7502,7 +7724,8 @@ It can manage SPDX files for maintaining the license conditions and maintain lic
 &lt;li&gt;Can follow the steps in the following link &lt;a href=&#34;https://www.eclipse.org/sw360/docs/deployment/legacy/deploy-liferay7.3&#34;&gt;https://www.eclipse.org/sw360/docs/deployment/legacy/deploy-liferay7.3&lt;/a&gt; or follow these steps:&lt;/li&gt;
 &lt;/ul&gt;
 &lt;ul&gt;
-&lt;li&gt;Import users
+&lt;li&gt;
+&lt;p&gt;Import users&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Open the panel on the left side by clicking the button on the top left.&lt;/li&gt;
 &lt;li&gt;Click on &lt;code&gt;SW360&lt;/code&gt; on the top right to go to the homepage.&lt;/li&gt;
@@ -7513,7 +7736,167 @@ beginning and click &lt;code&gt;Upload Users&lt;/code&gt; on the right side. &lt
 * Download: &lt;code&gt;$ wget https://github.com/sw360/sw360vagrant/blob/master/shared/test_users_with_passwords_12345.csv&lt;/code&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Setup liferay:&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
+&lt;p&gt;After successful , Then if you open the server with the URL &lt;code&gt;https://localhost:8080/&lt;/code&gt; the following screen should appear:&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/1.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;p&gt;Note that the actual image changes with every liferay version. If there is weird html output without images and plain text, then likely some port settings did not work and the pages generated have wrong URLs inside.&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/2.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;p&gt;After login the sw360 is not setup, thus the server does not display much, but a screen like the following:&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/3.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;h4 id=&#34;user-and-login-settings-in-liferay&#34;&gt;User and Login Settings in Liferay&lt;/h4&gt;
+&lt;p&gt;Go into the control panel area by clicking the items icon (nine small cubes) in the upper right corner and select the control panel tab:&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/4.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;p&gt;Edit this password policy and disable &lt;code&gt;change Required&lt;/code&gt; if you wish to do so. Click on Save_the bottom of the page to save the selection.&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/6.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;p&gt;Then, go: in &lt;code&gt;Configuration&lt;/code&gt; &amp;gt;  &lt;code&gt;Instance Settings&lt;/code&gt; &amp;gt; &lt;code&gt;Users&lt;/code&gt; &amp;gt;&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/7.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;p&gt;In this area, select &lt;code&gt;Default User Associations&lt;/code&gt; to enter SW360 and apply it also to existing users. Click on Save to save the selection:&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/8.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;p&gt;Then, in &lt;code&gt;Configuration&lt;/code&gt; &amp;gt;  &lt;code&gt;Instance Settings&lt;/code&gt; &amp;gt; &lt;code&gt;User Authentication&lt;/code&gt; &amp;gt; &lt;code&gt;General&lt;/code&gt; to disable all kind of auto login to make sure only authenticated users can log in. You may want to switch off the e-mail verification, because for most of the development times it will not be of much value.&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/9.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;p&gt;Finally, sice Liferay 7.4 some of the bundled modules need to be activated:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;jquery&lt;/li&gt;
+&lt;li&gt;font awesome&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In oder to do this, please select from the &lt;code&gt;Configuration&lt;/code&gt; &amp;gt;  &lt;code&gt;System Settings&lt;/code&gt; &amp;gt; &lt;code&gt;Third Party&lt;/code&gt; and go to jquery, select the enablement and click on Update:&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/10.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;p&gt;Do the same for Font Awesome:&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/11.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;p&gt;Note that you need to reload the browser or load a new browser window to take changes to effect.&lt;/p&gt;
+&lt;h4 id=&#34;setup-sw360-for-liferay-import-lar-files&#34;&gt;Setup SW360 for Liferay: Import *.lar Files&lt;/h4&gt;
+&lt;p&gt;For the setup of SW360 in Liferay, the portal description files, &lt;code&gt;*.lar&lt;/code&gt; files need not be imported. there is no way except from doing this in the UI. If we are wrong with this, please let us know, because it is very annoying that these ever occurring steps cannot be automated with Liferay.&lt;/p&gt;
+&lt;p&gt;In order to go ahead, switch to the &lt;code&gt;SW360&lt;/code&gt; area where you can apply site settings:&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/12.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;p&gt;The go into &amp;gt;  &lt;code&gt;Publishing&lt;/code&gt; &amp;gt; &lt;code&gt;Import&lt;/code&gt; which shows like this:&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/13.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;p&gt;Then, click on the plus sign in order to import the *.lar file for public pages. You will find the lar files in the &lt;a href=&#34;https://github.com/eclipse/sw360/tree/master/frontend/configuration&#34;&gt;frontend/configuration&lt;/a&gt; folder of the sw360 repository.&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/14.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;p&gt;As for import settings, follow the selection as shown on the screenshot. It is very important that for the &lt;code&gt;Public_Pages_7_4_3_18_GA18.lar&lt;/code&gt; file the selection &lt;code&gt;Public_Pages_7_4_3_18_GA18.lar&lt;/code&gt; is made.&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/15.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;p&gt;Importing permission makes sure that pages are visible according to users rights. For public pages, it is irrelevant_the moment. Overwriting and the write as current user needs to be selected.&lt;/p&gt;
+&lt;p&gt;After successful importing, the same steps shall be repeated for the &lt;code&gt;Private_Pages_7_4_3_18_GA18.lar&lt;/code&gt; file.&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/16.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;p&gt;Make sure that &lt;code&gt;Private_Pages_7_4_3_18_GA18.lar &lt;/code&gt; is selected. Follow the other selections made as shown on the screenshot &amp;hellip; importing permissions &amp;hellip; mirror with overwriting, use the current author &amp;hellip;&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/17.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;p&gt;If you click then the liferay logo_the upper left corner where the SW360 is, you will return to the application and the following screen should appear:&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/18.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;p&gt;You can close the left menu area by clicking on the upper left icon:&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/19.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;p&gt;Click &lt;code&gt;Start&lt;/code&gt; to open the private pages. You are still logged in, so the setup account is used to view the pages.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Important&lt;/strong&gt; The setup account does not belong to a group. Thus, not all view are functional because they require a group membership to work correctly.&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/20.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;h4 id=&#34;import-user-accounts-for-testing&#34;&gt;Import User Accounts for Testing&lt;/h4&gt;
+&lt;p&gt;Click the SW360 &lt;code&gt;Admin&lt;/code&gt; menu which is_the right and selection the &lt;code&gt;User&lt;/code&gt; item.&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/21.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;p&gt;At the bottom of that view, select a User file to import for testing. Skip it if you will create users differently. You can find a &lt;a href=&#34;https://github.com/sw360/sw360vagrant/blob/master/shared/test_users_with_passwords_12345.csv&#34;&gt;user account import file&lt;/a&gt; to import in the &lt;code&gt;sw360vagrant&lt;/code&gt; project in the folder &lt;code&gt;shared&lt;/code&gt;. After the user have been imported successfully, they should appear in the table view.&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/22.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;p&gt;After the user have been imported successfully, they should appear in the table view. You can logout for now and use one of the just added accounts (see below):&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/23.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;h4 id=&#34;real-login&#34;&gt;Real Login&lt;/h4&gt;
+&lt;p&gt;One example user is &lt;code&gt;user@sw360.org&lt;/code&gt; with the password &lt;code&gt;12345&lt;/code&gt;. Note that in the import file with the example accounts, the password is provided with a hash. If you would like to generate new (salted) hashes, you can change your password and export the user list using the same portlet where you have imported the users. This functionality can be also used to migrate accounts between servers.&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/24.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;p&gt;After the successful login, SW360 will look as follows.&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/25.png&#34;/&gt; 
+&lt;/figure&gt;
+
 &lt;h3 id=&#34;38-version-management-table-sw360-1700&#34;&gt;3.8 Version Management Table (sw360 17.0.0)&lt;/h3&gt;
 &lt;table&gt;
 &lt;thead&gt;
@@ -8216,6 +8599,223 @@ beginning and click &lt;code&gt;Upload Users&lt;/code&gt; on the right side. &lt
     </item>
     
     <item>
+      <title>Docs: Upgrade Sw360 from 15.0 to 16.0</title>
+      <link>https://www.eclipse.org/sw360/docs/deployment/upgrading/upgrade_version_sw360_15_to_16/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/sw360/docs/deployment/upgrading/upgrade_version_sw360_15_to_16/</guid>
+      <description>
+        
+        
+        &lt;h1 id=&#34;upgrade-sw360-version-160&#34;&gt;Upgrade SW360 version 16.0&lt;/h1&gt;
+&lt;h2 id=&#34;1-upgrade-sw360-from-150-to-160&#34;&gt;1. Upgrade sw360 from 15.0 to 16.0&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;1.1 Checkout source code SW360 to Tag Version 16
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;1.2 Version of libraries
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;1.3 Migrate database
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;1.4 Build and deploy Sw360 Version 16
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;1.5 Start and Configure Liferay 
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;11-create-folder-contains-source-code-sw360-to-tag-version-16&#34;&gt;1.1 Create Folder contains source code SW360 to Tag Version 16&lt;/h3&gt;
+&lt;p&gt;Link contains source: &lt;a href=&#34;https://github.com/eclipse/sw360.git&#34;&gt;https://github.com/eclipse/sw360.git&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Path &lt;code&gt;SW360_REPOSITORY&lt;/code&gt; = &lt;code&gt;/home/user/work15to16/sw360&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Source code sw360 is in main branch with commit version 14.0 . User into &lt;code&gt;${SW360_REPOSITORY}&lt;/code&gt; use git checkout to tag version 16 on the main branch of SW360&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Checkout to tag  Version 16.0.0 or checkout commit &amp;ldquo;d15db4a1b07112fff126016103c1a8d8dd03c230&amp;rdquo;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;$ git checkout d15db4a1b07112fff126016103c1a8d8dd03c230 &lt;/code&gt; or  &lt;code&gt;$ git checkout sw360-16.0.0-M1&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Upgrade Thrift from 0.14.0 to 0.16.0&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Move to folder sw360 with path &lt;code&gt;/home/user/work15to16/sw360&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Run command line:&lt;/p&gt;
+&lt;p&gt;Uninstall thrift version 0.14.0&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;./scripts/install-thrift.sh --uninstall&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Install thrift version 0.16.0&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;./scripts/install-thrift.sh&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Check version thrift&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;thrift --version&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Update Dependency for SW360 version 16&lt;/p&gt;
+&lt;p&gt;Download dependency:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;wget https://search.maven.org/remotecontent?filepath=commons-io/commons-io/2.7/commons-io-2.7.jar -O commons-io-2.7.jar&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;wget https://search.maven.org/remotecontent?filepath=com/google/code/gson/gson/2.8.9/gson-2.8.9.jar -O gson-2.8.9.jar&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;wget https://search.maven.org/remotecontent?filepath=com/google/guava/guava/31.0.1-jre/guava-31.0.1-jre.jar -O guava-31.0.1-jre.jar&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;wget https://search.maven.org/remotecontent?filepath=com/fasterxml/jackson/core/jackson-annotations/2.13.2/jackson-annotations-2.13.2.jar -O jackson-annotations-2.13.2.jar&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;wget https://search.maven.org/remotecontent?filepath=com/fasterxml/jackson/core/jackson-core/2.13.2/jackson-core-2.13.2.jar -O jackson-core-2.13.2.jar&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;wget https://search.maven.org/remotecontent?filepath=com/fasterxml/jackson/core/jackson-databind/2.13.2.2/jackson-databind-2.13.2.2.jar -O jackson-databind-2.13.2.2.jar&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;wget https://repo1.maven.org/maven2/org/apache/thrift/libthrift/0.16.0/libthrift-0.16.0.jar -O libthrift-0.16.0.jar&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Move dependency to folder &lt;code&gt;/opt/liferay-ce-portal-7.3.4-ga5/deploy&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;12-version-of-libraries&#34;&gt;1.2 Version of libraries&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Package Name&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Version&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Liferay&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;7.3.4&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Tomcat&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;9.0.33&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Couchdb&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;3.2.2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Open JDK&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;11.0.15&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Thrift&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;0.16.0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;13-migrate-database&#34;&gt;1.3 Migrate database&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Check migrate scripts from 15.0 to 16.0 by &lt;a href=&#34;https://github.com/eclipse/sw360/tree/master/scripts/migrations&#34;&gt;https://github.com/eclipse/sw360/tree/master/scripts/migrations&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;3 file migration:&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;https://github.com/eclipse/sw360/blob/main/scripts/migrations/048_add_component_businessunit.py&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;https://github.com/eclipse/sw360/blob/main/scripts/migrations/049_migrate_admin_obligation.py&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;https://github.com/eclipse/sw360/blob/main/scripts/utilities/003_update_project_field_value_couchdb_2_x.py&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Install enviroment for python 2.7&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;$ sudo apt-add-repository universe&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;$ sudo apt update&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;$ sudo apt install python2-minimal&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Check version&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;$ python2 --version&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Install pip for python 2.7
+-&lt;code&gt;curl https://bootstrap.pypa.io/pip/2.7/get-pip.py --output get-pip.py&lt;/code&gt;
+-&lt;code&gt;sudo python2 get-pip.py --proxy=http://username:password@hostname&lt;/code&gt;
+-&lt;code&gt;pip --version&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Import package couchdb
+-&lt;code&gt;pip install --proxy=http://username:password@hostname couchdb&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;How to run migration data&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;stop SW360 (i.e. the tomcat)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Set Environment for &lt;code&gt;${LIFERAY_INSTALL}&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;$ export LIFERAY_INSTALL=/opt/liferay-ce-portal-7.3.4-ga5&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+&lt;li&gt;Stop SW360 version 15.0, ensure that couchdb is accessible (try to open &lt;code&gt;http://localhost:5984/_utils/&lt;/code&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;$ ${LIFERAY_INSTALL}/tomcat-9.0.33/bin/shutdown.sh&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;ensure that couchdb is accessible (try to open http://localhost:5984/_utils/)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;run the migration scripts (i.e. for each script call python2 /PATH/TO/00?_some_migration_script.py)
+be aware that some scripts are using an internal dry-run switch which you have to change manually in the script&amp;rsquo;s code.&lt;/p&gt;
+&lt;p&gt;3.1 move to folder with path &lt;code&gt;/home/user/work15to16/sw360/scripts/migrations&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Run command:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;python2 048_add_component_businessunit.py&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;python2 049_migrate_admin_obligation.py&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Check data change in file log:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;048_add_component_businessunit.log&lt;/li&gt;
+&lt;li&gt;049_migrate_admin_obligation.log&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;3.2 move to folder with path &lt;code&gt;/home/user/work15to16/sw360/scripts/utilities&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;python2 003_update_project_field_value_couchdb_2_x.py&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Check data change in file log:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;003_update_project_field_value_couchdb_2_x.log&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;14-compile-and-deploy&#34;&gt;1.4. Compile and deploy&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Set Environment for &lt;code&gt;${LIFERAY_INSTALL}&lt;/code&gt;
+- &lt;code&gt;$ cd /home/user/work/sw360&lt;/code&gt;
+- &lt;code&gt;$ export LIFERAY_INSTALL=/opt/liferay-ce-portal-7.3.4-ga5&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code&gt;To clean everything and  install without running the tests
+
+- `mvn clean install -DskipTests `
+
+For deployment run the command 
+- `mvn package -P deploy -Dbase.deploy.dir=. -Dliferay.deploy.dir=${LIFERAY_INSTALL}/deploy -Dbackend.deploy.dir=${LIFERAY_INSTALL}/tomcat-9.0.33/webapps -Drest.deploy.dir=${LIFERAY_INSTALL}/tomcat-9.0.33/webapps -DskipTests`
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;15-start-and-configure-liferay&#34;&gt;1.5 Start and Configure Liferay&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Set Environment for &lt;code&gt;${LIFERAY_INSTALL}&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;$ export LIFERAY_INSTALL=/opt/liferay-ce-portal-7.3.4-ga5&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Start liferay&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;$ ${LIFERAY_INSTALL}/tomcat-9.0.33/bin/startup.sh&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Log&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;$ tail -f ${LIFERAY_INSTALL}/tomcat-9.0.33/logs/*&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Url SW360 : &lt;code&gt;https://localhost:8080&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
       <title>Docs: Attachment File Types</title>
       <link>https://www.eclipse.org/sw360/docs/userguide/user-attachment-file-types/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -8323,421 +8923,6 @@ beginning and click &lt;code&gt;Upload Users&lt;/code&gt; on the right side. &lt
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-
-      </description>
-    </item>
-    
-    <item>
-      <title>Docs: Component and Releases</title>
-      <link>https://www.eclipse.org/sw360/docs/userguide/component-and-releases/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.eclipse.org/sw360/docs/userguide/component-and-releases/</guid>
-      <description>
-        
-        
-        &lt;h2 id=&#34;search-for-a-component&#34;&gt;Search for a Component&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;Switch to Components view&lt;/li&gt;
-&lt;li&gt;Use filters to refine search&lt;/li&gt;
-&lt;li&gt;Following filters can be used to make the seach efficient and faster:
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Component Name&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Categories&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Component Type&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Languages&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Software Platforms&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Operating System&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Vendors&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Main Licenses&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Created By(email)&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Created On&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id=&#34;create-a-new-component&#34;&gt;Create a New Component&lt;/h2&gt;
-&lt;p&gt;&lt;span style=&#34;color:blue&#34;&gt;&lt;strong&gt;NOTE&lt;/strong&gt;: Before adding a new component, search for the component to ensure that it does not already exist.
-Think also about other potential names of the component.&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;The menu item &lt;strong&gt;Components&lt;/strong&gt; shows a list of all available components. There are three important buttons on the page:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Add new Component&lt;/strong&gt;: Opens a dialog window for creating a new component&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Export Spreadsheet&lt;/strong&gt;: Makes components available for other users&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Import SPDX BOM&lt;/strong&gt;: Import Components and Projects from the SPDX&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;The dialog for creating a component contains the following entries.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;General Information&lt;/strong&gt; includes the following fields:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Name&lt;/strong&gt;&lt;span style=&#34;color:red;&#34;&gt;*&lt;/span&gt;: Unique name of the component&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Created By&lt;/strong&gt;: Owner of the componenet, will be set automatically&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Categories&lt;/strong&gt;&lt;span style=&#34;color:red;&#34;&gt;*&lt;/span&gt;: Possible values can be Library, Cloud, Mobile etc&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Component Type&lt;/strong&gt;&lt;span style=&#34;color:red;&#34;&gt;*&lt;/span&gt;: Types of component can be OSS, COTS, Internal, Service, Freeware, Inner Source, Code Snippet&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Default Vendor&lt;/strong&gt;: To set the vendor&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Homepage URL&lt;/strong&gt;: Link that leads to the homepage of the component&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Blog URL&lt;/strong&gt;: Link that leads to the discussion or informational website of the component&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Wiki URL&lt;/strong&gt;: Link that leads to the wiki of the component&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Mailing List URL&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Short Description&lt;/strong&gt;: Explanation for the newly created component&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;strong&gt;Roles&lt;/strong&gt; includes the following fields:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Component Owner&lt;/strong&gt;: Holder of the component&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Owner Accounting Unit&lt;/strong&gt;: The owner accounting unit of the component&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Owner billing Group&lt;/strong&gt;: The owner billing unit of the component&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Owner Country&lt;/strong&gt;: Country from which the owner belongs&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Moderators&lt;/strong&gt;: A list of moderators responsible for the component.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;At the bottom there are buttons to add &lt;strong&gt;Additional Roles&lt;/strong&gt;, &lt;strong&gt;External Ids&lt;/strong&gt;, and &lt;strong&gt;Additional Data&lt;/strong&gt; for the new component.&lt;/p&gt;
-
-&lt;figure&gt;
-    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/ImagesBasic/new_comp.png&#34;/&gt; 
-&lt;/figure&gt;
-
-
-&lt;figure&gt;
-    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/ImagesBasic/comp_pg2.png&#34;/&gt; 
-&lt;/figure&gt;
-
-&lt;p&gt;After pressing the &lt;strong&gt;Create Component&lt;/strong&gt; button you get a feedback, wether the creation was sucessful or not.&lt;/p&gt;
-&lt;p&gt;Now you can go ahead with the creation of a new release.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;NOTE&lt;/strong&gt;: Depending on the rights of the user, new component do not appear immediately in the component list. In this case this action created a so called &lt;em&gt;moderation request&lt;/em&gt; which first needs to get approved by an administrator.&lt;/p&gt;
-&lt;h2 id=&#34;adding-a-release-to-a-component&#34;&gt;Adding a Release to a Component&lt;/h2&gt;
-&lt;p&gt;To add a release to a component, select the component first. This can be accomplished in two ways:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Go to the home page and select the component from the &amp;ldquo;My Components&amp;rdquo; list&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Click the &amp;ldquo;Components&amp;rdquo; button from the top menu and search for the component.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;In this case we choose the new created component &amp;ldquo;Android&amp;rdquo; from the home page list. The detail page for the component &amp;ldquo;Android&amp;rdquo; contains two buttons:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Edit Component&lt;/strong&gt;: Here you can change component information and add releases to the component&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Subscribe&lt;/strong&gt;: Subscribe to the component to get notifications, when any changes of the component occur.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;On the left side the detail page contains a menu for:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Summary&lt;/strong&gt;: Show this page&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Release Overview&lt;/strong&gt;: Show a list of the associated releases of the component&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Attachments&lt;/strong&gt;: Show the attachments of the component; attachments can be source code, documents, clearing reports, &amp;hellip;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Vulnerabilities&lt;/strong&gt;: A link to the vulnerabilities&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Change Log&lt;/strong&gt;: Shows the changes done on the release&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;figure&gt;
-    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/ImagesBasic/comp_view.png&#34;/&gt; 
-&lt;/figure&gt;
-
-&lt;p&gt;Press the button &amp;ldquo;Edit Component&amp;rdquo; for the component &amp;ldquo;Android&amp;rdquo;. A detail page for the component is shown, then go to &lt;strong&gt;Releases&lt;/strong&gt; section where you can find a button &amp;ldquo;Add Releases&amp;rdquo;.&lt;/p&gt;
-
-&lt;figure&gt;
-    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/ImagesBasic/add_release.png&#34;/&gt; 
-&lt;/figure&gt;
-
-
-&lt;figure&gt;
-    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/ImagesBasic/create_release_new.png&#34;/&gt; 
-&lt;/figure&gt;
-
-
-&lt;figure&gt;
-    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/ImagesBasic/AddReleaseScreenWithoutData2.png&#34;/&gt; 
-&lt;/figure&gt;
-
-&lt;p&gt;A detail page for the release is opened. Mandatory fields are:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Name&lt;/strong&gt;: The name of the component, e.g. &amp;ldquo;Android&amp;rdquo;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Version&lt;/strong&gt;: A version number of the release, e.g. &amp;ldquo;0.8.13&amp;rdquo;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Additional information for the release can be entered:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Programming Languages&lt;/strong&gt;: A list of used programming languages&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Operating Systems&lt;/strong&gt;: List of Operating Systems.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;CPE ID&lt;/strong&gt;: Common Platform enumeration id should be unique&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Software Platforms&lt;/strong&gt;: List of softwares required for the release&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Release Date&lt;/strong&gt;: Date of the release&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Download URL&lt;/strong&gt;: URL from where the source of the release can be downloaded&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Clearing State&lt;/strong&gt;: Possible values are &amp;ldquo;New&amp;rdquo;, &amp;ldquo;Sent to Fossology&amp;rdquo;, &amp;ldquo;Under Clearing&amp;rdquo; and &amp;ldquo;Report Available&amp;rdquo;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Mainline State&lt;/strong&gt;: Status of the release if it has been already recorded in &amp;ldquo;Mainline&amp;rdquo;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Contributors&lt;/strong&gt;: A pointer (e.g. email address) to a contributors for the release&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Moderators&lt;/strong&gt;: A list of moderators responsible for the component.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;After entering the information, press the button &amp;ldquo;Create Release&amp;rdquo; to add the new release to the component.&lt;/p&gt;
-&lt;p&gt;It is possible to edit the basic data for the release and update the information (button &lt;strong&gt;Update Release&lt;/strong&gt;). With the menu on the left side further information can be entered.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Release Summary&lt;/strong&gt; Show the detailed information about the release.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Linked Releases&lt;/strong&gt; In order to link a release to the current release&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Release Clearing&lt;/strong&gt; Information.&lt;/p&gt;
-
-&lt;figure&gt;
-    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/ImagesBasic/clearing_detail.png&#34;/&gt; 
-&lt;/figure&gt;
-
-&lt;p&gt;&lt;strong&gt;Vendors&lt;/strong&gt;&lt;/p&gt;
-
-&lt;figure&gt;
-    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/ImagesBasic/SearchVendor.png&#34;/&gt; 
-&lt;/figure&gt;
-
-&lt;p&gt;&lt;strong&gt;Attachments&lt;/strong&gt;
-This page shows a list of all attachments associated with the component. To add a new attachment press the button &lt;strong&gt;Add Attachment&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;figure&gt;
-    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/ImagesBasic/new_attachment.png&#34;/&gt; 
-&lt;/figure&gt;
-
-&lt;p&gt;A new dialog box is shown where you can drop a file or use a file browser to choose an attachment. In the example a zipped archive is choosen and the type of the attachment is set to source. To finish the action press &lt;strong&gt;Update Release&lt;/strong&gt;.&lt;/p&gt;
-&lt;h2 id=&#34;external-ids&#34;&gt;External Ids&lt;/h2&gt;
-&lt;p&gt;SW360 allows to add so called &amp;rsquo;external ids&amp;rsquo; to a release. This can be links to other systems, see table below. Especially we recommend to add information about package management system to allow a &lt;strong&gt;unique identification&lt;/strong&gt; of a release.&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;&lt;strong&gt;External ID Name&lt;/strong&gt;&lt;/th&gt;
-&lt;th&gt;&lt;strong&gt;Example Value&lt;/strong&gt;&lt;/th&gt;
-&lt;th&gt;&lt;strong&gt;Description&lt;/strong&gt;&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;nuget-id&lt;/td&gt;
-&lt;td&gt;common.logging.2.2.1&lt;/td&gt;
-&lt;td&gt;ID of the release in Nuget, format is (component ID).(version) or use a package url: pkg:nuget/common.logging@2.2.1&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;maven-id&lt;/td&gt;
-&lt;td&gt;javax.activation:activation:1.1.1&lt;/td&gt;
-&lt;td&gt;ID of the release at Maven, format is (group ID):(artifact ID):(version) or use a package url: pkg:javax.activation/activation@1.1.1&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;npm-id&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;mailto:moment@2.19.1&#34;&gt;moment@2.19.1&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;ID of the release at NPM, format is (package)@(version) (like npm install (package)@(version)) or use a package url: pkg:npm/moment@2.19.1&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;bower-id&lt;/td&gt;
-&lt;td&gt;&lt;strong&gt;(TBD)&lt;/strong&gt;&lt;/td&gt;
-&lt;td&gt;ID of the release at Bower, format is (package)#(version) (like bower install jQuery#2.1.4)&lt;br&gt;??? no unique package id ???&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;package-url&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;pkg:nuget/EnterpriseLibrary.Common@6.0.1304&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;A package URL, based on the specification available here: &lt;a href=&#34;https://github.com/package-url/purl-spec&#34;&gt;&lt;span style=&#34;color:red&#34;&gt;↗&lt;/span&gt; https://github.com/package-url/purl-spec&lt;/a&gt;. The goal is&lt;br&gt;a) to have ONE external id name and not multiple names like nuget-id, maven-id, etc.&lt;br&gt;b) conform to some kind of standard&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;(golang =&amp;gt; use package-url)&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;pkg:golang/google.golang.org/genproto#googleapis/api/annotations&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;see package url specification&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;&lt;strong&gt;NOTE&lt;/strong&gt;: Changes to the export control information done by normal users always requires the approval of one the assigned export control experts.&lt;/p&gt;
-&lt;h2 id=&#34;adding-attachments&#34;&gt;Adding Attachments&lt;/h2&gt;
-&lt;p&gt;Attachments can get added to a release, a component or a project.&lt;/p&gt;
-&lt;p&gt;The most important attachment types are:&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Symbol&lt;/th&gt;
-&lt;th&gt;Type&lt;/th&gt;
-&lt;th&gt;Description&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;SRC&lt;/td&gt;
-&lt;td&gt;Source Code&lt;/td&gt;
-&lt;td&gt;Source code of a release, required for OSS components, only for releases&lt;br&gt;This shall be the original source code from the developers of the component, &lt;strong&gt;not&lt;/strong&gt; from NuGet, &lt;strong&gt;not&lt;/strong&gt; from Maven, etc.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;CRT&lt;/td&gt;
-&lt;td&gt;Clearing Report&lt;/td&gt;
-&lt;td&gt;Clearing report, for releases or projects&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;CLX&lt;/td&gt;
-&lt;td&gt;Component License Information (XML)&lt;/td&gt;
-&lt;td&gt;Input for Readme_OSS generation, only for releases&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;DOC&lt;/td&gt;
-&lt;td&gt;Document&lt;/td&gt;
-&lt;td&gt;Any kind of document&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;BIN&lt;/td&gt;
-&lt;td&gt;Binaries&lt;/td&gt;
-&lt;td&gt;Binaries of a COTS or OSS component. Binaries for OSS component should only get uploaded if the software clearing team has allowed the use of the binary&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;DRT&lt;/td&gt;
-&lt;td&gt;Decision report&lt;/td&gt;
-&lt;td&gt;Used by some Divisions to document a clearing decision&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;LRT&lt;/td&gt;
-&lt;td&gt;Legal evaluation report&lt;/td&gt;
-&lt;td&gt;Documentation by the legal team&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;LAT&lt;/td&gt;
-&lt;td&gt;License agreement&lt;/td&gt;
-&lt;td&gt;License agreement document, nearly always required for commercial components (COTS). Before uploading please ensure that you are &lt;strong&gt;allowed&lt;/strong&gt; to upload such a document&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;SCR&lt;/td&gt;
-&lt;td&gt;Screenshot of website&lt;/td&gt;
-&lt;td&gt;Helpful, when there is no license information inside the source code but on the component website&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;RDM&lt;/td&gt;
-&lt;td&gt;Readme_OSS&lt;/td&gt;
-&lt;td&gt;Third-party software information. Summary of the information about 3rd party software components shipped together with a product.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;OTH&lt;/td&gt;
-&lt;td&gt;Other&lt;/td&gt;
-&lt;td&gt;Any other kind of file&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;&lt;strong&gt;NOTE&lt;/strong&gt;: Choosing the wrong attachment type may slow down or stop the further processing of a release or product!&lt;/span&gt;&lt;/p&gt;
-&lt;h2 id=&#34;add-a-new-component-to-a-project&#34;&gt;Add a New Component to a Project&lt;/h2&gt;
-&lt;p&gt;Step-by-step:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;The component must already exist in SW360 – if not please add the new component&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Search for the project&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Select the project and click on &amp;lsquo;Edit Project&amp;rsquo;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Select &amp;lsquo;Linked Releases and Projects&amp;rsquo; (on the left side)&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Select the &amp;lsquo;Add Release&amp;rsquo; button&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Search for the release&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Click &amp;lsquo;Select&amp;rsquo;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Click &amp;lsquo;Update Project&amp;rsquo;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id=&#34;remove-a-componentrelease-from-a-project&#34;&gt;Remove a Component/Release from a Project&lt;/h2&gt;
-&lt;p&gt;Step-by-step:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;Go to &amp;lsquo;Projects&amp;rsquo;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Search for the project&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Select the project and click on &amp;lsquo;Edit Project&amp;rsquo;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Select &amp;lsquo;Linked Releases And Projects&amp;rsquo; (left side)&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Scroll down to section &amp;lsquo;Linked Releases&amp;rsquo;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Click on the trash bin icon on the right side of the component release you&amp;rsquo;d like to remove&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Acknowledge remove warning&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Click &amp;lsquo;Update Project&amp;rsquo;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;&lt;strong&gt;NOTE&lt;/strong&gt;: Only software clearing experts can remove releases or components from SW360. If you have created releases or components that should get removed please contact your local software clearing site expert.&lt;/p&gt;
-
-      </description>
-    </item>
-    
-    <item>
-      <title>Docs: CVE-Search Scheduling</title>
-      <link>https://www.eclipse.org/sw360/docs/userguide/user-scheduling-cve-search-by-admins/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.eclipse.org/sw360/docs/userguide/user-scheduling-cve-search-by-admins/</guid>
-      <description>
-        
-        
-        &lt;p&gt;SW360 gets vulnerability information from an external provider of Common Vulnerability Enumeration (CVE) data. By default SW360 can connect to cve-search [https://www.circl.lu/services/cve-search/] which is either available as an online service [http://cve.circl.lu] or can be installed locally. For security and privacy reasons it is strongly advised to install a local cve-search service.&lt;/p&gt;
-&lt;p&gt;In what follows the synchronization between SW360 and the external CVE provider is described.&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;CveSearch-updates&lt;/code&gt; can either be scheduled automatically when launching the &lt;code&gt;schedule-service&lt;/code&gt; (e.g. when re/starting SW360) or it can be scheduled or unscheduled manually by an &lt;code&gt;SW360 admin&lt;/code&gt;.
-It is automatically scheduled with the start of the scheduling service, if in the &lt;code&gt;/resources/sw360.properties&lt;/code&gt; file of the &lt;code&gt;schedule-service&lt;/code&gt; in the backend, &lt;code&gt;cvesearchService&lt;/code&gt; is mentioned in the &lt;code&gt;autostart&lt;/code&gt;-property:&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;autostart = cvesearchService&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;According to the default settings, cveSearch is &lt;em&gt;not&lt;/em&gt; auto-started with the scheduling service.&lt;/p&gt;
-&lt;p&gt;For manually scheduling the CVE search service, open the &lt;code&gt;Schedule Portlet&lt;/code&gt; of the &lt;code&gt;Admin&lt;/code&gt; menu. Note that the &lt;code&gt;Admin&lt;/code&gt; menu is only visible to &lt;code&gt;SW360 admins&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;./images/UCAdminScheduling/01_adminMenu.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
-&lt;p&gt;In the &lt;code&gt;Schedule Portlet&lt;/code&gt; of the &lt;code&gt;Admin&lt;/code&gt; menu, a user with &lt;code&gt;admin&lt;/code&gt; rights can turn on or off automatic updates of the cve-search service manually.
-In the UI of the portlet, the admin can see whether or not the CVE-service is scheduled: if the service is scheduled, the &lt;code&gt;Schedule CveSearch Updates&lt;/code&gt;-button is inactive, whereas the &lt;code&gt;Cancel Scheduled CveSearch Updates&lt;/code&gt;-button is active and vice versa:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;./images/UCAdminScheduling/scheduleAdminPortlet.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
-&lt;p&gt;The &lt;code&gt;offset&lt;/code&gt; (first run of the update) and the &lt;code&gt;interval&lt;/code&gt; between updates can also be adjusted in the &lt;code&gt;/resources/sw360.properties&lt;/code&gt; file of the &lt;code&gt;src-schedule&lt;/code&gt; service.
-The corresponding properties are &lt;code&gt;schedule.cvesearch.firstOffset.seconds&lt;/code&gt; and &lt;code&gt;schedule.cvesearch.interval.seconds&lt;/code&gt;.
-The &lt;code&gt;offset&lt;/code&gt; has to be given in seconds since midnight and also the &lt;code&gt;interval&lt;/code&gt; has to be entered in seconds.
-The default is to update the vulnerabilities by CVEsearch every night at midnight, which corresponds to an offset of 0 and an interval of 24 hours (= 86400 seconds).&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;schedule.cvesearch.firstOffset.seconds = 0&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;schedule.cvesearch.interval.seconds = 86400&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;With automatic scheduling the next synchronization moment according to the &lt;code&gt;offset&lt;/code&gt; and the &lt;code&gt;interval&lt;/code&gt; is computed. This will be the first moment when a &lt;code&gt;cveSearch-update&lt;/code&gt; is run.
-There is nothing like an &lt;code&gt;initial run&lt;/code&gt; when autostarting of manually scheduling the &lt;code&gt;CveSearch-updates&lt;/code&gt;.
-Moreover, the configuration, i.e. &lt;code&gt;offset&lt;/code&gt;, &lt;code&gt;interval&lt;/code&gt; and &lt;code&gt;next synchronization&lt;/code&gt; (where the latter is a consequence of &lt;code&gt;offset&lt;/code&gt; and &lt;code&gt; interval&lt;/code&gt;) are shown in the portlet:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;./images/UCAdminScheduling/scheduleAdminPortletProperties.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
-&lt;h2 id=&#34;setup-of-a-local-instance&#34;&gt;Setup of a local instance&lt;/h2&gt;
-&lt;p&gt;It is recommended to set up and use a local instance instead of the public cve-search instance.
-The accompanying project sw360-chores contains a Dockerfile that can easily setup this service.&lt;/p&gt;
 
       </description>
     </item>
