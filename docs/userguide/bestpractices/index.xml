@@ -14,6 +14,456 @@
     
     
     <item>
+      <title>Docs: Workflows</title>
+      <link>https://www.eclipse.org/sw360/docs/userguide/bestpractices/workflows/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/sw360/docs/userguide/bestpractices/workflows/</guid>
+      <description>
+        
+        
+        &lt;p&gt;This page is one of the basic user workflow documentation pages. It can give orientation how the sw360 can be used - as guidance or orientation. There is no particular need to follow these workflows, it is just one way. Workflows are shown as flow charts.&lt;/p&gt;
+&lt;h3 id=&#34;create-component-and-release&#34;&gt;Create Component and Release&lt;/h3&gt;
+&lt;p&gt;So, the user would like to create an entry for zlib-1.2.8 for example in sw360. The main thing to know (see page basic concepts)is that sw360 separates releases from components: the release is the zlib-1.2.8 but the component is the zlib. By this approach, components as a kind of container type in sw360, holding several releases.&lt;/p&gt;
+&lt;p&gt;Therefore, for a new component the user needs to create a component entry first, and then add a release to it. Just adding a release will not work. If a component with a different release already exists, the users add a release to the existing component.&lt;/p&gt;
+&lt;p&gt;The intended roles for this can be a developer that would like to start caring for an OSS component or release. In addition a project owner / project owner can care for the components and releases part of the product or process.&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/workflow/worklfow-adding-component-and-release-to-a-project.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;h3 id=&#34;create-a-project&#34;&gt;Create a Project&lt;/h3&gt;
+&lt;p&gt;A project is a structure to keep track on releases inside project, as well as other projects. Please note that a project can be also a product, depending on the type of business. the use of the term &amp;lsquo;project&amp;rsquo; is used also for subsuming the term &amp;lsquo;product&amp;rsquo;.&lt;/p&gt;
+&lt;p&gt;As for the integration case with the OSS software FOSSology, the project view allows for an overview, which of the used components have been analyzed with FOSSology already.&lt;/p&gt;
+&lt;p&gt;In the diagram, the &amp;ldquo;clearing process&amp;rdquo; is mentioned, because the clearing process affects the software components of a project. The main approach is the following:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A project responsible sets up a project with used releases.&lt;/li&gt;
+&lt;li&gt;For the releases that were not analyzed before, the project responsible requests a clearing - source files can be transferred to FOSSology.&lt;/li&gt;
+&lt;li&gt;Once analyses for all releases are complete, the &amp;ldquo;clearing process&amp;rdquo; is finished for this project.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;A project it self does not need much information, it is just about the name and the version. Note that some of the information is like to be set at that time:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Visibility level&lt;/li&gt;
+&lt;li&gt;Project contacts&lt;/li&gt;
+&lt;li&gt;Important Dates for the project&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/workflow/workflow-add-project.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;h3 id=&#34;moderation&#34;&gt;Moderation&lt;/h3&gt;
+&lt;p&gt;The moderation is the basic way of applying changes if the document is not created by someone else. In sw360 the following person can edit documents right away (without moderation request):&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The creator of a document (document is a project entry, a release entry etc)&lt;/li&gt;
+&lt;li&gt;Admins&lt;/li&gt;
+&lt;li&gt;Clearing admins&lt;/li&gt;
+&lt;li&gt;Moderators of this document&lt;/li&gt;
+&lt;li&gt;Other special roles, such as project responsible&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Please see the page &lt;a href=&#34;https://www.eclipse.org/sw360/docs/development/dev-role-authorisation-model/&#34; title=&#34;Dev Role&#34;&gt;about the Role Authorization Model&lt;/a&gt; for more information.&lt;/p&gt;
+&lt;p&gt;If the user who wishes to change a document and is not one of these, the moderator workflow kicks in. Then changes applied to the document are not really applied, but are sent to a moderator. Moderators are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The creator of a document (document is a project entry, a release entry etc)&lt;/li&gt;
+&lt;li&gt;Admins&lt;/li&gt;
+&lt;li&gt;Clearing admins&lt;/li&gt;
+&lt;li&gt;Moderators of this document&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The moderator can review, approve or decline the request. Then, the requesting user can delete the request. The moderator request workflow is shown below.&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/workflow/workflow-moderation.png&#34;/&gt; 
+&lt;/figure&gt;
+
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Naming a Component</title>
+      <link>https://www.eclipse.org/sw360/docs/userguide/bestpractices/component-naming/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/sw360/docs/userguide/bestpractices/component-naming/</guid>
+      <description>
+        
+        
+        &lt;p&gt;&lt;strong&gt;The name is the most important criteria to identify software components. Unfortunately there is no common naming scheme available.&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;usage-and-handling-of-components&#34;&gt;Usage and Handling of Components&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;If you create a component entry, most likely you will go ahead with a release entry, otherwise, the component stays an empty shell&lt;/li&gt;
+&lt;li&gt;Uploading source packages / actual software as attachment makes sense at the release, not at the component&lt;/li&gt;
+&lt;li&gt;If you have created a component and release entry, you can go ahead and assign a vendor to a release.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This very clear approach enables a number of issues, please keep the following goals in mind:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Duplicate entries need to be removed&lt;/li&gt;
+&lt;li&gt;Separating vendor from components names and release tags brings clarity to component naming&lt;/li&gt;
+&lt;li&gt;Interaction with other systems is a must today. As such we need to support external ids such as the CPE standard which also implement this 3-parts separation&lt;/li&gt;
+&lt;li&gt;Having the clear modelling of data enables better search and filtering abilities of the component catalogue.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;checklist&#34;&gt;Checklist&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Does the component already exist on SW360 (think about possible different names)?&lt;/li&gt;
+&lt;li&gt;What is the name of the component homepage?&lt;/li&gt;
+&lt;li&gt;What is the name of the community? Please note that repositories like Maven, GitHub, CodePlex, - CodeGuru are not vendors in our understanding!&lt;/li&gt;
+&lt;li&gt;How is component called on repositories like Maven, NuGet, etc.?&lt;/li&gt;
+&lt;li&gt;Take care: use the name and not the id!&lt;/li&gt;
+&lt;li&gt;Search SW360 for the component repository id.&lt;/li&gt;
+&lt;li&gt;Search SW360 for all possible name variations.&lt;/li&gt;
+&lt;li&gt;Ask your local software clearing expert for help.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;naming-a-component---special-cases&#34;&gt;Naming a Component - Special Cases&lt;/h2&gt;
+&lt;h3 id=&#34;net-component-from-github&#34;&gt;.Net Component from GitHub&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;SW360_NamingaComponentimage/draft_30.png&#34; alt=&#34;draft_30&#34;&gt; In some case it is difficult to determine the real name of a component, like for example &lt;em&gt;Microsoft Entity Framework for .Net Core (or Entity Framework Core or Aspnet EntityFrameworkCore or ASP.NET EntityFrameworkCore)&lt;/em&gt;. In these cases it might be the best way to use that package name as specified on Nuget, in this case &lt;strong&gt;Microsoft.EntityFrameworkCore&lt;/strong&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;java-components&#34;&gt;Java Components&lt;/h3&gt;
+&lt;p&gt;The name of a Java component should be how it is called by the Java community. Typically this is the name as it can be found on the project homepage or on the source code repository page.&lt;/p&gt;
+&lt;p&gt;Examples:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&amp;lsquo;Spring Framework&amp;rsquo; (from project home page &lt;a href=&#34;https://spring.io/projects&#34;&gt;&lt;span style=&#34;color:red&#34;&gt;↗&lt;/span&gt; https://spring.io/projects&lt;/a&gt; or also from source code repository &lt;a href=&#34;https://github.com/spring-projects/spring-framework&#34;&gt;&lt;span style=&#34;color:red&#34;&gt;↗&lt;/span&gt; https://github.com/spring-projects/spring-framework&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;&amp;lsquo;Spring Data Redis&amp;rsquo; (from project home page &lt;a href=&#34;https://spring.io/projects/spring-data&#34;&gt;&lt;span style=&#34;color:red&#34;&gt;↗&lt;/span&gt; https://spring.io/projects/spring-data&lt;/a&gt; or also from source code repository &lt;a href=&#34;https://github.com/spring-projects/spring-data-redis&#34;&gt;&lt;span style=&#34;color:red&#34;&gt;↗&lt;/span&gt; https://github.com/spring-projects/spring-data-redis&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;&amp;lsquo;Thymeleaf&amp;rsquo; (from project home page &lt;a href=&#34;https://www.thymeleaf.org/&#34;&gt;&lt;span style=&#34;color:red&#34;&gt;↗&lt;/span&gt; https://www.thymeleaf.org/&lt;/a&gt;; source code repository &lt;a href=&#34;https://github.com/thymeleaf/thymeleaf&#34;&gt;&lt;span style=&#34;color:red&#34;&gt;↗&lt;/span&gt; https://github.com/thymeleaf/thymeleaf&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;&amp;lsquo;Thymeleaf Spring 5 Integration&amp;rsquo; (from project home page &lt;a href=&#34;https://www.thymeleaf.org/download.html&#34;&gt;&lt;span style=&#34;color:red&#34;&gt;↗&lt;/span&gt; https://www.thymeleaf.org/download.html&lt;/a&gt; or source code repository page &lt;a href=&#34;https://github.com/thymeleaf/thymeleaf-spring&#34;&gt;&lt;span style=&#34;color:red&#34;&gt;↗&lt;/span&gt; https://github.com/thymeleaf/thymeleaf-spring&lt;/a&gt; → &lt;a href=&#34;https://github.com/thymeleaf/thymeleaf-spring/tree/3.0-master/thymeleaf-spring5&#34;&gt;&lt;span style=&#34;color:red&#34;&gt;↗&lt;/span&gt; thymeleaf-spring5&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&amp;lsquo;Commons Codec&amp;rsquo; (from project home page &lt;a href=&#34;https://commons.apache.org/proper/commons-codec/&#34;&gt;&lt;span style=&#34;color:red&#34;&gt;↗&lt;/span&gt; https://commons.apache.org/proper/commons-codec/&lt;/a&gt; or source code repository page &lt;a href=&#34;https://github.com/apache/commons-codec&#34;&gt;&lt;span style=&#34;color:red&#34;&gt;↗&lt;/span&gt; https://github.com/apache/commons-codec&lt;/a&gt;) [or better &amp;lsquo;Apache Commons Codec&amp;rsquo;? But &amp;lsquo;Apache&amp;rsquo; is already the vendor&amp;rsquo;]&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Do not use jar names or Gradle/Maven artifactIds, like &amp;lsquo;spring-framework&amp;rsquo;. Main reason is that from such a name one cannot see if this component is a whole component (here the Spring Framework) or only the Java archive spring-framework-&lt;version&gt;.jar (which is only a subset of the Spring Framework)!&lt;/p&gt;
+&lt;p&gt;Hierarchical Java components:&lt;/p&gt;
+&lt;p&gt;Java components often consist of multiple subcomponents (typically jars) where the sources are stored in a hierarchical structure in the source code repoistory. E.g. for &amp;lsquo;Spring Framework&amp;rsquo; there is one repository &lt;a href=&#34;https://github.com/spring-projects/spring-framework&#34;&gt;&lt;span style=&#34;color:red&#34;&gt;↗&lt;/span&gt; https://github.com/spring-projects/spring-framework&lt;/a&gt; with several sub folders for individual jars. In general for such cases there should be only one (main) component in SW360 covering all the subcomponents.&lt;/p&gt;
+&lt;p&gt;In some exceptional cases one wants to do the clearing only for one subcomponent or a subset of a hierarchical components. In such a case one can either add the name of the sub component to the component name to mark the subset (like &amp;lsquo;Thymeleaf Spring 5 Integration&amp;rsquo; above, showing that only the Spring 5 related is covered, and not Spring 3 or 4) or one could use the name of the top level component (like &amp;lsquo;Thymeleaf Spring Integration&amp;rsquo;) and have seprate releases for the subset (&amp;lsquo;3.0.9.RELEASE Spring 5&amp;rsquo;).&lt;/p&gt;
+&lt;p&gt;Identifying a (new or existing) SW360 component for a java archive:&lt;/p&gt;
+&lt;p&gt;Java developers typically have to start with a Java archive which they want to add to a product, or with the related Gradle/Maven coordinates (groupId/artifactId/version). Possible ways to identify the related component (name) are: examine the related pom.xml or the MANIFEST.MF file of the jar. There one can often find more information like the community homepage or source code repository URL from which then again to determine the component (name).&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Unfortunately SW360 does not provide any support here (besides searching for the artifactId and thus hopefully find the related component). It would be a good idea to store also the Gradle/Maven coordinates of Java binaries with the SW360 components and make them searchable (note: multiple artifactIds per component need to be supported!) and/or to also upload and store the binaries of a registerd SW360 component (or at least the file hashes) and provide additional functionality to identify an unknown binary by uploading the same to SW360.&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id=&#34;component-scope&#34;&gt;Component Scope&lt;/h2&gt;
+&lt;p&gt;We base software clearing for open source components on the scan of the source code. If there is only one common source code for a group of components, then it does not make sense to have a lot of distinct (sub)component that all point to a common source.&lt;/p&gt;
+&lt;h3 id=&#34;example&#34;&gt;Example&lt;/h3&gt;
+&lt;p&gt;There is a Java component called Logback (&lt;a href=&#34;https://logback.qos.ch/&#34;&gt;&lt;span style=&#34;color:red&#34;&gt;↗&lt;/span&gt; https://logback.qos.ch/&lt;/a&gt;). There is only one singe source (and binary) archive available from the original authors. This archive contains three Java libraries: logback-core.jar, logback-access.jar and logback-classic.jar. In &lt;strong&gt;SW360 there should be only one component Logback!&lt;/strong&gt; It is confusing to have also &amp;ldquo;Logback core&amp;rdquo;, &amp;ldquo;logback-core&amp;rdquo;, &amp;ldquo;logback core&amp;rdquo;, &amp;ldquo;logback classic&amp;rdquo; and &amp;ldquo;logback-classic&amp;rdquo;.&lt;/p&gt;
+&lt;h2 id=&#34;naming-a-component--span-stylecolorredbad-examplesspan&#34;&gt;Naming a Component – &lt;span style=&#34;color:red&#34;&gt;Bad Examples&lt;/span&gt;&lt;/h2&gt;
+&lt;h3 id=&#34;jsonnet&#34;&gt;Json.Net&lt;/h3&gt;
+&lt;p&gt;There is a component that is available on NuGet by the name &amp;lsquo;Json.NET&amp;rsquo; and the id &amp;lsquo;Newtonsoft.Json&amp;rsquo;. On the component homepage &lt;a href=&#34;http://www.newtonsoft.com/json&#34;&gt;&lt;span style=&#34;color:red&#34;&gt;↗&lt;/span&gt; http://www.newtonsoft.com/json&lt;/a&gt; it is called &amp;lsquo;Json.NET&amp;rsquo;.&lt;/p&gt;
+&lt;p&gt;Just some examples of naming and how it could be improved:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;14 x Vendor = &amp;lsquo;Open Source Software&amp;rsquo;, Name = &amp;lsquo;Json.NET&amp;rsquo; =&amp;gt; &lt;strong&gt;wrong&lt;/strong&gt;!&lt;/li&gt;
+&lt;li&gt;1 x Vendor = &amp;lsquo;Newtonsoft&amp;rsquo;, Name = &amp;lsquo;Json.NET (COTS)&amp;rsquo; =&amp;gt; &lt;strong&gt;wrong&lt;/strong&gt;!&lt;/li&gt;
+&lt;li&gt;2 x Vendor = &amp;lsquo;NuGet Gallery&amp;rsquo;, Name = Json.NET&amp;rsquo; =&amp;gt; &lt;strong&gt;wrong&lt;/strong&gt;!&lt;/li&gt;
+&lt;li&gt;1 x Vendor = &amp;lsquo;CodePlex&amp;rsquo;, Name = Json.NET&amp;rsquo; =&amp;gt; &lt;strong&gt;wrong&lt;/strong&gt;!&lt;/li&gt;
+&lt;li&gt;4 x Vendor = &amp;lsquo;Open Source Software&amp;rsquo;, Name = &amp;lsquo;Newtonsoft Json.NET&amp;rsquo; =&amp;gt; &lt;strong&gt;wrong&lt;/strong&gt;!&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The proper identification (Vendor = &amp;lsquo;Newtonsoft&amp;rsquo;, Name = &amp;lsquo;Json.NET&amp;rsquo;) has to be used!&lt;/p&gt;
+&lt;h3 id=&#34;oracle-javabeans-activation-framework&#34;&gt;Oracle JavaBeans Activation Framework&lt;/h3&gt;
+&lt;p&gt;Just some examples of naming and how it could be improved:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;3 x Vendor = &amp;lsquo;Open Source Software&amp;rsquo;, Name = &amp;lsquo;Activation&amp;rsquo; =&amp;gt; &lt;strong&gt;wrong&lt;/strong&gt;!&lt;/li&gt;
+&lt;li&gt;3 x Vendor = &amp;lsquo;Open Source Software&amp;rsquo;, Name = &amp;lsquo;Oracle JavaBeans Activation Framework&amp;rsquo;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;oracle-java-mail&#34;&gt;Oracle Java Mail&lt;/h3&gt;
+&lt;p&gt;Just some examples of naming and how it could be improved:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;3 x Vendor = &amp;lsquo;Open Source Software&amp;rsquo;, Name = &amp;lsquo;Mail&amp;rsquo; =&amp;gt; &lt;strong&gt;wrong&lt;/strong&gt;!&lt;/li&gt;
+&lt;li&gt;5 x Vendor = &amp;lsquo;Open Source Software&amp;rsquo;, Name = &amp;lsquo;Oracle JavaMail API&amp;rsquo; =&amp;gt; &lt;strong&gt;wrong&lt;/strong&gt;!&lt;/li&gt;
+&lt;li&gt;4 x Vendor = &amp;lsquo;Oracle&amp;rsquo;, Name = &amp;lsquo;Oracle JavaMail API&amp;rsquo;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;momentjs&#34;&gt;Moment.js&lt;/h3&gt;
+&lt;p&gt;Just some examples of naming and how it could be improved:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;7 x Vendor = &amp;lsquo;GitHub&amp;rsquo;, Name = &amp;lsquo;moment&amp;rsquo; =&amp;gt; &lt;strong&gt;wrong&lt;/strong&gt;!&lt;/li&gt;
+&lt;li&gt;2 x Vendor = &amp;lsquo;Open Source Software&amp;rsquo;, Name = &amp;lsquo;moment&amp;rsquo; =&amp;gt; &lt;strong&gt;wrong&lt;/strong&gt;!&lt;/li&gt;
+&lt;li&gt;2 x Vendor = &amp;lsquo;Open Source Software&amp;rsquo;, Name = &amp;lsquo;Moment JS&amp;rsquo; =&amp;gt; &lt;strong&gt;wrong&lt;/strong&gt;!&lt;/li&gt;
+&lt;li&gt;3 x Vendor = &amp;lsquo;Open Source Software&amp;rsquo;, Name = &amp;lsquo;MomentJS&amp;rsquo; =&amp;gt; &lt;strong&gt;wrong&lt;/strong&gt;!&lt;/li&gt;
+&lt;li&gt;3 x Vendor = &amp;lsquo;Open Source Software&amp;rsquo;, Name = &amp;lsquo;Moment.js&amp;rsquo;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Just look on the community homepage: there is the name in bold letters:
+Moment.js – consider this name.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Attachment File Types</title>
+      <link>https://www.eclipse.org/sw360/docs/userguide/bestpractices/user-attachment-file-types/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/sw360/docs/userguide/bestpractices/user-attachment-file-types/</guid>
+      <description>
+        
+        
+        &lt;p&gt;SW360 maintains attachments for projects, components and releases. Currently, SW360 cannot automatically detect these types and is dependent on that users select the appropriate type accordingly. If not, some functionality will not properly kick of that uses such attachments.&lt;/p&gt;
+&lt;p&gt;Also, maybe some of the types are redundant by now and are just legacy ideas that should be reviewed after two years now.&lt;/p&gt;
+&lt;p&gt;In summary, the following the types currently are as follows:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Type name&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Functionality&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;SOURCE&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;for sending to tools&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Source packages of a release as found on the Internet&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;COMPONENT_LICENSE_INFO_XML&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;for project documentation generation&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;An XML-based description of the licenses and coprights involved&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;DESIGN&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;n.a.&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Just nomenclature to name this not document&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;REQUIREMENT&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;n.a.&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Just a general placeholder for an attachment&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;DOCUMENT&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;n.a.&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Just a general placeholder for an attachment&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;CLEARING_REPORT&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Setting clearing status&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Reporting information for component license state&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;COMPONENT_LICENSE_INFO_COMBINED&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;(should be) for project documentation generation&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Multiple components with component license information&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;SCAN_RESULT_REPORT&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;n.a.&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Just description what scanners found without conclusions&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;SCAN_RESULT_REPORT_XML&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;n.a.&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Just description what scanners found without conclusions in XML&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;SOURCE_SELF&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;(should be) for sending to tools&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Source packages build self, because not available in the Internet&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;BINARY&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;future: for sending to tool doing binary analysis&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Binary from the publisher&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;BINARY_SELF&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;future: for sending to tool doing binary analysis&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Self built binary&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;DECISION_REPORT&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;n.a.&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Decision information ref. the component&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;LEGAL_EVALUATION&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;n.a.&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Internally created legal evaluation&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;LICENSE_AGREEMENT&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;n.a.&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Document describing the license agreement&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;SCREENSHOT&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;n.a.&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;If licensing information is captured with screenshot&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;OTHER&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;n.a.&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;If not document&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Record Creation</title>
+      <link>https://www.eclipse.org/sw360/docs/userguide/bestpractices/good-record-creation-structure/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/sw360/docs/userguide/bestpractices/good-record-creation-structure/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;how-to-create-component-entries&#34;&gt;How to Create (Component) Entries?&lt;/h2&gt;
+&lt;p&gt;In order to have a clean and useful catalogue, data hygiene is very important. The main goal is to have clean component / release datasets that allow for versatile use and seamless integration with other systems (see the Handling of Components above). When creating a component, please consider the following rules:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;What is the name of the vendor, the name of the component and what is the release designator?&lt;/li&gt;
+&lt;li&gt;For the Vendor
+&lt;ul&gt;
+&lt;li&gt;Does a CPE entry exist?
+&lt;ul&gt;
+&lt;li&gt;Look here: &lt;a href=&#34;https://nvd.nist.gov/cpe.cfm&#34;&gt;&lt;span style=&#34;color:red&#34;&gt;↗&lt;/span&gt; https://nvd.nist.gov/cpe.cfm&lt;/a&gt; or &lt;a href=&#34;http://scap.nist.gov/specifications/cpe/dictionary.html&#34;&gt;&lt;span style=&#34;color:red&#34;&gt;↗&lt;/span&gt; http://scap.nist.gov/specifications/cpe/dictionary.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Use the same writing as found in the CPE dictionary&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;A CPE does not exist?
+&lt;ul&gt;
+&lt;li&gt;Who is the copyright holder: an organization?
+&lt;ul&gt;
+&lt;li&gt;Use this organization name without &amp;ldquo;inc&amp;rdquo;, &amp;ldquo;Gmbh&amp;rdquo;, etc.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;A person
+&lt;ul&gt;
+&lt;li&gt;Look at the CPE dictionaries for example&lt;/li&gt;
+&lt;li&gt;They use first name last name with &amp;ldquo;_&amp;rdquo;, for example &amp;ldquo;Wedge_Antilles&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;For a component
+&lt;ul&gt;
+&lt;li&gt;Again, does a CPE entry exist?&lt;/li&gt;
+&lt;li&gt;Separate Component name from release designation&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;For a release
+&lt;ul&gt;
+&lt;li&gt;Do not repeat the component name&lt;/li&gt;
+&lt;li&gt;Use the release designation as provided by the software package&lt;/li&gt;
+&lt;li&gt;Avoid prefixes, such as &amp;ldquo;version&amp;rdquo;, &amp;ldquo;v&amp;rdquo; etc&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;For special cases:
+&lt;ul&gt;
+&lt;li&gt;If you upload a part of a release software package, create a &lt;strong&gt;separate&lt;/strong&gt; release for this&lt;/li&gt;
+&lt;li&gt;For example &amp;ldquo;2.0-MODIFIED&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;Consider that leaving items out from a software release is actually a modification&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;how-to-create-vendors&#34;&gt;How to Create Vendors&lt;/h2&gt;
+&lt;p&gt;In order to have a vendor record in the sw360, then choosing a name is important. The vendor in SW360 is the real &amp;ldquo;manufacturer&amp;rdquo; independently from where you download it.&lt;/p&gt;
+&lt;p&gt;There are different cases:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;COTS:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Obvious case: use vendor short name in CPE style and long name for the actual company name (Apple Inc. vs. Apple)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;You could even search for an existing vendor entry in the CPE dictionary to get existing vendor naming rules and use this as short name.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Consider the following link: &lt;a href=&#34;https://nvd.nist.gov/products/cpe/search&#34;&gt;&lt;span style=&#34;color:red&#34;&gt;↗&lt;/span&gt;  https://nvd.nist.gov/products/cpe/search&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Vendor is actually entity that is contract partner, but is confusing: for Microsoft products, there could be a Microsoft certified solution partner which is the vendor, this must mapped differently in the SW360.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;General rule&lt;/strong&gt;: Vendor is meant to be manufacturing party not distributing / delivering party.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Freeware&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Problem is that freeware has an author, but also different &amp;ldquo;vendors&amp;rdquo; in terms of where it could be downloaded from. This is difficult because different download Web site may involve different licensing conditions.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;OSS:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Community name, e.g. zlib project for zlib.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Or the org name of the github orgname or sourceforge group name&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Do not use &amp;ldquo;Github&amp;rdquo; or &amp;ldquo;Sourceforge&amp;rdquo; as vendor&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;However, foundations, publishing the software would be a vendor, e.g. &amp;ldquo;Apache&amp;rdquo;, &amp;ldquo;Eclipse&amp;rdquo;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;But eclipse has a github organization anyway, for example&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;With single author projects should you take the author name. A &amp;ldquo;john_doe&amp;rdquo; from John Doe as short name.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Note that very release has its own vendor. as a consequence:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;There could be a release from one Web page and one release downloaded from another Web page. If there is different licensing or sources involved, this could be a solution.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;naming-a-vendor&#34;&gt;Naming a Vendor&lt;/h2&gt;
+&lt;p&gt;Each release of a component has a vendor or community. Having unambiguous vendor names is very helpful for managing 3rd party software components.&lt;/p&gt;
+&lt;p&gt;Required information:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Full name&lt;/strong&gt; - The full name of the company, organization or person.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Short name&lt;/strong&gt; - A good short name, compatible to CPE (see section 8.3)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;URL&lt;/strong&gt; - The URL of the organization or a URL where we can get more information about a person.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;how-to-find-a-good-vendor-name&#34;&gt;How to find a (good) vendor name?&lt;/h3&gt;
+&lt;p&gt;Some guidelines&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;If there is a company (Microsoft, Oracle, Pivotal, etc.) behind the component, that&amp;rsquo;s most probably the right vendor name.&lt;/li&gt;
+&lt;li&gt;If there is an well known open source community (Apache, Eclipse, etc.) behind the component, that&amp;rsquo;s is the right vendor name.&lt;/li&gt;
+&lt;li&gt;If there is only a single person developing the component, then this is the vendor.&lt;/li&gt;
+&lt;li&gt;If there is a GitHub organization name or person name available, use this one.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;No vendor names are&lt;/strong&gt;: &amp;lsquo;Open Source Software&amp;rsquo;, &amp;lsquo;NuGet Gallery&amp;rsquo;, &amp;lsquo;CodePlex&amp;rsquo;, &amp;lsquo;Codeguru&amp;rsquo;, &amp;lsquo;Stack Overflow&amp;rsquo;, &amp;lsquo;CodeProject&amp;rsquo;, etc. as these or only platform, where vendors can offer the projects and these name do not help to identify projects.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;examples&#34;&gt;Examples&lt;/h3&gt;
+&lt;h4 id=&#34;microsoft&#34;&gt;Microsoft&lt;/h4&gt;
+&lt;p&gt;Full name = Microsoft Corporation&lt;/p&gt;
+&lt;p&gt;Short name = Microsoft&lt;/p&gt;
+&lt;p&gt;URL = &lt;a href=&#34;https://www.microsoft.com/en-in/&#34;&gt;&lt;span style=&#34;color:red&#34;&gt;↗&lt;/span&gt; www.microsoft.com&lt;/a&gt;&lt;/p&gt;
+&lt;h4 id=&#34;apache&#34;&gt;Apache&lt;/h4&gt;
+&lt;p&gt;Full name = Apache Software Foundation&lt;/p&gt;
+&lt;p&gt;Short name = Apache&lt;/p&gt;
+&lt;p&gt;URL = &lt;a href=&#34;http://www.apache.org/&#34;&gt;&lt;span style=&#34;color:red&#34;&gt;↗&lt;/span&gt; http://www.apache.org/&lt;/a&gt;&lt;/p&gt;
+&lt;h4 id=&#34;constantin-titarenko&#34;&gt;Constantin Titarenko&lt;/h4&gt;
+&lt;p&gt;Full name = Constantin Titarenko&lt;/p&gt;
+&lt;p&gt;Short name = constantin_titarenko (Note the underscore!)&lt;/p&gt;
+&lt;p&gt;URL = &lt;a href=&#34;https://github.com/titarenko&#34;&gt;&lt;span style=&#34;color:red&#34;&gt;↗&lt;/span&gt; https://github.com/titarenko&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;how-to-determine-the-cpe&#34;&gt;How to determine the CPE?&lt;/h2&gt;
+&lt;p&gt;The Common Platform Enumeration (CPE) is used to have an unambiguous identification of a specific component release. This information is especially needed to find matching security vulnerability information.&lt;/p&gt;
+&lt;h3 id=&#34;syntax-of-a-cpe-entry&#34;&gt;Syntax of a CPE Entry&lt;/h3&gt;
+&lt;p&gt;The syntax of a CPE entry is defined as:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;cpe:&amp;lt;CPE-Version&amp;gt;:&amp;lt;part&amp;gt;:&amp;lt;vendor&amp;gt;:&amp;lt;product&amp;gt;:&amp;lt;version&amp;gt;:&amp;lt;update&amp;gt;:&amp;lt;edition&amp;gt;:&amp;lt;language&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;CPE-Version&lt;/strong&gt; refers to the CPE naming format version. We will always use version 2.3&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;part&lt;/strong&gt; refers to the type of the component (a = application, o = operating system, h =hardware device)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;vendor&lt;/strong&gt; refers to the vendor or author of the component. Only small letters are allowed.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;product&lt;/strong&gt; refers to the name of the product. Only small letters are allowed.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;version&lt;/strong&gt; refers to the version of the product.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;update&lt;/strong&gt; refers to the updates of this specific version&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;edition&lt;/strong&gt; and &lt;strong&gt;language&lt;/strong&gt; can be used to specify more details&lt;/p&gt;
+&lt;p&gt;Non-existing or unknown party can get replaced by the placeholder &amp;lsquo;*&amp;rsquo;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt;: only small letters are allowed. Spaces have to be replaced by underlines &amp;lsquo;_&amp;rsquo;.&lt;/p&gt;
+&lt;h3 id=&#34;examples-1&#34;&gt;Examples&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Microsoft .Net Framework, version 1.0 SP2&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;cpe:2.3:a:microsoft:.net_framework:1.0:sp2:*:*:*:*:*:*&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Apache ActiveMQ, version 4.0&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;cpe:2.3:a:apache:activemq:4.0:*:*:*:*:*:*:*&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Apache log4net, version 1.2.9 beta&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;cpe:2.3:a:apache:log4net:1.2.9_beta:*:*:*:*:*:*:*&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Oracle Java Runtime, version 1.7.0, update 51&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;cpe:2.3:a:oracle:jre:1.7.0:update_51:*:*:*:*:*:*&lt;/code&gt;&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
       <title>Docs: License Naming</title>
       <link>https://www.eclipse.org/sw360/docs/userguide/bestpractices/license-naming/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -209,278 +659,6 @@
 &lt;li&gt;How to deal with notice files&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;(1) &lt;a href=&#34;https://spdx.org/spdx-specification-21-web-version&#34;&gt;&lt;span style=&#34;color:red&#34;&gt;↗&lt;/span&gt; https://spdx.org/spdx-specification-21-web-version&lt;/a&gt;&lt;/p&gt;
-
-      </description>
-    </item>
-    
-    <item>
-      <title>Docs: Naming a Component</title>
-      <link>https://www.eclipse.org/sw360/docs/userguide/bestpractices/component-naming/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.eclipse.org/sw360/docs/userguide/bestpractices/component-naming/</guid>
-      <description>
-        
-        
-        &lt;p&gt;&lt;strong&gt;The name is the most important criteria to identify software components. Unfortunately there is no common naming scheme available.&lt;/strong&gt;&lt;/p&gt;
-&lt;h2 id=&#34;usage-and-handling-of-components&#34;&gt;Usage and Handling of Components&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;If you create a component entry, most likely you will go ahead with a release entry, otherwise, the component stays an empty shell&lt;/li&gt;
-&lt;li&gt;Uploading source packages / actual software as attachment makes sense at the release, not at the component&lt;/li&gt;
-&lt;li&gt;If you have created a component and release entry, you can go ahead and assign a vendor to a release.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;This very clear approach enables a number of issues, please keep the following goals in mind:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Duplicate entries need to be removed&lt;/li&gt;
-&lt;li&gt;Separating vendor from components names and release tags brings clarity to component naming&lt;/li&gt;
-&lt;li&gt;Interaction with other systems is a must today. As such we need to support external ids such as the CPE standard which also implement this 3-parts separation&lt;/li&gt;
-&lt;li&gt;Having the clear modelling of data enables better search and filtering abilities of the component catalogue.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;checklist&#34;&gt;Checklist&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Does the component already exist on SW360 (think about possible different names)?&lt;/li&gt;
-&lt;li&gt;What is the name of the component homepage?&lt;/li&gt;
-&lt;li&gt;What is the name of the community? Please note that repositories like Maven, GitHub, CodePlex, - CodeGuru are not vendors in our understanding!&lt;/li&gt;
-&lt;li&gt;How is component called on repositories like Maven, NuGet, etc.?&lt;/li&gt;
-&lt;li&gt;Take care: use the name and not the id!&lt;/li&gt;
-&lt;li&gt;Search SW360 for the component repository id.&lt;/li&gt;
-&lt;li&gt;Search SW360 for all possible name variations.&lt;/li&gt;
-&lt;li&gt;Ask your local software clearing expert for help.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;naming-a-component---special-cases&#34;&gt;Naming a Component - Special Cases&lt;/h2&gt;
-&lt;h3 id=&#34;net-component-from-github&#34;&gt;.Net Component from GitHub&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;SW360_NamingaComponentimage/draft_30.png&#34; alt=&#34;draft_30&#34;&gt; In some case it is difficult to determine the real name of a component, like for example &lt;em&gt;Microsoft Entity Framework for .Net Core (or Entity Framework Core or Aspnet EntityFrameworkCore or ASP.NET EntityFrameworkCore)&lt;/em&gt;. In these cases it might be the best way to use that package name as specified on Nuget, in this case &lt;strong&gt;Microsoft.EntityFrameworkCore&lt;/strong&gt;.&lt;/p&gt;
-&lt;h3 id=&#34;java-components&#34;&gt;Java Components&lt;/h3&gt;
-&lt;p&gt;The name of a Java component should be how it is called by the Java community. Typically this is the name as it can be found on the project homepage or on the source code repository page.&lt;/p&gt;
-&lt;p&gt;Examples:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&amp;lsquo;Spring Framework&amp;rsquo; (from project home page &lt;a href=&#34;https://spring.io/projects&#34;&gt;&lt;span style=&#34;color:red&#34;&gt;↗&lt;/span&gt; https://spring.io/projects&lt;/a&gt; or also from source code repository &lt;a href=&#34;https://github.com/spring-projects/spring-framework&#34;&gt;&lt;span style=&#34;color:red&#34;&gt;↗&lt;/span&gt; https://github.com/spring-projects/spring-framework&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;&amp;lsquo;Spring Data Redis&amp;rsquo; (from project home page &lt;a href=&#34;https://spring.io/projects/spring-data&#34;&gt;&lt;span style=&#34;color:red&#34;&gt;↗&lt;/span&gt; https://spring.io/projects/spring-data&lt;/a&gt; or also from source code repository &lt;a href=&#34;https://github.com/spring-projects/spring-data-redis&#34;&gt;&lt;span style=&#34;color:red&#34;&gt;↗&lt;/span&gt; https://github.com/spring-projects/spring-data-redis&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;&amp;lsquo;Thymeleaf&amp;rsquo; (from project home page &lt;a href=&#34;https://www.thymeleaf.org/&#34;&gt;&lt;span style=&#34;color:red&#34;&gt;↗&lt;/span&gt; https://www.thymeleaf.org/&lt;/a&gt;; source code repository &lt;a href=&#34;https://github.com/thymeleaf/thymeleaf&#34;&gt;&lt;span style=&#34;color:red&#34;&gt;↗&lt;/span&gt; https://github.com/thymeleaf/thymeleaf&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;&amp;lsquo;Thymeleaf Spring 5 Integration&amp;rsquo; (from project home page &lt;a href=&#34;https://www.thymeleaf.org/download.html&#34;&gt;&lt;span style=&#34;color:red&#34;&gt;↗&lt;/span&gt; https://www.thymeleaf.org/download.html&lt;/a&gt; or source code repository page &lt;a href=&#34;https://github.com/thymeleaf/thymeleaf-spring&#34;&gt;&lt;span style=&#34;color:red&#34;&gt;↗&lt;/span&gt; https://github.com/thymeleaf/thymeleaf-spring&lt;/a&gt; → &lt;a href=&#34;https://github.com/thymeleaf/thymeleaf-spring/tree/3.0-master/thymeleaf-spring5&#34;&gt;&lt;span style=&#34;color:red&#34;&gt;↗&lt;/span&gt; thymeleaf-spring5&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&amp;lsquo;Commons Codec&amp;rsquo; (from project home page &lt;a href=&#34;https://commons.apache.org/proper/commons-codec/&#34;&gt;&lt;span style=&#34;color:red&#34;&gt;↗&lt;/span&gt; https://commons.apache.org/proper/commons-codec/&lt;/a&gt; or source code repository page &lt;a href=&#34;https://github.com/apache/commons-codec&#34;&gt;&lt;span style=&#34;color:red&#34;&gt;↗&lt;/span&gt; https://github.com/apache/commons-codec&lt;/a&gt;) [or better &amp;lsquo;Apache Commons Codec&amp;rsquo;? But &amp;lsquo;Apache&amp;rsquo; is already the vendor&amp;rsquo;]&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Do not use jar names or Gradle/Maven artifactIds, like &amp;lsquo;spring-framework&amp;rsquo;. Main reason is that from such a name one cannot see if this component is a whole component (here the Spring Framework) or only the Java archive spring-framework-&lt;version&gt;.jar (which is only a subset of the Spring Framework)!&lt;/p&gt;
-&lt;p&gt;Hierarchical Java components:&lt;/p&gt;
-&lt;p&gt;Java components often consist of multiple subcomponents (typically jars) where the sources are stored in a hierarchical structure in the source code repoistory. E.g. for &amp;lsquo;Spring Framework&amp;rsquo; there is one repository &lt;a href=&#34;https://github.com/spring-projects/spring-framework&#34;&gt;&lt;span style=&#34;color:red&#34;&gt;↗&lt;/span&gt; https://github.com/spring-projects/spring-framework&lt;/a&gt; with several sub folders for individual jars. In general for such cases there should be only one (main) component in SW360 covering all the subcomponents.&lt;/p&gt;
-&lt;p&gt;In some exceptional cases one wants to do the clearing only for one subcomponent or a subset of a hierarchical components. In such a case one can either add the name of the sub component to the component name to mark the subset (like &amp;lsquo;Thymeleaf Spring 5 Integration&amp;rsquo; above, showing that only the Spring 5 related is covered, and not Spring 3 or 4) or one could use the name of the top level component (like &amp;lsquo;Thymeleaf Spring Integration&amp;rsquo;) and have seprate releases for the subset (&amp;lsquo;3.0.9.RELEASE Spring 5&amp;rsquo;).&lt;/p&gt;
-&lt;p&gt;Identifying a (new or existing) SW360 component for a java archive:&lt;/p&gt;
-&lt;p&gt;Java developers typically have to start with a Java archive which they want to add to a product, or with the related Gradle/Maven coordinates (groupId/artifactId/version). Possible ways to identify the related component (name) are: examine the related pom.xml or the MANIFEST.MF file of the jar. There one can often find more information like the community homepage or source code repository URL from which then again to determine the component (name).&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;Unfortunately SW360 does not provide any support here (besides searching for the artifactId and thus hopefully find the related component). It would be a good idea to store also the Gradle/Maven coordinates of Java binaries with the SW360 components and make them searchable (note: multiple artifactIds per component need to be supported!) and/or to also upload and store the binaries of a registerd SW360 component (or at least the file hashes) and provide additional functionality to identify an unknown binary by uploading the same to SW360.&lt;/em&gt;&lt;/p&gt;
-&lt;h2 id=&#34;component-scope&#34;&gt;Component Scope&lt;/h2&gt;
-&lt;p&gt;We base software clearing for open source components on the scan of the source code. If there is only one common source code for a group of components, then it does not make sense to have a lot of distinct (sub)component that all point to a common source.&lt;/p&gt;
-&lt;h3 id=&#34;example&#34;&gt;Example&lt;/h3&gt;
-&lt;p&gt;There is a Java component called Logback (&lt;a href=&#34;https://logback.qos.ch/&#34;&gt;&lt;span style=&#34;color:red&#34;&gt;↗&lt;/span&gt; https://logback.qos.ch/&lt;/a&gt;). There is only one singe source (and binary) archive available from the original authors. This archive contains three Java libraries: logback-core.jar, logback-access.jar and logback-classic.jar. In &lt;strong&gt;SW360 there should be only one component Logback!&lt;/strong&gt; It is confusing to have also &amp;ldquo;Logback core&amp;rdquo;, &amp;ldquo;logback-core&amp;rdquo;, &amp;ldquo;logback core&amp;rdquo;, &amp;ldquo;logback classic&amp;rdquo; and &amp;ldquo;logback-classic&amp;rdquo;.&lt;/p&gt;
-&lt;h2 id=&#34;naming-a-component--span-stylecolorredbad-examplesspan&#34;&gt;Naming a Component – &lt;span style=&#34;color:red&#34;&gt;Bad Examples&lt;/span&gt;&lt;/h2&gt;
-&lt;h3 id=&#34;jsonnet&#34;&gt;Json.Net&lt;/h3&gt;
-&lt;p&gt;There is a component that is available on NuGet by the name &amp;lsquo;Json.NET&amp;rsquo; and the id &amp;lsquo;Newtonsoft.Json&amp;rsquo;. On the component homepage &lt;a href=&#34;http://www.newtonsoft.com/json&#34;&gt;&lt;span style=&#34;color:red&#34;&gt;↗&lt;/span&gt; http://www.newtonsoft.com/json&lt;/a&gt; it is called &amp;lsquo;Json.NET&amp;rsquo;.&lt;/p&gt;
-&lt;p&gt;Just some examples of naming and how it could be improved:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;14 x Vendor = &amp;lsquo;Open Source Software&amp;rsquo;, Name = &amp;lsquo;Json.NET&amp;rsquo; =&amp;gt; &lt;strong&gt;wrong&lt;/strong&gt;!&lt;/li&gt;
-&lt;li&gt;1 x Vendor = &amp;lsquo;Newtonsoft&amp;rsquo;, Name = &amp;lsquo;Json.NET (COTS)&amp;rsquo; =&amp;gt; &lt;strong&gt;wrong&lt;/strong&gt;!&lt;/li&gt;
-&lt;li&gt;2 x Vendor = &amp;lsquo;NuGet Gallery&amp;rsquo;, Name = Json.NET&amp;rsquo; =&amp;gt; &lt;strong&gt;wrong&lt;/strong&gt;!&lt;/li&gt;
-&lt;li&gt;1 x Vendor = &amp;lsquo;CodePlex&amp;rsquo;, Name = Json.NET&amp;rsquo; =&amp;gt; &lt;strong&gt;wrong&lt;/strong&gt;!&lt;/li&gt;
-&lt;li&gt;4 x Vendor = &amp;lsquo;Open Source Software&amp;rsquo;, Name = &amp;lsquo;Newtonsoft Json.NET&amp;rsquo; =&amp;gt; &lt;strong&gt;wrong&lt;/strong&gt;!&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;The proper identification (Vendor = &amp;lsquo;Newtonsoft&amp;rsquo;, Name = &amp;lsquo;Json.NET&amp;rsquo;) has to be used!&lt;/p&gt;
-&lt;h3 id=&#34;oracle-javabeans-activation-framework&#34;&gt;Oracle JavaBeans Activation Framework&lt;/h3&gt;
-&lt;p&gt;Just some examples of naming and how it could be improved:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;3 x Vendor = &amp;lsquo;Open Source Software&amp;rsquo;, Name = &amp;lsquo;Activation&amp;rsquo; =&amp;gt; &lt;strong&gt;wrong&lt;/strong&gt;!&lt;/li&gt;
-&lt;li&gt;3 x Vendor = &amp;lsquo;Open Source Software&amp;rsquo;, Name = &amp;lsquo;Oracle JavaBeans Activation Framework&amp;rsquo;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;oracle-java-mail&#34;&gt;Oracle Java Mail&lt;/h3&gt;
-&lt;p&gt;Just some examples of naming and how it could be improved:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;3 x Vendor = &amp;lsquo;Open Source Software&amp;rsquo;, Name = &amp;lsquo;Mail&amp;rsquo; =&amp;gt; &lt;strong&gt;wrong&lt;/strong&gt;!&lt;/li&gt;
-&lt;li&gt;5 x Vendor = &amp;lsquo;Open Source Software&amp;rsquo;, Name = &amp;lsquo;Oracle JavaMail API&amp;rsquo; =&amp;gt; &lt;strong&gt;wrong&lt;/strong&gt;!&lt;/li&gt;
-&lt;li&gt;4 x Vendor = &amp;lsquo;Oracle&amp;rsquo;, Name = &amp;lsquo;Oracle JavaMail API&amp;rsquo;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;momentjs&#34;&gt;Moment.js&lt;/h3&gt;
-&lt;p&gt;Just some examples of naming and how it could be improved:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;7 x Vendor = &amp;lsquo;GitHub&amp;rsquo;, Name = &amp;lsquo;moment&amp;rsquo; =&amp;gt; &lt;strong&gt;wrong&lt;/strong&gt;!&lt;/li&gt;
-&lt;li&gt;2 x Vendor = &amp;lsquo;Open Source Software&amp;rsquo;, Name = &amp;lsquo;moment&amp;rsquo; =&amp;gt; &lt;strong&gt;wrong&lt;/strong&gt;!&lt;/li&gt;
-&lt;li&gt;2 x Vendor = &amp;lsquo;Open Source Software&amp;rsquo;, Name = &amp;lsquo;Moment JS&amp;rsquo; =&amp;gt; &lt;strong&gt;wrong&lt;/strong&gt;!&lt;/li&gt;
-&lt;li&gt;3 x Vendor = &amp;lsquo;Open Source Software&amp;rsquo;, Name = &amp;lsquo;MomentJS&amp;rsquo; =&amp;gt; &lt;strong&gt;wrong&lt;/strong&gt;!&lt;/li&gt;
-&lt;li&gt;3 x Vendor = &amp;lsquo;Open Source Software&amp;rsquo;, Name = &amp;lsquo;Moment.js&amp;rsquo;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Just look on the community homepage: there is the name in bold letters:
-Moment.js – consider this name.&lt;/p&gt;
-
-      </description>
-    </item>
-    
-    <item>
-      <title>Docs: Record Creation</title>
-      <link>https://www.eclipse.org/sw360/docs/userguide/bestpractices/good-record-creation-structure/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.eclipse.org/sw360/docs/userguide/bestpractices/good-record-creation-structure/</guid>
-      <description>
-        
-        
-        &lt;h2 id=&#34;how-to-create-component-entries&#34;&gt;How to Create (Component) Entries?&lt;/h2&gt;
-&lt;p&gt;In order to have a clean and useful catalogue, data hygiene is very important. The main goal is to have clean component / release datasets that allow for versatile use and seamless integration with other systems (see the Handling of Components above). When creating a component, please consider the following rules:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;What is the name of the vendor, the name of the component and what is the release designator?&lt;/li&gt;
-&lt;li&gt;For the Vendor
-&lt;ul&gt;
-&lt;li&gt;Does a CPE entry exist?
-&lt;ul&gt;
-&lt;li&gt;Look here: &lt;a href=&#34;https://nvd.nist.gov/cpe.cfm&#34;&gt;&lt;span style=&#34;color:red&#34;&gt;↗&lt;/span&gt; https://nvd.nist.gov/cpe.cfm&lt;/a&gt; or &lt;a href=&#34;http://scap.nist.gov/specifications/cpe/dictionary.html&#34;&gt;&lt;span style=&#34;color:red&#34;&gt;↗&lt;/span&gt; http://scap.nist.gov/specifications/cpe/dictionary.html&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Use the same writing as found in the CPE dictionary&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;A CPE does not exist?
-&lt;ul&gt;
-&lt;li&gt;Who is the copyright holder: an organization?
-&lt;ul&gt;
-&lt;li&gt;Use this organization name without &amp;ldquo;inc&amp;rdquo;, &amp;ldquo;Gmbh&amp;rdquo;, etc.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;A person
-&lt;ul&gt;
-&lt;li&gt;Look at the CPE dictionaries for example&lt;/li&gt;
-&lt;li&gt;They use first name last name with &amp;ldquo;_&amp;rdquo;, for example &amp;ldquo;Wedge_Antilles&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;For a component
-&lt;ul&gt;
-&lt;li&gt;Again, does a CPE entry exist?&lt;/li&gt;
-&lt;li&gt;Separate Component name from release designation&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;For a release
-&lt;ul&gt;
-&lt;li&gt;Do not repeat the component name&lt;/li&gt;
-&lt;li&gt;Use the release designation as provided by the software package&lt;/li&gt;
-&lt;li&gt;Avoid prefixes, such as &amp;ldquo;version&amp;rdquo;, &amp;ldquo;v&amp;rdquo; etc&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;For special cases:
-&lt;ul&gt;
-&lt;li&gt;If you upload a part of a release software package, create a &lt;strong&gt;separate&lt;/strong&gt; release for this&lt;/li&gt;
-&lt;li&gt;For example &amp;ldquo;2.0-MODIFIED&amp;rdquo;&lt;/li&gt;
-&lt;li&gt;Consider that leaving items out from a software release is actually a modification&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;how-to-create-vendors&#34;&gt;How to Create Vendors&lt;/h2&gt;
-&lt;p&gt;In order to have a vendor record in the sw360, then choosing a name is important. The vendor in SW360 is the real &amp;ldquo;manufacturer&amp;rdquo; independently from where you download it.&lt;/p&gt;
-&lt;p&gt;There are different cases:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;COTS:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Obvious case: use vendor short name in CPE style and long name for the actual company name (Apple Inc. vs. Apple)&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;You could even search for an existing vendor entry in the CPE dictionary to get existing vendor naming rules and use this as short name.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Consider the following link: &lt;a href=&#34;https://nvd.nist.gov/products/cpe/search&#34;&gt;&lt;span style=&#34;color:red&#34;&gt;↗&lt;/span&gt;  https://nvd.nist.gov/products/cpe/search&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Vendor is actually entity that is contract partner, but is confusing: for Microsoft products, there could be a Microsoft certified solution partner which is the vendor, this must mapped differently in the SW360.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;General rule&lt;/strong&gt;: Vendor is meant to be manufacturing party not distributing / delivering party.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Freeware&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Problem is that freeware has an author, but also different &amp;ldquo;vendors&amp;rdquo; in terms of where it could be downloaded from. This is difficult because different download Web site may involve different licensing conditions.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;OSS:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Community name, e.g. zlib project for zlib.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Or the org name of the github orgname or sourceforge group name&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Do not use &amp;ldquo;Github&amp;rdquo; or &amp;ldquo;Sourceforge&amp;rdquo; as vendor&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;However, foundations, publishing the software would be a vendor, e.g. &amp;ldquo;Apache&amp;rdquo;, &amp;ldquo;Eclipse&amp;rdquo;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;But eclipse has a github organization anyway, for example&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;With single author projects should you take the author name. A &amp;ldquo;john_doe&amp;rdquo; from John Doe as short name.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;Note that very release has its own vendor. as a consequence:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;There could be a release from one Web page and one release downloaded from another Web page. If there is different licensing or sources involved, this could be a solution.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;naming-a-vendor&#34;&gt;Naming a Vendor&lt;/h2&gt;
-&lt;p&gt;Each release of a component has a vendor or community. Having unambiguous vendor names is very helpful for managing 3rd party software components.&lt;/p&gt;
-&lt;p&gt;Required information:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Full name&lt;/strong&gt; - The full name of the company, organization or person.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Short name&lt;/strong&gt; - A good short name, compatible to CPE (see section 8.3)&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;URL&lt;/strong&gt; - The URL of the organization or a URL where we can get more information about a person.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;how-to-find-a-good-vendor-name&#34;&gt;How to find a (good) vendor name?&lt;/h3&gt;
-&lt;p&gt;Some guidelines&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;If there is a company (Microsoft, Oracle, Pivotal, etc.) behind the component, that&amp;rsquo;s most probably the right vendor name.&lt;/li&gt;
-&lt;li&gt;If there is an well known open source community (Apache, Eclipse, etc.) behind the component, that&amp;rsquo;s is the right vendor name.&lt;/li&gt;
-&lt;li&gt;If there is only a single person developing the component, then this is the vendor.&lt;/li&gt;
-&lt;li&gt;If there is a GitHub organization name or person name available, use this one.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;No vendor names are&lt;/strong&gt;: &amp;lsquo;Open Source Software&amp;rsquo;, &amp;lsquo;NuGet Gallery&amp;rsquo;, &amp;lsquo;CodePlex&amp;rsquo;, &amp;lsquo;Codeguru&amp;rsquo;, &amp;lsquo;Stack Overflow&amp;rsquo;, &amp;lsquo;CodeProject&amp;rsquo;, etc. as these or only platform, where vendors can offer the projects and these name do not help to identify projects.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;examples&#34;&gt;Examples&lt;/h3&gt;
-&lt;h4 id=&#34;microsoft&#34;&gt;Microsoft&lt;/h4&gt;
-&lt;p&gt;Full name = Microsoft Corporation&lt;/p&gt;
-&lt;p&gt;Short name = Microsoft&lt;/p&gt;
-&lt;p&gt;URL = &lt;a href=&#34;https://www.microsoft.com/en-in/&#34;&gt;&lt;span style=&#34;color:red&#34;&gt;↗&lt;/span&gt; www.microsoft.com&lt;/a&gt;&lt;/p&gt;
-&lt;h4 id=&#34;apache&#34;&gt;Apache&lt;/h4&gt;
-&lt;p&gt;Full name = Apache Software Foundation&lt;/p&gt;
-&lt;p&gt;Short name = Apache&lt;/p&gt;
-&lt;p&gt;URL = &lt;a href=&#34;http://www.apache.org/&#34;&gt;&lt;span style=&#34;color:red&#34;&gt;↗&lt;/span&gt; http://www.apache.org/&lt;/a&gt;&lt;/p&gt;
-&lt;h4 id=&#34;constantin-titarenko&#34;&gt;Constantin Titarenko&lt;/h4&gt;
-&lt;p&gt;Full name = Constantin Titarenko&lt;/p&gt;
-&lt;p&gt;Short name = constantin_titarenko (Note the underscore!)&lt;/p&gt;
-&lt;p&gt;URL = &lt;a href=&#34;https://github.com/titarenko&#34;&gt;&lt;span style=&#34;color:red&#34;&gt;↗&lt;/span&gt; https://github.com/titarenko&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&#34;how-to-determine-the-cpe&#34;&gt;How to determine the CPE?&lt;/h2&gt;
-&lt;p&gt;The Common Platform Enumeration (CPE) is used to have an unambiguous identification of a specific component release. This information is especially needed to find matching security vulnerability information.&lt;/p&gt;
-&lt;h3 id=&#34;syntax-of-a-cpe-entry&#34;&gt;Syntax of a CPE Entry&lt;/h3&gt;
-&lt;p&gt;The syntax of a CPE entry is defined as:&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;cpe:&amp;lt;CPE-Version&amp;gt;:&amp;lt;part&amp;gt;:&amp;lt;vendor&amp;gt;:&amp;lt;product&amp;gt;:&amp;lt;version&amp;gt;:&amp;lt;update&amp;gt;:&amp;lt;edition&amp;gt;:&amp;lt;language&amp;gt;&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;CPE-Version&lt;/strong&gt; refers to the CPE naming format version. We will always use version 2.3&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;part&lt;/strong&gt; refers to the type of the component (a = application, o = operating system, h =hardware device)&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;vendor&lt;/strong&gt; refers to the vendor or author of the component. Only small letters are allowed.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;product&lt;/strong&gt; refers to the name of the product. Only small letters are allowed.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;version&lt;/strong&gt; refers to the version of the product.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;update&lt;/strong&gt; refers to the updates of this specific version&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;edition&lt;/strong&gt; and &lt;strong&gt;language&lt;/strong&gt; can be used to specify more details&lt;/p&gt;
-&lt;p&gt;Non-existing or unknown party can get replaced by the placeholder &amp;lsquo;*&amp;rsquo;.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt;: only small letters are allowed. Spaces have to be replaced by underlines &amp;lsquo;_&amp;rsquo;.&lt;/p&gt;
-&lt;h3 id=&#34;examples-1&#34;&gt;Examples&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;Microsoft .Net Framework, version 1.0 SP2&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;cpe:2.3:a:microsoft:.net_framework:1.0:sp2:*:*:*:*:*:*&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Apache ActiveMQ, version 4.0&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;cpe:2.3:a:apache:activemq:4.0:*:*:*:*:*:*:*&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Apache log4net, version 1.2.9 beta&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;cpe:2.3:a:apache:log4net:1.2.9_beta:*:*:*:*:*:*:*&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Oracle Java Runtime, version 1.7.0, update 51&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;cpe:2.3:a:oracle:jre:1.7.0:update_51:*:*:*:*:*:*&lt;/code&gt;&lt;/p&gt;
 
       </description>
     </item>
