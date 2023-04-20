@@ -25,12 +25,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.eclipse.org/sw360/docs/deployment/nativeinstall/native-install-sw360-version-17.0.0/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2023-01-13T17:23:07+07:00" /><meta property="og:site_name" content="Eclipse SW360" />
+<meta property="article:modified_time" content="2023-03-09T13:56:24+07:00" /><meta property="og:site_name" content="Eclipse SW360" />
 
 <meta itemprop="name" content="Native Install v17">
 <meta itemprop="description" content="Native-Install-Version-17">
-<meta itemprop="dateModified" content="2023-01-13T17:23:07+07:00" />
-<meta itemprop="wordCount" content="3299">
+<meta itemprop="dateModified" content="2023-03-09T13:56:24+07:00" />
+<meta itemprop="wordCount" content="3622">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Native Install v17"/>
 <meta name="twitter:description" content="Native-Install-Version-17"/>
@@ -291,6 +291,10 @@
   <input type="checkbox" id="m-sw360docsdeploymentupgradingupgrade_version_sw360_15_to_16-check"/>
   <label for="m-sw360docsdeploymentupgradingupgrade_version_sw360_15_to_16-check"><a href="/sw360/docs/deployment/upgrading/upgrade_version_sw360_15_to_16/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-sw360docsdeploymentupgradingupgrade_version_sw360_15_to_16"><span class="">Upgrade Sw360 from 15.0 to 16.0</span></a></label>
   
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-sw360docsdeploymentupgradingupgrade_version_sw360_16_to_17-li">
+  <input type="checkbox" id="m-sw360docsdeploymentupgradingupgrade_version_sw360_16_to_17-check"/>
+  <label for="m-sw360docsdeploymentupgradingupgrade_version_sw360_16_to_17-check"><a href="/sw360/docs/deployment/upgrading/upgrade_version_sw360_16_to_17/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-sw360docsdeploymentupgradingupgrade_version_sw360_16_to_17"><span class="">Upgrade Sw360 from 16.0 to 17.0</span></a></label>
+  
 </li>
   </ul>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-sw360docsdeploymentlegacy-li">
@@ -533,7 +537,7 @@
         <li><a href="#the-installation-consists-of-some-tasks">The installation consists of some tasks::</a></li>
         <li><a href="#31-install-a-liferay-community-edition-bundled-with-tomcat">3.1 Install A Liferay Community Edition bundled with Tomcat</a></li>
         <li><a href="#32-install-database">3.2 Install Database</a></li>
-        <li><a href="#321-install-postgresql">3.2.1 Install PostgreSQL</a></li>
+        <li><a href="#322-install-postgresql">3.2.2 Install PostgreSQL</a></li>
         <li><a href="#33-install-cve-search">3.3 Install CVE-Search</a></li>
         <li><a href="#34-clone-sw360-with-version-1700">3.4 Clone sw360 with version 17.0.0</a></li>
         <li><a href="#35-install-thrift-version-016">3.5 Install Thrift version 0.16</a></li>
@@ -928,7 +932,7 @@ It can manage SPDX files for maintaining the license conditions and maintain lic
 <li>This should return json containing version information</li>
 <li>You can use &ldquo;start/stop/status/restart&rdquo; command with systemctl for controlling CouchDB service.</li>
 </ul>
-<h4 id="3211-install-couchdb-lucene">3.2.1.1 Install Couchdb Lucene</h4>
+<h4 id="install-couchdb-lucene">Install Couchdb Lucene</h4>
 <ul>
 <li>
 <p>SW360 uses for searching the contents of the couchdb databases a lucene-based server named couchdb-lucene</p>
@@ -940,7 +944,7 @@ It can manage SPDX files for maintaining the license conditions and maintain lic
 </ul>
 </li>
 <li>
-<p>Note Extract liferay To folder <code>work</code> with path of work: <code>/home/user/work</code></p>
+<p>Note extract couchdb-lucene to folder <code>work</code> with path of work: <code>/home/user/work</code></p>
 <ul>
 <li><code>tar -xzf couchdb-lucene.tar.gz</code></li>
 </ul>
@@ -958,7 +962,7 @@ It can manage SPDX files for maintaining the license conditions and maintain lic
 </ul>
 </li>
 </ul>
-<h3 id="321-install-postgresql">3.2.1 Install PostgreSQL</h3>
+<h3 id="322-install-postgresql">3.2.2 Install PostgreSQL</h3>
 <ul>
 <li>Install PostgerSQL manually, you can install through &ldquo;apt install&rdquo; too:</li>
 </ul>
@@ -1337,7 +1341,130 @@ It can manage SPDX files for maintaining the license conditions and maintain lic
 </span></span><span style="display:flex;"><span>#sw360changelog.config.file.location=/etc/sw360/log4j2.xml
 </span></span><span style="display:flex;"><span>enable.sw360.change.log=false
 </span></span><span style="display:flex;"><span>sw360changelog.output.path=sw360changelog/sw360changelog
-</span></span></code></pre></div><h3 id="37-compile-and-deploy">3.7 Compile and deploy</h3>
+</span></span></code></pre></div><ul>
+<li>Configure the sw360ChangeLog path</li>
+</ul>
+<h4 id="1-create-log4j2xml-file">1. Create log4j2.xml file</h4>
+<ul>
+<li>Based on log4j2.xml file from <a href="https://github.com/eclipse/sw360/blob/main/build-configuration/resources/log4j2.xml">https://github.com/eclipse/sw360/blob/main/build-configuration/resources/log4j2.xml</a>, update the content as below, then place this file to etc/sw360 folder.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;
+</span></span><span style="display:flex;"><span>&lt;!--
+</span></span><span style="display:flex;"><span>~ Copyright (c) Bosch.IO GmbH 2020.
+</span></span><span style="display:flex;"><span>~
+</span></span><span style="display:flex;"><span>~ All rights reserved. This program and the accompanying materials
+</span></span><span style="display:flex;"><span>~ are made available under the terms of the Eclipse Public License v2.0
+</span></span><span style="display:flex;"><span>~ which accompanies this distribution, and is available at
+</span></span><span style="display:flex;"><span>~ http://www.eclipse.org/legal/epl-v20.html
+</span></span><span style="display:flex;"><span>~
+</span></span><span style="display:flex;"><span>~ SPDX-License-Identifier: EPL-2.0
+</span></span><span style="display:flex;"><span>--&gt;
+</span></span><span style="display:flex;"><span>&lt;Configuration status=&#34;WARN&#34;&gt;
+</span></span><span style="display:flex;"><span>    &lt;Appenders&gt;
+</span></span><span style="display:flex;"><span>        &lt;Console name=&#34;Console&#34; target=&#34;SYSTEM_OUT&#34;&gt;
+</span></span><span style="display:flex;"><span>            &lt;PatternLayout pattern=&#34;%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L - %m%n&#34;/&gt;
+</span></span><span style="display:flex;"><span>        &lt;/Console&gt;
+</span></span><span style="display:flex;"><span>        &lt;!-- environment variables can be set in the format of &#34;$ {env: LOG_ROOT}&#34; --&gt;
+</span></span><span style="display:flex;"><span>        &lt;RollingFile name=&#34;ChangeLogFile&#34; fileName=&#34;${env:FILE_PATH}/sw360changelog/sw360changelog.log&#34;
+</span></span><span style="display:flex;"><span>                filePattern=&#34;${env:FILE_PATH}/sw360changelog/sw360changelog-%d{yyyy-MM-dd}-%i.log&#34; &gt;
+</span></span><span style="display:flex;"><span>            &lt;PatternLayout pattern=&#34;%m%n&#34;/&gt;
+</span></span><span style="display:flex;"><span>            &lt;Policies&gt;
+</span></span><span style="display:flex;"><span>                &lt;SizeBasedTriggeringPolicy size=&#34;10MB&#34; /&gt;
+</span></span><span style="display:flex;"><span>            &lt;/Policies&gt;
+</span></span><span style="display:flex;"><span>            &lt;DefaultRolloverStrategy max=&#34;10&#34;/&gt;
+</span></span><span style="display:flex;"><span>        &lt;/RollingFile&gt;
+</span></span><span style="display:flex;"><span>    &lt;/Appenders&gt;
+</span></span><span style="display:flex;"><span>    &lt;Loggers&gt;
+</span></span><span style="display:flex;"><span>        &lt;Logger name=&#34;org.eclipse.sw360&#34; level=&#34;info&#34;/&gt;
+</span></span><span style="display:flex;"><span>         &lt;Logger name=&#34;sw360changelog&#34; level=&#34;debug&#34; &gt;
+</span></span><span style="display:flex;"><span>            &lt;AppenderRef ref=&#34;ChangeLogFile&#34; /&gt;
+</span></span><span style="display:flex;"><span>        &lt;/Logger&gt;
+</span></span><span style="display:flex;"><span>        &lt;Logger name=&#34;org.eclipse.sw360&#34; level=&#34;debug&#34; additivity=&#34;false&#34;&gt;
+</span></span><span style="display:flex;"><span>            &lt;AppenderRef ref=&#34;Console&#34;/&gt;
+</span></span><span style="display:flex;"><span>        &lt;/Logger&gt;
+</span></span><span style="display:flex;"><span>        &lt;Root level=&#34;warn&#34;&gt;
+</span></span><span style="display:flex;"><span>            &lt;AppenderRef ref=&#34;ChangeLogFile&#34;/&gt;
+</span></span><span style="display:flex;"><span>        &lt;/Root&gt;
+</span></span><span style="display:flex;"><span>    &lt;/Loggers&gt;
+</span></span><span style="display:flex;"><span>&lt;/Configuration&gt;
+</span></span></code></pre></div><ul>
+<li>
+<p>Set the environment variable for the changelog directory (<code>${env:FILE_PATH}/sw360changelog/sw360changelog.log</code>)</p>
+<ul>
+<li><code>$ export FILE_PATH=/var/log</code></li>
+<li>If <code>/var/log</code> folder requires permission, set permission for this folder:
+<code>sudo chown -R $USER:$USER /var/log</code></li>
+</ul>
+</li>
+<li>
+<p>NOTE: I suggest the path ${env:FILE_PATH} to use LIFERAY_INSTALL env variable</p>
+</li>
+</ul>
+<h4 id="2-enable-changelog-config">2. Enable changelog config</h4>
+<p>Add the following lines to the sw360.properties file (or uncomment if they are existing)</p>
+<ul>
+<li><code>sw360changelog.config.file.location=/etc/sw360/log4j2.xml</code></li>
+<li><code>enable.sw360.change.log=true</code></li>
+</ul>
+<h4 id="3-compile-and-deploy">3. Compile and deploy</h4>
+<ul>
+<li>
+<p>Set <code>sw360.liferay.company.id = 20099</code> in <code>sw360.properties</code> file</p>
+</li>
+<li>
+<p>Set the environment variable for the LIFERAY_INSTALL directory</p>
+<ul>
+<li><code>$ export LIFERAY_INSTALL=/opt/liferay-ce-portal-7.4.3.18-ga18</code></li>
+</ul>
+</li>
+<li>
+<p>Note: Should add -DskipTests when building sw360 to avoid test data write to log file</p>
+</li>
+<li>
+<p>To clean everything and install without running the tests</p>
+<ul>
+<li><code>$ mvn clean install -DskipTests</code></li>
+</ul>
+</li>
+<li>
+<p>For deployment, run the command</p>
+<ul>
+<li><code>$ cd /home/user/work/sw360</code></li>
+<li><code>$ mvn package -P deploy -Dbase.deploy.dir=. -Dliferay.deploy.dir=${LIFERAY_INSTALL}/deploy -Dbackend.deploy.dir=${LIFERAY_INSTALL}/tomcat-9.0.56/webapps -Drest.deploy.dir=${LIFERAY_INSTALL}/tomcat-9.0.56/webapps -DskipTests</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="4-start-and-configure-liferay">4. Start and configure Liferay</h4>
+<ul>
+<li>
+<p>Set the environment variable for the LIFERAY_INSTALL directory</p>
+<ul>
+<li><code>$ export LIFERAY_INSTALL=/opt/liferay-ce-portal-7.4.3.18-ga18</code></li>
+</ul>
+</li>
+<li>
+<p>Start liferay</p>
+<ul>
+<li><code>$ ${LIFERAY_INSTALL}/tomcat-9.0.56/bin/startup.sh</code></li>
+</ul>
+</li>
+<li>
+<p>Log</p>
+<ul>
+<li><code>$ tail -f ${LIFERAY_INSTALL}/tomcat-9.0.56/logs/*</code></li>
+</ul>
+</li>
+<li>
+<p>SW360 URL: <code>https://localhost:8080</code></p>
+</li>
+</ul>
+<h4 id="5-how-to-check-the-logs">5. How to check the logs</h4>
+<ul>
+<li>Edit (update) a project, component, or release in SW360.</li>
+<li>Then check the logs in <code>${FILE_PATH}/sw360changelog/sw360changelog.log</code> file
+\</li>
+</ul>
+<h3 id="37-compile-and-deploy">3.7 Compile and deploy</h3>
 <ul>
 <li>Start Database</li>
 <li>Turn on the CouchDB and Postgres services</li>
@@ -1411,9 +1538,9 @@ It can manage SPDX files for maintaining the license conditions and maintain lic
 </ul>
 </li>
 <li>
-<p>After run command &ldquo;mvn clean install -DskipTests&rdquo; above, copy dependency in folder <code>/home/user/work/sw360/utils/deploy/jars</code> to  <code>${LIFERAY_INSTALL}/osgi/modules</code></p>
+<p>After run command &ldquo;mvn clean install -DskipTests&rdquo; above, copy dependency in folder <code>/home/user/work/sw360/utils/jars</code> to  <code>${LIFERAY_INSTALL}/osgi/modules</code></p>
 <ul>
-<li><code>$ cd /home/user/work/sw360/utils/deploy/jars</code></li>
+<li><code>$ cd /home/user/work/sw360/utils/jars</code></li>
 <li><code>$ sudo cp *.jar /opt/liferay-ce-portal-7.4.3.18-ga18/osgi/modules/</code></li>
 </ul>
 </li>
@@ -1670,7 +1797,7 @@ beginning and click <code>Upload Users</code> on the right side. <a href="https:
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified January 13, 2023: <a href="https://github.com/eclipse/sw360.website/commit/73265eee268e203c26b4a09f5323d7d5a1df4941">fix content native install 17 and add file Upgrade_Version_SW360_15_To_16.md (73265ee)</a>
+  Last modified March 9, 2023: <a href="https://github.com/eclipse/sw360.website/commit/6da6632b6ab936594dbd561087f51f309d620047">feat(update): Upgrade version sw360 16.0.0 to 17.0.0 and Guide configure the sw360ChangeLog path (6da6632)</a>
 </div>
 
 </div>

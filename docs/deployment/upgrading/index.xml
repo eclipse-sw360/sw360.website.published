@@ -654,5 +654,320 @@ For deployment run the command
       </description>
     </item>
     
+    <item>
+      <title>Docs: Upgrade Sw360 from 16.0 to 17.0</title>
+      <link>https://www.eclipse.org/sw360/docs/deployment/upgrading/upgrade_version_sw360_16_to_17/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/sw360/docs/deployment/upgrading/upgrade_version_sw360_16_to_17/</guid>
+      <description>
+        
+        
+        &lt;h1 id=&#34;upgrade-sw360-version-170&#34;&gt;Upgrade SW360 version 17.0&lt;/h1&gt;
+&lt;h2 id=&#34;1-upgrade-sw360-from-160-to-170&#34;&gt;1. Upgrade sw360 from 16.0 to 17.0&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;1.1 Checkout source code SW360 to Tag Version 17
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;1.2 Version of libraries
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;1.3 Migrate database
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;1.4 Build and deploy Sw360 Version 17
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;1.5 Start and Configure Liferay 
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;11-create-folder-contains-source-code-sw360-to-tag-version-17&#34;&gt;1.1 Create Folder contains source code SW360 to Tag Version 17&lt;/h3&gt;
+&lt;p&gt;Link contains source: &lt;a href=&#34;https://github.com/eclipse/sw360.git&#34;&gt;https://github.com/eclipse/sw360.git&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Path &lt;code&gt;SW360_REPOSITORY&lt;/code&gt; = &lt;code&gt;/home/user/work16to17/sw360&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Source code sw360 is in main branch with commit version 14.0 . User into &lt;code&gt;${SW360_REPOSITORY}&lt;/code&gt; use git checkout to tag version 16 on the main branch of SW360&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Checkout to tag  Version 17.0.0&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;$ git checkout sw360-17.0.0-M1&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Check version thrift&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;thrift --version&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;If thrift version 0.14.0 then upgrade Thrift from 0.14.0 to 0.16.0&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Move to folder sw360 with path &lt;code&gt;/home/user/work16to17/sw360&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Run command line:&lt;/p&gt;
+&lt;p&gt;Uninstall thrift version 0.14.0&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;./scripts/install-thrift.sh --uninstall&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Install thrift version 0.16.0&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;./scripts/install-thrift.sh&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Download Liferay Portal CE 7.4.3.18 GA18&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;$ cd work16to17&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;$ wget  https://github.com/liferay/liferay-portal/releases/download/7.4.3.18-ga18/liferay-ce-portal-tomcat-7.4.3.18-ga18-20220329092001364.tar.gz -O liferay-ce-portal-tomcat-7.4.3.18-ga18.tar.gz&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Extract downloaded file&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;$ tar -xzf liferay-ce-portal-tomcat-7.4.3.18-ga18.tar.gz&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Create &lt;code&gt;portal-ext.properties&lt;/code&gt; file in &lt;code&gt;liferay-ce-portal-7.4.3.18-ga18&lt;/code&gt; folder&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Copy content from  &lt;a href=&#34;https://github.com/eclipse/sw360/blob/sw360-17.0.0-M1/frontend/configuration/portal-ext.properties&#34;&gt;https://github.com/eclipse/sw360/blob/sw360-17.0.0-M1/frontend/configuration/portal-ext.properties&lt;/a&gt; to portal-ext.properties&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Edit &lt;code&gt;portal-ext.properties&lt;/code&gt;: uncomment below lines&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;  # default.admin.password=sw360fossy
+
+  # default.admin.screen.name=setup
+
+  # default.admin.email.address.prefix=setup
+
+  # default.admin.first.name=Setup
+
+  # default.admin.last.name=Administrator
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Add lines to setup Postgres. Change jdbc.default.username, jdbc.default.password&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    # Postgres configuration
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    jdbc.default.driverClassName=org.postgresql.Driver
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    jdbc.default.url=jdbc:postgresql://localhost:5432/lportal
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    jdbc.default.username=${postgres_user}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    jdbc.default.password=${postgres_password}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;Add lines to setup passsword policies&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    # Passsword policies
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    passwords.default.policy.change.required=false
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    company.security.send.password.reset.link=false
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    company.security.auto.login=false
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    company.security.auth.type=emailAddress
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    company.security.strangers=false
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    company.security.strangers.with.mx=false
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    company.security.strangers.verify=false
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Remove files in folder &lt;code&gt;hypersonic&lt;/code&gt; with path: &lt;code&gt;/home/user/work16to17/liferay-ce-portal-7.4.3.18-ga18/data/hypersonic&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;$ rm -rf /home/user/work16to17/liferay-ce-portal-7.4.3.18-ga18/data/hypersonic/*&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Move folder &lt;code&gt;liferay-ce-portal-7.4.3.18-ga18&lt;/code&gt; to &lt;code&gt;/opt&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;$ sudo mv liferay-ce-portal-7.4.3.18-ga18 /opt&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Set Environment for &lt;code&gt;${LIFERAY_INSTALL}&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;$ export LIFERAY_INSTALL=/opt/liferay-ce-portal-7.4.3.18-ga18&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Move folder &lt;code&gt;/home/user/work16to17/sw360&lt;/code&gt; run command&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;$ mvn clean install -DskipTests&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;After run command &amp;ldquo;mvn clean install -DskipTests&amp;rdquo; above, copy dependency in folder &lt;code&gt;/home/user/work16to17/sw360/utils/deploy/jars&lt;/code&gt; to  &lt;code&gt;${LIFERAY_INSTALL}/deploy&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;$ cd /home/user/work16to17/sw360/utils/deploy/jars&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;$ sudo cp *.jar /opt/liferay-ce-portal-7.4.3.18-ga18/deploy/&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;We also suggest you change the environment settings (frontend/configuration/setenv.sh) to avoid the lack of memory before making and building SW360.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;$ sudo rm -rf ${LIFERAY_INSTALL}/tomcat-9.0.56/bin/setenv.sh&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;$ sudo cp /home/user/work16to17/sw360/frontend/configuration/setenv.sh ${LIFERAY_INSTALL}/tomcat-9.0.56/bin/&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;12-version-of-libraries&#34;&gt;1.2 Version of libraries&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Package Name&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Version&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Liferay&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;7.4.3&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Tomcat&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;9.0.56&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Couchdb&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;3.2.2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Open JDK&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;11.0.15&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Thrift&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;0.16.0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;13-migrate-database&#34;&gt;1.3 Migrate database&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Check migrate scripts from 16.0 to 17.0 by &lt;a href=&#34;https://github.com/eclipse/sw360/tree/master/scripts/migrations&#34;&gt;https://github.com/eclipse/sw360/tree/master/scripts/migrations&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;4 file migration:&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;https://github.com/eclipse/sw360/blob/main/scripts/migrations/050_cleanup_eccinformation_duplicate_attributes.py&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;https://github.com/eclipse/sw360/blob/main/scripts/migrations/051_change_eccStatus.py&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;https://github.com/eclipse/sw360/blob/main/scripts/migrations/052_migrate_clearing_request_status.py&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;https://github.com/eclipse/sw360/blob/main/scripts/migrations/053_remove_whitespace_component_name.py&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Install enviroment for python 2.7&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;$ sudo apt-add-repository universe&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;$ sudo apt update&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;$ sudo apt install python2-minimal&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Check version&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;$ python2 --version&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Install pip for python 2.7&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;curl https://bootstrap.pypa.io/pip/2.7/get-pip.py --output get-pip.py&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;if there is no proxy, skip option &lt;code&gt;--proxy=http://username:password@hostname&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;sudo python2 get-pip.py --proxy=http://username:password@hostname&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;pip --version&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Import package couchdb&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;pip install --proxy=http://username:password@hostname couchdb&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;How to run migration data&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;stop SW360 (i.e. the tomcat)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Set Environment for &lt;code&gt;${LIFERAY_INSTALL}&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;$ export LIFERAY_INSTALL=/opt/liferay-ce-portal-7.4.3.18-ga18&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+&lt;li&gt;Stop SW360 version 16.0, ensure that couchdb is accessible (try to open &lt;code&gt;http://localhost:5984/_utils/&lt;/code&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;$ ${LIFERAY_INSTALL}/tomcat-9.0.56/bin/shutdown.sh&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;ensure that couchdb is accessible (try to open http://localhost:5984/_utils/)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;run the migration scripts (i.e. for each script call python2 /PATH/TO/00?_some_migration_script.py)
+be aware that some scripts are using an internal dry-run switch which you have to change manually in the script&amp;rsquo;s code.&lt;/p&gt;
+&lt;p&gt;3.1 move to folder with path &lt;code&gt;/home/user/work16to17/sw360/scripts/migrations&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Run command:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;python2 050_cleanup_eccinformation_duplicate_attributes.py&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;python2 051_change_eccStatus.py&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;python2 052_migrate_clearing_request_status.py&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;python2 053_remove_whitespace_component_name.py&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Check data change in file log:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;050_cleanup_eccinformation_duplicate_attributes.py.log&lt;/li&gt;
+&lt;li&gt;051_change_eccStatus.py.log&lt;/li&gt;
+&lt;li&gt;052_migrate_clearing_request_status.log&lt;/li&gt;
+&lt;li&gt;053_remove_whitespace_component_name.log&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;14-compile-and-deploy&#34;&gt;1.4. Compile and deploy&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Please set &lt;code&gt;sw360.liferay.company.id = 20099&lt;/code&gt; in config file &lt;code&gt;sw360.properties&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Set Environment for &lt;code&gt;${LIFERAY_INSTALL}&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code&gt;- `$ cd /home/user/work16to17/sw360`
+- `$ export LIFERAY_INSTALL=/opt/liferay-ce-portal-7.4.3.18-ga18`
+
+To clean everything and install without running the tests
+
+- `mvn clean install -DskipTests `
+
+For deployment run the command 
+
+- `mvn package -P deploy -Dbase.deploy.dir=. -Dliferay.deploy.dir=${LIFERAY_INSTALL}/deploy -Dbackend.deploy.dir=${LIFERAY_INSTALL}/tomcat-9.0.56/webapps -Drest.deploy.dir=${LIFERAY_INSTALL}/tomcat-9.0.56/webapps -DskipTests`
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;15-start-and-configure-liferay&#34;&gt;1.5 Start and Configure Liferay&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Set Environment for &lt;code&gt;${LIFERAY_INSTALL}&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;$ export LIFERAY_INSTALL=/opt/liferay-ce-portal-7.4.3.18-ga18&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Start liferay&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;$ ${LIFERAY_INSTALL}/tomcat-9.0.56/bin/startup.sh&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Log&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;$ tail -f ${LIFERAY_INSTALL}/tomcat-9.0.56/logs/*&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Url SW360 : &lt;code&gt;https://localhost:8080&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
   </channel>
 </rss>

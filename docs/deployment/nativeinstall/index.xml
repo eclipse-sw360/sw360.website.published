@@ -1689,7 +1689,7 @@ It can manage SPDX files for maintaining the license conditions and maintain lic
 &lt;li&gt;This should return json containing version information&lt;/li&gt;
 &lt;li&gt;You can use &amp;ldquo;start/stop/status/restart&amp;rdquo; command with systemctl for controlling CouchDB service.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h4 id=&#34;3211-install-couchdb-lucene&#34;&gt;3.2.1.1 Install Couchdb Lucene&lt;/h4&gt;
+&lt;h4 id=&#34;install-couchdb-lucene&#34;&gt;Install Couchdb Lucene&lt;/h4&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;SW360 uses for searching the contents of the couchdb databases a lucene-based server named couchdb-lucene&lt;/p&gt;
@@ -1701,7 +1701,7 @@ It can manage SPDX files for maintaining the license conditions and maintain lic
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Note Extract liferay To folder &lt;code&gt;work&lt;/code&gt; with path of work: &lt;code&gt;/home/user/work&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Note extract couchdb-lucene to folder &lt;code&gt;work&lt;/code&gt; with path of work: &lt;code&gt;/home/user/work&lt;/code&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;tar -xzf couchdb-lucene.tar.gz&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
@@ -1719,7 +1719,7 @@ It can manage SPDX files for maintaining the license conditions and maintain lic
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;321-install-postgresql&#34;&gt;3.2.1 Install PostgreSQL&lt;/h3&gt;
+&lt;h3 id=&#34;322-install-postgresql&#34;&gt;3.2.2 Install PostgreSQL&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;Install PostgerSQL manually, you can install through &amp;ldquo;apt install&amp;rdquo; too:&lt;/li&gt;
 &lt;/ul&gt;
@@ -2098,7 +2098,130 @@ It can manage SPDX files for maintaining the license conditions and maintain lic
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;#sw360changelog.config.file.location=/etc/sw360/log4j2.xml
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;enable.sw360.change.log=false
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sw360changelog.output.path=sw360changelog/sw360changelog
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;37-compile-and-deploy&#34;&gt;3.7 Compile and deploy&lt;/h3&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;Configure the sw360ChangeLog path&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;1-create-log4j2xml-file&#34;&gt;1. Create log4j2.xml file&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Based on log4j2.xml file from &lt;a href=&#34;https://github.com/eclipse/sw360/blob/main/build-configuration/resources/log4j2.xml&#34;&gt;https://github.com/eclipse/sw360/blob/main/build-configuration/resources/log4j2.xml&lt;/a&gt;, update the content as below, then place this file to etc/sw360 folder.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;UTF-8&amp;#34;?&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;!--
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;~ Copyright (c) Bosch.IO GmbH 2020.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;~
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;~ All rights reserved. This program and the accompanying materials
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;~ are made available under the terms of the Eclipse Public License v2.0
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;~ which accompanies this distribution, and is available at
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;~ http://www.eclipse.org/legal/epl-v20.html
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;~
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;~ SPDX-License-Identifier: EPL-2.0
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;--&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;Configuration status=&amp;#34;WARN&amp;#34;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &amp;lt;Appenders&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &amp;lt;Console name=&amp;#34;Console&amp;#34; target=&amp;#34;SYSTEM_OUT&amp;#34;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &amp;lt;PatternLayout pattern=&amp;#34;%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L - %m%n&amp;#34;/&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &amp;lt;/Console&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &amp;lt;!-- environment variables can be set in the format of &amp;#34;$ {env: LOG_ROOT}&amp;#34; --&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &amp;lt;RollingFile name=&amp;#34;ChangeLogFile&amp;#34; fileName=&amp;#34;${env:FILE_PATH}/sw360changelog/sw360changelog.log&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                filePattern=&amp;#34;${env:FILE_PATH}/sw360changelog/sw360changelog-%d{yyyy-MM-dd}-%i.log&amp;#34; &amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &amp;lt;PatternLayout pattern=&amp;#34;%m%n&amp;#34;/&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &amp;lt;Policies&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &amp;lt;SizeBasedTriggeringPolicy size=&amp;#34;10MB&amp;#34; /&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &amp;lt;/Policies&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &amp;lt;DefaultRolloverStrategy max=&amp;#34;10&amp;#34;/&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &amp;lt;/RollingFile&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &amp;lt;/Appenders&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &amp;lt;Loggers&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &amp;lt;Logger name=&amp;#34;org.eclipse.sw360&amp;#34; level=&amp;#34;info&amp;#34;/&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;         &amp;lt;Logger name=&amp;#34;sw360changelog&amp;#34; level=&amp;#34;debug&amp;#34; &amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &amp;lt;AppenderRef ref=&amp;#34;ChangeLogFile&amp;#34; /&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &amp;lt;/Logger&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &amp;lt;Logger name=&amp;#34;org.eclipse.sw360&amp;#34; level=&amp;#34;debug&amp;#34; additivity=&amp;#34;false&amp;#34;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &amp;lt;AppenderRef ref=&amp;#34;Console&amp;#34;/&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &amp;lt;/Logger&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &amp;lt;Root level=&amp;#34;warn&amp;#34;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &amp;lt;AppenderRef ref=&amp;#34;ChangeLogFile&amp;#34;/&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &amp;lt;/Root&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &amp;lt;/Loggers&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;/Configuration&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Set the environment variable for the changelog directory (&lt;code&gt;${env:FILE_PATH}/sw360changelog/sw360changelog.log&lt;/code&gt;)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;$ export FILE_PATH=/var/log&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;If &lt;code&gt;/var/log&lt;/code&gt; folder requires permission, set permission for this folder:
+&lt;code&gt;sudo chown -R $USER:$USER /var/log&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;NOTE: I suggest the path ${env:FILE_PATH} to use LIFERAY_INSTALL env variable&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;2-enable-changelog-config&#34;&gt;2. Enable changelog config&lt;/h4&gt;
+&lt;p&gt;Add the following lines to the sw360.properties file (or uncomment if they are existing)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;sw360changelog.config.file.location=/etc/sw360/log4j2.xml&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;enable.sw360.change.log=true&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;3-compile-and-deploy&#34;&gt;3. Compile and deploy&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Set &lt;code&gt;sw360.liferay.company.id = 20099&lt;/code&gt; in &lt;code&gt;sw360.properties&lt;/code&gt; file&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Set the environment variable for the LIFERAY_INSTALL directory&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;$ export LIFERAY_INSTALL=/opt/liferay-ce-portal-7.4.3.18-ga18&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Note: Should add -DskipTests when building sw360 to avoid test data write to log file&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;To clean everything and install without running the tests&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;$ mvn clean install -DskipTests&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;For deployment, run the command&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;$ cd /home/user/work/sw360&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;$ mvn package -P deploy -Dbase.deploy.dir=. -Dliferay.deploy.dir=${LIFERAY_INSTALL}/deploy -Dbackend.deploy.dir=${LIFERAY_INSTALL}/tomcat-9.0.56/webapps -Drest.deploy.dir=${LIFERAY_INSTALL}/tomcat-9.0.56/webapps -DskipTests&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;4-start-and-configure-liferay&#34;&gt;4. Start and configure Liferay&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Set the environment variable for the LIFERAY_INSTALL directory&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;$ export LIFERAY_INSTALL=/opt/liferay-ce-portal-7.4.3.18-ga18&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Start liferay&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;$ ${LIFERAY_INSTALL}/tomcat-9.0.56/bin/startup.sh&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Log&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;$ tail -f ${LIFERAY_INSTALL}/tomcat-9.0.56/logs/*&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;SW360 URL: &lt;code&gt;https://localhost:8080&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;5-how-to-check-the-logs&#34;&gt;5. How to check the logs&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Edit (update) a project, component, or release in SW360.&lt;/li&gt;
+&lt;li&gt;Then check the logs in &lt;code&gt;${FILE_PATH}/sw360changelog/sw360changelog.log&lt;/code&gt; file
+\&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;37-compile-and-deploy&#34;&gt;3.7 Compile and deploy&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;Start Database&lt;/li&gt;
 &lt;li&gt;Turn on the CouchDB and Postgres services&lt;/li&gt;
@@ -2172,9 +2295,9 @@ It can manage SPDX files for maintaining the license conditions and maintain lic
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;After run command &amp;ldquo;mvn clean install -DskipTests&amp;rdquo; above, copy dependency in folder &lt;code&gt;/home/user/work/sw360/utils/deploy/jars&lt;/code&gt; to  &lt;code&gt;${LIFERAY_INSTALL}/osgi/modules&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;After run command &amp;ldquo;mvn clean install -DskipTests&amp;rdquo; above, copy dependency in folder &lt;code&gt;/home/user/work/sw360/utils/jars&lt;/code&gt; to  &lt;code&gt;${LIFERAY_INSTALL}/osgi/modules&lt;/code&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;code&gt;$ cd /home/user/work/sw360/utils/deploy/jars&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;$ cd /home/user/work/sw360/utils/jars&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;$ sudo cp *.jar /opt/liferay-ce-portal-7.4.3.18-ga18/osgi/modules/&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
