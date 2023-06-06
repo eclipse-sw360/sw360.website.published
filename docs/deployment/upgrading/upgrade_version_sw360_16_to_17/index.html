@@ -37,7 +37,7 @@ Checkout to tag Version 17." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.eclipse.org/sw360/docs/deployment/upgrading/upgrade_version_sw360_16_to_17/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2023-04-20T09:39:46+02:00" /><meta property="og:site_name" content="Eclipse SW360" />
+<meta property="article:modified_time" content="2023-06-06T09:22:15+07:00" /><meta property="og:site_name" content="Eclipse SW360" />
 
 <meta itemprop="name" content="Upgrade SW360 from 16.0 to 17.0">
 <meta itemprop="description" content="Checkout source code SW360 to Tag Version 17
@@ -49,8 +49,8 @@ Prepare source code to use release 17 Link contains source: https://github.com/e
 Path SW360_REPOSITORY = /home/user/work16to17/sw360
 Source code sw360 is in main branch with commit version 14.0 . User into ${SW360_REPOSITORY} use git checkout to tag version 16 on the main branch of SW360
 Checkout to tag Version 17.">
-<meta itemprop="dateModified" content="2023-04-20T09:39:46+02:00" />
-<meta itemprop="wordCount" content="548">
+<meta itemprop="dateModified" content="2023-06-06T09:22:15+07:00" />
+<meta itemprop="wordCount" content="1409">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Upgrade SW360 from 16.0 to 17.0"/>
 <meta name="twitter:description" content="Checkout source code SW360 to Tag Version 17
@@ -546,7 +546,11 @@ Checkout to tag Version 17."/>
     <li><a href="#ref2">Version of libraries</a></li>
     <li><a href="#ref3">Migrate database</a></li>
     <li><a href="#ref4">Compile and deploy</a></li>
-    <li><a href="#ref5">Start and Configure Liferay</a></li>
+    <li><a href="#ref5">Start and Configure Liferay</a>
+      <ul>
+        <li><a href="#configure-liferay-portal">Configure Liferay Portal</a></li>
+      </ul>
+    </li>
   </ul>
 </nav></div>
 
@@ -874,11 +878,189 @@ be aware that some scripts are using an internal dry-run switch which you have t
 <p>Url SW360 : <code>https://localhost:8080</code></p>
 </li>
 </ul>
+<h3 id="configure-liferay-portal">Configure Liferay Portal</h3>
+<ul>
+<li>Can follow the steps in the following link <a href="https://www.eclipse.org/sw360/docs/deployment/legacy/deploy-liferay7.3">https://www.eclipse.org/sw360/docs/deployment/legacy/deploy-liferay7.3</a> or follow these steps:</li>
+</ul>
+<ul>
+<li>
+<p>Import users</p>
+<ol>
+<li>Open the panel on the left side by clicking the button on the top left.</li>
+<li>Click on <code>SW360</code> on the top right to go to the homepage.</li>
+<li>Click on <code>Start</code> inside the &ldquo;Welcome&rdquo; section.</li>
+<li>Go to <code>Admin</code> -&gt; <code>User</code> (URL: <code>/group/guest/users</code>).</li>
+<li>Scroll down to section <code>UPLOAD USERS</code>, select a user file from the very
+beginning and click <code>Upload Users</code> on the right side. <a href="https://github.com/sw360/sw360vagrant/blob/master/shared/test_users_with_passwords_12345.csv">A user file can be found here in the sw360vagrant project</a>
+* Download: <code>$ wget https://github.com/sw360/sw360vagrant/blob/master/shared/test_users_with_passwords_12345.csv</code></li>
+</ol>
+</li>
+<li>
+<p>Setup liferay:</p>
+</li>
+</ul>
+<p>After successful , Then if you open the server with the URL <code>https://localhost:8080/</code> the following screen should appear:</p>
+
+<figure>
+    <img src="/sw360/img/sw360screenshots/deploy74/1.png"/> 
+</figure>
+
+<p>Note that the actual image changes with every liferay version. If there is weird html output without images and plain text, then likely some port settings did not work and the pages generated have wrong URLs inside.</p>
+
+<figure>
+    <img src="/sw360/img/sw360screenshots/deploy74/2.png"/> 
+</figure>
+
+<p>After login the sw360 is not setup, thus the server does not display much, but a screen like the following:</p>
+
+<figure>
+    <img src="/sw360/img/sw360screenshots/deploy74/3.png"/> 
+</figure>
+
+<h4 id="user-and-login-settings-in-liferay">User and Login Settings in Liferay</h4>
+<p>Go into the control panel area by clicking the items icon (nine small cubes) in the upper right corner and select the control panel tab:</p>
+
+<figure>
+    <img src="/sw360/img/sw360screenshots/deploy74/4.png"/> 
+</figure>
+
+<p>Edit this password policy and disable <code>change Required</code> if you wish to do so. Click on Save_the bottom of the page to save the selection.</p>
+
+<figure>
+    <img src="/sw360/img/sw360screenshots/deploy74/6.png"/> 
+</figure>
+
+<p>Then, go: in <code>Configuration</code> &gt;  <code>Instance Settings</code> &gt; <code>Users</code> &gt;</p>
+
+<figure>
+    <img src="/sw360/img/sw360screenshots/deploy74/7.png"/> 
+</figure>
+
+<p>In this area, select <code>Default User Associations</code> to enter SW360 and apply it also to existing users. Click on Save to save the selection:</p>
+
+<figure>
+    <img src="/sw360/img/sw360screenshots/deploy74/8.png"/> 
+</figure>
+
+<p>Then, in <code>Configuration</code> &gt;  <code>Instance Settings</code> &gt; <code>User Authentication</code> &gt; <code>General</code> to disable all kind of auto login to make sure only authenticated users can log in. You may want to switch off the e-mail verification, because for most of the development times it will not be of much value.</p>
+
+<figure>
+    <img src="/sw360/img/sw360screenshots/deploy74/9.png"/> 
+</figure>
+
+<p>Finally, sice Liferay 7.4 some of the bundled modules need to be activated:</p>
+<ul>
+<li>jquery</li>
+<li>font awesome</li>
+</ul>
+<p>In oder to do this, please select from the <code>Configuration</code> &gt;  <code>System Settings</code> &gt; <code>Third Party</code> and go to jquery, select the enablement and click on Update:</p>
+
+<figure>
+    <img src="/sw360/img/sw360screenshots/deploy74/10.png"/> 
+</figure>
+
+<p>Do the same for Font Awesome:</p>
+
+<figure>
+    <img src="/sw360/img/sw360screenshots/deploy74/11.png"/> 
+</figure>
+
+<p>Note that you need to reload the browser or load a new browser window to take changes to effect.</p>
+<h4 id="setup-sw360-for-liferay-import-lar-files">Setup SW360 for Liferay: Import *.lar Files</h4>
+<p>For the setup of SW360 in Liferay, the portal description files, <code>*.lar</code> files need not be imported. there is no way except from doing this in the UI. If we are wrong with this, please let us know, because it is very annoying that these ever occurring steps cannot be automated with Liferay.</p>
+<p>In order to go ahead, switch to the <code>SW360</code> area where you can apply site settings:</p>
+
+<figure>
+    <img src="/sw360/img/sw360screenshots/deploy74/12.png"/> 
+</figure>
+
+<p>The go into &gt;  <code>Publishing</code> &gt; <code>Import</code> which shows like this:</p>
+
+<figure>
+    <img src="/sw360/img/sw360screenshots/deploy74/13.png"/> 
+</figure>
+
+<p>Then, click on the plus sign in order to import the *.lar file for public pages. You will find the lar files in the <a href="https://github.com/eclipse/sw360/tree/master/frontend/configuration">frontend/configuration</a> folder of the sw360 repository.</p>
+
+<figure>
+    <img src="/sw360/img/sw360screenshots/deploy74/14.png"/> 
+</figure>
+
+<p>As for import settings, follow the selection as shown on the screenshot. It is very important that for the <code>Public_Pages_7_4_3_18_GA18.lar</code> file the selection <code>Public_Pages_7_4_3_18_GA18.lar</code> is made.</p>
+
+<figure>
+    <img src="/sw360/img/sw360screenshots/deploy74/15.png"/> 
+</figure>
+
+<p>Importing permission makes sure that pages are visible according to users rights. For public pages, it is irrelevant_the moment. Overwriting and the write as current user needs to be selected.</p>
+<p>After successful importing, the same steps shall be repeated for the <code>Private_Pages_7_4_3_18_GA18.lar</code> file.</p>
+
+<figure>
+    <img src="/sw360/img/sw360screenshots/deploy74/16.png"/> 
+</figure>
+
+<p>Make sure that <code>Private_Pages_7_4_3_18_GA18.lar </code> is selected. Follow the other selections made as shown on the screenshot &hellip; importing permissions &hellip; mirror with overwriting, use the current author &hellip;</p>
+
+<figure>
+    <img src="/sw360/img/sw360screenshots/deploy74/17.png"/> 
+</figure>
+
+<p>If you click then the liferay logo_the upper left corner where the SW360 is, you will return to the application and the following screen should appear:</p>
+
+<figure>
+    <img src="/sw360/img/sw360screenshots/deploy74/18.png"/> 
+</figure>
+
+<p>You can close the left menu area by clicking on the upper left icon:</p>
+
+<figure>
+    <img src="/sw360/img/sw360screenshots/deploy74/19.png"/> 
+</figure>
+
+<p>Click <code>Start</code> to open the private pages. You are still logged in, so the setup account is used to view the pages.</p>
+<p><strong>Important</strong> The setup account does not belong to a group. Thus, not all view are functional because they require a group membership to work correctly.</p>
+
+<figure>
+    <img src="/sw360/img/sw360screenshots/deploy74/20.png"/> 
+</figure>
+
+<h4 id="import-user-accounts-for-testing">Import User Accounts for Testing</h4>
+<p>Click the SW360 <code>Admin</code> menu which is_the right and selection the <code>User</code> item.</p>
+
+<figure>
+    <img src="/sw360/img/sw360screenshots/deploy74/21.png"/> 
+</figure>
+
+<p>At the bottom of that view, select a User file to import for testing. Skip it if you will create users differently. You can find a <a href="https://github.com/sw360/sw360vagrant/blob/master/shared/test_users_with_passwords_12345.csv">user account import file</a> to import in the <code>sw360vagrant</code> project in the folder <code>shared</code>. After the user have been imported successfully, they should appear in the table view.</p>
+
+<figure>
+    <img src="/sw360/img/sw360screenshots/deploy74/22.png"/> 
+</figure>
+
+<p>After the user have been imported successfully, they should appear in the table view. You can logout for now and use one of the just added accounts (see below):</p>
+
+<figure>
+    <img src="/sw360/img/sw360screenshots/deploy74/23.png"/> 
+</figure>
+
+<h4 id="real-login">Real Login</h4>
+<p>One example user is <code>user@sw360.org</code> with the password <code>12345</code>. Note that in the import file with the example accounts, the password is provided with a hash. If you would like to generate new (salted) hashes, you can change your password and export the user list using the same portlet where you have imported the users. This functionality can be also used to migrate accounts between servers.</p>
+
+<figure>
+    <img src="/sw360/img/sw360screenshots/deploy74/24.png"/> 
+</figure>
+
+<p>After the successful login, SW360 will look as follows.</p>
+
+<figure>
+    <img src="/sw360/img/sw360screenshots/deploy74/25.png"/> 
+</figure>
+
 
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified April 20, 2023: <a href="https://github.com/eclipse/sw360.website/commit/1f2c654d8c90067b59d1a819d16fb30770120354">fix(layout): Minor layout fixes (1f2c654)</a>
+  Last modified June 6, 2023: <a href="https://github.com/eclipse/sw360.website/commit/7b307c195a1b61345e1acf6d0b1b1ca9ab9a68a2">fix(update): add config liferay 7.4 for upgrade version sw360 16.0.0 to 17.0.0 (7b307c1)</a>
 </div>
 
 </div>
