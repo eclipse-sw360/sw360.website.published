@@ -675,12 +675,12 @@ For deployment run the command
 &lt;p&gt;Path &lt;code&gt;SW360_REPOSITORY&lt;/code&gt; = &lt;code&gt;/home/user/work16to17/sw360&lt;/code&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Source code sw360 is in main branch with commit version 14.0 . User into &lt;code&gt;${SW360_REPOSITORY}&lt;/code&gt; use git checkout to tag version 16 on the main branch of SW360&lt;/p&gt;
+&lt;p&gt;Source code sw360 is in main branch with commit version 16.0.0 . User into &lt;code&gt;${SW360_REPOSITORY}&lt;/code&gt; use git checkout to tag version 16 on the main branch of SW360&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Checkout to tag  Version 17.0.0&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;code&gt;$ git checkout sw360-17.0.0-M1&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;$ git checkout 6c1aeacea3b0c5f37dc1752b5409cce1433e40c2&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
@@ -723,64 +723,98 @@ For deployment run the command
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Create &lt;code&gt;portal-ext.properties&lt;/code&gt; file in &lt;code&gt;liferay-ce-portal-7.4.3.18-ga18&lt;/code&gt; folder&lt;/p&gt;
+&lt;p&gt;Copy file &lt;code&gt;portal-ext.properties&lt;/code&gt; from &lt;code&gt;liferay-ce-portal-7.3.4-ga5&lt;/code&gt; folder to &lt;code&gt;liferay-ce-portal-7.4.3.18-ga18&lt;/code&gt; folder&lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Copy content from  &lt;a href=&#34;https://github.com/eclipse/sw360/blob/sw360-17.0.0-M1/frontend/configuration/portal-ext.properties&#34;&gt;https://github.com/eclipse/sw360/blob/sw360-17.0.0-M1/frontend/configuration/portal-ext.properties&lt;/a&gt; to portal-ext.properties&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Edit &lt;code&gt;portal-ext.properties&lt;/code&gt;: uncomment below lines&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;# default.admin.password=sw360fossy&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;# default.admin.screen.name=setup&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;# default.admin.email.address.prefix=setup&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;# default.admin.first.name=Setup&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;# default.admin.last.name=Administrator&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;em&gt;-&lt;/em&gt; Add lines to setup Postgres. Change jdbc.default.username, jdbc.default.password&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-ini&#34; data-lang=&#34;ini&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;# Postgres configuration&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#309&#34;&gt;jdbc.default.driverClassName&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#c30&#34;&gt;org.postgresql.Driver
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c30&#34;&gt;    jdbc.default.url=jdbc:postgresql://localhost:5432/lportal
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c30&#34;&gt;    jdbc.default.username=${postgres_user}
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c30&#34;&gt;    jdbc.default.password=${postgres_password}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
-&lt;li&gt;Add lines to setup passsword policies&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-ini&#34; data-lang=&#34;ini&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;# Passsword policies&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#309&#34;&gt;passwords.default.policy.change.required&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#c30&#34;&gt;false
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c30&#34;&gt;    company.security.send.password.reset.link=false
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c30&#34;&gt;    company.security.auto.login=false
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c30&#34;&gt;    company.security.auth.type=emailAddress
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c30&#34;&gt;    company.security.strangers=false
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c30&#34;&gt;    company.security.strangers.with.mx=false
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c30&#34;&gt;    company.security.strangers.verify=false&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;Remove files in folder &lt;code&gt;hypersonic&lt;/code&gt; with path: &lt;code&gt;/home/user/work16to17/liferay-ce-portal-7.4.3.18-ga18/data/hypersonic&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;$ rm -rf /home/user/work16to17/liferay-ce-portal-7.4.3.18-ga18/data/hypersonic/*&lt;/code&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
+&lt;p&gt;Copy all file &lt;code&gt;liferay-ce-portal-7.3.4-ga5/osgi/configs&lt;/code&gt; folder to &lt;code&gt;liferay-ce-portal-7.4.3.18-ga18/osgi/configs&lt;/code&gt; folder&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;liferay-database-migration&#34;&gt;Liferay Database Migration&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Go to &lt;code&gt;liferay-ce-portal-7.4.3.18-ga18/tools/portal-tools-db-upgrade-client&lt;/code&gt; folder&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Edit &lt;code&gt;app-server.properties&lt;/code&gt; to add the following parameters:&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  dir={LIFERAY_PATH_7.4}/tomcat-9.0.56
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  extra.lib.dirs=/bin
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  global.lib.dir=/lib
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  portal.dir=/webapps/ROOT
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  server.detector.server.id=tomcat
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;Edit &lt;code&gt;portal-upgrade-database.properties&lt;/code&gt; to add the following parameters:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  jdbc.default.driverClassName=org.postgresql.Driver
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  jdbc.default.url=jdbc:postgresql://{POSTGRE_HOST}:5432/lportal
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  jdbc.default.username={POSTGRES_USER}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  jdbc.default.password={POSTGRES_PASSWORD}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;Edit &lt;code&gt;portal-upgrade-ext.properties&lt;/code&gt; to add the following parameter:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  liferay.home={LIFERAY_PATH_7.4}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;Finally, you can run the script with the following command:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ ./db_upgrade.sh -j &amp;#34;-Xmx8000m -Dfile.encoding=UTF-8 -Duser.timezone=GMT&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;
 &lt;p&gt;Move folder &lt;code&gt;liferay-ce-portal-7.4.3.18-ga18&lt;/code&gt; to &lt;code&gt;/opt&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;$ sudo mv liferay-ce-portal-7.4.3.18-ga18 /opt&lt;/code&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Set Environment for &lt;code&gt;${LIFERAY_INSTALL}&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;$ export LIFERAY_INSTALL=/opt/liferay-ce-portal-7.4.3.18-ga18&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Set Environment for &lt;code&gt;${LIFERAY_INSTALL_7_4}&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;$ export LIFERAY_INSTALL_7_4=/opt/liferay-ce-portal-7.4.3.18-ga18&lt;/code&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Move folder &lt;code&gt;/home/user/work16to17/sw360&lt;/code&gt; run command&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;$ mvn clean install -DskipTests&lt;/code&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;After run command &amp;ldquo;mvn clean install -DskipTests&amp;rdquo; above, copy dependency in folder &lt;code&gt;/home/user/work16to17/sw360/utils/deploy/jars&lt;/code&gt; to  &lt;code&gt;${LIFERAY_INSTALL}/deploy&lt;/code&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   $ &lt;span style=&#34;color:#366&#34;&gt;cd&lt;/span&gt; /home/user/work16to17/sw360/utils/deploy/jars
+&lt;p&gt;After run command &amp;ldquo;mvn clean install -DskipTests&amp;rdquo; above, copy dependency in folder &lt;code&gt;/home/user/work16to17/sw360/deploy/jars&lt;/code&gt; to  &lt;code&gt;${LIFERAY_INSTALL_7_4}/deploy&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   $ &lt;span style=&#34;color:#366&#34;&gt;cd&lt;/span&gt; /home/user/work16to17/sw360/deploy/jars
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   $ sudo cp *.jar /opt/liferay-ce-portal-7.4.3.18-ga18/deploy/
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;We also suggest you change the environment settings (frontend/configuration/setenv.sh) to avoid the lack of memory before making and building SW360.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   $ sudo rm -rf &lt;span style=&#34;color:#a00&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;LIFERAY_INSTALL&lt;/span&gt;&lt;span style=&#34;color:#a00&#34;&gt;}&lt;/span&gt;/tomcat-9.0.56/bin/setenv.sh
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   $ sudo cp /home/user/work16to17/sw360/frontend/configuration/setenv.sh &lt;span style=&#34;color:#a00&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;LIFERAY_INSTALL&lt;/span&gt;&lt;span style=&#34;color:#a00&#34;&gt;}&lt;/span&gt;/tomcat-9.0.56/bin/
+&lt;p&gt;We also suggest you change the environment settings (frontend/configuration/setenv.sh) to avoid the lack of memory before making and building SW360 or can reuse 7.3.4&amp;rsquo;s setenv.sh.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   $ sudo rm -rf &lt;span style=&#34;color:#a00&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;LIFERAY_INSTALL_7_4&lt;/span&gt;&lt;span style=&#34;color:#a00&#34;&gt;}&lt;/span&gt;/tomcat-9.0.56/bin/setenv.sh
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   $ sudo cp /home/user/work16to17/sw360/frontend/configuration/setenv.sh &lt;span style=&#34;color:#a00&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;LIFERAY_INSTALL_7_4&lt;/span&gt;&lt;span style=&#34;color:#a00&#34;&gt;}&lt;/span&gt;/tomcat-9.0.56/bin/
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;install-couchdb-lucene&#34;&gt;Install Couchdb Lucene&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;SW360 uses for searching the contents of the couchdb databases a lucene-based server named couchdb-lucene&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Run command download Couchdb Lucene&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;wget --no-check-certificate https://github.com/rnewson/couchdb-lucene/archive/v2.1.0.tar.gz -O couchdb-lucene.tar.gz&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Note extract couchdb-lucene to folder &lt;code&gt;work&lt;/code&gt; with path of work: &lt;code&gt;/home/user/work&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;tar -xzf couchdb-lucene.tar.gz&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Run command:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;cd couchdb-lucene-2.1.0&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;sed -i &amp;quot;s/allowLeadingWildcard=false/allowLeadingWildcard=true/&amp;quot; ./src/main/resources/couchdb-lucene.ini &lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;sed -i &amp;quot;s/localhost:5984/admin:password@localhost:5984/&amp;quot; ./src/main/resources/couchdb-lucene.ini &lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;wget https://raw.githubusercontent.com/sw360/sw360vagrant/master/shared/couchdb-lucene.patch &lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;patch -p1 &amp;lt; couchdb-lucene.patch &lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;mvn clean install war:war&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;sudo cp target/couchdb-lucene-*.war /opt/liferay-ce-portal-7.4.3.18-ga18/tomcat-9.0.56/webapps/couchdb-lucene.war&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;ref2&#34;&gt;Version of libraries&lt;/h2&gt;
 &lt;table&gt;
@@ -828,63 +862,79 @@ For deployment run the command
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Install enviroment for python 2.7&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  $ sudo apt-add-repository universe
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  $ sudo apt update
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  $ sudo apt install python2-minimal
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Check version&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;$ python2 --version&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Install pip for python 2.7
-&lt;code&gt;curl https://bootstrap.pypa.io/pip/2.7/get-pip.py --output get-pip.py&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;if there is no proxy, skip option &lt;code&gt;--proxy=http://username:password@hostname&lt;/code&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   $ sudo python2 get-pip.py --proxy&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;http://username:password@hostname
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   $ pip --version
+&lt;p&gt;Install pip for python 3&lt;/p&gt;
+&lt;p&gt;if there is no proxy, skip option &lt;code&gt;--proxy=http://username:password@hostname:port&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   $ sudo apt update
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   $ sudo apt install python3-pip
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Import package couchdb
-&lt;code&gt;pip install --proxy=http://username:password@hostname couchdb&lt;/code&gt;&lt;/p&gt;
+&lt;code&gt;pip3 install --proxy=http://username:password@hostname:port couchdb&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;How to run migration data&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;stop SW360 (i.e. the tomcat)&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;Set Environment for &lt;code&gt;${LIFERAY_INSTALL}&lt;/code&gt;
-&lt;code&gt;$ export LIFERAY_INSTALL=/opt/liferay-ce-portal-7.4.3.18-ga18&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Set Environment for &lt;code&gt;${LIFERAY_INSTALL_7_4}&lt;/code&gt;
+&lt;code&gt;$ export LIFERAY_INSTALL_7_4=/opt/liferay-ce-portal-7.4.3.18-ga18&lt;/code&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Stop SW360 version 16.0, ensure that couchdb is accessible (try to open &lt;code&gt;http://localhost:5984/_utils/&lt;/code&gt;)
-&lt;code&gt;$ ${LIFERAY_INSTALL}/tomcat-9.0.56/bin/shutdown.sh&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Stop SW360 version 16.0 with path &lt;code&gt;LIFERAY_INSTALL_7_3= /opt/liferay-ce-portal-7.3.4-ga5&lt;/code&gt;
+&lt;code&gt;$ ${LIFERAY_INSTALL_7_3}/tomcat-9.0.33/bin/shutdown.sh&lt;/code&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Ensure that couchdb is accessible (try to open http://localhost:5984/_utils/)&lt;/p&gt;
+&lt;p&gt;Ensure that couchdb is accessible (try to open &lt;code&gt;http://localhost:5984/_utils/&lt;/code&gt;)&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;run the migration scripts (i.e. for each script call python2 /PATH/TO/00?_some_migration_script.py)
+&lt;p&gt;run the migration scripts (i.e. for each script call python3 /PATH/TO/00?_some_migration_script.py)
 be aware that some scripts are using an internal dry-run switch which you have to change manually in the script&amp;rsquo;s code.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;Mmove to folder with path &lt;code&gt;/home/user/work16to17/sw360/scripts/migrations&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;Run command:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   $ python2 050_cleanup_eccinformation_duplicate_attributes.py
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   $ python2 051_change_eccStatus.py
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   $ python2 052_migrate_clearing_request_status.py
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   $ python2 053_remove_whitespace_component_name.py
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Check data change in file log:&lt;/p&gt;
+&lt;p&gt;Move to folder with path &lt;code&gt;/home/user/work16to17/sw360/scripts/migrations&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Edit file migration to add the following parameters:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt; ```
+   DRY_RUN = False
+   # set admin name and password for couchdb3
+   DB_USER_NAME = &#39;admin&#39;
+   DB_USER_PASSWORD = &#39;password&#39;
+   # set credentials for couchdb3
+   couch.resource.credentials=(DB_USER_NAME, DB_USER_PASSWORD)
+ ```
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Need to update 052 for python script&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;050_cleanup_eccinformation_duplicate_attributes.py.log&lt;/li&gt;
-&lt;li&gt;051_change_eccStatus.py.log&lt;/li&gt;
-&lt;li&gt;052_migrate_clearing_request_status.log&lt;/li&gt;
-&lt;li&gt;053_remove_whitespace_component_name.log&lt;/li&gt;
+&lt;li&gt;Python 2.x code with Python 3.x. In Python 2, print is a statement and can be used without parentheses. However, in Python 3, print is a function and therefore always requires parentheses.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Install library &lt;code&gt;pandas&lt;/code&gt; of python.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;$ pip3 install pandas &lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Run command:&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   $ python3 050_cleanup_eccinformation_duplicate_attributes.py
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   $ python3 051_change_eccStatus.py
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   $ python3 052_migrate_clearing_request_status.py
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   $ python3 053_remove_whitespace_component_name.py
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Check data change in file log:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;* 050_cleanup_eccinformation_duplicate_attributes.py.log
+* 051_change_eccStatus.py.log
+* 052_migrate_clearing_request_status.log
+* 053_remove_whitespace_component_name.log
+&lt;/code&gt;&lt;/pre&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;/li&gt;
@@ -892,136 +942,56 @@ be aware that some scripts are using an internal dry-run switch which you have t
 &lt;h2 id=&#34;ref4&#34;&gt;Compile and deploy&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;Please set &lt;code&gt;sw360.liferay.company.id = 20099&lt;/code&gt; in config file &lt;code&gt;sw360.properties&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Set Environment for &lt;code&gt;${LIFERAY_INSTALL}&lt;/code&gt;
+&lt;p&gt;Set Environment for &lt;code&gt;${LIFERAY_INSTALL_7_4}&lt;/code&gt;
 &lt;code&gt;$ cd /home/user/work16to17/sw360&lt;/code&gt;
-&lt;code&gt;$ export LIFERAY_INSTALL=/opt/liferay-ce-portal-7.4.3.18-ga18&lt;/code&gt;&lt;/p&gt;
+&lt;code&gt;$ export LIFERAY_INSTALL_7_4=/opt/liferay-ce-portal-7.4.3.18-ga18&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;To clean everything and install without running the tests
 &lt;code&gt;mvn clean install -DskipTests&lt;/code&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;For deployment run the command
-&lt;code&gt;mvn package -P deploy -Dbase.deploy.dir=. -Dliferay.deploy.dir=${LIFERAY_INSTALL}/deploy -Dbackend.deploy.dir=${LIFERAY_INSTALL}/tomcat-9.0.56/webapps -Drest.deploy.dir=${LIFERAY_INSTALL}/tomcat-9.0.56/webapps -DskipTests&lt;/code&gt;&lt;/p&gt;
+&lt;code&gt;mvn package -P deploy -Dbase.deploy.dir=. -Dliferay.deploy.dir=${LIFERAY_INSTALL_7_4}/deploy -Dbackend.deploy.dir=${LIFERAY_INSTALL_7_4}/tomcat-9.0.56/webapps -Drest.deploy.dir=${LIFERAY_INSTALL_7_4}/tomcat-9.0.56/webapps -Dtest=org/eclipse/sw360/rest/resourceserver/restdocs/* -Dsurefire.failIfNoSpecifiedTests=false -DRunRestIntegrationTest=true &lt;/code&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;ref5&#34;&gt;Start and Configure Liferay&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;Set Environment for &lt;code&gt;${LIFERAY_INSTALL}&lt;/code&gt;
-&lt;code&gt;$ export LIFERAY_INSTALL=/opt/liferay-ce-portal-7.4.3.18-ga18&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Set Environment for &lt;code&gt;${LIFERAY_INSTALL_7_4}&lt;/code&gt;
+&lt;code&gt;$ export LIFERAY_INSTALL_7_4=/opt/liferay-ce-portal-7.4.3.18-ga18&lt;/code&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Start liferay&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;code&gt;$ ${LIFERAY_INSTALL}/tomcat-9.0.56/bin/startup.sh&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;$ ${LIFERAY_INSTALL_7_4}/tomcat-9.0.56/bin/startup.sh&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Log&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;code&gt;$ tail -f ${LIFERAY_INSTALL}/tomcat-9.0.56/logs/*&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;$ tail -f ${LIFERAY_INSTALL_7_4}/tomcat-9.0.56/logs/*&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Url SW360 : &lt;code&gt;https://localhost:8080&lt;/code&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;configure-liferay-portal&#34;&gt;Configure Liferay Portal&lt;/h3&gt;
+&lt;h3 id=&#34;re-indexing-search-indexes-is-required-for-major-version-upgrades-heres-how-to-re-index&#34;&gt;Re-indexing search indexes is required for major version upgrades. Here’s how to re-index:&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;1. Click on the Global Menu (Global Menu icon) and select the Control Panel tab. The Control Panel appears.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;2. Click on Search in the Configuration section, select the Index Actions tab, and click Execute for Re-index all search indexes. The re-index executes and displays a success message when done.
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/ReIndexSearch.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;h3 id=&#34;setup-sw360-for-liferay-import-lar-files&#34;&gt;Setup SW360 for Liferay: Import *.lar Files&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;Can follow the steps in the following link &lt;a href=&#34;https://www.eclipse.org/sw360/docs/deployment/legacy/deploy-liferay7.3&#34;&gt;https://www.eclipse.org/sw360/docs/deployment/legacy/deploy-liferay7.3&lt;/a&gt; or follow these steps:&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;You need over-import *.lar files to the portet can show the sw360 icons/images&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Import users&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Open the panel on the left side by clicking the button on the top left.&lt;/li&gt;
-&lt;li&gt;Click on &lt;code&gt;SW360&lt;/code&gt; on the top right to go to the homepage.&lt;/li&gt;
-&lt;li&gt;Click on &lt;code&gt;Start&lt;/code&gt; inside the &amp;ldquo;Welcome&amp;rdquo; section.&lt;/li&gt;
-&lt;li&gt;Go to &lt;code&gt;Admin&lt;/code&gt; -&amp;gt; &lt;code&gt;User&lt;/code&gt; (URL: &lt;code&gt;/group/guest/users&lt;/code&gt;).&lt;/li&gt;
-&lt;li&gt;Scroll down to section &lt;code&gt;UPLOAD USERS&lt;/code&gt;, select a user file from the very
-beginning and click &lt;code&gt;Upload Users&lt;/code&gt; on the right side. &lt;a href=&#34;https://github.com/sw360/sw360vagrant/blob/master/shared/test_users_with_passwords_12345.csv&#34;&gt;A user file can be found here in the sw360vagrant project&lt;/a&gt;
-* Download: &lt;code&gt;$ wget https://github.com/sw360/sw360vagrant/blob/master/shared/test_users_with_passwords_12345.csv&lt;/code&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Setup liferay:&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;After successful , Then if you open the server with the URL &lt;code&gt;https://localhost:8080/&lt;/code&gt; the following screen should appear:&lt;/p&gt;
+&lt;p&gt;For the setup of SW360 in Liferay, the portal description files, &lt;code&gt;*.lar&lt;/code&gt; files need not be imported. There is no way except from doing this in the UI. If we are wrong with this, please let us know, because it is very annoying that these ever occurring steps cannot be automated with Liferay.&lt;/p&gt;
 
 &lt;figure&gt;
-    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/1.png&#34;/&gt; 
-&lt;/figure&gt;
-
-&lt;p&gt;Note that the actual image changes with every liferay version. If there is weird html output without images and plain text, then likely some port settings did not work and the pages generated have wrong URLs inside.&lt;/p&gt;
-
-&lt;figure&gt;
-    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/2.png&#34;/&gt; 
-&lt;/figure&gt;
-
-&lt;p&gt;After login the sw360 is not setup, thus the server does not display much, but a screen like the following:&lt;/p&gt;
-
-&lt;figure&gt;
-    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/3.png&#34;/&gt; 
-&lt;/figure&gt;
-
-&lt;h4 id=&#34;user-and-login-settings-in-liferay&#34;&gt;User and Login Settings in Liferay&lt;/h4&gt;
-&lt;p&gt;Go into the control panel area by clicking the items icon (nine small cubes) in the upper right corner and select the control panel tab:&lt;/p&gt;
-
-&lt;figure&gt;
-    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/4.png&#34;/&gt; 
-&lt;/figure&gt;
-
-&lt;p&gt;Edit this password policy and disable &lt;code&gt;change Required&lt;/code&gt; if you wish to do so. Click on Save_the bottom of the page to save the selection.&lt;/p&gt;
-
-&lt;figure&gt;
-    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/6.png&#34;/&gt; 
-&lt;/figure&gt;
-
-&lt;p&gt;Then, go: in &lt;code&gt;Configuration&lt;/code&gt; &amp;gt;  &lt;code&gt;Instance Settings&lt;/code&gt; &amp;gt; &lt;code&gt;Users&lt;/code&gt; &amp;gt;&lt;/p&gt;
-
-&lt;figure&gt;
-    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/7.png&#34;/&gt; 
-&lt;/figure&gt;
-
-&lt;p&gt;In this area, select &lt;code&gt;Default User Associations&lt;/code&gt; to enter SW360 and apply it also to existing users. Click on Save to save the selection:&lt;/p&gt;
-
-&lt;figure&gt;
-    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/8.png&#34;/&gt; 
-&lt;/figure&gt;
-
-&lt;p&gt;Then, in &lt;code&gt;Configuration&lt;/code&gt; &amp;gt;  &lt;code&gt;Instance Settings&lt;/code&gt; &amp;gt; &lt;code&gt;User Authentication&lt;/code&gt; &amp;gt; &lt;code&gt;General&lt;/code&gt; to disable all kind of auto login to make sure only authenticated users can log in. You may want to switch off the e-mail verification, because for most of the development times it will not be of much value.&lt;/p&gt;
-
-&lt;figure&gt;
-    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/9.png&#34;/&gt; 
-&lt;/figure&gt;
-
-&lt;p&gt;Finally, sice Liferay 7.4 some of the bundled modules need to be activated:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;jquery&lt;/li&gt;
-&lt;li&gt;font awesome&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;In oder to do this, please select from the &lt;code&gt;Configuration&lt;/code&gt; &amp;gt;  &lt;code&gt;System Settings&lt;/code&gt; &amp;gt; &lt;code&gt;Third Party&lt;/code&gt; and go to jquery, select the enablement and click on Update:&lt;/p&gt;
-
-&lt;figure&gt;
-    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/10.png&#34;/&gt; 
-&lt;/figure&gt;
-
-&lt;p&gt;Do the same for Font Awesome:&lt;/p&gt;
-
-&lt;figure&gt;
-    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/11.png&#34;/&gt; 
-&lt;/figure&gt;
-
-&lt;p&gt;Note that you need to reload the browser or load a new browser window to take changes to effect.&lt;/p&gt;
-&lt;h4 id=&#34;setup-sw360-for-liferay-import-lar-files&#34;&gt;Setup SW360 for Liferay: Import *.lar Files&lt;/h4&gt;
-&lt;p&gt;For the setup of SW360 in Liferay, the portal description files, &lt;code&gt;*.lar&lt;/code&gt; files need not be imported. there is no way except from doing this in the UI. If we are wrong with this, please let us know, because it is very annoying that these ever occurring steps cannot be automated with Liferay.&lt;/p&gt;
-&lt;p&gt;In order to go ahead, switch to the &lt;code&gt;SW360&lt;/code&gt; area where you can apply site settings:&lt;/p&gt;
-
-&lt;figure&gt;
-    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/12.png&#34;/&gt; 
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-01-24_14.49.41.png&#34;/&gt; 
 &lt;/figure&gt;
 
 &lt;p&gt;The go into &amp;gt;  &lt;code&gt;Publishing&lt;/code&gt; &amp;gt; &lt;code&gt;Import&lt;/code&gt; which shows like this:&lt;/p&gt;
@@ -1053,57 +1023,6 @@ beginning and click &lt;code&gt;Upload Users&lt;/code&gt; on the right side. &lt
 
 &lt;figure&gt;
     &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/17.png&#34;/&gt; 
-&lt;/figure&gt;
-
-&lt;p&gt;If you click then the liferay logo_the upper left corner where the SW360 is, you will return to the application and the following screen should appear:&lt;/p&gt;
-
-&lt;figure&gt;
-    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/18.png&#34;/&gt; 
-&lt;/figure&gt;
-
-&lt;p&gt;You can close the left menu area by clicking on the upper left icon:&lt;/p&gt;
-
-&lt;figure&gt;
-    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/19.png&#34;/&gt; 
-&lt;/figure&gt;
-
-&lt;p&gt;Click &lt;code&gt;Start&lt;/code&gt; to open the private pages. You are still logged in, so the setup account is used to view the pages.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Important&lt;/strong&gt; The setup account does not belong to a group. Thus, not all view are functional because they require a group membership to work correctly.&lt;/p&gt;
-
-&lt;figure&gt;
-    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/20.png&#34;/&gt; 
-&lt;/figure&gt;
-
-&lt;h4 id=&#34;import-user-accounts-for-testing&#34;&gt;Import User Accounts for Testing&lt;/h4&gt;
-&lt;p&gt;Click the SW360 &lt;code&gt;Admin&lt;/code&gt; menu which is_the right and selection the &lt;code&gt;User&lt;/code&gt; item.&lt;/p&gt;
-
-&lt;figure&gt;
-    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/21.png&#34;/&gt; 
-&lt;/figure&gt;
-
-&lt;p&gt;At the bottom of that view, select a User file to import for testing. Skip it if you will create users differently. You can find a &lt;a href=&#34;https://github.com/sw360/sw360vagrant/blob/master/shared/test_users_with_passwords_12345.csv&#34;&gt;user account import file&lt;/a&gt; to import in the &lt;code&gt;sw360vagrant&lt;/code&gt; project in the folder &lt;code&gt;shared&lt;/code&gt;. After the user have been imported successfully, they should appear in the table view.&lt;/p&gt;
-
-&lt;figure&gt;
-    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/22.png&#34;/&gt; 
-&lt;/figure&gt;
-
-&lt;p&gt;After the user have been imported successfully, they should appear in the table view. You can logout for now and use one of the just added accounts (see below):&lt;/p&gt;
-
-&lt;figure&gt;
-    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/23.png&#34;/&gt; 
-&lt;/figure&gt;
-
-&lt;h4 id=&#34;real-login&#34;&gt;Real Login&lt;/h4&gt;
-&lt;p&gt;One example user is &lt;code&gt;user@sw360.org&lt;/code&gt; with the password &lt;code&gt;12345&lt;/code&gt;. Note that in the import file with the example accounts, the password is provided with a hash. If you would like to generate new (salted) hashes, you can change your password and export the user list using the same portlet where you have imported the users. This functionality can be also used to migrate accounts between servers.&lt;/p&gt;
-
-&lt;figure&gt;
-    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/24.png&#34;/&gt; 
-&lt;/figure&gt;
-
-&lt;p&gt;After the successful login, SW360 will look as follows.&lt;/p&gt;
-
-&lt;figure&gt;
-    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/25.png&#34;/&gt; 
 &lt;/figure&gt;
 
 
