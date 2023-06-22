@@ -2122,8 +2122,8 @@ It can manage SPDX files for maintaining the license conditions and maintain lic
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &amp;lt;PatternLayout pattern=&amp;#34;%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L - %m%n&amp;#34;/&amp;gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &amp;lt;/Console&amp;gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &amp;lt;!-- environment variables can be set in the format of &amp;#34;$ {env: LOG_ROOT}&amp;#34; --&amp;gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &amp;lt;RollingFile name=&amp;#34;ChangeLogFile&amp;#34; fileName=&amp;#34;${env:FILE_PATH}/sw360changelog/sw360changelog.log&amp;#34;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                filePattern=&amp;#34;${env:FILE_PATH}/sw360changelog/sw360changelog-%d{yyyy-MM-dd}-%i.log&amp;#34; &amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &amp;lt;RollingFile name=&amp;#34;ChangeLogFile&amp;#34; fileName=&amp;#34;${env:FILE_PATH}/sw360changelog.log&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                filePattern=&amp;#34;${env:FILE_PATH}/sw360changelog-%d{yyyy-MM-dd}-%i.log&amp;#34; &amp;gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &amp;lt;PatternLayout pattern=&amp;#34;%m%n&amp;#34;/&amp;gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &amp;lt;Policies&amp;gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &amp;lt;SizeBasedTriggeringPolicy size=&amp;#34;10MB&amp;#34; /&amp;gt;
@@ -2146,11 +2146,23 @@ It can manage SPDX files for maintaining the license conditions and maintain lic
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;/Configuration&amp;gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;Set the environment variable for the changelog directory (&lt;code&gt;${env:FILE_PATH}/sw360changelog/sw360changelog.log&lt;/code&gt;)&lt;/p&gt;
+&lt;p&gt;Set the environment variable for the changelog directory (&lt;code&gt;${env:FILE_PATH}/sw360changelog.log&lt;/code&gt;)&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;code&gt;$ export FILE_PATH=/var/log&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;If &lt;code&gt;/var/log&lt;/code&gt; folder requires permission, set permission for this folder:
-&lt;code&gt;sudo chown -R $USER:$USER /var/log&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Create Folder &lt;code&gt;sw360changelog&lt;/code&gt; in &lt;code&gt;var/log/&lt;/code&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;$ sudo mkdir sw360changelog &lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;If &lt;code&gt;/var/log/sw360changelog&lt;/code&gt; folder requires permission, set permission for this folder:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;$ sudo chown -R $USER:$USER /var/log/sw360changelog&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;$ export FILE_PATH=/var/log/sw360changelog&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;

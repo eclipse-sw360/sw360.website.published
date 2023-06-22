@@ -25,12 +25,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.eclipse.org/sw360/docs/deployment/nativeinstall/native-install-sw360-version-17.0.0/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2023-03-09T13:56:24+07:00" /><meta property="og:site_name" content="Eclipse SW360" />
+<meta property="article:modified_time" content="2023-06-22T11:25:27+07:00" /><meta property="og:site_name" content="Eclipse SW360" />
 
 <meta itemprop="name" content="Native Install v17">
 <meta itemprop="description" content="Native-Install-Version-17">
-<meta itemprop="dateModified" content="2023-03-09T13:56:24+07:00" />
-<meta itemprop="wordCount" content="3622">
+<meta itemprop="dateModified" content="2023-06-22T11:25:27+07:00" />
+<meta itemprop="wordCount" content="3632">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Native Install v17"/>
 <meta name="twitter:description" content="Native-Install-Version-17"/>
@@ -1365,8 +1365,8 @@ It can manage SPDX files for maintaining the license conditions and maintain lic
 </span></span><span style="display:flex;"><span>            &lt;PatternLayout pattern=&#34;%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L - %m%n&#34;/&gt;
 </span></span><span style="display:flex;"><span>        &lt;/Console&gt;
 </span></span><span style="display:flex;"><span>        &lt;!-- environment variables can be set in the format of &#34;$ {env: LOG_ROOT}&#34; --&gt;
-</span></span><span style="display:flex;"><span>        &lt;RollingFile name=&#34;ChangeLogFile&#34; fileName=&#34;${env:FILE_PATH}/sw360changelog/sw360changelog.log&#34;
-</span></span><span style="display:flex;"><span>                filePattern=&#34;${env:FILE_PATH}/sw360changelog/sw360changelog-%d{yyyy-MM-dd}-%i.log&#34; &gt;
+</span></span><span style="display:flex;"><span>        &lt;RollingFile name=&#34;ChangeLogFile&#34; fileName=&#34;${env:FILE_PATH}/sw360changelog.log&#34;
+</span></span><span style="display:flex;"><span>                filePattern=&#34;${env:FILE_PATH}/sw360changelog-%d{yyyy-MM-dd}-%i.log&#34; &gt;
 </span></span><span style="display:flex;"><span>            &lt;PatternLayout pattern=&#34;%m%n&#34;/&gt;
 </span></span><span style="display:flex;"><span>            &lt;Policies&gt;
 </span></span><span style="display:flex;"><span>                &lt;SizeBasedTriggeringPolicy size=&#34;10MB&#34; /&gt;
@@ -1389,11 +1389,23 @@ It can manage SPDX files for maintaining the license conditions and maintain lic
 </span></span><span style="display:flex;"><span>&lt;/Configuration&gt;
 </span></span></code></pre></div><ul>
 <li>
-<p>Set the environment variable for the changelog directory (<code>${env:FILE_PATH}/sw360changelog/sw360changelog.log</code>)</p>
+<p>Set the environment variable for the changelog directory (<code>${env:FILE_PATH}/sw360changelog.log</code>)</p>
 <ul>
-<li><code>$ export FILE_PATH=/var/log</code></li>
-<li>If <code>/var/log</code> folder requires permission, set permission for this folder:
-<code>sudo chown -R $USER:$USER /var/log</code></li>
+<li>
+<p>Create Folder <code>sw360changelog</code> in <code>var/log/</code>:</p>
+<ul>
+<li><code>$ sudo mkdir sw360changelog </code></li>
+</ul>
+</li>
+<li>
+<p>If <code>/var/log/sw360changelog</code> folder requires permission, set permission for this folder:</p>
+<ul>
+<li><code>$ sudo chown -R $USER:$USER /var/log/sw360changelog</code></li>
+</ul>
+</li>
+<li>
+<p><code>$ export FILE_PATH=/var/log/sw360changelog</code></p>
+</li>
 </ul>
 </li>
 <li>
@@ -1797,7 +1809,7 @@ beginning and click <code>Upload Users</code> on the right side. <a href="https:
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified March 9, 2023: <a href="https://github.com/eclipse/sw360.website/commit/6da6632b6ab936594dbd561087f51f309d620047">feat(update): Upgrade version sw360 16.0.0 to 17.0.0 and Guide configure the sw360ChangeLog path (6da6632)</a>
+  Last modified June 22, 2023: <a href="https://github.com/eclipse/sw360.website/commit/af2294c6255585c451337c61f071faa4ee5f4ec1">fix(update): Update config log4j2 for native install sw360 (af2294c)</a>
 </div>
 
 </div>
