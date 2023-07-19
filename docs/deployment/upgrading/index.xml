@@ -848,7 +848,7 @@ For deployment run the command
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;ul&gt;
-&lt;li&gt;To check couchdb version: run &lt;code&gt;curl http://localhost_or_yourcouchdbserver:5984 | json_pp&lt;/code&gt; or &#39;&#39;&lt;/li&gt;
+&lt;li&gt;To check couchdb version: run &lt;code&gt;curl http://localhost_or_yourcouchdbserver:5984 | json_pp&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;ref3&#34;&gt;Migrate database&lt;/h2&gt;
 &lt;ul&gt;
