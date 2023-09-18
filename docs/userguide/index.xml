@@ -2380,6 +2380,109 @@ Now the “Linked Releases” table could show all dependencies of a project (bo
     </item>
     
     <item>
+      <title>Docs: SPDX Documnent</title>
+      <link>https://www.eclipse.org/sw360/docs/userguide/spdx_documnent/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/sw360/docs/userguide/spdx_documnent/</guid>
+      <description>
+        
+        
+        &lt;h1 id=&#34;how-to-enable-this-feature&#34;&gt;&lt;strong&gt;How to enable this feature&lt;/strong&gt;&lt;/h1&gt;
+&lt;p&gt;To use this function, please:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Build the source code and deploy.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Add config &lt;strong&gt;spdx.document.enabled = true&lt;/strong&gt; (/etc/sw360/sw360.properties) to enable the feature.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;The following changes will work when &lt;strong&gt;spdx.document.enabled = true&lt;/strong&gt; only.&lt;/p&gt;
+&lt;h1 id=&#34;1-introduction&#34;&gt;&lt;strong&gt;1. Introduction&lt;/strong&gt;&lt;/h1&gt;
+&lt;p&gt;SPDX Document manages Document Creation Information, Package Information, Other Licensing Information Detected, Relationships between SPDX Elements, Annotations&lt;/p&gt;
+&lt;h1 id=&#34;2-how-to-use&#34;&gt;&lt;strong&gt;2. How to use?&lt;/strong&gt;&lt;/h1&gt;
+&lt;p&gt;&lt;strong&gt;1. File Test Import&lt;/strong&gt;: &lt;a href=&#34;https://github.com/spdx/tools-java/blob/master/testResources/SPDXRdfExample-v2.3.spdx.rdf&#34;&gt;https://github.com/spdx/tools-java/blob/master/testResources/SPDXRdfExample-v2.3.spdx.rdf&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2. Import SPDX in Page Component&lt;/strong&gt;&lt;/p&gt;
+&lt;h4 id=&#34;import&#34;&gt;Import&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Support RDF/XML, SPDX.&lt;/li&gt;
+&lt;li&gt;Import all Packages in the SPDX file (main package and dependent packages)&lt;/li&gt;
+&lt;li&gt;Import relationships related to Packages and SPDX Documents (relationships related to File and Snippet are not imported)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;steps&#34;&gt;Steps&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;Go to component page&lt;/li&gt;
+&lt;li&gt;Click &amp;ldquo;Import SPDX BOM&amp;rdquo; button&lt;/li&gt;
+&lt;li&gt;Upload SPDXRdfExample-v2.3.spdx.rdf&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;validate&#34;&gt;Validate&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&amp;ldquo;Apache Commons Lang&amp;rdquo;, &amp;ldquo;glibc&amp;rdquo;,  &amp;ldquo;Jena&amp;rdquo; and &amp;ldquo;Saxon&amp;rdquo; components were created&lt;/li&gt;
+&lt;li&gt;&amp;ldquo;glibc (2.11.1)&amp;rdquo;, &amp;ldquo;Saxon(8.8)&amp;rdquo; and &amp;quot; Jena (3.12.0) &amp;quot; releases were created&lt;/li&gt;
+&lt;li&gt;Tab SPDX Document  exits in release glibc (2.11.1), Jena (3.12.0) and Saxon (8.8)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;result&#34;&gt;Result&lt;/h4&gt;
+&lt;h5 id=&#34;tab-spdx-document---full-page-of-release-glibc2111&#34;&gt;Tab SPDX Document - Full Page of Release Glibc(2.11.1)&lt;/h5&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/spdx_document/Full_Page_of_Release_Glibc.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;h5 id=&#34;tab-spdx-document---lite-page-of-release-glibc2111&#34;&gt;Tab SPDX Document - Lite Page of Release Glibc(2.11.1)&lt;/h5&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/spdx_document/Lite_Page_of_Release_Glibc%282.11.1%29.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;h5 id=&#34;tab-spdx-document----full-page-of-release-jena-3120&#34;&gt;Tab SPDX Document  - Full Page of Release Jena (3.12.0)&lt;/h5&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/spdx_document/Full_Page_of_Release_Jena_%283.12.0%29.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;h5 id=&#34;tab-spdx-document---lite-page-of-release--jena-3120&#34;&gt;Tab SPDX Document - Lite Page of Release  Jena (3.12.0)&lt;/h5&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/spdx_document/Lite_Page_of_Release_Jena_%283.12.0%29.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;h5 id=&#34;tab-spdx-document----full-page-of-release-saxon-88&#34;&gt;Tab SPDX Document  - Full Page of Release Saxon (8.8)&lt;/h5&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/spdx_document/Full_Page_of_Release_Saxon_%288.8%29.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;h5 id=&#34;tab-spdx-document---lite-page-of-release--saxon-88&#34;&gt;Tab SPDX Document - Lite Page of Release  Saxon (8.8)&lt;/h5&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/spdx_document/Lite_Page_of_Release_Saxon_%288.8%29.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;3. Feature: Edit , Add tab SPDX Document in Release&lt;/strong&gt;&lt;/p&gt;
+&lt;h5 id=&#34;edit-tab-spdx-document---full-page&#34;&gt;Edit tab SPDX Document - Full Page&lt;/h5&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/spdx_document/Edit_tab_SPDX_Document_Full_Page.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;h5 id=&#34;edit-tab-spdx-document---lite-page&#34;&gt;Edit tab SPDX Document - Lite Page&lt;/h5&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/spdx_document/Edit_tab_SPDX_Document_Lite_Page.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;h5 id=&#34;add-tab-spdx-document&#34;&gt;Add tab SPDX Document&lt;/h5&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/spdx_document/Add_tab_SPDX_Document.png&#34;/&gt; 
+&lt;/figure&gt;
+
+
+      </description>
+    </item>
+    
+    <item>
       <title>Docs: SW360 Best Practices</title>
       <link>https://www.eclipse.org/sw360/docs/userguide/bestpractices/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
