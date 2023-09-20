@@ -38,12 +38,12 @@ User successfully signed in and Home page is …">
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.eclipse.org/sw360/docs/development/testcases/test-cases-components/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2022-06-28T20:46:15+02:00" /><meta property="og:site_name" content="Eclipse SW360" />
+<meta property="article:modified_time" content="2023-09-18T10:02:24+07:00" /><meta property="og:site_name" content="Eclipse SW360" />
 
 <meta itemprop="name" content="Component / Release">
 <meta itemprop="description" content="Add a component and release with vendor present Step Action Result 1 Sign In with a known user User successfully signed in and Home page is displayed 2 Click on Components tab Components page is displayed 3 Click Add Component New Component page is displayed with mandatory fields marked with red star 4 Fill in a component Name and Categories and click Add Component The page remain the same and the message You are editing the original document.">
-<meta itemprop="dateModified" content="2022-06-28T20:46:15+02:00" />
-<meta itemprop="wordCount" content="1251">
+<meta itemprop="dateModified" content="2023-09-18T10:02:24+07:00" />
+<meta itemprop="wordCount" content="1948">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Component / Release"/>
 <meta name="twitter:description" content="Add a component and release with vendor present Step Action Result 1 Sign In with a known user User successfully signed in and Home page is displayed 2 Click on Components tab Components page is displayed 3 Click Add Component New Component page is displayed with mandatory fields marked with red star 4 Fill in a component Name and Categories and click Add Component The page remain the same and the message You are editing the original document."/>
@@ -542,6 +542,12 @@ User successfully signed in and Home page is …">
     <li><a href="#add-new-attachments-to-an-existing-release-and-delete-attachments">Add new attachments to an existing release and delete attachments</a></li>
     <li><a href="#duplicate-an-existing-release">Duplicate an existing release</a></li>
     <li><a href="#search-for-and-create-a-new-vendor-for-a-new-release">Search for and create a new vendor for a new release</a></li>
+    <li><a href="#link-a-release-to-the-project-in-view-component-page-and-check-used-by-projects">Link a release to the project in view component page and check used by projects</a></li>
+    <li><a href="#link-a-release-to-a-project-in-the-view-release-page">Link a release to a project in the view release page</a></li>
+    <li><a href="#import-a-new-component-by-spdxxml-rdf-file">Import a new component by .spdx/.xml/ .rdf file</a></li>
+    <li><a href="#export-components-without-releases">Export components without releases</a></li>
+    <li><a href="#export-components-with-releases">Export components with releases</a></li>
+    <li><a href="#create-a-clearing-request-for-a-release">Create a clearing request for a release</a></li>
   </ul>
 </nav></div>
 
@@ -1063,11 +1069,218 @@ User successfully signed in and Home page is …">
 </tr>
 </tbody>
 </table>
+<h2 id="link-a-release-to-the-project-in-view-component-page-and-check-used-by-projects">Link a release to the project in view component page and check used by projects</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">Step</th>
+<th style="text-align:left">Action</th>
+<th style="text-align:left">Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">1</td>
+<td style="text-align:left">Search for an existing component with release and click <em>Release Overview</em> tab</td>
+<td style="text-align:left">The list of releases are displayed</td>
+</tr>
+<tr>
+<td style="text-align:right">2</td>
+<td style="text-align:left">Click <em>Link Project</em> button under Action column</td>
+<td style="text-align:left">The dialog <em>Link Release to Project</em> is displayed with <em>Link to Project</em> button is disabled</td>
+</tr>
+<tr>
+<td style="text-align:right">3</td>
+<td style="text-align:left">Click on <em>Search</em> button then choose a project to link</td>
+<td style="text-align:left"><em>Link to Project</em> button on the dialog is enabled</td>
+</tr>
+<tr>
+<td style="text-align:right">4</td>
+<td style="text-align:left">Click on _<em>Link to Project</em> button</td>
+<td style="text-align:left"><em>The release {component name} ({version}) has been successfully linked to project {project name}</em><br><em>Click <ins>here<ins></em> <em>to edit the release relation as well as the project mainline state in the project.</em> message is displayed</td>
+</tr>
+<tr>
+<td style="text-align:right">5</td>
+<td style="text-align:left">Click on <em>here</em> hyperlink in the dialog</td>
+<td style="text-align:left">Redirect to the <em>edit project</em> page with the release was linked (displayed on  <em>License Clearing</em> page)</td>
+</tr>
+<tr>
+<td style="text-align:right">6</td>
+<td style="text-align:left">Re-open the release at view page and click on <em>Summary</em> tab</td>
+<td style="text-align:left">Used by project information is updated correspondingly</td>
+</tr>
+</tbody>
+</table>
+<h2 id="link-a-release-to-a-project-in-the-view-release-page">Link a release to a project in the view release page</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">Step</th>
+<th style="text-align:left">Action</th>
+<th style="text-align:left">Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">1</td>
+<td style="text-align:left">Search for an existing component with release and click <em>Release Overview</em> tab</td>
+<td style="text-align:left">The list of releases are displayed</td>
+</tr>
+<tr>
+<td style="text-align:right">2</td>
+<td style="text-align:left">Click on <em>a release name</em> hyperlink. Eg: release R1</td>
+<td style="text-align:left">Redirect to the <em>view release</em> page</td>
+</tr>
+<tr>
+<td style="text-align:right">3</td>
+<td style="text-align:left">Click on <em>Link to Project</em> button</td>
+<td style="text-align:left">The dialog <em>Link Release to Project</em> is displayed with <em>Link to Project</em> button is disabled</td>
+</tr>
+<tr>
+<td style="text-align:right">4</td>
+<td style="text-align:left">Click on <em>Search</em> button then choose a project to link</td>
+<td style="text-align:left"><em>Link to Project</em> button on the dialog is enabled</td>
+</tr>
+<tr>
+<td style="text-align:right">5</td>
+<td style="text-align:left">Click on _<em>Link to Project</em> button</td>
+<td style="text-align:left"><em>The release {component name} ({version}) has been successfully linked to project {project name}</em><br><em>Click <ins>here<ins></em> <em>to edit the release relation as well as the project mainline state in the project.</em> message is displayed</td>
+</tr>
+<tr>
+<td style="text-align:right">6</td>
+<td style="text-align:left">Click on <em>here</em> hyperlink in the dialog</td>
+<td style="text-align:left">Redirect to the <em>edit project</em> page with the release was linked (displayed on  <em>License Clearing</em> page)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="import-a-new-component-by-spdxxml-rdf-file">Import a new component by .spdx/.xml/ .rdf file</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">Step</th>
+<th style="text-align:left">Action</th>
+<th style="text-align:left">Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">1</td>
+<td style="text-align:left">Click on <em>Components</em> tab</td>
+<td style="text-align:left"><em>Components</em> page is displayed</td>
+</tr>
+<tr>
+<td style="text-align:right">2</td>
+<td style="text-align:left">Click on <em>Import SBOM</em> button</td>
+<td style="text-align:left">A dialog <em>Upload SBOM</em> is displayed</td>
+</tr>
+<tr>
+<td style="text-align:right">3</td>
+<td style="text-align:left">Choose a <strong><em>.spdx</em></strong> or <strong><em>.xml</em></strong> or <strong><em>.rdf</em></strong> file by clicking on the <em>Browse</em> button or drop/draft a file into the dialog</td>
+<td style="text-align:left">The message is displayed in the dialog: <br> <em>The new Component and new Release will be created, do you want to import? <br> New Component: {new component names} <br> New Release: {new release names}</em></td>
+</tr>
+<tr>
+<td style="text-align:right">4</td>
+<td style="text-align:left">Click on <em>Import</em> button</td>
+<td style="text-align:left">The dialog is closed. New releases and new components are imported successfully</td>
+</tr>
+</tbody>
+</table>
+<h2 id="export-components-without-releases">Export components without releases</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">Step</th>
+<th style="text-align:left">Action</th>
+<th style="text-align:left">Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">1</td>
+<td style="text-align:left">Click on <em>Components</em> tab</td>
+<td style="text-align:left"><em>Components</em> page is displayed</td>
+</tr>
+<tr>
+<td style="text-align:right">2</td>
+<td style="text-align:left">Click on <em>Export Spreadsheet</em> button and choose <em>Components only</em> option</td>
+<td style="text-align:left">A new file with name&rsquo;s format <em>components-{yyyy}-{mm}-{dd}.xlsx</em> is downloaded<br> The content of the downloaded file includes information of all components in the system</td>
+</tr>
+</tbody>
+</table>
+<h2 id="export-components-with-releases">Export components with releases</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">Step</th>
+<th style="text-align:left">Action</th>
+<th style="text-align:left">Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">1</td>
+<td style="text-align:left">Click on <em>Components</em> tab</td>
+<td style="text-align:left"><em>Components</em> page is displayed</td>
+</tr>
+<tr>
+<td style="text-align:right">2</td>
+<td style="text-align:left">Click on <em>Export Spreadsheet</em> button and choose <em>Components with releases</em> option</td>
+<td style="text-align:left">New file with name <em>components-{yyyy}-{mm}-{dd}.xlsx</em> is downloaded.<br> The content of the downloaded file includes information of all components and releases in the system</td>
+</tr>
+</tbody>
+</table>
+<h2 id="create-a-clearing-request-for-a-release">Create a clearing request for a release</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">Step</th>
+<th style="text-align:left">Action</th>
+<th style="text-align:left">Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">1</td>
+<td style="text-align:left">Search for an existing component with releases and click <em>Release Overview</em> tab</td>
+<td style="text-align:left">The list of releases are displayed</td>
+</tr>
+<tr>
+<td style="text-align:right">2</td>
+<td style="text-align:left">Click <em>Edit</em> button under <em>Action</em> column. Eg: edit release R1</td>
+<td style="text-align:left">Redirect to <em>view release</em> page and the message <em>Success:You are editing the original document.</em> is displayed</td>
+</tr>
+<tr>
+<td style="text-align:right">3</td>
+<td style="text-align:left">Click on <em>Attachments</em> tab, then add a source file (Eg: .rdf file) with <em>Type</em> is <em>Source file</em></td>
+<td style="text-align:left">The data is updated correspondingly</td>
+</tr>
+<tr>
+<td style="text-align:right">4</td>
+<td style="text-align:left">Click on <em>Update Release</em> button</td>
+<td style="text-align:left">The message <em>Success:Release {release name} updated successfully!</em> is displayed</td>
+</tr>
+<tr>
+<td style="text-align:right">5</td>
+<td style="text-align:left">Click on <em>Clearing details</em> tab, then click on <em>Possology Process</em> icon beside <em>Clearing State</em> field and wait for the process to finish</td>
+<td style="text-align:left">The message <em>The FOSSology process already finished. You should find the resulting report as attachment at this release.</em> is displayed in the <em>Fossology Process</em> dialog</td>
+</tr>
+<tr>
+<td style="text-align:right">6</td>
+<td style="text-align:left">Click on <em>Close</em> button in the dialog</td>
+<td style="text-align:left">The dialog is closed</td>
+</tr>
+<tr>
+<td style="text-align:right">7</td>
+<td style="text-align:left">Reload this page, then click on <em>Attachments</em> tab</td>
+<td style="text-align:left">A new file is listed in <em>Attachments</em> page with name&rsquo;s format <em>{component name}-{version}-{yyyymmdd}-{hhmm}-SPDX.rdf</em></td>
+</tr>
+</tbody>
+</table>
 
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified June 28, 2022: <a href="https://github.com/eclipse/sw360.website/commit/d9ed054d6c5db450160adaad73b478b082439599">feat(docs): Add docs from main sw360 (d9ed054)</a>
+  Last modified September 18, 2023: <a href="https://github.com/eclipse/sw360.website/commit/3e5bcd6f7364c112b6b04dd464903cca726649e3">feat(docs): Add test case for component, release (3e5bcd6)</a>
 </div>
 
 </div>
