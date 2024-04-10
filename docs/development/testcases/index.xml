@@ -1,1565 +1,1497 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Eclipse SW360 – Test Cases</title>
-    <link>https://www.eclipse.org/sw360/docs/development/testcases/</link>
-    <description>Recent content in Test Cases on Eclipse SW360</description>
-    <generator>Hugo -- gohugo.io</generator>
-    
-	  <atom:link href="https://www.eclipse.org/sw360/docs/development/testcases/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-      
-        
-      
-    
-    
-    <item>
-      <title>Docs: Component / Release</title>
-      <link>https://www.eclipse.org/sw360/docs/development/testcases/test-cases-components/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.eclipse.org/sw360/docs/development/testcases/test-cases-components/</guid>
-      <description>
-        
-        
-        &lt;h2 id=&#34;tc01-add-a-component-and-release-with-vendor-present&#34;&gt;TC01: Add a component and release with vendor present&lt;/h2&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&#34;text-align:right&#34;&gt;Step&lt;/th&gt;
-&lt;th style=&#34;text-align:left&#34;&gt;Action&lt;/th&gt;
-&lt;th style=&#34;text-align:left&#34;&gt;Result&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;1&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Sign In with a known user&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;User successfully signed in and &lt;em&gt;Home&lt;/em&gt; page is displayed&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;2&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click &lt;em&gt;Components&lt;/em&gt; tab&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;em&gt;Components&lt;/em&gt; page is displayed&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;3&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click &lt;em&gt;Add Component&lt;/em&gt; button&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;- &lt;em&gt;New Component&lt;/em&gt; page is displayed with mandatory fields marked with red star: Name, Categories, Component Type. &lt;br&gt;- A message &lt;em&gt;Success:New Component&lt;/em&gt; is displayed&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;4&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Fill in a component &lt;em&gt;Name&lt;/em&gt;, &lt;em&gt;Categories&lt;/em&gt; and &lt;em&gt;Component Type&lt;/em&gt; fields. &lt;br&gt;&lt;em&gt;Eg:&lt;/em&gt;&lt;br&gt;- Name: Component 1@1&lt;br&gt;- Categories: Categories_1@1&lt;br&gt;- Component Type: OSS&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Values are entered in the fields&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;5&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click &lt;em&gt;Create Component&lt;/em&gt; button&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;- Create component successfully. &lt;br&gt;- Redirect to the edit component page.&lt;br&gt;-Show message: &lt;em&gt;Success:You are editing the original document.&lt;/em&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;6&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click &lt;em&gt;Releases&lt;/em&gt; tab&lt;br&gt;Click &lt;em&gt;Add Release&lt;/em&gt; button&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Redirect to Add Release page&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;7&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Fill in a release &lt;em&gt;Version&lt;/em&gt; and &lt;em&gt;CPE ID&lt;/em&gt;&lt;br&gt;&lt;em&gt;Eg:&lt;/em&gt;&lt;br&gt;- Version: version1.0.0.x&lt;br&gt;- CPE ID: UUID_1002&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Values are entered in the fields:&lt;br&gt;- Version: version1.0.0.x&lt;br&gt;- CPE ID: UUID_1002&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;8&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click &lt;em&gt;Create Release&lt;/em&gt; button&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;- Create a release successfully.&lt;br&gt;- Redirect to the edit new release page.&lt;br&gt;- The message &lt;em&gt;Success:You are editing the original document.&lt;/em&gt; is displayed&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;9&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click &lt;em&gt;Vendor&lt;/em&gt; field&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;em&gt;Search Vendor&lt;/em&gt; dialog is displayed&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;10&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click &lt;em&gt;Add Vendor&lt;/em&gt; button&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;em&gt;Create new Vendor&lt;/em&gt; dialog display&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;11&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Input data in fields&lt;br&gt;- Full Name: add vendor 01&lt;br&gt;-Short Name: add vendor01&lt;br&gt;-URL: &lt;a href=&#34;https://github.com/eclipse-sw360/sw360&#34;&gt;https://github.com/eclipse-sw360/sw360&lt;/a&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Values are entered in the fields.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;12&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click &lt;em&gt;Add Vendor&lt;/em&gt; button&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;The vendor is added in Vendor field of the release with full name is &lt;em&gt;add vendor 01&lt;/em&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;13&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click &lt;em&gt;Attachments&lt;/em&gt; tab&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;em&gt;Attachments&lt;/em&gt; page is displayed&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;14&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click &lt;em&gt;Add Attachment&lt;/em&gt; button&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;em&gt;Upload Attachment&lt;/em&gt; dialog is displayed&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;15&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click &lt;em&gt;Browse&lt;/em&gt; and select the attachment.&lt;br&gt;Eg: attachment1.xlsx&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;File name is displayed in the dialog&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;16&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click &lt;em&gt;Upload&lt;/em&gt; button&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;The file is uploaded and dialog is closed. Also the attached file is listed in the &lt;em&gt;Attachment&lt;/em&gt; page&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;17&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Change the attachment &lt;em&gt;Type&lt;/em&gt; to real type.&lt;br&gt;Eg: Component license information (Combined)&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Type changed successfully&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;18&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click &lt;em&gt;Update Release&lt;/em&gt; button&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Message: &lt;em&gt;Success:Release {name} ({version}) updated successfully!&lt;/em&gt; is displayed&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2 id=&#34;tc02-verify-data-after-add-a-component-and-release-with-vendor-present&#34;&gt;TC02: Verify data after add a component and release with vendor present&lt;/h2&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&#34;text-align:right&#34;&gt;Step&lt;/th&gt;
-&lt;th style=&#34;text-align:left&#34;&gt;Action&lt;/th&gt;
-&lt;th style=&#34;text-align:left&#34;&gt;Result&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;1&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Search for the component is created in TC01:&lt;br&gt;- Click &lt;em&gt;Components&lt;/em&gt; portlet&lt;br&gt;- At Advanced Search area, input &lt;em&gt;Component 1@1&lt;/em&gt; in the &lt;em&gt;Component Name&lt;/em&gt; textbox.&lt;br&gt;- Click &lt;em&gt;Search&lt;/em&gt; button&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;The new component display in the table with:&lt;br&gt;- Vendor: add vendor01&lt;br&gt;- Component Name: &lt;em&gt;Component 1@1&lt;/em&gt; is displayed with hyper link.&lt;br&gt;- Main licenses: blank&lt;br&gt;- Component Type: OSS&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;2&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click hyper link of name &lt;em&gt;Component 1@1&lt;/em&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Redirect to view component &lt;em&gt;Component 1@1&lt;/em&gt; page&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;3&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click &lt;em&gt;Release Overview&lt;/em&gt; tab&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;The release display with:&lt;br&gt;- Name: Component 1@1&lt;br&gt;- Version displays with hyper link: version1.0.0.x&lt;br&gt;- Clearing State: New&lt;br&gt;- Clearing Report: no report&lt;br&gt;- Release Mainline State: Open&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;4&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click hyper link &lt;em&gt;version1.0.0.x&lt;/em&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Redirect to view screen of release &lt;em&gt;Component 1@1 version1.0.0.x&lt;/em&gt;&lt;br&gt;Data of the release:&lt;br&gt;- Summary tab:&lt;br&gt;+ display text with: COMPONENT 1@1 VERSION1.0.0.X&lt;br&gt;+ CPE ID: UUID_1002&lt;br&gt;+ Created on: date of created.&lt;br&gt;+ Created by: user created.&lt;br&gt;+ Modified On: date of modified.&lt;br&gt;+ Modified By: user modified.&lt;br&gt;+ Clearing State: New&lt;br&gt;+ Release Mainline State: Open&lt;br&gt;+ Release Vendor with:&lt;br&gt;   Full Name:	add vendor 01&lt;br&gt;   Short Name: add vendor01&lt;br&gt;   URL: &lt;a href=&#34;https://github.com/eclipse-sw360/sw360&#34;&gt;https://github.com/eclipse-sw360/sw360&lt;/a&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;5&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click &lt;em&gt;Attachments&lt;/em&gt; tab&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Display file name &lt;em&gt;attachment1.xlsx&lt;/em&gt; in the table.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2 id=&#34;tc03-modify-a-component-and-release-with-vendor-present&#34;&gt;TC03: Modify a component and release with vendor present&lt;/h2&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&#34;text-align:right&#34;&gt;Step&lt;/th&gt;
-&lt;th style=&#34;text-align:left&#34;&gt;Action&lt;/th&gt;
-&lt;th style=&#34;text-align:left&#34;&gt;Result&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;1&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Search for an existing component (e.g. created in TC01: &lt;em&gt;Component 1@1&lt;/em&gt;) and click &lt;em&gt;Edit&lt;/em&gt; icon&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;em&gt;Success:You are editing the original document&lt;/em&gt; message is displayed&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;2&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click &lt;em&gt;Releases&lt;/em&gt; tab&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Release list is displayed&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;3&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click &lt;em&gt;Add Release&lt;/em&gt; button&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Redirect to Add Release page&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;4&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Fill in a release &lt;em&gt;Version&lt;/em&gt; and &lt;em&gt;CPE ID&lt;/em&gt;&lt;br&gt;&lt;em&gt;Eg:&lt;/em&gt;&lt;br&gt;- Version: v1.0.0.1&lt;br&gt;- CPE ID: cpe:id:123456&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Values are entered in the fields:&lt;br&gt;- Version: v1.0.0.1&lt;br&gt;- CPE ID: cpe:id:123456&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;5&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click &lt;em&gt;Create Release&lt;/em&gt; button&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;- Redirect to the edit new release page.&lt;br&gt;- The message &lt;em&gt;Success:You are editing the original document.&lt;/em&gt; is displayed&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;6&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click &lt;em&gt;Vendor&lt;/em&gt; field&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;em&gt;Search Vendor&lt;/em&gt; dialog is displayed&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;7&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click &lt;em&gt;Search&lt;/em&gt; button.&lt;br&gt;Select a vendor (eg: select  vendor with full name &lt;em&gt;VendorUp&lt;/em&gt;) &lt;br&gt;Click &lt;em&gt;Select Vendor&lt;/em&gt; button.&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Dialog is closed and selected Vendor is  added under &lt;em&gt;Vendor&lt;/em&gt; field: VendorUp&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;8&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click &lt;em&gt;Attachments&lt;/em&gt; tab&lt;br&gt;Click &lt;em&gt;Add Attachment&lt;/em&gt; button&lt;br&gt;Click &lt;em&gt;Browse&lt;/em&gt; and select the attachment. Eg:  attachment2.img&lt;br&gt;Click &lt;em&gt;Upload&lt;/em&gt; button&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;The file is uploaded and dialog is closed.  Also the attached file is listed in the Attachment page&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;9&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click &lt;em&gt;Update Release&lt;/em&gt; button&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Message &lt;em&gt;Success:Release Component 1@1  (v1.0.0.1) updated successfully!&lt;/em&gt; is displayed&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2 id=&#34;tc04-verify-data-after--modify-a-component-and-release-with-vendor-present&#34;&gt;TC04: Verify data after  modify a component and release with vendor present&lt;/h2&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&#34;text-align:right&#34;&gt;Step&lt;/th&gt;
-&lt;th style=&#34;text-align:left&#34;&gt;Action&lt;/th&gt;
-&lt;th style=&#34;text-align:left&#34;&gt;Result&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;1&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Continue TC03&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;2&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click &lt;em&gt;Summary&lt;/em&gt; tab&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Data in the tab:&lt;br&gt;- Modified On: date of modified.&lt;br&gt;- Modified By: user modified.&lt;br&gt;Data of other fields in the tab is same data before updated.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;3&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click &lt;em&gt;Release Overview&lt;/em&gt; tab&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;New release with version &lt;em&gt;v1.0.0.1&lt;/em&gt;  is added in the release  table.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;4&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click &lt;em&gt;v1.0.0.1&lt;/em&gt; hyper link&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Text display with: &lt;em&gt;COMPONENT 1@1  V1.0.0.1&lt;/em&gt; at the right corner.&lt;br&gt;- At Summary tab: &lt;br&gt;  + CPE ID: cpe:id:123456&lt;br&gt;  + Release Vendor: display with Full Name, Short Name and URL correctly with  vendor &lt;em&gt;VendorUp&lt;/em&gt;  &lt;br&gt;- At Attachments tab: attachment &lt;em&gt;attachment2.img&lt;/em&gt; display in  the attachment table with correct information.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;5&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click &lt;em&gt;Component 1@1&lt;/em&gt; hyper link&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Redirect to view screen of &lt;em&gt;Component 1@1&lt;/em&gt;  component.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;6&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click &lt;em&gt;Attachments&lt;/em&gt; tab&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Data in the tab is same data before updated.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;7&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click &lt;em&gt;Vulnerabilities&lt;/em&gt; tab&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Data in the tab is same data before updated.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2 id=&#34;tc05-add-and-modify-a-component-and-release-with-all-fields-filled-in&#34;&gt;TC05: Add and modify a component and release with all fields filled in&lt;/h2&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&#34;text-align:right&#34;&gt;Step&lt;/th&gt;
-&lt;th style=&#34;text-align:left&#34;&gt;Action&lt;/th&gt;
-&lt;th style=&#34;text-align:left&#34;&gt;Result&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;1&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click &lt;em&gt;Components&lt;/em&gt; tab&lt;br&gt;Click &lt;em&gt;Add Component&lt;/em&gt; button&lt;br&gt;Fill in all editable fields&lt;br&gt;Click &lt;em&gt;Create Component&lt;/em&gt; button&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;- Redirect to edit component screen with the  message &lt;em&gt;Success:You are editing the original document.&lt;/em&gt; is displayed in the  left corner.&lt;br&gt;- Create component successfully. Data match with input  data.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;2&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click &lt;em&gt;Releases&lt;/em&gt; tab.&lt;br&gt;Click &lt;em&gt;Add Releases&lt;/em&gt; button.&lt;br&gt;At &lt;em&gt;Summary&lt;/em&gt; tab, fill in all editable fields under &lt;em&gt;Release Summary&lt;/em&gt; and &lt;em&gt;Release Repository&lt;/em&gt;.&lt;br&gt;Click &lt;em&gt;Create Release&lt;/em&gt; button.&lt;br&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Redirect to edit release screen.&lt;br&gt;Created release successfully. Data match with input data.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;3&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click &lt;em&gt;Linked Releases&lt;/em&gt; tab&lt;br&gt;Click &lt;em&gt;Click to add Releases&lt;/em&gt; button&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;The dialog &lt;em&gt;Link Releases&lt;/em&gt; is displayed.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;4&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Input search name into textbox&lt;br&gt;Click &lt;em&gt;Search&lt;/em&gt; button&lt;br&gt;Select 3 releases.&lt;br&gt;Click &lt;em&gt;Link Releases&lt;/em&gt; button&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Dialog is closed and selected release is displayed under &lt;em&gt;Linked Releases&lt;/em&gt; section.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;5&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click &lt;em&gt;Linked Packages&lt;/em&gt; tab&lt;br&gt;Click &lt;em&gt;Add Packages&lt;/em&gt; button&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;The dialog &lt;em&gt;Link Packages&lt;/em&gt; is displayed.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;6&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Input an exist orphan package name into textbox.&lt;br&gt;Click &lt;em&gt;Search&lt;/em&gt; button.&lt;br&gt;Select a package.&lt;br&gt;Click &lt;em&gt;Link Packages&lt;/em&gt; button.&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Dialog is closed and selected package is displayed under &lt;em&gt;Linked Packages&lt;/em&gt; table&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;7&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click &lt;em&gt;Clearing Details&lt;/em&gt; tab&lt;br&gt;Fill in all editable fields&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Values are entered in the fields&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;8&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click &lt;em&gt;ECC Details&lt;/em&gt; tab&lt;br&gt;Fill in all editable fields&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Values are entered in the fields&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;9&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click &lt;em&gt;Attachments&lt;/em&gt; tab&lt;br&gt;Click &lt;em&gt;Add Attachment&lt;/em&gt; button&lt;br&gt;Click &lt;em&gt;Browse&lt;/em&gt; and select the attachment. &lt;em&gt;Eg&lt;/em&gt;: attachment3.xlsx&lt;br&gt;Click &lt;em&gt;Upload&lt;/em&gt; button&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;The file is uploaded and dialog is closed. Also the attached file is listed in the Attachment page&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;10&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click &lt;em&gt;Update Release&lt;/em&gt; button&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;- &lt;em&gt;Success:Release {componentName} ({version}) updated successfully!&lt;/em&gt; message is displayed.&lt;br&gt;- Redirect to the view release screen.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;11&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Check all fields of the release by click tabs: &lt;em&gt;Summary, Linked Releases, Linked Packages, Clearing Details and Attachments&lt;/em&gt;.&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Values are filled in correctly, match with input data.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;12&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click &lt;em&gt;Edit Release&lt;/em&gt; button, modify some fields.&lt;br&gt;Eg: &lt;br&gt;- &lt;em&gt;Version&lt;/em&gt; field ( in &lt;em&gt;Summary&lt;/em&gt; tab): rename version name_updated&lt;br&gt;      - &lt;em&gt;ECC Status&lt;/em&gt; field (in &lt;em&gt;ECC Details&lt;/em&gt; tab): Approved.&lt;br&gt;Click &lt;em&gt;Update Release&lt;/em&gt; button.&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Values are updated successfully&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2 id=&#34;tc06-delete-a-component-that-is-first-linked-to-a-project-and-then-not-and-a-project&#34;&gt;TC06: Delete a component that is first linked to a project and then not, and a project&lt;/h2&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&#34;text-align:right&#34;&gt;Step&lt;/th&gt;
-&lt;th style=&#34;text-align:left&#34;&gt;Action&lt;/th&gt;
-&lt;th style=&#34;text-align:left&#34;&gt;Result&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;1&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Create a new component&lt;br&gt;&lt;em&gt;Eg:&lt;/em&gt; component with name &lt;em&gt;Component @1234&lt;/em&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Component is created successfully&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;2&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Add a new release to this component&lt;br&gt;&lt;em&gt;Eg:&lt;/em&gt; release &lt;em&gt;Rel1&lt;/em&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Release is added successfully&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;3&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Create a new project &lt;em&gt;P1&lt;/em&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Project is created successfully&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;4&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Add the linked release &lt;em&gt;Rel1&lt;/em&gt; to project &lt;em&gt;P1&lt;/em&gt;.&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Release linked successfully&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;5&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click &lt;em&gt;Components&lt;/em&gt; portlet.&lt;br&gt;Search component &lt;em&gt;Component @1234&lt;/em&gt; by name at advanced search.&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Component &lt;em&gt;Component @1234&lt;/em&gt; display on the result table.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;6&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click delete icon of component &lt;em&gt;Component @1234&lt;/em&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;A warning &lt;em&gt;The component Component @1234 cannot be deleted, since it contains 1 releases. Please delete the releases first.&lt;/em&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;7&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click &lt;em&gt;OK&lt;/em&gt; button in the warning dialog.&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;The dialog is closed, component is not deleted&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;8&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click &lt;em&gt;Components&lt;/em&gt; portlet.&lt;br&gt;Search for the component &lt;em&gt;Component @1234&lt;/em&gt; and click hyper link of component &lt;em&gt;Component @1234&lt;/em&gt;.&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;View screen of &lt;em&gt;Component @1234&lt;/em&gt; component is display&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;9&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click &lt;em&gt;Release&lt;/em&gt; Overview.&lt;br&gt;Click Delete icon button of release &lt;em&gt;Rel1&lt;/em&gt;.&lt;br&gt;Click &lt;em&gt;Delete Release&lt;/em&gt; button in the dialog.&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;- Dialog &lt;em&gt;Delete Releases&lt;/em&gt; is displayed.&lt;br&gt;- Delete the release is failure.&lt;br&gt;- The message: &lt;em&gt;I could not delete the release, since it is used by another component (release) or project&lt;/em&gt; display.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;10&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Go to project &lt;em&gt;P1&lt;/em&gt;, delete project &lt;em&gt;P1&lt;/em&gt;.&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;The project is deleted successfully&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;11&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Go to component &lt;em&gt;Component @1234&lt;/em&gt;, at  &lt;em&gt;Release Overview&lt;/em&gt; tab, click Delete icon button of release &lt;em&gt;Rel1&lt;/em&gt;.&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Show message: &lt;em&gt;Do you really want to delete the release {componentName} ({version}) ?&lt;/em&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;12&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click &lt;em&gt;Delete Release&lt;/em&gt; button&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Release is deleted successfully&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;13&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click &lt;em&gt;Edit Component&lt;/em&gt; button.&lt;br&gt;Click &lt;em&gt;Delete Component&lt;/em&gt; button.&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;The dialog is displayed with message: &lt;em&gt;Do you really want to delete the component {componentName} ?&lt;/em&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;14&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click &lt;em&gt;Delete Component&lt;/em&gt; button&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Component is deleted successfully&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2 id=&#34;tc07-add-new-attachments-to-an-existing-release-and-delete-attachments&#34;&gt;TC07: Add new attachments to an existing release and delete attachments&lt;/h2&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&#34;text-align:right&#34;&gt;Step&lt;/th&gt;
-&lt;th style=&#34;text-align:left&#34;&gt;Action&lt;/th&gt;
-&lt;th style=&#34;text-align:left&#34;&gt;Result&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;1&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Search for an existing component (e.g. created in TC01) and click &lt;em&gt;Release Overview&lt;/em&gt; tab&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;The list of releases are displayed&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;2&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click edit icon in the Action column of release version that needs a new attachment. &lt;em&gt;Eg:&lt;/em&gt; release &lt;em&gt;Rel1&lt;/em&gt;.&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Edit release &lt;em&gt;Rel1&lt;/em&gt; page is displayed.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;3&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click &lt;em&gt;Attachments&lt;/em&gt; tab&lt;br&gt;Click &lt;em&gt;Add Attachment&lt;/em&gt; button&lt;br&gt;Click &lt;em&gt;Browse&lt;/em&gt; and select several attachments.&lt;br&gt;&lt;em&gt;Eg:&lt;/em&gt; 5 attachment files (att1, att2, att3, att4, att5)&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;File names are displayed in the dialog&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;4&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click &lt;em&gt;Delete&lt;/em&gt; button near some files not to be added.&lt;br&gt;&lt;em&gt;Eg:&lt;/em&gt; delete 2 attachment files (att1, att3)&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;File names are removed from the list&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;5&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click &lt;em&gt;Upload&lt;/em&gt; button for the remaining files.&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;The attached file are listed in the &lt;em&gt;Attachment&lt;/em&gt; page: att2, att4, att5&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;6&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Change some &lt;em&gt;Attachment type&lt;/em&gt; to real type, e.g. &lt;em&gt;source file, clearing report, CLI,&amp;hellip;&lt;/em&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Type changed successfully&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;7&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click &lt;em&gt;Update Release&lt;/em&gt; button&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Release &lt;em&gt;Ree1&lt;/em&gt; is updated correctly.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;8&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click &lt;em&gt;Edit Release&lt;/em&gt; button&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;em&gt;Success:You are editing the original document.&lt;/em&gt; message is displayed&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;9&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click &lt;em&gt;Attachments&lt;/em&gt; tab&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;em&gt;Attachments&lt;/em&gt; page is displayed&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;10&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click delete icon to delete an attachment&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Show message: &lt;em&gt;Do you really want to delete attachment {attachmentName}({attachmentId})?&lt;/em&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;11&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click &lt;em&gt;Delete Attachment button&lt;/em&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Attachment is deleted successfully, data of attachment is removed from attachment table.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;12&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click &lt;em&gt;Update Release&lt;/em&gt; button&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Release Ree1 is updated correctly with message &lt;em&gt;Success: Release {componentName}({version}) updated successfully!&lt;/em&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2 id=&#34;tc08-duplicate-an-existing-release&#34;&gt;TC08: Duplicate an existing release&lt;/h2&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&#34;text-align:right&#34;&gt;Step&lt;/th&gt;
-&lt;th style=&#34;text-align:left&#34;&gt;Action&lt;/th&gt;
-&lt;th style=&#34;text-align:left&#34;&gt;Result&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;1&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Search for an existing component with release with all fields filled in (Eg: created in TC05) and click &lt;em&gt;Release Overview&lt;/em&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;The list of releases are displayed&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;2&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click &lt;em&gt;Duplicate&lt;/em&gt; button under Action column&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;The page changes to create duplicate release screen&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;3&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Check all fields from copied release&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;- &lt;em&gt;Summary&lt;/em&gt; tab:&lt;br&gt;  + &lt;em&gt;CPE ID&lt;/em&gt; field: blank&lt;br&gt;  + Remain fields are unchanged (exclude disable fields).&lt;br&gt;- &lt;em&gt;Linked Releases&lt;/em&gt; tab: there is no linked release.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;4&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Change the &lt;em&gt;Version&lt;/em&gt; field and fill in a &lt;em&gt;CPE ID&lt;/em&gt;.&lt;br&gt;&lt;em&gt;Eg:&lt;/em&gt;  Version: ver_duplicate&lt;br&gt;       CPE ID: CPE ID_duplicate&lt;br&gt;Click &lt;em&gt;Create Release&lt;/em&gt; button&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;- Redirect to edit release screen.&lt;br&gt;- Create duplicate release is success with message: &lt;em&gt;Success:You are editing the original document.&lt;/em&gt;&lt;br&gt;- Data of duplicate release is correct.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;5&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Modify some other fields.&lt;br&gt;&lt;em&gt;Eg:&lt;/em&gt; Release Date: 2023-06-12. &lt;br&gt;Click &lt;em&gt;Clearing Details&lt;/em&gt; tab&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;em&gt;Clearing Details&lt;/em&gt; page is displayed and does not contain any field from copied release&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;6&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click &lt;em&gt;Update Release&lt;/em&gt; button&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;The release is updated successfully with data correctly&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;7&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click component name link on top of the page&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Summary page for the component is displayed&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;8&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click &lt;em&gt;Release Overview&lt;/em&gt; tab&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;The new copied release is listed among previous releases&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2 id=&#34;tc09-search-for-and-create-a-new-vendor-for-a-new-release&#34;&gt;TC09: Search for and create a new vendor for a new release&lt;/h2&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&#34;text-align:right&#34;&gt;Step&lt;/th&gt;
-&lt;th style=&#34;text-align:left&#34;&gt;Action&lt;/th&gt;
-&lt;th style=&#34;text-align:left&#34;&gt;Result&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;1&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click &lt;em&gt;Components&lt;/em&gt; portlet&lt;br&gt;At advanced Search, search for an existing component.&lt;br&gt;&lt;em&gt;Eg:&lt;/em&gt; input &lt;em&gt;Comp1&lt;/em&gt; in the Component Name text box.&lt;br&gt;Click &lt;em&gt;Search&lt;/em&gt; button.&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Component &lt;em&gt;Comp1&lt;/em&gt; display in the result table.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;2&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click edit icon in Actions column of component &lt;em&gt;Comp1&lt;/em&gt;.&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Edit screen of component &lt;em&gt;Comp1&lt;/em&gt; is displayed with message:  &lt;em&gt;Success:You are editing the original document&lt;/em&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;3&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click &lt;em&gt;Releases&lt;/em&gt; tab&lt;br&gt;Click &lt;em&gt;Add Releases&lt;/em&gt; button&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;The page changes to &lt;em&gt;New Release Edit&lt;/em&gt; page&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;4&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Fill in a release &lt;em&gt;Version&lt;/em&gt; and &lt;em&gt;CPE ID&lt;/em&gt;&lt;br&gt;&lt;em&gt;Eg:&lt;/em&gt;&lt;br&gt;     + Version: @1.0.2&lt;br&gt;     + CPE ID: moshiano_002&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Values are entered in the fields&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;5&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click &lt;em&gt;Vendor&lt;/em&gt; field&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;em&gt;Search Vendor&lt;/em&gt; dialog is displayed&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;6&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click &lt;em&gt;Add Vendor&lt;/em&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;em&gt;Create New Vendor&lt;/em&gt; dialog is displayed&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;7&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Fill in &lt;em&gt;Full name&lt;/em&gt;, &lt;em&gt;Short name&lt;/em&gt; and &lt;em&gt;URL&lt;/em&gt;&lt;br&gt;&lt;em&gt;Eg:&lt;/em&gt;&lt;br&gt;Full Name: Fullvendor_0909&lt;br&gt;Short Name: Short_ven090&lt;br&gt;URL: &lt;a href=&#34;https://github.com/&#34;&gt;https://github.com/&lt;/a&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Values are entered in the fields&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;8&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click &lt;em&gt;Add Vendor&lt;/em&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Dialog closes and the new vendor is displayed in release &lt;em&gt;Vendor&lt;/em&gt; field with full name &lt;em&gt;Fullvendor_0909&lt;/em&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;9&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click &lt;em&gt;Create Release&lt;/em&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Redirect to edit release page with the message &lt;em&gt;Success:You are editing the original document.&lt;/em&gt; is displayed&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;10&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click component name link on top of the page&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Summary page for the component is displayed. The new vendor for the new release, as well as existing vendors from previous releases are listed under &lt;em&gt;Vendors&lt;/em&gt; field for the component&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2 id=&#34;tc10-link-a-release-to-the-project-in-view-component-page-and-check-used-by-projects&#34;&gt;TC10: Link a release to the project in view component page and check used by projects&lt;/h2&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&#34;text-align:right&#34;&gt;Step&lt;/th&gt;
-&lt;th style=&#34;text-align:left&#34;&gt;Action&lt;/th&gt;
-&lt;th style=&#34;text-align:left&#34;&gt;Result&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;1&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Search for an existing component with release and click &lt;em&gt;Release Overview&lt;/em&gt; tab&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;The list of releases are displayed&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;2&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click &lt;em&gt;Link Project&lt;/em&gt; button under Action column&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;The dialog &lt;em&gt;Link Release to Project&lt;/em&gt; is displayed with &lt;em&gt;Link to Project&lt;/em&gt; button is disabled&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;3&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click &lt;em&gt;Search&lt;/em&gt; button then choose a project to link&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;em&gt;Link to Project&lt;/em&gt; button on the dialog is enabled&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;4&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click &lt;em&gt;Link to Project&lt;/em&gt; button&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;em&gt;The release {component name} ({version}) has been successfully linked to project {project name}&lt;/em&gt;&lt;br&gt;&lt;em&gt;Click &lt;ins&gt;here&lt;ins&gt;&lt;/em&gt; &lt;em&gt;to edit the release relation as well as the project mainline state in the project.&lt;/em&gt; message is displayed&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;5&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click &lt;em&gt;here&lt;/em&gt; hyperlink in the dialog&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Redirect to the &lt;em&gt;edit project&lt;/em&gt; page with the release was linked (displayed on  &lt;em&gt;License Clearing&lt;/em&gt; page)&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;6&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Re-open the release at view page and click &lt;em&gt;Summary&lt;/em&gt; tab&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Used by project information is updated correspondingly&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2 id=&#34;tc11-link-a-release-to-a-project-in-the-view-release-page&#34;&gt;TC11: Link a release to a project in the view release page&lt;/h2&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&#34;text-align:right&#34;&gt;Step&lt;/th&gt;
-&lt;th style=&#34;text-align:left&#34;&gt;Action&lt;/th&gt;
-&lt;th style=&#34;text-align:left&#34;&gt;Result&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;1&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Search for an existing component with release and click &lt;em&gt;Release Overview&lt;/em&gt; tab&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;The list of releases are displayed&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;2&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click &lt;em&gt;a release name&lt;/em&gt; hyperlink. Eg: release R1&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Redirect to the &lt;em&gt;view release&lt;/em&gt; page&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;3&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click &lt;em&gt;Link to Project&lt;/em&gt; button&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;The dialog &lt;em&gt;Link Release to Project&lt;/em&gt; is displayed with &lt;em&gt;Link to Project&lt;/em&gt; button is disabled&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;4&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click &lt;em&gt;Search&lt;/em&gt; button then choose a project to link&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;em&gt;Link to Project&lt;/em&gt; button on the dialog is enabled&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;5&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click &lt;em&gt;Link to Project&lt;/em&gt; button&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;em&gt;The release {component name} ({version}) has been successfully linked to project {project name}&lt;/em&gt;&lt;br&gt;&lt;em&gt;Click &lt;ins&gt;here&lt;ins&gt;&lt;/em&gt; &lt;em&gt;to edit the release relation as well as the project mainline state in the project.&lt;/em&gt; message is displayed&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;6&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click &lt;em&gt;here&lt;/em&gt; hyperlink in the dialog&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Redirect to the &lt;em&gt;edit project&lt;/em&gt; page with the release was linked (displayed on  &lt;em&gt;License Clearing&lt;/em&gt; page)&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2 id=&#34;tc12-import-a-new-component-by-spdxxml-rdf-file&#34;&gt;TC12: Import a new component by .spdx/.xml/ .rdf file&lt;/h2&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&#34;text-align:right&#34;&gt;Step&lt;/th&gt;
-&lt;th style=&#34;text-align:left&#34;&gt;Action&lt;/th&gt;
-&lt;th style=&#34;text-align:left&#34;&gt;Result&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;1&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click &lt;em&gt;Components&lt;/em&gt; tab&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;em&gt;Components&lt;/em&gt; page is displayed&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;2&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click &lt;em&gt;Import SBOM&lt;/em&gt; button&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;A dialog &lt;em&gt;Upload SBOM&lt;/em&gt; is displayed&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;3&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Choose a &lt;strong&gt;&lt;em&gt;.spdx&lt;/em&gt;&lt;/strong&gt; or &lt;strong&gt;&lt;em&gt;.xml&lt;/em&gt;&lt;/strong&gt; or &lt;strong&gt;&lt;em&gt;.rdf&lt;/em&gt;&lt;/strong&gt; file by clicking on the &lt;em&gt;Browse&lt;/em&gt; button or drop/draft a file into the dialog&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;The message is displayed in the dialog: &lt;br&gt; &lt;em&gt;The new Component and new Release will be created, do you want to import? &lt;br&gt; New Component: {new component names} &lt;br&gt; New Release: {new release names}&lt;/em&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;4&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click &lt;em&gt;Import&lt;/em&gt; button&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;The dialog is closed. New releases and new components are imported successfully&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2 id=&#34;tc13-export-components-without-releases&#34;&gt;TC13: Export components without releases&lt;/h2&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&#34;text-align:right&#34;&gt;Step&lt;/th&gt;
-&lt;th style=&#34;text-align:left&#34;&gt;Action&lt;/th&gt;
-&lt;th style=&#34;text-align:left&#34;&gt;Result&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;1&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click &lt;em&gt;Components&lt;/em&gt; tab&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;em&gt;Components&lt;/em&gt; page is displayed&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;2&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click &lt;em&gt;Export Spreadsheet&lt;/em&gt; button and choose &lt;em&gt;Components only&lt;/em&gt; option&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;- A new file with name&amp;rsquo;s format &lt;em&gt;components-{yyyy}-{mm}-{dd}.xlsx&lt;/em&gt; is downloaded&lt;br&gt;- The content of the downloaded file includes information of all components in the system&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2 id=&#34;tc14-export-components-with-releases&#34;&gt;TC14: Export components with releases&lt;/h2&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&#34;text-align:right&#34;&gt;Step&lt;/th&gt;
-&lt;th style=&#34;text-align:left&#34;&gt;Action&lt;/th&gt;
-&lt;th style=&#34;text-align:left&#34;&gt;Result&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;1&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click &lt;em&gt;Components&lt;/em&gt; tab&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;em&gt;Components&lt;/em&gt; page is displayed&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;2&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click &lt;em&gt;Export Spreadsheet&lt;/em&gt; button and choose &lt;em&gt;Components with releases&lt;/em&gt; option&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;- New file with name &lt;em&gt;components-{yyyy}-{mm}-{dd}.xlsx&lt;/em&gt; is downloaded.&lt;br&gt;- The content of the downloaded file includes information of all components and releases in the system&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2 id=&#34;tc15-create-a-clearing-request-for-a-release&#34;&gt;TC15: Create a clearing request for a release&lt;/h2&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&#34;text-align:right&#34;&gt;Step&lt;/th&gt;
-&lt;th style=&#34;text-align:left&#34;&gt;Action&lt;/th&gt;
-&lt;th style=&#34;text-align:left&#34;&gt;Result&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;1&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Search for an existing component with releases and click &lt;em&gt;Release Overview&lt;/em&gt; tab&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;The list of releases are displayed&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;2&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click &lt;em&gt;Edit&lt;/em&gt; button under &lt;em&gt;Action&lt;/em&gt; column. Eg: edit release R1&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Redirect to &lt;em&gt;view release&lt;/em&gt; page and the message &lt;em&gt;Success:You are editing the original document.&lt;/em&gt; is displayed&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;3&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click &lt;em&gt;Attachments&lt;/em&gt; tab, then add a source file (Eg: .rdf file) with &lt;em&gt;Type&lt;/em&gt; is &lt;em&gt;Source file&lt;/em&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;The data is updated correspondingly&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;4&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click &lt;em&gt;Update Release&lt;/em&gt; button&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;The message &lt;em&gt;Success:Release {release name} updated successfully!&lt;/em&gt; is displayed&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;5&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click &lt;em&gt;Clearing details&lt;/em&gt; tab, then click &lt;em&gt;Fossology Process&lt;/em&gt; icon beside &lt;em&gt;Clearing State&lt;/em&gt; field and wait for the process to finish&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;The message &lt;em&gt;The FOSSology process already finished. You should find the resulting report as attachment at this release.&lt;/em&gt; is displayed in the &lt;em&gt;Fossology Process&lt;/em&gt; dialog&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;6&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click &lt;em&gt;Close&lt;/em&gt; button in the dialog&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;The dialog is closed&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;7&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Reload this page, then click &lt;em&gt;Attachments&lt;/em&gt; tab&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;A new file is listed in &lt;em&gt;Attachments&lt;/em&gt; page with name&amp;rsquo;s format &lt;em&gt;{component name}-{version}-{yyyymmdd}-{hhmm}-SPDX.rdf&lt;/em&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
-      </description>
-    </item>
-    
-    <item>
-      <title>Docs: Licenses</title>
-      <link>https://www.eclipse.org/sw360/docs/development/testcases/test-cases-licenses/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.eclipse.org/sw360/docs/development/testcases/test-cases-licenses/</guid>
-      <description>
-        
-        
-        &lt;h2 id=&#34;create-edit-and-delete-license&#34;&gt;Create, edit and delete license&lt;/h2&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&#34;text-align:right&#34;&gt;Step&lt;/th&gt;
-&lt;th style=&#34;text-align:left&#34;&gt;Action&lt;/th&gt;
-&lt;th style=&#34;text-align:left&#34;&gt;Result&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;1&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Sign In with a known &lt;em&gt;clearing admin&lt;/em&gt; user&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;User successfully signed in and &lt;em&gt;Home&lt;/em&gt; page is displayed&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;2&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click on &lt;em&gt;Licenses&lt;/em&gt; tab&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;em&gt;Licenses&lt;/em&gt; page is displayed&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;3&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click on &lt;em&gt;Add License&lt;/em&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;em&gt;New License&lt;/em&gt; page is displayed&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;4&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Fill in &lt;em&gt;Fullname&lt;/em&gt; and &lt;em&gt;Shortname&lt;/em&gt; fields and press &lt;em&gt;Add License&lt;/em&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;em&gt;License added successfully!&lt;/em&gt; message is displayed&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;5&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Write the license or part of newly created license name in &lt;em&gt;Keyword Search&lt;/em&gt; field&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;License is filtered successfully&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;6&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click on license name and then on &lt;em&gt;Edit License Details and Text&lt;/em&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;License page is displayed&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;7&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Modify some fields and click &lt;em&gt;Update License&lt;/em&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;em&gt;License updated successfully!&lt;/em&gt; message is displayed&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;8&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Check all fields on &lt;em&gt;Details&lt;/em&gt; and &lt;em&gt;Text&lt;/em&gt; pages&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Values are filled in correctly&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;9&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click on &lt;em&gt;Edit License Details and Text&lt;/em&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;License page is displayed&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;10&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click o &lt;em&gt;Delete&lt;/em&gt; license name&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;em&gt;License removed successfully!&lt;/em&gt; message is displayed&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2 id=&#34;edit-license-todos-and-obligations&#34;&gt;Edit license TODOs and Obligations&lt;/h2&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&#34;text-align:right&#34;&gt;Step&lt;/th&gt;
-&lt;th style=&#34;text-align:left&#34;&gt;Action&lt;/th&gt;
-&lt;th style=&#34;text-align:left&#34;&gt;Result&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;1&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Sign In with a known &lt;em&gt;clearing admin&lt;/em&gt; user&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;User successfully signed in and &lt;em&gt;Home&lt;/em&gt; page is displayed&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;2&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click on previously created license name&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;em&gt;License Details&lt;/em&gt; page is displayed&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;3&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click on &lt;em&gt;Add a Todo&lt;/em&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Todo page displayed successfully&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;4&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Enter a Todo text (e.g. &amp;ldquo;First todo text&amp;rdquo;), click &lt;em&gt;Applies to development&lt;/em&gt;, and click &lt;em&gt;Submit&lt;/em&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;em&gt;License updated successfully!&lt;/em&gt; message is displayed&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;5&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click &lt;em&gt;TODOs and Obligations&lt;/em&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;The previously entered Todo is listed on the page with &lt;em&gt;No obligations&lt;/em&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;6&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click on &lt;em&gt;Add a Todo&lt;/em&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Todo page displayed successfully&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;7&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Enter a Todo text (e.g. &amp;ldquo;Second todo text&amp;rdquo;), click on some Obligations and click Submit&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;em&gt;License updated successfully!&lt;/em&gt; message is displayed&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;8&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click TODOs and Obligations&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;The previously entered Todo is listed on the page together with chosen obligations&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;9&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click on &lt;em&gt;Edit WhiteList&lt;/em&gt;, deselect first Todo and click &lt;em&gt;Submit&lt;/em&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;The deselected Todo is not displayed anymore on &lt;em&gt;TODOs and Obligations&lt;/em&gt; page&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2 id=&#34;check-export-licenses&#34;&gt;Check Export Licenses&lt;/h2&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&#34;text-align:right&#34;&gt;Step&lt;/th&gt;
-&lt;th style=&#34;text-align:left&#34;&gt;Action&lt;/th&gt;
-&lt;th style=&#34;text-align:left&#34;&gt;Result&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;1&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Sign In with a known user&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;User successfully signed in and &lt;em&gt;Home&lt;/em&gt; page is displayed&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;2&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click on &lt;em&gt;Licenses&lt;/em&gt; tab&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;em&gt;Licenses&lt;/em&gt; page is displayed&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;3&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click on &lt;em&gt;Export Licenses&lt;/em&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;A dialog for opening &lt;em&gt;Licenses.xlsx&lt;/em&gt; is displayed&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;4&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Open the xlsx file and compare the number of rows with total number of entries from &lt;em&gt;Licenses&lt;/em&gt; tab&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;All licenses names are exported successfully.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
-      </description>
-    </item>
-    
-    <item>
-      <title>Docs: Moderation</title>
-      <link>https://www.eclipse.org/sw360/docs/development/testcases/test-cases-moderations/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.eclipse.org/sw360/docs/development/testcases/test-cases-moderations/</guid>
-      <description>
-        
-        
-        &lt;h2 id=&#34;accept-moderation-request-for-visible-projects-by-other-users&#34;&gt;Accept moderation request, for visible projects by other users&lt;/h2&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&#34;text-align:right&#34;&gt;Step&lt;/th&gt;
-&lt;th style=&#34;text-align:left&#34;&gt;Action&lt;/th&gt;
-&lt;th style=&#34;text-align:left&#34;&gt;Result&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;1&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Open first browser instance ((e.g. &amp;ldquo;firefox.exe -p &amp;ldquo;profile1&amp;rdquo; -no-remote&amp;rdquo;) and sign in with a known &lt;em&gt;First&lt;/em&gt; user&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;User successfully signed in and &lt;em&gt;Home&lt;/em&gt; page is displayed&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;2&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Open a second browser instance ((e.g. &amp;ldquo;firefox.exe -p &amp;ldquo;profile2&amp;rdquo; -no-remote&amp;rdquo;) and sign in with a known &lt;em&gt;Second&lt;/em&gt; user&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;User successfully signed in and &lt;em&gt;Home&lt;/em&gt; page is displayed&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;3&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Activate &lt;em&gt;First&lt;/em&gt; browser instance&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Instance is active&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;4&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Create a new project visible for &lt;em&gt;Second&lt;/em&gt; user (e.g. &lt;em&gt;Me and Moderators&lt;/em&gt;, &lt;em&gt;Group and Moderators&lt;/em&gt;, &lt;em&gt;Everyone&lt;/em&gt;)&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Project is created successfully&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;5&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Activate &lt;em&gt;Second&lt;/em&gt; browser instance&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Instance is active&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;6&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Search for the above created project and click &lt;em&gt;Edit&lt;/em&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;em&gt;You will create a moderation request if you update.&lt;/em&gt; message is displayed&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;7&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Edit Description field or other fields and click &lt;em&gt;Update Project&lt;/em&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;em&gt;Moderation request was sent to update the Project name!&lt;/em&gt; message is displayed.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;8&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Activate &lt;em&gt;First&lt;/em&gt; browser instance&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Instance is active&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;9&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Check &lt;em&gt;My Task Assignments&lt;/em&gt; on &lt;em&gt;Home&lt;/em&gt; page&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;The above project that needs moderation is displayed with status &lt;em&gt;PENDING&lt;/em&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;10&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click on &lt;em&gt;Moderation&lt;/em&gt; page&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;The moderation request of &lt;em&gt;Second&lt;/em&gt; user is displayed with state &lt;em&gt;Pending&lt;/em&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;11&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click on moderation request&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;em&gt;Moderation Change Project&lt;/em&gt; page is displayed, with proposed changes from step 7 listed&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;12&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click on &lt;em&gt;Accept Request&lt;/em&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;em&gt;You have accepted the previous moderation request.&lt;/em&gt; message is displayed, and State changes to &lt;em&gt;Approved&lt;/em&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;13&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Check &lt;em&gt;My Task Assignments&lt;/em&gt; on &lt;em&gt;Home&lt;/em&gt; page&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Status is &lt;em&gt;APPROVED&lt;/em&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;14&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Activate &lt;em&gt;Second&lt;/em&gt; browser instance&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Instance is active&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;15&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Check _My Task Submissions on &lt;em&gt;Home&lt;/em&gt; page&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Status is &lt;em&gt;APPROVED&lt;/em&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;16&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Open the &lt;em&gt;Projects&lt;/em&gt; tab and click on previously modified project on step 7&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Project &lt;em&gt;Summary&lt;/em&gt; page displayed successfully&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;17&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Check the moderation requested changes&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Changes are visible in the corresponding fields&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2 id=&#34;decline-moderation-request-for-visible-projects-by-other-users&#34;&gt;Decline moderation request, for visible projects by other users&lt;/h2&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&#34;text-align:right&#34;&gt;Step&lt;/th&gt;
-&lt;th style=&#34;text-align:left&#34;&gt;Action&lt;/th&gt;
-&lt;th style=&#34;text-align:left&#34;&gt;Result&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;1-11&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Same as in TC01&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;12&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click on &lt;em&gt;Decline Request&lt;/em&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;em&gt;You have declined the previous moderation request&lt;/em&gt; message is displayed, and State changes to &lt;em&gt;Rejected&lt;/em&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;13&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Check &lt;em&gt;My Task Assignments&lt;/em&gt; on &lt;em&gt;Home&lt;/em&gt; page&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Status is &lt;em&gt;REJECTED&lt;/em&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;14&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Activate &lt;em&gt;Second&lt;/em&gt; browser instance&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Instance is active&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;15&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Check _My Task Submissions on &lt;em&gt;Home&lt;/em&gt; page&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Status is &lt;em&gt;REJECTED&lt;/em&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;16&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Open the &lt;em&gt;Projects&lt;/em&gt; tab and click on previously modified project on step 7&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Project &lt;em&gt;Summary&lt;/em&gt; page displayed successfully&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;17&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Check the moderation requested changes&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Changes are not visible in the corresponding fields&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2 id=&#34;remove-me-from-moderators-for-moderation-request-for-visible-projects-by-other-users&#34;&gt;Remove Me from Moderators for moderation request, for visible projects by other users&lt;/h2&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&#34;text-align:right&#34;&gt;Step&lt;/th&gt;
-&lt;th style=&#34;text-align:left&#34;&gt;Action&lt;/th&gt;
-&lt;th style=&#34;text-align:left&#34;&gt;Result&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;1-11&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Same as in TC01&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;12&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click on &lt;em&gt;Remove Me from Moderators&lt;/em&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;em&gt;You are the last moderator for this request - you are not allowed to unsubscribe.&lt;/em&gt; message is displayed (assuming only &lt;em&gt;First&lt;/em&gt; user was listed under &lt;em&gt;Moderators&lt;/em&gt; column in step 10)&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;13&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click on &lt;em&gt;Decline Request&lt;/em&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;em&gt;You have declined the previous moderation request&lt;/em&gt; message is displayed, and State changes to &lt;em&gt;Rejected&lt;/em&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;14&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Edit the project and add a new moderator (e.g. &lt;em&gt;Third&lt;/em&gt; user) under &lt;em&gt;Moderators&lt;/em&gt; field&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Project updated successfully.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;15&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Activate &lt;em&gt;Second&lt;/em&gt; browser instance&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Instance is active&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;16&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Edit the project and create a new moderation request&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Moderation request was sent&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;17&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Activate &lt;em&gt;First&lt;/em&gt; browser instance&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Instance is active&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;18&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click on &lt;em&gt;Moderation&lt;/em&gt; page&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;The moderation request of &lt;em&gt;Second&lt;/em&gt; user is displayed with state &lt;em&gt;Pending&lt;/em&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;19&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click on moderation request&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;em&gt;Moderation Change Project&lt;/em&gt; page is displayed, with proposed changes from step 7 listed&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;20&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click on &lt;em&gt;Remove Me from Moderators&lt;/em&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;em&gt;You are removed from the list of moderators for the previous moderation request. You have no open Requests.&lt;/em&gt; message is displayed. Also the document is deleted from moderation list.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;21&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Login with the &lt;em&gt;Third&lt;/em&gt; user and check the &lt;em&gt;Moderation&lt;/em&gt; tab&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;The moderation request of &lt;em&gt;Second&lt;/em&gt; user is displayed with state &lt;em&gt;Pending&lt;/em&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
-      </description>
-    </item>
-    
-    <item>
-      <title>Docs: Projects</title>
-      <link>https://www.eclipse.org/sw360/docs/development/testcases/test-cases-projects/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.eclipse.org/sw360/docs/development/testcases/test-cases-projects/</guid>
-      <description>
-        
-        
-        &lt;h2 id=&#34;add-a-simple-project-with-no-relations-and-no-releases&#34;&gt;Add a simple project with no relations and no releases&lt;/h2&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&#34;text-align:right&#34;&gt;Step&lt;/th&gt;
-&lt;th style=&#34;text-align:left&#34;&gt;Action&lt;/th&gt;
-&lt;th style=&#34;text-align:left&#34;&gt;Result&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;1&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Sign In with a known user&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;User successfully signed in and &lt;em&gt;Home&lt;/em&gt; page is displayed&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;2&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click on &lt;em&gt;Projects&lt;/em&gt; tab&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;em&gt;Projects&lt;/em&gt; page is displayed&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;3&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click &lt;em&gt;Add Project&lt;/em&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;em&gt;New Project&lt;/em&gt; page is displayed with mandatory fields marked with red star&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;4&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Fill mandatory &lt;em&gt;Name&lt;/em&gt; with a project name, change other fields if needed&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Values are entered in the fields&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;5&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click &lt;em&gt;Add Project&lt;/em&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;The page remain the same and the message &lt;em&gt;You are editing the original document.&lt;/em&gt; is displayed&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;6&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click &lt;em&gt;Cancel&lt;/em&gt; button&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;New project &lt;em&gt;Summary&lt;/em&gt; page is displayed&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;7&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click on &lt;em&gt;Projects&lt;/em&gt; tab&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;The new project should be added to the projects list&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2 id=&#34;add-a-full-project-with-relations-releases-and-send-to-clearing-process&#34;&gt;Add a full project with relations, releases and send to clearing process&lt;/h2&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&#34;text-align:right&#34;&gt;Step&lt;/th&gt;
-&lt;th style=&#34;text-align:left&#34;&gt;Action&lt;/th&gt;
-&lt;th style=&#34;text-align:left&#34;&gt;Result&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;1&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click on &lt;em&gt;Projects&lt;/em&gt; tab&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;em&gt;Projects&lt;/em&gt; page is displayed&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;2&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click &lt;em&gt;Add Project&lt;/em&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;em&gt;New Project&lt;/em&gt; page is displayed with mandatory fields marked with red star&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;3&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Fill mandatory &lt;em&gt;Name&lt;/em&gt; with a project name, change other fields if needed&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Values are entered in the fields&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;4&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click &lt;em&gt;Click to add linked Projects&lt;/em&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;em&gt;Search Project&lt;/em&gt; dialog is displayed&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;5&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click &lt;em&gt;Search&lt;/em&gt; and &lt;em&gt;Select&lt;/em&gt; the project to be linked (e.g. created in TC01)&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Dialog is closed and selected project is displayed under &lt;em&gt;Linked Projects&lt;/em&gt; section&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;6&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click &lt;em&gt;Click to add Releases&lt;/em&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;em&gt;Search Release&lt;/em&gt; dialog is displayed&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;7&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click &lt;em&gt;Search by name&lt;/em&gt; and &lt;em&gt;Select&lt;/em&gt; a release to be added&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Dialog is closed and selected release is displayed under &lt;em&gt;Linked Releases&lt;/em&gt; section&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;8&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click &lt;em&gt;Add Project&lt;/em&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;The page remain the same and the message &lt;em&gt;You are editing the original document.&lt;/em&gt; is displayed&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;9&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click &lt;em&gt;Cancel&lt;/em&gt; button&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;New project &lt;em&gt;Summary&lt;/em&gt; page is displayed&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;10&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click on &lt;em&gt;Projects&lt;/em&gt; tab&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;The new project should be added to the projects list&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;11&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Check &lt;em&gt;Clearing Status&lt;/em&gt; by hovering mouse over the numbers.&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;The message should be &lt;em&gt;new release, under clearing&amp;hellip;&lt;/em&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;12&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Send open release to clearing by clicking the button &lt;em&gt;Send to fossology&lt;/em&gt;, under &lt;em&gt;Actions&lt;/em&gt; column&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;em&gt;Fossology Clearing&lt;/em&gt; dialog is displayed&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;13&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Select the release to be sent for clearing and click &lt;em&gt;Send&lt;/em&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;em&gt;Sent&lt;/em&gt; message is displayed near the &lt;em&gt;Send to fossology&lt;/em&gt; button&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;14&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click on project name and check &lt;em&gt;Summary&lt;/em&gt; page&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;em&gt;Clearing details&lt;/em&gt; should have 1 for &lt;em&gt;Under clearing&lt;/em&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;15&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click on &lt;em&gt;Clearing Status&lt;/em&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;The &amp;ldquo;Release Clearing State_ should be &lt;em&gt;Sent to Fossology&lt;/em&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2 id=&#34;add-a-project-with-releases-no-relations-remove-a-release-and-send-to-clearing-process&#34;&gt;Add a project with releases, no relations, remove a release, and send to clearing process&lt;/h2&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&#34;text-align:right&#34;&gt;Step&lt;/th&gt;
-&lt;th style=&#34;text-align:left&#34;&gt;Action&lt;/th&gt;
-&lt;th style=&#34;text-align:left&#34;&gt;Result&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;1-5&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Same as in TC02&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;5a&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click on &lt;em&gt;Delete&lt;/em&gt; icon to delete the linked project&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;em&gt;Do you really want to remove the link to this project?&lt;/em&gt; message is displayed&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;5b&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click &lt;em&gt;OK&lt;/em&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;The project is removed from the list of &lt;em&gt;Linked Projects&lt;/em&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;6&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click &lt;em&gt;Click to add Releases&lt;/em&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;em&gt;Search Release&lt;/em&gt; dialog is displayed&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;7&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click &lt;em&gt;Search by name&lt;/em&gt; and &lt;em&gt;Select&lt;/em&gt; more than one release to be added&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Dialog is closed and selected releases are displayed under &lt;em&gt;Linked Releases&lt;/em&gt; section&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;7a&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click on &lt;em&gt;Delete&lt;/em&gt; icon to delete one of the linked release&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;em&gt;Do you really want to remove the link to this release?&lt;/em&gt; message is displayed&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;7b&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click &lt;em&gt;OK&lt;/em&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;The release is removed from the list of &lt;em&gt;Linked Releases&lt;/em&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;8-15&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Same as in TC02&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;##TC04: Delete a project that is first linked to another project and then not linked&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&#34;text-align:right&#34;&gt;Step&lt;/th&gt;
-&lt;th style=&#34;text-align:left&#34;&gt;Action&lt;/th&gt;
-&lt;th style=&#34;text-align:left&#34;&gt;Result&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;1&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Create a new project&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Project is created successfully&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;2&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Create another project and add first created one as linked project&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Projects are linked successfully&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;3&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Go to first created project in the projects table and try to delete it&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Message &lt;em&gt;Do you want to delete project name?&lt;/em&gt; is displayed&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;4&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click &lt;em&gt;OK&lt;/em&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Message &lt;em&gt;The project is used by another project!&lt;/em&gt; is displayed&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;5&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click &lt;em&gt;OK&lt;/em&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Project is not deleted (e.g. refresh the page by clicking Projects tab)&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;6&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Go to second created project in the projects table and delete it&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Message &lt;em&gt;Do you want to delete project name?&lt;/em&gt; is displayed&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;7&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click &lt;em&gt;OK&lt;/em&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Project is deleted successfully&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;8&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Go to first created project in the table (not linked anymore to second project) and delete it&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Project is deleted successfully&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2 id=&#34;modify-an-existing-project-with-relations-releases-and-send-to-clearing-process&#34;&gt;Modify an existing project with relations, releases and send to clearing process&lt;/h2&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&#34;text-align:right&#34;&gt;Step&lt;/th&gt;
-&lt;th style=&#34;text-align:left&#34;&gt;Action&lt;/th&gt;
-&lt;th style=&#34;text-align:left&#34;&gt;Result&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;1&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Search for a simple project (e.g. created in TC01) and click &lt;em&gt;Edit&lt;/em&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;em&gt;You are editing the original document&lt;/em&gt; message is displayed&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;2&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Execute steps 5-16 from TC02&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2 id=&#34;add-and-modify-a-project-with-all-project-fields-filled-in&#34;&gt;Add and modify a project with all project fields filled in&lt;/h2&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&#34;text-align:right&#34;&gt;Step&lt;/th&gt;
-&lt;th style=&#34;text-align:left&#34;&gt;Action&lt;/th&gt;
-&lt;th style=&#34;text-align:left&#34;&gt;Result&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;1&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click on &lt;em&gt;Projects&lt;/em&gt; tab&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;em&gt;Projects&lt;/em&gt; page is displayed&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;2&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click &lt;em&gt;Add Project&lt;/em&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;em&gt;New Project&lt;/em&gt; page is displayed with mandatory fields marked with red star&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;3&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Fill in all editable fields under &lt;em&gt;Basic Information&lt;/em&gt;, &lt;em&gt;User Information&lt;/em&gt; and &lt;em&gt;Admin Information&lt;/em&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Values are entered in the fields&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;4&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click &lt;em&gt;Add Project&lt;/em&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;The page remain the same and the message &lt;em&gt;You are editing the original document.&lt;/em&gt; is displayed&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;5&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click &lt;em&gt;Cancel&lt;/em&gt; button&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;New project &lt;em&gt;Summary&lt;/em&gt; page is displayed&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;6&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Check all fields on &lt;em&gt;Summary&lt;/em&gt; page&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Values are filled in correctly&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;7&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click &lt;em&gt;Edit&lt;/em&gt; button, modify some fields and &lt;em&gt;Update Project&lt;/em&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Values are updated successfully&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2 id=&#34;duplicate-an-existing-project&#34;&gt;Duplicate an existing project&lt;/h2&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&#34;text-align:right&#34;&gt;Step&lt;/th&gt;
-&lt;th style=&#34;text-align:left&#34;&gt;Action&lt;/th&gt;
-&lt;th style=&#34;text-align:left&#34;&gt;Result&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;1&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Search for an existing project with all fields filled in (e.g. created in TC06) and click &lt;em&gt;Duplicate&lt;/em&gt; button under &lt;em&gt;Actions&lt;/em&gt; column&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Project &lt;em&gt;Information&lt;/em&gt; page is displayed&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;2&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Check all fields from copied project&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;All fields are unchanged, including &lt;em&gt;Linked Projects&lt;/em&gt; and &lt;em&gt;Linked Releases&lt;/em&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;3&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Fill mandatory &lt;em&gt;Name&lt;/em&gt; with a project name and click &lt;em&gt;Add Project&lt;/em&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;The page remain the same and the message &lt;em&gt;You are editing the original document.&lt;/em&gt; is displayed&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;4&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Click &lt;em&gt;Cancel&lt;/em&gt; button&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;New project &lt;em&gt;Summary&lt;/em&gt; page is displayed&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;5&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Check all fields&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;All fields were copied successfully, except the new name of the project&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
-      </description>
-    </item>
-    
-  </channel>
-</rss>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Eclipse SW360 – Test Cases</title><link>https://www.eclipse.org/sw360/docs/development/testcases/</link><description>Recent content in Test Cases on Eclipse SW360</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://www.eclipse.org/sw360/docs/development/testcases/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Component / Release</title><link>https://www.eclipse.org/sw360/docs/development/testcases/test-cases-components/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.eclipse.org/sw360/docs/development/testcases/test-cases-components/</guid><description>
+&lt;h2 id="tc01-add-a-component-and-release-with-vendor-present">TC01: Add a component and release with vendor present&lt;/h2>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:right">Step&lt;/th>
+&lt;th style="text-align:left">Action&lt;/th>
+&lt;th style="text-align:left">Result&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:right">1&lt;/td>
+&lt;td style="text-align:left">Sign In with a known user&lt;/td>
+&lt;td style="text-align:left">User successfully signed in and &lt;em>Home&lt;/em> page is displayed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">2&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Components&lt;/em> tab&lt;/td>
+&lt;td style="text-align:left">&lt;em>Components&lt;/em> page is displayed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">3&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Add Component&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">- &lt;em>New Component&lt;/em> page is displayed with mandatory fields marked with red star: Name, Categories, Component Type. &lt;br>- A message &lt;em>Success:New Component&lt;/em> is displayed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">4&lt;/td>
+&lt;td style="text-align:left">Fill in a component &lt;em>Name&lt;/em>, &lt;em>Categories&lt;/em> and &lt;em>Component Type&lt;/em> fields. &lt;br>&lt;em>Eg:&lt;/em>&lt;br>- Name: Component 1@1&lt;br>- Categories: Categories_1@1&lt;br>- Component Type: OSS&lt;/td>
+&lt;td style="text-align:left">Values are entered in the fields&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">5&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Create Component&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">- Create component successfully. &lt;br>- Redirect to the edit component page.&lt;br>-Show message: &lt;em>Success:You are editing the original document.&lt;/em>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">6&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Releases&lt;/em> tab&lt;br>Click &lt;em>Add Release&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">Redirect to Add Release page&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">7&lt;/td>
+&lt;td style="text-align:left">Fill in a release &lt;em>Version&lt;/em> and &lt;em>CPE ID&lt;/em>&lt;br>&lt;em>Eg:&lt;/em>&lt;br>- Version: version1.0.0.x&lt;br>- CPE ID: UUID_1002&lt;/td>
+&lt;td style="text-align:left">Values are entered in the fields:&lt;br>- Version: version1.0.0.x&lt;br>- CPE ID: UUID_1002&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">8&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Create Release&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">- Create a release successfully.&lt;br>- Redirect to the edit new release page.&lt;br>- The message &lt;em>Success:You are editing the original document.&lt;/em> is displayed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">9&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Vendor&lt;/em> field&lt;/td>
+&lt;td style="text-align:left">&lt;em>Search Vendor&lt;/em> dialog is displayed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">10&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Add Vendor&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">&lt;em>Create new Vendor&lt;/em> dialog display&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">11&lt;/td>
+&lt;td style="text-align:left">Input data in fields&lt;br>- Full Name: add vendor 01&lt;br>-Short Name: add vendor01&lt;br>-URL: &lt;a href="https://github.com/eclipse-sw360/sw360">https://github.com/eclipse-sw360/sw360&lt;/a>&lt;/td>
+&lt;td style="text-align:left">Values are entered in the fields.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">12&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Add Vendor&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">The vendor is added in Vendor field of the release with full name is &lt;em>add vendor 01&lt;/em>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">13&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Attachments&lt;/em> tab&lt;/td>
+&lt;td style="text-align:left">&lt;em>Attachments&lt;/em> page is displayed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">14&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Add Attachment&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">&lt;em>Upload Attachment&lt;/em> dialog is displayed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">15&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Browse&lt;/em> and select the attachment.&lt;br>Eg: attachment1.xlsx&lt;/td>
+&lt;td style="text-align:left">File name is displayed in the dialog&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">16&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Upload&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">The file is uploaded and dialog is closed. Also the attached file is listed in the &lt;em>Attachment&lt;/em> page&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">17&lt;/td>
+&lt;td style="text-align:left">Change the attachment &lt;em>Type&lt;/em> to real type.&lt;br>Eg: Component license information (Combined)&lt;/td>
+&lt;td style="text-align:left">Type changed successfully&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">18&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Update Release&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">Message: &lt;em>Success:Release {name} ({version}) updated successfully!&lt;/em> is displayed&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="tc02-verify-data-after-add-a-component-and-release-with-vendor-present">TC02: Verify data after add a component and release with vendor present&lt;/h2>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:right">Step&lt;/th>
+&lt;th style="text-align:left">Action&lt;/th>
+&lt;th style="text-align:left">Result&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:right">1&lt;/td>
+&lt;td style="text-align:left">Search for the component is created in TC01:&lt;br>- Click &lt;em>Components&lt;/em> portlet&lt;br>- At Advanced Search area, input &lt;em>Component 1@1&lt;/em> in the &lt;em>Component Name&lt;/em> textbox.&lt;br>- Click &lt;em>Search&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">The new component display in the table with:&lt;br>- Vendor: add vendor01&lt;br>- Component Name: &lt;em>Component 1@1&lt;/em> is displayed with hyper link.&lt;br>- Main licenses: blank&lt;br>- Component Type: OSS&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">2&lt;/td>
+&lt;td style="text-align:left">Click hyper link of name &lt;em>Component 1@1&lt;/em>&lt;/td>
+&lt;td style="text-align:left">Redirect to view component &lt;em>Component 1@1&lt;/em> page&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">3&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Release Overview&lt;/em> tab&lt;/td>
+&lt;td style="text-align:left">The release display with:&lt;br>- Name: Component 1@1&lt;br>- Version displays with hyper link: version1.0.0.x&lt;br>- Clearing State: New&lt;br>- Clearing Report: no report&lt;br>- Release Mainline State: Open&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">4&lt;/td>
+&lt;td style="text-align:left">Click hyper link &lt;em>version1.0.0.x&lt;/em>&lt;/td>
+&lt;td style="text-align:left">Redirect to view screen of release &lt;em>Component 1@1 version1.0.0.x&lt;/em>&lt;br>Data of the release:&lt;br>- Summary tab:&lt;br>+ display text with: COMPONENT 1@1 VERSION1.0.0.X&lt;br>+ CPE ID: UUID_1002&lt;br>+ Created on: date of created.&lt;br>+ Created by: user created.&lt;br>+ Modified On: date of modified.&lt;br>+ Modified By: user modified.&lt;br>+ Clearing State: New&lt;br>+ Release Mainline State: Open&lt;br>+ Release Vendor with:&lt;br>   Full Name: add vendor 01&lt;br>   Short Name: add vendor01&lt;br>   URL: &lt;a href="https://github.com/eclipse-sw360/sw360">https://github.com/eclipse-sw360/sw360&lt;/a>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">5&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Attachments&lt;/em> tab&lt;/td>
+&lt;td style="text-align:left">Display file name &lt;em>attachment1.xlsx&lt;/em> in the table.&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="tc03-modify-a-component-and-release-with-vendor-present">TC03: Modify a component and release with vendor present&lt;/h2>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:right">Step&lt;/th>
+&lt;th style="text-align:left">Action&lt;/th>
+&lt;th style="text-align:left">Result&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:right">1&lt;/td>
+&lt;td style="text-align:left">Search for an existing component (e.g. created in TC01: &lt;em>Component 1@1&lt;/em>) and click &lt;em>Edit&lt;/em> icon&lt;/td>
+&lt;td style="text-align:left">&lt;em>Success:You are editing the original document&lt;/em> message is displayed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">2&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Releases&lt;/em> tab&lt;/td>
+&lt;td style="text-align:left">Release list is displayed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">3&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Add Release&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">Redirect to Add Release page&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">4&lt;/td>
+&lt;td style="text-align:left">Fill in a release &lt;em>Version&lt;/em> and &lt;em>CPE ID&lt;/em>&lt;br>&lt;em>Eg:&lt;/em>&lt;br>- Version: v1.0.0.1&lt;br>- CPE ID: cpe:id:123456&lt;/td>
+&lt;td style="text-align:left">Values are entered in the fields:&lt;br>- Version: v1.0.0.1&lt;br>- CPE ID: cpe:id:123456&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">5&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Create Release&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">- Redirect to the edit new release page.&lt;br>- The message &lt;em>Success:You are editing the original document.&lt;/em> is displayed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">6&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Vendor&lt;/em> field&lt;/td>
+&lt;td style="text-align:left">&lt;em>Search Vendor&lt;/em> dialog is displayed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">7&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Search&lt;/em> button.&lt;br>Select a vendor (eg: select vendor with full name &lt;em>VendorUp&lt;/em>) &lt;br>Click &lt;em>Select Vendor&lt;/em> button.&lt;/td>
+&lt;td style="text-align:left">Dialog is closed and selected Vendor is added under &lt;em>Vendor&lt;/em> field: VendorUp&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">8&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Attachments&lt;/em> tab&lt;br>Click &lt;em>Add Attachment&lt;/em> button&lt;br>Click &lt;em>Browse&lt;/em> and select the attachment. Eg: attachment2.img&lt;br>Click &lt;em>Upload&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">The file is uploaded and dialog is closed. Also the attached file is listed in the Attachment page&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">9&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Update Release&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">Message &lt;em>Success:Release Component 1@1 (v1.0.0.1) updated successfully!&lt;/em> is displayed&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="tc04-verify-data-after--modify-a-component-and-release-with-vendor-present">TC04: Verify data after modify a component and release with vendor present&lt;/h2>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:right">Step&lt;/th>
+&lt;th style="text-align:left">Action&lt;/th>
+&lt;th style="text-align:left">Result&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:right">1&lt;/td>
+&lt;td style="text-align:left">Continue TC03&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">2&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Summary&lt;/em> tab&lt;/td>
+&lt;td style="text-align:left">Data in the tab:&lt;br>- Modified On: date of modified.&lt;br>- Modified By: user modified.&lt;br>Data of other fields in the tab is same data before updated.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">3&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Release Overview&lt;/em> tab&lt;/td>
+&lt;td style="text-align:left">New release with version &lt;em>v1.0.0.1&lt;/em> is added in the release table.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">4&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>v1.0.0.1&lt;/em> hyper link&lt;/td>
+&lt;td style="text-align:left">Text display with: &lt;em>COMPONENT 1@1 V1.0.0.1&lt;/em> at the right corner.&lt;br>- At Summary tab: &lt;br> + CPE ID: cpe:id:123456&lt;br> + Release Vendor: display with Full Name, Short Name and URL correctly with vendor &lt;em>VendorUp&lt;/em> &lt;br>- At Attachments tab: attachment &lt;em>attachment2.img&lt;/em> display in the attachment table with correct information.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">5&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Component 1@1&lt;/em> hyper link&lt;/td>
+&lt;td style="text-align:left">Redirect to view screen of &lt;em>Component 1@1&lt;/em> component.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">6&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Attachments&lt;/em> tab&lt;/td>
+&lt;td style="text-align:left">Data in the tab is same data before updated.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">7&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Vulnerabilities&lt;/em> tab&lt;/td>
+&lt;td style="text-align:left">Data in the tab is same data before updated.&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="tc05-add-and-modify-a-component-and-release-with-all-fields-filled-in">TC05: Add and modify a component and release with all fields filled in&lt;/h2>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:right">Step&lt;/th>
+&lt;th style="text-align:left">Action&lt;/th>
+&lt;th style="text-align:left">Result&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:right">1&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Components&lt;/em> tab&lt;br>Click &lt;em>Add Component&lt;/em> button&lt;br>Fill in all editable fields&lt;br>Click &lt;em>Create Component&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">- Redirect to edit component screen with the message &lt;em>Success:You are editing the original document.&lt;/em> is displayed in the left corner.&lt;br>- Create component successfully. Data match with input data.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">2&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Releases&lt;/em> tab.&lt;br>Click &lt;em>Add Releases&lt;/em> button.&lt;br>At &lt;em>Summary&lt;/em> tab, fill in all editable fields under &lt;em>Release Summary&lt;/em> and &lt;em>Release Repository&lt;/em>.&lt;br>Click &lt;em>Create Release&lt;/em> button.&lt;br>&lt;/td>
+&lt;td style="text-align:left">Redirect to edit release screen.&lt;br>Created release successfully. Data match with input data.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">3&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Linked Releases&lt;/em> tab&lt;br>Click &lt;em>Click to add Releases&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">The dialog &lt;em>Link Releases&lt;/em> is displayed.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">4&lt;/td>
+&lt;td style="text-align:left">Input search name into textbox&lt;br>Click &lt;em>Search&lt;/em> button&lt;br>Select 3 releases.&lt;br>Click &lt;em>Link Releases&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">Dialog is closed and selected release is displayed under &lt;em>Linked Releases&lt;/em> section.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">5&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Linked Packages&lt;/em> tab&lt;br>Click &lt;em>Add Packages&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">The dialog &lt;em>Link Packages&lt;/em> is displayed.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">6&lt;/td>
+&lt;td style="text-align:left">Input an exist orphan package name into textbox.&lt;br>Click &lt;em>Search&lt;/em> button.&lt;br>Select a package.&lt;br>Click &lt;em>Link Packages&lt;/em> button.&lt;/td>
+&lt;td style="text-align:left">Dialog is closed and selected package is displayed under &lt;em>Linked Packages&lt;/em> table&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">7&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Clearing Details&lt;/em> tab&lt;br>Fill in all editable fields&lt;/td>
+&lt;td style="text-align:left">Values are entered in the fields&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">8&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>ECC Details&lt;/em> tab&lt;br>Fill in all editable fields&lt;/td>
+&lt;td style="text-align:left">Values are entered in the fields&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">9&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Attachments&lt;/em> tab&lt;br>Click &lt;em>Add Attachment&lt;/em> button&lt;br>Click &lt;em>Browse&lt;/em> and select the attachment. &lt;em>Eg&lt;/em>: attachment3.xlsx&lt;br>Click &lt;em>Upload&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">The file is uploaded and dialog is closed. Also the attached file is listed in the Attachment page&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">10&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Update Release&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">- &lt;em>Success:Release {componentName} ({version}) updated successfully!&lt;/em> message is displayed.&lt;br>- Redirect to the view release screen.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">11&lt;/td>
+&lt;td style="text-align:left">Check all fields of the release by click tabs: &lt;em>Summary, Linked Releases, Linked Packages, Clearing Details and Attachments&lt;/em>.&lt;/td>
+&lt;td style="text-align:left">Values are filled in correctly, match with input data.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">12&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Edit Release&lt;/em> button, modify some fields.&lt;br>Eg: &lt;br>- &lt;em>Version&lt;/em> field ( in &lt;em>Summary&lt;/em> tab): rename version name_updated&lt;br> - &lt;em>ECC Status&lt;/em> field (in &lt;em>ECC Details&lt;/em> tab): Approved.&lt;br>Click &lt;em>Update Release&lt;/em> button.&lt;/td>
+&lt;td style="text-align:left">Values are updated successfully&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="tc06-delete-a-component-that-is-first-linked-to-a-project-and-then-not-and-a-project">TC06: Delete a component that is first linked to a project and then not, and a project&lt;/h2>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:right">Step&lt;/th>
+&lt;th style="text-align:left">Action&lt;/th>
+&lt;th style="text-align:left">Result&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:right">1&lt;/td>
+&lt;td style="text-align:left">Create a new component&lt;br>&lt;em>Eg:&lt;/em> component with name &lt;em>Component @1234&lt;/em>&lt;/td>
+&lt;td style="text-align:left">Component is created successfully&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">2&lt;/td>
+&lt;td style="text-align:left">Add a new release to this component&lt;br>&lt;em>Eg:&lt;/em> release &lt;em>Rel1&lt;/em>&lt;/td>
+&lt;td style="text-align:left">Release is added successfully&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">3&lt;/td>
+&lt;td style="text-align:left">Create a new project &lt;em>P1&lt;/em>&lt;/td>
+&lt;td style="text-align:left">Project is created successfully&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">4&lt;/td>
+&lt;td style="text-align:left">Add the linked release &lt;em>Rel1&lt;/em> to project &lt;em>P1&lt;/em>.&lt;/td>
+&lt;td style="text-align:left">Release linked successfully&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">5&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Components&lt;/em> portlet.&lt;br>Search component &lt;em>Component @1234&lt;/em> by name at advanced search.&lt;/td>
+&lt;td style="text-align:left">Component &lt;em>Component @1234&lt;/em> display on the result table.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">6&lt;/td>
+&lt;td style="text-align:left">Click delete icon of component &lt;em>Component @1234&lt;/em>&lt;/td>
+&lt;td style="text-align:left">A warning &lt;em>The component Component @1234 cannot be deleted, since it contains 1 releases. Please delete the releases first.&lt;/em>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">7&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>OK&lt;/em> button in the warning dialog.&lt;/td>
+&lt;td style="text-align:left">The dialog is closed, component is not deleted&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">8&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Components&lt;/em> portlet.&lt;br>Search for the component &lt;em>Component @1234&lt;/em> and click hyper link of component &lt;em>Component @1234&lt;/em>.&lt;/td>
+&lt;td style="text-align:left">View screen of &lt;em>Component @1234&lt;/em> component is display&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">9&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Release&lt;/em> Overview.&lt;br>Click Delete icon button of release &lt;em>Rel1&lt;/em>.&lt;br>Click &lt;em>Delete Release&lt;/em> button in the dialog.&lt;/td>
+&lt;td style="text-align:left">- Dialog &lt;em>Delete Releases&lt;/em> is displayed.&lt;br>- Delete the release is failure.&lt;br>- The message: &lt;em>I could not delete the release, since it is used by another component (release) or project&lt;/em> display.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">10&lt;/td>
+&lt;td style="text-align:left">Go to project &lt;em>P1&lt;/em>, delete project &lt;em>P1&lt;/em>.&lt;/td>
+&lt;td style="text-align:left">The project is deleted successfully&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">11&lt;/td>
+&lt;td style="text-align:left">Go to component &lt;em>Component @1234&lt;/em>, at &lt;em>Release Overview&lt;/em> tab, click Delete icon button of release &lt;em>Rel1&lt;/em>.&lt;/td>
+&lt;td style="text-align:left">Show message: &lt;em>Do you really want to delete the release {componentName} ({version}) ?&lt;/em>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">12&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Delete Release&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">Release is deleted successfully&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">13&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Edit Component&lt;/em> button.&lt;br>Click &lt;em>Delete Component&lt;/em> button.&lt;/td>
+&lt;td style="text-align:left">The dialog is displayed with message: &lt;em>Do you really want to delete the component {componentName} ?&lt;/em>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">14&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Delete Component&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">Component is deleted successfully&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="tc07-add-new-attachments-to-an-existing-release-and-delete-attachments">TC07: Add new attachments to an existing release and delete attachments&lt;/h2>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:right">Step&lt;/th>
+&lt;th style="text-align:left">Action&lt;/th>
+&lt;th style="text-align:left">Result&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:right">1&lt;/td>
+&lt;td style="text-align:left">Search for an existing component (e.g. created in TC01) and click &lt;em>Release Overview&lt;/em> tab&lt;/td>
+&lt;td style="text-align:left">The list of releases are displayed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">2&lt;/td>
+&lt;td style="text-align:left">Click edit icon in the Action column of release version that needs a new attachment. &lt;em>Eg:&lt;/em> release &lt;em>Rel1&lt;/em>.&lt;/td>
+&lt;td style="text-align:left">Edit release &lt;em>Rel1&lt;/em> page is displayed.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">3&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Attachments&lt;/em> tab&lt;br>Click &lt;em>Add Attachment&lt;/em> button&lt;br>Click &lt;em>Browse&lt;/em> and select several attachments.&lt;br>&lt;em>Eg:&lt;/em> 5 attachment files (att1, att2, att3, att4, att5)&lt;/td>
+&lt;td style="text-align:left">File names are displayed in the dialog&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">4&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Delete&lt;/em> button near some files not to be added.&lt;br>&lt;em>Eg:&lt;/em> delete 2 attachment files (att1, att3)&lt;/td>
+&lt;td style="text-align:left">File names are removed from the list&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">5&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Upload&lt;/em> button for the remaining files.&lt;/td>
+&lt;td style="text-align:left">The attached file are listed in the &lt;em>Attachment&lt;/em> page: att2, att4, att5&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">6&lt;/td>
+&lt;td style="text-align:left">Change some &lt;em>Attachment type&lt;/em> to real type, e.g. &lt;em>source file, clearing report, CLI,&amp;hellip;&lt;/em>&lt;/td>
+&lt;td style="text-align:left">Type changed successfully&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">7&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Update Release&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">Release &lt;em>Ree1&lt;/em> is updated correctly.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">8&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Edit Release&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">&lt;em>Success:You are editing the original document.&lt;/em> message is displayed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">9&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Attachments&lt;/em> tab&lt;/td>
+&lt;td style="text-align:left">&lt;em>Attachments&lt;/em> page is displayed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">10&lt;/td>
+&lt;td style="text-align:left">Click delete icon to delete an attachment&lt;/td>
+&lt;td style="text-align:left">Show message: &lt;em>Do you really want to delete attachment {attachmentName}({attachmentId})?&lt;/em>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">11&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Delete Attachment button&lt;/em>&lt;/td>
+&lt;td style="text-align:left">Attachment is deleted successfully, data of attachment is removed from attachment table.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">12&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Update Release&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">Release Ree1 is updated correctly with message &lt;em>Success: Release {componentName}({version}) updated successfully!&lt;/em>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="tc08-duplicate-an-existing-release">TC08: Duplicate an existing release&lt;/h2>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:right">Step&lt;/th>
+&lt;th style="text-align:left">Action&lt;/th>
+&lt;th style="text-align:left">Result&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:right">1&lt;/td>
+&lt;td style="text-align:left">Search for an existing component with release with all fields filled in (Eg: created in TC05) and click &lt;em>Release Overview&lt;/em>&lt;/td>
+&lt;td style="text-align:left">The list of releases are displayed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">2&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Duplicate&lt;/em> button under Action column&lt;/td>
+&lt;td style="text-align:left">The page changes to create duplicate release screen&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">3&lt;/td>
+&lt;td style="text-align:left">Check all fields from copied release&lt;/td>
+&lt;td style="text-align:left">- &lt;em>Summary&lt;/em> tab:&lt;br> + &lt;em>CPE ID&lt;/em> field: blank&lt;br> + Remain fields are unchanged (exclude disable fields).&lt;br>- &lt;em>Linked Releases&lt;/em> tab: there is no linked release.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">4&lt;/td>
+&lt;td style="text-align:left">Change the &lt;em>Version&lt;/em> field and fill in a &lt;em>CPE ID&lt;/em>.&lt;br>&lt;em>Eg:&lt;/em>  Version: ver_duplicate&lt;br> CPE ID: CPE ID_duplicate&lt;br>Click &lt;em>Create Release&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">- Redirect to edit release screen.&lt;br>- Create duplicate release is success with message: &lt;em>Success:You are editing the original document.&lt;/em>&lt;br>- Data of duplicate release is correct.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">5&lt;/td>
+&lt;td style="text-align:left">Modify some other fields.&lt;br>&lt;em>Eg:&lt;/em> Release Date: 2023-06-12. &lt;br>Click &lt;em>Clearing Details&lt;/em> tab&lt;/td>
+&lt;td style="text-align:left">&lt;em>Clearing Details&lt;/em> page is displayed and does not contain any field from copied release&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">6&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Update Release&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">The release is updated successfully with data correctly&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">7&lt;/td>
+&lt;td style="text-align:left">Click component name link on top of the page&lt;/td>
+&lt;td style="text-align:left">Summary page for the component is displayed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">8&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Release Overview&lt;/em> tab&lt;/td>
+&lt;td style="text-align:left">The new copied release is listed among previous releases&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="tc09-search-for-and-create-a-new-vendor-for-a-new-release">TC09: Search for and create a new vendor for a new release&lt;/h2>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:right">Step&lt;/th>
+&lt;th style="text-align:left">Action&lt;/th>
+&lt;th style="text-align:left">Result&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:right">1&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Components&lt;/em> portlet&lt;br>At advanced Search, search for an existing component.&lt;br>&lt;em>Eg:&lt;/em> input &lt;em>Comp1&lt;/em> in the Component Name text box.&lt;br>Click &lt;em>Search&lt;/em> button.&lt;/td>
+&lt;td style="text-align:left">Component &lt;em>Comp1&lt;/em> display in the result table.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">2&lt;/td>
+&lt;td style="text-align:left">Click edit icon in Actions column of component &lt;em>Comp1&lt;/em>.&lt;/td>
+&lt;td style="text-align:left">Edit screen of component &lt;em>Comp1&lt;/em> is displayed with message: &lt;em>Success:You are editing the original document&lt;/em>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">3&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Releases&lt;/em> tab&lt;br>Click &lt;em>Add Releases&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">The page changes to &lt;em>New Release Edit&lt;/em> page&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">4&lt;/td>
+&lt;td style="text-align:left">Fill in a release &lt;em>Version&lt;/em> and &lt;em>CPE ID&lt;/em>&lt;br>&lt;em>Eg:&lt;/em>&lt;br> + Version: @1.0.2&lt;br> + CPE ID: moshiano_002&lt;/td>
+&lt;td style="text-align:left">Values are entered in the fields&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">5&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Vendor&lt;/em> field&lt;/td>
+&lt;td style="text-align:left">&lt;em>Search Vendor&lt;/em> dialog is displayed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">6&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Add Vendor&lt;/em>&lt;/td>
+&lt;td style="text-align:left">&lt;em>Create New Vendor&lt;/em> dialog is displayed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">7&lt;/td>
+&lt;td style="text-align:left">Fill in &lt;em>Full name&lt;/em>, &lt;em>Short name&lt;/em> and &lt;em>URL&lt;/em>&lt;br>&lt;em>Eg:&lt;/em>&lt;br>Full Name: Fullvendor_0909&lt;br>Short Name: Short_ven090&lt;br>URL: &lt;a href="https://github.com/">https://github.com/&lt;/a>&lt;/td>
+&lt;td style="text-align:left">Values are entered in the fields&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">8&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Add Vendor&lt;/em>&lt;/td>
+&lt;td style="text-align:left">Dialog closes and the new vendor is displayed in release &lt;em>Vendor&lt;/em> field with full name &lt;em>Fullvendor_0909&lt;/em>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">9&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Create Release&lt;/em>&lt;/td>
+&lt;td style="text-align:left">Redirect to edit release page with the message &lt;em>Success:You are editing the original document.&lt;/em> is displayed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">10&lt;/td>
+&lt;td style="text-align:left">Click component name link on top of the page&lt;/td>
+&lt;td style="text-align:left">Summary page for the component is displayed. The new vendor for the new release, as well as existing vendors from previous releases are listed under &lt;em>Vendors&lt;/em> field for the component&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="tc10-link-a-release-to-the-project-in-view-component-page-and-check-used-by-projects">TC10: Link a release to the project in view component page and check used by projects&lt;/h2>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:right">Step&lt;/th>
+&lt;th style="text-align:left">Action&lt;/th>
+&lt;th style="text-align:left">Result&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:right">1&lt;/td>
+&lt;td style="text-align:left">Search for an existing component with release and click &lt;em>Release Overview&lt;/em> tab&lt;/td>
+&lt;td style="text-align:left">The list of releases are displayed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">2&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Link Project&lt;/em> button under Action column&lt;/td>
+&lt;td style="text-align:left">The dialog &lt;em>Link Release to Project&lt;/em> is displayed with &lt;em>Link to Project&lt;/em> button is disabled&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">3&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Search&lt;/em> button then choose a project to link&lt;/td>
+&lt;td style="text-align:left">&lt;em>Link to Project&lt;/em> button on the dialog is enabled&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">4&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Link to Project&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">&lt;em>The release {component name} ({version}) has been successfully linked to project {project name}&lt;/em>&lt;br>&lt;em>Click &lt;ins>here&lt;ins>&lt;/em> &lt;em>to edit the release relation as well as the project mainline state in the project.&lt;/em> message is displayed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">5&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>here&lt;/em> hyperlink in the dialog&lt;/td>
+&lt;td style="text-align:left">Redirect to the &lt;em>edit project&lt;/em> page with the release was linked (displayed on &lt;em>License Clearing&lt;/em> page)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">6&lt;/td>
+&lt;td style="text-align:left">Re-open the release at view page and click &lt;em>Summary&lt;/em> tab&lt;/td>
+&lt;td style="text-align:left">Used by project information is updated correspondingly&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="tc11-link-a-release-to-a-project-in-the-view-release-page">TC11: Link a release to a project in the view release page&lt;/h2>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:right">Step&lt;/th>
+&lt;th style="text-align:left">Action&lt;/th>
+&lt;th style="text-align:left">Result&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:right">1&lt;/td>
+&lt;td style="text-align:left">Search for an existing component with release and click &lt;em>Release Overview&lt;/em> tab&lt;/td>
+&lt;td style="text-align:left">The list of releases are displayed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">2&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>a release name&lt;/em> hyperlink. Eg: release R1&lt;/td>
+&lt;td style="text-align:left">Redirect to the &lt;em>view release&lt;/em> page&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">3&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Link to Project&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">The dialog &lt;em>Link Release to Project&lt;/em> is displayed with &lt;em>Link to Project&lt;/em> button is disabled&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">4&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Search&lt;/em> button then choose a project to link&lt;/td>
+&lt;td style="text-align:left">&lt;em>Link to Project&lt;/em> button on the dialog is enabled&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">5&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Link to Project&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">&lt;em>The release {component name} ({version}) has been successfully linked to project {project name}&lt;/em>&lt;br>&lt;em>Click &lt;ins>here&lt;ins>&lt;/em> &lt;em>to edit the release relation as well as the project mainline state in the project.&lt;/em> message is displayed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">6&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>here&lt;/em> hyperlink in the dialog&lt;/td>
+&lt;td style="text-align:left">Redirect to the &lt;em>edit project&lt;/em> page with the release was linked (displayed on &lt;em>License Clearing&lt;/em> page)&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="tc12-import-a-new-component-by-spdxxml-rdf-file">TC12: Import a new component by .spdx/.xml/ .rdf file&lt;/h2>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:right">Step&lt;/th>
+&lt;th style="text-align:left">Action&lt;/th>
+&lt;th style="text-align:left">Result&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:right">1&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Components&lt;/em> tab&lt;/td>
+&lt;td style="text-align:left">&lt;em>Components&lt;/em> page is displayed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">2&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Import SBOM&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">A dialog &lt;em>Upload SBOM&lt;/em> is displayed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">3&lt;/td>
+&lt;td style="text-align:left">Choose a &lt;strong>&lt;em>.spdx&lt;/em>&lt;/strong> or &lt;strong>&lt;em>.xml&lt;/em>&lt;/strong> or &lt;strong>&lt;em>.rdf&lt;/em>&lt;/strong> file by clicking on the &lt;em>Browse&lt;/em> button or drop/draft a file into the dialog&lt;/td>
+&lt;td style="text-align:left">The message is displayed in the dialog: &lt;br> &lt;em>The new Component and new Release will be created, do you want to import? &lt;br> New Component: {new component names} &lt;br> New Release: {new release names}&lt;/em>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">4&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Import&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">The dialog is closed. New releases and new components are imported successfully&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="tc13-export-components-without-releases">TC13: Export components without releases&lt;/h2>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:right">Step&lt;/th>
+&lt;th style="text-align:left">Action&lt;/th>
+&lt;th style="text-align:left">Result&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:right">1&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Components&lt;/em> tab&lt;/td>
+&lt;td style="text-align:left">&lt;em>Components&lt;/em> page is displayed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">2&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Export Spreadsheet&lt;/em> button and choose &lt;em>Components only&lt;/em> option&lt;/td>
+&lt;td style="text-align:left">- A new file with name&amp;rsquo;s format &lt;em>components-{yyyy}-{mm}-{dd}.xlsx&lt;/em> is downloaded&lt;br>- The content of the downloaded file includes information of all components in the system&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="tc14-export-components-with-releases">TC14: Export components with releases&lt;/h2>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:right">Step&lt;/th>
+&lt;th style="text-align:left">Action&lt;/th>
+&lt;th style="text-align:left">Result&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:right">1&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Components&lt;/em> tab&lt;/td>
+&lt;td style="text-align:left">&lt;em>Components&lt;/em> page is displayed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">2&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Export Spreadsheet&lt;/em> button and choose &lt;em>Components with releases&lt;/em> option&lt;/td>
+&lt;td style="text-align:left">- New file with name &lt;em>components-{yyyy}-{mm}-{dd}.xlsx&lt;/em> is downloaded.&lt;br>- The content of the downloaded file includes information of all components and releases in the system&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="tc15-create-a-clearing-request-for-a-release">TC15: Create a clearing request for a release&lt;/h2>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:right">Step&lt;/th>
+&lt;th style="text-align:left">Action&lt;/th>
+&lt;th style="text-align:left">Result&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:right">1&lt;/td>
+&lt;td style="text-align:left">Search for an existing component with releases and click &lt;em>Release Overview&lt;/em> tab&lt;/td>
+&lt;td style="text-align:left">The list of releases are displayed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">2&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Edit&lt;/em> button under &lt;em>Action&lt;/em> column. Eg: edit release R1&lt;/td>
+&lt;td style="text-align:left">Redirect to &lt;em>view release&lt;/em> page and the message &lt;em>Success:You are editing the original document.&lt;/em> is displayed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">3&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Attachments&lt;/em> tab, then add a source file (Eg: .rdf file) with &lt;em>Type&lt;/em> is &lt;em>Source file&lt;/em>&lt;/td>
+&lt;td style="text-align:left">The data is updated correspondingly&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">4&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Update Release&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">The message &lt;em>Success:Release {release name} updated successfully!&lt;/em> is displayed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">5&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Clearing details&lt;/em> tab, then click &lt;em>Fossology Process&lt;/em> icon beside &lt;em>Clearing State&lt;/em> field and wait for the process to finish&lt;/td>
+&lt;td style="text-align:left">The message &lt;em>The FOSSology process already finished. You should find the resulting report as attachment at this release.&lt;/em> is displayed in the &lt;em>Fossology Process&lt;/em> dialog&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">6&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Close&lt;/em> button in the dialog&lt;/td>
+&lt;td style="text-align:left">The dialog is closed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">7&lt;/td>
+&lt;td style="text-align:left">Reload this page, then click &lt;em>Attachments&lt;/em> tab&lt;/td>
+&lt;td style="text-align:left">A new file is listed in &lt;em>Attachments&lt;/em> page with name&amp;rsquo;s format &lt;em>{component name}-{version}-{yyyymmdd}-{hhmm}-SPDX.rdf&lt;/em>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table></description></item><item><title>Docs: Licenses</title><link>https://www.eclipse.org/sw360/docs/development/testcases/test-cases-licenses/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.eclipse.org/sw360/docs/development/testcases/test-cases-licenses/</guid><description>
+&lt;h2 id="create-edit-and-delete-license">Create, edit and delete license&lt;/h2>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:right">Step&lt;/th>
+&lt;th style="text-align:left">Action&lt;/th>
+&lt;th style="text-align:left">Result&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:right">1&lt;/td>
+&lt;td style="text-align:left">Sign In with a known &lt;em>clearing admin&lt;/em> user&lt;/td>
+&lt;td style="text-align:left">User successfully signed in and &lt;em>Home&lt;/em> page is displayed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">2&lt;/td>
+&lt;td style="text-align:left">Click on &lt;em>Licenses&lt;/em> tab&lt;/td>
+&lt;td style="text-align:left">&lt;em>Licenses&lt;/em> page is displayed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">3&lt;/td>
+&lt;td style="text-align:left">Click on &lt;em>Add License&lt;/em>&lt;/td>
+&lt;td style="text-align:left">&lt;em>New License&lt;/em> page is displayed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">4&lt;/td>
+&lt;td style="text-align:left">Fill in &lt;em>Fullname&lt;/em> and &lt;em>Shortname&lt;/em> fields and press &lt;em>Add License&lt;/em>&lt;/td>
+&lt;td style="text-align:left">&lt;em>License added successfully!&lt;/em> message is displayed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">5&lt;/td>
+&lt;td style="text-align:left">Write the license or part of newly created license name in &lt;em>Keyword Search&lt;/em> field&lt;/td>
+&lt;td style="text-align:left">License is filtered successfully&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">6&lt;/td>
+&lt;td style="text-align:left">Click on license name and then on &lt;em>Edit License Details and Text&lt;/em>&lt;/td>
+&lt;td style="text-align:left">License page is displayed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">7&lt;/td>
+&lt;td style="text-align:left">Modify some fields and click &lt;em>Update License&lt;/em>&lt;/td>
+&lt;td style="text-align:left">&lt;em>License updated successfully!&lt;/em> message is displayed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">8&lt;/td>
+&lt;td style="text-align:left">Check all fields on &lt;em>Details&lt;/em> and &lt;em>Text&lt;/em> pages&lt;/td>
+&lt;td style="text-align:left">Values are filled in correctly&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">9&lt;/td>
+&lt;td style="text-align:left">Click on &lt;em>Edit License Details and Text&lt;/em>&lt;/td>
+&lt;td style="text-align:left">License page is displayed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">10&lt;/td>
+&lt;td style="text-align:left">Click o &lt;em>Delete&lt;/em> license name&lt;/td>
+&lt;td style="text-align:left">&lt;em>License removed successfully!&lt;/em> message is displayed&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="edit-license-todos-and-obligations">Edit license TODOs and Obligations&lt;/h2>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:right">Step&lt;/th>
+&lt;th style="text-align:left">Action&lt;/th>
+&lt;th style="text-align:left">Result&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:right">1&lt;/td>
+&lt;td style="text-align:left">Sign In with a known &lt;em>clearing admin&lt;/em> user&lt;/td>
+&lt;td style="text-align:left">User successfully signed in and &lt;em>Home&lt;/em> page is displayed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">2&lt;/td>
+&lt;td style="text-align:left">Click on previously created license name&lt;/td>
+&lt;td style="text-align:left">&lt;em>License Details&lt;/em> page is displayed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">3&lt;/td>
+&lt;td style="text-align:left">Click on &lt;em>Add a Todo&lt;/em>&lt;/td>
+&lt;td style="text-align:left">Todo page displayed successfully&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">4&lt;/td>
+&lt;td style="text-align:left">Enter a Todo text (e.g. &amp;ldquo;First todo text&amp;rdquo;), click &lt;em>Applies to development&lt;/em>, and click &lt;em>Submit&lt;/em>&lt;/td>
+&lt;td style="text-align:left">&lt;em>License updated successfully!&lt;/em> message is displayed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">5&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>TODOs and Obligations&lt;/em>&lt;/td>
+&lt;td style="text-align:left">The previously entered Todo is listed on the page with &lt;em>No obligations&lt;/em>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">6&lt;/td>
+&lt;td style="text-align:left">Click on &lt;em>Add a Todo&lt;/em>&lt;/td>
+&lt;td style="text-align:left">Todo page displayed successfully&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">7&lt;/td>
+&lt;td style="text-align:left">Enter a Todo text (e.g. &amp;ldquo;Second todo text&amp;rdquo;), click on some Obligations and click Submit&lt;/td>
+&lt;td style="text-align:left">&lt;em>License updated successfully!&lt;/em> message is displayed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">8&lt;/td>
+&lt;td style="text-align:left">Click TODOs and Obligations&lt;/td>
+&lt;td style="text-align:left">The previously entered Todo is listed on the page together with chosen obligations&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">9&lt;/td>
+&lt;td style="text-align:left">Click on &lt;em>Edit WhiteList&lt;/em>, deselect first Todo and click &lt;em>Submit&lt;/em>&lt;/td>
+&lt;td style="text-align:left">The deselected Todo is not displayed anymore on &lt;em>TODOs and Obligations&lt;/em> page&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="check-export-licenses">Check Export Licenses&lt;/h2>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:right">Step&lt;/th>
+&lt;th style="text-align:left">Action&lt;/th>
+&lt;th style="text-align:left">Result&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:right">1&lt;/td>
+&lt;td style="text-align:left">Sign In with a known user&lt;/td>
+&lt;td style="text-align:left">User successfully signed in and &lt;em>Home&lt;/em> page is displayed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">2&lt;/td>
+&lt;td style="text-align:left">Click on &lt;em>Licenses&lt;/em> tab&lt;/td>
+&lt;td style="text-align:left">&lt;em>Licenses&lt;/em> page is displayed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">3&lt;/td>
+&lt;td style="text-align:left">Click on &lt;em>Export Licenses&lt;/em>&lt;/td>
+&lt;td style="text-align:left">A dialog for opening &lt;em>Licenses.xlsx&lt;/em> is displayed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">4&lt;/td>
+&lt;td style="text-align:left">Open the xlsx file and compare the number of rows with total number of entries from &lt;em>Licenses&lt;/em> tab&lt;/td>
+&lt;td style="text-align:left">All licenses names are exported successfully.&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table></description></item><item><title>Docs: Moderation</title><link>https://www.eclipse.org/sw360/docs/development/testcases/test-cases-moderations/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.eclipse.org/sw360/docs/development/testcases/test-cases-moderations/</guid><description>
+&lt;h2 id="accept-moderation-request-for-visible-projects-by-other-users">Accept moderation request, for visible projects by other users&lt;/h2>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:right">Step&lt;/th>
+&lt;th style="text-align:left">Action&lt;/th>
+&lt;th style="text-align:left">Result&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:right">1&lt;/td>
+&lt;td style="text-align:left">Open first browser instance ((e.g. &amp;ldquo;firefox.exe -p &amp;ldquo;profile1&amp;rdquo; -no-remote&amp;rdquo;) and sign in with a known &lt;em>First&lt;/em> user&lt;/td>
+&lt;td style="text-align:left">User successfully signed in and &lt;em>Home&lt;/em> page is displayed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">2&lt;/td>
+&lt;td style="text-align:left">Open a second browser instance ((e.g. &amp;ldquo;firefox.exe -p &amp;ldquo;profile2&amp;rdquo; -no-remote&amp;rdquo;) and sign in with a known &lt;em>Second&lt;/em> user&lt;/td>
+&lt;td style="text-align:left">User successfully signed in and &lt;em>Home&lt;/em> page is displayed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">3&lt;/td>
+&lt;td style="text-align:left">Activate &lt;em>First&lt;/em> browser instance&lt;/td>
+&lt;td style="text-align:left">Instance is active&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">4&lt;/td>
+&lt;td style="text-align:left">Create a new project visible for &lt;em>Second&lt;/em> user (e.g. &lt;em>Me and Moderators&lt;/em>, &lt;em>Group and Moderators&lt;/em>, &lt;em>Everyone&lt;/em>)&lt;/td>
+&lt;td style="text-align:left">Project is created successfully&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">5&lt;/td>
+&lt;td style="text-align:left">Activate &lt;em>Second&lt;/em> browser instance&lt;/td>
+&lt;td style="text-align:left">Instance is active&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">6&lt;/td>
+&lt;td style="text-align:left">Search for the above created project and click &lt;em>Edit&lt;/em>&lt;/td>
+&lt;td style="text-align:left">&lt;em>You will create a moderation request if you update.&lt;/em> message is displayed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">7&lt;/td>
+&lt;td style="text-align:left">Edit Description field or other fields and click &lt;em>Update Project&lt;/em>&lt;/td>
+&lt;td style="text-align:left">&lt;em>Moderation request was sent to update the Project name!&lt;/em> message is displayed.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">8&lt;/td>
+&lt;td style="text-align:left">Activate &lt;em>First&lt;/em> browser instance&lt;/td>
+&lt;td style="text-align:left">Instance is active&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">9&lt;/td>
+&lt;td style="text-align:left">Check &lt;em>My Task Assignments&lt;/em> on &lt;em>Home&lt;/em> page&lt;/td>
+&lt;td style="text-align:left">The above project that needs moderation is displayed with status &lt;em>PENDING&lt;/em>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">10&lt;/td>
+&lt;td style="text-align:left">Click on &lt;em>Moderation&lt;/em> page&lt;/td>
+&lt;td style="text-align:left">The moderation request of &lt;em>Second&lt;/em> user is displayed with state &lt;em>Pending&lt;/em>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">11&lt;/td>
+&lt;td style="text-align:left">Click on moderation request&lt;/td>
+&lt;td style="text-align:left">&lt;em>Moderation Change Project&lt;/em> page is displayed, with proposed changes from step 7 listed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">12&lt;/td>
+&lt;td style="text-align:left">Click on &lt;em>Accept Request&lt;/em>&lt;/td>
+&lt;td style="text-align:left">&lt;em>You have accepted the previous moderation request.&lt;/em> message is displayed, and State changes to &lt;em>Approved&lt;/em>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">13&lt;/td>
+&lt;td style="text-align:left">Check &lt;em>My Task Assignments&lt;/em> on &lt;em>Home&lt;/em> page&lt;/td>
+&lt;td style="text-align:left">Status is &lt;em>APPROVED&lt;/em>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">14&lt;/td>
+&lt;td style="text-align:left">Activate &lt;em>Second&lt;/em> browser instance&lt;/td>
+&lt;td style="text-align:left">Instance is active&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">15&lt;/td>
+&lt;td style="text-align:left">Check _My Task Submissions on &lt;em>Home&lt;/em> page&lt;/td>
+&lt;td style="text-align:left">Status is &lt;em>APPROVED&lt;/em>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">16&lt;/td>
+&lt;td style="text-align:left">Open the &lt;em>Projects&lt;/em> tab and click on previously modified project on step 7&lt;/td>
+&lt;td style="text-align:left">Project &lt;em>Summary&lt;/em> page displayed successfully&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">17&lt;/td>
+&lt;td style="text-align:left">Check the moderation requested changes&lt;/td>
+&lt;td style="text-align:left">Changes are visible in the corresponding fields&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="decline-moderation-request-for-visible-projects-by-other-users">Decline moderation request, for visible projects by other users&lt;/h2>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:right">Step&lt;/th>
+&lt;th style="text-align:left">Action&lt;/th>
+&lt;th style="text-align:left">Result&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:right">1-11&lt;/td>
+&lt;td style="text-align:left">Same as in TC01&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">12&lt;/td>
+&lt;td style="text-align:left">Click on &lt;em>Decline Request&lt;/em>&lt;/td>
+&lt;td style="text-align:left">&lt;em>You have declined the previous moderation request&lt;/em> message is displayed, and State changes to &lt;em>Rejected&lt;/em>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">13&lt;/td>
+&lt;td style="text-align:left">Check &lt;em>My Task Assignments&lt;/em> on &lt;em>Home&lt;/em> page&lt;/td>
+&lt;td style="text-align:left">Status is &lt;em>REJECTED&lt;/em>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">14&lt;/td>
+&lt;td style="text-align:left">Activate &lt;em>Second&lt;/em> browser instance&lt;/td>
+&lt;td style="text-align:left">Instance is active&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">15&lt;/td>
+&lt;td style="text-align:left">Check _My Task Submissions on &lt;em>Home&lt;/em> page&lt;/td>
+&lt;td style="text-align:left">Status is &lt;em>REJECTED&lt;/em>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">16&lt;/td>
+&lt;td style="text-align:left">Open the &lt;em>Projects&lt;/em> tab and click on previously modified project on step 7&lt;/td>
+&lt;td style="text-align:left">Project &lt;em>Summary&lt;/em> page displayed successfully&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">17&lt;/td>
+&lt;td style="text-align:left">Check the moderation requested changes&lt;/td>
+&lt;td style="text-align:left">Changes are not visible in the corresponding fields&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="remove-me-from-moderators-for-moderation-request-for-visible-projects-by-other-users">Remove Me from Moderators for moderation request, for visible projects by other users&lt;/h2>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:right">Step&lt;/th>
+&lt;th style="text-align:left">Action&lt;/th>
+&lt;th style="text-align:left">Result&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:right">1-11&lt;/td>
+&lt;td style="text-align:left">Same as in TC01&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">12&lt;/td>
+&lt;td style="text-align:left">Click on &lt;em>Remove Me from Moderators&lt;/em>&lt;/td>
+&lt;td style="text-align:left">&lt;em>You are the last moderator for this request - you are not allowed to unsubscribe.&lt;/em> message is displayed (assuming only &lt;em>First&lt;/em> user was listed under &lt;em>Moderators&lt;/em> column in step 10)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">13&lt;/td>
+&lt;td style="text-align:left">Click on &lt;em>Decline Request&lt;/em>&lt;/td>
+&lt;td style="text-align:left">&lt;em>You have declined the previous moderation request&lt;/em> message is displayed, and State changes to &lt;em>Rejected&lt;/em>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">14&lt;/td>
+&lt;td style="text-align:left">Edit the project and add a new moderator (e.g. &lt;em>Third&lt;/em> user) under &lt;em>Moderators&lt;/em> field&lt;/td>
+&lt;td style="text-align:left">Project updated successfully.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">15&lt;/td>
+&lt;td style="text-align:left">Activate &lt;em>Second&lt;/em> browser instance&lt;/td>
+&lt;td style="text-align:left">Instance is active&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">16&lt;/td>
+&lt;td style="text-align:left">Edit the project and create a new moderation request&lt;/td>
+&lt;td style="text-align:left">Moderation request was sent&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">17&lt;/td>
+&lt;td style="text-align:left">Activate &lt;em>First&lt;/em> browser instance&lt;/td>
+&lt;td style="text-align:left">Instance is active&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">18&lt;/td>
+&lt;td style="text-align:left">Click on &lt;em>Moderation&lt;/em> page&lt;/td>
+&lt;td style="text-align:left">The moderation request of &lt;em>Second&lt;/em> user is displayed with state &lt;em>Pending&lt;/em>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">19&lt;/td>
+&lt;td style="text-align:left">Click on moderation request&lt;/td>
+&lt;td style="text-align:left">&lt;em>Moderation Change Project&lt;/em> page is displayed, with proposed changes from step 7 listed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">20&lt;/td>
+&lt;td style="text-align:left">Click on &lt;em>Remove Me from Moderators&lt;/em>&lt;/td>
+&lt;td style="text-align:left">&lt;em>You are removed from the list of moderators for the previous moderation request. You have no open Requests.&lt;/em> message is displayed. Also the document is deleted from moderation list.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">21&lt;/td>
+&lt;td style="text-align:left">Login with the &lt;em>Third&lt;/em> user and check the &lt;em>Moderation&lt;/em> tab&lt;/td>
+&lt;td style="text-align:left">The moderation request of &lt;em>Second&lt;/em> user is displayed with state &lt;em>Pending&lt;/em>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table></description></item><item><title>Docs: Projects</title><link>https://www.eclipse.org/sw360/docs/development/testcases/test-cases-projects/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.eclipse.org/sw360/docs/development/testcases/test-cases-projects/</guid><description>
+&lt;h2 id="add-a-simple-project-with-no-relations-and-no-releases">Add a simple project with no relations and no releases&lt;/h2>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:right">Step&lt;/th>
+&lt;th style="text-align:left">Action&lt;/th>
+&lt;th style="text-align:left">Result&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:right">1&lt;/td>
+&lt;td style="text-align:left">Sign In with a known user&lt;/td>
+&lt;td style="text-align:left">User successfully signed in and &lt;em>Home&lt;/em> page is displayed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">2&lt;/td>
+&lt;td style="text-align:left">Click on &lt;em>Projects&lt;/em> tab&lt;/td>
+&lt;td style="text-align:left">&lt;em>Projects&lt;/em> page is displayed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">3&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Add Project&lt;/em>&lt;/td>
+&lt;td style="text-align:left">&lt;em>New Project&lt;/em> page is displayed with mandatory fields marked with red star&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">4&lt;/td>
+&lt;td style="text-align:left">Fill mandatory &lt;em>Name&lt;/em> with a project name, change other fields if needed&lt;/td>
+&lt;td style="text-align:left">Values are entered in the fields&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">5&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Add Project&lt;/em>&lt;/td>
+&lt;td style="text-align:left">The page remain the same and the message &lt;em>You are editing the original document.&lt;/em> is displayed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">6&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Cancel&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">New project &lt;em>Summary&lt;/em> page is displayed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">7&lt;/td>
+&lt;td style="text-align:left">Click on &lt;em>Projects&lt;/em> tab&lt;/td>
+&lt;td style="text-align:left">The new project should be added to the projects list&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="add-a-full-project-with-relations-releases-and-send-to-clearing-process">Add a full project with relations, releases and send to clearing process&lt;/h2>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:right">Step&lt;/th>
+&lt;th style="text-align:left">Action&lt;/th>
+&lt;th style="text-align:left">Result&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:right">1&lt;/td>
+&lt;td style="text-align:left">Click on &lt;em>Projects&lt;/em> tab&lt;/td>
+&lt;td style="text-align:left">&lt;em>Projects&lt;/em> page is displayed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">2&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Add Project&lt;/em>&lt;/td>
+&lt;td style="text-align:left">&lt;em>New Project&lt;/em> page is displayed with mandatory fields marked with red star&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">3&lt;/td>
+&lt;td style="text-align:left">Fill mandatory &lt;em>Name&lt;/em> with a project name, change other fields if needed&lt;/td>
+&lt;td style="text-align:left">Values are entered in the fields&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">4&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Click to add linked Projects&lt;/em>&lt;/td>
+&lt;td style="text-align:left">&lt;em>Search Project&lt;/em> dialog is displayed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">5&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Search&lt;/em> and &lt;em>Select&lt;/em> the project to be linked (e.g. created in TC01)&lt;/td>
+&lt;td style="text-align:left">Dialog is closed and selected project is displayed under &lt;em>Linked Projects&lt;/em> section&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">6&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Click to add Releases&lt;/em>&lt;/td>
+&lt;td style="text-align:left">&lt;em>Search Release&lt;/em> dialog is displayed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">7&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Search by name&lt;/em> and &lt;em>Select&lt;/em> a release to be added&lt;/td>
+&lt;td style="text-align:left">Dialog is closed and selected release is displayed under &lt;em>Linked Releases&lt;/em> section&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">8&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Add Project&lt;/em>&lt;/td>
+&lt;td style="text-align:left">The page remain the same and the message &lt;em>You are editing the original document.&lt;/em> is displayed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">9&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Cancel&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">New project &lt;em>Summary&lt;/em> page is displayed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">10&lt;/td>
+&lt;td style="text-align:left">Click on &lt;em>Projects&lt;/em> tab&lt;/td>
+&lt;td style="text-align:left">The new project should be added to the projects list&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">11&lt;/td>
+&lt;td style="text-align:left">Check &lt;em>Clearing Status&lt;/em> by hovering mouse over the numbers.&lt;/td>
+&lt;td style="text-align:left">The message should be &lt;em>new release, under clearing&amp;hellip;&lt;/em>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">12&lt;/td>
+&lt;td style="text-align:left">Send open release to clearing by clicking the button &lt;em>Send to fossology&lt;/em>, under &lt;em>Actions&lt;/em> column&lt;/td>
+&lt;td style="text-align:left">&lt;em>Fossology Clearing&lt;/em> dialog is displayed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">13&lt;/td>
+&lt;td style="text-align:left">Select the release to be sent for clearing and click &lt;em>Send&lt;/em>&lt;/td>
+&lt;td style="text-align:left">&lt;em>Sent&lt;/em> message is displayed near the &lt;em>Send to fossology&lt;/em> button&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">14&lt;/td>
+&lt;td style="text-align:left">Click on project name and check &lt;em>Summary&lt;/em> page&lt;/td>
+&lt;td style="text-align:left">&lt;em>Clearing details&lt;/em> should have 1 for &lt;em>Under clearing&lt;/em>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">15&lt;/td>
+&lt;td style="text-align:left">Click on &lt;em>Clearing Status&lt;/em>&lt;/td>
+&lt;td style="text-align:left">The &amp;ldquo;Release Clearing State_ should be &lt;em>Sent to Fossology&lt;/em>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="add-a-project-with-releases-no-relations-remove-a-release-and-send-to-clearing-process">Add a project with releases, no relations, remove a release, and send to clearing process&lt;/h2>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:right">Step&lt;/th>
+&lt;th style="text-align:left">Action&lt;/th>
+&lt;th style="text-align:left">Result&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:right">1-5&lt;/td>
+&lt;td style="text-align:left">Same as in TC02&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">5a&lt;/td>
+&lt;td style="text-align:left">Click on &lt;em>Delete&lt;/em> icon to delete the linked project&lt;/td>
+&lt;td style="text-align:left">&lt;em>Do you really want to remove the link to this project?&lt;/em> message is displayed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">5b&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>OK&lt;/em>&lt;/td>
+&lt;td style="text-align:left">The project is removed from the list of &lt;em>Linked Projects&lt;/em>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">6&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Click to add Releases&lt;/em>&lt;/td>
+&lt;td style="text-align:left">&lt;em>Search Release&lt;/em> dialog is displayed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">7&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Search by name&lt;/em> and &lt;em>Select&lt;/em> more than one release to be added&lt;/td>
+&lt;td style="text-align:left">Dialog is closed and selected releases are displayed under &lt;em>Linked Releases&lt;/em> section&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">7a&lt;/td>
+&lt;td style="text-align:left">Click on &lt;em>Delete&lt;/em> icon to delete one of the linked release&lt;/td>
+&lt;td style="text-align:left">&lt;em>Do you really want to remove the link to this release?&lt;/em> message is displayed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">7b&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>OK&lt;/em>&lt;/td>
+&lt;td style="text-align:left">The release is removed from the list of &lt;em>Linked Releases&lt;/em>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">8-15&lt;/td>
+&lt;td style="text-align:left">Same as in TC02&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>##TC04: Delete a project that is first linked to another project and then not linked&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:right">Step&lt;/th>
+&lt;th style="text-align:left">Action&lt;/th>
+&lt;th style="text-align:left">Result&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:right">1&lt;/td>
+&lt;td style="text-align:left">Create a new project&lt;/td>
+&lt;td style="text-align:left">Project is created successfully&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">2&lt;/td>
+&lt;td style="text-align:left">Create another project and add first created one as linked project&lt;/td>
+&lt;td style="text-align:left">Projects are linked successfully&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">3&lt;/td>
+&lt;td style="text-align:left">Go to first created project in the projects table and try to delete it&lt;/td>
+&lt;td style="text-align:left">Message &lt;em>Do you want to delete project name?&lt;/em> is displayed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">4&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>OK&lt;/em>&lt;/td>
+&lt;td style="text-align:left">Message &lt;em>The project is used by another project!&lt;/em> is displayed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">5&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>OK&lt;/em>&lt;/td>
+&lt;td style="text-align:left">Project is not deleted (e.g. refresh the page by clicking Projects tab)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">6&lt;/td>
+&lt;td style="text-align:left">Go to second created project in the projects table and delete it&lt;/td>
+&lt;td style="text-align:left">Message &lt;em>Do you want to delete project name?&lt;/em> is displayed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">7&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>OK&lt;/em>&lt;/td>
+&lt;td style="text-align:left">Project is deleted successfully&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">8&lt;/td>
+&lt;td style="text-align:left">Go to first created project in the table (not linked anymore to second project) and delete it&lt;/td>
+&lt;td style="text-align:left">Project is deleted successfully&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="modify-an-existing-project-with-relations-releases-and-send-to-clearing-process">Modify an existing project with relations, releases and send to clearing process&lt;/h2>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:right">Step&lt;/th>
+&lt;th style="text-align:left">Action&lt;/th>
+&lt;th style="text-align:left">Result&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:right">1&lt;/td>
+&lt;td style="text-align:left">Search for a simple project (e.g. created in TC01) and click &lt;em>Edit&lt;/em>&lt;/td>
+&lt;td style="text-align:left">&lt;em>You are editing the original document&lt;/em> message is displayed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">2&lt;/td>
+&lt;td style="text-align:left">Execute steps 5-16 from TC02&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="add-and-modify-a-project-with-all-project-fields-filled-in">Add and modify a project with all project fields filled in&lt;/h2>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:right">Step&lt;/th>
+&lt;th style="text-align:left">Action&lt;/th>
+&lt;th style="text-align:left">Result&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:right">1&lt;/td>
+&lt;td style="text-align:left">Click on &lt;em>Projects&lt;/em> tab&lt;/td>
+&lt;td style="text-align:left">&lt;em>Projects&lt;/em> page is displayed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">2&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Add Project&lt;/em>&lt;/td>
+&lt;td style="text-align:left">&lt;em>New Project&lt;/em> page is displayed with mandatory fields marked with red star&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">3&lt;/td>
+&lt;td style="text-align:left">Fill in all editable fields under &lt;em>Basic Information&lt;/em>, &lt;em>User Information&lt;/em> and &lt;em>Admin Information&lt;/em>&lt;/td>
+&lt;td style="text-align:left">Values are entered in the fields&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">4&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Add Project&lt;/em>&lt;/td>
+&lt;td style="text-align:left">The page remain the same and the message &lt;em>You are editing the original document.&lt;/em> is displayed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">5&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Cancel&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">New project &lt;em>Summary&lt;/em> page is displayed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">6&lt;/td>
+&lt;td style="text-align:left">Check all fields on &lt;em>Summary&lt;/em> page&lt;/td>
+&lt;td style="text-align:left">Values are filled in correctly&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">7&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Edit&lt;/em> button, modify some fields and &lt;em>Update Project&lt;/em>&lt;/td>
+&lt;td style="text-align:left">Values are updated successfully&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="duplicate-an-existing-project">Duplicate an existing project&lt;/h2>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:right">Step&lt;/th>
+&lt;th style="text-align:left">Action&lt;/th>
+&lt;th style="text-align:left">Result&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:right">1&lt;/td>
+&lt;td style="text-align:left">Search for an existing project with all fields filled in (e.g. created in TC06) and click &lt;em>Duplicate&lt;/em> button under &lt;em>Actions&lt;/em> column&lt;/td>
+&lt;td style="text-align:left">Project &lt;em>Information&lt;/em> page is displayed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">2&lt;/td>
+&lt;td style="text-align:left">Check all fields from copied project&lt;/td>
+&lt;td style="text-align:left">All fields are unchanged, including &lt;em>Linked Projects&lt;/em> and &lt;em>Linked Releases&lt;/em>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">3&lt;/td>
+&lt;td style="text-align:left">Fill mandatory &lt;em>Name&lt;/em> with a project name and click &lt;em>Add Project&lt;/em>&lt;/td>
+&lt;td style="text-align:left">The page remain the same and the message &lt;em>You are editing the original document.&lt;/em> is displayed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">4&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Cancel&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">New project &lt;em>Summary&lt;/em> page is displayed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">5&lt;/td>
+&lt;td style="text-align:left">Check all fields&lt;/td>
+&lt;td style="text-align:left">All fields were copied successfully, except the new name of the project&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table></description></item></channel></rss>

@@ -1,1164 +1,1056 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Eclipse SW360 – Upgrade from previous instances</title>
-    <link>https://www.eclipse.org/sw360/docs/deployment/upgrading/</link>
-    <description>Recent content in Upgrade from previous instances on Eclipse SW360</description>
-    <generator>Hugo -- gohugo.io</generator>
-    
-	  <atom:link href="https://www.eclipse.org/sw360/docs/deployment/upgrading/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-      
-        
-      
-    
-    
-    <item>
-      <title>Docs: Liferay 7.3 and Java 11</title>
-      <link>https://www.eclipse.org/sw360/docs/deployment/upgrading/deploy-upgrade-to-liferay-7.3-and-java-11/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.eclipse.org/sw360/docs/deployment/upgrading/deploy-upgrade-to-liferay-7.3-and-java-11/</guid>
-      <description>
-        
-        
-        &lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
-&lt;p&gt;We are covering the update for ubuntu here, because that is our main / agreed base system for running sw360. sw360 may run on a varienty of other linux distributions or OSes such as macosx, but in order to avoid problem we agreed on having a reference OS, which are the ubuntu long term releases.&lt;/p&gt;
-&lt;p&gt;With the update to Java 11, we upgraded from Ubuntu 16.04 to Ubuntu 18.04, both LTS version. This OS is used for example by the &lt;a href=&#34;https://github.com/sw360/sw360vagrant&#34;&gt;https://github.com/sw360/sw360vagrant&lt;/a&gt; project.&lt;/p&gt;
-&lt;p&gt;So the update covers the following:&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;orign&lt;/th&gt;
-&lt;th&gt;target&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;Ubuntu 16.04 LTS&lt;/td&gt;
-&lt;td&gt;Ubuntu 18.04 LTS&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;CoucbdDB 1.X (comes with Ubuntu)&lt;/td&gt;
-&lt;td&gt;CouchDB 2.X (not with Ubuntu anymore)&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Postgresql 9.X (comes with Ubuntu)&lt;/td&gt;
-&lt;td&gt;Postgresql 10.X  (comes with Ubuntu)&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;OpenJDK 8 (comes with Ubuntu)&lt;/td&gt;
-&lt;td&gt;openJDK 11 (comes with Ubuntu)&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Apache Thrift 0.11/0.12&lt;/td&gt;
-&lt;td&gt;Apache Thrift 0.13&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2 id=&#34;overview&#34;&gt;Overview&lt;/h2&gt;
-&lt;p&gt;The upgrade consists of quite some tasks, as an overview:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Make a backup&lt;/li&gt;
-&lt;li&gt;Execute sw360 migration scripts&lt;/li&gt;
-&lt;li&gt;Linux release upgrade&lt;/li&gt;
-&lt;li&gt;Java 11&lt;/li&gt;
-&lt;li&gt;Postgresql&lt;/li&gt;
-&lt;li&gt;CouchDB 2.X&lt;/li&gt;
-&lt;li&gt;Thrift to 0.13&lt;/li&gt;
-&lt;li&gt;Liferay ce 7.3.3&lt;/li&gt;
-&lt;li&gt;Copy your existing &lt;code&gt;portal-ext.properties&lt;/code&gt; to now liferay_install location&lt;/li&gt;
-&lt;li&gt;copy from old liferay installation the &lt;code&gt;data/document_library&lt;/code&gt; to the new liferay&lt;/li&gt;
-&lt;li&gt;Adjust &lt;code&gt;/etc/ini.d/tomcat&lt;/code&gt; with path of new liferay&lt;/li&gt;
-&lt;li&gt;Adjust &lt;code&gt;$liferay_install&lt;/code&gt; variable&lt;/li&gt;
-&lt;li&gt;add Java prerequisites to OSGi container&lt;/li&gt;
-&lt;li&gt;Update couchdb-lucene&lt;/li&gt;
-&lt;li&gt;Deploy new version of sw360&lt;/li&gt;
-&lt;li&gt;Adjust Liferay&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id=&#34;initial-steps&#34;&gt;Initial steps&lt;/h2&gt;
-&lt;p&gt;In order to &amp;ldquo;calibrate the system&amp;rdquo; just run the update / upgrade cycle once:&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;# sudo apt update&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;# sudo apt upgrade&lt;/code&gt;&lt;/p&gt;
-&lt;h3 id=&#34;keeping-more-settings-files&#34;&gt;Keeping More Settings Files&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;apache.conf:&lt;/strong&gt; Keep also the mod security conf files that are asked to update during installation&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;sshd:&lt;/strong&gt; Changes on the ssh / sshd conf files should be kept in case you have setup up dome remote public private key login (usually the case for server installation). Otherwise you re locked out maybe.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Maven:&lt;/strong&gt; if you change Maven, for example with your proxy settings, keep it too.&lt;/p&gt;
-&lt;p&gt;In general, whenever there is functionality you need, consider keeping existing settings files.&lt;/p&gt;
-&lt;h2 id=&#34;ubuntu-release-upgrade&#34;&gt;Ubuntu Release Upgrade&lt;/h2&gt;
-&lt;p&gt;There is maybe the remark to overwrite the current apache configuration. We propose to keep the currently installed apache files.&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;# sudo do-release-upgrade&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;Answer &amp;ldquo;yes&amp;rdquo; for the download of packages and also confirm the update of the glibc, of course. Update the &lt;code&gt;system.conf&lt;/code&gt;(install maintainer&amp;rsquo;s version), depending on if you actually edited this. Some for &lt;code&gt;sysctl.conf&lt;/code&gt;.&lt;/p&gt;
-&lt;h2 id=&#34;migration-of-postgresql&#34;&gt;Migration of PostgreSQL&lt;/h2&gt;
-&lt;p&gt;The existing 9.5 will not be upgraded, instead this message comes: After the release upgrade, you can check again if postgresql is installed:&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;sudo apt list postgre* --installed&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;Postgresql 9.5 should be the only installed. The old postgresql 9.5 must stay in fact, because the migration tool needs to be executing on a running postgresql 9.5 instance. Just having popstgresql 10 and a database only from postgresql 9.5 will not work. You can go ahead install postgresql 10:&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;sudo apt install postgresql-10&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;Then, apply the instruction to update from 9.5 to 10.0 from this page: &lt;a href=&#34;https://stackoverflow.com/questions/47029055/how-do-i-upgrade-my-postgresql-9-5-to-postgresql-10-on-ubuntu-16-04&#34;&gt;https://stackoverflow.com/questions/47029055/how-do-i-upgrade-my-postgresql-9-5-to-postgresql-10-on-ubuntu-16-04&lt;/a&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# service postgresql stop
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;...
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# pg_dropcluster --stop 10 main
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;...
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# pg_upgradecluster -m upgrade 9.5 main
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;...
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# pg_dropcluster 9.5 main --stop
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;...
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# apt-get autoremove --purge postgresql-9.5 
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;...
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# service postgresql start
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;(note that # means you need to be root or execute with sudo)&lt;/p&gt;
-&lt;h2 id=&#34;migration-of-couchdb&#34;&gt;Migration of CouchDB&lt;/h2&gt;
-&lt;p&gt;CouchDB is not part of the Ubuntu package management anymore. Thus, you need to add the Apache CouchDb package repository to install it, first the key for signing:&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;curl -L https://couchdb.apache.org/repo/bintray-pubkey.asc | sudo apt-key add -&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;The add the repo to the sources:&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;echo &amp;quot;deb https://apache.bintray.com/couchdb-deb bionic main&amp;quot; | sudo tee -a /etc/apt/sources.list&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;Then, add its contents to the package database by updating apt:&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;sudo apt-get update -y&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;Ultimately install CouchDB, we tried with 2.1.2 initiall not to make a too far jump from 1.X, later versions may work as well. Note that for upgrading to CouchDB 3.X you would need an upgrade to 2.X first.&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;sudo apt-get install -y couchdb=2.1.2~bionic&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;The installer will ask a couple of questions:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Bind address: for CouchDB and SW360 &lt;code&gt;127.0.0.1&lt;/code&gt; (localhost) is a good bind address, if you would like to access the server from a remote computer because your sw360 runs as a server in the network, you would need to change accordingly.&lt;/li&gt;
-&lt;li&gt;Admin user: &lt;strong&gt;Warning&lt;/strong&gt; The couchdb migration utility does not support authentication! Please do not enter an admin password, but apply it later. You can set the password for CouchDB in &lt;code&gt;couchdb.properties&lt;/code&gt; and place it centrally in &lt;code&gt;/etc/sw360&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Migration: yes you need to use &lt;code&gt;couchup&lt;/code&gt; for migrating the databases&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;In case you added an admin and need to remove it, try:&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;curl -X DELETE http://admin:password@127.0.0.1:5984/_config/admins/admin&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;where the two occurrences &lt;code&gt;admin&lt;/code&gt; is the name of the admin user in the URL, whatever the user was called.&lt;/p&gt;
-&lt;h3 id=&#34;migration-of-couchdb-databases&#34;&gt;Migration of CouchDB Databases&lt;/h3&gt;
-&lt;p&gt;As a preparation: the CouchDB migration works by copying the databases, so the file system needs at least as much free space as the CouchDB databases use.&lt;/p&gt;
-&lt;p&gt;CouchDB offers a migration utility. It is advised that you remove all test databases as they do not seem to work with the migration utility. Important links are:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://docs.couchdb.org/en/2.3.1/install/upgrading.html&#34;&gt;https://docs.couchdb.org/en/2.3.1/install/upgrading.html&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/apache/couchdb/pull/483&#34;&gt;https://github.com/apache/couchdb/pull/483&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;For some reason after installation, the &lt;code&gt;couchup&lt;/code&gt;utility is not part of the path, so execute:&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;/opt/couchdb/bin/couchup list&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;It lists all DBs found. The go ahead with:&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;/opt/couchdb/bin/couchup replicate -a&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;It should replicate all databases in &lt;code&gt;/var/lib/couchdb&lt;/code&gt;. Please refer to the couchup documentation, for the subsequent steps. A few remarks from our experience:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;The rebuold of the couchdb does not work for our test databases. Please refer to the documentation how to do this manually if you like.&lt;/li&gt;
-&lt;li&gt;The couchup utility crashes for large DB sizes with a time out error. Consider using the timeout option: &lt;code&gt;/opt/couchdb/bin/couchup replicate -a --timeout==10000&lt;/code&gt; (with almost infinite timeout here)&lt;/li&gt;
-&lt;li&gt;On very large attachment database sizes (500GB), the couchdb configuration must be changed. We increased almost every related value by factor 10 (timeouts, memory, etc) in &lt;code&gt;/opt/couchdb/etc/default.ini&lt;/code&gt; and good success with this.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id=&#34;update-thrift&#34;&gt;Update Thrift&lt;/h2&gt;
-&lt;p&gt;For thrift, we need version 0.13. The installation script &lt;code&gt;scripts/install-thrift.sh&lt;/code&gt;allows for uninstalling old versions:&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;sudo ./install-thrift.sh --uninstall&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;and then install&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;sudo ./install-thrift.sh&lt;/code&gt;&lt;/p&gt;
-&lt;h2 id=&#34;from-openjdk-8-to-openjdk-11&#34;&gt;From OpenJDK 8 to OpenJDK 11&lt;/h2&gt;
-&lt;p&gt;First check, what is installed.&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;# sudo apt list openjdk* --installed&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;Then you could check what is available:&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;# sudo apt list openjdk*&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;It should be that OpenJDK 8 is installed and both OpenJDK 8 and 11 are available. Then, remove the OpenJDK 8 and install 11:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo apt remove openjdk-8-jdk
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo apt remove openjdk-8-jre
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo apt remove openjdk-8-jdk-headless
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo apt remove openjdk-8-jre-headless
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;check if nothing is installed:&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;# sudo apt list openjdk* --installed&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;Then install the openjdk-11-jdk:&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;# sudo apt install openjdk-11-jdk&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;Then the &lt;code&gt;$JAVA_HOME&lt;/code&gt; needs to be updated, most likely it is defined in &lt;code&gt;/etc/environment&lt;/code&gt;. Please check for your installation how to set the &lt;code&gt;$JAVA_HOME&lt;/code&gt; correctly.&lt;/p&gt;
-&lt;h2 id=&#34;updating-liferay&#34;&gt;Updating Liferay&lt;/h2&gt;
-&lt;p&gt;Download Liferay from this link&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://sourceforge.net/projects/lportal/files/Liferay%20Portal/7.3.3%20GA4/liferay-ce-portal-tomcat-7.3.3-ga4-20200701015330959.tar.gz&#34;&gt;https://sourceforge.net/projects/lportal/files/Liferay%20Portal/7.3.3%20GA4/liferay-ce-portal-tomcat-7.3.3-ga4-20200701015330959.tar.gz&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;and unpack it, ideally in the &lt;code&gt;/opt&lt;/code&gt; directory, so resulting path would look like &lt;code&gt;liferay-ce-portal-7.3.3-ga4&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;Then, you need to update the &lt;code&gt;$LIFERAY_INSTALL&lt;/code&gt; in &lt;code&gt;/etc/environment&lt;/code&gt; from &lt;code&gt;LIFERAY_INSTALL=/opt/liferay-portal-7.2.0-ga1/ &lt;/code&gt; to &lt;code&gt;LIFERAY_INSTALL=/opt/liferay-ce-portal-7.3.3-ga4&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;First, you will need to copy the &lt;code&gt;portal-ext.properties&lt;/code&gt; from the old liferay folder to the new liferay folder (or new &lt;code&gt;$LIFERAY_HOME&lt;/code&gt;):&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;# cp /$old-liferay/portal-ext.properties $LIFERAY_INSTALL/portal-ext.properties&lt;/code&gt;&lt;/p&gt;
-&lt;h3 id=&#34;migration-of-existing-database&#34;&gt;Migration of existing database&lt;/h3&gt;
-&lt;p&gt;For a version upgrade from Liferay CE 7.2 to Liferay 7.3, migration scripts must be applied, they are located in &lt;code&gt;$LIFERAY_HOME/ tools/portal-tools-db-upgrade-client&lt;/code&gt;. From there the following files needs to be adapted:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;app-server.properties&lt;/code&gt;: most likely uncomment tomcat, because we re using liferay with tomcat.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;portal-upgrade-database.properties&lt;/code&gt;: uncomment postgresql section and add database user, default from installation is &lt;code&gt;liferay/liferay&lt;/code&gt;, or it is stored in &lt;code&gt;portal-ext.properties&lt;/code&gt; right where the JDBC driver is selected. Please note that your &lt;code&gt;portal-ext.properties&lt;/code&gt; file in &lt;code&gt;$LIFERAY_INSTALL&lt;/code&gt;can have the following line &lt;code&gt;include-and-override=/etc/sw360/portal-ext.properties&lt;/code&gt;. In this case, consider the &lt;code&gt;portal-ext.properties&lt;/code&gt;at that location.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;portal-upgrade-ext.properties&lt;/code&gt;: just the liferay home, you can leave it as it is&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;If everything is done (and the postgresql migration took place), execute:&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;# ./db_upgrade.sh&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;It should return a battery of &lt;code&gt;INFO&lt;/code&gt; log level messages end with:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Completed Liferay core upgrade process in 96 seconds
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Checking to see if all upgrades have completed... done.
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;more-migration&#34;&gt;More Migration&lt;/h3&gt;
-&lt;p&gt;The liferay migration covers apparently only the database, but not the files in the &lt;code&gt;$LIFERAY_HOME/data&lt;/code&gt; folder. It would have been nicer, if that would have been covered too. Instead these must be copied manually. In fact, for the migration, it is advised to copy only the &lt;code&gt;/old-liferay/data/document_library&lt;/code&gt; to the new location. Something like (different pwd &amp;hellip;):&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;# cp -r _attic/liferay-portal-7.2.1-ga2/data/document_library/ liferay-ce-portal-7.3.3-ga4/data/&lt;/code&gt;&lt;/p&gt;
-&lt;h3 id=&#34;auto-start&#34;&gt;Auto Start&lt;/h3&gt;
-&lt;p&gt;For auto start, you need an according init.d entry. It could be a file like &lt;code&gt;/etc/init.d/tomcat&lt;/code&gt;. The file could be created if not there already, with the following contents:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#099&#34;&gt;#!/bin/bash
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#099&#34;&gt;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;### BEGIN INIT INFO&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;# Provides:        tomcat7&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;# Required-Start:  $network&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;# Required-Stop:   $network&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;# Default-Start:   2 3 4 5&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;# Default-Stop:    0 1 6&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;# Short-Description: Start/Stop Tomcat server&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;### END INIT INFO&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#033&#34;&gt;PATH&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;/sbin:/bin:/usr/sbin:/usr/bin
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;start&lt;span style=&#34;color:#555&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#555&#34;&gt;{&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; su -l siemagrant -c /opt/liferay-ce-portal-7.3.3-ga4/tomcat-9.0.33/bin/startup.sh
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#555&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;stop&lt;span style=&#34;color:#555&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#555&#34;&gt;{&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; su -l siemagrant -c /opt/liferay-ce-portal-7.3.3-ga4/tomcat-9.0.33/bin/shutdown.sh
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#555&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;case&lt;/span&gt; &lt;span style=&#34;color:#033&#34;&gt;$1&lt;/span&gt; in
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  start|stop&lt;span style=&#34;color:#555&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#033&#34;&gt;$1&lt;/span&gt;;;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  restart&lt;span style=&#34;color:#555&#34;&gt;)&lt;/span&gt; stop; start;;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  *&lt;span style=&#34;color:#555&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#366&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color:#c30&#34;&gt;&amp;#34;Run as &lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;$0&lt;/span&gt;&lt;span style=&#34;color:#c30&#34;&gt; &amp;lt;start|stop|restart&amp;gt;&amp;#34;&lt;/span&gt;; &lt;span style=&#34;color:#366&#34;&gt;exit&lt;/span&gt; 1;;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;esac&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Te user &lt;code&gt;siemagrant&lt;/code&gt; is used in the sw360vagrant project. it is the username of the user where the liefray / sw360 server runs under in vagrant. Regardless how the user is named, it is important that liferay runs under an unprivileged user (for security reasons).&lt;/p&gt;
-&lt;h3 id=&#34;adjust-memory&#34;&gt;Adjust Memory&lt;/h3&gt;
-&lt;p&gt;When you have downloaded the liferay distribution, Tomcat is likely configured with very basic memory settings. For trying sw360, the standard memory settings are OK. But of course, the memory settings in &lt;code&gt;$LIFERAY_HOME/tomcat-X.0.XX/bin/setenv.sh&lt;/code&gt; should be adapted again.&lt;/p&gt;
-&lt;h2 id=&#34;install-prerequisites&#34;&gt;Install Prerequisites&lt;/h2&gt;
-&lt;p&gt;For old installations, libthrift is not there (which causes an error at container startup), it should be downloaded and deployed:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;wget https://repo1.maven.org/maven2/org/apache/thrift/libthrift/0.13.0/libthrift-0.13.0.jar
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;mv libthrift-0.13.0.jar $LIFEARY_HOME/deploy/
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The the existing prerequisites needs to be copied from the &lt;code&gt;osgi/modules&lt;/code&gt; from the old liferay installation:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;cp commons-lang-2.4.jar $LIFERAY_HOME/deploy
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;cp commons-io-2.6.jar $LIFERAY_HOME/deploy
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;cp commons-csv-1.4.jar $LIFERAY_HOME/deploy
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;cp commons-collections4-4.1.jar $LIFERAY_HOME/deploy
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;cp commons-codec-1.12.jar $LIFERAY_HOME/deploy
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;cp commons-logging-1.2.jar $LIFERAY_HOME/deploy
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;cp gson-2.8.5.jar $LIFERAY_HOME/deploy
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;cp guava-21.0.jar $LIFERAY_HOME/deploy
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;cp jackson-annotations-2.9.8.jar $LIFERAY_HOME/deploy
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;cp jackson-core-2.9.8.jar $LIFERAY_HOME/deploy
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;cp jackson-databind-2.9.8.jar $LIFERAY_HOME/deploy
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;note that with the &lt;a href=&#34;https://github.com/eclipse/sw360/commit/71348b4fffa6e3e5fd761a3f63590a0a60663827&#34;&gt;commit&lt;/a&gt; to sw360-13.0.0-M1 you need also another dependency for apache poi:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;cp commons-compress-1.20.jar $LIFERAY_HOME/deploy
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;install-couchdb-lucene&#34;&gt;Install Couchdb Lucene&lt;/h2&gt;
-&lt;p&gt;SW360 uses for searching the contents of the couchdb databases a lucene-based server named couchdb-lucene. The main thing is that it requires pathing for the use in the normal SW3360 setups. The reason for the patch is that the developers presume that couchdb-lucene runs as the only component in the application server, while in the sw360 setup, there is a setup in which couchdb-lucene runs along with other components in the same application container.&lt;/p&gt;
-&lt;p&gt;Start with downloading the couchdb-lucene and rename the archive so the resulting URL path element will be &lt;code&gt;couchdb-lucene&lt;/code&gt;:&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;wget https://github.com/rnewson/couchdb-lucene/archive/v2.1.0.tar.gz ./couchdb-lucene.tar.gz&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;Please refer to the script in sw360vagrant how to apply the patch to couchdb-lucene:&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://github.com/sw360/sw360vagrant/blob/master/shared/scripts/install-lucene.sh&#34;&gt;https://github.com/sw360/sw360vagrant/blob/master/shared/scripts/install-lucene.sh&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Please note that the patching issue is well known in the project and it is unclear why it is not merged:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/rnewson/couchdb-lucene/issues/161&#34;&gt;https://github.com/rnewson/couchdb-lucene/issues/161&lt;/a&gt; &amp;ldquo;allow context-root other than &amp;ldquo;/&amp;rdquo; when running in servlet container&amp;rdquo;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/rnewson/couchdb-lucene/pull/162&#34;&gt;https://github.com/rnewson/couchdb-lucene/pull/162&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/rnewson/couchdb-lucene/pull/152&#34;&gt;https://github.com/rnewson/couchdb-lucene/pull/152&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Now, for CouchDB 2.X the hook for integration of a search component has chaned compared to CouchDB 1.X. Accordingly, the old couchdb-lucene component must be replaced with the latest version.&lt;/p&gt;
-&lt;h2 id=&#34;deploy-new-sw360&#34;&gt;Deploy New SW360&lt;/h2&gt;
-&lt;p&gt;You will need to checkout new Java-11 based version of the SW360, which is either tagged version 11 or some few commits before that. Then build in the sw360 project root using:&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;mvn clean install -DskipTests&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;This will install new artfacts, such as lib-datahandler in your maven repostiory. Then apply in the same:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;mvn clean &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;package&lt;/span&gt; &lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;P deploy &lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;Dbase.deploy.dir=. &lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;Dliferay.deploy.dir=&lt;span style=&#34;color:#555&#34;&gt;/&lt;/span&gt;opt&lt;span style=&#34;color:#555&#34;&gt;/&lt;/span&gt;liferay&lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;ce&lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;portal&lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#f60&#34;&gt;7.3.3&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;ga4&lt;span style=&#34;color:#555&#34;&gt;/&lt;/span&gt;deploy&lt;span style=&#34;color:#555&#34;&gt;/&lt;/span&gt; &lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;Dbackend.deploy.dir=&lt;span style=&#34;color:#555&#34;&gt;/&lt;/span&gt;opt&lt;span style=&#34;color:#555&#34;&gt;/&lt;/span&gt;liferay&lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;ce&lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;portal&lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#f60&#34;&gt;7.3.3&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;ga4&lt;span style=&#34;color:#555&#34;&gt;/&lt;/span&gt;tomcat&lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#f60&#34;&gt;9.0.33&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;/&lt;/span&gt;webapps&lt;span style=&#34;color:#555&#34;&gt;/&lt;/span&gt; &lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;Drest.deploy.dir=&lt;span style=&#34;color:#555&#34;&gt;/&lt;/span&gt;opt&lt;span style=&#34;color:#555&#34;&gt;/&lt;/span&gt;liferay&lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;ce&lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;portal&lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#f60&#34;&gt;7.3.3&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;ga4&lt;span style=&#34;color:#555&#34;&gt;/&lt;/span&gt;tomcat&lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#f60&#34;&gt;9.0.33&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;/&lt;/span&gt;webapps&lt;span style=&#34;color:#555&#34;&gt;/&lt;/span&gt; &lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;DskipTests
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Skipping tests has the reason that usually, the sw360 is tested in the CI and thus, local tests are note necessary, if the code has not been changed locally. Note that the REST API documentation framework is based on building test cases and thus for deploying a version with REST API documentation, tests should be executed:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;cd rest
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;mvn clean &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;package&lt;/span&gt; &lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;P deploy &lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;Dbase.deploy.dir=. &lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;Dliferay.deploy.dir=&lt;span style=&#34;color:#555&#34;&gt;/&lt;/span&gt;opt&lt;span style=&#34;color:#555&#34;&gt;/&lt;/span&gt;liferay&lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;ce&lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;portal&lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#f60&#34;&gt;7.3.3&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;ga4&lt;span style=&#34;color:#555&#34;&gt;/&lt;/span&gt;deploy&lt;span style=&#34;color:#555&#34;&gt;/&lt;/span&gt; &lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;Dbackend.deploy.dir=&lt;span style=&#34;color:#555&#34;&gt;/&lt;/span&gt;opt&lt;span style=&#34;color:#555&#34;&gt;/&lt;/span&gt;liferay&lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;ce&lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;portal&lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#f60&#34;&gt;7.3.3&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;ga4&lt;span style=&#34;color:#555&#34;&gt;/&lt;/span&gt;tomcat&lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#f60&#34;&gt;9.0.33&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;/&lt;/span&gt;webapps&lt;span style=&#34;color:#555&#34;&gt;/&lt;/span&gt; &lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;Drest.deploy.dir=&lt;span style=&#34;color:#555&#34;&gt;/&lt;/span&gt;opt&lt;span style=&#34;color:#555&#34;&gt;/&lt;/span&gt;liferay&lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;ce&lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;portal&lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#f60&#34;&gt;7.3.3&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;ga4&lt;span style=&#34;color:#555&#34;&gt;/&lt;/span&gt;tomcat&lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#f60&#34;&gt;9.0.33&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;/&lt;/span&gt;webapps&lt;span style=&#34;color:#555&#34;&gt;/&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;final-steps-in-liferay&#34;&gt;Final Steps in Liferay&lt;/h2&gt;
-&lt;p&gt;Liferay CE 7.3 bring some changes that still require manually applied settings to the running liferay server. Thus, you could start the liferay server or just restart the entire machine. The following two things need to be adaptedin liferay after successful startup in order to get the migration done:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;The automatic verification of e-mail adresses maybe be needed to be switched off, because it kicks in also for existing users. This can be done in &amp;ldquo;Control Panerl&amp;rdquo; -&amp;gt; &amp;ldquo;Instance Settings&amp;rdquo; -&amp;gt; &amp;ldquo;User Authentication&amp;rdquo; -&amp;gt; &amp;quot;&amp;quot;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;The JavaScript components jquery and fontawesone (that come with liferay) must be manually enabled now. For this got into &amp;ldquo;Control Panel&amp;rdquo; -&amp;gt; &amp;ldquo;System Settings&amp;rdquo; -&amp;gt; &amp;ldquo;Thrid Party&amp;rdquo;. and from then select the two JavaScript components from the left and enable them accordingly.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id=&#34;known-issues&#34;&gt;Known Issues&lt;/h2&gt;
-&lt;h3 id=&#34;database-availability-right-after-update&#34;&gt;Database Availability Right after Update&lt;/h3&gt;
-&lt;p&gt;Right after updating, the sw360 will not show up data at all, but sometimes nothing or &amp;ldquo;portlet unavailable&amp;rdquo;. The problem is the re-indexing of the DB and the search index which takes a while. You can trigger reindexing in the systems. A lazy way is call all (main) views so the database stumbles accross it and starts the indexing tasks (see job view in the couchdb admin interface of Futon). The sam eis for searches, the first searches will fail and the lucene will do some internal updates. leaving the system working for some time and follow the log will help. Could take 30 minutes.&lt;/p&gt;
-&lt;h3 id=&#34;e-mail-verification-trap&#34;&gt;E-Mail Verification Trap&lt;/h3&gt;
-&lt;p&gt;Liferay has automatically enabled password verification for all accounts right after migration. Not sure what motivates persons to enable such feature by default right after migration from an instance where it was not there? In case you have attached the system to an external login solution, but your liferay is not configured to send mails, then it is a trap, because you cannot verify the e-mail address and thus, cannot login. You need to disable the external login solution and use the original initial setup user to login (which is not asked for verification by e-mail) to disable this feature (see above).&lt;/p&gt;
-
-      </description>
-    </item>
-    
-    <item>
-      <title>Docs: Upgrade Sw360 from 14.0 to 15.0</title>
-      <link>https://www.eclipse.org/sw360/docs/deployment/upgrading/upgrade-sw360-from-14.0.0-to-15.0.0/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.eclipse.org/sw360/docs/deployment/upgrading/upgrade-sw360-from-14.0.0-to-15.0.0/</guid>
-      <description>
-        
-        
-        &lt;h1 id=&#34;upgrade-sw360-version-150&#34;&gt;Upgrade SW360 version 15.0&lt;/h1&gt;
-&lt;h2 id=&#34;1-upgrade-sw360-from-140-to-150&#34;&gt;1. Upgrade sw360 from 14.0 to 15.0&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;1.1 Checkout source code SW360 to Tag Version 15
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;1.2 Version of libraries
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;1.3 Migrate database
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;1.4 Build and deploy Sw360 Version 15.0
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;11-checkout-source-code-sw360-to-tag-version-15&#34;&gt;1.1 Checkout source code SW360 to Tag Version 15&lt;/h3&gt;
-&lt;p&gt;Link contains source: &lt;a href=&#34;https://github.com/eclipse/sw360.git&#34;&gt;https://github.com/eclipse/sw360.git&lt;/a&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Path &lt;code&gt;SW360_REPOSITORY&lt;/code&gt; = &lt;code&gt;/home/user/work/sw360&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Source code sw360 is in master branch with commit version 14.0 . User into &lt;code&gt;${SW360_REPOSITORY}&lt;/code&gt; use git checkout to tag version 15 on the master branch of SW360&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Checkout to tag  Version 15.0.0&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;$ git checkout . &lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;$ git checkout sw360-15.0.0-M1&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;12-version-of-libraries&#34;&gt;1.2 Version of libraries&lt;/h3&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&#34;text-align:left&#34;&gt;Package Name&lt;/th&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;Version&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Liferay&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;7.3.4&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Tomcat&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;9.0.33&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Couchdb&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;3.2.2&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Open JDK&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;11.0.15&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Thrift&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;0.14.0&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;SW360&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;14.0.0&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h3 id=&#34;13-migrate-database&#34;&gt;1.3 Migrate database&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;Check migrate scripts from 14.0 to 15.0 by &lt;a href=&#34;https://github.com/eclipse/sw360/tree/master/scripts/migrations&#34;&gt;https://github.com/eclipse/sw360/tree/master/scripts/migrations&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ul&gt;
-&lt;li&gt;There is no migrate script, skip this step.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;14-build-and-deploy-sw360-version-150&#34;&gt;1.4 Build and deploy SW360 Version 15.0&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Set Environment for &lt;code&gt;${LIFERAY_INSTALL}&lt;/code&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;$ export LIFERAY_INSTALL=/opt/liferay-ce-portal-7.3.4-ga5&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Stop SW360 version 14.0, ensure that couchdb is accessible (try to open &lt;code&gt;http://localhost:5984/_utils/&lt;/code&gt;)&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;$ ${LIFERAY_INSTALL}/tomcat-9.0.33/bin/shutdown.sh&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;2-compile-and-deploy&#34;&gt;2. Compile and deploy&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Start couchdb&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;$ sudo service couchdb start&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Set Environment for &lt;code&gt;${LIFERAY_INSTALL}&lt;/code&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;$ cd /home/user/work/sw360&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;$ export LIFERAY_INSTALL=/opt/liferay-ce-portal-7.3.4-ga5&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;To clean everything and  install without running the tests&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;$ mvn clean install -DskipTests &lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;For deployment run the command&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;mvn package -P deploy -Dbase.deploy.dir=. -Dliferay.deploy.dir=${LIFERAY_INSTALL}/deploy -Dbackend.deploy.dir=${LIFERAY_INSTALL}/tomcat-9.0.33/webapps -Drest.deploy.dir=${LIFERAY_INSTALL}/tomcat-9.0.33/webapps -DskipTests&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&#34;21-start-and-configure-liferay&#34;&gt;2.1 Start and Configure Liferay&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Set Environment for &lt;code&gt;${LIFERAY_INSTALL}&lt;/code&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;$ export LIFERAY_INSTALL=/opt/liferay-ce-portal-7.3.4-ga5&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Start liferay&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;$ ${LIFERAY_INSTALL}/tomcat-9.0.33/bin/startup.sh&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Log&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;$ tail -f ${LIFERAY_INSTALL}/tomcat-9.0.33/logs/*&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Url SW360 : &lt;code&gt;https://localhost:8080&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;22-configure-liferay-portal&#34;&gt;2.2 Configure Liferay Portal&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;Can follow the steps in the following link &lt;a href=&#34;https://www.eclipse.org/sw360/docs/deployment/legacy/deploy-liferay7.3&#34;&gt;https://www.eclipse.org/sw360/docs/deployment/legacy/deploy-liferay7.3&lt;/a&gt; or follow these steps:&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ul&gt;
-&lt;li&gt;Import users
-&lt;ol&gt;
-&lt;li&gt;Open the panel on the left side by clicking the button on the top left.&lt;/li&gt;
-&lt;li&gt;Click on &lt;code&gt;SW360&lt;/code&gt; on the top right to go to the homepage.&lt;/li&gt;
-&lt;li&gt;Click on &lt;code&gt;Start&lt;/code&gt; inside the &amp;ldquo;Welcome&amp;rdquo; section.&lt;/li&gt;
-&lt;li&gt;Go to &lt;code&gt;Admin&lt;/code&gt; -&amp;gt; &lt;code&gt;User&lt;/code&gt; (URL: &lt;code&gt;/group/guest/users&lt;/code&gt;).&lt;/li&gt;
-&lt;li&gt;Scroll down to section &lt;code&gt;UPLOAD USERS&lt;/code&gt;, select a user file from the very
-beginning and click &lt;code&gt;Upload Users&lt;/code&gt; on the right side. &lt;a href=&#34;https://github.com/sw360/sw360vagrant/blob/master/shared/test_users_with_passwords_12345.csv&#34;&gt;A user file can be found here in the sw360vagrant project&lt;/a&gt;
-* Download: &lt;code&gt;$ wget https://github.com/sw360/sw360vagrant/blob/master/shared/test_users_with_passwords_12345.csv&lt;/code&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-
-      </description>
-    </item>
-    
-    <item>
-      <title>Docs: Upgrade Sw360 from 15.0 to 16.0</title>
-      <link>https://www.eclipse.org/sw360/docs/deployment/upgrading/upgrade_version_sw360_15_to_16/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.eclipse.org/sw360/docs/deployment/upgrading/upgrade_version_sw360_15_to_16/</guid>
-      <description>
-        
-        
-        &lt;h1 id=&#34;upgrade-sw360-version-160&#34;&gt;Upgrade SW360 version 16.0&lt;/h1&gt;
-&lt;h2 id=&#34;1-upgrade-sw360-from-150-to-160&#34;&gt;1. Upgrade sw360 from 15.0 to 16.0&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;1.1 Checkout source code SW360 to Tag Version 16
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;1.2 Version of libraries
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;1.3 Migrate database
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;1.4 Build and deploy Sw360 Version 16
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;1.5 Start and Configure Liferay 
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;11-create-folder-contains-source-code-sw360-to-tag-version-16&#34;&gt;1.1 Create Folder contains source code SW360 to Tag Version 16&lt;/h3&gt;
-&lt;p&gt;Link contains source: &lt;a href=&#34;https://github.com/eclipse/sw360.git&#34;&gt;https://github.com/eclipse/sw360.git&lt;/a&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Path &lt;code&gt;SW360_REPOSITORY&lt;/code&gt; = &lt;code&gt;/home/user/work15to16/sw360&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Source code sw360 is in main branch with commit version 14.0 . User into &lt;code&gt;${SW360_REPOSITORY}&lt;/code&gt; use git checkout to tag version 16 on the main branch of SW360&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Checkout to tag  Version 16.0.0 or checkout commit &amp;ldquo;d15db4a1b07112fff126016103c1a8d8dd03c230&amp;rdquo;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;$ git checkout d15db4a1b07112fff126016103c1a8d8dd03c230 &lt;/code&gt; or  &lt;code&gt;$ git checkout sw360-16.0.0-M1&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Upgrade Thrift from 0.14.0 to 0.16.0&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Move to folder sw360 with path &lt;code&gt;/home/user/work15to16/sw360&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Run command line:&lt;/p&gt;
-&lt;p&gt;Uninstall thrift version 0.14.0&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;./scripts/install-thrift.sh --uninstall&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Install thrift version 0.16.0&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;./scripts/install-thrift.sh&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Check version thrift&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;thrift --version&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Update Dependency for SW360 version 16&lt;/p&gt;
-&lt;p&gt;Download dependency:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;wget https://search.maven.org/remotecontent?filepath=commons-io/commons-io/2.7/commons-io-2.7.jar -O commons-io-2.7.jar&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;wget https://search.maven.org/remotecontent?filepath=com/google/code/gson/gson/2.8.9/gson-2.8.9.jar -O gson-2.8.9.jar&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;wget https://search.maven.org/remotecontent?filepath=com/google/guava/guava/31.0.1-jre/guava-31.0.1-jre.jar -O guava-31.0.1-jre.jar&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;wget https://search.maven.org/remotecontent?filepath=com/fasterxml/jackson/core/jackson-annotations/2.13.2/jackson-annotations-2.13.2.jar -O jackson-annotations-2.13.2.jar&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;wget https://search.maven.org/remotecontent?filepath=com/fasterxml/jackson/core/jackson-core/2.13.2/jackson-core-2.13.2.jar -O jackson-core-2.13.2.jar&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;wget https://search.maven.org/remotecontent?filepath=com/fasterxml/jackson/core/jackson-databind/2.13.2.2/jackson-databind-2.13.2.2.jar -O jackson-databind-2.13.2.2.jar&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;wget https://repo1.maven.org/maven2/org/apache/thrift/libthrift/0.16.0/libthrift-0.16.0.jar -O libthrift-0.16.0.jar&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Move dependency to folder &lt;code&gt;/opt/liferay-ce-portal-7.3.4-ga5/deploy&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;12-version-of-libraries&#34;&gt;1.2 Version of libraries&lt;/h3&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&#34;text-align:left&#34;&gt;Package Name&lt;/th&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;Version&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Liferay&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;7.3.4&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Tomcat&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;9.0.33&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Couchdb&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;3.2.2&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Open JDK&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;11.0.15&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Thrift&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;0.16.0&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h3 id=&#34;13-migrate-database&#34;&gt;1.3 Migrate database&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Check migrate scripts from 15.0 to 16.0 by &lt;a href=&#34;https://github.com/eclipse/sw360/tree/master/scripts/migrations&#34;&gt;https://github.com/eclipse/sw360/tree/master/scripts/migrations&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;3 file migration:&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;https://github.com/eclipse/sw360/blob/main/scripts/migrations/048_add_component_businessunit.py&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;https://github.com/eclipse/sw360/blob/main/scripts/migrations/049_migrate_admin_obligation.py&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;https://github.com/eclipse/sw360/blob/main/scripts/utilities/003_update_project_field_value_couchdb_2_x.py&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;Install enviroment for python 2.7&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;$ sudo apt-add-repository universe&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;$ sudo apt update&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;$ sudo apt install python2-minimal&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Check version&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;$ python2 --version&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Install pip for python 2.7
--&lt;code&gt;curl https://bootstrap.pypa.io/pip/2.7/get-pip.py --output get-pip.py&lt;/code&gt;
--&lt;code&gt;sudo python2 get-pip.py --proxy=http://username:password@hostname&lt;/code&gt;
--&lt;code&gt;pip --version&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;Import package couchdb
--&lt;code&gt;pip install --proxy=http://username:password@hostname couchdb&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;How to run migration data&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;stop SW360 (i.e. the tomcat)&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Set Environment for &lt;code&gt;${LIFERAY_INSTALL}&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;$ export LIFERAY_INSTALL=/opt/liferay-ce-portal-7.3.4-ga5&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ul&gt;
-&lt;li&gt;Stop SW360 version 15.0, ensure that couchdb is accessible (try to open &lt;code&gt;http://localhost:5984/_utils/&lt;/code&gt;)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;$ ${LIFERAY_INSTALL}/tomcat-9.0.33/bin/shutdown.sh&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;ensure that couchdb is accessible (try to open http://localhost:5984/_utils/)&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;run the migration scripts (i.e. for each script call python2 /PATH/TO/00?_some_migration_script.py)
-be aware that some scripts are using an internal dry-run switch which you have to change manually in the script&amp;rsquo;s code.&lt;/p&gt;
-&lt;p&gt;3.1 move to folder with path &lt;code&gt;/home/user/work15to16/sw360/scripts/migrations&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;Run command:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;python2 048_add_component_businessunit.py&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;python2 049_migrate_admin_obligation.py&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Check data change in file log:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;048_add_component_businessunit.log&lt;/li&gt;
-&lt;li&gt;049_migrate_admin_obligation.log&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;3.2 move to folder with path &lt;code&gt;/home/user/work15to16/sw360/scripts/utilities&lt;/code&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;python2 003_update_project_field_value_couchdb_2_x.py&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Check data change in file log:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;003_update_project_field_value_couchdb_2_x.log&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;14-compile-and-deploy&#34;&gt;1.4. Compile and deploy&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;Set Environment for &lt;code&gt;${LIFERAY_INSTALL}&lt;/code&gt;
-- &lt;code&gt;$ cd /home/user/work/sw360&lt;/code&gt;
-- &lt;code&gt;$ export LIFERAY_INSTALL=/opt/liferay-ce-portal-7.3.4-ga5&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre&gt;&lt;code&gt;To clean everything and  install without running the tests
-
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Eclipse SW360 – Upgrade from previous instances</title><link>https://www.eclipse.org/sw360/docs/deployment/upgrading/</link><description>Recent content in Upgrade from previous instances on Eclipse SW360</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://www.eclipse.org/sw360/docs/deployment/upgrading/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Liferay 7.3 and Java 11</title><link>https://www.eclipse.org/sw360/docs/deployment/upgrading/deploy-upgrade-to-liferay-7.3-and-java-11/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.eclipse.org/sw360/docs/deployment/upgrading/deploy-upgrade-to-liferay-7.3-and-java-11/</guid><description>
+&lt;h2 id="introduction">Introduction&lt;/h2>
+&lt;p>We are covering the update for ubuntu here, because that is our main / agreed base system for running sw360. sw360 may run on a varienty of other linux distributions or OSes such as macosx, but in order to avoid problem we agreed on having a reference OS, which are the ubuntu long term releases.&lt;/p>
+&lt;p>With the update to Java 11, we upgraded from Ubuntu 16.04 to Ubuntu 18.04, both LTS version. This OS is used for example by the &lt;a href="https://github.com/sw360/sw360vagrant">https://github.com/sw360/sw360vagrant&lt;/a> project.&lt;/p>
+&lt;p>So the update covers the following:&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>orign&lt;/th>
+&lt;th>target&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Ubuntu 16.04 LTS&lt;/td>
+&lt;td>Ubuntu 18.04 LTS&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>CoucbdDB 1.X (comes with Ubuntu)&lt;/td>
+&lt;td>CouchDB 2.X (not with Ubuntu anymore)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Postgresql 9.X (comes with Ubuntu)&lt;/td>
+&lt;td>Postgresql 10.X (comes with Ubuntu)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>OpenJDK 8 (comes with Ubuntu)&lt;/td>
+&lt;td>openJDK 11 (comes with Ubuntu)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Apache Thrift 0.11/0.12&lt;/td>
+&lt;td>Apache Thrift 0.13&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="overview">Overview&lt;/h2>
+&lt;p>The upgrade consists of quite some tasks, as an overview:&lt;/p>
+&lt;ol>
+&lt;li>Make a backup&lt;/li>
+&lt;li>Execute sw360 migration scripts&lt;/li>
+&lt;li>Linux release upgrade&lt;/li>
+&lt;li>Java 11&lt;/li>
+&lt;li>Postgresql&lt;/li>
+&lt;li>CouchDB 2.X&lt;/li>
+&lt;li>Thrift to 0.13&lt;/li>
+&lt;li>Liferay ce 7.3.3&lt;/li>
+&lt;li>Copy your existing &lt;code>portal-ext.properties&lt;/code> to now liferay_install location&lt;/li>
+&lt;li>copy from old liferay installation the &lt;code>data/document_library&lt;/code> to the new liferay&lt;/li>
+&lt;li>Adjust &lt;code>/etc/ini.d/tomcat&lt;/code> with path of new liferay&lt;/li>
+&lt;li>Adjust &lt;code>$liferay_install&lt;/code> variable&lt;/li>
+&lt;li>add Java prerequisites to OSGi container&lt;/li>
+&lt;li>Update couchdb-lucene&lt;/li>
+&lt;li>Deploy new version of sw360&lt;/li>
+&lt;li>Adjust Liferay&lt;/li>
+&lt;/ol>
+&lt;h2 id="initial-steps">Initial steps&lt;/h2>
+&lt;p>In order to &amp;ldquo;calibrate the system&amp;rdquo; just run the update / upgrade cycle once:&lt;/p>
+&lt;p>&lt;code># sudo apt update&lt;/code>&lt;/p>
+&lt;p>&lt;code># sudo apt upgrade&lt;/code>&lt;/p>
+&lt;h3 id="keeping-more-settings-files">Keeping More Settings Files&lt;/h3>
+&lt;p>&lt;strong>apache.conf:&lt;/strong> Keep also the mod security conf files that are asked to update during installation&lt;/p>
+&lt;p>&lt;strong>sshd:&lt;/strong> Changes on the ssh / sshd conf files should be kept in case you have setup up dome remote public private key login (usually the case for server installation). Otherwise you re locked out maybe.&lt;/p>
+&lt;p>&lt;strong>Maven:&lt;/strong> if you change Maven, for example with your proxy settings, keep it too.&lt;/p>
+&lt;p>In general, whenever there is functionality you need, consider keeping existing settings files.&lt;/p>
+&lt;h2 id="ubuntu-release-upgrade">Ubuntu Release Upgrade&lt;/h2>
+&lt;p>There is maybe the remark to overwrite the current apache configuration. We propose to keep the currently installed apache files.&lt;/p>
+&lt;p>&lt;code># sudo do-release-upgrade&lt;/code>&lt;/p>
+&lt;p>Answer &amp;ldquo;yes&amp;rdquo; for the download of packages and also confirm the update of the glibc, of course. Update the &lt;code>system.conf&lt;/code>(install maintainer&amp;rsquo;s version), depending on if you actually edited this. Some for &lt;code>sysctl.conf&lt;/code>.&lt;/p>
+&lt;h2 id="migration-of-postgresql">Migration of PostgreSQL&lt;/h2>
+&lt;p>The existing 9.5 will not be upgraded, instead this message comes: After the release upgrade, you can check again if postgresql is installed:&lt;/p>
+&lt;p>&lt;code>sudo apt list postgre* --installed&lt;/code>&lt;/p>
+&lt;p>Postgresql 9.5 should be the only installed. The old postgresql 9.5 must stay in fact, because the migration tool needs to be executing on a running postgresql 9.5 instance. Just having popstgresql 10 and a database only from postgresql 9.5 will not work. You can go ahead install postgresql 10:&lt;/p>
+&lt;p>&lt;code>sudo apt install postgresql-10&lt;/code>&lt;/p>
+&lt;p>Then, apply the instruction to update from 9.5 to 10.0 from this page: &lt;a href="https://stackoverflow.com/questions/47029055/how-do-i-upgrade-my-postgresql-9-5-to-postgresql-10-on-ubuntu-16-04">https://stackoverflow.com/questions/47029055/how-do-i-upgrade-my-postgresql-9-5-to-postgresql-10-on-ubuntu-16-04&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-fallback" data-lang="fallback">&lt;span style="display:flex;">&lt;span># service postgresql stop
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span># pg_dropcluster --stop 10 main
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span># pg_upgradecluster -m upgrade 9.5 main
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span># pg_dropcluster 9.5 main --stop
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span># apt-get autoremove --purge postgresql-9.5
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span># service postgresql start
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>(note that # means you need to be root or execute with sudo)&lt;/p>
+&lt;h2 id="migration-of-couchdb">Migration of CouchDB&lt;/h2>
+&lt;p>CouchDB is not part of the Ubuntu package management anymore. Thus, you need to add the Apache CouchDb package repository to install it, first the key for signing:&lt;/p>
+&lt;p>&lt;code>curl -L https://couchdb.apache.org/repo/bintray-pubkey.asc | sudo apt-key add -&lt;/code>&lt;/p>
+&lt;p>The add the repo to the sources:&lt;/p>
+&lt;p>&lt;code>echo &amp;quot;deb https://apache.bintray.com/couchdb-deb bionic main&amp;quot; | sudo tee -a /etc/apt/sources.list&lt;/code>&lt;/p>
+&lt;p>Then, add its contents to the package database by updating apt:&lt;/p>
+&lt;p>&lt;code>sudo apt-get update -y&lt;/code>&lt;/p>
+&lt;p>Ultimately install CouchDB, we tried with 2.1.2 initiall not to make a too far jump from 1.X, later versions may work as well. Note that for upgrading to CouchDB 3.X you would need an upgrade to 2.X first.&lt;/p>
+&lt;p>&lt;code>sudo apt-get install -y couchdb=2.1.2~bionic&lt;/code>&lt;/p>
+&lt;p>The installer will ask a couple of questions:&lt;/p>
+&lt;ol>
+&lt;li>Bind address: for CouchDB and SW360 &lt;code>127.0.0.1&lt;/code> (localhost) is a good bind address, if you would like to access the server from a remote computer because your sw360 runs as a server in the network, you would need to change accordingly.&lt;/li>
+&lt;li>Admin user: &lt;strong>Warning&lt;/strong> The couchdb migration utility does not support authentication! Please do not enter an admin password, but apply it later. You can set the password for CouchDB in &lt;code>couchdb.properties&lt;/code> and place it centrally in &lt;code>/etc/sw360&lt;/code>&lt;/li>
+&lt;li>Migration: yes you need to use &lt;code>couchup&lt;/code> for migrating the databases&lt;/li>
+&lt;/ol>
+&lt;p>In case you added an admin and need to remove it, try:&lt;/p>
+&lt;p>&lt;code>curl -X DELETE http://admin:password@127.0.0.1:5984/_config/admins/admin&lt;/code>&lt;/p>
+&lt;p>where the two occurrences &lt;code>admin&lt;/code> is the name of the admin user in the URL, whatever the user was called.&lt;/p>
+&lt;h3 id="migration-of-couchdb-databases">Migration of CouchDB Databases&lt;/h3>
+&lt;p>As a preparation: the CouchDB migration works by copying the databases, so the file system needs at least as much free space as the CouchDB databases use.&lt;/p>
+&lt;p>CouchDB offers a migration utility. It is advised that you remove all test databases as they do not seem to work with the migration utility. Important links are:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://docs.couchdb.org/en/2.3.1/install/upgrading.html">https://docs.couchdb.org/en/2.3.1/install/upgrading.html&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/apache/couchdb/pull/483">https://github.com/apache/couchdb/pull/483&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>For some reason after installation, the &lt;code>couchup&lt;/code>utility is not part of the path, so execute:&lt;/p>
+&lt;p>&lt;code>/opt/couchdb/bin/couchup list&lt;/code>&lt;/p>
+&lt;p>It lists all DBs found. The go ahead with:&lt;/p>
+&lt;p>&lt;code>/opt/couchdb/bin/couchup replicate -a&lt;/code>&lt;/p>
+&lt;p>It should replicate all databases in &lt;code>/var/lib/couchdb&lt;/code>. Please refer to the couchup documentation, for the subsequent steps. A few remarks from our experience:&lt;/p>
+&lt;ol>
+&lt;li>The rebuold of the couchdb does not work for our test databases. Please refer to the documentation how to do this manually if you like.&lt;/li>
+&lt;li>The couchup utility crashes for large DB sizes with a time out error. Consider using the timeout option: &lt;code>/opt/couchdb/bin/couchup replicate -a --timeout==10000&lt;/code> (with almost infinite timeout here)&lt;/li>
+&lt;li>On very large attachment database sizes (500GB), the couchdb configuration must be changed. We increased almost every related value by factor 10 (timeouts, memory, etc) in &lt;code>/opt/couchdb/etc/default.ini&lt;/code> and good success with this.&lt;/li>
+&lt;/ol>
+&lt;h2 id="update-thrift">Update Thrift&lt;/h2>
+&lt;p>For thrift, we need version 0.13. The installation script &lt;code>scripts/install-thrift.sh&lt;/code>allows for uninstalling old versions:&lt;/p>
+&lt;p>&lt;code>sudo ./install-thrift.sh --uninstall&lt;/code>&lt;/p>
+&lt;p>and then install&lt;/p>
+&lt;p>&lt;code>sudo ./install-thrift.sh&lt;/code>&lt;/p>
+&lt;h2 id="from-openjdk-8-to-openjdk-11">From OpenJDK 8 to OpenJDK 11&lt;/h2>
+&lt;p>First check, what is installed.&lt;/p>
+&lt;p>&lt;code># sudo apt list openjdk* --installed&lt;/code>&lt;/p>
+&lt;p>Then you could check what is available:&lt;/p>
+&lt;p>&lt;code># sudo apt list openjdk*&lt;/code>&lt;/p>
+&lt;p>It should be that OpenJDK 8 is installed and both OpenJDK 8 and 11 are available. Then, remove the OpenJDK 8 and install 11:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-fallback" data-lang="fallback">&lt;span style="display:flex;">&lt;span>sudo apt remove openjdk-8-jdk
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo apt remove openjdk-8-jre
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo apt remove openjdk-8-jdk-headless
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo apt remove openjdk-8-jre-headless
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>check if nothing is installed:&lt;/p>
+&lt;p>&lt;code># sudo apt list openjdk* --installed&lt;/code>&lt;/p>
+&lt;p>Then install the openjdk-11-jdk:&lt;/p>
+&lt;p>&lt;code># sudo apt install openjdk-11-jdk&lt;/code>&lt;/p>
+&lt;p>Then the &lt;code>$JAVA_HOME&lt;/code> needs to be updated, most likely it is defined in &lt;code>/etc/environment&lt;/code>. Please check for your installation how to set the &lt;code>$JAVA_HOME&lt;/code> correctly.&lt;/p>
+&lt;h2 id="updating-liferay">Updating Liferay&lt;/h2>
+&lt;p>Download Liferay from this link&lt;/p>
+&lt;p>&lt;a href="https://sourceforge.net/projects/lportal/files/Liferay%20Portal/7.3.3%20GA4/liferay-ce-portal-tomcat-7.3.3-ga4-20200701015330959.tar.gz">https://sourceforge.net/projects/lportal/files/Liferay%20Portal/7.3.3%20GA4/liferay-ce-portal-tomcat-7.3.3-ga4-20200701015330959.tar.gz&lt;/a>&lt;/p>
+&lt;p>and unpack it, ideally in the &lt;code>/opt&lt;/code> directory, so resulting path would look like &lt;code>liferay-ce-portal-7.3.3-ga4&lt;/code>.&lt;/p>
+&lt;p>Then, you need to update the &lt;code>$LIFERAY_INSTALL&lt;/code> in &lt;code>/etc/environment&lt;/code> from &lt;code>LIFERAY_INSTALL=/opt/liferay-portal-7.2.0-ga1/ &lt;/code> to &lt;code>LIFERAY_INSTALL=/opt/liferay-ce-portal-7.3.3-ga4&lt;/code>.&lt;/p>
+&lt;p>First, you will need to copy the &lt;code>portal-ext.properties&lt;/code> from the old liferay folder to the new liferay folder (or new &lt;code>$LIFERAY_HOME&lt;/code>):&lt;/p>
+&lt;p>&lt;code># cp /$old-liferay/portal-ext.properties $LIFERAY_INSTALL/portal-ext.properties&lt;/code>&lt;/p>
+&lt;h3 id="migration-of-existing-database">Migration of existing database&lt;/h3>
+&lt;p>For a version upgrade from Liferay CE 7.2 to Liferay 7.3, migration scripts must be applied, they are located in &lt;code>$LIFERAY_HOME/ tools/portal-tools-db-upgrade-client&lt;/code>. From there the following files needs to be adapted:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>app-server.properties&lt;/code>: most likely uncomment tomcat, because we re using liferay with tomcat.&lt;/li>
+&lt;li>&lt;code>portal-upgrade-database.properties&lt;/code>: uncomment postgresql section and add database user, default from installation is &lt;code>liferay/liferay&lt;/code>, or it is stored in &lt;code>portal-ext.properties&lt;/code> right where the JDBC driver is selected. Please note that your &lt;code>portal-ext.properties&lt;/code> file in &lt;code>$LIFERAY_INSTALL&lt;/code>can have the following line &lt;code>include-and-override=/etc/sw360/portal-ext.properties&lt;/code>. In this case, consider the &lt;code>portal-ext.properties&lt;/code>at that location.&lt;/li>
+&lt;li>&lt;code>portal-upgrade-ext.properties&lt;/code>: just the liferay home, you can leave it as it is&lt;/li>
+&lt;/ul>
+&lt;p>If everything is done (and the postgresql migration took place), execute:&lt;/p>
+&lt;p>&lt;code># ./db_upgrade.sh&lt;/code>&lt;/p>
+&lt;p>It should return a battery of &lt;code>INFO&lt;/code> log level messages end with:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-fallback" data-lang="fallback">&lt;span style="display:flex;">&lt;span>Completed Liferay core upgrade process in 96 seconds
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Checking to see if all upgrades have completed... done.
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="more-migration">More Migration&lt;/h3>
+&lt;p>The liferay migration covers apparently only the database, but not the files in the &lt;code>$LIFERAY_HOME/data&lt;/code> folder. It would have been nicer, if that would have been covered too. Instead these must be copied manually. In fact, for the migration, it is advised to copy only the &lt;code>/old-liferay/data/document_library&lt;/code> to the new location. Something like (different pwd &amp;hellip;):&lt;/p>
+&lt;p>&lt;code># cp -r _attic/liferay-portal-7.2.1-ga2/data/document_library/ liferay-ce-portal-7.3.3-ga4/data/&lt;/code>&lt;/p>
+&lt;h3 id="auto-start">Auto Start&lt;/h3>
+&lt;p>For auto start, you need an according init.d entry. It could be a file like &lt;code>/etc/init.d/tomcat&lt;/code>. The file could be created if not there already, with the following contents:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#099">#!/bin/bash
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#099">&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#09f;font-style:italic">### BEGIN INIT INFO&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#09f;font-style:italic"># Provides: tomcat7&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#09f;font-style:italic"># Required-Start: $network&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#09f;font-style:italic"># Required-Stop: $network&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#09f;font-style:italic"># Default-Start: 2 3 4 5&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#09f;font-style:italic"># Default-Stop: 0 1 6&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#09f;font-style:italic"># Short-Description: Start/Stop Tomcat server&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#09f;font-style:italic">### END INIT INFO&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#033">PATH&lt;/span>&lt;span style="color:#555">=&lt;/span>/sbin:/bin:/usr/sbin:/usr/bin
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>start&lt;span style="color:#555">()&lt;/span> &lt;span style="color:#555">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> su -l siemagrant -c /opt/liferay-ce-portal-7.3.3-ga4/tomcat-9.0.33/bin/startup.sh
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#555">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>stop&lt;span style="color:#555">()&lt;/span> &lt;span style="color:#555">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> su -l siemagrant -c /opt/liferay-ce-portal-7.3.3-ga4/tomcat-9.0.33/bin/shutdown.sh
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#555">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#069;font-weight:bold">case&lt;/span> &lt;span style="color:#033">$1&lt;/span> in
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> start|stop&lt;span style="color:#555">)&lt;/span> &lt;span style="color:#033">$1&lt;/span>;;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> restart&lt;span style="color:#555">)&lt;/span> stop; start;;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> *&lt;span style="color:#555">)&lt;/span> &lt;span style="color:#366">echo&lt;/span> &lt;span style="color:#c30">&amp;#34;Run as &lt;/span>&lt;span style="color:#033">$0&lt;/span>&lt;span style="color:#c30"> &amp;lt;start|stop|restart&amp;gt;&amp;#34;&lt;/span>; &lt;span style="color:#366">exit&lt;/span> 1;;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#069;font-weight:bold">esac&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Te user &lt;code>siemagrant&lt;/code> is used in the sw360vagrant project. it is the username of the user where the liefray / sw360 server runs under in vagrant. Regardless how the user is named, it is important that liferay runs under an unprivileged user (for security reasons).&lt;/p>
+&lt;h3 id="adjust-memory">Adjust Memory&lt;/h3>
+&lt;p>When you have downloaded the liferay distribution, Tomcat is likely configured with very basic memory settings. For trying sw360, the standard memory settings are OK. But of course, the memory settings in &lt;code>$LIFERAY_HOME/tomcat-X.0.XX/bin/setenv.sh&lt;/code> should be adapted again.&lt;/p>
+&lt;h2 id="install-prerequisites">Install Prerequisites&lt;/h2>
+&lt;p>For old installations, libthrift is not there (which causes an error at container startup), it should be downloaded and deployed:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-fallback" data-lang="fallback">&lt;span style="display:flex;">&lt;span>wget https://repo1.maven.org/maven2/org/apache/thrift/libthrift/0.13.0/libthrift-0.13.0.jar
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>mv libthrift-0.13.0.jar $LIFEARY_HOME/deploy/
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>The the existing prerequisites needs to be copied from the &lt;code>osgi/modules&lt;/code> from the old liferay installation:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-fallback" data-lang="fallback">&lt;span style="display:flex;">&lt;span>cp commons-lang-2.4.jar $LIFERAY_HOME/deploy
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cp commons-io-2.6.jar $LIFERAY_HOME/deploy
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cp commons-csv-1.4.jar $LIFERAY_HOME/deploy
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cp commons-collections4-4.1.jar $LIFERAY_HOME/deploy
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cp commons-codec-1.12.jar $LIFERAY_HOME/deploy
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cp commons-logging-1.2.jar $LIFERAY_HOME/deploy
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cp gson-2.8.5.jar $LIFERAY_HOME/deploy
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cp guava-21.0.jar $LIFERAY_HOME/deploy
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cp jackson-annotations-2.9.8.jar $LIFERAY_HOME/deploy
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cp jackson-core-2.9.8.jar $LIFERAY_HOME/deploy
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cp jackson-databind-2.9.8.jar $LIFERAY_HOME/deploy
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>note that with the &lt;a href="https://github.com/eclipse/sw360/commit/71348b4fffa6e3e5fd761a3f63590a0a60663827">commit&lt;/a> to sw360-13.0.0-M1 you need also another dependency for apache poi:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-fallback" data-lang="fallback">&lt;span style="display:flex;">&lt;span>cp commons-compress-1.20.jar $LIFERAY_HOME/deploy
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="install-couchdb-lucene">Install Couchdb Lucene&lt;/h2>
+&lt;p>SW360 uses for searching the contents of the couchdb databases a lucene-based server named couchdb-lucene. The main thing is that it requires pathing for the use in the normal SW3360 setups. The reason for the patch is that the developers presume that couchdb-lucene runs as the only component in the application server, while in the sw360 setup, there is a setup in which couchdb-lucene runs along with other components in the same application container.&lt;/p>
+&lt;p>Start with downloading the couchdb-lucene and rename the archive so the resulting URL path element will be &lt;code>couchdb-lucene&lt;/code>:&lt;/p>
+&lt;p>&lt;code>wget https://github.com/rnewson/couchdb-lucene/archive/v2.1.0.tar.gz ./couchdb-lucene.tar.gz&lt;/code>&lt;/p>
+&lt;p>Please refer to the script in sw360vagrant how to apply the patch to couchdb-lucene:&lt;/p>
+&lt;p>&lt;a href="https://github.com/sw360/sw360vagrant/blob/master/shared/scripts/install-lucene.sh">https://github.com/sw360/sw360vagrant/blob/master/shared/scripts/install-lucene.sh&lt;/a>&lt;/p>
+&lt;p>Please note that the patching issue is well known in the project and it is unclear why it is not merged:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/rnewson/couchdb-lucene/issues/161">https://github.com/rnewson/couchdb-lucene/issues/161&lt;/a> &amp;ldquo;allow context-root other than &amp;ldquo;/&amp;rdquo; when running in servlet container&amp;rdquo;&lt;/li>
+&lt;li>&lt;a href="https://github.com/rnewson/couchdb-lucene/pull/162">https://github.com/rnewson/couchdb-lucene/pull/162&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/rnewson/couchdb-lucene/pull/152">https://github.com/rnewson/couchdb-lucene/pull/152&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>Now, for CouchDB 2.X the hook for integration of a search component has chaned compared to CouchDB 1.X. Accordingly, the old couchdb-lucene component must be replaced with the latest version.&lt;/p>
+&lt;h2 id="deploy-new-sw360">Deploy New SW360&lt;/h2>
+&lt;p>You will need to checkout new Java-11 based version of the SW360, which is either tagged version 11 or some few commits before that. Then build in the sw360 project root using:&lt;/p>
+&lt;p>&lt;code>mvn clean install -DskipTests&lt;/code>&lt;/p>
+&lt;p>This will install new artfacts, such as lib-datahandler in your maven repostiory. Then apply in the same:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>mvn clean &lt;span style="color:#069;font-weight:bold">package&lt;/span> &lt;span style="color:#555">-&lt;/span>P deploy &lt;span style="color:#555">-&lt;/span>Dbase.deploy.dir=. &lt;span style="color:#555">-&lt;/span>Dliferay.deploy.dir=&lt;span style="color:#555">/&lt;/span>opt&lt;span style="color:#555">/&lt;/span>liferay&lt;span style="color:#555">-&lt;/span>ce&lt;span style="color:#555">-&lt;/span>portal&lt;span style="color:#555">-&lt;/span>&lt;span style="color:#f60">7.3.3&lt;/span>&lt;span style="color:#555">-&lt;/span>ga4&lt;span style="color:#555">/&lt;/span>deploy&lt;span style="color:#555">/&lt;/span> &lt;span style="color:#555">-&lt;/span>Dbackend.deploy.dir=&lt;span style="color:#555">/&lt;/span>opt&lt;span style="color:#555">/&lt;/span>liferay&lt;span style="color:#555">-&lt;/span>ce&lt;span style="color:#555">-&lt;/span>portal&lt;span style="color:#555">-&lt;/span>&lt;span style="color:#f60">7.3.3&lt;/span>&lt;span style="color:#555">-&lt;/span>ga4&lt;span style="color:#555">/&lt;/span>tomcat&lt;span style="color:#555">-&lt;/span>&lt;span style="color:#f60">9.0.33&lt;/span>&lt;span style="color:#555">/&lt;/span>webapps&lt;span style="color:#555">/&lt;/span> &lt;span style="color:#555">-&lt;/span>Drest.deploy.dir=&lt;span style="color:#555">/&lt;/span>opt&lt;span style="color:#555">/&lt;/span>liferay&lt;span style="color:#555">-&lt;/span>ce&lt;span style="color:#555">-&lt;/span>portal&lt;span style="color:#555">-&lt;/span>&lt;span style="color:#f60">7.3.3&lt;/span>&lt;span style="color:#555">-&lt;/span>ga4&lt;span style="color:#555">/&lt;/span>tomcat&lt;span style="color:#555">-&lt;/span>&lt;span style="color:#f60">9.0.33&lt;/span>&lt;span style="color:#555">/&lt;/span>webapps&lt;span style="color:#555">/&lt;/span> &lt;span style="color:#555">-&lt;/span>DskipTests
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Skipping tests has the reason that usually, the sw360 is tested in the CI and thus, local tests are note necessary, if the code has not been changed locally. Note that the REST API documentation framework is based on building test cases and thus for deploying a version with REST API documentation, tests should be executed:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>cd rest
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>mvn clean &lt;span style="color:#069;font-weight:bold">package&lt;/span> &lt;span style="color:#555">-&lt;/span>P deploy &lt;span style="color:#555">-&lt;/span>Dbase.deploy.dir=. &lt;span style="color:#555">-&lt;/span>Dliferay.deploy.dir=&lt;span style="color:#555">/&lt;/span>opt&lt;span style="color:#555">/&lt;/span>liferay&lt;span style="color:#555">-&lt;/span>ce&lt;span style="color:#555">-&lt;/span>portal&lt;span style="color:#555">-&lt;/span>&lt;span style="color:#f60">7.3.3&lt;/span>&lt;span style="color:#555">-&lt;/span>ga4&lt;span style="color:#555">/&lt;/span>deploy&lt;span style="color:#555">/&lt;/span> &lt;span style="color:#555">-&lt;/span>Dbackend.deploy.dir=&lt;span style="color:#555">/&lt;/span>opt&lt;span style="color:#555">/&lt;/span>liferay&lt;span style="color:#555">-&lt;/span>ce&lt;span style="color:#555">-&lt;/span>portal&lt;span style="color:#555">-&lt;/span>&lt;span style="color:#f60">7.3.3&lt;/span>&lt;span style="color:#555">-&lt;/span>ga4&lt;span style="color:#555">/&lt;/span>tomcat&lt;span style="color:#555">-&lt;/span>&lt;span style="color:#f60">9.0.33&lt;/span>&lt;span style="color:#555">/&lt;/span>webapps&lt;span style="color:#555">/&lt;/span> &lt;span style="color:#555">-&lt;/span>Drest.deploy.dir=&lt;span style="color:#555">/&lt;/span>opt&lt;span style="color:#555">/&lt;/span>liferay&lt;span style="color:#555">-&lt;/span>ce&lt;span style="color:#555">-&lt;/span>portal&lt;span style="color:#555">-&lt;/span>&lt;span style="color:#f60">7.3.3&lt;/span>&lt;span style="color:#555">-&lt;/span>ga4&lt;span style="color:#555">/&lt;/span>tomcat&lt;span style="color:#555">-&lt;/span>&lt;span style="color:#f60">9.0.33&lt;/span>&lt;span style="color:#555">/&lt;/span>webapps&lt;span style="color:#555">/&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="final-steps-in-liferay">Final Steps in Liferay&lt;/h2>
+&lt;p>Liferay CE 7.3 bring some changes that still require manually applied settings to the running liferay server. Thus, you could start the liferay server or just restart the entire machine. The following two things need to be adaptedin liferay after successful startup in order to get the migration done:&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>The automatic verification of e-mail adresses maybe be needed to be switched off, because it kicks in also for existing users. This can be done in &amp;ldquo;Control Panerl&amp;rdquo; -&amp;gt; &amp;ldquo;Instance Settings&amp;rdquo; -&amp;gt; &amp;ldquo;User Authentication&amp;rdquo; -&amp;gt; &amp;quot;&amp;quot;&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>The JavaScript components jquery and fontawesone (that come with liferay) must be manually enabled now. For this got into &amp;ldquo;Control Panel&amp;rdquo; -&amp;gt; &amp;ldquo;System Settings&amp;rdquo; -&amp;gt; &amp;ldquo;Thrid Party&amp;rdquo;. and from then select the two JavaScript components from the left and enable them accordingly.&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;h2 id="known-issues">Known Issues&lt;/h2>
+&lt;h3 id="database-availability-right-after-update">Database Availability Right after Update&lt;/h3>
+&lt;p>Right after updating, the sw360 will not show up data at all, but sometimes nothing or &amp;ldquo;portlet unavailable&amp;rdquo;. The problem is the re-indexing of the DB and the search index which takes a while. You can trigger reindexing in the systems. A lazy way is call all (main) views so the database stumbles accross it and starts the indexing tasks (see job view in the couchdb admin interface of Futon). The sam eis for searches, the first searches will fail and the lucene will do some internal updates. leaving the system working for some time and follow the log will help. Could take 30 minutes.&lt;/p>
+&lt;h3 id="e-mail-verification-trap">E-Mail Verification Trap&lt;/h3>
+&lt;p>Liferay has automatically enabled password verification for all accounts right after migration. Not sure what motivates persons to enable such feature by default right after migration from an instance where it was not there? In case you have attached the system to an external login solution, but your liferay is not configured to send mails, then it is a trap, because you cannot verify the e-mail address and thus, cannot login. You need to disable the external login solution and use the original initial setup user to login (which is not asked for verification by e-mail) to disable this feature (see above).&lt;/p></description></item><item><title>Docs: Upgrade Sw360 from 14.0 to 15.0</title><link>https://www.eclipse.org/sw360/docs/deployment/upgrading/upgrade-sw360-from-14.0.0-to-15.0.0/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.eclipse.org/sw360/docs/deployment/upgrading/upgrade-sw360-from-14.0.0-to-15.0.0/</guid><description>
+&lt;h1 id="upgrade-sw360-version-150">Upgrade SW360 version 15.0&lt;/h1>
+&lt;h2 id="1-upgrade-sw360-from-140-to-150">1. Upgrade sw360 from 14.0 to 15.0&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-fallback" data-lang="fallback">&lt;span style="display:flex;">&lt;span>1.1 Checkout source code SW360 to Tag Version 15
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>1.2 Version of libraries
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>1.3 Migrate database
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>1.4 Build and deploy Sw360 Version 15.0
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="11-checkout-source-code-sw360-to-tag-version-15">1.1 Checkout source code SW360 to Tag Version 15&lt;/h3>
+&lt;p>Link contains source: &lt;a href="https://github.com/eclipse/sw360.git">https://github.com/eclipse/sw360.git&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>Path &lt;code>SW360_REPOSITORY&lt;/code> = &lt;code>/home/user/work/sw360&lt;/code>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Source code sw360 is in master branch with commit version 14.0 . User into &lt;code>${SW360_REPOSITORY}&lt;/code> use git checkout to tag version 15 on the master branch of SW360&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Checkout to tag Version 15.0.0&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>$ git checkout . &lt;/code>&lt;/li>
+&lt;li>&lt;code>$ git checkout sw360-15.0.0-M1&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="12-version-of-libraries">1.2 Version of libraries&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:left">Package Name&lt;/th>
+&lt;th style="text-align:center">Version&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:left">Liferay&lt;/td>
+&lt;td style="text-align:center">7.3.4&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">Tomcat&lt;/td>
+&lt;td style="text-align:center">9.0.33&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">Couchdb&lt;/td>
+&lt;td style="text-align:center">3.2.2&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">Open JDK&lt;/td>
+&lt;td style="text-align:center">11.0.15&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">Thrift&lt;/td>
+&lt;td style="text-align:center">0.14.0&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">SW360&lt;/td>
+&lt;td style="text-align:center">14.0.0&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="13-migrate-database">1.3 Migrate database&lt;/h3>
+&lt;ul>
+&lt;li>Check migrate scripts from 14.0 to 15.0 by &lt;a href="https://github.com/eclipse/sw360/tree/master/scripts/migrations">https://github.com/eclipse/sw360/tree/master/scripts/migrations&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;ul>
+&lt;li>There is no migrate script, skip this step.&lt;/li>
+&lt;/ul>
+&lt;h3 id="14-build-and-deploy-sw360-version-150">1.4 Build and deploy SW360 Version 15.0&lt;/h3>
+&lt;ul>
+&lt;li>
+&lt;p>Set Environment for &lt;code>${LIFERAY_INSTALL}&lt;/code>&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>$ export LIFERAY_INSTALL=/opt/liferay-ce-portal-7.3.4-ga5&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>Stop SW360 version 14.0, ensure that couchdb is accessible (try to open &lt;code>http://localhost:5984/_utils/&lt;/code>)&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>$ ${LIFERAY_INSTALL}/tomcat-9.0.33/bin/shutdown.sh&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="2-compile-and-deploy">2. Compile and deploy&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;p>Start couchdb&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>$ sudo service couchdb start&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>Set Environment for &lt;code>${LIFERAY_INSTALL}&lt;/code>&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>$ cd /home/user/work/sw360&lt;/code>&lt;/li>
+&lt;li>&lt;code>$ export LIFERAY_INSTALL=/opt/liferay-ce-portal-7.3.4-ga5&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;ol>
+&lt;li>
+&lt;p>To clean everything and install without running the tests&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>$ mvn clean install -DskipTests &lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>For deployment run the command&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>mvn package -P deploy -Dbase.deploy.dir=. -Dliferay.deploy.dir=${LIFERAY_INSTALL}/deploy -Dbackend.deploy.dir=${LIFERAY_INSTALL}/tomcat-9.0.33/webapps -Drest.deploy.dir=${LIFERAY_INSTALL}/tomcat-9.0.33/webapps -DskipTests&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ol>
+&lt;h3 id="21-start-and-configure-liferay">2.1 Start and Configure Liferay&lt;/h3>
+&lt;ul>
+&lt;li>
+&lt;p>Set Environment for &lt;code>${LIFERAY_INSTALL}&lt;/code>&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>$ export LIFERAY_INSTALL=/opt/liferay-ce-portal-7.3.4-ga5&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>Start liferay&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>$ ${LIFERAY_INSTALL}/tomcat-9.0.33/bin/startup.sh&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>Log&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>$ tail -f ${LIFERAY_INSTALL}/tomcat-9.0.33/logs/*&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>Url SW360 : &lt;code>https://localhost:8080&lt;/code>&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="22-configure-liferay-portal">2.2 Configure Liferay Portal&lt;/h3>
+&lt;ul>
+&lt;li>Can follow the steps in the following link &lt;a href="https://www.eclipse.org/sw360/docs/deployment/legacy/deploy-liferay7.3">https://www.eclipse.org/sw360/docs/deployment/legacy/deploy-liferay7.3&lt;/a> or follow these steps:&lt;/li>
+&lt;/ul>
+&lt;ul>
+&lt;li>Import users
+&lt;ol>
+&lt;li>Open the panel on the left side by clicking the button on the top left.&lt;/li>
+&lt;li>Click on &lt;code>SW360&lt;/code> on the top right to go to the homepage.&lt;/li>
+&lt;li>Click on &lt;code>Start&lt;/code> inside the &amp;ldquo;Welcome&amp;rdquo; section.&lt;/li>
+&lt;li>Go to &lt;code>Admin&lt;/code> -&amp;gt; &lt;code>User&lt;/code> (URL: &lt;code>/group/guest/users&lt;/code>).&lt;/li>
+&lt;li>Scroll down to section &lt;code>UPLOAD USERS&lt;/code>, select a user file from the very
+beginning and click &lt;code>Upload Users&lt;/code> on the right side. &lt;a href="https://github.com/sw360/sw360vagrant/blob/master/shared/test_users_with_passwords_12345.csv">A user file can be found here in the sw360vagrant project&lt;/a>
+* Download: &lt;code>$ wget https://github.com/sw360/sw360vagrant/blob/master/shared/test_users_with_passwords_12345.csv&lt;/code>&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;/ul></description></item><item><title>Docs: Upgrade Sw360 from 15.0 to 16.0</title><link>https://www.eclipse.org/sw360/docs/deployment/upgrading/upgrade_version_sw360_15_to_16/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.eclipse.org/sw360/docs/deployment/upgrading/upgrade_version_sw360_15_to_16/</guid><description>
+&lt;h1 id="upgrade-sw360-version-160">Upgrade SW360 version 16.0&lt;/h1>
+&lt;h2 id="1-upgrade-sw360-from-150-to-160">1. Upgrade sw360 from 15.0 to 16.0&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-fallback" data-lang="fallback">&lt;span style="display:flex;">&lt;span>1.1 Checkout source code SW360 to Tag Version 16
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>1.2 Version of libraries
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>1.3 Migrate database
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>1.4 Build and deploy Sw360 Version 16
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>1.5 Start and Configure Liferay
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="11-create-folder-contains-source-code-sw360-to-tag-version-16">1.1 Create Folder contains source code SW360 to Tag Version 16&lt;/h3>
+&lt;p>Link contains source: &lt;a href="https://github.com/eclipse/sw360.git">https://github.com/eclipse/sw360.git&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>Path &lt;code>SW360_REPOSITORY&lt;/code> = &lt;code>/home/user/work15to16/sw360&lt;/code>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Source code sw360 is in main branch with commit version 14.0 . User into &lt;code>${SW360_REPOSITORY}&lt;/code> use git checkout to tag version 16 on the main branch of SW360&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Checkout to tag Version 16.0.0 or checkout commit &amp;ldquo;d15db4a1b07112fff126016103c1a8d8dd03c230&amp;rdquo;&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>$ git checkout d15db4a1b07112fff126016103c1a8d8dd03c230 &lt;/code> or &lt;code>$ git checkout sw360-16.0.0-M1&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>Upgrade Thrift from 0.14.0 to 0.16.0&lt;/p>
+&lt;ul>
+&lt;li>Move to folder sw360 with path &lt;code>/home/user/work15to16/sw360&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;p>Run command line:&lt;/p>
+&lt;p>Uninstall thrift version 0.14.0&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>./scripts/install-thrift.sh --uninstall&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;p>Install thrift version 0.16.0&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>./scripts/install-thrift.sh&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;p>Check version thrift&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>thrift --version&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>Update Dependency for SW360 version 16&lt;/p>
+&lt;p>Download dependency:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>wget https://search.maven.org/remotecontent?filepath=commons-io/commons-io/2.7/commons-io-2.7.jar -O commons-io-2.7.jar&lt;/code>&lt;/li>
+&lt;li>&lt;code>wget https://search.maven.org/remotecontent?filepath=com/google/code/gson/gson/2.8.9/gson-2.8.9.jar -O gson-2.8.9.jar&lt;/code>&lt;/li>
+&lt;li>&lt;code>wget https://search.maven.org/remotecontent?filepath=com/google/guava/guava/31.0.1-jre/guava-31.0.1-jre.jar -O guava-31.0.1-jre.jar&lt;/code>&lt;/li>
+&lt;li>&lt;code>wget https://search.maven.org/remotecontent?filepath=com/fasterxml/jackson/core/jackson-annotations/2.13.2/jackson-annotations-2.13.2.jar -O jackson-annotations-2.13.2.jar&lt;/code>&lt;/li>
+&lt;li>&lt;code>wget https://search.maven.org/remotecontent?filepath=com/fasterxml/jackson/core/jackson-core/2.13.2/jackson-core-2.13.2.jar -O jackson-core-2.13.2.jar&lt;/code>&lt;/li>
+&lt;li>&lt;code>wget https://search.maven.org/remotecontent?filepath=com/fasterxml/jackson/core/jackson-databind/2.13.2.2/jackson-databind-2.13.2.2.jar -O jackson-databind-2.13.2.2.jar&lt;/code>&lt;/li>
+&lt;li>&lt;code>wget https://repo1.maven.org/maven2/org/apache/thrift/libthrift/0.16.0/libthrift-0.16.0.jar -O libthrift-0.16.0.jar&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;p>Move dependency to folder &lt;code>/opt/liferay-ce-portal-7.3.4-ga5/deploy&lt;/code>&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="12-version-of-libraries">1.2 Version of libraries&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:left">Package Name&lt;/th>
+&lt;th style="text-align:center">Version&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:left">Liferay&lt;/td>
+&lt;td style="text-align:center">7.3.4&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">Tomcat&lt;/td>
+&lt;td style="text-align:center">9.0.33&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">Couchdb&lt;/td>
+&lt;td style="text-align:center">3.2.2&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">Open JDK&lt;/td>
+&lt;td style="text-align:center">11.0.15&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">Thrift&lt;/td>
+&lt;td style="text-align:center">0.16.0&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="13-migrate-database">1.3 Migrate database&lt;/h3>
+&lt;ul>
+&lt;li>
+&lt;p>Check migrate scripts from 15.0 to 16.0 by &lt;a href="https://github.com/eclipse/sw360/tree/master/scripts/migrations">https://github.com/eclipse/sw360/tree/master/scripts/migrations&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>3 file migration:&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;code>https://github.com/eclipse/sw360/blob/main/scripts/migrations/048_add_component_businessunit.py&lt;/code>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>https://github.com/eclipse/sw360/blob/main/scripts/migrations/049_migrate_admin_obligation.py&lt;/code>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>https://github.com/eclipse/sw360/blob/main/scripts/utilities/003_update_project_field_value_couchdb_2_x.py&lt;/code>&lt;/p>
+&lt;p>Install enviroment for python 2.7&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>$ sudo apt-add-repository universe&lt;/code>&lt;/li>
+&lt;li>&lt;code>$ sudo apt update&lt;/code>&lt;/li>
+&lt;li>&lt;code>$ sudo apt install python2-minimal&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;p>Check version&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>$ python2 --version&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;p>Install pip for python 2.7
+-&lt;code>curl https://bootstrap.pypa.io/pip/2.7/get-pip.py --output get-pip.py&lt;/code>
+-&lt;code>sudo python2 get-pip.py --proxy=http://username:password@hostname&lt;/code>
+-&lt;code>pip --version&lt;/code>&lt;/p>
+&lt;p>Import package couchdb
+-&lt;code>pip install --proxy=http://username:password@hostname couchdb&lt;/code>&lt;/p>
+&lt;p>How to run migration data&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>stop SW360 (i.e. the tomcat)&lt;/p>
+&lt;ul>
+&lt;li>Set Environment for &lt;code>${LIFERAY_INSTALL}&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;ul>
+&lt;li>&lt;code>$ export LIFERAY_INSTALL=/opt/liferay-ce-portal-7.3.4-ga5&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;ul>
+&lt;li>Stop SW360 version 15.0, ensure that couchdb is accessible (try to open &lt;code>http://localhost:5984/_utils/&lt;/code>)&lt;/li>
+&lt;/ul>
+&lt;ul>
+&lt;li>&lt;code>$ ${LIFERAY_INSTALL}/tomcat-9.0.33/bin/shutdown.sh&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>ensure that couchdb is accessible (try to open http://localhost:5984/_utils/)&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>run the migration scripts (i.e. for each script call python2 /PATH/TO/00?_some_migration_script.py)
+be aware that some scripts are using an internal dry-run switch which you have to change manually in the script&amp;rsquo;s code.&lt;/p>
+&lt;p>3.1 move to folder with path &lt;code>/home/user/work15to16/sw360/scripts/migrations&lt;/code>&lt;/p>
+&lt;p>Run command:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>python2 048_add_component_businessunit.py&lt;/code>&lt;/li>
+&lt;li>&lt;code>python2 049_migrate_admin_obligation.py&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;p>Check data change in file log:&lt;/p>
+&lt;ul>
+&lt;li>048_add_component_businessunit.log&lt;/li>
+&lt;li>049_migrate_admin_obligation.log&lt;/li>
+&lt;/ul>
+&lt;p>3.2 move to folder with path &lt;code>/home/user/work15to16/sw360/scripts/utilities&lt;/code>&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>python2 003_update_project_field_value_couchdb_2_x.py&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;p>Check data change in file log:&lt;/p>
+&lt;ul>
+&lt;li>003_update_project_field_value_couchdb_2_x.log&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="14-compile-and-deploy">1.4. Compile and deploy&lt;/h3>
+&lt;ul>
+&lt;li>Set Environment for &lt;code>${LIFERAY_INSTALL}&lt;/code>
+- &lt;code>$ cd /home/user/work/sw360&lt;/code>
+- &lt;code>$ export LIFERAY_INSTALL=/opt/liferay-ce-portal-7.3.4-ga5&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;pre>&lt;code>To clean everything and install without running the tests
 - `mvn clean install -DskipTests `
-
-For deployment run the command 
+For deployment run the command
 - `mvn package -P deploy -Dbase.deploy.dir=. -Dliferay.deploy.dir=${LIFERAY_INSTALL}/deploy -Dbackend.deploy.dir=${LIFERAY_INSTALL}/tomcat-9.0.33/webapps -Drest.deploy.dir=${LIFERAY_INSTALL}/tomcat-9.0.33/webapps -DskipTests`
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&#34;15-start-and-configure-liferay&#34;&gt;1.5 Start and Configure Liferay&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Set Environment for &lt;code&gt;${LIFERAY_INSTALL}&lt;/code&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;$ export LIFERAY_INSTALL=/opt/liferay-ce-portal-7.3.4-ga5&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Start liferay&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;$ ${LIFERAY_INSTALL}/tomcat-9.0.33/bin/startup.sh&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Log&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;$ tail -f ${LIFERAY_INSTALL}/tomcat-9.0.33/logs/*&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Url SW360 : &lt;code&gt;https://localhost:8080&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-
-      </description>
-    </item>
-    
-    <item>
-      <title>Docs: Upgrade SW360 from 16.0 to 17.0</title>
-      <link>https://www.eclipse.org/sw360/docs/deployment/upgrading/upgrade_version_sw360_16_to_17/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.eclipse.org/sw360/docs/deployment/upgrading/upgrade_version_sw360_16_to_17/</guid>
-      <description>
-        
-        
-        &lt;p&gt;&lt;a href=&#34;#ref1&#34;&gt;Checkout source code SW360 to Tag Version 17&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;#ref2&#34;&gt;Version of libraries&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;#ref3&#34;&gt;Migrate Database&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;#ref4&#34;&gt;Build and deploy SW360 Version 17&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;#ref5&#34;&gt;Start and Configure Liferay&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&#34;ref1&#34;&gt;Prepare source code to use release 17&lt;/h2&gt;
-&lt;p&gt;Link contains source: &lt;a href=&#34;https://github.com/eclipse/sw360.git&#34;&gt;https://github.com/eclipse/sw360.git&lt;/a&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Path &lt;code&gt;SW360_REPOSITORY&lt;/code&gt; = &lt;code&gt;/home/user/work16to17/sw360&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Source code sw360 is in main branch with commit version 16.0.0 . User into &lt;code&gt;${SW360_REPOSITORY}&lt;/code&gt; use git checkout to tag version 16 on the main branch of SW360&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Checkout to tag  Version 17.0.0&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;$ git checkout 6c1aeacea3b0c5f37dc1752b5409cce1433e40c2&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Check version thrift&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;thrift --version&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;If thrift version 0.14.0 then upgrade Thrift from 0.14.0 to 0.16.0&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Move to folder sw360 with path &lt;code&gt;/home/user/work16to17/sw360&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;To uninstall thrift version 0.14.0:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;./scripts/install-thrift.sh --uninstall&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;To install thrift version 0.16.0&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;./scripts/install-thrift.sh&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Download Liferay Portal CE 7.4.3.18 GA18&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;$ cd work16to17&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;$ wget  https://github.com/liferay/liferay-portal/releases/download/7.4.3.18-ga18/liferay-ce-portal-tomcat-7.4.3.18-ga18-20220329092001364.tar.gz -O liferay-ce-portal-tomcat-7.4.3.18-ga18.tar.gz&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Extract downloaded file&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;$ tar -xzf liferay-ce-portal-tomcat-7.4.3.18-ga18.tar.gz&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Copy file &lt;code&gt;portal-ext.properties&lt;/code&gt; from &lt;code&gt;liferay-ce-portal-7.3.4-ga5&lt;/code&gt; folder to &lt;code&gt;liferay-ce-portal-7.4.3.18-ga18&lt;/code&gt; folder&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Remove files in folder &lt;code&gt;hypersonic&lt;/code&gt; with path: &lt;code&gt;/home/user/work16to17/liferay-ce-portal-7.4.3.18-ga18/data/hypersonic&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;$ rm -rf /home/user/work16to17/liferay-ce-portal-7.4.3.18-ga18/data/hypersonic/*&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Copy all file &lt;code&gt;liferay-ce-portal-7.3.4-ga5/osgi/configs&lt;/code&gt; folder to &lt;code&gt;liferay-ce-portal-7.4.3.18-ga18/osgi/configs&lt;/code&gt; folder&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;liferay-database-migration&#34;&gt;Liferay Database Migration&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Go to &lt;code&gt;liferay-ce-portal-7.4.3.18-ga18/tools/portal-tools-db-upgrade-client&lt;/code&gt; folder&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Edit &lt;code&gt;app-server.properties&lt;/code&gt; to add the following parameters:&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  dir={LIFERAY_PATH_7.4}/tomcat-9.0.56
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  extra.lib.dirs=/bin
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  global.lib.dir=/lib
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  portal.dir=/webapps/ROOT
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  server.detector.server.id=tomcat
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
-&lt;li&gt;Edit &lt;code&gt;portal-upgrade-database.properties&lt;/code&gt; to add the following parameters:&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  jdbc.default.driverClassName=org.postgresql.Driver
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  jdbc.default.url=jdbc:postgresql://{POSTGRE_HOST}:5432/lportal
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  jdbc.default.username={POSTGRES_USER}
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  jdbc.default.password={POSTGRES_PASSWORD}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
-&lt;li&gt;Edit &lt;code&gt;portal-upgrade-ext.properties&lt;/code&gt; to add the following parameter:&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  liferay.home={LIFERAY_PATH_7.4}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
-&lt;li&gt;Finally, you can run the script with the following command:&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ ./db_upgrade.sh -j &amp;#34;-Xmx8000m -Dfile.encoding=UTF-8 -Duser.timezone=GMT&amp;#34;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Move folder &lt;code&gt;liferay-ce-portal-7.4.3.18-ga18&lt;/code&gt; to &lt;code&gt;/opt&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;$ sudo mv liferay-ce-portal-7.4.3.18-ga18 /opt&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Set Environment for &lt;code&gt;${LIFERAY_INSTALL_7_4}&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;$ export LIFERAY_INSTALL_7_4=/opt/liferay-ce-portal-7.4.3.18-ga18&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Move folder &lt;code&gt;/home/user/work16to17/sw360&lt;/code&gt; run command&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;$ mvn clean install -DskipTests&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;After run command &amp;ldquo;mvn clean install -DskipTests&amp;rdquo; above, copy dependency in folder &lt;code&gt;/home/user/work16to17/sw360/deploy/jars&lt;/code&gt; to  &lt;code&gt;${LIFERAY_INSTALL_7_4}/deploy&lt;/code&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   $ &lt;span style=&#34;color:#366&#34;&gt;cd&lt;/span&gt; /home/user/work16to17/sw360/deploy/jars
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   $ sudo cp *.jar /opt/liferay-ce-portal-7.4.3.18-ga18/deploy/
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;We also suggest you change the environment settings (frontend/configuration/setenv.sh) to avoid the lack of memory before making and building SW360 or can reuse 7.3.4&amp;rsquo;s setenv.sh.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   $ sudo rm -rf &lt;span style=&#34;color:#a00&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;LIFERAY_INSTALL_7_4&lt;/span&gt;&lt;span style=&#34;color:#a00&#34;&gt;}&lt;/span&gt;/tomcat-9.0.56/bin/setenv.sh
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   $ sudo cp /home/user/work16to17/sw360/frontend/configuration/setenv.sh &lt;span style=&#34;color:#a00&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;LIFERAY_INSTALL_7_4&lt;/span&gt;&lt;span style=&#34;color:#a00&#34;&gt;}&lt;/span&gt;/tomcat-9.0.56/bin/
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;install-couchdb-lucene&#34;&gt;Install Couchdb Lucene&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;SW360 uses for searching the contents of the couchdb databases a lucene-based server named couchdb-lucene&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Run command download Couchdb Lucene&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;wget --no-check-certificate https://github.com/rnewson/couchdb-lucene/archive/v2.1.0.tar.gz -O couchdb-lucene.tar.gz&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Note extract couchdb-lucene to folder &lt;code&gt;work&lt;/code&gt; with path of work: &lt;code&gt;/home/user/work&lt;/code&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;tar -xzf couchdb-lucene.tar.gz&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Run command:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;cd couchdb-lucene-2.1.0&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;sed -i &amp;quot;s/allowLeadingWildcard=false/allowLeadingWildcard=true/&amp;quot; ./src/main/resources/couchdb-lucene.ini &lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;sed -i &amp;quot;s/localhost:5984/admin:password@localhost:5984/&amp;quot; ./src/main/resources/couchdb-lucene.ini &lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;wget https://raw.githubusercontent.com/sw360/sw360vagrant/master/shared/couchdb-lucene.patch &lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;patch -p1 &amp;lt; couchdb-lucene.patch &lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;mvn clean install war:war&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;sudo cp target/couchdb-lucene-*.war /opt/liferay-ce-portal-7.4.3.18-ga18/tomcat-9.0.56/webapps/couchdb-lucene.war&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;ref2&#34;&gt;Version of libraries&lt;/h2&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&#34;text-align:left&#34;&gt;Package Name&lt;/th&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;Version&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Liferay&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;7.4.3&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Tomcat&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;9.0.56&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Couchdb&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;3.2.2&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Open JDK&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;11.0.15&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Thrift&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;0.16.0&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;ul&gt;
-&lt;li&gt;To check couchdb version: run &lt;code&gt;curl http://localhost_or_yourcouchdbserver:5984 | json_pp&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;ref3&#34;&gt;Migrate database&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Check migrate scripts from 16.0 to 17.0 by &lt;a href=&#34;https://github.com/eclipse/sw360/tree/master/scripts/migrations&#34;&gt;https://github.com/eclipse/sw360/tree/master/scripts/migrations&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;File migration:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;https://github.com/eclipse/sw360/blob/main/scripts/migrations/050_cleanup_eccinformation_duplicate_attributes.py&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;https://github.com/eclipse/sw360/blob/main/scripts/migrations/051_change_eccStatus.py&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;https://github.com/eclipse/sw360/blob/main/scripts/migrations/052_migrate_clearing_request_status.py&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;https://github.com/eclipse/sw360/blob/main/scripts/migrations/053_remove_whitespace_component_name.py&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Install pip for python 3&lt;/p&gt;
-&lt;p&gt;if there is no proxy, skip option &lt;code&gt;--proxy=http://username:password@hostname:port&lt;/code&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   $ sudo apt update
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   $ sudo apt install python3-pip
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Import package couchdb
-&lt;code&gt;pip3 install --proxy=http://username:password@hostname:port couchdb&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;How to run migration data&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;stop SW360 (i.e. the tomcat)&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Set Environment for &lt;code&gt;${LIFERAY_INSTALL_7_4}&lt;/code&gt;
-&lt;code&gt;$ export LIFERAY_INSTALL_7_4=/opt/liferay-ce-portal-7.4.3.18-ga18&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Stop SW360 version 16.0 with path &lt;code&gt;LIFERAY_INSTALL_7_3= /opt/liferay-ce-portal-7.3.4-ga5&lt;/code&gt;
-&lt;code&gt;$ ${LIFERAY_INSTALL_7_3}/tomcat-9.0.33/bin/shutdown.sh&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Ensure that couchdb is accessible (try to open &lt;code&gt;http://localhost:5984/_utils/&lt;/code&gt;)&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;run the migration scripts (i.e. for each script call python3 /PATH/TO/00?_some_migration_script.py)
-be aware that some scripts are using an internal dry-run switch which you have to change manually in the script&amp;rsquo;s code.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Move to folder with path &lt;code&gt;/home/user/work16to17/sw360/scripts/migrations&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Edit file migration to add the following parameters:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt; ```
-   DRY_RUN = False
-   # set admin name and password for couchdb3
-   DB_USER_NAME = &#39;admin&#39;
-   DB_USER_PASSWORD = &#39;password&#39;
-   # set credentials for couchdb3
-   couch.resource.credentials=(DB_USER_NAME, DB_USER_PASSWORD)
- ```
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Need to update 052 for python script&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Python 2.x code with Python 3.x. In Python 2, print is a statement and can be used without parentheses. However, in Python 3, print is a function and therefore always requires parentheses.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Install library &lt;code&gt;pandas&lt;/code&gt; of python.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;$ pip3 install pandas &lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Run command:&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   $ python3 050_cleanup_eccinformation_duplicate_attributes.py
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   $ python3 051_change_eccStatus.py
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   $ python3 052_migrate_clearing_request_status.py
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   $ python3 053_remove_whitespace_component_name.py
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Check data change in file log:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;* 050_cleanup_eccinformation_duplicate_attributes.py.log
+&lt;/code>&lt;/pre>
+&lt;h3 id="15-start-and-configure-liferay">1.5 Start and Configure Liferay&lt;/h3>
+&lt;ul>
+&lt;li>
+&lt;p>Set Environment for &lt;code>${LIFERAY_INSTALL}&lt;/code>&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>$ export LIFERAY_INSTALL=/opt/liferay-ce-portal-7.3.4-ga5&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>Start liferay&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>$ ${LIFERAY_INSTALL}/tomcat-9.0.33/bin/startup.sh&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>Log&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>$ tail -f ${LIFERAY_INSTALL}/tomcat-9.0.33/logs/*&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>Url SW360 : &lt;code>https://localhost:8080&lt;/code>&lt;/p>
+&lt;/li>
+&lt;/ul></description></item><item><title>Docs: Upgrade SW360 from 16.0 to 17.0</title><link>https://www.eclipse.org/sw360/docs/deployment/upgrading/upgrade_version_sw360_16_to_17/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.eclipse.org/sw360/docs/deployment/upgrading/upgrade_version_sw360_16_to_17/</guid><description>
+&lt;p>&lt;a href="#ref1">Checkout source code SW360 to Tag Version 17&lt;/a>&lt;/p>
+&lt;p>&lt;a href="#ref2">Version of libraries&lt;/a>&lt;/p>
+&lt;p>&lt;a href="#ref3">Migrate Database&lt;/a>&lt;/p>
+&lt;p>&lt;a href="#ref4">Build and deploy SW360 Version 17&lt;/a>&lt;/p>
+&lt;p>&lt;a href="#ref5">Start and Configure Liferay&lt;/a>&lt;/p>
+&lt;h2 id="ref1">Prepare source code to use release 17&lt;/h2>
+&lt;p>Link contains source: &lt;a href="https://github.com/eclipse/sw360.git">https://github.com/eclipse/sw360.git&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>Path &lt;code>SW360_REPOSITORY&lt;/code> = &lt;code>/home/user/work16to17/sw360&lt;/code>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Source code sw360 is in main branch with commit version 16.0.0 . User into &lt;code>${SW360_REPOSITORY}&lt;/code> use git checkout to tag version 16 on the main branch of SW360&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Checkout to tag Version 17.0.0&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>$ git checkout 6c1aeacea3b0c5f37dc1752b5409cce1433e40c2&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>Check version thrift&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>thrift --version&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>If thrift version 0.14.0 then upgrade Thrift from 0.14.0 to 0.16.0&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>Move to folder sw360 with path &lt;code>/home/user/work16to17/sw360&lt;/code>&lt;/p>
+&lt;p>To uninstall thrift version 0.14.0:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>./scripts/install-thrift.sh --uninstall&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;p>To install thrift version 0.16.0&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>./scripts/install-thrift.sh&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>Download Liferay Portal CE 7.4.3.18 GA18&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;code>$ cd work16to17&lt;/code>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>$ wget https://github.com/liferay/liferay-portal/releases/download/7.4.3.18-ga18/liferay-ce-portal-tomcat-7.4.3.18-ga18-20220329092001364.tar.gz -O liferay-ce-portal-tomcat-7.4.3.18-ga18.tar.gz&lt;/code>&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>Extract downloaded file&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>$ tar -xzf liferay-ce-portal-tomcat-7.4.3.18-ga18.tar.gz&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>Copy file &lt;code>portal-ext.properties&lt;/code> from &lt;code>liferay-ce-portal-7.3.4-ga5&lt;/code> folder to &lt;code>liferay-ce-portal-7.4.3.18-ga18&lt;/code> folder&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Remove files in folder &lt;code>hypersonic&lt;/code> with path: &lt;code>/home/user/work16to17/liferay-ce-portal-7.4.3.18-ga18/data/hypersonic&lt;/code>&lt;/p>
+&lt;p>&lt;code>$ rm -rf /home/user/work16to17/liferay-ce-portal-7.4.3.18-ga18/data/hypersonic/*&lt;/code>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Copy all file &lt;code>liferay-ce-portal-7.3.4-ga5/osgi/configs&lt;/code> folder to &lt;code>liferay-ce-portal-7.4.3.18-ga18/osgi/configs&lt;/code> folder&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="liferay-database-migration">Liferay Database Migration&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;p>Go to &lt;code>liferay-ce-portal-7.4.3.18-ga18/tools/portal-tools-db-upgrade-client&lt;/code> folder&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Edit &lt;code>app-server.properties&lt;/code> to add the following parameters:&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-fallback" data-lang="fallback">&lt;span style="display:flex;">&lt;span> dir={LIFERAY_PATH_7.4}/tomcat-9.0.56
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> extra.lib.dirs=/bin
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> global.lib.dir=/lib
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> portal.dir=/webapps/ROOT
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> server.detector.server.id=tomcat
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>Edit &lt;code>portal-upgrade-database.properties&lt;/code> to add the following parameters:&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-fallback" data-lang="fallback">&lt;span style="display:flex;">&lt;span> jdbc.default.driverClassName=org.postgresql.Driver
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> jdbc.default.url=jdbc:postgresql://{POSTGRE_HOST}:5432/lportal
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> jdbc.default.username={POSTGRES_USER}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> jdbc.default.password={POSTGRES_PASSWORD}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>Edit &lt;code>portal-upgrade-ext.properties&lt;/code> to add the following parameter:&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-fallback" data-lang="fallback">&lt;span style="display:flex;">&lt;span> liferay.home={LIFERAY_PATH_7.4}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>Finally, you can run the script with the following command:&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-fallback" data-lang="fallback">&lt;span style="display:flex;">&lt;span>$ ./db_upgrade.sh -j &amp;#34;-Xmx8000m -Dfile.encoding=UTF-8 -Duser.timezone=GMT&amp;#34;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>
+&lt;p>Move folder &lt;code>liferay-ce-portal-7.4.3.18-ga18&lt;/code> to &lt;code>/opt&lt;/code>&lt;/p>
+&lt;p>&lt;code>$ sudo mv liferay-ce-portal-7.4.3.18-ga18 /opt&lt;/code>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Set Environment for &lt;code>${LIFERAY_INSTALL_7_4}&lt;/code>&lt;/p>
+&lt;p>&lt;code>$ export LIFERAY_INSTALL_7_4=/opt/liferay-ce-portal-7.4.3.18-ga18&lt;/code>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Move folder &lt;code>/home/user/work16to17/sw360&lt;/code> run command&lt;/p>
+&lt;p>&lt;code>$ mvn clean install -DskipTests&lt;/code>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>After run command &amp;ldquo;mvn clean install -DskipTests&amp;rdquo; above, copy dependency in folder &lt;code>/home/user/work16to17/sw360/deploy/jars&lt;/code> to &lt;code>${LIFERAY_INSTALL_7_4}/deploy&lt;/code>&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span> $ &lt;span style="color:#366">cd&lt;/span> /home/user/work16to17/sw360/deploy/jars
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> $ sudo cp *.jar /opt/liferay-ce-portal-7.4.3.18-ga18/deploy/
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>
+&lt;p>We also suggest you change the environment settings (frontend/configuration/setenv.sh) to avoid the lack of memory before making and building SW360 or can reuse 7.3.4&amp;rsquo;s setenv.sh.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span> $ sudo rm -rf &lt;span style="color:#a00">${&lt;/span>&lt;span style="color:#033">LIFERAY_INSTALL_7_4&lt;/span>&lt;span style="color:#a00">}&lt;/span>/tomcat-9.0.56/bin/setenv.sh
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> $ sudo cp /home/user/work16to17/sw360/frontend/configuration/setenv.sh &lt;span style="color:#a00">${&lt;/span>&lt;span style="color:#033">LIFERAY_INSTALL_7_4&lt;/span>&lt;span style="color:#a00">}&lt;/span>/tomcat-9.0.56/bin/
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;h2 id="install-couchdb-lucene">Install Couchdb Lucene&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;p>SW360 uses for searching the contents of the couchdb databases a lucene-based server named couchdb-lucene&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Run command download Couchdb Lucene&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>wget --no-check-certificate https://github.com/rnewson/couchdb-lucene/archive/v2.1.0.tar.gz -O couchdb-lucene.tar.gz&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>Note extract couchdb-lucene to folder &lt;code>work&lt;/code> with path of work: &lt;code>/home/user/work&lt;/code>&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>tar -xzf couchdb-lucene.tar.gz&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>Run command:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>cd couchdb-lucene-2.1.0&lt;/code>&lt;/li>
+&lt;li>&lt;code>sed -i &amp;quot;s/allowLeadingWildcard=false/allowLeadingWildcard=true/&amp;quot; ./src/main/resources/couchdb-lucene.ini &lt;/code>&lt;/li>
+&lt;li>&lt;code>sed -i &amp;quot;s/localhost:5984/admin:password@localhost:5984/&amp;quot; ./src/main/resources/couchdb-lucene.ini &lt;/code>&lt;/li>
+&lt;li>&lt;code>wget https://raw.githubusercontent.com/sw360/sw360vagrant/master/shared/couchdb-lucene.patch &lt;/code>&lt;/li>
+&lt;li>&lt;code>patch -p1 &amp;lt; couchdb-lucene.patch &lt;/code>&lt;/li>
+&lt;li>&lt;code>mvn clean install war:war&lt;/code>&lt;/li>
+&lt;li>&lt;code>sudo cp target/couchdb-lucene-*.war /opt/liferay-ce-portal-7.4.3.18-ga18/tomcat-9.0.56/webapps/couchdb-lucene.war&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="ref2">Version of libraries&lt;/h2>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:left">Package Name&lt;/th>
+&lt;th style="text-align:center">Version&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:left">Liferay&lt;/td>
+&lt;td style="text-align:center">7.4.3&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">Tomcat&lt;/td>
+&lt;td style="text-align:center">9.0.56&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">Couchdb&lt;/td>
+&lt;td style="text-align:center">3.2.2&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">Open JDK&lt;/td>
+&lt;td style="text-align:center">11.0.15&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">Thrift&lt;/td>
+&lt;td style="text-align:center">0.16.0&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;ul>
+&lt;li>To check couchdb version: run &lt;code>curl http://localhost_or_yourcouchdbserver:5984 | json_pp&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;h2 id="ref3">Migrate database&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;p>Check migrate scripts from 16.0 to 17.0 by &lt;a href="https://github.com/eclipse/sw360/tree/master/scripts/migrations">https://github.com/eclipse/sw360/tree/master/scripts/migrations&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>File migration:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>https://github.com/eclipse/sw360/blob/main/scripts/migrations/050_cleanup_eccinformation_duplicate_attributes.py&lt;/code>&lt;/li>
+&lt;li>&lt;code>https://github.com/eclipse/sw360/blob/main/scripts/migrations/051_change_eccStatus.py&lt;/code>&lt;/li>
+&lt;li>&lt;code>https://github.com/eclipse/sw360/blob/main/scripts/migrations/052_migrate_clearing_request_status.py&lt;/code>&lt;/li>
+&lt;li>&lt;code>https://github.com/eclipse/sw360/blob/main/scripts/migrations/053_remove_whitespace_component_name.py&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>Install pip for python 3&lt;/p>
+&lt;p>if there is no proxy, skip option &lt;code>--proxy=http://username:password@hostname:port&lt;/code>&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span> $ sudo apt update
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> $ sudo apt install python3-pip
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>
+&lt;p>Import package couchdb
+&lt;code>pip3 install --proxy=http://username:password@hostname:port couchdb&lt;/code>&lt;/p>
+&lt;p>How to run migration data&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>stop SW360 (i.e. the tomcat)&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>Set Environment for &lt;code>${LIFERAY_INSTALL_7_4}&lt;/code>
+&lt;code>$ export LIFERAY_INSTALL_7_4=/opt/liferay-ce-portal-7.4.3.18-ga18&lt;/code>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Stop SW360 version 16.0 with path &lt;code>LIFERAY_INSTALL_7_3= /opt/liferay-ce-portal-7.3.4-ga5&lt;/code>
+&lt;code>$ ${LIFERAY_INSTALL_7_3}/tomcat-9.0.33/bin/shutdown.sh&lt;/code>&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>Ensure that couchdb is accessible (try to open &lt;code>http://localhost:5984/_utils/&lt;/code>)&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>run the migration scripts (i.e. for each script call python3 /PATH/TO/00?_some_migration_script.py)
+be aware that some scripts are using an internal dry-run switch which you have to change manually in the script&amp;rsquo;s code.&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>Move to folder with path &lt;code>/home/user/work16to17/sw360/scripts/migrations&lt;/code>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Edit file migration to add the following parameters:&lt;/p>
+&lt;pre>&lt;code> ```
+DRY_RUN = False
+# set admin name and password for couchdb3
+DB_USER_NAME = 'admin'
+DB_USER_PASSWORD = 'password'
+# set credentials for couchdb3
+couch.resource.credentials=(DB_USER_NAME, DB_USER_PASSWORD)
+```
+&lt;/code>&lt;/pre>
+&lt;/li>
+&lt;li>
+&lt;p>Need to update 052 for python script&lt;/p>
+&lt;ul>
+&lt;li>Python 2.x code with Python 3.x. In Python 2, print is a statement and can be used without parentheses. However, in Python 3, print is a function and therefore always requires parentheses.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;ul>
+&lt;li>
+&lt;p>Install library &lt;code>pandas&lt;/code> of python.&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>$ pip3 install pandas &lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>Run command:&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span> $ python3 050_cleanup_eccinformation_duplicate_attributes.py
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> $ python3 051_change_eccStatus.py
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> $ python3 052_migrate_clearing_request_status.py
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> $ python3 053_remove_whitespace_component_name.py
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Check data change in file log:&lt;/p>
+&lt;pre>&lt;code>* 050_cleanup_eccinformation_duplicate_attributes.py.log
 * 051_change_eccStatus.py.log
 * 052_migrate_clearing_request_status.log
 * 053_remove_whitespace_component_name.log
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;ref4&#34;&gt;Compile and deploy&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Set Environment for &lt;code&gt;${LIFERAY_INSTALL_7_4}&lt;/code&gt;
-&lt;code&gt;$ cd /home/user/work16to17/sw360&lt;/code&gt;
-&lt;code&gt;$ export LIFERAY_INSTALL_7_4=/opt/liferay-ce-portal-7.4.3.18-ga18&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;To clean everything and install without running the tests
-&lt;code&gt;mvn clean install -DskipTests&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;For deployment run the command
-&lt;code&gt;mvn package -P deploy -Dbase.deploy.dir=. -Dliferay.deploy.dir=${LIFERAY_INSTALL_7_4}/deploy -Dbackend.deploy.dir=${LIFERAY_INSTALL_7_4}/tomcat-9.0.56/webapps -Drest.deploy.dir=${LIFERAY_INSTALL_7_4}/tomcat-9.0.56/webapps -Dtest=org/eclipse/sw360/rest/resourceserver/restdocs/* -Dsurefire.failIfNoSpecifiedTests=false -DRunRestIntegrationTest=true &lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;ref5&#34;&gt;Start and Configure Liferay&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Set Environment for &lt;code&gt;${LIFERAY_INSTALL_7_4}&lt;/code&gt;
-&lt;code&gt;$ export LIFERAY_INSTALL_7_4=/opt/liferay-ce-portal-7.4.3.18-ga18&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Start liferay&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;$ ${LIFERAY_INSTALL_7_4}/tomcat-9.0.56/bin/startup.sh&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Log&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;$ tail -f ${LIFERAY_INSTALL_7_4}/tomcat-9.0.56/logs/*&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Url SW360 : &lt;code&gt;https://localhost:8080&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;re-indexing-search-indexes-is-required-for-major-version-upgrades-heres-how-to-re-index&#34;&gt;Re-indexing search indexes is required for major version upgrades. Here’s how to re-index:&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;1. Click on the Global Menu (Global Menu icon) and select the Control Panel tab. The Control Panel appears.
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;2. Click on Search in the Configuration section, select the Index Actions tab, and click Execute for Re-index all search indexes. The re-index executes and displays a success message when done.
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;figure&gt;
-    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/ReIndexSearch.png&#34;/&gt; 
-&lt;/figure&gt;
-
-&lt;h3 id=&#34;setup-sw360-for-liferay-import-lar-files&#34;&gt;Setup SW360 for Liferay: Import *.lar Files&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;You need over-import *.lar files to the portet can show the sw360 icons/images&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;For the setup of SW360 in Liferay, the portal description files, &lt;code&gt;*.lar&lt;/code&gt; files need not be imported. There is no way except from doing this in the UI. If we are wrong with this, please let us know, because it is very annoying that these ever occurring steps cannot be automated with Liferay.&lt;/p&gt;
-
-&lt;figure&gt;
-    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-01-24_14.49.41.png&#34;/&gt; 
-&lt;/figure&gt;
-
-&lt;p&gt;The go into &amp;gt;  &lt;code&gt;Publishing&lt;/code&gt; &amp;gt; &lt;code&gt;Import&lt;/code&gt; which shows like this:&lt;/p&gt;
-
-&lt;figure&gt;
-    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/13.png&#34;/&gt; 
-&lt;/figure&gt;
-
-&lt;p&gt;Then, click on the plus sign in order to import the *.lar file for public pages. You will find the lar files in the &lt;a href=&#34;https://github.com/eclipse/sw360/tree/master/frontend/configuration&#34;&gt;frontend/configuration&lt;/a&gt; folder of the sw360 repository.&lt;/p&gt;
-
-&lt;figure&gt;
-    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/14.png&#34;/&gt; 
-&lt;/figure&gt;
-
-&lt;p&gt;As for import settings, follow the selection as shown on the screenshot. It is very important that for the &lt;code&gt;Public_Pages_7_4_3_18_GA18.lar&lt;/code&gt; file the selection &lt;code&gt;Public_Pages_7_4_3_18_GA18.lar&lt;/code&gt; is made.&lt;/p&gt;
-
-&lt;figure&gt;
-    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/15.png&#34;/&gt; 
-&lt;/figure&gt;
-
-&lt;p&gt;Importing permission makes sure that pages are visible according to users rights. For public pages, it is irrelevant_the moment. Overwriting and the write as current user needs to be selected.&lt;/p&gt;
-&lt;p&gt;After successful importing, the same steps shall be repeated for the &lt;code&gt;Private_Pages_7_4_3_18_GA18.lar&lt;/code&gt; file.&lt;/p&gt;
-
-&lt;figure&gt;
-    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/16.png&#34;/&gt; 
-&lt;/figure&gt;
-
-&lt;p&gt;Make sure that &lt;code&gt;Private_Pages_7_4_3_18_GA18.lar &lt;/code&gt; is selected. Follow the other selections made as shown on the screenshot &amp;hellip; importing permissions &amp;hellip; mirror with overwriting, use the current author &amp;hellip;&lt;/p&gt;
-
-&lt;figure&gt;
-    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/17.png&#34;/&gt; 
-&lt;/figure&gt;
-
-
-      </description>
-    </item>
-    
-    <item>
-      <title>Docs: Upgrade SW360 from 17.00 to 18.1.0</title>
-      <link>https://www.eclipse.org/sw360/docs/deployment/upgrading/upgrade_version_sw360_17_to_18/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.eclipse.org/sw360/docs/deployment/upgrading/upgrade_version_sw360_17_to_18/</guid>
-      <description>
-        
-        
-        &lt;p&gt;&lt;a href=&#34;#ref1&#34;&gt;Version of libraries&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;#ref2&#34;&gt;Checkout source code SW360 to Tag Version 18.1.0&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;#ref3&#34;&gt;Config Couchdb Lucene&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;#ref4&#34;&gt;Build and deploy&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;#ref5&#34;&gt;Start and Configure Liferay&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;#ref6&#34;&gt;Setup SW360 for Liferay: Import *.lar Files&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&#34;ref1&#34;&gt;Version of libraries&lt;/h2&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&#34;text-align:left&#34;&gt;Package Name&lt;/th&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;Version&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Liferay&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;7.4.3&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Tomcat&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;9.0.56&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Couchdb&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;3.2.2&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Open JDK&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;11.0.15&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Thrift&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;0.16.0&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;To check couchdb version: run &lt;code&gt;curl http://localhost_or_yourcouchdbserver:5984 | json_pp&lt;/code&gt;&lt;/p&gt;
-&lt;h2 id=&#34;ref2&#34;&gt;Prepare source code to use release 18.1.0&lt;/h2&gt;
-&lt;p&gt;Link contains source: &lt;a href=&#34;https://github.com/eclipse/sw360.git&#34;&gt;https://github.com/eclipse/sw360.git&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Create folder to store new source code of version 18.1.0:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ mkdir /home/user/work17to18
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Clone source code from github:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ git clone https://github.com/eclipse/sw360.git
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Checkout to tag Version 18.1.0&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ git checkout sw360-18.1.0-M1
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Set Environment for &lt;code&gt;${LIFERAY_INSTALL_7_4}&lt;/code&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ &lt;span style=&#34;color:#366&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#033&#34;&gt;LIFERAY_INSTALL_7_4&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;/opt/liferay-ce-portal-7.4.3.18-ga18
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Move folder &lt;code&gt;/home/user/work17to18/sw360&lt;/code&gt; run command&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ mvn clean install -DskipTests
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Copy dependencies from folder &lt;strong&gt;/home/user/work17to18/sw360/deploy/jars&lt;/strong&gt; to &lt;strong&gt;${LIFERAY_INSTALL_7_4}/osgi/modules&lt;/strong&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ &lt;span style=&#34;color:#366&#34;&gt;cd&lt;/span&gt; /home/user/work17to18/sw360/utils/jars
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ sudo cp *.jar /opt/liferay-ce-portal-7.4.3.18-ga18/osgi/modules/
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;ref3&#34;&gt;Config Couchdb Lucene&lt;/h2&gt;
-&lt;p&gt;Run following commands to config Couchdb Lucene (remember to replace &lt;strong&gt;COUCHDB_USER&lt;/strong&gt; and &lt;strong&gt;COUCHDB_PASSWORD&lt;/strong&gt; by username and password of couchdb):&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ &lt;span style=&#34;color:#366&#34;&gt;cd&lt;/span&gt; /home/user/work17to18/sw360/third-party/couchdb-lucene/
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ sed -i &lt;span style=&#34;color:#c30&#34;&gt;&amp;#34;s/allowLeadingWildcard=false/allowLeadingWildcard=true/&amp;#34;&lt;/span&gt; ./src/main/resources/couchdb-lucene.ini
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ sed -i &lt;span style=&#34;color:#c30&#34;&gt;&amp;#34;s/localhost:5984/COUCHDB_USER:COUCHDB_USER@localhost:5984/&amp;#34;&lt;/span&gt; ./src/main/resources/couchdb-lucene.ini
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ mvn clean install war:war
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ cp target/couchdb-lucene-*.war /opt/liferay-ce-portal-7.4.3.18-ga18/tomcat-9.0.56/webapps/couchdb-lucene.war
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;ref4&#34;&gt;Build and deploy&lt;/h2&gt;
-&lt;p&gt;Set Environment for &lt;code&gt;${LIFERAY_INSTALL_7_4}&lt;/code&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ &lt;span style=&#34;color:#366&#34;&gt;cd&lt;/span&gt; /home/user/work17to18/sw360
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ &lt;span style=&#34;color:#366&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#033&#34;&gt;LIFERAY_INSTALL_7_4&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;/opt/liferay-ce-portal-7.4.3.18-ga18
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;To clean everything and install without running the tests&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ mvn clean install -DskipTests
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;For deployment run the command&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ mvn package -P deploy -Dbase.deploy.dir&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;. -Dliferay.deploy.dir&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#a00&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;LIFERAY_INSTALL_7_4&lt;/span&gt;&lt;span style=&#34;color:#a00&#34;&gt;}&lt;/span&gt;/deploy -Dbackend.deploy.dir&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#a00&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;LIFERAY_INSTALL_7_4&lt;/span&gt;&lt;span style=&#34;color:#a00&#34;&gt;}&lt;/span&gt;/tomcat-9.0.56/webapps -Drest.deploy.dir&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#a00&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;LIFERAY_INSTALL_7_4&lt;/span&gt;&lt;span style=&#34;color:#a00&#34;&gt;}&lt;/span&gt;/tomcat-9.0.56/webapps -Dtest&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;org/eclipse/sw360/rest/resourceserver/restdocs/* -Dsurefire.failIfNoSpecifiedTests&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#366&#34;&gt;false&lt;/span&gt; -DRunRestIntegrationTest&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#366&#34;&gt;true&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;ref5&#34;&gt;Start and Configure Liferay&lt;/h2&gt;
-&lt;p&gt;Set Environment for &lt;code&gt;${LIFERAY_INSTALL_7_4}&lt;/code&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ &lt;span style=&#34;color:#366&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#033&#34;&gt;LIFERAY_INSTALL_7_4&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;/opt/liferay-ce-portal-7.4.3.18-ga18&lt;span style=&#34;color:#c30&#34;&gt;`&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Start liferay&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ &lt;span style=&#34;color:#a00&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;LIFERAY_INSTALL_7_4&lt;/span&gt;&lt;span style=&#34;color:#a00&#34;&gt;}&lt;/span&gt;/tomcat-9.0.56/bin/startup.sh
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Log&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ tail -f &lt;span style=&#34;color:#a00&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;LIFERAY_INSTALL_7_4&lt;/span&gt;&lt;span style=&#34;color:#a00&#34;&gt;}&lt;/span&gt;/tomcat-9.0.56/logs/catalina.out
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;SW360 url : &lt;a href=&#34;https://localhost:8080&#34;&gt;https://localhost:8080&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&#34;ref6&#34;&gt;Setup SW360 for Liferay: Import *.lar Files&lt;/h2&gt;
-&lt;p&gt;&lt;strong&gt;You need over-import lar files to the portet can show the sw360 icons/images&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;For the setup of SW360 in Liferay, the portal description files, &lt;code&gt;*.lar&lt;/code&gt; files need not be imported. There is no way except from doing this in the UI. If we are wrong with this, please let us know, because it is very annoying that these ever occurring steps cannot be automated with Liferay.&lt;/p&gt;
-
-&lt;figure&gt;
-    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-01-24_14.49.41.png&#34;/&gt; 
-&lt;/figure&gt;
-
-&lt;p&gt;The go into &amp;gt; &lt;code&gt;Publishing&lt;/code&gt; &amp;gt; &lt;code&gt;Import&lt;/code&gt; which shows like this:&lt;/p&gt;
-
-&lt;figure&gt;
-    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/13.png&#34;/&gt; 
-&lt;/figure&gt;
-
-&lt;p&gt;Then, click on the plus sign in order to import the *.lar file for public pages. You will find the lar files in the &lt;a href=&#34;https://github.com/eclipse/sw360/tree/master/frontend/configuration&#34;&gt;frontend/configuration&lt;/a&gt; folder of the sw360 repository.&lt;/p&gt;
-
-&lt;figure&gt;
-    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/14.png&#34;/&gt; 
-&lt;/figure&gt;
-
-&lt;p&gt;As for import settings, follow the selection as shown on the screenshot. It is very important that for the &lt;code&gt;Public_Pages_7_4_3_18_GA18.lar&lt;/code&gt; file the selection &lt;code&gt;Public_Pages_7_4_3_18_GA18.lar&lt;/code&gt; is made.&lt;/p&gt;
-
-&lt;figure&gt;
-    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/15.png&#34;/&gt; 
-&lt;/figure&gt;
-
-&lt;p&gt;Importing permission makes sure that pages are visible according to users rights. For public pages, it is irrelevant_the moment. Overwriting and the write as current user needs to be selected.&lt;/p&gt;
-&lt;p&gt;After successful importing, the same steps shall be repeated for the &lt;code&gt;Private_Pages_7_4_3_18_GA18.lar&lt;/code&gt; file.&lt;/p&gt;
-
-&lt;figure&gt;
-    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/16.png&#34;/&gt; 
-&lt;/figure&gt;
-
-&lt;p&gt;Make sure that &lt;code&gt;Private_Pages_7_4_3_18_GA18.lar &lt;/code&gt; is selected. Follow the other selections made as shown on the screenshot &amp;hellip; importing permissions &amp;hellip; mirror with overwriting, use the current author &amp;hellip;&lt;/p&gt;
-
-&lt;figure&gt;
-    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/17.png&#34;/&gt; 
-&lt;/figure&gt;
-
-
-      </description>
-    </item>
-    
-  </channel>
-</rss>
+&lt;/code>&lt;/pre>
+&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="ref4">Compile and deploy&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;p>Set Environment for &lt;code>${LIFERAY_INSTALL_7_4}&lt;/code>
+&lt;code>$ cd /home/user/work16to17/sw360&lt;/code>
+&lt;code>$ export LIFERAY_INSTALL_7_4=/opt/liferay-ce-portal-7.4.3.18-ga18&lt;/code>&lt;/p>
+&lt;p>To clean everything and install without running the tests
+&lt;code>mvn clean install -DskipTests&lt;/code>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>For deployment run the command
+&lt;code>mvn package -P deploy -Dbase.deploy.dir=. -Dliferay.deploy.dir=${LIFERAY_INSTALL_7_4}/deploy -Dbackend.deploy.dir=${LIFERAY_INSTALL_7_4}/tomcat-9.0.56/webapps -Drest.deploy.dir=${LIFERAY_INSTALL_7_4}/tomcat-9.0.56/webapps -Dtest=org/eclipse/sw360/rest/resourceserver/restdocs/* -Dsurefire.failIfNoSpecifiedTests=false -DRunRestIntegrationTest=true &lt;/code>&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="ref5">Start and Configure Liferay&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;p>Set Environment for &lt;code>${LIFERAY_INSTALL_7_4}&lt;/code>
+&lt;code>$ export LIFERAY_INSTALL_7_4=/opt/liferay-ce-portal-7.4.3.18-ga18&lt;/code>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Start liferay&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>$ ${LIFERAY_INSTALL_7_4}/tomcat-9.0.56/bin/startup.sh&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>Log&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>$ tail -f ${LIFERAY_INSTALL_7_4}/tomcat-9.0.56/logs/*&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>Url SW360 : &lt;code>https://localhost:8080&lt;/code>&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="re-indexing-search-indexes-is-required-for-major-version-upgrades-heres-how-to-re-index">Re-indexing search indexes is required for major version upgrades. Here’s how to re-index:&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-fallback" data-lang="fallback">&lt;span style="display:flex;">&lt;span>1. Click on the Global Menu (Global Menu icon) and select the Control Panel tab. The Control Panel appears.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>2. Click on Search in the Configuration section, select the Index Actions tab, and click Execute for Re-index all search indexes. The re-index executes and displays a success message when done.
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+&lt;figure>
+&lt;img src="https://www.eclipse.org/sw360/sw360/img/sw360screenshots/ReIndexSearch.png"/>
+&lt;/figure>
+&lt;h3 id="setup-sw360-for-liferay-import-lar-files">Setup SW360 for Liferay: Import *.lar Files&lt;/h3>
+&lt;ul>
+&lt;li>&lt;code>You need over-import *.lar files to the portet can show the sw360 icons/images&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;p>For the setup of SW360 in Liferay, the portal description files, &lt;code>*.lar&lt;/code> files need not be imported. There is no way except from doing this in the UI. If we are wrong with this, please let us know, because it is very annoying that these ever occurring steps cannot be automated with Liferay.&lt;/p>
+&lt;figure>
+&lt;img src="https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-01-24_14.49.41.png"/>
+&lt;/figure>
+&lt;p>The go into &amp;gt; &lt;code>Publishing&lt;/code> &amp;gt; &lt;code>Import&lt;/code> which shows like this:&lt;/p>
+&lt;figure>
+&lt;img src="https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/13.png"/>
+&lt;/figure>
+&lt;p>Then, click on the plus sign in order to import the *.lar file for public pages. You will find the lar files in the &lt;a href="https://github.com/eclipse/sw360/tree/master/frontend/configuration">frontend/configuration&lt;/a> folder of the sw360 repository.&lt;/p>
+&lt;figure>
+&lt;img src="https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/14.png"/>
+&lt;/figure>
+&lt;p>As for import settings, follow the selection as shown on the screenshot. It is very important that for the &lt;code>Public_Pages_7_4_3_18_GA18.lar&lt;/code> file the selection &lt;code>Public_Pages_7_4_3_18_GA18.lar&lt;/code> is made.&lt;/p>
+&lt;figure>
+&lt;img src="https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/15.png"/>
+&lt;/figure>
+&lt;p>Importing permission makes sure that pages are visible according to users rights. For public pages, it is irrelevant_the moment. Overwriting and the write as current user needs to be selected.&lt;/p>
+&lt;p>After successful importing, the same steps shall be repeated for the &lt;code>Private_Pages_7_4_3_18_GA18.lar&lt;/code> file.&lt;/p>
+&lt;figure>
+&lt;img src="https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/16.png"/>
+&lt;/figure>
+&lt;p>Make sure that &lt;code>Private_Pages_7_4_3_18_GA18.lar &lt;/code> is selected. Follow the other selections made as shown on the screenshot &amp;hellip; importing permissions &amp;hellip; mirror with overwriting, use the current author &amp;hellip;&lt;/p>
+&lt;figure>
+&lt;img src="https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/17.png"/>
+&lt;/figure></description></item><item><title>Docs: Upgrade SW360 from 17.00 to 18.1.0</title><link>https://www.eclipse.org/sw360/docs/deployment/upgrading/upgrade_version_sw360_17_to_18/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.eclipse.org/sw360/docs/deployment/upgrading/upgrade_version_sw360_17_to_18/</guid><description>
+&lt;p>&lt;a href="#ref1">Version of libraries&lt;/a>&lt;/p>
+&lt;p>&lt;a href="#ref2">Checkout source code SW360 to Tag Version 18.1.0&lt;/a>&lt;/p>
+&lt;p>&lt;a href="#ref3">Config Couchdb Lucene&lt;/a>&lt;/p>
+&lt;p>&lt;a href="#ref4">Build and deploy&lt;/a>&lt;/p>
+&lt;p>&lt;a href="#ref5">Start and Configure Liferay&lt;/a>&lt;/p>
+&lt;p>&lt;a href="#ref6">Setup SW360 for Liferay: Import *.lar Files&lt;/a>&lt;/p>
+&lt;h2 id="ref1">Version of libraries&lt;/h2>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:left">Package Name&lt;/th>
+&lt;th style="text-align:center">Version&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:left">Liferay&lt;/td>
+&lt;td style="text-align:center">7.4.3&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">Tomcat&lt;/td>
+&lt;td style="text-align:center">9.0.56&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">Couchdb&lt;/td>
+&lt;td style="text-align:center">3.2.2&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">Open JDK&lt;/td>
+&lt;td style="text-align:center">11.0.15&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">Thrift&lt;/td>
+&lt;td style="text-align:center">0.16.0&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>To check couchdb version: run &lt;code>curl http://localhost_or_yourcouchdbserver:5984 | json_pp&lt;/code>&lt;/p>
+&lt;h2 id="ref2">Prepare source code to use release 18.1.0&lt;/h2>
+&lt;p>Link contains source: &lt;a href="https://github.com/eclipse/sw360.git">https://github.com/eclipse/sw360.git&lt;/a>&lt;/p>
+&lt;p>Create folder to store new source code of version 18.1.0:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>$ mkdir /home/user/work17to18
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Clone source code from github:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>$ git clone https://github.com/eclipse/sw360.git
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Checkout to tag Version 18.1.0&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>$ git checkout sw360-18.1.0-M1
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Set Environment for &lt;code>${LIFERAY_INSTALL_7_4}&lt;/code>&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>$ &lt;span style="color:#366">export&lt;/span> &lt;span style="color:#033">LIFERAY_INSTALL_7_4&lt;/span>&lt;span style="color:#555">=&lt;/span>/opt/liferay-ce-portal-7.4.3.18-ga18
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Move folder &lt;code>/home/user/work17to18/sw360&lt;/code> run command&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>$ mvn clean install -DskipTests
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Copy dependencies from folder &lt;strong>/home/user/work17to18/sw360/deploy/jars&lt;/strong> to &lt;strong>${LIFERAY_INSTALL_7_4}/osgi/modules&lt;/strong>&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>$ &lt;span style="color:#366">cd&lt;/span> /home/user/work17to18/sw360/utils/jars
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ sudo cp *.jar /opt/liferay-ce-portal-7.4.3.18-ga18/osgi/modules/
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="ref3">Config Couchdb Lucene&lt;/h2>
+&lt;p>Run following commands to config Couchdb Lucene (remember to replace &lt;strong>COUCHDB_USER&lt;/strong> and &lt;strong>COUCHDB_PASSWORD&lt;/strong> by username and password of couchdb):&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>$ &lt;span style="color:#366">cd&lt;/span> /home/user/work17to18/sw360/third-party/couchdb-lucene/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ sed -i &lt;span style="color:#c30">&amp;#34;s/allowLeadingWildcard=false/allowLeadingWildcard=true/&amp;#34;&lt;/span> ./src/main/resources/couchdb-lucene.ini
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ sed -i &lt;span style="color:#c30">&amp;#34;s/localhost:5984/COUCHDB_USER:COUCHDB_USER@localhost:5984/&amp;#34;&lt;/span> ./src/main/resources/couchdb-lucene.ini
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ mvn clean install war:war
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ cp target/couchdb-lucene-*.war /opt/liferay-ce-portal-7.4.3.18-ga18/tomcat-9.0.56/webapps/couchdb-lucene.war
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="ref4">Build and deploy&lt;/h2>
+&lt;p>Set Environment for &lt;code>${LIFERAY_INSTALL_7_4}&lt;/code>&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>$ &lt;span style="color:#366">cd&lt;/span> /home/user/work17to18/sw360
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ &lt;span style="color:#366">export&lt;/span> &lt;span style="color:#033">LIFERAY_INSTALL_7_4&lt;/span>&lt;span style="color:#555">=&lt;/span>/opt/liferay-ce-portal-7.4.3.18-ga18
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>To clean everything and install without running the tests&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>$ mvn clean install -DskipTests
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>For deployment run the command&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>$ mvn package -P deploy -Dbase.deploy.dir&lt;span style="color:#555">=&lt;/span>. -Dliferay.deploy.dir&lt;span style="color:#555">=&lt;/span>&lt;span style="color:#a00">${&lt;/span>&lt;span style="color:#033">LIFERAY_INSTALL_7_4&lt;/span>&lt;span style="color:#a00">}&lt;/span>/deploy -Dbackend.deploy.dir&lt;span style="color:#555">=&lt;/span>&lt;span style="color:#a00">${&lt;/span>&lt;span style="color:#033">LIFERAY_INSTALL_7_4&lt;/span>&lt;span style="color:#a00">}&lt;/span>/tomcat-9.0.56/webapps -Drest.deploy.dir&lt;span style="color:#555">=&lt;/span>&lt;span style="color:#a00">${&lt;/span>&lt;span style="color:#033">LIFERAY_INSTALL_7_4&lt;/span>&lt;span style="color:#a00">}&lt;/span>/tomcat-9.0.56/webapps -Dtest&lt;span style="color:#555">=&lt;/span>org/eclipse/sw360/rest/resourceserver/restdocs/* -Dsurefire.failIfNoSpecifiedTests&lt;span style="color:#555">=&lt;/span>&lt;span style="color:#366">false&lt;/span> -DRunRestIntegrationTest&lt;span style="color:#555">=&lt;/span>&lt;span style="color:#366">true&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="ref5">Start and Configure Liferay&lt;/h2>
+&lt;p>Set Environment for &lt;code>${LIFERAY_INSTALL_7_4}&lt;/code>&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>$ &lt;span style="color:#366">export&lt;/span> &lt;span style="color:#033">LIFERAY_INSTALL_7_4&lt;/span>&lt;span style="color:#555">=&lt;/span>/opt/liferay-ce-portal-7.4.3.18-ga18&lt;span style="color:#c30">`&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Start liferay&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>$ &lt;span style="color:#a00">${&lt;/span>&lt;span style="color:#033">LIFERAY_INSTALL_7_4&lt;/span>&lt;span style="color:#a00">}&lt;/span>/tomcat-9.0.56/bin/startup.sh
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Log&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>$ tail -f &lt;span style="color:#a00">${&lt;/span>&lt;span style="color:#033">LIFERAY_INSTALL_7_4&lt;/span>&lt;span style="color:#a00">}&lt;/span>/tomcat-9.0.56/logs/catalina.out
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>SW360 url : &lt;a href="https://localhost:8080">https://localhost:8080&lt;/a>&lt;/p>
+&lt;h2 id="ref6">Setup SW360 for Liferay: Import *.lar Files&lt;/h2>
+&lt;p>&lt;strong>You need over-import lar files to the portet can show the sw360 icons/images&lt;/strong>&lt;/p>
+&lt;p>For the setup of SW360 in Liferay, the portal description files, &lt;code>*.lar&lt;/code> files need not be imported. There is no way except from doing this in the UI. If we are wrong with this, please let us know, because it is very annoying that these ever occurring steps cannot be automated with Liferay.&lt;/p>
+&lt;figure>
+&lt;img src="https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-01-24_14.49.41.png"/>
+&lt;/figure>
+&lt;p>The go into &amp;gt; &lt;code>Publishing&lt;/code> &amp;gt; &lt;code>Import&lt;/code> which shows like this:&lt;/p>
+&lt;figure>
+&lt;img src="https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/13.png"/>
+&lt;/figure>
+&lt;p>Then, click on the plus sign in order to import the *.lar file for public pages. You will find the lar files in the &lt;a href="https://github.com/eclipse/sw360/tree/master/frontend/configuration">frontend/configuration&lt;/a> folder of the sw360 repository.&lt;/p>
+&lt;figure>
+&lt;img src="https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/14.png"/>
+&lt;/figure>
+&lt;p>As for import settings, follow the selection as shown on the screenshot. It is very important that for the &lt;code>Public_Pages_7_4_3_18_GA18.lar&lt;/code> file the selection &lt;code>Public_Pages_7_4_3_18_GA18.lar&lt;/code> is made.&lt;/p>
+&lt;figure>
+&lt;img src="https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/15.png"/>
+&lt;/figure>
+&lt;p>Importing permission makes sure that pages are visible according to users rights. For public pages, it is irrelevant_the moment. Overwriting and the write as current user needs to be selected.&lt;/p>
+&lt;p>After successful importing, the same steps shall be repeated for the &lt;code>Private_Pages_7_4_3_18_GA18.lar&lt;/code> file.&lt;/p>
+&lt;figure>
+&lt;img src="https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/16.png"/>
+&lt;/figure>
+&lt;p>Make sure that &lt;code>Private_Pages_7_4_3_18_GA18.lar &lt;/code> is selected. Follow the other selections made as shown on the screenshot &amp;hellip; importing permissions &amp;hellip; mirror with overwriting, use the current author &amp;hellip;&lt;/p>
+&lt;figure>
+&lt;img src="https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/17.png"/>
+&lt;/figure></description></item></channel></rss>

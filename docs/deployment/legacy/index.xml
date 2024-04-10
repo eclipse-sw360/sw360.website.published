@@ -1,657 +1,472 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Eclipse SW360 – Legacy Deployment Guides</title>
-    <link>https://www.eclipse.org/sw360/docs/deployment/legacy/</link>
-    <description>Recent content in Legacy Deployment Guides on Eclipse SW360</description>
-    <generator>Hugo -- gohugo.io</generator>
-    
-	  <atom:link href="https://www.eclipse.org/sw360/docs/deployment/legacy/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-      
-        
-      
-    
-    
-    <item>
-      <title>Docs: Native Install</title>
-      <link>https://www.eclipse.org/sw360/docs/deployment/legacy/nativeinstall/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.eclipse.org/sw360/docs/deployment/legacy/nativeinstall/</guid>
-      <description>
-        
-        
-        
-      </description>
-    </item>
-    
-    <item>
-      <title>Docs: Initial Setup of Liferay 6.2 and sw360</title>
-      <link>https://www.eclipse.org/sw360/docs/deployment/legacy/deploy-liferay/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.eclipse.org/sw360/docs/deployment/legacy/deploy-liferay/</guid>
-      <description>
-        
-        
-        &lt;h3 id=&#34;liferay-administrator-steps&#34;&gt;Liferay administrator steps&lt;/h3&gt;
-&lt;p&gt;This part describes how to setup a new liferay instance after you went through the initial Liferay setup: create an admin account, confirm the license and terms and fill out your personal details. Alternatively in the &lt;a href=&#34;https://github.com/sw360/sw360vagrant&#34;&gt;sw360vagrant&lt;/a&gt; or the &lt;a href=&#34;https://github.com/sw360/sw360chores&#34;&gt;sw360chores&lt;/a&gt; deployment, the default setup user credentials are &lt;code&gt;setup@sw360.org&lt;/code&gt; with the unsafe password &lt;code&gt;sw360fossy&lt;/code&gt;.&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;Login as setup administrator (if you are using the default unsafe password, you should replace it on productive instances)&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Go to&lt;/p&gt;
-&lt;p&gt;Menu Admin -&amp;gt; Item Control Panel -&amp;gt; Section Users, Password Policies -&amp;gt; Default Password Policy -&amp;gt; Actions -&amp;gt; Edit&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Then&lt;/p&gt;
-&lt;p&gt;uncheck &lt;code&gt;Change Required&lt;/code&gt; and then
-save&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Then we need to grant new users the right to see SW360&lt;/p&gt;
-&lt;p&gt;Control Panel -&amp;gt; Configuration -&amp;gt; Users(on the right) -&amp;gt;  Default User Associations&lt;/p&gt;
-&lt;p&gt;check &lt;code&gt;Apply to Existing Users&lt;/code&gt;
-write in Sites: &lt;code&gt;SW360 &lt;/code&gt;
-save (on the right)&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Do not allow stranger to create accounts &amp;hellip;&lt;/p&gt;
-&lt;p&gt;Control Panel -&amp;gt; Configuration -&amp;gt; Users(on the right) -&amp;gt;  Authentication&lt;/p&gt;
-&lt;p&gt;uncheck &lt;code&gt;Allow strangers to create ...&lt;/code&gt;
-uncheck &lt;code&gt;Allow strangers to verify ...&lt;/code&gt;
-save (on the right)&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Then, to deactivate self registration&lt;/p&gt;
-&lt;p&gt;Control Panel -&amp;gt; Authentication -&amp;gt; remove checkmarks for creating accounts by strangers
-save (on the right)&lt;/p&gt;
-&lt;p&gt;Note, disabling self registration is required because the current Liferay self registration does not create accounts in the backend service. (hence using the importer is required)&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Then we go to&lt;/p&gt;
-&lt;p&gt;Admin -&amp;gt; Pages&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;and import the lar files from&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;frontend/configuration/public_pages.lar
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;frontend/configuration/private_pages.lar
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;for the respective pages, using the tabs &lt;code&gt;Public Pages&lt;/code&gt; and &lt;code&gt;Private Pages&lt;/code&gt;. Please note that the provided *.lar files are for Liferay 6.2 GA5 only (fun!). If you run a different liferay version, you will need to add the portlets manually until the *.lar files are updated manually.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;( DO NOT CHECK Pages -&amp;gt; Change -&amp;gt; Delete Missing Pages)&lt;/p&gt;
-&lt;p&gt;We check on first page&lt;/p&gt;
-&lt;p&gt;Application Configuration -&amp;gt; Choose Applications (leave all checked)&lt;/p&gt;
-&lt;p&gt;Permissions -&amp;gt; Permissions&lt;/p&gt;
-&lt;p&gt;Permissions -&amp;gt; Permissions Assigned to Roles&lt;/p&gt;
-&lt;p&gt;=&amp;gt; Click Continue&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;We check on second page of the import agent:&lt;/p&gt;
-&lt;p&gt;Update Data -&amp;gt; Mirror with overwriting&lt;/p&gt;
-&lt;p&gt;Authorship of the Content -&amp;gt; Use the Current User as Author&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;If this was successful we can go to&lt;/p&gt;
-&lt;p&gt;Private Pages -&amp;gt; users&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;We can then import a csv file that looks like that&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; GivenName,Lastname,Email,Department,UserGroup,GID,isMale,PasswdHash
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; user last name, user first name, first.last@sw360.org,TOP ORG CODE TEAM,USER,SW360_0004,true,AAAAoAAB9ACem9mZj9zptlEjFSMEF5MdOSUzgyxFDmKDGQDK
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;Note that&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;1. The GID must be unique
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Eclipse SW360 – Legacy Deployment Guides</title><link>https://www.eclipse.org/sw360/docs/deployment/legacy/</link><description>Recent content in Legacy Deployment Guides on Eclipse SW360</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://www.eclipse.org/sw360/docs/deployment/legacy/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Native Install</title><link>https://www.eclipse.org/sw360/docs/deployment/legacy/nativeinstall/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.eclipse.org/sw360/docs/deployment/legacy/nativeinstall/</guid><description/></item><item><title>Docs: Initial Setup of Liferay 6.2 and sw360</title><link>https://www.eclipse.org/sw360/docs/deployment/legacy/deploy-liferay/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.eclipse.org/sw360/docs/deployment/legacy/deploy-liferay/</guid><description>
+&lt;h3 id="liferay-administrator-steps">Liferay administrator steps&lt;/h3>
+&lt;p>This part describes how to setup a new liferay instance after you went through the initial Liferay setup: create an admin account, confirm the license and terms and fill out your personal details. Alternatively in the &lt;a href="https://github.com/sw360/sw360vagrant">sw360vagrant&lt;/a> or the &lt;a href="https://github.com/sw360/sw360chores">sw360chores&lt;/a> deployment, the default setup user credentials are &lt;code>setup@sw360.org&lt;/code> with the unsafe password &lt;code>sw360fossy&lt;/code>.&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>Login as setup administrator (if you are using the default unsafe password, you should replace it on productive instances)&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Go to&lt;/p>
+&lt;p>Menu Admin -&amp;gt; Item Control Panel -&amp;gt; Section Users, Password Policies -&amp;gt; Default Password Policy -&amp;gt; Actions -&amp;gt; Edit&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Then&lt;/p>
+&lt;p>uncheck &lt;code>Change Required&lt;/code> and then
+save&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Then we need to grant new users the right to see SW360&lt;/p>
+&lt;p>Control Panel -&amp;gt; Configuration -&amp;gt; Users(on the right) -&amp;gt; Default User Associations&lt;/p>
+&lt;p>check &lt;code>Apply to Existing Users&lt;/code>
+write in Sites: &lt;code>SW360 &lt;/code>
+save (on the right)&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Do not allow stranger to create accounts &amp;hellip;&lt;/p>
+&lt;p>Control Panel -&amp;gt; Configuration -&amp;gt; Users(on the right) -&amp;gt; Authentication&lt;/p>
+&lt;p>uncheck &lt;code>Allow strangers to create ...&lt;/code>
+uncheck &lt;code>Allow strangers to verify ...&lt;/code>
+save (on the right)&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Then, to deactivate self registration&lt;/p>
+&lt;p>Control Panel -&amp;gt; Authentication -&amp;gt; remove checkmarks for creating accounts by strangers
+save (on the right)&lt;/p>
+&lt;p>Note, disabling self registration is required because the current Liferay self registration does not create accounts in the backend service. (hence using the importer is required)&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Then we go to&lt;/p>
+&lt;p>Admin -&amp;gt; Pages&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>and import the lar files from&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-fallback" data-lang="fallback">&lt;span style="display:flex;">&lt;span>frontend/configuration/public_pages.lar
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>frontend/configuration/private_pages.lar
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>for the respective pages, using the tabs &lt;code>Public Pages&lt;/code> and &lt;code>Private Pages&lt;/code>. Please note that the provided *.lar files are for Liferay 6.2 GA5 only (fun!). If you run a different liferay version, you will need to add the portlets manually until the *.lar files are updated manually.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>( DO NOT CHECK Pages -&amp;gt; Change -&amp;gt; Delete Missing Pages)&lt;/p>
+&lt;p>We check on first page&lt;/p>
+&lt;p>Application Configuration -&amp;gt; Choose Applications (leave all checked)&lt;/p>
+&lt;p>Permissions -&amp;gt; Permissions&lt;/p>
+&lt;p>Permissions -&amp;gt; Permissions Assigned to Roles&lt;/p>
+&lt;p>=&amp;gt; Click Continue&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>We check on second page of the import agent:&lt;/p>
+&lt;p>Update Data -&amp;gt; Mirror with overwriting&lt;/p>
+&lt;p>Authorship of the Content -&amp;gt; Use the Current User as Author&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>If this was successful we can go to&lt;/p>
+&lt;p>Private Pages -&amp;gt; users&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>We can then import a csv file that looks like that&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-fallback" data-lang="fallback">&lt;span style="display:flex;">&lt;span> GivenName,Lastname,Email,Department,UserGroup,GID,isMale,PasswdHash
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> user last name, user first name, first.last@sw360.org,TOP ORG CODE TEAM,USER,SW360_0004,true,AAAAoAAB9ACem9mZj9zptlEjFSMEF5MdOSUzgyxFDmKDGQDK
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ol>
+&lt;p>Note that&lt;/p>
+&lt;pre>&lt;code>1. The GID must be unique
 1. The hash here means &amp;quot;t&amp;quot;
 1. The GID is called external Id in the thrift-based datamodel
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&#34;some-notes-and-troubleshooting&#34;&gt;Some notes and troubleshooting&lt;/h3&gt;
-&lt;h4 id=&#34;check-liferay-configuration-options&#34;&gt;Check Liferay Configuration Options&lt;/h4&gt;
-&lt;p&gt;There are plenty of useful settings to setup for your instance - you should check them depending on your desired use. Just a few examples, you could disable or enable:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Auto login or self registration functionality&lt;/li&gt;
-&lt;li&gt;Site statistics&lt;/li&gt;
-&lt;li&gt;Password policies&lt;/li&gt;
-&lt;li&gt;Configurability options&lt;/li&gt;
-&lt;li&gt;many more, it makes sense to browse the Liferay Admin area (in the optimal case, using the setup-admin login) and check all the options.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4 id=&#34;liferay-crashes-at-startup-with-exception-dockbar&#34;&gt;Liferay crashes at startup with exception: Dockbar&lt;/h4&gt;
-&lt;p&gt;If the dockbar error occurs, the file named in the error log must be replaced with an original one, because it is corrupted. Note that this represents a bug of the Liferay 6.2 (search in your favorite search engine for dockbar liferay problem &amp;hellip;).&lt;/p&gt;
-&lt;h4 id=&#34;strange-behavior&#34;&gt;Strange behavior&lt;/h4&gt;
-&lt;p&gt;If the server has problems in terms of long running requests, maybe the memory setting is not allright, consider:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;CATALINA_OPTS=&amp;#34;$CATALINA_OPTS -Xms2048m -Xmx2048m
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;- -XX:NewSize=512m -XX:MaxNewSize=512m -XX:PermSize=512m
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;- -XX:MaxPermSize=512m&amp;#34;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;if you run Java prior to 8.&lt;/p&gt;
-&lt;h4 id=&#34;surfing-to-the-main-page-shows-blank-page-with-exception-message&#34;&gt;Surfing to the main page shows blank page with exception message&lt;/h4&gt;
-&lt;p&gt;If the &amp;ldquo;null pointer page&amp;rdquo; shows up (just a simple white page saying a null pointer exception occurred), remove the hsql folder inside the data folder from the liferay distro (shutdown before and restart after).&lt;/p&gt;
-
-      </description>
-    </item>
-    
-    <item>
-      <title>Docs: Initial Setup of Liferay 7.2 and sw360</title>
-      <link>https://www.eclipse.org/sw360/docs/deployment/legacy/deploy-liferay7/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.eclipse.org/sw360/docs/deployment/legacy/deploy-liferay7/</guid>
-      <description>
-        
-        
-        &lt;h1 id=&#34;starting-sw360-for-the-first-time&#34;&gt;Starting SW360 for the First Time&lt;/h1&gt;
-&lt;p&gt;So, the vagrant setup has deployed sw360, but unfortunately, there is some major issue: With Liferay, certain configuration need to be applied manually in the UI. If you would know how to import *.lar files and apply some setting from the command line (without implementing an approach based on HTML testing frameworks, like selenium), please let us know.&lt;/p&gt;
-&lt;p&gt;Until then, some tasks need to be done manually, after everything has been built up:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;import *.lar files&lt;/li&gt;
-&lt;li&gt;set password policies not to change after first login (it is annoying when developing)&lt;/li&gt;
-&lt;li&gt;set the default area to be SW360 when users login to liferay&lt;/li&gt;
-&lt;li&gt;apply some more settings, like users cannot create accounts on their own&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h1 id=&#34;setup-login&#34;&gt;Setup Login&lt;/h1&gt;
-&lt;p&gt;After successful installation, the screen should look like this. If there is weird html output without images and plain text, then likely some port settings did not work and the pages generated have wrong URLs inside.&lt;/p&gt;
-
-&lt;figure&gt;
-    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-01-24_14.38.53.png&#34;/&gt; 
-&lt;/figure&gt;
-
-&lt;p&gt;Sign in_the icon_the upper left corner. If you did not change the values in &lt;code&gt;configuration.rb&lt;/code&gt;the default login is &lt;code&gt;setup@sw360.org&lt;/code&gt; and &lt;code&gt;sw360fossy&lt;/code&gt;.&lt;/p&gt;
-
-&lt;figure&gt;
-    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-01-24_14.39.06.png&#34;/&gt; 
-&lt;/figure&gt;
-
-&lt;h1 id=&#34;user-settings-in-sw360&#34;&gt;User Settings in SW360&lt;/h1&gt;
-&lt;p&gt;Go into the control panel area which can be unfold by clicking in the upper left corner. In this area, go for Users &amp;gt; Password Policies and disable &lt;code&gt;change Required&lt;/code&gt; if you wish to do so. Click on Save to save the selection.&lt;/p&gt;
-
-&lt;figure&gt;
-    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-01-24_14.39.56.png&#34;/&gt; 
-&lt;/figure&gt;
-
-&lt;p&gt;Then, in &lt;code&gt;Configuration&lt;/code&gt; &amp;gt;  &lt;code&gt;Instance Settings&lt;/code&gt; &amp;gt; &lt;code&gt;Users&lt;/code&gt; &amp;gt; &lt;code&gt;Default User Associations&lt;/code&gt; to enter SW360 and apply it also to existing users. Click on Save to save the selection.&lt;/p&gt;
-
-&lt;figure&gt;
-    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-01-24_14.43.32.png&#34;/&gt; 
-&lt;/figure&gt;
-
-&lt;p&gt;Then, in &lt;code&gt;Configuration&lt;/code&gt; &amp;gt;  &lt;code&gt;Instance Settings&lt;/code&gt; &amp;gt; &lt;code&gt;User Authentication&lt;/code&gt; &amp;gt; &lt;code&gt;General&lt;/code&gt; to disable all kind of auto login to make sure only authenticated users can log in.&lt;/p&gt;
-
-&lt;figure&gt;
-    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-01-24_14.46.49.png&#34;/&gt; 
-&lt;/figure&gt;
-
-&lt;p&gt;Depending on your preferences make appropriate selections according to the screenshot. It is not advisable to allow users to self register in order to access the SW360 data.&lt;/p&gt;
-
-&lt;figure&gt;
-    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-01-24_14.47.03.png&#34;/&gt; 
-&lt;/figure&gt;
-
-&lt;h1 id=&#34;import-lar-files&#34;&gt;Import *.lar Files&lt;/h1&gt;
-&lt;p&gt;Then, in the &lt;code&gt;SW360&lt;/code&gt; area &amp;gt;  &lt;code&gt;Publishing&lt;/code&gt; &amp;gt; &lt;code&gt;Import&lt;/code&gt; klick on the plus sign in order to import the *.lar file for public pages.&lt;/p&gt;
-
-&lt;figure&gt;
-    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-01-24_14.49.41.png&#34;/&gt; 
-&lt;/figure&gt;
-
-&lt;p&gt;As for import settings, follow the selection as shown on the screenshot. It is very important that for the &lt;code&gt;PublicPages.lar&lt;/code&gt; file the selection &lt;code&gt;Public Pages&lt;/code&gt; is made.&lt;/p&gt;
-
-&lt;figure&gt;
-    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-01-24_14.51.10.png&#34;/&gt; 
-&lt;/figure&gt;
-
-&lt;p&gt;Importing permission makes sure that pages are visible according to users rights. For public pages, it is irrelevant_the moment.&lt;/p&gt;
-
-&lt;figure&gt;
-    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-01-24_14.52.14.png&#34;/&gt; 
-&lt;/figure&gt;
-
-&lt;p&gt;Overwriting and the write as current user needs to be selected.&lt;/p&gt;
-
-&lt;figure&gt;
-    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-01-24_14.51.21.png&#34;/&gt; 
-&lt;/figure&gt;
-
-&lt;p&gt;After successful importing the following view should appear.&lt;/p&gt;
-
-&lt;figure&gt;
-    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-01-24_14.52.23.png&#34;/&gt; 
-&lt;/figure&gt;
-
-&lt;p&gt;The same steps shall be repeated for the &lt;code&gt;PrivatePages.lar&lt;/code&gt; file.&lt;/p&gt;
-
-&lt;figure&gt;
-    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-01-24_14.52.36.png&#34;/&gt; 
-&lt;/figure&gt;
-
-&lt;p&gt;Make sure that &lt;code&gt;Private Pages&lt;/code&gt; is selected. Follow the other selections made as shown on the screenshots.&lt;/p&gt;
-
-&lt;figure&gt;
-    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-01-24_14.52.58.png&#34;/&gt; 
-&lt;/figure&gt;
-
-&lt;p&gt;Importing permissions &amp;hellip;&lt;/p&gt;
-
-&lt;figure&gt;
-    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-01-24_14.53.01.png&#34;/&gt; 
-&lt;/figure&gt;
-
-&lt;p&gt;Mirror with overwriting, use the current author &amp;hellip;&lt;/p&gt;
-
-&lt;figure&gt;
-    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-01-24_14.53.04.png&#34;/&gt; 
-&lt;/figure&gt;
-
-&lt;p&gt;Then the successful result should be shown like this:&lt;/p&gt;
-
-&lt;figure&gt;
-    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-01-24_14.54.14.png&#34;/&gt; 
-&lt;/figure&gt;
-
-&lt;p&gt;If you click then the liferay logo_the upper left corner where the SW360 is, you will return to the application and the following screen should appear. Click &lt;code&gt;Start&lt;/code&gt; to open the private pages. You are still logged in, so the setup account is used to view the pages.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Important&lt;/strong&gt; The setup account does not belong to a group. Thus, not all view are functional because they require a group membership to work correctly.&lt;/p&gt;
-
-&lt;figure&gt;
-    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-01-24_14.54.38.png&#34;/&gt; 
-&lt;/figure&gt;
-
-&lt;h1 id=&#34;import-user-accounts-for-testing&#34;&gt;Import User Accounts for Testing&lt;/h1&gt;
-&lt;p&gt;Assuming you are still logged in, the main view of SW360 looks as follows:&lt;/p&gt;
-
-&lt;figure&gt;
-    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-01-24_14.54.55.png&#34;/&gt; 
-&lt;/figure&gt;
-
-&lt;p&gt;Click the SW360 &lt;code&gt;Admin&lt;/code&gt; menu which is_the right and selection the &lt;code&gt;User&lt;/code&gt; item.&lt;/p&gt;
-
-&lt;figure&gt;
-    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-01-24_14.55.00.png&#34;/&gt; 
-&lt;/figure&gt;
-
-&lt;p&gt;At the bottom of that view, select a User file to import for testing. Skip it if you will create users differently.&lt;/p&gt;
-
-&lt;figure&gt;
-    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-01-24_14.55.12.png&#34;/&gt; 
-&lt;/figure&gt;
-
-&lt;p&gt;You can find a user file to import in the &lt;code&gt;sw360vagrant&lt;/code&gt; project in the folder &lt;code&gt;shared&lt;/code&gt;.&lt;/p&gt;
-
-&lt;figure&gt;
-    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-01-24_14.55.38.png&#34;/&gt; 
-&lt;/figure&gt;
-
-&lt;p&gt;After the user have been imported successfully, they should appear in the table view.&lt;/p&gt;
-
-&lt;figure&gt;
-    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-01-24_14.55.59.png&#34;/&gt; 
-&lt;/figure&gt;
-
-&lt;p&gt;After the user have been imported successfully, they should appear in the table view.&lt;/p&gt;
-&lt;h1 id=&#34;real-login&#34;&gt;Real Login&lt;/h1&gt;
-&lt;p&gt;One example user is &lt;code&gt;user@sw360.org&lt;/code&gt; with the password &lt;code&gt;12345&lt;/code&gt;. Note that in the import file with the example accounts, the passwort is provided with a hash. If you would like to generate new (salted) hashes, you can change your password and export the user list using the same portlet where you have imported the users. This functionality can be also used to migrate accounts between users.&lt;/p&gt;
-
-&lt;figure&gt;
-    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-01-24_14.56.06.png&#34;/&gt; 
-&lt;/figure&gt;
-
-&lt;p&gt;After the successful login, SW360 will look as follows.&lt;/p&gt;
-
-&lt;figure&gt;
-    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-01-24_14.56.16.png&#34;/&gt; 
-&lt;/figure&gt;
-
-&lt;p&gt;After the successful login, SW360 will look as in the following screenshot.&lt;/p&gt;
-
-&lt;figure&gt;
-    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-01-24_14.56.33.png&#34;/&gt; 
-&lt;/figure&gt;
-
-&lt;p&gt;For example, click on &lt;code&gt;Projects&lt;/code&gt; to see that no projects have been created so far &amp;hellip;&lt;/p&gt;
-
-&lt;figure&gt;
-    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-01-24_14.57.08.png&#34;/&gt; 
-&lt;/figure&gt;
-
-
-      </description>
-    </item>
-    
-    <item>
-      <title>Docs: Initial Setup of Liferay 7.3 and sw360</title>
-      <link>https://www.eclipse.org/sw360/docs/deployment/legacy/deploy-liferay7.3/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.eclipse.org/sw360/docs/deployment/legacy/deploy-liferay7.3/</guid>
-      <description>
-        
-        
-        &lt;p&gt;After successful installation, the vagrant ends like the following terminal output:&lt;/p&gt;
-
-&lt;figure&gt;
-    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-08-13_20.07.32.png&#34;/&gt; 
-&lt;/figure&gt;
-
-&lt;p&gt;Then if you open the server with the URL &lt;code&gt;https://localhost:8443/&lt;/code&gt; the following screen should appear:&lt;/p&gt;
-
-&lt;figure&gt;
-    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-08-13_20.09.12.png&#34;/&gt; 
-&lt;/figure&gt;
-
-&lt;p&gt;Note that the actual image changes with every liferay version. If there is weird html output without images and plain text, then likely some port settings did not work and the pages generated have wrong URLs inside.&lt;/p&gt;
-&lt;p&gt;Sign in_the icon_the upper left corner. If you did not change the values in &lt;code&gt;configuration.rb&lt;/code&gt;the default login is &lt;code&gt;setup@sw360.org&lt;/code&gt; and &lt;code&gt;sw360fossy&lt;/code&gt;.&lt;/p&gt;
-
-&lt;figure&gt;
-    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-08-13_20.09.26.png&#34;/&gt; 
-&lt;/figure&gt;
-
-&lt;p&gt;After login the sw360 is not setup, thus the server does not display much, but a screen like the following:&lt;/p&gt;
-
-&lt;figure&gt;
-    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-08-13_20.09.33.png&#34;/&gt; 
-&lt;/figure&gt;
-
-&lt;h1 id=&#34;user-and-login-settings-in-liferay&#34;&gt;User and Login Settings in Liferay&lt;/h1&gt;
-&lt;p&gt;Go into the control panel area by clicking the items icon (nine small cubes) in the upper right corner and select the control panel tab:&lt;/p&gt;
-
-&lt;figure&gt;
-    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-08-13_20.09.41.png&#34;/&gt; 
-&lt;/figure&gt;
-
-&lt;p&gt;In this area, go for Security &amp;gt; Password Policies:&lt;/p&gt;
-
-&lt;figure&gt;
-    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-08-13_20.09.53.png&#34;/&gt; 
-&lt;/figure&gt;
-
-&lt;p&gt;Edit this password policy and disable &lt;code&gt;change Required&lt;/code&gt; if you wish to do so. Click on Save_the bottom of the page to save the selection.&lt;/p&gt;
-
-&lt;figure&gt;
-    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-08-13_20.09.59.png&#34;/&gt; 
-&lt;/figure&gt;
-
-&lt;p&gt;Then, go: in &lt;code&gt;Configuration&lt;/code&gt; &amp;gt;  &lt;code&gt;Instance Settings&lt;/code&gt; &amp;gt; &lt;code&gt;Users&lt;/code&gt; &amp;gt;&lt;/p&gt;
-
-&lt;figure&gt;
-    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-08-13_20.10.17.png&#34;/&gt; 
-&lt;/figure&gt;
-
-&lt;p&gt;In this area, select &lt;code&gt;Default User Associations&lt;/code&gt; to enter SW360 and apply it also to existing users. Click on Save to save the selection:&lt;/p&gt;
-
-&lt;figure&gt;
-    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-08-13_20.10.30.png&#34;/&gt; 
-&lt;/figure&gt;
-
-&lt;p&gt;Then, in &lt;code&gt;Configuration&lt;/code&gt; &amp;gt;  &lt;code&gt;Instance Settings&lt;/code&gt; &amp;gt; &lt;code&gt;User Authentication&lt;/code&gt; &amp;gt; &lt;code&gt;General&lt;/code&gt; to disable all kind of auto login to make sure only authenticated users can log in. You may want to switch off the e-mail verification, because for most of the development times it will not be of much value.&lt;/p&gt;
-
-&lt;figure&gt;
-    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-08-13_20.10.50.png&#34;/&gt; 
-&lt;/figure&gt;
-
-&lt;p&gt;Finally, sice Liferay 7.3 some of the bundled modules need to be activated:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;jquery&lt;/li&gt;
-&lt;li&gt;font awesome&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;In oder to do this, please select from the &lt;code&gt;Configuration&lt;/code&gt; &amp;gt;  &lt;code&gt;System Settings&lt;/code&gt; &amp;gt; &lt;code&gt;Third Party&lt;/code&gt; and go to jquery, select the enablement and click on Update:&lt;/p&gt;
-
-&lt;figure&gt;
-    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-08-13_20.27.08.png&#34;/&gt; 
-&lt;/figure&gt;
-
-&lt;p&gt;Do the same for Font Awesome:&lt;/p&gt;
-
-&lt;figure&gt;
-    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-08-13_20.27.13.png&#34;/&gt; 
-&lt;/figure&gt;
-
-&lt;p&gt;Note that you need to reload the browser or load a new browser window to take changes to effect.&lt;/p&gt;
-&lt;h1 id=&#34;setup-sw360-for-liferay-import-lar-files&#34;&gt;Setup SW360 for Liferay: Import *.lar Files&lt;/h1&gt;
-&lt;p&gt;For the setup of SW360 in Liferay, the portal description files, &lt;code&gt;*.lar&lt;/code&gt; files need not be imported. there is no way except from doing this in the UI. If we are wrong with this, please let us know, because it is very annoying that these ever occurring steps cannot be automated with Liferay.&lt;/p&gt;
-&lt;p&gt;In order to go ahead, switch to the &lt;code&gt;SW360&lt;/code&gt; area where you can apply site settings:&lt;/p&gt;
-
-&lt;figure&gt;
-    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-08-13_20.11.20.png&#34;/&gt; 
-&lt;/figure&gt;
-
-&lt;p&gt;The go into &amp;gt;  &lt;code&gt;Publishing&lt;/code&gt; &amp;gt; &lt;code&gt;Import&lt;/code&gt; which shows like this:&lt;/p&gt;
-
-&lt;figure&gt;
-    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-08-13_20.11.25.png&#34;/&gt; 
-&lt;/figure&gt;
-
-&lt;p&gt;Then, click on the plus sign in order to import the *.lar file for public pages. You will find the lar files in the &lt;a href=&#34;https://github.com/eclipse/sw360/tree/master/frontend/configuration&#34;&gt;frontend/configuration&lt;/a&gt; folder of the sw360 repository.&lt;/p&gt;
-
-&lt;figure&gt;
-    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-08-13_20.23.15.png&#34;/&gt; 
-&lt;/figure&gt;
-
-&lt;p&gt;As for import settings, follow the selection as shown on the screenshot. It is very important that for the &lt;code&gt;PublicPages.lar&lt;/code&gt; file the selection &lt;code&gt;Public Pages&lt;/code&gt; is made.&lt;/p&gt;
-
-&lt;figure&gt;
-    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-08-13_20.23.26.png&#34;/&gt; 
-&lt;/figure&gt;
-
-&lt;p&gt;Importing permission makes sure that pages are visible according to users rights. For public pages, it is irrelevant_the moment. Overwriting and the write as current user needs to be selected.&lt;/p&gt;
-&lt;p&gt;After successful importing, the same steps shall be repeated for the &lt;code&gt;PrivatePages.lar&lt;/code&gt; file.&lt;/p&gt;
-
-&lt;figure&gt;
-    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-08-13_20.23.48.png&#34;/&gt; 
-&lt;/figure&gt;
-
-&lt;p&gt;Make sure that &lt;code&gt;Private Pages&lt;/code&gt; is selected. Follow the other selections made as shown on the screenshot &amp;hellip; importing permissions &amp;hellip; mirror with overwriting, use the current author &amp;hellip;&lt;/p&gt;
-
-&lt;figure&gt;
-    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-08-13_20.23.53.png&#34;/&gt; 
-&lt;/figure&gt;
-
-&lt;p&gt;If you click then the liferay logo_the upper left corner where the SW360 is, you will return to the application and the following screen should appear:&lt;/p&gt;
-
-&lt;figure&gt;
-    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-08-13_20.24.18.png&#34;/&gt; 
-&lt;/figure&gt;
-
-&lt;p&gt;You can close the left menu area by clicking on the upper left icon:&lt;/p&gt;
-
-&lt;figure&gt;
-    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-08-13_20.24.21.png&#34;/&gt; 
-&lt;/figure&gt;
-
-&lt;p&gt;Click &lt;code&gt;Start&lt;/code&gt; to open the private pages. You are still logged in, so the setup account is used to view the pages.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Important&lt;/strong&gt; The setup account does not belong to a group. Thus, not all view are functional because they require a group membership to work correctly.&lt;/p&gt;
-
-&lt;figure&gt;
-    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-08-13_20.24.31.png&#34;/&gt; 
-&lt;/figure&gt;
-
-&lt;h1 id=&#34;import-user-accounts-for-testing&#34;&gt;Import User Accounts for Testing&lt;/h1&gt;
-&lt;p&gt;Click the SW360 &lt;code&gt;Admin&lt;/code&gt; menu which is_the right and selection the &lt;code&gt;User&lt;/code&gt; item.&lt;/p&gt;
-
-&lt;figure&gt;
-    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-08-13_20.24.48.png&#34;/&gt; 
-&lt;/figure&gt;
-
-&lt;p&gt;At the bottom of that view, select a User file to import for testing. Skip it if you will create users differently. You can find a &lt;a href=&#34;https://github.com/sw360/sw360vagrant/blob/master/shared/test_users_with_passwords_12345.csv&#34;&gt;user account import file&lt;/a&gt; to import in the &lt;code&gt;sw360vagrant&lt;/code&gt; project in the folder &lt;code&gt;shared&lt;/code&gt;. After the user have been imported successfully, they should appear in the table view.&lt;/p&gt;
-
-&lt;figure&gt;
-    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-08-13_20.24.53.png&#34;/&gt; 
-&lt;/figure&gt;
-
-&lt;p&gt;After the user have been imported successfully, they should appear in the table view. You can logout for now and use one of the just added accounts (see below):&lt;/p&gt;
-
-&lt;figure&gt;
-    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-08-13_20.24.58.png&#34;/&gt; 
-&lt;/figure&gt;
-
-&lt;h1 id=&#34;real-login&#34;&gt;Real Login&lt;/h1&gt;
-&lt;p&gt;One example user is &lt;code&gt;user@sw360.org&lt;/code&gt; with the password &lt;code&gt;12345&lt;/code&gt;. Note that in the import file with the example accounts, the passwort is provided with a hash. If you would like to generate new (salted) hashes, you can change your password and export the user list using the same portlet where you have imported the users. This functionality can be also used to migrate accounts between servers.&lt;/p&gt;
-
-&lt;figure&gt;
-    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-08-13_20.25.07.png&#34;/&gt; 
-&lt;/figure&gt;
-
-&lt;p&gt;After the successful login, SW360 will look as follows.&lt;/p&gt;
-
-&lt;figure&gt;
-    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-08-13_20.27.32.png&#34;/&gt; 
-&lt;/figure&gt;
-
-
-      </description>
-    </item>
-    
-    <item>
-      <title>Docs: Ubuntu 18.04 LTS, Java 11</title>
-      <link>https://www.eclipse.org/sw360/docs/deployment/legacy/deploy-natively-11/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.eclipse.org/sw360/docs/deployment/legacy/deploy-natively-11/</guid>
-      <description>
-        
-        
-        &lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
-&lt;p&gt;We are covering the update for ubuntu 18.04 LTS here, because that is our main / agreed base system for running sw360. sw360 may run on a varienty of other linux distributions or OSes such as macosx, but in order to avoid problem we agreed on having a reference OS, which are the ubuntu long term releases. The author of this guide also uses macosx and homebrew which also works fairly well.&lt;/p&gt;
-&lt;p&gt;Please note that during the time, the dependencies are updated and the version info might change.&lt;/p&gt;
-&lt;h2 id=&#34;overview&#34;&gt;Overview&lt;/h2&gt;
-&lt;p&gt;The installation consists of quite some tasks, as an overview:&lt;/p&gt;
-&lt;ol start=&#34;5&#34;&gt;
-&lt;li&gt;Java 11&lt;/li&gt;
-&lt;li&gt;Postgresql, if we want to use it instead of hypersonic db&lt;/li&gt;
-&lt;li&gt;CouchDB 2.X at the time of starting this guide, but 3.1.X seems to work well&lt;/li&gt;
-&lt;li&gt;Thrift to 0.13, later updated to 0.14&lt;/li&gt;
-&lt;li&gt;Liferay CE 7.3.3 and 7.3.4 has been also tested&lt;/li&gt;
-&lt;li&gt;Adjust &lt;code&gt;/etc/ini.d/tomcat&lt;/code&gt; with path of new liferay&lt;/li&gt;
-&lt;li&gt;Adjust &lt;code&gt;$liferay_install&lt;/code&gt; variable&lt;/li&gt;
-&lt;li&gt;add Java prerequisites to OSGi container&lt;/li&gt;
-&lt;li&gt;Install couchdb-lucene (2.1)&lt;/li&gt;
-&lt;li&gt;Deploy new version of sw360&lt;/li&gt;
-&lt;li&gt;Go ahead with Liferay steps&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id=&#34;initial-steps&#34;&gt;Initial steps&lt;/h2&gt;
-&lt;p&gt;In order to &amp;ldquo;calibrate the system&amp;rdquo; just run the update / upgrade cycle once:&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;# sudo apt update&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;# sudo apt upgrade&lt;/code&gt;&lt;/p&gt;
-&lt;h2 id=&#34;postgresql&#34;&gt;PostgreSQL&lt;/h2&gt;
-&lt;p&gt;You can go ahead install postgresql 10:&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;sudo apt install postgresql-10&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;or whatever package version is suitable here, for example version 12 for ubuntu 20.04.&lt;/p&gt;
-&lt;p&gt;The configuration for Liferay will come later.&lt;/p&gt;
-&lt;h2 id=&#34;couchdb&#34;&gt;CouchDB&lt;/h2&gt;
-&lt;p&gt;CouchDB is not part of the Ubuntu package management anymore. Thus, you need to add the Apache CouchDB package repository to install it, first the key for signing:&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;curl -L https://couchdb.apache.org/repo/bintray-pubkey.asc | sudo apt-key add -&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;The add the repo to the sources:&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;echo &amp;quot;deb https://apache.bintray.com/couchdb-deb bionic main&amp;quot; | sudo tee -a /etc/apt/sources.list&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;Then, add its contents to the package database by updating apt:&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;sudo apt-get update -y&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;Ultimately install CouchDB, we tried with 2.1.2 install:&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;sudo apt-get install -y couchdb=2.1.2~bionic&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;The installer will ask a couple of questions:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Bind address: for CouchDB and SW360 &lt;code&gt;127.0.0.1&lt;/code&gt; (localhost) is a good bind address, if you would like to access the server from a remote computer because your sw360 runs as a server in the network, you would need to change accordingly.&lt;/li&gt;
-&lt;li&gt;Admin user: For fresh installation for sure a very good idea. You can set the password at sw360 for CouchDB in &lt;code&gt;couchdb.properties&lt;/code&gt; and place it centrally in &lt;code&gt;/etc/sw360&lt;/code&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;In case you added an admin accidentally and would like to remove it,&lt;/p&gt;
-&lt;h2 id=&#34;thrift&#34;&gt;Thrift&lt;/h2&gt;
-&lt;p&gt;For thrift, we need version 0.13. The installation script in &lt;code&gt;scripts/install-thrift.sh&lt;/code&gt; will help you:&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;sudo ./install-thrift.sh&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;In case there is thrift in the package management of the OS you re running on, just make sure, you have version 0.13&lt;/p&gt;
-&lt;h2 id=&#34;openjdk-11&#34;&gt;OpenJDK 11&lt;/h2&gt;
-&lt;p&gt;First check, what is installed.&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;# sudo apt list openjdk* --installed&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;Then you could check what is available:&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;# sudo apt list openjdk*&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;And install OpenJDK 11&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;# sudo apt install openjdk-11-jdk&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;Then the &lt;code&gt;$JAVA_HOME&lt;/code&gt; needs to be updated, most likely in &lt;code&gt;/etc/environment&lt;/code&gt;. Please check for your installation how to set the &lt;code&gt;$JAVA_HOME&lt;/code&gt; correctly (most likely: &lt;code&gt;JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64&lt;/code&gt;).&lt;/p&gt;
-&lt;h2 id=&#34;liferay-ce-733&#34;&gt;Liferay CE 7.3.3&lt;/h2&gt;
-&lt;p&gt;Download Liferay from this link&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://sourceforge.net/projects/lportal/files/Liferay%20Portal/7.3.3%20GA4/liferay-ce-portal-tomcat-7.3.3-ga4-20200701015330959.tar.gz&#34;&gt;https://sourceforge.net/projects/lportal/files/Liferay%20Portal/7.3.3%20GA4/liferay-ce-portal-tomcat-7.3.3-ga4-20200701015330959.tar.gz&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;and unpack it, ideally in the &lt;code&gt;/opt&lt;/code&gt; directory, so resulting path would look like &lt;code&gt;/opt/liferay-ce-portal-7.3.3-ga4&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;Then, you need to update the &lt;code&gt;$LIFERAY_INSTALL&lt;/code&gt; in &lt;code&gt;/etc/environment&lt;/code&gt; from &lt;code&gt;LIFERAY_INSTALL=/opt/liferay-portal-7.2.0-ga1/ &lt;/code&gt; to `LIFERAY_INSTALL=/opt/liferay-ce-portal-7.3.3-ga4.&lt;/p&gt;
-&lt;h3 id=&#34;auto-start&#34;&gt;Auto Start&lt;/h3&gt;
-&lt;p&gt;For auto start, you need an according init.d entry. It could be a file like &lt;code&gt;/etc/init.d/tomcat&lt;/code&gt;. The file could be created if not there already, with the following contents:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#099&#34;&gt;#!/bin/bash
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#099&#34;&gt;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;### BEGIN INIT INFO&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;# Provides:        tomcat7&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;# Required-Start:  $network&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;# Required-Stop:   $network&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;# Default-Start:   2 3 4 5&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;# Default-Stop:    0 1 6&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;# Short-Description: Start/Stop Tomcat server&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;### END INIT INFO&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#033&#34;&gt;PATH&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;/sbin:/bin:/usr/sbin:/usr/bin
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;start&lt;span style=&#34;color:#555&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#555&#34;&gt;{&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; su -l siemagrant -c /opt/liferay-ce-portal-7.3.3-ga4/tomcat-9.0.33/bin/startup.sh
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#555&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;stop&lt;span style=&#34;color:#555&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#555&#34;&gt;{&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; su -l siemagrant -c /opt/liferay-ce-portal-7.3.3-ga4/tomcat-9.0.33/bin/shutdown.sh
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#555&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;case&lt;/span&gt; &lt;span style=&#34;color:#033&#34;&gt;$1&lt;/span&gt; in
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  start|stop&lt;span style=&#34;color:#555&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#033&#34;&gt;$1&lt;/span&gt;;;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  restart&lt;span style=&#34;color:#555&#34;&gt;)&lt;/span&gt; stop; start;;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  *&lt;span style=&#34;color:#555&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#366&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color:#c30&#34;&gt;&amp;#34;Run as &lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;$0&lt;/span&gt;&lt;span style=&#34;color:#c30&#34;&gt; &amp;lt;start|stop|restart&amp;gt;&amp;#34;&lt;/span&gt;; &lt;span style=&#34;color:#366&#34;&gt;exit&lt;/span&gt; 1;;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;esac&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Te user &lt;code&gt;siemagrant&lt;/code&gt; is used in the sw360vagrant project. it is the username of the user where the liefray / sw360 server should run under. In the ideal case, it is unprivileged user.&lt;/p&gt;
-&lt;h3 id=&#34;adjust-memory&#34;&gt;Adjust Memory&lt;/h3&gt;
-&lt;p&gt;When you have downloaded the liferay distribution, Tomcat is likely configured with very basic memory settings. For trying sw360, the standard memory settings are OK. But of course, the memory settings in &lt;code&gt;$LIFERAY_HOME/tomcat-X.0.XX/bin/setenv.sh&lt;/code&gt; should be adapted again.&lt;/p&gt;
-&lt;h3 id=&#34;postgresql-instead-of-hypersonic&#34;&gt;PostgreSQL instead of Hypersonic&lt;/h3&gt;
-&lt;p&gt;Liferay CE comes with the hypersonic database. Just for making a long-term setup in the berginning, we are advising to use postgresql from the start. The settings for postgrsql can be found in &lt;code&gt;portal-ext.properties&lt;/code&gt;. Please do not forget to create the user and the database in the database server first.&lt;/p&gt;
-&lt;h2 id=&#34;install-prerequisites&#34;&gt;Install Prerequisites&lt;/h2&gt;
-&lt;p&gt;There are some install libraries to be downloaded and installed as OSGi modules. You can check the download script from the sw360vaghrant project for list of URLs that help you.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://github.com/sw360/sw360vagrant/blob/master/download-packages.sh&#34;&gt;https://github.com/sw360/sw360vagrant/blob/master/download-packages.sh&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;An URL for libtrift is:&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://repo1.maven.org/maven2/org/apache/thrift/libthrift/0.13.0/libthrift-0.13.0.jar&#34;&gt;https://repo1.maven.org/maven2/org/apache/thrift/libthrift/0.13.0/libthrift-0.13.0.jar&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;An URL for commons-compress is:&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://repo1.maven.org/maven2/org/apache/commons/commons-compress/1.20/commons-compress-1.20.jar&#34;&gt;https://repo1.maven.org/maven2/org/apache/commons/commons-compress/1.20/commons-compress-1.20.jar&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;If you have downloaded every thing, copy them to the &lt;code&gt;deploy&lt;/code&gt; folder of your liferay installation:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# cp libthrift-0.13.0.jar $LIFEARY_HOME/deploy/
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# cp commons-lang-2.4.jar $LIFERAY_HOME/deploy
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# cp commons-io-2.6.jar $LIFERAY_HOME/deploy
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# cp commons-csv-1.4.jar $LIFERAY_HOME/deploy
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# cp commons-collections4-4.4.jar $LIFERAY_HOME/deploy
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# cp commons-codec-1.12.jar $LIFERAY_HOME/deploy
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# cp commons-compress-1.20.jar $LIFERAY_HOME/deploy
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# cp commons-logging-1.2.jar $LIFERAY_HOME/deploy
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# cp gson-2.8.5.jar $LIFERAY_HOME/deploy
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# cp guava-21.0.jar $LIFERAY_HOME/deploy
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# cp jackson-annotations-2.11.3.jar $LIFERAY_HOME/deploy
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# cp jackson-core-2.11.3.jar $LIFERAY_HOME/deploy
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# cp jackson-databind-2.11.3.jar $LIFERAY_HOME/deploy
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;if you use PostgreSQL as your database, you need to install  postgres.jar in Liferay.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# wget https://jdbc.postgresql.org/download/postgresql-42.2.9.jar postgresql-42.2.9.jar
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# cp postgresql-42.2.9.jar $LIFERAY_HOME/tomcat-9.0.33/lib/ext
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;[Note] In case you use other database with Liferay, you need to set other jar file of corresponding database.&lt;/p&gt;
-&lt;h2 id=&#34;install-couchdb-lucene&#34;&gt;Install Couchdb Lucene&lt;/h2&gt;
-&lt;p&gt;SW360 uses for searching the contents of the couchdb databases a lucene-based server named couchdb-lucene. The main issue here is that it requires a patch for the use in the normal SW3360 setups. The reason for the patch is that the developers presume that couchdb-lucene runs as the only component in the application server, while in the sw360 setup, there is a setup in which couchdb-lucene runs along with other components in the same application container.&lt;/p&gt;
-&lt;p&gt;Start with downloading the couchdb-lucene and rename the archive so the resulting URL path element will be &lt;code&gt;couchdb-lucene&lt;/code&gt;:&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;# wget https://github.com/rnewson/couchdb-lucene/archive/v2.1.0.tar.gz ./couchdb-lucene.tar.gz&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;Please refer to the script in sw360vagrant how to apply the patch to couchdb-lucene:&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://github.com/sw360/sw360vagrant/blob/master/shared/scripts/install-lucene.sh&#34;&gt;https://github.com/sw360/sw360vagrant/blob/master/shared/scripts/install-lucene.sh&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Please note that the patching issue is well known in the project and it is unclear why it is not merged:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/rnewson/couchdb-lucene/issues/161&#34;&gt;https://github.com/rnewson/couchdb-lucene/issues/161&lt;/a&gt; &amp;ldquo;allow context-root other than &amp;ldquo;/&amp;rdquo; when running in servlet container&amp;rdquo;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/rnewson/couchdb-lucene/pull/162&#34;&gt;https://github.com/rnewson/couchdb-lucene/pull/162&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/rnewson/couchdb-lucene/pull/152&#34;&gt;https://github.com/rnewson/couchdb-lucene/pull/152&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;deploy-new-sw360&#34;&gt;Deploy New SW360&lt;/h2&gt;
-&lt;p&gt;You will need to checkout new Java-11 based version of the SW360, which is either tagged version 11 (or later) or some few commits before that. Then build in the sw360 project root using:&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;mvn clean install -DskipTests&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;This will install new artfacts, such as lib-datahandler in your maven repostiory. Then apply in the same directory:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;#&lt;/span&gt; mvn clean &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;package&lt;/span&gt; &lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;P deploy &lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;Dbase.deploy.dir=. &lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;Dliferay.deploy.dir=&lt;span style=&#34;color:#555&#34;&gt;/&lt;/span&gt;opt&lt;span style=&#34;color:#555&#34;&gt;/&lt;/span&gt;liferay&lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;ce&lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;portal&lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#f60&#34;&gt;7.3.3&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;ga4&lt;span style=&#34;color:#555&#34;&gt;/&lt;/span&gt;deploy&lt;span style=&#34;color:#555&#34;&gt;/&lt;/span&gt; &lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;Dbackend.deploy.dir=&lt;span style=&#34;color:#555&#34;&gt;/&lt;/span&gt;opt&lt;span style=&#34;color:#555&#34;&gt;/&lt;/span&gt;liferay&lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;ce&lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;portal&lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#f60&#34;&gt;7.3.3&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;ga4&lt;span style=&#34;color:#555&#34;&gt;/&lt;/span&gt;tomcat&lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#f60&#34;&gt;9.0.33&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;/&lt;/span&gt;webapps&lt;span style=&#34;color:#555&#34;&gt;/&lt;/span&gt; &lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;Drest.deploy.dir=&lt;span style=&#34;color:#555&#34;&gt;/&lt;/span&gt;opt&lt;span style=&#34;color:#555&#34;&gt;/&lt;/span&gt;liferay&lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;ce&lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;portal&lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#f60&#34;&gt;7.3.3&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;ga4&lt;span style=&#34;color:#555&#34;&gt;/&lt;/span&gt;tomcat&lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#f60&#34;&gt;9.0.33&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;/&lt;/span&gt;webapps&lt;span style=&#34;color:#555&#34;&gt;/&lt;/span&gt; &lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;DskipTests
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Skipping tests has the reason that usually, the sw360 is tested in the CI and thus, local tests are note necessary, if the code has not been changed locally. Note that the REST API documentation framework is based on building test cases and thus for deploying a version with REST API documentation, tests should be executed:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;#&lt;/span&gt; cd rest
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;#&lt;/span&gt; mvn clean &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;package&lt;/span&gt; &lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;P deploy &lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;Dbase.deploy.dir=. &lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;Dliferay.deploy.dir=&lt;span style=&#34;color:#555&#34;&gt;/&lt;/span&gt;opt&lt;span style=&#34;color:#555&#34;&gt;/&lt;/span&gt;liferay&lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;ce&lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;portal&lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#f60&#34;&gt;7.3.3&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;ga4&lt;span style=&#34;color:#555&#34;&gt;/&lt;/span&gt;deploy&lt;span style=&#34;color:#555&#34;&gt;/&lt;/span&gt; &lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;Dbackend.deploy.dir=&lt;span style=&#34;color:#555&#34;&gt;/&lt;/span&gt;opt&lt;span style=&#34;color:#555&#34;&gt;/&lt;/span&gt;liferay&lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;ce&lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;portal&lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#f60&#34;&gt;7.3.3&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;ga4&lt;span style=&#34;color:#555&#34;&gt;/&lt;/span&gt;tomcat&lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#f60&#34;&gt;9.0.33&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;/&lt;/span&gt;webapps&lt;span style=&#34;color:#555&#34;&gt;/&lt;/span&gt; &lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;Drest.deploy.dir=&lt;span style=&#34;color:#555&#34;&gt;/&lt;/span&gt;opt&lt;span style=&#34;color:#555&#34;&gt;/&lt;/span&gt;liferay&lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;ce&lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;portal&lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#f60&#34;&gt;7.3.3&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;ga4&lt;span style=&#34;color:#555&#34;&gt;/&lt;/span&gt;tomcat&lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#f60&#34;&gt;9.0.33&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;/&lt;/span&gt;webapps&lt;span style=&#34;color:#555&#34;&gt;/&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;final-steps-in-liferay&#34;&gt;Final Steps in Liferay&lt;/h2&gt;
-&lt;p&gt;Liferay CE 7.3 will need to have some manual steps applied in order to complete the setup. Unfortunately, these cannot be automated (if you know how, please let us know). For earlier versions of Liferay, please refer to the main wiki page. For Liferay CE 7.3.3 please continue here:&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://github.com/eclipse/sw360/wiki/Deploy-Liferay7.3&#34;&gt;https://github.com/eclipse/sw360/wiki/Deploy-Liferay7.3&lt;/a&gt;&lt;/p&gt;
-
-      </description>
-    </item>
-    
-  </channel>
-</rss>
+&lt;/code>&lt;/pre>
+&lt;h3 id="some-notes-and-troubleshooting">Some notes and troubleshooting&lt;/h3>
+&lt;h4 id="check-liferay-configuration-options">Check Liferay Configuration Options&lt;/h4>
+&lt;p>There are plenty of useful settings to setup for your instance - you should check them depending on your desired use. Just a few examples, you could disable or enable:&lt;/p>
+&lt;ul>
+&lt;li>Auto login or self registration functionality&lt;/li>
+&lt;li>Site statistics&lt;/li>
+&lt;li>Password policies&lt;/li>
+&lt;li>Configurability options&lt;/li>
+&lt;li>many more, it makes sense to browse the Liferay Admin area (in the optimal case, using the setup-admin login) and check all the options.&lt;/li>
+&lt;/ul>
+&lt;h4 id="liferay-crashes-at-startup-with-exception-dockbar">Liferay crashes at startup with exception: Dockbar&lt;/h4>
+&lt;p>If the dockbar error occurs, the file named in the error log must be replaced with an original one, because it is corrupted. Note that this represents a bug of the Liferay 6.2 (search in your favorite search engine for dockbar liferay problem &amp;hellip;).&lt;/p>
+&lt;h4 id="strange-behavior">Strange behavior&lt;/h4>
+&lt;p>If the server has problems in terms of long running requests, maybe the memory setting is not allright, consider:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-fallback" data-lang="fallback">&lt;span style="display:flex;">&lt;span>CATALINA_OPTS=&amp;#34;$CATALINA_OPTS -Xms2048m -Xmx2048m
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>- -XX:NewSize=512m -XX:MaxNewSize=512m -XX:PermSize=512m
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>- -XX:MaxPermSize=512m&amp;#34;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>if you run Java prior to 8.&lt;/p>
+&lt;h4 id="surfing-to-the-main-page-shows-blank-page-with-exception-message">Surfing to the main page shows blank page with exception message&lt;/h4>
+&lt;p>If the &amp;ldquo;null pointer page&amp;rdquo; shows up (just a simple white page saying a null pointer exception occurred), remove the hsql folder inside the data folder from the liferay distro (shutdown before and restart after).&lt;/p></description></item><item><title>Docs: Initial Setup of Liferay 7.2 and sw360</title><link>https://www.eclipse.org/sw360/docs/deployment/legacy/deploy-liferay7/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.eclipse.org/sw360/docs/deployment/legacy/deploy-liferay7/</guid><description>
+&lt;h1 id="starting-sw360-for-the-first-time">Starting SW360 for the First Time&lt;/h1>
+&lt;p>So, the vagrant setup has deployed sw360, but unfortunately, there is some major issue: With Liferay, certain configuration need to be applied manually in the UI. If you would know how to import *.lar files and apply some setting from the command line (without implementing an approach based on HTML testing frameworks, like selenium), please let us know.&lt;/p>
+&lt;p>Until then, some tasks need to be done manually, after everything has been built up:&lt;/p>
+&lt;ul>
+&lt;li>import *.lar files&lt;/li>
+&lt;li>set password policies not to change after first login (it is annoying when developing)&lt;/li>
+&lt;li>set the default area to be SW360 when users login to liferay&lt;/li>
+&lt;li>apply some more settings, like users cannot create accounts on their own&lt;/li>
+&lt;/ul>
+&lt;h1 id="setup-login">Setup Login&lt;/h1>
+&lt;p>After successful installation, the screen should look like this. If there is weird html output without images and plain text, then likely some port settings did not work and the pages generated have wrong URLs inside.&lt;/p>
+&lt;figure>
+&lt;img src="https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-01-24_14.38.53.png"/>
+&lt;/figure>
+&lt;p>Sign in_the icon_the upper left corner. If you did not change the values in &lt;code>configuration.rb&lt;/code>the default login is &lt;code>setup@sw360.org&lt;/code> and &lt;code>sw360fossy&lt;/code>.&lt;/p>
+&lt;figure>
+&lt;img src="https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-01-24_14.39.06.png"/>
+&lt;/figure>
+&lt;h1 id="user-settings-in-sw360">User Settings in SW360&lt;/h1>
+&lt;p>Go into the control panel area which can be unfold by clicking in the upper left corner. In this area, go for Users &amp;gt; Password Policies and disable &lt;code>change Required&lt;/code> if you wish to do so. Click on Save to save the selection.&lt;/p>
+&lt;figure>
+&lt;img src="https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-01-24_14.39.56.png"/>
+&lt;/figure>
+&lt;p>Then, in &lt;code>Configuration&lt;/code> &amp;gt; &lt;code>Instance Settings&lt;/code> &amp;gt; &lt;code>Users&lt;/code> &amp;gt; &lt;code>Default User Associations&lt;/code> to enter SW360 and apply it also to existing users. Click on Save to save the selection.&lt;/p>
+&lt;figure>
+&lt;img src="https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-01-24_14.43.32.png"/>
+&lt;/figure>
+&lt;p>Then, in &lt;code>Configuration&lt;/code> &amp;gt; &lt;code>Instance Settings&lt;/code> &amp;gt; &lt;code>User Authentication&lt;/code> &amp;gt; &lt;code>General&lt;/code> to disable all kind of auto login to make sure only authenticated users can log in.&lt;/p>
+&lt;figure>
+&lt;img src="https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-01-24_14.46.49.png"/>
+&lt;/figure>
+&lt;p>Depending on your preferences make appropriate selections according to the screenshot. It is not advisable to allow users to self register in order to access the SW360 data.&lt;/p>
+&lt;figure>
+&lt;img src="https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-01-24_14.47.03.png"/>
+&lt;/figure>
+&lt;h1 id="import-lar-files">Import *.lar Files&lt;/h1>
+&lt;p>Then, in the &lt;code>SW360&lt;/code> area &amp;gt; &lt;code>Publishing&lt;/code> &amp;gt; &lt;code>Import&lt;/code> klick on the plus sign in order to import the *.lar file for public pages.&lt;/p>
+&lt;figure>
+&lt;img src="https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-01-24_14.49.41.png"/>
+&lt;/figure>
+&lt;p>As for import settings, follow the selection as shown on the screenshot. It is very important that for the &lt;code>PublicPages.lar&lt;/code> file the selection &lt;code>Public Pages&lt;/code> is made.&lt;/p>
+&lt;figure>
+&lt;img src="https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-01-24_14.51.10.png"/>
+&lt;/figure>
+&lt;p>Importing permission makes sure that pages are visible according to users rights. For public pages, it is irrelevant_the moment.&lt;/p>
+&lt;figure>
+&lt;img src="https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-01-24_14.52.14.png"/>
+&lt;/figure>
+&lt;p>Overwriting and the write as current user needs to be selected.&lt;/p>
+&lt;figure>
+&lt;img src="https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-01-24_14.51.21.png"/>
+&lt;/figure>
+&lt;p>After successful importing the following view should appear.&lt;/p>
+&lt;figure>
+&lt;img src="https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-01-24_14.52.23.png"/>
+&lt;/figure>
+&lt;p>The same steps shall be repeated for the &lt;code>PrivatePages.lar&lt;/code> file.&lt;/p>
+&lt;figure>
+&lt;img src="https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-01-24_14.52.36.png"/>
+&lt;/figure>
+&lt;p>Make sure that &lt;code>Private Pages&lt;/code> is selected. Follow the other selections made as shown on the screenshots.&lt;/p>
+&lt;figure>
+&lt;img src="https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-01-24_14.52.58.png"/>
+&lt;/figure>
+&lt;p>Importing permissions &amp;hellip;&lt;/p>
+&lt;figure>
+&lt;img src="https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-01-24_14.53.01.png"/>
+&lt;/figure>
+&lt;p>Mirror with overwriting, use the current author &amp;hellip;&lt;/p>
+&lt;figure>
+&lt;img src="https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-01-24_14.53.04.png"/>
+&lt;/figure>
+&lt;p>Then the successful result should be shown like this:&lt;/p>
+&lt;figure>
+&lt;img src="https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-01-24_14.54.14.png"/>
+&lt;/figure>
+&lt;p>If you click then the liferay logo_the upper left corner where the SW360 is, you will return to the application and the following screen should appear. Click &lt;code>Start&lt;/code> to open the private pages. You are still logged in, so the setup account is used to view the pages.&lt;/p>
+&lt;p>&lt;strong>Important&lt;/strong> The setup account does not belong to a group. Thus, not all view are functional because they require a group membership to work correctly.&lt;/p>
+&lt;figure>
+&lt;img src="https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-01-24_14.54.38.png"/>
+&lt;/figure>
+&lt;h1 id="import-user-accounts-for-testing">Import User Accounts for Testing&lt;/h1>
+&lt;p>Assuming you are still logged in, the main view of SW360 looks as follows:&lt;/p>
+&lt;figure>
+&lt;img src="https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-01-24_14.54.55.png"/>
+&lt;/figure>
+&lt;p>Click the SW360 &lt;code>Admin&lt;/code> menu which is_the right and selection the &lt;code>User&lt;/code> item.&lt;/p>
+&lt;figure>
+&lt;img src="https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-01-24_14.55.00.png"/>
+&lt;/figure>
+&lt;p>At the bottom of that view, select a User file to import for testing. Skip it if you will create users differently.&lt;/p>
+&lt;figure>
+&lt;img src="https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-01-24_14.55.12.png"/>
+&lt;/figure>
+&lt;p>You can find a user file to import in the &lt;code>sw360vagrant&lt;/code> project in the folder &lt;code>shared&lt;/code>.&lt;/p>
+&lt;figure>
+&lt;img src="https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-01-24_14.55.38.png"/>
+&lt;/figure>
+&lt;p>After the user have been imported successfully, they should appear in the table view.&lt;/p>
+&lt;figure>
+&lt;img src="https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-01-24_14.55.59.png"/>
+&lt;/figure>
+&lt;p>After the user have been imported successfully, they should appear in the table view.&lt;/p>
+&lt;h1 id="real-login">Real Login&lt;/h1>
+&lt;p>One example user is &lt;code>user@sw360.org&lt;/code> with the password &lt;code>12345&lt;/code>. Note that in the import file with the example accounts, the passwort is provided with a hash. If you would like to generate new (salted) hashes, you can change your password and export the user list using the same portlet where you have imported the users. This functionality can be also used to migrate accounts between users.&lt;/p>
+&lt;figure>
+&lt;img src="https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-01-24_14.56.06.png"/>
+&lt;/figure>
+&lt;p>After the successful login, SW360 will look as follows.&lt;/p>
+&lt;figure>
+&lt;img src="https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-01-24_14.56.16.png"/>
+&lt;/figure>
+&lt;p>After the successful login, SW360 will look as in the following screenshot.&lt;/p>
+&lt;figure>
+&lt;img src="https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-01-24_14.56.33.png"/>
+&lt;/figure>
+&lt;p>For example, click on &lt;code>Projects&lt;/code> to see that no projects have been created so far &amp;hellip;&lt;/p>
+&lt;figure>
+&lt;img src="https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-01-24_14.57.08.png"/>
+&lt;/figure></description></item><item><title>Docs: Initial Setup of Liferay 7.3 and sw360</title><link>https://www.eclipse.org/sw360/docs/deployment/legacy/deploy-liferay7.3/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.eclipse.org/sw360/docs/deployment/legacy/deploy-liferay7.3/</guid><description>
+&lt;p>After successful installation, the vagrant ends like the following terminal output:&lt;/p>
+&lt;figure>
+&lt;img src="https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-08-13_20.07.32.png"/>
+&lt;/figure>
+&lt;p>Then if you open the server with the URL &lt;code>https://localhost:8443/&lt;/code> the following screen should appear:&lt;/p>
+&lt;figure>
+&lt;img src="https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-08-13_20.09.12.png"/>
+&lt;/figure>
+&lt;p>Note that the actual image changes with every liferay version. If there is weird html output without images and plain text, then likely some port settings did not work and the pages generated have wrong URLs inside.&lt;/p>
+&lt;p>Sign in_the icon_the upper left corner. If you did not change the values in &lt;code>configuration.rb&lt;/code>the default login is &lt;code>setup@sw360.org&lt;/code> and &lt;code>sw360fossy&lt;/code>.&lt;/p>
+&lt;figure>
+&lt;img src="https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-08-13_20.09.26.png"/>
+&lt;/figure>
+&lt;p>After login the sw360 is not setup, thus the server does not display much, but a screen like the following:&lt;/p>
+&lt;figure>
+&lt;img src="https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-08-13_20.09.33.png"/>
+&lt;/figure>
+&lt;h1 id="user-and-login-settings-in-liferay">User and Login Settings in Liferay&lt;/h1>
+&lt;p>Go into the control panel area by clicking the items icon (nine small cubes) in the upper right corner and select the control panel tab:&lt;/p>
+&lt;figure>
+&lt;img src="https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-08-13_20.09.41.png"/>
+&lt;/figure>
+&lt;p>In this area, go for Security &amp;gt; Password Policies:&lt;/p>
+&lt;figure>
+&lt;img src="https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-08-13_20.09.53.png"/>
+&lt;/figure>
+&lt;p>Edit this password policy and disable &lt;code>change Required&lt;/code> if you wish to do so. Click on Save_the bottom of the page to save the selection.&lt;/p>
+&lt;figure>
+&lt;img src="https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-08-13_20.09.59.png"/>
+&lt;/figure>
+&lt;p>Then, go: in &lt;code>Configuration&lt;/code> &amp;gt; &lt;code>Instance Settings&lt;/code> &amp;gt; &lt;code>Users&lt;/code> &amp;gt;&lt;/p>
+&lt;figure>
+&lt;img src="https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-08-13_20.10.17.png"/>
+&lt;/figure>
+&lt;p>In this area, select &lt;code>Default User Associations&lt;/code> to enter SW360 and apply it also to existing users. Click on Save to save the selection:&lt;/p>
+&lt;figure>
+&lt;img src="https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-08-13_20.10.30.png"/>
+&lt;/figure>
+&lt;p>Then, in &lt;code>Configuration&lt;/code> &amp;gt; &lt;code>Instance Settings&lt;/code> &amp;gt; &lt;code>User Authentication&lt;/code> &amp;gt; &lt;code>General&lt;/code> to disable all kind of auto login to make sure only authenticated users can log in. You may want to switch off the e-mail verification, because for most of the development times it will not be of much value.&lt;/p>
+&lt;figure>
+&lt;img src="https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-08-13_20.10.50.png"/>
+&lt;/figure>
+&lt;p>Finally, sice Liferay 7.3 some of the bundled modules need to be activated:&lt;/p>
+&lt;ul>
+&lt;li>jquery&lt;/li>
+&lt;li>font awesome&lt;/li>
+&lt;/ul>
+&lt;p>In oder to do this, please select from the &lt;code>Configuration&lt;/code> &amp;gt; &lt;code>System Settings&lt;/code> &amp;gt; &lt;code>Third Party&lt;/code> and go to jquery, select the enablement and click on Update:&lt;/p>
+&lt;figure>
+&lt;img src="https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-08-13_20.27.08.png"/>
+&lt;/figure>
+&lt;p>Do the same for Font Awesome:&lt;/p>
+&lt;figure>
+&lt;img src="https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-08-13_20.27.13.png"/>
+&lt;/figure>
+&lt;p>Note that you need to reload the browser or load a new browser window to take changes to effect.&lt;/p>
+&lt;h1 id="setup-sw360-for-liferay-import-lar-files">Setup SW360 for Liferay: Import *.lar Files&lt;/h1>
+&lt;p>For the setup of SW360 in Liferay, the portal description files, &lt;code>*.lar&lt;/code> files need not be imported. there is no way except from doing this in the UI. If we are wrong with this, please let us know, because it is very annoying that these ever occurring steps cannot be automated with Liferay.&lt;/p>
+&lt;p>In order to go ahead, switch to the &lt;code>SW360&lt;/code> area where you can apply site settings:&lt;/p>
+&lt;figure>
+&lt;img src="https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-08-13_20.11.20.png"/>
+&lt;/figure>
+&lt;p>The go into &amp;gt; &lt;code>Publishing&lt;/code> &amp;gt; &lt;code>Import&lt;/code> which shows like this:&lt;/p>
+&lt;figure>
+&lt;img src="https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-08-13_20.11.25.png"/>
+&lt;/figure>
+&lt;p>Then, click on the plus sign in order to import the *.lar file for public pages. You will find the lar files in the &lt;a href="https://github.com/eclipse/sw360/tree/master/frontend/configuration">frontend/configuration&lt;/a> folder of the sw360 repository.&lt;/p>
+&lt;figure>
+&lt;img src="https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-08-13_20.23.15.png"/>
+&lt;/figure>
+&lt;p>As for import settings, follow the selection as shown on the screenshot. It is very important that for the &lt;code>PublicPages.lar&lt;/code> file the selection &lt;code>Public Pages&lt;/code> is made.&lt;/p>
+&lt;figure>
+&lt;img src="https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-08-13_20.23.26.png"/>
+&lt;/figure>
+&lt;p>Importing permission makes sure that pages are visible according to users rights. For public pages, it is irrelevant_the moment. Overwriting and the write as current user needs to be selected.&lt;/p>
+&lt;p>After successful importing, the same steps shall be repeated for the &lt;code>PrivatePages.lar&lt;/code> file.&lt;/p>
+&lt;figure>
+&lt;img src="https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-08-13_20.23.48.png"/>
+&lt;/figure>
+&lt;p>Make sure that &lt;code>Private Pages&lt;/code> is selected. Follow the other selections made as shown on the screenshot &amp;hellip; importing permissions &amp;hellip; mirror with overwriting, use the current author &amp;hellip;&lt;/p>
+&lt;figure>
+&lt;img src="https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-08-13_20.23.53.png"/>
+&lt;/figure>
+&lt;p>If you click then the liferay logo_the upper left corner where the SW360 is, you will return to the application and the following screen should appear:&lt;/p>
+&lt;figure>
+&lt;img src="https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-08-13_20.24.18.png"/>
+&lt;/figure>
+&lt;p>You can close the left menu area by clicking on the upper left icon:&lt;/p>
+&lt;figure>
+&lt;img src="https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-08-13_20.24.21.png"/>
+&lt;/figure>
+&lt;p>Click &lt;code>Start&lt;/code> to open the private pages. You are still logged in, so the setup account is used to view the pages.&lt;/p>
+&lt;p>&lt;strong>Important&lt;/strong> The setup account does not belong to a group. Thus, not all view are functional because they require a group membership to work correctly.&lt;/p>
+&lt;figure>
+&lt;img src="https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-08-13_20.24.31.png"/>
+&lt;/figure>
+&lt;h1 id="import-user-accounts-for-testing">Import User Accounts for Testing&lt;/h1>
+&lt;p>Click the SW360 &lt;code>Admin&lt;/code> menu which is_the right and selection the &lt;code>User&lt;/code> item.&lt;/p>
+&lt;figure>
+&lt;img src="https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-08-13_20.24.48.png"/>
+&lt;/figure>
+&lt;p>At the bottom of that view, select a User file to import for testing. Skip it if you will create users differently. You can find a &lt;a href="https://github.com/sw360/sw360vagrant/blob/master/shared/test_users_with_passwords_12345.csv">user account import file&lt;/a> to import in the &lt;code>sw360vagrant&lt;/code> project in the folder &lt;code>shared&lt;/code>. After the user have been imported successfully, they should appear in the table view.&lt;/p>
+&lt;figure>
+&lt;img src="https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-08-13_20.24.53.png"/>
+&lt;/figure>
+&lt;p>After the user have been imported successfully, they should appear in the table view. You can logout for now and use one of the just added accounts (see below):&lt;/p>
+&lt;figure>
+&lt;img src="https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-08-13_20.24.58.png"/>
+&lt;/figure>
+&lt;h1 id="real-login">Real Login&lt;/h1>
+&lt;p>One example user is &lt;code>user@sw360.org&lt;/code> with the password &lt;code>12345&lt;/code>. Note that in the import file with the example accounts, the passwort is provided with a hash. If you would like to generate new (salted) hashes, you can change your password and export the user list using the same portlet where you have imported the users. This functionality can be also used to migrate accounts between servers.&lt;/p>
+&lt;figure>
+&lt;img src="https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-08-13_20.25.07.png"/>
+&lt;/figure>
+&lt;p>After the successful login, SW360 will look as follows.&lt;/p>
+&lt;figure>
+&lt;img src="https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy73/2020-08-13_20.27.32.png"/>
+&lt;/figure></description></item><item><title>Docs: Ubuntu 18.04 LTS, Java 11</title><link>https://www.eclipse.org/sw360/docs/deployment/legacy/deploy-natively-11/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.eclipse.org/sw360/docs/deployment/legacy/deploy-natively-11/</guid><description>
+&lt;h2 id="introduction">Introduction&lt;/h2>
+&lt;p>We are covering the update for ubuntu 18.04 LTS here, because that is our main / agreed base system for running sw360. sw360 may run on a varienty of other linux distributions or OSes such as macosx, but in order to avoid problem we agreed on having a reference OS, which are the ubuntu long term releases. The author of this guide also uses macosx and homebrew which also works fairly well.&lt;/p>
+&lt;p>Please note that during the time, the dependencies are updated and the version info might change.&lt;/p>
+&lt;h2 id="overview">Overview&lt;/h2>
+&lt;p>The installation consists of quite some tasks, as an overview:&lt;/p>
+&lt;ol start="5">
+&lt;li>Java 11&lt;/li>
+&lt;li>Postgresql, if we want to use it instead of hypersonic db&lt;/li>
+&lt;li>CouchDB 2.X at the time of starting this guide, but 3.1.X seems to work well&lt;/li>
+&lt;li>Thrift to 0.13, later updated to 0.14&lt;/li>
+&lt;li>Liferay CE 7.3.3 and 7.3.4 has been also tested&lt;/li>
+&lt;li>Adjust &lt;code>/etc/ini.d/tomcat&lt;/code> with path of new liferay&lt;/li>
+&lt;li>Adjust &lt;code>$liferay_install&lt;/code> variable&lt;/li>
+&lt;li>add Java prerequisites to OSGi container&lt;/li>
+&lt;li>Install couchdb-lucene (2.1)&lt;/li>
+&lt;li>Deploy new version of sw360&lt;/li>
+&lt;li>Go ahead with Liferay steps&lt;/li>
+&lt;/ol>
+&lt;h2 id="initial-steps">Initial steps&lt;/h2>
+&lt;p>In order to &amp;ldquo;calibrate the system&amp;rdquo; just run the update / upgrade cycle once:&lt;/p>
+&lt;p>&lt;code># sudo apt update&lt;/code>&lt;/p>
+&lt;p>&lt;code># sudo apt upgrade&lt;/code>&lt;/p>
+&lt;h2 id="postgresql">PostgreSQL&lt;/h2>
+&lt;p>You can go ahead install postgresql 10:&lt;/p>
+&lt;p>&lt;code>sudo apt install postgresql-10&lt;/code>&lt;/p>
+&lt;p>or whatever package version is suitable here, for example version 12 for ubuntu 20.04.&lt;/p>
+&lt;p>The configuration for Liferay will come later.&lt;/p>
+&lt;h2 id="couchdb">CouchDB&lt;/h2>
+&lt;p>CouchDB is not part of the Ubuntu package management anymore. Thus, you need to add the Apache CouchDB package repository to install it, first the key for signing:&lt;/p>
+&lt;p>&lt;code>curl -L https://couchdb.apache.org/repo/bintray-pubkey.asc | sudo apt-key add -&lt;/code>&lt;/p>
+&lt;p>The add the repo to the sources:&lt;/p>
+&lt;p>&lt;code>echo &amp;quot;deb https://apache.bintray.com/couchdb-deb bionic main&amp;quot; | sudo tee -a /etc/apt/sources.list&lt;/code>&lt;/p>
+&lt;p>Then, add its contents to the package database by updating apt:&lt;/p>
+&lt;p>&lt;code>sudo apt-get update -y&lt;/code>&lt;/p>
+&lt;p>Ultimately install CouchDB, we tried with 2.1.2 install:&lt;/p>
+&lt;p>&lt;code>sudo apt-get install -y couchdb=2.1.2~bionic&lt;/code>&lt;/p>
+&lt;p>The installer will ask a couple of questions:&lt;/p>
+&lt;ol>
+&lt;li>Bind address: for CouchDB and SW360 &lt;code>127.0.0.1&lt;/code> (localhost) is a good bind address, if you would like to access the server from a remote computer because your sw360 runs as a server in the network, you would need to change accordingly.&lt;/li>
+&lt;li>Admin user: For fresh installation for sure a very good idea. You can set the password at sw360 for CouchDB in &lt;code>couchdb.properties&lt;/code> and place it centrally in &lt;code>/etc/sw360&lt;/code>&lt;/li>
+&lt;/ol>
+&lt;p>In case you added an admin accidentally and would like to remove it,&lt;/p>
+&lt;h2 id="thrift">Thrift&lt;/h2>
+&lt;p>For thrift, we need version 0.13. The installation script in &lt;code>scripts/install-thrift.sh&lt;/code> will help you:&lt;/p>
+&lt;p>&lt;code>sudo ./install-thrift.sh&lt;/code>&lt;/p>
+&lt;p>In case there is thrift in the package management of the OS you re running on, just make sure, you have version 0.13&lt;/p>
+&lt;h2 id="openjdk-11">OpenJDK 11&lt;/h2>
+&lt;p>First check, what is installed.&lt;/p>
+&lt;p>&lt;code># sudo apt list openjdk* --installed&lt;/code>&lt;/p>
+&lt;p>Then you could check what is available:&lt;/p>
+&lt;p>&lt;code># sudo apt list openjdk*&lt;/code>&lt;/p>
+&lt;p>And install OpenJDK 11&lt;/p>
+&lt;p>&lt;code># sudo apt install openjdk-11-jdk&lt;/code>&lt;/p>
+&lt;p>Then the &lt;code>$JAVA_HOME&lt;/code> needs to be updated, most likely in &lt;code>/etc/environment&lt;/code>. Please check for your installation how to set the &lt;code>$JAVA_HOME&lt;/code> correctly (most likely: &lt;code>JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64&lt;/code>).&lt;/p>
+&lt;h2 id="liferay-ce-733">Liferay CE 7.3.3&lt;/h2>
+&lt;p>Download Liferay from this link&lt;/p>
+&lt;p>&lt;a href="https://sourceforge.net/projects/lportal/files/Liferay%20Portal/7.3.3%20GA4/liferay-ce-portal-tomcat-7.3.3-ga4-20200701015330959.tar.gz">https://sourceforge.net/projects/lportal/files/Liferay%20Portal/7.3.3%20GA4/liferay-ce-portal-tomcat-7.3.3-ga4-20200701015330959.tar.gz&lt;/a>&lt;/p>
+&lt;p>and unpack it, ideally in the &lt;code>/opt&lt;/code> directory, so resulting path would look like &lt;code>/opt/liferay-ce-portal-7.3.3-ga4&lt;/code>.&lt;/p>
+&lt;p>Then, you need to update the &lt;code>$LIFERAY_INSTALL&lt;/code> in &lt;code>/etc/environment&lt;/code> from &lt;code>LIFERAY_INSTALL=/opt/liferay-portal-7.2.0-ga1/ &lt;/code> to `LIFERAY_INSTALL=/opt/liferay-ce-portal-7.3.3-ga4.&lt;/p>
+&lt;h3 id="auto-start">Auto Start&lt;/h3>
+&lt;p>For auto start, you need an according init.d entry. It could be a file like &lt;code>/etc/init.d/tomcat&lt;/code>. The file could be created if not there already, with the following contents:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#099">#!/bin/bash
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#099">&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#09f;font-style:italic">### BEGIN INIT INFO&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#09f;font-style:italic"># Provides: tomcat7&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#09f;font-style:italic"># Required-Start: $network&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#09f;font-style:italic"># Required-Stop: $network&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#09f;font-style:italic"># Default-Start: 2 3 4 5&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#09f;font-style:italic"># Default-Stop: 0 1 6&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#09f;font-style:italic"># Short-Description: Start/Stop Tomcat server&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#09f;font-style:italic">### END INIT INFO&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#033">PATH&lt;/span>&lt;span style="color:#555">=&lt;/span>/sbin:/bin:/usr/sbin:/usr/bin
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>start&lt;span style="color:#555">()&lt;/span> &lt;span style="color:#555">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> su -l siemagrant -c /opt/liferay-ce-portal-7.3.3-ga4/tomcat-9.0.33/bin/startup.sh
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#555">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>stop&lt;span style="color:#555">()&lt;/span> &lt;span style="color:#555">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> su -l siemagrant -c /opt/liferay-ce-portal-7.3.3-ga4/tomcat-9.0.33/bin/shutdown.sh
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#555">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#069;font-weight:bold">case&lt;/span> &lt;span style="color:#033">$1&lt;/span> in
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> start|stop&lt;span style="color:#555">)&lt;/span> &lt;span style="color:#033">$1&lt;/span>;;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> restart&lt;span style="color:#555">)&lt;/span> stop; start;;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> *&lt;span style="color:#555">)&lt;/span> &lt;span style="color:#366">echo&lt;/span> &lt;span style="color:#c30">&amp;#34;Run as &lt;/span>&lt;span style="color:#033">$0&lt;/span>&lt;span style="color:#c30"> &amp;lt;start|stop|restart&amp;gt;&amp;#34;&lt;/span>; &lt;span style="color:#366">exit&lt;/span> 1;;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#069;font-weight:bold">esac&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Te user &lt;code>siemagrant&lt;/code> is used in the sw360vagrant project. it is the username of the user where the liefray / sw360 server should run under. In the ideal case, it is unprivileged user.&lt;/p>
+&lt;h3 id="adjust-memory">Adjust Memory&lt;/h3>
+&lt;p>When you have downloaded the liferay distribution, Tomcat is likely configured with very basic memory settings. For trying sw360, the standard memory settings are OK. But of course, the memory settings in &lt;code>$LIFERAY_HOME/tomcat-X.0.XX/bin/setenv.sh&lt;/code> should be adapted again.&lt;/p>
+&lt;h3 id="postgresql-instead-of-hypersonic">PostgreSQL instead of Hypersonic&lt;/h3>
+&lt;p>Liferay CE comes with the hypersonic database. Just for making a long-term setup in the berginning, we are advising to use postgresql from the start. The settings for postgrsql can be found in &lt;code>portal-ext.properties&lt;/code>. Please do not forget to create the user and the database in the database server first.&lt;/p>
+&lt;h2 id="install-prerequisites">Install Prerequisites&lt;/h2>
+&lt;p>There are some install libraries to be downloaded and installed as OSGi modules. You can check the download script from the sw360vaghrant project for list of URLs that help you.&lt;/p>
+&lt;p>&lt;a href="https://github.com/sw360/sw360vagrant/blob/master/download-packages.sh">https://github.com/sw360/sw360vagrant/blob/master/download-packages.sh&lt;/a>&lt;/p>
+&lt;p>An URL for libtrift is:&lt;/p>
+&lt;p>&lt;a href="https://repo1.maven.org/maven2/org/apache/thrift/libthrift/0.13.0/libthrift-0.13.0.jar">https://repo1.maven.org/maven2/org/apache/thrift/libthrift/0.13.0/libthrift-0.13.0.jar&lt;/a>&lt;/p>
+&lt;p>An URL for commons-compress is:&lt;/p>
+&lt;p>&lt;a href="https://repo1.maven.org/maven2/org/apache/commons/commons-compress/1.20/commons-compress-1.20.jar">https://repo1.maven.org/maven2/org/apache/commons/commons-compress/1.20/commons-compress-1.20.jar&lt;/a>&lt;/p>
+&lt;p>If you have downloaded every thing, copy them to the &lt;code>deploy&lt;/code> folder of your liferay installation:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-fallback" data-lang="fallback">&lt;span style="display:flex;">&lt;span># cp libthrift-0.13.0.jar $LIFEARY_HOME/deploy/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span># cp commons-lang-2.4.jar $LIFERAY_HOME/deploy
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span># cp commons-io-2.6.jar $LIFERAY_HOME/deploy
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span># cp commons-csv-1.4.jar $LIFERAY_HOME/deploy
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span># cp commons-collections4-4.4.jar $LIFERAY_HOME/deploy
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span># cp commons-codec-1.12.jar $LIFERAY_HOME/deploy
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span># cp commons-compress-1.20.jar $LIFERAY_HOME/deploy
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span># cp commons-logging-1.2.jar $LIFERAY_HOME/deploy
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span># cp gson-2.8.5.jar $LIFERAY_HOME/deploy
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span># cp guava-21.0.jar $LIFERAY_HOME/deploy
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span># cp jackson-annotations-2.11.3.jar $LIFERAY_HOME/deploy
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span># cp jackson-core-2.11.3.jar $LIFERAY_HOME/deploy
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span># cp jackson-databind-2.11.3.jar $LIFERAY_HOME/deploy
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>if you use PostgreSQL as your database, you need to install postgres.jar in Liferay.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-fallback" data-lang="fallback">&lt;span style="display:flex;">&lt;span># wget https://jdbc.postgresql.org/download/postgresql-42.2.9.jar postgresql-42.2.9.jar
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span># cp postgresql-42.2.9.jar $LIFERAY_HOME/tomcat-9.0.33/lib/ext
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>[Note] In case you use other database with Liferay, you need to set other jar file of corresponding database.&lt;/p>
+&lt;h2 id="install-couchdb-lucene">Install Couchdb Lucene&lt;/h2>
+&lt;p>SW360 uses for searching the contents of the couchdb databases a lucene-based server named couchdb-lucene. The main issue here is that it requires a patch for the use in the normal SW3360 setups. The reason for the patch is that the developers presume that couchdb-lucene runs as the only component in the application server, while in the sw360 setup, there is a setup in which couchdb-lucene runs along with other components in the same application container.&lt;/p>
+&lt;p>Start with downloading the couchdb-lucene and rename the archive so the resulting URL path element will be &lt;code>couchdb-lucene&lt;/code>:&lt;/p>
+&lt;p>&lt;code># wget https://github.com/rnewson/couchdb-lucene/archive/v2.1.0.tar.gz ./couchdb-lucene.tar.gz&lt;/code>&lt;/p>
+&lt;p>Please refer to the script in sw360vagrant how to apply the patch to couchdb-lucene:&lt;/p>
+&lt;p>&lt;a href="https://github.com/sw360/sw360vagrant/blob/master/shared/scripts/install-lucene.sh">https://github.com/sw360/sw360vagrant/blob/master/shared/scripts/install-lucene.sh&lt;/a>&lt;/p>
+&lt;p>Please note that the patching issue is well known in the project and it is unclear why it is not merged:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/rnewson/couchdb-lucene/issues/161">https://github.com/rnewson/couchdb-lucene/issues/161&lt;/a> &amp;ldquo;allow context-root other than &amp;ldquo;/&amp;rdquo; when running in servlet container&amp;rdquo;&lt;/li>
+&lt;li>&lt;a href="https://github.com/rnewson/couchdb-lucene/pull/162">https://github.com/rnewson/couchdb-lucene/pull/162&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/rnewson/couchdb-lucene/pull/152">https://github.com/rnewson/couchdb-lucene/pull/152&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="deploy-new-sw360">Deploy New SW360&lt;/h2>
+&lt;p>You will need to checkout new Java-11 based version of the SW360, which is either tagged version 11 (or later) or some few commits before that. Then build in the sw360 project root using:&lt;/p>
+&lt;p>&lt;code>mvn clean install -DskipTests&lt;/code>&lt;/p>
+&lt;p>This will install new artfacts, such as lib-datahandler in your maven repostiory. Then apply in the same directory:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a00;background-color:#faa">#&lt;/span> mvn clean &lt;span style="color:#069;font-weight:bold">package&lt;/span> &lt;span style="color:#555">-&lt;/span>P deploy &lt;span style="color:#555">-&lt;/span>Dbase.deploy.dir=. &lt;span style="color:#555">-&lt;/span>Dliferay.deploy.dir=&lt;span style="color:#555">/&lt;/span>opt&lt;span style="color:#555">/&lt;/span>liferay&lt;span style="color:#555">-&lt;/span>ce&lt;span style="color:#555">-&lt;/span>portal&lt;span style="color:#555">-&lt;/span>&lt;span style="color:#f60">7.3.3&lt;/span>&lt;span style="color:#555">-&lt;/span>ga4&lt;span style="color:#555">/&lt;/span>deploy&lt;span style="color:#555">/&lt;/span> &lt;span style="color:#555">-&lt;/span>Dbackend.deploy.dir=&lt;span style="color:#555">/&lt;/span>opt&lt;span style="color:#555">/&lt;/span>liferay&lt;span style="color:#555">-&lt;/span>ce&lt;span style="color:#555">-&lt;/span>portal&lt;span style="color:#555">-&lt;/span>&lt;span style="color:#f60">7.3.3&lt;/span>&lt;span style="color:#555">-&lt;/span>ga4&lt;span style="color:#555">/&lt;/span>tomcat&lt;span style="color:#555">-&lt;/span>&lt;span style="color:#f60">9.0.33&lt;/span>&lt;span style="color:#555">/&lt;/span>webapps&lt;span style="color:#555">/&lt;/span> &lt;span style="color:#555">-&lt;/span>Drest.deploy.dir=&lt;span style="color:#555">/&lt;/span>opt&lt;span style="color:#555">/&lt;/span>liferay&lt;span style="color:#555">-&lt;/span>ce&lt;span style="color:#555">-&lt;/span>portal&lt;span style="color:#555">-&lt;/span>&lt;span style="color:#f60">7.3.3&lt;/span>&lt;span style="color:#555">-&lt;/span>ga4&lt;span style="color:#555">/&lt;/span>tomcat&lt;span style="color:#555">-&lt;/span>&lt;span style="color:#f60">9.0.33&lt;/span>&lt;span style="color:#555">/&lt;/span>webapps&lt;span style="color:#555">/&lt;/span> &lt;span style="color:#555">-&lt;/span>DskipTests
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Skipping tests has the reason that usually, the sw360 is tested in the CI and thus, local tests are note necessary, if the code has not been changed locally. Note that the REST API documentation framework is based on building test cases and thus for deploying a version with REST API documentation, tests should be executed:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a00;background-color:#faa">#&lt;/span> cd rest
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a00;background-color:#faa">#&lt;/span> mvn clean &lt;span style="color:#069;font-weight:bold">package&lt;/span> &lt;span style="color:#555">-&lt;/span>P deploy &lt;span style="color:#555">-&lt;/span>Dbase.deploy.dir=. &lt;span style="color:#555">-&lt;/span>Dliferay.deploy.dir=&lt;span style="color:#555">/&lt;/span>opt&lt;span style="color:#555">/&lt;/span>liferay&lt;span style="color:#555">-&lt;/span>ce&lt;span style="color:#555">-&lt;/span>portal&lt;span style="color:#555">-&lt;/span>&lt;span style="color:#f60">7.3.3&lt;/span>&lt;span style="color:#555">-&lt;/span>ga4&lt;span style="color:#555">/&lt;/span>deploy&lt;span style="color:#555">/&lt;/span> &lt;span style="color:#555">-&lt;/span>Dbackend.deploy.dir=&lt;span style="color:#555">/&lt;/span>opt&lt;span style="color:#555">/&lt;/span>liferay&lt;span style="color:#555">-&lt;/span>ce&lt;span style="color:#555">-&lt;/span>portal&lt;span style="color:#555">-&lt;/span>&lt;span style="color:#f60">7.3.3&lt;/span>&lt;span style="color:#555">-&lt;/span>ga4&lt;span style="color:#555">/&lt;/span>tomcat&lt;span style="color:#555">-&lt;/span>&lt;span style="color:#f60">9.0.33&lt;/span>&lt;span style="color:#555">/&lt;/span>webapps&lt;span style="color:#555">/&lt;/span> &lt;span style="color:#555">-&lt;/span>Drest.deploy.dir=&lt;span style="color:#555">/&lt;/span>opt&lt;span style="color:#555">/&lt;/span>liferay&lt;span style="color:#555">-&lt;/span>ce&lt;span style="color:#555">-&lt;/span>portal&lt;span style="color:#555">-&lt;/span>&lt;span style="color:#f60">7.3.3&lt;/span>&lt;span style="color:#555">-&lt;/span>ga4&lt;span style="color:#555">/&lt;/span>tomcat&lt;span style="color:#555">-&lt;/span>&lt;span style="color:#f60">9.0.33&lt;/span>&lt;span style="color:#555">/&lt;/span>webapps&lt;span style="color:#555">/&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="final-steps-in-liferay">Final Steps in Liferay&lt;/h2>
+&lt;p>Liferay CE 7.3 will need to have some manual steps applied in order to complete the setup. Unfortunately, these cannot be automated (if you know how, please let us know). For earlier versions of Liferay, please refer to the main wiki page. For Liferay CE 7.3.3 please continue here:&lt;/p>
+&lt;p>&lt;a href="https://github.com/eclipse/sw360/wiki/Deploy-Liferay7.3">https://github.com/eclipse/sw360/wiki/Deploy-Liferay7.3&lt;/a>&lt;/p></description></item></channel></rss>

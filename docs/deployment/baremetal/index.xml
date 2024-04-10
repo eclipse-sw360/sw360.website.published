@@ -1,105 +1,76 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Eclipse SW360 – Bare Metal</title>
-    <link>https://www.eclipse.org/sw360/docs/deployment/baremetal/</link>
-    <description>Recent content in Bare Metal on Eclipse SW360</description>
-    <generator>Hugo -- gohugo.io</generator>
-    
-	  <atom:link href="https://www.eclipse.org/sw360/docs/deployment/baremetal/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-      
-        
-      
-    
-    
-    <item>
-      <title>Docs: Ubuntu 22.04 / Debian 11</title>
-      <link>https://www.eclipse.org/sw360/docs/deployment/baremetal/deploy-natively/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.eclipse.org/sw360/docs/deployment/baremetal/deploy-natively/</guid>
-      <description>
-        
-        
-        &lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
-&lt;p&gt;We are covering the update for Debian based Linux distros, because that is our main / agreed base system for running sw360. sw360 may run on a varienty of other linux distributions or OSes such as Mac OSX (amd64 only).&lt;/p&gt;
-&lt;h2 id=&#34;requirements&#34;&gt;Requirements&lt;/h2&gt;
-&lt;p&gt;The installation consists of quite some tasks, as an overview:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Java 11&lt;/li&gt;
-&lt;li&gt;Postgresql &amp;gt;= 15.x&lt;/li&gt;
-&lt;li&gt;CouchDB &amp;gt;= 3.2.x&lt;/li&gt;
-&lt;li&gt;Thrift 0.18.1&lt;/li&gt;
-&lt;li&gt;Liferay CE 7.4.3 GA18&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;initial-steps&#34;&gt;Initial steps&lt;/h2&gt;
-&lt;p&gt;In order to &amp;ldquo;calibrate the system&amp;rdquo; just run the update / upgrade cycle once:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo apt update
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo apt upgrade
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;postgresql&#34;&gt;PostgreSQL&lt;/h2&gt;
-&lt;p&gt;You can go ahead install postgresql:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo apt install postgresql
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;or whatever package version is suitable here, for example version 12 for ubuntu 20.04.&lt;/p&gt;
-&lt;p&gt;The configuration for Liferay will come later.&lt;/p&gt;
-&lt;h2 id=&#34;couchdb&#34;&gt;CouchDB&lt;/h2&gt;
-&lt;p&gt;CouchDB is not part of the Ubuntu package management anymore. Thus, you need to add the Apache CouchDB package repository to install it, first the key for signing:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;apt install curl gpg
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;curl https://couchdb.apache.org/repo/keys.asc | sudo gpg –dearmor -o /etc/apt/trusted.gpg.d/couchdb-archive-keyring.gpg
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#366&#34;&gt;echo&lt;/span&gt; “deb https://apache.jfrog.io/artifactory/couchdb-deb/ &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;$(&lt;/span&gt;awk -F&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;/^VERSION_CODENAME/{print$2}&amp;#39;&lt;/span&gt; /etc/os-release&lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;)&lt;/span&gt; main” | sudo tee /etc/apt/sources.list.d/couchdb.list &amp;gt;/dev/null
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo apt-get update -y
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo apt-get install -y couchdb
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The installer will ask a couple of questions:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Bind address: for CouchDB and SW360 &lt;code&gt;127.0.0.1&lt;/code&gt; (localhost) is a good bind address, if you would like to access the server from a remote computer because your sw360 runs as a server in the network, you would need to change accordingly.&lt;/li&gt;
-&lt;li&gt;Unless you know what you are doing, use standalone install intead of clustered option, for a regular single instalation.&lt;/li&gt;
-&lt;li&gt;Admin user: For fresh installation for sure a very good idea. You can set the password at sw360 for CouchDB in &lt;code&gt;couchdb.properties&lt;/code&gt; and place it centrally in &lt;code&gt;/etc/sw360&lt;/code&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;In case you added an admin accidentally and would like to remove it,&lt;/p&gt;
-&lt;h2 id=&#34;thrift&#34;&gt;Thrift&lt;/h2&gt;
-&lt;p&gt;For thrift, the helper install script is located on sw360 &lt;code&gt;scripts/install-thrift.sh&lt;/code&gt;:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo ./install-thrift.sh
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;In case there is thrift in the package management of the OS you re running on, just make sure, you have version 0.16&lt;/p&gt;
-&lt;h2 id=&#34;java-11&#34;&gt;Java 11&lt;/h2&gt;
-&lt;p&gt;If you do not have installed java 11 yet on your setup:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;curl https://packages.adoptium.net/artifactory/api/gpg/key/public | sudo tee /etc/apt/trusted.gpg.d/apache-temurin.gpg &amp;gt;/dev/null
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#366&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color:#c30&#34;&gt;&amp;#34;deb https://packages.adoptium.net/artifactory/deb &lt;/span&gt;&lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;$(&lt;/span&gt;awk -F&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;/^VERSION_CODENAME/{print$2}&amp;#39;&lt;/span&gt; /etc/os-release&lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color:#c30&#34;&gt; main&amp;#34;&lt;/span&gt; | sudo tee /etc/apt/sources.list.d/adoptium.gpg
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;dependencies&#34;&gt;Dependencies&lt;/h2&gt;
-&lt;p&gt;Use the included script located in:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;./scripts/download_dependencies.sh
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Required dependencies will be downloaded on the deps folder.&lt;/p&gt;
-&lt;p&gt;For liferay, unpack it, ideally in the &lt;code&gt;/opt&lt;/code&gt; directory.&lt;/p&gt;
-&lt;h2 id=&#34;install-couchdb-lucene&#34;&gt;Install Couchdb Lucene&lt;/h2&gt;
-&lt;p&gt;SW360 uses for searching the contents of the couchdb databases a lucene-based server named couchdb-lucene. The main issue here is that it requires a patch for the use in the normal SW3360 setups. The reason for the patch is that the developers presume that couchdb-lucene runs as the only component in the application server, while in the sw360 setup, there is a setup in which couchdb-lucene runs along with other components in the same application container.&lt;/p&gt;
-&lt;p&gt;For build the custom CLucene jar:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#099&#34;&gt;#!/bin/bash
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#099&#34;&gt;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#033&#34;&gt;CLUCENE_VERSION&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;2.1.0
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;mkdir /tmp/build
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;curl -JL https://github.com/rnewson/couchdb-lucene/archive/v&lt;span style=&#34;color:#c30&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;$CLUCENE_VERSION&lt;/span&gt;&lt;span style=&#34;color:#c30&#34;&gt;&amp;#34;&lt;/span&gt;.tar.gz | tar -C /tmp/build -xz --strip-components&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f60&#34;&gt;1&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;cp ./scripts/patches/couchdb-lucene.patch /tmp/build
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;cp ./scripts/docker/couchdb-lucene.ini /tmp/build/src/main/resources/couchdb-lucene.ini 
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#366&#34;&gt;cd&lt;/span&gt; /tmp/build &lt;span style=&#34;color:#555&#34;&gt;||&lt;/span&gt; &lt;span style=&#34;color:#366&#34;&gt;exit&lt;/span&gt; &lt;span style=&#34;color:#f60&#34;&gt;1&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;patch -p1 &amp;lt; couchdb-lucene.patch &lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;&lt;/span&gt;mvn -X install war:war &lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;## Deploy New SW360&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Build with:
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c30&#34;&gt;```&lt;/span&gt;bash
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;mvn clean package -P deploy -Dbase.deploy.dir&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;. -Dliferay.deploy.dir&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;/opt/liferay-ce-portal-7.4.3-ga18/deploy/ &lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;&lt;/span&gt;  -Dbackend.deploy.dir&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;/opt/liferay-ce-portal-7.4.3-ga18/tomcat-9.0.33/webapps/ -Drest.deploy.dir&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;/opt/liferay-ce-portal-7.4.18-ga4/tomcat-9.0.33/webapps/ -DskipTests
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Skipping tests has the reason that usually, the sw360 is tested in the CI and thus, local tests are note necessary, if the code has not been changed locally. Note that the REST API documentation framework is based on building test cases and thus for deploying a version with REST API documentation, tests should be executed:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#366&#34;&gt;cd&lt;/span&gt; rest
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;mvn clean package -P deploy -Dbase.deploy.dir&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;. -Dliferay.deploy.dir&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;/opt/liferay-ce-portal-7.4.3-ga18/deploy/ -Dbackend.deploy.dir&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;/opt/liferay-ce-portal-7.4.3-ga18/tomcat-9.0.33/webapps/ -Drest.deploy.dir&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;/opt/liferay-ce-portal-7.3.3-ga4/tomcat-9.0.33/webapps/
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;final-steps-in-liferay&#34;&gt;Final Steps in Liferay&lt;/h2&gt;
-&lt;p&gt;Liferay CE 7.3 will need to have some manual steps applied in order to complete the setup. Unfortunately, these cannot be automated (if you know how, please let us know). For earlier versions of Liferay, please refer to the main wiki page.&lt;/p&gt;
-&lt;p&gt;This is the legacy guide for Liferay CE 7.3.3 but is valid for current 7.4.3 deployment:&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://www.eclipse.org/sw360/docs/deployment/legacy/deploy-liferay7.3/&#34;&gt;https://www.eclipse.org/sw360/docs/deployment/legacy/deploy-liferay7.3/&lt;/a&gt;&lt;/p&gt;
-
-      </description>
-    </item>
-    
-  </channel>
-</rss>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Eclipse SW360 – Bare Metal</title><link>https://www.eclipse.org/sw360/docs/deployment/baremetal/</link><description>Recent content in Bare Metal on Eclipse SW360</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://www.eclipse.org/sw360/docs/deployment/baremetal/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Ubuntu 22.04 / Debian 11</title><link>https://www.eclipse.org/sw360/docs/deployment/baremetal/deploy-natively/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.eclipse.org/sw360/docs/deployment/baremetal/deploy-natively/</guid><description>
+&lt;h2 id="introduction">Introduction&lt;/h2>
+&lt;p>We are covering the update for Debian based Linux distros, because that is our main / agreed base system for running sw360. sw360 may run on a varienty of other linux distributions or OSes such as Mac OSX (amd64 only).&lt;/p>
+&lt;h2 id="requirements">Requirements&lt;/h2>
+&lt;p>The installation consists of quite some tasks, as an overview:&lt;/p>
+&lt;ul>
+&lt;li>Java 11&lt;/li>
+&lt;li>Postgresql &amp;gt;= 15.x&lt;/li>
+&lt;li>CouchDB &amp;gt;= 3.2.x&lt;/li>
+&lt;li>Thrift 0.18.1&lt;/li>
+&lt;li>Liferay CE 7.4.3 GA18&lt;/li>
+&lt;/ul>
+&lt;h2 id="initial-steps">Initial steps&lt;/h2>
+&lt;p>In order to &amp;ldquo;calibrate the system&amp;rdquo; just run the update / upgrade cycle once:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>sudo apt update
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo apt upgrade
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="postgresql">PostgreSQL&lt;/h2>
+&lt;p>You can go ahead install postgresql:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo apt install postgresql
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>or whatever package version is suitable here, for example version 12 for ubuntu 20.04.&lt;/p>
+&lt;p>The configuration for Liferay will come later.&lt;/p>
+&lt;h2 id="couchdb">CouchDB&lt;/h2>
+&lt;p>CouchDB is not part of the Ubuntu package management anymore. Thus, you need to add the Apache CouchDB package repository to install it, first the key for signing:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>apt install curl gpg
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>curl https://couchdb.apache.org/repo/keys.asc | sudo gpg –dearmor -o /etc/apt/trusted.gpg.d/couchdb-archive-keyring.gpg
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#366">echo&lt;/span> “deb https://apache.jfrog.io/artifactory/couchdb-deb/ &lt;span style="color:#069;font-weight:bold">$(&lt;/span>awk -F&lt;span style="color:#555">=&lt;/span> &lt;span style="color:#c30">&amp;#39;/^VERSION_CODENAME/{print$2}&amp;#39;&lt;/span> /etc/os-release&lt;span style="color:#069;font-weight:bold">)&lt;/span> main” | sudo tee /etc/apt/sources.list.d/couchdb.list &amp;gt;/dev/null
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo apt-get update -y
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo apt-get install -y couchdb
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>The installer will ask a couple of questions:&lt;/p>
+&lt;ol>
+&lt;li>Bind address: for CouchDB and SW360 &lt;code>127.0.0.1&lt;/code> (localhost) is a good bind address, if you would like to access the server from a remote computer because your sw360 runs as a server in the network, you would need to change accordingly.&lt;/li>
+&lt;li>Unless you know what you are doing, use standalone install intead of clustered option, for a regular single instalation.&lt;/li>
+&lt;li>Admin user: For fresh installation for sure a very good idea. You can set the password at sw360 for CouchDB in &lt;code>couchdb.properties&lt;/code> and place it centrally in &lt;code>/etc/sw360&lt;/code>&lt;/li>
+&lt;/ol>
+&lt;p>In case you added an admin accidentally and would like to remove it,&lt;/p>
+&lt;h2 id="thrift">Thrift&lt;/h2>
+&lt;p>For thrift, the helper install script is located on sw360 &lt;code>scripts/install-thrift.sh&lt;/code>:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo ./install-thrift.sh
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>In case there is thrift in the package management of the OS you re running on, just make sure, you have version 0.16&lt;/p>
+&lt;h2 id="java-11">Java 11&lt;/h2>
+&lt;p>If you do not have installed java 11 yet on your setup:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>curl https://packages.adoptium.net/artifactory/api/gpg/key/public | sudo tee /etc/apt/trusted.gpg.d/apache-temurin.gpg &amp;gt;/dev/null
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#366">echo&lt;/span> &lt;span style="color:#c30">&amp;#34;deb https://packages.adoptium.net/artifactory/deb &lt;/span>&lt;span style="color:#069;font-weight:bold">$(&lt;/span>awk -F&lt;span style="color:#555">=&lt;/span> &lt;span style="color:#c30">&amp;#39;/^VERSION_CODENAME/{print$2}&amp;#39;&lt;/span> /etc/os-release&lt;span style="color:#069;font-weight:bold">)&lt;/span>&lt;span style="color:#c30"> main&amp;#34;&lt;/span> | sudo tee /etc/apt/sources.list.d/adoptium.gpg
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="dependencies">Dependencies&lt;/h2>
+&lt;p>Use the included script located in:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>./scripts/download_dependencies.sh
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Required dependencies will be downloaded on the deps folder.&lt;/p>
+&lt;p>For liferay, unpack it, ideally in the &lt;code>/opt&lt;/code> directory.&lt;/p>
+&lt;h2 id="install-couchdb-lucene">Install Couchdb Lucene&lt;/h2>
+&lt;p>SW360 uses for searching the contents of the couchdb databases a lucene-based server named couchdb-lucene. The main issue here is that it requires a patch for the use in the normal SW3360 setups. The reason for the patch is that the developers presume that couchdb-lucene runs as the only component in the application server, while in the sw360 setup, there is a setup in which couchdb-lucene runs along with other components in the same application container.&lt;/p>
+&lt;p>For build the custom CLucene jar:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#099">#!/bin/bash
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#099">&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#033">CLUCENE_VERSION&lt;/span>&lt;span style="color:#555">=&lt;/span>2.1.0
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>mkdir /tmp/build
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>curl -JL https://github.com/rnewson/couchdb-lucene/archive/v&lt;span style="color:#c30">&amp;#34;&lt;/span>&lt;span style="color:#033">$CLUCENE_VERSION&lt;/span>&lt;span style="color:#c30">&amp;#34;&lt;/span>.tar.gz | tar -C /tmp/build -xz --strip-components&lt;span style="color:#555">=&lt;/span>&lt;span style="color:#f60">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cp ./scripts/patches/couchdb-lucene.patch /tmp/build
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cp ./scripts/docker/couchdb-lucene.ini /tmp/build/src/main/resources/couchdb-lucene.ini
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#366">cd&lt;/span> /tmp/build &lt;span style="color:#555">||&lt;/span> &lt;span style="color:#366">exit&lt;/span> &lt;span style="color:#f60">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>patch -p1 &amp;lt; couchdb-lucene.patch &lt;span style="color:#c30;font-weight:bold">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#c30;font-weight:bold">&lt;/span>mvn -X install war:war &lt;span style="color:#c30;font-weight:bold">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#c30;font-weight:bold">&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#09f;font-style:italic">## Deploy New SW360&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Build with:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#c30">```&lt;/span>bash
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>mvn clean package -P deploy -Dbase.deploy.dir&lt;span style="color:#555">=&lt;/span>. -Dliferay.deploy.dir&lt;span style="color:#555">=&lt;/span>/opt/liferay-ce-portal-7.4.3-ga18/deploy/ &lt;span style="color:#c30;font-weight:bold">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#c30;font-weight:bold">&lt;/span> -Dbackend.deploy.dir&lt;span style="color:#555">=&lt;/span>/opt/liferay-ce-portal-7.4.3-ga18/tomcat-9.0.33/webapps/ -Drest.deploy.dir&lt;span style="color:#555">=&lt;/span>/opt/liferay-ce-portal-7.4.18-ga4/tomcat-9.0.33/webapps/ -DskipTests
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Skipping tests has the reason that usually, the sw360 is tested in the CI and thus, local tests are note necessary, if the code has not been changed locally. Note that the REST API documentation framework is based on building test cases and thus for deploying a version with REST API documentation, tests should be executed:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#366">cd&lt;/span> rest
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>mvn clean package -P deploy -Dbase.deploy.dir&lt;span style="color:#555">=&lt;/span>. -Dliferay.deploy.dir&lt;span style="color:#555">=&lt;/span>/opt/liferay-ce-portal-7.4.3-ga18/deploy/ -Dbackend.deploy.dir&lt;span style="color:#555">=&lt;/span>/opt/liferay-ce-portal-7.4.3-ga18/tomcat-9.0.33/webapps/ -Drest.deploy.dir&lt;span style="color:#555">=&lt;/span>/opt/liferay-ce-portal-7.3.3-ga4/tomcat-9.0.33/webapps/
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="final-steps-in-liferay">Final Steps in Liferay&lt;/h2>
+&lt;p>Liferay CE 7.3 will need to have some manual steps applied in order to complete the setup. Unfortunately, these cannot be automated (if you know how, please let us know). For earlier versions of Liferay, please refer to the main wiki page.&lt;/p>
+&lt;p>This is the legacy guide for Liferay CE 7.3.3 but is valid for current 7.4.3 deployment:&lt;/p>
+&lt;p>&lt;a href="https://www.eclipse.org/sw360/docs/deployment/legacy/deploy-liferay7.3/">https://www.eclipse.org/sw360/docs/deployment/legacy/deploy-liferay7.3/&lt;/a>&lt;/p></description></item></channel></rss>

@@ -1,874 +1,778 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Eclipse SW360 – Administration Guides</title>
-    <link>https://www.eclipse.org/sw360/docs/administrationguide/</link>
-    <description>Recent content in Administration Guides on Eclipse SW360</description>
-    <generator>Hugo -- gohugo.io</generator>
-    
-	  <atom:link href="https://www.eclipse.org/sw360/docs/administrationguide/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-      
-        
-      
-    
-    
-    <item>
-      <title>Docs: Administrator Menu</title>
-      <link>https://www.eclipse.org/sw360/docs/administrationguide/menu/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.eclipse.org/sw360/docs/administrationguide/menu/</guid>
-      <description>
-        
-        
-        &lt;p&gt;The &lt;strong&gt;admin menu&lt;/strong&gt; consists of the following items:&lt;/p&gt;
-
-&lt;figure&gt;
-    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/ImagesBasic/admin_menu.png&#34;/&gt; 
-&lt;/figure&gt;
-
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;User&lt;/strong&gt;: Displays the list of &lt;strong&gt;Liferay Users&lt;/strong&gt;. One can also download or upload new users in this section&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Vendors&lt;/strong&gt;: Displays the list of the &lt;strong&gt;Vendors&lt;/strong&gt; that can be managed by the admin&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Bulk License Edit&lt;/strong&gt;: List of licenses can be edited together in this section&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Licenses&lt;/strong&gt;: Functions such as Download License Archive, Upload License Archive, Import SPDX Information and Delete License Information can be done in this section&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Obligations&lt;/strong&gt;: To manage different types of Obligations on the basis of obligation level and obligation type&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Schedule&lt;/strong&gt;: To schedule tasks such as CVE Search&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Fosology&lt;/strong&gt;: Connection to the Fossology server&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Import and Export&lt;/strong&gt;: Can Import and Export &lt;strong&gt;Component&lt;/strong&gt;, &lt;strong&gt;Release&lt;/strong&gt; and &lt;strong&gt;License&lt;/strong&gt; information&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Attachment Cleanup&lt;/strong&gt;: To cleanup attachment database&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Database Sanitization&lt;/strong&gt;: Helps in searching for duplicate identifiers&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-
-      </description>
-    </item>
-    
-    <item>
-      <title>Docs: User Management Roles</title>
-      <link>https://www.eclipse.org/sw360/docs/administrationguide/user-management-roles/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.eclipse.org/sw360/docs/administrationguide/user-management-roles/</guid>
-      <description>
-        
-        
-        &lt;p&gt;Every user can create records and edit own created records. However, to change records of others, approval is required. Approval in SW360 is a so called moderation request. A moderation request is a set of proposed changed not applied to record immediately, but will be routed to;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;The creator of the record&lt;/li&gt;
-&lt;li&gt;The moderators for a record&lt;/li&gt;
-&lt;li&gt;The clearing admins of the same group in SW360.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Then, the proposed changes can be approved by them.&lt;/p&gt;
-&lt;h2 id=&#34;general-sw360-roles-and-access&#34;&gt;General SW360 Roles and Access&lt;/h2&gt;
-&lt;p&gt;There are two main types of roles. The first type are general roles on the system that apply in the default case:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;User&lt;/strong&gt; - A user is the default, in order to apply modifications, a user can pose moderation requests, except for the data items that a user has created.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Clearing Expert&lt;/strong&gt; - Member of the clearing team. Has the rights to work on the projects of the own group and to edit licenses. Can also work on clearing requests.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Clearing Admin&lt;/strong&gt; - A clearing admin has the rights to work on the projects of the own group and to edit licenses.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;ECC Admin&lt;/strong&gt; - The only users who can edit (or approve as moderation request) ECC classifications.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Secuirty Admin&lt;/strong&gt; - The only users to edit relevance for security vulnerabilities.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;SW360 Admin&lt;/strong&gt; - An admin has full rights on all (visible!) data items. Can elevate permissions of other users.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;In addition there are ACL-style roles, meaning that per data item access settings can be made:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;Creator&lt;/strong&gt; - A creator can modify in addition to the user&amp;rsquo;s read abilities, a user can be creator of a data item.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Moderator&lt;/strong&gt; - A creator can define moderators for a data item. Moderators can change a data item as a creator can.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Contributor&lt;/strong&gt; (Component) - Is a contributor to a component, project, similar (but not the same) to a moderator. In addition to moderator, this role has been added to identify contributors (or that contributors get the fame). In contrast, the contributor cannot delete data items.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Project Owner&lt;/strong&gt; - A user who owns the project.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Lead Architect&lt;/strong&gt; (Project) - Is a contributor, just named differently to identify the responsible person. an architect refers to the person who has that role of the project or product. This role has been added to identify architects to have a contact person for technical questions.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Project Responsible&lt;/strong&gt; (Project) - Is a contributor, just named differently to identify the responsible person.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Security Responsible&lt;/strong&gt; - Users responsible for the security of the project.&lt;/li&gt;
-&lt;/ol&gt;
-
-      </description>
-    </item>
-    
-    <item>
-      <title>Docs: CVE-Search Scheduling</title>
-      <link>https://www.eclipse.org/sw360/docs/administrationguide/user-scheduling-cve-search-by-admins/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.eclipse.org/sw360/docs/administrationguide/user-scheduling-cve-search-by-admins/</guid>
-      <description>
-        
-        
-        &lt;p&gt;SW360 gets vulnerability information from an external provider of Common Vulnerability Enumeration (CVE) data. By default SW360 can connect to cve-search [https://www.circl.lu/services/cve-search/] which is either available as an online service [http://cve.circl.lu] or can be installed locally. For security and privacy reasons it is strongly advised to install a local cve-search service.&lt;/p&gt;
-&lt;p&gt;In what follows the synchronization between SW360 and the external CVE provider is described.&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;CveSearch-updates&lt;/code&gt; can either be scheduled automatically when launching the &lt;code&gt;schedule-service&lt;/code&gt; (e.g. when re/starting SW360) or it can be scheduled or unscheduled manually by an &lt;code&gt;SW360 admin&lt;/code&gt;.
-It is automatically scheduled with the start of the scheduling service, if in the &lt;code&gt;/resources/sw360.properties&lt;/code&gt; file of the &lt;code&gt;schedule-service&lt;/code&gt; in the backend, &lt;code&gt;cvesearchService&lt;/code&gt; is mentioned in the &lt;code&gt;autostart&lt;/code&gt;-property:&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;autostart = cvesearchService&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;According to the default settings, cveSearch is &lt;em&gt;not&lt;/em&gt; auto-started with the scheduling service.&lt;/p&gt;
-&lt;p&gt;For manually scheduling the CVE search service, open the &lt;code&gt;Schedule Portlet&lt;/code&gt; of the &lt;code&gt;Admin&lt;/code&gt; menu. Note that the &lt;code&gt;Admin&lt;/code&gt; menu is only visible to &lt;code&gt;SW360 admins&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;./images/UCAdminScheduling/01_adminMenu.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
-&lt;p&gt;In the &lt;code&gt;Schedule Portlet&lt;/code&gt; of the &lt;code&gt;Admin&lt;/code&gt; menu, a user with &lt;code&gt;admin&lt;/code&gt; rights can turn on or off automatic updates of the cve-search service manually.
-In the UI of the portlet, the admin can see whether or not the CVE-service is scheduled: if the service is scheduled, the &lt;code&gt;Schedule CveSearch Updates&lt;/code&gt;-button is inactive, whereas the &lt;code&gt;Cancel Scheduled CveSearch Updates&lt;/code&gt;-button is active and vice versa:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;./images/UCAdminScheduling/scheduleAdminPortlet.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
-&lt;p&gt;The &lt;code&gt;offset&lt;/code&gt; (first run of the update) and the &lt;code&gt;interval&lt;/code&gt; between updates can also be adjusted in the &lt;code&gt;/resources/sw360.properties&lt;/code&gt; file of the &lt;code&gt;src-schedule&lt;/code&gt; service.
-The corresponding properties are &lt;code&gt;schedule.cvesearch.firstOffset.seconds&lt;/code&gt; and &lt;code&gt;schedule.cvesearch.interval.seconds&lt;/code&gt;.
-The &lt;code&gt;offset&lt;/code&gt; has to be given in seconds since midnight and also the &lt;code&gt;interval&lt;/code&gt; has to be entered in seconds.
-The default is to update the vulnerabilities by CVEsearch every night at midnight, which corresponds to an offset of 0 and an interval of 24 hours (= 86400 seconds).&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;schedule.cvesearch.firstOffset.seconds = 0&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;schedule.cvesearch.interval.seconds = 86400&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;With automatic scheduling the next synchronization moment according to the &lt;code&gt;offset&lt;/code&gt; and the &lt;code&gt;interval&lt;/code&gt; is computed. This will be the first moment when a &lt;code&gt;cveSearch-update&lt;/code&gt; is run.
-There is nothing like an &lt;code&gt;initial run&lt;/code&gt; when autostarting of manually scheduling the &lt;code&gt;CveSearch-updates&lt;/code&gt;.
-Moreover, the configuration, i.e. &lt;code&gt;offset&lt;/code&gt;, &lt;code&gt;interval&lt;/code&gt; and &lt;code&gt;next synchronization&lt;/code&gt; (where the latter is a consequence of &lt;code&gt;offset&lt;/code&gt; and &lt;code&gt; interval&lt;/code&gt;) are shown in the portlet:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;./images/UCAdminScheduling/scheduleAdminPortletProperties.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
-&lt;h2 id=&#34;setup-of-a-local-instance&#34;&gt;Setup of a local instance&lt;/h2&gt;
-&lt;p&gt;It is recommended to set up and use a local instance instead of the public cve-search instance.
-The accompanying project sw360-chores contains a Dockerfile that can easily setup this service.&lt;/p&gt;
-
-      </description>
-    </item>
-    
-    <item>
-      <title>Docs: Enumerations</title>
-      <link>https://www.eclipse.org/sw360/docs/administrationguide/user-data-model-enumerations/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.eclipse.org/sw360/docs/administrationguide/user-data-model-enumerations/</guid>
-      <description>
-        
-        
-        &lt;p&gt;SW360 thrift API is comprised of the following methods:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;attachments&lt;/li&gt;
-&lt;li&gt;codescoop&lt;/li&gt;
-&lt;li&gt;components&lt;/li&gt;
-&lt;li&gt;cvesearch&lt;/li&gt;
-&lt;li&gt;fossology&lt;/li&gt;
-&lt;li&gt;importstatus&lt;/li&gt;
-&lt;li&gt;licenseinfo&lt;/li&gt;
-&lt;li&gt;licenses&lt;/li&gt;
-&lt;li&gt;moderation&lt;/li&gt;
-&lt;li&gt;projectimport&lt;/li&gt;
-&lt;li&gt;projects&lt;/li&gt;
-&lt;li&gt;schedule&lt;/li&gt;
-&lt;li&gt;search&lt;/li&gt;
-&lt;li&gt;sw360&lt;/li&gt;
-&lt;li&gt;users&lt;/li&gt;
-&lt;li&gt;vendors&lt;/li&gt;
-&lt;li&gt;vulnerabilities&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Reference: &lt;a href=&#34;https://github.com/eclipse/sw360/tree/master/libraries/lib-datahandler/src/main/thrift&#34;&gt;https://github.com/eclipse/sw360/tree/master/libraries/lib-datahandler/src/main/thrift&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&#34;attachments&#34;&gt;Attachments&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/attachments.thrift&#34;&gt;https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/attachments.thrift&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&#34;attachmenttype&#34;&gt;AttachmentType&lt;/h3&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Value&lt;/th&gt;
-&lt;th&gt;Description.&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;DOCUMENT&lt;/td&gt;
-&lt;td&gt;justa document&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;SOURCE&lt;/td&gt;
-&lt;td&gt;original course code&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;DESIGN&lt;/td&gt;
-&lt;td&gt;design document&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;REQUIREMENT&lt;/td&gt;
-&lt;td&gt;requirements document&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;CLEARING_REPORT&lt;/td&gt;
-&lt;td&gt;OSS licensing reporting&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;COMPONENT_LICENSE_INFO_XML&lt;/td&gt;
-&lt;td&gt;XML document with licenseing information - e.g. SPDX&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;COMPONENT_LICENSE_INFO_COMBINED&lt;/td&gt;
-&lt;td&gt;XML document with licensing information covering multiple componnts at once - e.g. SPDX&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;SCAN_RESULT_REPORT&lt;/td&gt;
-&lt;td&gt;Output what a scanner for licenses has found&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;SCAN_RESULT_REPORT_XML&lt;/td&gt;
-&lt;td&gt;Output what a scanner for licenses has found this time in XML&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;SOURCE_SELF&lt;/td&gt;
-&lt;td&gt;Self assembled source code distribution&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;BINARY&lt;/td&gt;
-&lt;td&gt;Binary of component from vendor&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;BINARY_SELF&lt;/td&gt;
-&lt;td&gt;Self built binary&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;DECISION_REPORT&lt;/td&gt;
-&lt;td&gt;documenting importing decisions for using this item&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;LEGAL_EVALUATION&lt;/td&gt;
-&lt;td&gt;Some legal evaluation created for this item&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;LICENSE_AGREEMENT&lt;/td&gt;
-&lt;td&gt;A ruling license agreement for this item, note that this could be for commercial software for example&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;SCREENSHOT&lt;/td&gt;
-&lt;td&gt;Screenshot, usually screenshot of the Website with licensing information&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;OTHER&lt;/td&gt;
-&lt;td&gt;anything that dos not match to the given above&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h3 id=&#34;checkstatus&#34;&gt;CheckStatus&lt;/h3&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Value&lt;/th&gt;
-&lt;th&gt;Description.&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;NOTCHECKED&lt;/td&gt;
-&lt;td&gt;Default value after upload.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;ACCEPTED&lt;/td&gt;
-&lt;td&gt;Reviewed and confirmed attachment.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;REJECTED&lt;/td&gt;
-&lt;td&gt;Document or attachment cannot be used.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2 id=&#34;codescoop-thrift-file&#34;&gt;CodeScoop Thrift File&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/codescoop.thrift&#34;&gt;https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/codescoop.thrift&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&#34;components&#34;&gt;Components&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/components.thrift&#34;&gt;https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/components.thrift&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&#34;cvesearch&#34;&gt;cvesearch&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/cvesearch.thrift&#34;&gt;https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/cvesearch.thrift&lt;/a&gt;&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Value&lt;/th&gt;
-&lt;th&gt;Description&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;NEW&lt;/td&gt;
-&lt;td&gt;&amp;hellip;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;UPDATED&lt;/td&gt;
-&lt;td&gt;New information for a notification message, so it is updated&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;OLD&lt;/td&gt;
-&lt;td&gt;&amp;hellip;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;FAILED&lt;/td&gt;
-&lt;td&gt;&amp;hellip;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2 id=&#34;fossology&#34;&gt;Fossology&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/fossology.thrift&#34;&gt;https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/fossology.thrift&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;No enumerations provided&lt;/em&gt;&lt;/p&gt;
-&lt;h2 id=&#34;importstatus&#34;&gt;Importstatus&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/importstatus.thrift&#34;&gt;https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/importstatus.thrift&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;No enumerations provided&lt;/em&gt;&lt;/p&gt;
-&lt;h2 id=&#34;license-info&#34;&gt;License Info&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/licenseinfo.thrift&#34;&gt;https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/licenseinfo.thrift&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;No enumerations provided&lt;/em&gt;&lt;/p&gt;
-&lt;h3 id=&#34;licenseinforequeststatus&#34;&gt;LicenseInfoRequestStatus&lt;/h3&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Value&lt;/th&gt;
-&lt;th&gt;Description&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;SUCCESS&lt;/td&gt;
-&lt;td&gt;&amp;hellip;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;NO_APPLICABLE_SOURCE&lt;/td&gt;
-&lt;td&gt;&amp;hellip;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;FAILURE&lt;/td&gt;
-&lt;td&gt;&amp;hellip;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h3 id=&#34;outputformatvariant&#34;&gt;OutputFormatVariant&lt;/h3&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Value&lt;/th&gt;
-&lt;th&gt;Description&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;REPORT&lt;/td&gt;
-&lt;td&gt;&amp;hellip;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;DISCLOSURE&lt;/td&gt;
-&lt;td&gt;&amp;hellip;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2 id=&#34;licenses&#34;&gt;Licenses&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/licenses.thrift&#34;&gt;https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/licenses.thrift&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;No enumerations provided&lt;/em&gt;&lt;/p&gt;
-&lt;h2 id=&#34;moderation&#34;&gt;Moderation&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/moderation.thrift&#34;&gt;https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/moderation.thrift&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&#34;documenttype&#34;&gt;DocumentType&lt;/h3&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Value&lt;/th&gt;
-&lt;th&gt;Description&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;COMPONENT&lt;/td&gt;
-&lt;td&gt;&amp;hellip;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;RELEASE&lt;/td&gt;
-&lt;td&gt;&amp;hellip;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;PROJECT&lt;/td&gt;
-&lt;td&gt;&amp;hellip;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;LICENSE&lt;/td&gt;
-&lt;td&gt;&amp;hellip;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;USER&lt;/td&gt;
-&lt;td&gt;&amp;hellip;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2 id=&#34;project-import&#34;&gt;Project Import&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/projectimport.thrift&#34;&gt;https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/projectimport.thrift&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;No enumerations provided&lt;/em&gt;&lt;/p&gt;
-&lt;h2 id=&#34;projects&#34;&gt;Projects&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/projects.thrift&#34;&gt;https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/projects.thrift&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&#34;project-state&#34;&gt;Project State&lt;/h3&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Value&lt;/th&gt;
-&lt;th&gt;Description&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;ACTIVE&lt;/td&gt;
-&lt;td&gt;&lt;em&gt;well&lt;/em&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;PHASE_OUT&lt;/td&gt;
-&lt;td&gt;&lt;em&gt;well&lt;/em&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;UNKNOWN&lt;/td&gt;
-&lt;td&gt;&lt;em&gt;well&lt;/em&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h3 id=&#34;project-type&#34;&gt;Project Type&lt;/h3&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Value&lt;/th&gt;
-&lt;th&gt;Description&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;CUSTOMER&lt;/td&gt;
-&lt;td&gt;Project that delivers artifacts to customer outside organisation&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;INTERNAL&lt;/td&gt;
-&lt;td&gt;Project that provides artifacts or service for internal use&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;PRODUCT&lt;/td&gt;
-&lt;td&gt;Just that it is a product instead of a project&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;SERVICE&lt;/td&gt;
-&lt;td&gt;Project that provides services to customer outside organisation&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;INNER_SOURCE&lt;/td&gt;
-&lt;td&gt;Inner source project, meaning that everyone inside org can use it&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h3 id=&#34;project-relationship&#34;&gt;Project Relationship&lt;/h3&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Value&lt;/th&gt;
-&lt;th&gt;Description&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;UNKNOWN&lt;/td&gt;
-&lt;td&gt;&lt;em&gt;unknown&lt;/em&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;REFERRED&lt;/td&gt;
-&lt;td&gt;Sister project&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;CONTAINED&lt;/td&gt;
-&lt;td&gt;Sub project&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;DUPLICATE&lt;/td&gt;
-&lt;td&gt;&lt;em&gt;duplicate&lt;/em&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h3 id=&#34;project-clearing-state&#34;&gt;Project Clearing State&lt;/h3&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Value&lt;/th&gt;
-&lt;th&gt;Description&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;OPEN&lt;/td&gt;
-&lt;td&gt;not started&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;IN_PROGRESS&lt;/td&gt;
-&lt;td&gt;&amp;hellip;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;CLOSED&lt;/td&gt;
-&lt;td&gt;&amp;hellip;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2 id=&#34;schedule&#34;&gt;Schedule&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/schedule.thrift&#34;&gt;https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/schedule.thrift&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;No enumerations provided&lt;/em&gt;&lt;/p&gt;
-&lt;h2 id=&#34;search&#34;&gt;Search&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/search.thrift&#34;&gt;https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/search.thrift&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;No enumerations provided&lt;/em&gt;&lt;/p&gt;
-&lt;h2 id=&#34;general-sw360-thrift&#34;&gt;General SW360 Thrift&lt;/h2&gt;
-&lt;h3 id=&#34;software-mainline-states&#34;&gt;Software Mainline States&lt;/h3&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Value&lt;/th&gt;
-&lt;th&gt;Description&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;OPEN&lt;/td&gt;
-&lt;td&gt;Not decided so far&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;MAINLINE&lt;/td&gt;
-&lt;td&gt;Organisation or person thinks that use of this software is recommended, which included multiple versions.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;SPECIFIC&lt;/td&gt;
-&lt;td&gt;The software is not recommended in general, but for special use case or for this particular version it is acceptable.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;PHASE_OUT&lt;/td&gt;
-&lt;td&gt;The software has issues, please consider removing it soon, if in use.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;DENIED&lt;/td&gt;
-&lt;td&gt;Software which is not allowed for use. For example, software that does not have licensing.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2 id=&#34;general-sw360-thrift-1&#34;&gt;General SW360 Thrift&lt;/h2&gt;
-&lt;h3 id=&#34;software-mainline-states-1&#34;&gt;Software Mainline States&lt;/h3&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Value&lt;/th&gt;
-&lt;th&gt;Description.&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;OPEN&lt;/td&gt;
-&lt;td&gt;Not decided so far&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;MAINLINE&lt;/td&gt;
-&lt;td&gt;Organisation or person thinks that use of this software is recommended, which included multiple versions.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;SPECIFIC&lt;/td&gt;
-&lt;td&gt;The software is not recommended in general, but for special use case or for this particular version it is acceptable.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;PHASE_OUT&lt;/td&gt;
-&lt;td&gt;The software has issues, please consider removing it soon, if in use.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;DENIED&lt;/td&gt;
-&lt;td&gt;Software which is not allowed for use. For example, software that does not have licensing.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h3 id=&#34;moderation-states&#34;&gt;Moderation States&lt;/h3&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Value&lt;/th&gt;
-&lt;th&gt;Description&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;PENDING&lt;/td&gt;
-&lt;td&gt;Not opened so far.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;APPROVED&lt;/td&gt;
-&lt;td&gt;A person who has received the moderation request (which could be creator of the document, a clearing admin, a moderator, etc.) has approved the moderation request. It could be deleted then.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;REJECTED&lt;/td&gt;
-&lt;td&gt;A person who has received the moderation request (which could be creator of the document, a clearing admin, a moderator, etc.) has rejected the moderation request.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;INPROGRESS&lt;/td&gt;
-&lt;td&gt;A person who has received the moderation request (which could be creator of the document, a clearing admin, a moderator, etc.) has opened / viewed the moderation request, but did not decide.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h3 id=&#34;visibility&#34;&gt;Visibility&lt;/h3&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Value&lt;/th&gt;
-&lt;th&gt;Description&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;PRIVATE&lt;/td&gt;
-&lt;td&gt;Only visible by creator (and admin which applies to all visibility levels).&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;ME_AND_MODERATORS&lt;/td&gt;
-&lt;td&gt;Visible by creator and moderators.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;BUISNESSUNIT_AND_MODERATORS&lt;/td&gt;
-&lt;td&gt;All users of the same group and the moderators.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;EVERYONE&lt;/td&gt;
-&lt;td&gt;Every user who is logged into the system.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h3 id=&#34;verification-state&#34;&gt;Verification State&lt;/h3&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Value&lt;/th&gt;
-&lt;th&gt;Description&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;NOT_CHECKED&lt;/td&gt;
-&lt;td&gt;No one has yet looked at this and verified it.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;CHECKED&lt;/td&gt;
-&lt;td&gt;It is verified.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;INCORRECT&lt;/td&gt;
-&lt;td&gt;It was decided that the verification should be rejected.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h3 id=&#34;release-relationship&#34;&gt;Release Relationship&lt;/h3&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Value&lt;/th&gt;
-&lt;th&gt;Description&lt;/th&gt;
-&lt;th&gt;Clearing releav nt&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;CONTAINED&lt;/td&gt;
-&lt;td&gt;If you just do not know whether it is dynamically linked.&lt;/td&gt;
-&lt;td&gt;Yes&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;REFERRED&lt;/td&gt;
-&lt;td&gt;Referencing a stand alone used other part.&lt;/td&gt;
-&lt;td&gt;No&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;UNKNOWN&lt;/td&gt;
-&lt;td&gt;If you just do not know.&lt;/td&gt;
-&lt;td&gt;Yes&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;DYNAMICALLY_LINKED&lt;/td&gt;
-&lt;td&gt;Software dynamically linked - as the name says.&lt;/td&gt;
-&lt;td&gt;Yes&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;STATICALLY_LINKED&lt;/td&gt;
-&lt;td&gt;Software statically linked - as the name says.&lt;/td&gt;
-&lt;td&gt;Yes&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;SIDE_BY_SIDE&lt;/td&gt;
-&lt;td&gt;Not decided so far.&lt;/td&gt;
-&lt;td&gt;Yes&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;STANDALONE&lt;/td&gt;
-&lt;td&gt;Software is given as standalone delivery, ie. not technically connected.&lt;/td&gt;
-&lt;td&gt;Yes&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;INTERNAL_USE&lt;/td&gt;
-&lt;td&gt;Used for creating or building or  ? the product or projects but not delivered.&lt;/td&gt;
-&lt;td&gt;Yes&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;OPTIONAL&lt;/td&gt;
-&lt;td&gt;Is not mandatory part of the installation.&lt;/td&gt;
-&lt;td&gt;Yes&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;TO_BE_REPLACED&lt;/td&gt;
-&lt;td&gt;Is there but should be moved out.&lt;/td&gt;
-&lt;td&gt;Yes&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2 id=&#34;users&#34;&gt;Users&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/users.thrift&#34;&gt;https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/users.thrift&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&#34;vendors&#34;&gt;Vendors&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/vendors.thrift&#34;&gt;https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/vendors.thrift&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;No enumerations provided&lt;/em&gt;&lt;/p&gt;
-&lt;h2 id=&#34;vulnerabilities&#34;&gt;Vulnerabilities&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/vulnerabilities.thrift&#34;&gt;https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/vulnerabilities.thrift&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;No enumerations provided&lt;/em&gt;&lt;/p&gt;
-
-      </description>
-    </item>
-    
-    <item>
-      <title>Docs: Properties</title>
-      <link>https://www.eclipse.org/sw360/docs/administrationguide/properties/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.eclipse.org/sw360/docs/administrationguide/properties/</guid>
-      <description>
-        
-        
-        &lt;p&gt;&lt;strong&gt;Frontend Properties&lt;/strong&gt;: All the sw360 frontend properties are mentioned in &lt;a href=&#34;https://github.com/eclipse/sw360/blob/master/frontend/sw360-portlet/src/main/resources/sw360.properties&#34;&gt;sw360.properties&lt;/a&gt; file.
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Eclipse SW360 – Administration Guides</title><link>https://www.eclipse.org/sw360/docs/administrationguide/</link><description>Recent content in Administration Guides on Eclipse SW360</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://www.eclipse.org/sw360/docs/administrationguide/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Administrator Menu</title><link>https://www.eclipse.org/sw360/docs/administrationguide/menu/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.eclipse.org/sw360/docs/administrationguide/menu/</guid><description>
+&lt;p>The &lt;strong>admin menu&lt;/strong> consists of the following items:&lt;/p>
+&lt;figure>
+&lt;img src="https://www.eclipse.org/sw360/sw360/img/ImagesBasic/admin_menu.png"/>
+&lt;/figure>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>User&lt;/strong>: Displays the list of &lt;strong>Liferay Users&lt;/strong>. One can also download or upload new users in this section&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Vendors&lt;/strong>: Displays the list of the &lt;strong>Vendors&lt;/strong> that can be managed by the admin&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Bulk License Edit&lt;/strong>: List of licenses can be edited together in this section&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Licenses&lt;/strong>: Functions such as Download License Archive, Upload License Archive, Import SPDX Information and Delete License Information can be done in this section&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Obligations&lt;/strong>: To manage different types of Obligations on the basis of obligation level and obligation type&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Schedule&lt;/strong>: To schedule tasks such as CVE Search&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Fosology&lt;/strong>: Connection to the Fossology server&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Import and Export&lt;/strong>: Can Import and Export &lt;strong>Component&lt;/strong>, &lt;strong>Release&lt;/strong> and &lt;strong>License&lt;/strong> information&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Attachment Cleanup&lt;/strong>: To cleanup attachment database&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Database Sanitization&lt;/strong>: Helps in searching for duplicate identifiers&lt;/p>
+&lt;/li>
+&lt;/ul></description></item><item><title>Docs: User Management Roles</title><link>https://www.eclipse.org/sw360/docs/administrationguide/user-management-roles/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.eclipse.org/sw360/docs/administrationguide/user-management-roles/</guid><description>
+&lt;p>Every user can create records and edit own created records. However, to change records of others, approval is required. Approval in SW360 is a so called moderation request. A moderation request is a set of proposed changed not applied to record immediately, but will be routed to;&lt;/p>
+&lt;ul>
+&lt;li>The creator of the record&lt;/li>
+&lt;li>The moderators for a record&lt;/li>
+&lt;li>The clearing admins of the same group in SW360.&lt;/li>
+&lt;/ul>
+&lt;p>Then, the proposed changes can be approved by them.&lt;/p>
+&lt;h2 id="general-sw360-roles-and-access">General SW360 Roles and Access&lt;/h2>
+&lt;p>There are two main types of roles. The first type are general roles on the system that apply in the default case:&lt;/p>
+&lt;ol>
+&lt;li>&lt;strong>User&lt;/strong> - A user is the default, in order to apply modifications, a user can pose moderation requests, except for the data items that a user has created.&lt;/li>
+&lt;li>&lt;strong>Clearing Expert&lt;/strong> - Member of the clearing team. Has the rights to work on the projects of the own group and to edit licenses. Can also work on clearing requests.&lt;/li>
+&lt;li>&lt;strong>Clearing Admin&lt;/strong> - A clearing admin has the rights to work on the projects of the own group and to edit licenses.&lt;/li>
+&lt;li>&lt;strong>ECC Admin&lt;/strong> - The only users who can edit (or approve as moderation request) ECC classifications.&lt;/li>
+&lt;li>&lt;strong>Secuirty Admin&lt;/strong> - The only users to edit relevance for security vulnerabilities.&lt;/li>
+&lt;li>&lt;strong>SW360 Admin&lt;/strong> - An admin has full rights on all (visible!) data items. Can elevate permissions of other users.&lt;/li>
+&lt;/ol>
+&lt;p>In addition there are ACL-style roles, meaning that per data item access settings can be made:&lt;/p>
+&lt;ol>
+&lt;li>&lt;strong>Creator&lt;/strong> - A creator can modify in addition to the user&amp;rsquo;s read abilities, a user can be creator of a data item.&lt;/li>
+&lt;li>&lt;strong>Moderator&lt;/strong> - A creator can define moderators for a data item. Moderators can change a data item as a creator can.&lt;/li>
+&lt;li>&lt;strong>Contributor&lt;/strong> (Component) - Is a contributor to a component, project, similar (but not the same) to a moderator. In addition to moderator, this role has been added to identify contributors (or that contributors get the fame). In contrast, the contributor cannot delete data items.&lt;/li>
+&lt;li>&lt;strong>Project Owner&lt;/strong> - A user who owns the project.&lt;/li>
+&lt;li>&lt;strong>Lead Architect&lt;/strong> (Project) - Is a contributor, just named differently to identify the responsible person. an architect refers to the person who has that role of the project or product. This role has been added to identify architects to have a contact person for technical questions.&lt;/li>
+&lt;li>&lt;strong>Project Responsible&lt;/strong> (Project) - Is a contributor, just named differently to identify the responsible person.&lt;/li>
+&lt;li>&lt;strong>Security Responsible&lt;/strong> - Users responsible for the security of the project.&lt;/li>
+&lt;/ol></description></item><item><title>Docs: CVE-Search Scheduling</title><link>https://www.eclipse.org/sw360/docs/administrationguide/user-scheduling-cve-search-by-admins/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.eclipse.org/sw360/docs/administrationguide/user-scheduling-cve-search-by-admins/</guid><description>
+&lt;p>SW360 gets vulnerability information from an external provider of Common Vulnerability Enumeration (CVE) data. By default SW360 can connect to cve-search [https://www.circl.lu/services/cve-search/] which is either available as an online service [http://cve.circl.lu] or can be installed locally. For security and privacy reasons it is strongly advised to install a local cve-search service.&lt;/p>
+&lt;p>In what follows the synchronization between SW360 and the external CVE provider is described.&lt;/p>
+&lt;p>&lt;code>CveSearch-updates&lt;/code> can either be scheduled automatically when launching the &lt;code>schedule-service&lt;/code> (e.g. when re/starting SW360) or it can be scheduled or unscheduled manually by an &lt;code>SW360 admin&lt;/code>.
+It is automatically scheduled with the start of the scheduling service, if in the &lt;code>/resources/sw360.properties&lt;/code> file of the &lt;code>schedule-service&lt;/code> in the backend, &lt;code>cvesearchService&lt;/code> is mentioned in the &lt;code>autostart&lt;/code>-property:&lt;/p>
+&lt;p>&lt;code>autostart = cvesearchService&lt;/code>&lt;/p>
+&lt;p>According to the default settings, cveSearch is &lt;em>not&lt;/em> auto-started with the scheduling service.&lt;/p>
+&lt;p>For manually scheduling the CVE search service, open the &lt;code>Schedule Portlet&lt;/code> of the &lt;code>Admin&lt;/code> menu. Note that the &lt;code>Admin&lt;/code> menu is only visible to &lt;code>SW360 admins&lt;/code>.&lt;/p>
+&lt;p>&lt;img src="./images/UCAdminScheduling/01_adminMenu.png" alt="">&lt;/p>
+&lt;p>In the &lt;code>Schedule Portlet&lt;/code> of the &lt;code>Admin&lt;/code> menu, a user with &lt;code>admin&lt;/code> rights can turn on or off automatic updates of the cve-search service manually.
+In the UI of the portlet, the admin can see whether or not the CVE-service is scheduled: if the service is scheduled, the &lt;code>Schedule CveSearch Updates&lt;/code>-button is inactive, whereas the &lt;code>Cancel Scheduled CveSearch Updates&lt;/code>-button is active and vice versa:&lt;/p>
+&lt;p>&lt;img src="./images/UCAdminScheduling/scheduleAdminPortlet.png" alt="">&lt;/p>
+&lt;p>The &lt;code>offset&lt;/code> (first run of the update) and the &lt;code>interval&lt;/code> between updates can also be adjusted in the &lt;code>/resources/sw360.properties&lt;/code> file of the &lt;code>src-schedule&lt;/code> service.
+The corresponding properties are &lt;code>schedule.cvesearch.firstOffset.seconds&lt;/code> and &lt;code>schedule.cvesearch.interval.seconds&lt;/code>.
+The &lt;code>offset&lt;/code> has to be given in seconds since midnight and also the &lt;code>interval&lt;/code> has to be entered in seconds.
+The default is to update the vulnerabilities by CVEsearch every night at midnight, which corresponds to an offset of 0 and an interval of 24 hours (= 86400 seconds).&lt;/p>
+&lt;p>&lt;code>schedule.cvesearch.firstOffset.seconds = 0&lt;/code>&lt;/p>
+&lt;p>&lt;code>schedule.cvesearch.interval.seconds = 86400&lt;/code>&lt;/p>
+&lt;p>With automatic scheduling the next synchronization moment according to the &lt;code>offset&lt;/code> and the &lt;code>interval&lt;/code> is computed. This will be the first moment when a &lt;code>cveSearch-update&lt;/code> is run.
+There is nothing like an &lt;code>initial run&lt;/code> when autostarting of manually scheduling the &lt;code>CveSearch-updates&lt;/code>.
+Moreover, the configuration, i.e. &lt;code>offset&lt;/code>, &lt;code>interval&lt;/code> and &lt;code>next synchronization&lt;/code> (where the latter is a consequence of &lt;code>offset&lt;/code> and &lt;code> interval&lt;/code>) are shown in the portlet:&lt;/p>
+&lt;p>&lt;img src="./images/UCAdminScheduling/scheduleAdminPortletProperties.png" alt="">&lt;/p>
+&lt;h2 id="setup-of-a-local-instance">Setup of a local instance&lt;/h2>
+&lt;p>It is recommended to set up and use a local instance instead of the public cve-search instance.
+The accompanying project sw360-chores contains a Dockerfile that can easily setup this service.&lt;/p></description></item><item><title>Docs: Enumerations</title><link>https://www.eclipse.org/sw360/docs/administrationguide/user-data-model-enumerations/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.eclipse.org/sw360/docs/administrationguide/user-data-model-enumerations/</guid><description>
+&lt;p>SW360 thrift API is comprised of the following methods:&lt;/p>
+&lt;ul>
+&lt;li>attachments&lt;/li>
+&lt;li>codescoop&lt;/li>
+&lt;li>components&lt;/li>
+&lt;li>cvesearch&lt;/li>
+&lt;li>fossology&lt;/li>
+&lt;li>importstatus&lt;/li>
+&lt;li>licenseinfo&lt;/li>
+&lt;li>licenses&lt;/li>
+&lt;li>moderation&lt;/li>
+&lt;li>projectimport&lt;/li>
+&lt;li>projects&lt;/li>
+&lt;li>schedule&lt;/li>
+&lt;li>search&lt;/li>
+&lt;li>sw360&lt;/li>
+&lt;li>users&lt;/li>
+&lt;li>vendors&lt;/li>
+&lt;li>vulnerabilities&lt;/li>
+&lt;/ul>
+&lt;p>Reference: &lt;a href="https://github.com/eclipse/sw360/tree/master/libraries/lib-datahandler/src/main/thrift">https://github.com/eclipse/sw360/tree/master/libraries/lib-datahandler/src/main/thrift&lt;/a>&lt;/p>
+&lt;h2 id="attachments">Attachments&lt;/h2>
+&lt;p>&lt;a href="https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/attachments.thrift">https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/attachments.thrift&lt;/a>&lt;/p>
+&lt;h3 id="attachmenttype">AttachmentType&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Value&lt;/th>
+&lt;th>Description.&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>DOCUMENT&lt;/td>
+&lt;td>justa document&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>SOURCE&lt;/td>
+&lt;td>original course code&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>DESIGN&lt;/td>
+&lt;td>design document&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>REQUIREMENT&lt;/td>
+&lt;td>requirements document&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>CLEARING_REPORT&lt;/td>
+&lt;td>OSS licensing reporting&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>COMPONENT_LICENSE_INFO_XML&lt;/td>
+&lt;td>XML document with licenseing information - e.g. SPDX&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>COMPONENT_LICENSE_INFO_COMBINED&lt;/td>
+&lt;td>XML document with licensing information covering multiple componnts at once - e.g. SPDX&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>SCAN_RESULT_REPORT&lt;/td>
+&lt;td>Output what a scanner for licenses has found&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>SCAN_RESULT_REPORT_XML&lt;/td>
+&lt;td>Output what a scanner for licenses has found this time in XML&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>SOURCE_SELF&lt;/td>
+&lt;td>Self assembled source code distribution&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>BINARY&lt;/td>
+&lt;td>Binary of component from vendor&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>BINARY_SELF&lt;/td>
+&lt;td>Self built binary&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>DECISION_REPORT&lt;/td>
+&lt;td>documenting importing decisions for using this item&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>LEGAL_EVALUATION&lt;/td>
+&lt;td>Some legal evaluation created for this item&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>LICENSE_AGREEMENT&lt;/td>
+&lt;td>A ruling license agreement for this item, note that this could be for commercial software for example&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>SCREENSHOT&lt;/td>
+&lt;td>Screenshot, usually screenshot of the Website with licensing information&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>OTHER&lt;/td>
+&lt;td>anything that dos not match to the given above&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="checkstatus">CheckStatus&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Value&lt;/th>
+&lt;th>Description.&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>NOTCHECKED&lt;/td>
+&lt;td>Default value after upload.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>ACCEPTED&lt;/td>
+&lt;td>Reviewed and confirmed attachment.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>REJECTED&lt;/td>
+&lt;td>Document or attachment cannot be used.&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="codescoop-thrift-file">CodeScoop Thrift File&lt;/h2>
+&lt;p>&lt;a href="https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/codescoop.thrift">https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/codescoop.thrift&lt;/a>&lt;/p>
+&lt;h2 id="components">Components&lt;/h2>
+&lt;p>&lt;a href="https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/components.thrift">https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/components.thrift&lt;/a>&lt;/p>
+&lt;h2 id="cvesearch">cvesearch&lt;/h2>
+&lt;p>&lt;a href="https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/cvesearch.thrift">https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/cvesearch.thrift&lt;/a>&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Value&lt;/th>
+&lt;th>Description&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>NEW&lt;/td>
+&lt;td>&amp;hellip;&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>UPDATED&lt;/td>
+&lt;td>New information for a notification message, so it is updated&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>OLD&lt;/td>
+&lt;td>&amp;hellip;&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>FAILED&lt;/td>
+&lt;td>&amp;hellip;&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="fossology">Fossology&lt;/h2>
+&lt;p>&lt;a href="https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/fossology.thrift">https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/fossology.thrift&lt;/a>&lt;/p>
+&lt;p>&lt;em>No enumerations provided&lt;/em>&lt;/p>
+&lt;h2 id="importstatus">Importstatus&lt;/h2>
+&lt;p>&lt;a href="https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/importstatus.thrift">https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/importstatus.thrift&lt;/a>&lt;/p>
+&lt;p>&lt;em>No enumerations provided&lt;/em>&lt;/p>
+&lt;h2 id="license-info">License Info&lt;/h2>
+&lt;p>&lt;a href="https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/licenseinfo.thrift">https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/licenseinfo.thrift&lt;/a>&lt;/p>
+&lt;p>&lt;em>No enumerations provided&lt;/em>&lt;/p>
+&lt;h3 id="licenseinforequeststatus">LicenseInfoRequestStatus&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Value&lt;/th>
+&lt;th>Description&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>SUCCESS&lt;/td>
+&lt;td>&amp;hellip;&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>NO_APPLICABLE_SOURCE&lt;/td>
+&lt;td>&amp;hellip;&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>FAILURE&lt;/td>
+&lt;td>&amp;hellip;&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="outputformatvariant">OutputFormatVariant&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Value&lt;/th>
+&lt;th>Description&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>REPORT&lt;/td>
+&lt;td>&amp;hellip;&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>DISCLOSURE&lt;/td>
+&lt;td>&amp;hellip;&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="licenses">Licenses&lt;/h2>
+&lt;p>&lt;a href="https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/licenses.thrift">https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/licenses.thrift&lt;/a>&lt;/p>
+&lt;p>&lt;em>No enumerations provided&lt;/em>&lt;/p>
+&lt;h2 id="moderation">Moderation&lt;/h2>
+&lt;p>&lt;a href="https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/moderation.thrift">https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/moderation.thrift&lt;/a>&lt;/p>
+&lt;h3 id="documenttype">DocumentType&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Value&lt;/th>
+&lt;th>Description&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>COMPONENT&lt;/td>
+&lt;td>&amp;hellip;&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>RELEASE&lt;/td>
+&lt;td>&amp;hellip;&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>PROJECT&lt;/td>
+&lt;td>&amp;hellip;&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>LICENSE&lt;/td>
+&lt;td>&amp;hellip;&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>USER&lt;/td>
+&lt;td>&amp;hellip;&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="project-import">Project Import&lt;/h2>
+&lt;p>&lt;a href="https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/projectimport.thrift">https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/projectimport.thrift&lt;/a>&lt;/p>
+&lt;p>&lt;em>No enumerations provided&lt;/em>&lt;/p>
+&lt;h2 id="projects">Projects&lt;/h2>
+&lt;p>&lt;a href="https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/projects.thrift">https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/projects.thrift&lt;/a>&lt;/p>
+&lt;h3 id="project-state">Project State&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Value&lt;/th>
+&lt;th>Description&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>ACTIVE&lt;/td>
+&lt;td>&lt;em>well&lt;/em>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>PHASE_OUT&lt;/td>
+&lt;td>&lt;em>well&lt;/em>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>UNKNOWN&lt;/td>
+&lt;td>&lt;em>well&lt;/em>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="project-type">Project Type&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Value&lt;/th>
+&lt;th>Description&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>CUSTOMER&lt;/td>
+&lt;td>Project that delivers artifacts to customer outside organisation&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>INTERNAL&lt;/td>
+&lt;td>Project that provides artifacts or service for internal use&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>PRODUCT&lt;/td>
+&lt;td>Just that it is a product instead of a project&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>SERVICE&lt;/td>
+&lt;td>Project that provides services to customer outside organisation&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>INNER_SOURCE&lt;/td>
+&lt;td>Inner source project, meaning that everyone inside org can use it&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="project-relationship">Project Relationship&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Value&lt;/th>
+&lt;th>Description&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>UNKNOWN&lt;/td>
+&lt;td>&lt;em>unknown&lt;/em>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>REFERRED&lt;/td>
+&lt;td>Sister project&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>CONTAINED&lt;/td>
+&lt;td>Sub project&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>DUPLICATE&lt;/td>
+&lt;td>&lt;em>duplicate&lt;/em>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="project-clearing-state">Project Clearing State&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Value&lt;/th>
+&lt;th>Description&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>OPEN&lt;/td>
+&lt;td>not started&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>IN_PROGRESS&lt;/td>
+&lt;td>&amp;hellip;&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>CLOSED&lt;/td>
+&lt;td>&amp;hellip;&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="schedule">Schedule&lt;/h2>
+&lt;p>&lt;a href="https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/schedule.thrift">https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/schedule.thrift&lt;/a>&lt;/p>
+&lt;p>&lt;em>No enumerations provided&lt;/em>&lt;/p>
+&lt;h2 id="search">Search&lt;/h2>
+&lt;p>&lt;a href="https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/search.thrift">https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/search.thrift&lt;/a>&lt;/p>
+&lt;p>&lt;em>No enumerations provided&lt;/em>&lt;/p>
+&lt;h2 id="general-sw360-thrift">General SW360 Thrift&lt;/h2>
+&lt;h3 id="software-mainline-states">Software Mainline States&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Value&lt;/th>
+&lt;th>Description&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>OPEN&lt;/td>
+&lt;td>Not decided so far&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>MAINLINE&lt;/td>
+&lt;td>Organisation or person thinks that use of this software is recommended, which included multiple versions.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>SPECIFIC&lt;/td>
+&lt;td>The software is not recommended in general, but for special use case or for this particular version it is acceptable.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>PHASE_OUT&lt;/td>
+&lt;td>The software has issues, please consider removing it soon, if in use.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>DENIED&lt;/td>
+&lt;td>Software which is not allowed for use. For example, software that does not have licensing.&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="general-sw360-thrift-1">General SW360 Thrift&lt;/h2>
+&lt;h3 id="software-mainline-states-1">Software Mainline States&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Value&lt;/th>
+&lt;th>Description.&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>OPEN&lt;/td>
+&lt;td>Not decided so far&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>MAINLINE&lt;/td>
+&lt;td>Organisation or person thinks that use of this software is recommended, which included multiple versions.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>SPECIFIC&lt;/td>
+&lt;td>The software is not recommended in general, but for special use case or for this particular version it is acceptable.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>PHASE_OUT&lt;/td>
+&lt;td>The software has issues, please consider removing it soon, if in use.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>DENIED&lt;/td>
+&lt;td>Software which is not allowed for use. For example, software that does not have licensing.&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="moderation-states">Moderation States&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Value&lt;/th>
+&lt;th>Description&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>PENDING&lt;/td>
+&lt;td>Not opened so far.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>APPROVED&lt;/td>
+&lt;td>A person who has received the moderation request (which could be creator of the document, a clearing admin, a moderator, etc.) has approved the moderation request. It could be deleted then.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>REJECTED&lt;/td>
+&lt;td>A person who has received the moderation request (which could be creator of the document, a clearing admin, a moderator, etc.) has rejected the moderation request.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>INPROGRESS&lt;/td>
+&lt;td>A person who has received the moderation request (which could be creator of the document, a clearing admin, a moderator, etc.) has opened / viewed the moderation request, but did not decide.&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="visibility">Visibility&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Value&lt;/th>
+&lt;th>Description&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>PRIVATE&lt;/td>
+&lt;td>Only visible by creator (and admin which applies to all visibility levels).&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>ME_AND_MODERATORS&lt;/td>
+&lt;td>Visible by creator and moderators.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>BUISNESSUNIT_AND_MODERATORS&lt;/td>
+&lt;td>All users of the same group and the moderators.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>EVERYONE&lt;/td>
+&lt;td>Every user who is logged into the system.&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="verification-state">Verification State&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Value&lt;/th>
+&lt;th>Description&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>NOT_CHECKED&lt;/td>
+&lt;td>No one has yet looked at this and verified it.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>CHECKED&lt;/td>
+&lt;td>It is verified.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>INCORRECT&lt;/td>
+&lt;td>It was decided that the verification should be rejected.&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="release-relationship">Release Relationship&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Value&lt;/th>
+&lt;th>Description&lt;/th>
+&lt;th>Clearing releav nt&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>CONTAINED&lt;/td>
+&lt;td>If you just do not know whether it is dynamically linked.&lt;/td>
+&lt;td>Yes&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>REFERRED&lt;/td>
+&lt;td>Referencing a stand alone used other part.&lt;/td>
+&lt;td>No&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>UNKNOWN&lt;/td>
+&lt;td>If you just do not know.&lt;/td>
+&lt;td>Yes&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>DYNAMICALLY_LINKED&lt;/td>
+&lt;td>Software dynamically linked - as the name says.&lt;/td>
+&lt;td>Yes&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>STATICALLY_LINKED&lt;/td>
+&lt;td>Software statically linked - as the name says.&lt;/td>
+&lt;td>Yes&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>SIDE_BY_SIDE&lt;/td>
+&lt;td>Not decided so far.&lt;/td>
+&lt;td>Yes&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>STANDALONE&lt;/td>
+&lt;td>Software is given as standalone delivery, ie. not technically connected.&lt;/td>
+&lt;td>Yes&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>INTERNAL_USE&lt;/td>
+&lt;td>Used for creating or building or ? the product or projects but not delivered.&lt;/td>
+&lt;td>Yes&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>OPTIONAL&lt;/td>
+&lt;td>Is not mandatory part of the installation.&lt;/td>
+&lt;td>Yes&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>TO_BE_REPLACED&lt;/td>
+&lt;td>Is there but should be moved out.&lt;/td>
+&lt;td>Yes&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="users">Users&lt;/h2>
+&lt;p>&lt;a href="https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/users.thrift">https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/users.thrift&lt;/a>&lt;/p>
+&lt;h2 id="vendors">Vendors&lt;/h2>
+&lt;p>&lt;a href="https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/vendors.thrift">https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/vendors.thrift&lt;/a>&lt;/p>
+&lt;p>&lt;em>No enumerations provided&lt;/em>&lt;/p>
+&lt;h2 id="vulnerabilities">Vulnerabilities&lt;/h2>
+&lt;p>&lt;a href="https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/vulnerabilities.thrift">https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/vulnerabilities.thrift&lt;/a>&lt;/p>
+&lt;p>&lt;em>No enumerations provided&lt;/em>&lt;/p></description></item><item><title>Docs: Properties</title><link>https://www.eclipse.org/sw360/docs/administrationguide/properties/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.eclipse.org/sw360/docs/administrationguide/properties/</guid><description>
+&lt;p>&lt;strong>Frontend Properties&lt;/strong>: All the sw360 frontend properties are mentioned in &lt;a href="https://github.com/eclipse/sw360/blob/master/frontend/sw360-portlet/src/main/resources/sw360.properties">sw360.properties&lt;/a> file.
 For example;
-&lt;a href=&#34;https://github.com/eclipse/sw360/wiki/&#34;&gt;https://github.com/eclipse/sw360/wiki/&lt;/a&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Different categories for components,&lt;/p&gt;
-&lt;p&gt;component.categories=[ &amp;ldquo;framework&amp;rdquo;, &amp;ldquo;SDK&amp;rdquo;, &amp;ldquo;big-data&amp;rdquo;, &amp;ldquo;build-management&amp;rdquo;, &amp;ldquo;cloud&amp;rdquo;, &amp;ldquo;content&amp;rdquo;, &amp;ldquo;database&amp;rdquo;, &amp;ldquo;graphics&amp;rdquo;, &amp;ldquo;http&amp;rdquo;, &amp;ldquo;javaee&amp;rdquo;, &amp;ldquo;library&amp;rdquo;, &amp;ldquo;mail&amp;rdquo;, &amp;ldquo;mobile&amp;rdquo;, &amp;ldquo;network-client&amp;rdquo;, &amp;ldquo;network-server&amp;rdquo;, &amp;ldquo;osgi&amp;rdquo;, &amp;ldquo;security&amp;rdquo;, &amp;ldquo;testing&amp;rdquo;, &amp;ldquo;virtual-machine&amp;rdquo;, &amp;ldquo;web-framework&amp;rdquo;, &amp;ldquo;xml&amp;rdquo;]&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Dropdown for project type,&lt;/p&gt;
-&lt;p&gt;project.type=[ &amp;ldquo;Customer Project&amp;rdquo;, &amp;ldquo;Internal Project&amp;rdquo;, &amp;ldquo;Product&amp;rdquo;, &amp;ldquo;Service&amp;rdquo;, &amp;ldquo;Inner Source&amp;rdquo; ]&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;API Token generation,&lt;/p&gt;
-&lt;p&gt;rest.apitoken.generator.enable=false&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Activation of portlets and components&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;strong&gt;Backend Properties&lt;/strong&gt;: This, &lt;a href=&#34;https://github.com/eclipse/sw360/blob/master/backend/src-common/src/main/resources/sw360.properties&#34;&gt;sw360.properties&lt;/a&gt; file contains the sw360 backend properties. This file contains the common properties for the backend services and also holds the setting for the mail utility.&lt;/p&gt;
-&lt;p&gt;You can change these default values by mentioning it in the sw360.properties file, present in /etc/sw360 folder. This path is to be created by the admin. After changing the properties, server needs to be restarted in order to make the changes effective. If the properties file is not present in the required folder, the default values will be selected.&lt;/p&gt;
-
-      </description>
-    </item>
-    
-    <item>
-      <title>Docs: Vulnerability Management</title>
-      <link>https://www.eclipse.org/sw360/docs/administrationguide/vulnerabilitymanagement/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.eclipse.org/sw360/docs/administrationguide/vulnerabilitymanagement/</guid>
-      <description>
-        
-        
-        &lt;p&gt;In the &lt;code&gt;vulnerability portlet&lt;/code&gt;, you can view the vulnerabilites that are currently present in SW360 in more detail, independent of the release or project they apply to. Clicking on the top level entry &lt;code&gt;Vulnerabilities&lt;/code&gt;, a table listing all vulnerabilities is shown:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;./images/vulnerabilityView.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
-&lt;p&gt;Clicking on a vulnerability entry in the table, the details view of this vulnerability is shown.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;./images/vulnerabilityDetail.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
-&lt;p&gt;The details view is also linked from the &lt;code&gt;vulnerabilities view&lt;/code&gt; in the &lt;code&gt;project portlet&lt;/code&gt; and &lt;code&gt;component and release portlet&lt;/code&gt;, respectively.&lt;/p&gt;
-&lt;h1 id=&#34;vulnerability-verification-for-releases&#34;&gt;Vulnerability Verification for Releases&lt;/h1&gt;
-&lt;p&gt;Vulnerabilities automatically imported into SW360 - e.g. via the CVE search connection of SW360 - can be applicable for a release or not. The latter can happen, because release data in SW360 is incorrect or not complete. Then the CVE search service uses a more general search pattern yielding a lot of vulnerabilities, only some of which actually apply to the release. Therefore, in SW360 a vulnerability can be marked for a given release with one of the following &lt;code&gt;verification states&lt;/code&gt;:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;NOT CHECKED&lt;/li&gt;
-&lt;li&gt;CHECKED&lt;/li&gt;
-&lt;li&gt;INCORRECT&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;Only &lt;code&gt;admins&lt;/code&gt; can mark a vulnerability or change the &lt;code&gt;verification state&lt;/code&gt; and enter a comment to give reasons for the change. The verification state and the meta-information (when and by whom the verification state was changed and the comment) are stored as &lt;code&gt;VerificationStateInfo&lt;/code&gt; at the appropriate &lt;code&gt;ReleaseVulnerabilityRelation&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;The &lt;code&gt;verification state&lt;/code&gt; is displayed in the detail mode of a &lt;code&gt;release&lt;/code&gt;, at &lt;code&gt;vulnerabilities&lt;/code&gt; in the column &lt;code&gt;Verification&lt;/code&gt; of the &lt;code&gt;vulnerability table&lt;/code&gt;. User without &lt;code&gt;admin&lt;/code&gt;-rights can only see the vulnerabilities that are &lt;code&gt;NOT CHECKED&lt;/code&gt; or &lt;code&gt;CHECKED&lt;/code&gt; together with a tooltip containing the meta-info. The &lt;code&gt;INCORRECT&lt;/code&gt; vulnerabilities are hidden from users without admin rights in the release detail view and also in the component detail view and in the project detail view.&lt;/p&gt;
-&lt;p&gt;Admins see in the same table a dropdown menu, where they can adjust the state. An admin is shown all vulnerabilities belonging to a project, component or release, also those that are marked as &lt;code&gt;INCORRECT&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;./images/releaseVulnerabilities.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
-&lt;h1 id=&#34;vulnerability-rating-for-projects&#34;&gt;Vulnerability Rating for Projects&lt;/h1&gt;
-&lt;p&gt;In the detail view of a &lt;code&gt;project&lt;/code&gt;, in the category &lt;code&gt;Vulnerabilites&lt;/code&gt;, the vulnerabilities belonging to the linked releases of the project are shown. Such a vulnerability in the context of a certain project can be assigned one of the following &lt;code&gt;Ratings&lt;/code&gt;:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;NOT CHECKED&lt;/li&gt;
-&lt;li&gt;IRRELEVANT&lt;/li&gt;
-&lt;li&gt;RESOLVED&lt;/li&gt;
-&lt;li&gt;APPLICABLE&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;Those ratings are shown in the vulnerability table of the project details view. A user that has writing permission for the project can change the rating via a drop-down menu. If he changes the value, he is asked to enter a comment. The &lt;code&gt;VulnerabilityRating&lt;/code&gt; together with the meta-data (who has changed the rating, date of change of the rating and comment) is stored in one database object &lt;code&gt;ProjectVulnerabilityRating&lt;/code&gt; per project.&lt;/p&gt;
-&lt;p&gt;A user that has no writing permission on the project is shown the &lt;code&gt;Vulnerability Rating&lt;/code&gt; in the table without the possibility to change the value.&lt;/p&gt;
-&lt;p&gt;The number of vulnerabilities for a project with rating &lt;code&gt;NOT CHECKED&lt;/code&gt; is displayed in the bullet of the &lt;code&gt;Vulnerability&lt;/code&gt; tab of the &lt;code&gt;project detail&lt;/code&gt; view. The bullet is red if there are vulnerabilities with status &lt;code&gt;NOT CHECKED&lt;/code&gt; for the project. In the example 7 of the 10 existing vulnerabilities are &lt;code&gt;NOT CHECKED&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;./images/VulnerabilitiesBullet.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;./images/projectVulnerabilities.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
-&lt;h1 id=&#34;change-history-for-vulnerability-ratings-and-verifications&#34;&gt;Change History for Vulnerability Ratings and Verifications&lt;/h1&gt;
-&lt;p&gt;The complete list of status changes for vulnerability ratings in the project portlet and for vulnerability verifications in the component portlet is shown when hovering with the mouse over the vulnerability rating/verification in the table. This is shown for the project vulnerability table in the picture below.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;./images/modifiedHistoryLayoutProjectVulnerabilities.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
-&lt;p&gt;#CVE-Search&lt;/p&gt;
-&lt;h2 id=&#34;automatic-update-of-vulnerabilities&#34;&gt;Automatic update of vulnerabilities&lt;/h2&gt;
-&lt;p&gt;See this &lt;a href=&#34;https://github.com/eclipse/sw360/wiki/Doc-Use-Case:-Scheduling-CVE-Search-by-Admins&#34;&gt;use case&lt;/a&gt;.&lt;/p&gt;
-&lt;h2 id=&#34;heuristics&#34;&gt;Heuristics&lt;/h2&gt;
-&lt;p&gt;All heuristics start by looking at the cpe. If the cpe is valid, i.e. start with the string &amp;ldquo;cpe:&amp;rdquo; and are longer then 10 chars, this is used for the search. If the search fails it falls back to the other search levels.&lt;/p&gt;
-&lt;p&gt;There are at the moment two different heuristics implemented which define how and in which order to search the cveSearch DB.&lt;/p&gt;
-&lt;p&gt;They can actually be combined, i.e. one could be the fallback of the other.&lt;/p&gt;
-&lt;h3 id=&#34;guessing-heuristic-the-new-one&#34;&gt;Guessing heuristic (the new one)&lt;/h3&gt;
-&lt;p&gt;The matching of vendor- and product-names is improved by using a lists of actual vendors resp. actual products of an vendor.&lt;/p&gt;
-&lt;p&gt;From the information given for a release, which is expected to be either of the form&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;vendor=&lt;code&gt;&amp;quot;VENDOR_NAME&amp;quot;&lt;/code&gt;, name=&lt;code&gt;&amp;quot;PRODUCT_NAME&amp;quot;&lt;/code&gt; and a version or&lt;/li&gt;
-&lt;li&gt;vendor=&lt;code&gt;&amp;quot;&amp;quot;&lt;/code&gt;, name=&lt;code&gt;&amp;quot;VENDOR_NAME PRODUCT_NAME&amp;quot;&lt;/code&gt; and a version (as generated by the bdpimport).&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;we try to find the best matches from the vendors list and then for these ones the best matches in their respective product lists.
-The first run includes the version, and if no matching product with the correct version is found, a second run is made without the version restriction.&lt;/p&gt;
-&lt;h5 id=&#34;modified-levenshtein-distance&#34;&gt;Modified Levenshtein distance&lt;/h5&gt;
-&lt;p&gt;For the definition which matches are good we use a variation of the Levenshtein distance with some asymmetric modifications. In the following we will call the left side &lt;strong&gt;needle&lt;/strong&gt; and the right side &lt;strong&gt;haystack&lt;/strong&gt;. The &lt;strong&gt;needles&lt;/strong&gt; will come from the lists and the &lt;strong&gt;haystack&lt;/strong&gt; will be (parts of) the raw information extracted from the release. The defining rules are&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Our Levenshtein distance is equal to the regular Levenshtein distance, if the &lt;strong&gt;haystack&lt;/strong&gt; does not contain any spaces.&lt;/li&gt;
-&lt;li&gt;Skipping a &lt;strong&gt;prefix ending with a space&lt;/strong&gt; or of the &lt;strong&gt;haystack&lt;/strong&gt; does not cost anything, i.e. does not increase the distance&lt;/li&gt;
-&lt;li&gt;Skipping a &lt;strong&gt;postfix starting with a space&lt;/strong&gt; of the &lt;strong&gt;haystack&lt;/strong&gt; does not cost anything, i.e. does not increase the distance&lt;/li&gt;
-&lt;li&gt;If either the &lt;strong&gt;needle&lt;/strong&gt; or the &lt;strong&gt;haystack&lt;/strong&gt; is empty, the distance is &lt;code&gt;Integer.MAX_VALUE&lt;/code&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;This means that the string &lt;code&gt;&amp;quot;needle&amp;quot;&lt;/code&gt; has&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;distance 0 to itself, i.e. &lt;code&gt;&amp;quot;needle&amp;quot;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;distance 0 to itself plus a postfix separated by a space, e.g. &lt;code&gt;&amp;quot;needle postfix&amp;quot;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;distance 0 to itself plus a prefix separated by a space, e.g. &lt;code&gt;&amp;quot;prefix needle&amp;quot;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;distance 2 to something which has regular distance of 2 surrounded by a prefix and a postfix which are separated by spaces, e.g. &lt;code&gt;&amp;quot;prefix nedles postfix&amp;quot;&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h5 id=&#34;configuration&#34;&gt;Configuration&lt;/h5&gt;
-&lt;p&gt;The finetuning parameters can be configured by setting the following properties in &lt;code&gt;/etc/sw360/sw360.properties&lt;/code&gt; or in the &lt;code&gt;configuration.yml&lt;/code&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;cvesearch.default.vendor.threshold=1
+&lt;a href="https://github.com/eclipse/sw360/wiki/">https://github.com/eclipse/sw360/wiki/&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>Different categories for components,&lt;/p>
+&lt;p>component.categories=[ &amp;ldquo;framework&amp;rdquo;, &amp;ldquo;SDK&amp;rdquo;, &amp;ldquo;big-data&amp;rdquo;, &amp;ldquo;build-management&amp;rdquo;, &amp;ldquo;cloud&amp;rdquo;, &amp;ldquo;content&amp;rdquo;, &amp;ldquo;database&amp;rdquo;, &amp;ldquo;graphics&amp;rdquo;, &amp;ldquo;http&amp;rdquo;, &amp;ldquo;javaee&amp;rdquo;, &amp;ldquo;library&amp;rdquo;, &amp;ldquo;mail&amp;rdquo;, &amp;ldquo;mobile&amp;rdquo;, &amp;ldquo;network-client&amp;rdquo;, &amp;ldquo;network-server&amp;rdquo;, &amp;ldquo;osgi&amp;rdquo;, &amp;ldquo;security&amp;rdquo;, &amp;ldquo;testing&amp;rdquo;, &amp;ldquo;virtual-machine&amp;rdquo;, &amp;ldquo;web-framework&amp;rdquo;, &amp;ldquo;xml&amp;rdquo;]&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Dropdown for project type,&lt;/p>
+&lt;p>project.type=[ &amp;ldquo;Customer Project&amp;rdquo;, &amp;ldquo;Internal Project&amp;rdquo;, &amp;ldquo;Product&amp;rdquo;, &amp;ldquo;Service&amp;rdquo;, &amp;ldquo;Inner Source&amp;rdquo; ]&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>API Token generation,&lt;/p>
+&lt;p>rest.apitoken.generator.enable=false&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Activation of portlets and components&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>Backend Properties&lt;/strong>: This, &lt;a href="https://github.com/eclipse/sw360/blob/master/backend/src-common/src/main/resources/sw360.properties">sw360.properties&lt;/a> file contains the sw360 backend properties. This file contains the common properties for the backend services and also holds the setting for the mail utility.&lt;/p>
+&lt;p>You can change these default values by mentioning it in the sw360.properties file, present in /etc/sw360 folder. This path is to be created by the admin. After changing the properties, server needs to be restarted in order to make the changes effective. If the properties file is not present in the required folder, the default values will be selected.&lt;/p></description></item><item><title>Docs: Vulnerability Management</title><link>https://www.eclipse.org/sw360/docs/administrationguide/vulnerabilitymanagement/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.eclipse.org/sw360/docs/administrationguide/vulnerabilitymanagement/</guid><description>
+&lt;p>In the &lt;code>vulnerability portlet&lt;/code>, you can view the vulnerabilites that are currently present in SW360 in more detail, independent of the release or project they apply to. Clicking on the top level entry &lt;code>Vulnerabilities&lt;/code>, a table listing all vulnerabilities is shown:&lt;/p>
+&lt;p>&lt;img src="./images/vulnerabilityView.png" alt="">&lt;/p>
+&lt;p>Clicking on a vulnerability entry in the table, the details view of this vulnerability is shown.&lt;/p>
+&lt;p>&lt;img src="./images/vulnerabilityDetail.png" alt="">&lt;/p>
+&lt;p>The details view is also linked from the &lt;code>vulnerabilities view&lt;/code> in the &lt;code>project portlet&lt;/code> and &lt;code>component and release portlet&lt;/code>, respectively.&lt;/p>
+&lt;h1 id="vulnerability-verification-for-releases">Vulnerability Verification for Releases&lt;/h1>
+&lt;p>Vulnerabilities automatically imported into SW360 - e.g. via the CVE search connection of SW360 - can be applicable for a release or not. The latter can happen, because release data in SW360 is incorrect or not complete. Then the CVE search service uses a more general search pattern yielding a lot of vulnerabilities, only some of which actually apply to the release. Therefore, in SW360 a vulnerability can be marked for a given release with one of the following &lt;code>verification states&lt;/code>:&lt;/p>
+&lt;ol>
+&lt;li>NOT CHECKED&lt;/li>
+&lt;li>CHECKED&lt;/li>
+&lt;li>INCORRECT&lt;/li>
+&lt;/ol>
+&lt;p>Only &lt;code>admins&lt;/code> can mark a vulnerability or change the &lt;code>verification state&lt;/code> and enter a comment to give reasons for the change. The verification state and the meta-information (when and by whom the verification state was changed and the comment) are stored as &lt;code>VerificationStateInfo&lt;/code> at the appropriate &lt;code>ReleaseVulnerabilityRelation&lt;/code>.&lt;/p>
+&lt;p>The &lt;code>verification state&lt;/code> is displayed in the detail mode of a &lt;code>release&lt;/code>, at &lt;code>vulnerabilities&lt;/code> in the column &lt;code>Verification&lt;/code> of the &lt;code>vulnerability table&lt;/code>. User without &lt;code>admin&lt;/code>-rights can only see the vulnerabilities that are &lt;code>NOT CHECKED&lt;/code> or &lt;code>CHECKED&lt;/code> together with a tooltip containing the meta-info. The &lt;code>INCORRECT&lt;/code> vulnerabilities are hidden from users without admin rights in the release detail view and also in the component detail view and in the project detail view.&lt;/p>
+&lt;p>Admins see in the same table a dropdown menu, where they can adjust the state. An admin is shown all vulnerabilities belonging to a project, component or release, also those that are marked as &lt;code>INCORRECT&lt;/code>.&lt;/p>
+&lt;p>&lt;img src="./images/releaseVulnerabilities.png" alt="">&lt;/p>
+&lt;h1 id="vulnerability-rating-for-projects">Vulnerability Rating for Projects&lt;/h1>
+&lt;p>In the detail view of a &lt;code>project&lt;/code>, in the category &lt;code>Vulnerabilites&lt;/code>, the vulnerabilities belonging to the linked releases of the project are shown. Such a vulnerability in the context of a certain project can be assigned one of the following &lt;code>Ratings&lt;/code>:&lt;/p>
+&lt;ol>
+&lt;li>NOT CHECKED&lt;/li>
+&lt;li>IRRELEVANT&lt;/li>
+&lt;li>RESOLVED&lt;/li>
+&lt;li>APPLICABLE&lt;/li>
+&lt;/ol>
+&lt;p>Those ratings are shown in the vulnerability table of the project details view. A user that has writing permission for the project can change the rating via a drop-down menu. If he changes the value, he is asked to enter a comment. The &lt;code>VulnerabilityRating&lt;/code> together with the meta-data (who has changed the rating, date of change of the rating and comment) is stored in one database object &lt;code>ProjectVulnerabilityRating&lt;/code> per project.&lt;/p>
+&lt;p>A user that has no writing permission on the project is shown the &lt;code>Vulnerability Rating&lt;/code> in the table without the possibility to change the value.&lt;/p>
+&lt;p>The number of vulnerabilities for a project with rating &lt;code>NOT CHECKED&lt;/code> is displayed in the bullet of the &lt;code>Vulnerability&lt;/code> tab of the &lt;code>project detail&lt;/code> view. The bullet is red if there are vulnerabilities with status &lt;code>NOT CHECKED&lt;/code> for the project. In the example 7 of the 10 existing vulnerabilities are &lt;code>NOT CHECKED&lt;/code>.&lt;/p>
+&lt;p>&lt;img src="./images/VulnerabilitiesBullet.png" alt="">&lt;/p>
+&lt;p>&lt;img src="./images/projectVulnerabilities.png" alt="">&lt;/p>
+&lt;h1 id="change-history-for-vulnerability-ratings-and-verifications">Change History for Vulnerability Ratings and Verifications&lt;/h1>
+&lt;p>The complete list of status changes for vulnerability ratings in the project portlet and for vulnerability verifications in the component portlet is shown when hovering with the mouse over the vulnerability rating/verification in the table. This is shown for the project vulnerability table in the picture below.&lt;/p>
+&lt;p>&lt;img src="./images/modifiedHistoryLayoutProjectVulnerabilities.png" alt="">&lt;/p>
+&lt;p>#CVE-Search&lt;/p>
+&lt;h2 id="automatic-update-of-vulnerabilities">Automatic update of vulnerabilities&lt;/h2>
+&lt;p>See this &lt;a href="https://github.com/eclipse/sw360/wiki/Doc-Use-Case:-Scheduling-CVE-Search-by-Admins">use case&lt;/a>.&lt;/p>
+&lt;h2 id="heuristics">Heuristics&lt;/h2>
+&lt;p>All heuristics start by looking at the cpe. If the cpe is valid, i.e. start with the string &amp;ldquo;cpe:&amp;rdquo; and are longer then 10 chars, this is used for the search. If the search fails it falls back to the other search levels.&lt;/p>
+&lt;p>There are at the moment two different heuristics implemented which define how and in which order to search the cveSearch DB.&lt;/p>
+&lt;p>They can actually be combined, i.e. one could be the fallback of the other.&lt;/p>
+&lt;h3 id="guessing-heuristic-the-new-one">Guessing heuristic (the new one)&lt;/h3>
+&lt;p>The matching of vendor- and product-names is improved by using a lists of actual vendors resp. actual products of an vendor.&lt;/p>
+&lt;p>From the information given for a release, which is expected to be either of the form&lt;/p>
+&lt;ol>
+&lt;li>vendor=&lt;code>&amp;quot;VENDOR_NAME&amp;quot;&lt;/code>, name=&lt;code>&amp;quot;PRODUCT_NAME&amp;quot;&lt;/code> and a version or&lt;/li>
+&lt;li>vendor=&lt;code>&amp;quot;&amp;quot;&lt;/code>, name=&lt;code>&amp;quot;VENDOR_NAME PRODUCT_NAME&amp;quot;&lt;/code> and a version (as generated by the bdpimport).&lt;/li>
+&lt;/ol>
+&lt;p>we try to find the best matches from the vendors list and then for these ones the best matches in their respective product lists.
+The first run includes the version, and if no matching product with the correct version is found, a second run is made without the version restriction.&lt;/p>
+&lt;h5 id="modified-levenshtein-distance">Modified Levenshtein distance&lt;/h5>
+&lt;p>For the definition which matches are good we use a variation of the Levenshtein distance with some asymmetric modifications. In the following we will call the left side &lt;strong>needle&lt;/strong> and the right side &lt;strong>haystack&lt;/strong>. The &lt;strong>needles&lt;/strong> will come from the lists and the &lt;strong>haystack&lt;/strong> will be (parts of) the raw information extracted from the release. The defining rules are&lt;/p>
+&lt;ol>
+&lt;li>Our Levenshtein distance is equal to the regular Levenshtein distance, if the &lt;strong>haystack&lt;/strong> does not contain any spaces.&lt;/li>
+&lt;li>Skipping a &lt;strong>prefix ending with a space&lt;/strong> or of the &lt;strong>haystack&lt;/strong> does not cost anything, i.e. does not increase the distance&lt;/li>
+&lt;li>Skipping a &lt;strong>postfix starting with a space&lt;/strong> of the &lt;strong>haystack&lt;/strong> does not cost anything, i.e. does not increase the distance&lt;/li>
+&lt;li>If either the &lt;strong>needle&lt;/strong> or the &lt;strong>haystack&lt;/strong> is empty, the distance is &lt;code>Integer.MAX_VALUE&lt;/code>&lt;/li>
+&lt;/ol>
+&lt;p>This means that the string &lt;code>&amp;quot;needle&amp;quot;&lt;/code> has&lt;/p>
+&lt;ul>
+&lt;li>distance 0 to itself, i.e. &lt;code>&amp;quot;needle&amp;quot;&lt;/code>&lt;/li>
+&lt;li>distance 0 to itself plus a postfix separated by a space, e.g. &lt;code>&amp;quot;needle postfix&amp;quot;&lt;/code>&lt;/li>
+&lt;li>distance 0 to itself plus a prefix separated by a space, e.g. &lt;code>&amp;quot;prefix needle&amp;quot;&lt;/code>&lt;/li>
+&lt;li>distance 2 to something which has regular distance of 2 surrounded by a prefix and a postfix which are separated by spaces, e.g. &lt;code>&amp;quot;prefix nedles postfix&amp;quot;&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;h5 id="configuration">Configuration&lt;/h5>
+&lt;p>The finetuning parameters can be configured by setting the following properties in &lt;code>/etc/sw360/sw360.properties&lt;/code> or in the &lt;code>configuration.yml&lt;/code>&lt;/p>
+&lt;pre>&lt;code>cvesearch.default.vendor.threshold=1
 cvesearch.default.product.threshold=0
 cvesearch.default.cutoff=6
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h5 id=&#34;finetuning&#34;&gt;Finetuning&lt;/h5&gt;
-&lt;p&gt;There are three variables which can be used for finetuning of the algorithm&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;cutoff&lt;/code&gt; (defaults to &lt;code&gt;Integer.MAX_VALUE&lt;/code&gt;, i.e. no cutoff)&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;vendorThreshold&lt;/code&gt; (defaults to &lt;code&gt;0&lt;/code&gt;, i.e. no vendor threshold)&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;productThreshold&lt;/code&gt; (defaults to &lt;code&gt;0&lt;/code&gt;, i.e. no product threshold)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4 id=&#34;cons&#34;&gt;Cons&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;is not able to find anything if no vendor but a unique product is given&lt;/li&gt;
-&lt;li&gt;many search queries&lt;/li&gt;
-&lt;li&gt;it will always try find the best match, e.g. also very bad matches, if cutoff is to large&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;display-how-a-vulnerability-was-found&#34;&gt;Display How a Vulnerability was Found&lt;/h3&gt;
-&lt;p&gt;In the &lt;code&gt;vulnerability tables&lt;/code&gt; of the &lt;code&gt;projects portlet&lt;/code&gt; and the &lt;code&gt;component and release portlet&lt;/code&gt; you can see, whether a vulnerability was found directly by the &lt;code&gt;CPE&lt;/code&gt; or by &lt;code&gt;heuristics&lt;/code&gt;. In the latter case, also the distance (and therefore the quality of the match with &lt;code&gt;0 = best possible match&lt;/code&gt;) is displayed.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;./images/matchedBy.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
-&lt;p&gt;In addition, below the &lt;code&gt;vulnerability tables&lt;/code&gt; of the &lt;code&gt;projects portlet&lt;/code&gt; and the &lt;code&gt;component and release portlet&lt;/code&gt;, you can see the number of directly linked releases that was found by &lt;code&gt;CPE&lt;/code&gt; or &lt;code&gt;heuristic&lt;/code&gt;, respectively:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;./images/projectVulnerabilitiesWithStatisticsHighlighted.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
-&lt;h3 id=&#34;example-1-vendorapachenamemavenversion304&#34;&gt;Example 1: &lt;code&gt;{vendor=&amp;quot;Apache&amp;quot;,name=&amp;quot;Maven&amp;quot;,version=&amp;quot;3.0.4&amp;quot;}&lt;/code&gt;&lt;/h3&gt;
-&lt;h4 id=&#34;basic-heuristic&#34;&gt;Basic heuristic&lt;/h4&gt;
-&lt;p&gt;This heuristic builds in the first step the correct needle
-&lt;code&gt;cpe:2.3:.:.*apache.*maven.*3.0.4.*&lt;/code&gt; and finds the cpe &lt;code&gt;cpe:2.3:a:apache:maven:3.0.4&lt;/code&gt;&lt;/p&gt;
-&lt;h4 id=&#34;guessing-heuristic&#34;&gt;Guessing heuristic&lt;/h4&gt;
-&lt;p&gt;The heuristic guesses the vendor &lt;code&gt;apache&lt;/code&gt; and the product &lt;code&gt;maven&lt;/code&gt;. Together with the version this results in the same cpe-needle &lt;code&gt;cpe:2.3:.:.*apache.*maven.*3.0.4.*&lt;/code&gt;.&lt;/p&gt;
-&lt;h3 id=&#34;example-2-vendornameapache-mavenversion304&#34;&gt;Example 2: &lt;code&gt;{vendor=&amp;quot;&amp;quot;,name=&amp;quot;Apache Maven&amp;quot;,version=&amp;quot;3.0.4&amp;quot;}&lt;/code&gt;&lt;/h3&gt;
-&lt;h4 id=&#34;basic-heuristic-1&#34;&gt;Basic heuristic&lt;/h4&gt;
-&lt;p&gt;The first levels of this heuristic fails until the sixth level which does not use the vendor. The resulting needle is then &lt;code&gt;cpe:2.3:.:.*apache.*maven.*3.0.4.*&lt;/code&gt; and finds the cpe &lt;code&gt;cpe:2.3:a:apache:maven:3.0.4&lt;/code&gt;&lt;/p&gt;
-&lt;h4 id=&#34;guessing-heuristic-1&#34;&gt;Guessing heuristic&lt;/h4&gt;
-&lt;p&gt;The heuristic guesses the vendor &lt;code&gt;apache&lt;/code&gt; since it is a substring of &lt;code&gt;apache maven&lt;/code&gt; and thus has distance &lt;code&gt;0&lt;/code&gt;, the same is true for the productname &lt;code&gt;maven&lt;/code&gt; which results in the same cpe-needle as above.&lt;/p&gt;
-
-      </description>
-    </item>
-    
-  </channel>
-</rss>
+&lt;/code>&lt;/pre>
+&lt;h5 id="finetuning">Finetuning&lt;/h5>
+&lt;p>There are three variables which can be used for finetuning of the algorithm&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>cutoff&lt;/code> (defaults to &lt;code>Integer.MAX_VALUE&lt;/code>, i.e. no cutoff)&lt;/li>
+&lt;li>&lt;code>vendorThreshold&lt;/code> (defaults to &lt;code>0&lt;/code>, i.e. no vendor threshold)&lt;/li>
+&lt;li>&lt;code>productThreshold&lt;/code> (defaults to &lt;code>0&lt;/code>, i.e. no product threshold)&lt;/li>
+&lt;/ul>
+&lt;h4 id="cons">Cons&lt;/h4>
+&lt;ul>
+&lt;li>is not able to find anything if no vendor but a unique product is given&lt;/li>
+&lt;li>many search queries&lt;/li>
+&lt;li>it will always try find the best match, e.g. also very bad matches, if cutoff is to large&lt;/li>
+&lt;/ul>
+&lt;h3 id="display-how-a-vulnerability-was-found">Display How a Vulnerability was Found&lt;/h3>
+&lt;p>In the &lt;code>vulnerability tables&lt;/code> of the &lt;code>projects portlet&lt;/code> and the &lt;code>component and release portlet&lt;/code> you can see, whether a vulnerability was found directly by the &lt;code>CPE&lt;/code> or by &lt;code>heuristics&lt;/code>. In the latter case, also the distance (and therefore the quality of the match with &lt;code>0 = best possible match&lt;/code>) is displayed.&lt;/p>
+&lt;p>&lt;img src="./images/matchedBy.png" alt="">&lt;/p>
+&lt;p>In addition, below the &lt;code>vulnerability tables&lt;/code> of the &lt;code>projects portlet&lt;/code> and the &lt;code>component and release portlet&lt;/code>, you can see the number of directly linked releases that was found by &lt;code>CPE&lt;/code> or &lt;code>heuristic&lt;/code>, respectively:&lt;/p>
+&lt;p>&lt;img src="./images/projectVulnerabilitiesWithStatisticsHighlighted.png" alt="">&lt;/p>
+&lt;h3 id="example-1-vendorapachenamemavenversion304">Example 1: &lt;code>{vendor=&amp;quot;Apache&amp;quot;,name=&amp;quot;Maven&amp;quot;,version=&amp;quot;3.0.4&amp;quot;}&lt;/code>&lt;/h3>
+&lt;h4 id="basic-heuristic">Basic heuristic&lt;/h4>
+&lt;p>This heuristic builds in the first step the correct needle
+&lt;code>cpe:2.3:.:.*apache.*maven.*3.0.4.*&lt;/code> and finds the cpe &lt;code>cpe:2.3:a:apache:maven:3.0.4&lt;/code>&lt;/p>
+&lt;h4 id="guessing-heuristic">Guessing heuristic&lt;/h4>
+&lt;p>The heuristic guesses the vendor &lt;code>apache&lt;/code> and the product &lt;code>maven&lt;/code>. Together with the version this results in the same cpe-needle &lt;code>cpe:2.3:.:.*apache.*maven.*3.0.4.*&lt;/code>.&lt;/p>
+&lt;h3 id="example-2-vendornameapache-mavenversion304">Example 2: &lt;code>{vendor=&amp;quot;&amp;quot;,name=&amp;quot;Apache Maven&amp;quot;,version=&amp;quot;3.0.4&amp;quot;}&lt;/code>&lt;/h3>
+&lt;h4 id="basic-heuristic-1">Basic heuristic&lt;/h4>
+&lt;p>The first levels of this heuristic fails until the sixth level which does not use the vendor. The resulting needle is then &lt;code>cpe:2.3:.:.*apache.*maven.*3.0.4.*&lt;/code> and finds the cpe &lt;code>cpe:2.3:a:apache:maven:3.0.4&lt;/code>&lt;/p>
+&lt;h4 id="guessing-heuristic-1">Guessing heuristic&lt;/h4>
+&lt;p>The heuristic guesses the vendor &lt;code>apache&lt;/code> since it is a substring of &lt;code>apache maven&lt;/code> and thus has distance &lt;code>0&lt;/code>, the same is true for the productname &lt;code>maven&lt;/code> which results in the same cpe-needle as above.&lt;/p></description></item></channel></rss>

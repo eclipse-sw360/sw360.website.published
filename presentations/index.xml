@@ -1,17 +1,1 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Eclipse SW360 – Events and Presentations</title>
-    <link>https://www.eclipse.org/sw360/presentations/</link>
-    <description>Recent content in Events and Presentations on Eclipse SW360</description>
-    <generator>Hugo -- gohugo.io</generator>
-    
-	  <atom:link href="https://www.eclipse.org/sw360/presentations/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-      
-        
-      
-    
-    
-  </channel>
-</rss>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Eclipse SW360 – Events and Presentations</title><link>https://www.eclipse.org/sw360/presentations/</link><description>Recent content in Events and Presentations on Eclipse SW360</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://www.eclipse.org/sw360/presentations/index.xml" rel="self" type="application/rss+xml"/></channel></rss>
