@@ -18,25 +18,50 @@
 <link rel="icon" type="image/png" href="/sw360/favicons/android-144x144.png" sizes="144x144">
 <link rel="icon" type="image/png" href="/sw360/favicons/android-192x192.png" sizes="192x192">
 
-<title>Docker Deployment | Eclipse SW360</title>
-<meta name="description" content="Deploy SW360 with Docker
-">
-<meta property="og:title" content="Docker Deployment" />
-<meta property="og:description" content="Deploy SW360 with Docker
-" />
+<title>Upgrade SW360 from 17.00 to 18.1.0 | Eclipse SW360</title>
+<meta name="description" content="Version of libraries
+Checkout source code SW360 to Tag Version 18.1.0
+Config Couchdb Lucene
+Build and deploy
+Start and Configure Liferay
+Setup SW360 …">
+<meta property="og:title" content="Upgrade SW360 from 17.00 to 18.1.0" />
+<meta property="og:description" content="Version of libraries
+Checkout source code SW360 to Tag Version 18.1.0
+Config Couchdb Lucene
+Build and deploy
+Start and Configure Liferay
+Setup SW360 for Liferay: Import *.lar Files
+Version of libraries Package Name Version Liferay 7.4.3 Tomcat 9.0.56 Couchdb 3.2.2 Open JDK 11.0.15 Thrift 0.16.0 To check couchdb version: run curl http://localhost_or_yourcouchdbserver:5984 | json_pp
+Prepare source code to use release 18.1.0 Link contains source: https://github.com/eclipse/sw360.git
+Create folder to store new source code of version 18." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://www.eclipse.org/sw360/docs/deployment/deploy-docker/" /><meta property="article:section" content="docs" />
+<meta property="og:url" content="https://www.eclipse.org/sw360/docs/deployment/upgrading/upgrade_version_sw360_17_to_18/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2022-06-22T22:10:18+02:00" /><meta property="og:site_name" content="Eclipse SW360" />
-<meta itemprop="name" content="Docker Deployment">
-<meta itemprop="description" content="Deploy SW360 with Docker
-">
-<meta itemprop="dateModified" content="2022-06-22T22:10:18+02:00" />
-<meta itemprop="wordCount" content="447">
+<meta property="article:modified_time" content="2024-02-28T09:35:24+07:00" /><meta property="og:site_name" content="Eclipse SW360" />
+<meta itemprop="name" content="Upgrade SW360 from 17.00 to 18.1.0">
+<meta itemprop="description" content="Version of libraries
+Checkout source code SW360 to Tag Version 18.1.0
+Config Couchdb Lucene
+Build and deploy
+Start and Configure Liferay
+Setup SW360 for Liferay: Import *.lar Files
+Version of libraries Package Name Version Liferay 7.4.3 Tomcat 9.0.56 Couchdb 3.2.2 Open JDK 11.0.15 Thrift 0.16.0 To check couchdb version: run curl http://localhost_or_yourcouchdbserver:5984 | json_pp
+Prepare source code to use release 18.1.0 Link contains source: https://github.com/eclipse/sw360.git
+Create folder to store new source code of version 18.">
+<meta itemprop="dateModified" content="2024-02-28T09:35:24+07:00" />
+<meta itemprop="wordCount" content="451">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Docker Deployment"/>
-<meta name="twitter:description" content="Deploy SW360 with Docker
-"/>
+<meta name="twitter:title" content="Upgrade SW360 from 17.00 to 18.1.0"/>
+<meta name="twitter:description" content="Version of libraries
+Checkout source code SW360 to Tag Version 18.1.0
+Config Couchdb Lucene
+Build and deploy
+Start and Configure Liferay
+Setup SW360 for Liferay: Import *.lar Files
+Version of libraries Package Name Version Liferay 7.4.3 Tomcat 9.0.56 Couchdb 3.2.2 Open JDK 11.0.15 Thrift 0.16.0 To check couchdb version: run curl http://localhost_or_yourcouchdbserver:5984 | json_pp
+Prepare source code to use release 18.1.0 Link contains source: https://github.com/eclipse/sw360.git
+Create folder to store new source code of version 18."/>
 
 
 
@@ -285,8 +310,8 @@
   
 </li>
   </ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-sw360docsdeploymentupgrading-li">
-  <input type="checkbox" id="m-sw360docsdeploymentupgrading-check"/>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-sw360docsdeploymentupgrading-li">
+  <input type="checkbox" id="m-sw360docsdeploymentupgrading-check" checked/>
   <label for="m-sw360docsdeploymentupgrading-check"><a href="/sw360/docs/deployment/upgrading/" title="Upgrade from previous instances" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-sw360docsdeploymentupgrading"><span class="">Upgrade</span></a></label>
   
   <ul class="ul-3 foldable">
@@ -306,6 +331,10 @@
   <input type="checkbox" id="m-sw360docsdeploymentupgradingupgrade_version_sw360_16_to_17-check"/>
   <label for="m-sw360docsdeploymentupgradingupgrade_version_sw360_16_to_17-check"><a href="/sw360/docs/deployment/upgrading/upgrade_version_sw360_16_to_17/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-sw360docsdeploymentupgradingupgrade_version_sw360_16_to_17"><span class="">Upgrade SW360 from 16.0 to 17.0</span></a></label>
   
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-sw360docsdeploymentupgradingupgrade_version_sw360_17_to_18-li">
+  <input type="checkbox" id="m-sw360docsdeploymentupgradingupgrade_version_sw360_17_to_18-check"/>
+  <label for="m-sw360docsdeploymentupgradingupgrade_version_sw360_17_to_18-check"><a href="/sw360/docs/deployment/upgrading/upgrade_version_sw360_17_to_18/" title="Upgrade SW360 from 17.00 to 18.1.0" class="align-left pl-0  active td-sidebar-link td-sidebar-link__page" id="m-sw360docsdeploymentupgradingupgrade_version_sw360_17_to_18"><span class="td-sidebar-nav-active-item">Upgrade SW360 from 17.0 to 18.1.0</span></a></label>
+  
 </li>
   </ul>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-sw360docsdeploymentlegacy-li">
@@ -313,7 +342,22 @@
   <label for="m-sw360docsdeploymentlegacy-check"><a href="/sw360/docs/deployment/legacy/" title="Legacy Deployment Guides" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-sw360docsdeploymentlegacy"><span class="">Legacy Guides</span></a></label>
   
   <ul class="ul-3 foldable">
-    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-sw360docsdeploymentlegacydeploy-liferay-li">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-sw360docsdeploymentlegacynativeinstall-li">
+  <input type="checkbox" id="m-sw360docsdeploymentlegacynativeinstall-check"/>
+  <label for="m-sw360docsdeploymentlegacynativeinstall-check"><a href="/sw360/docs/deployment/legacy/nativeinstall/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-sw360docsdeploymentlegacynativeinstall"><span class="">Native Install</span></a></label>
+  
+  <ul class="ul-4 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-sw360docsdeploymentlegacynativeinstallnative-install-sw360-version-1400-and-1600-li">
+  <input type="checkbox" id="m-sw360docsdeploymentlegacynativeinstallnative-install-sw360-version-1400-and-1600-check"/>
+  <label for="m-sw360docsdeploymentlegacynativeinstallnative-install-sw360-version-1400-and-1600-check"><a href="/sw360/docs/deployment/legacy/nativeinstall/native-install-sw360-version-14.0.0-and-16.0.0/" title="Native Install v14 and v16" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-sw360docsdeploymentlegacynativeinstallnative-install-sw360-version-1400-and-1600"><span class="">Native-Install v14 and v16</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-sw360docsdeploymentlegacynativeinstallnative-install-sw360-version-1700-li">
+  <input type="checkbox" id="m-sw360docsdeploymentlegacynativeinstallnative-install-sw360-version-1700-check"/>
+  <label for="m-sw360docsdeploymentlegacynativeinstallnative-install-sw360-version-1700-check"><a href="/sw360/docs/deployment/legacy/nativeinstall/native-install-sw360-version-17.0.0/" title="Native Install v17" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-sw360docsdeploymentlegacynativeinstallnative-install-sw360-version-1700"><span class="">Native-Install v17</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-sw360docsdeploymentlegacydeploy-liferay-li">
   <input type="checkbox" id="m-sw360docsdeploymentlegacydeploy-liferay-check"/>
   <label for="m-sw360docsdeploymentlegacydeploy-liferay-check"><a href="/sw360/docs/deployment/legacy/deploy-liferay/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-sw360docsdeploymentlegacydeploy-liferay"><span class="">Initial Setup of Liferay 6.2 and sw360</span></a></label>
   
@@ -325,28 +369,9 @@
   <input type="checkbox" id="m-sw360docsdeploymentlegacydeploy-liferay73-check"/>
   <label for="m-sw360docsdeploymentlegacydeploy-liferay73-check"><a href="/sw360/docs/deployment/legacy/deploy-liferay7.3/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-sw360docsdeploymentlegacydeploy-liferay73"><span class="">Initial Setup of Liferay 7.3 and sw360</span></a></label>
   
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-sw360docsdeploymentlegacydeploy-liferay74-li">
-  <input type="checkbox" id="m-sw360docsdeploymentlegacydeploy-liferay74-check"/>
-  <label for="m-sw360docsdeploymentlegacydeploy-liferay74-check"><a href="/sw360/docs/deployment/legacy/deploy-liferay7.4/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-sw360docsdeploymentlegacydeploy-liferay74"><span class="">Initial Setup of Liferay 7.4 and sw360</span></a></label>
-  
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-sw360docsdeploymentlegacydeploy-natively-11-li">
   <input type="checkbox" id="m-sw360docsdeploymentlegacydeploy-natively-11-check"/>
   <label for="m-sw360docsdeploymentlegacydeploy-natively-11-check"><a href="/sw360/docs/deployment/legacy/deploy-natively-11/" title="Ubuntu 18.04 LTS, Java 11" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-sw360docsdeploymentlegacydeploy-natively-11"><span class="">Ubuntu 18.04 and Java 11</span></a></label>
-  
-</li>
-  </ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-sw360docsdeploymentnativeinstall-li">
-  <input type="checkbox" id="m-sw360docsdeploymentnativeinstall-check"/>
-  <label for="m-sw360docsdeploymentnativeinstall-check"><a href="/sw360/docs/deployment/nativeinstall/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-sw360docsdeploymentnativeinstall"><span class="">Native Install</span></a></label>
-  
-  <ul class="ul-3 foldable">
-    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-sw360docsdeploymentnativeinstallnative-install-sw360-version-1400-and-1600-li">
-  <input type="checkbox" id="m-sw360docsdeploymentnativeinstallnative-install-sw360-version-1400-and-1600-check"/>
-  <label for="m-sw360docsdeploymentnativeinstallnative-install-sw360-version-1400-and-1600-check"><a href="/sw360/docs/deployment/nativeinstall/native-install-sw360-version-14.0.0-and-16.0.0/" title="Native Install v14 and v16" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-sw360docsdeploymentnativeinstallnative-install-sw360-version-1400-and-1600"><span class="">Native-Install v14 and v16</span></a></label>
-  
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-sw360docsdeploymentnativeinstallnative-install-sw360-version-1700-li">
-  <input type="checkbox" id="m-sw360docsdeploymentnativeinstallnative-install-sw360-version-1700-check"/>
-  <label for="m-sw360docsdeploymentnativeinstallnative-install-sw360-version-1700-check"><a href="/sw360/docs/deployment/nativeinstall/native-install-sw360-version-17.0.0/" title="Native Install v17" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-sw360docsdeploymentnativeinstallnative-install-sw360-version-1700"><span class="">Native-Install v17</span></a></label>
   
 </li>
   </ul>
@@ -366,10 +391,6 @@
   <input type="checkbox" id="m-sw360docsdeploymentdeploy-cve-search-check"/>
   <label for="m-sw360docsdeploymentdeploy-cve-search-check"><a href="/sw360/docs/deployment/deploy-cve-search/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-sw360docsdeploymentdeploy-cve-search"><span class="">CVE Scheduler</span></a></label>
   
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-sw360docsdeploymentdeploy-docker-li">
-  <input type="checkbox" id="m-sw360docsdeploymentdeploy-docker-check"/>
-  <label for="m-sw360docsdeploymentdeploy-docker-check"><a href="/sw360/docs/deployment/deploy-docker/" class="align-left pl-0  active td-sidebar-link td-sidebar-link__page" id="m-sw360docsdeploymentdeploy-docker"><span class="td-sidebar-nav-active-item">Docker Deployment</span></a></label>
-  
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-sw360docsdeploymentdeploy-export-and-import-li">
   <input type="checkbox" id="m-sw360docsdeploymentdeploy-export-and-import-check"/>
   <label for="m-sw360docsdeploymentdeploy-export-and-import-check"><a href="/sw360/docs/deployment/deploy-export-and-import/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-sw360docsdeploymentdeploy-export-and-import"><span class="">Export and Import</span></a></label>
@@ -381,6 +402,10 @@
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-sw360docsdeploymentdeploy-specialdeployment-li">
   <input type="checkbox" id="m-sw360docsdeploymentdeploy-specialdeployment-check"/>
   <label for="m-sw360docsdeploymentdeploy-specialdeployment-check"><a href="/sw360/docs/deployment/deploy-specialdeployment/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-sw360docsdeploymentdeploy-specialdeployment"><span class="">Special Deployment Guides</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-sw360docsdeploymentdeploy-initial-setup18-li">
+  <input type="checkbox" id="m-sw360docsdeploymentdeploy-initial-setup18-check"/>
+  <label for="m-sw360docsdeploymentdeploy-initial-setup18-check"><a href="/sw360/docs/deployment/deploy-initial-setup18/" title="SW360 18.x.x Series Initial Setup" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-sw360docsdeploymentdeploy-initial-setup18"><span class="">sw360_18_series</span></a></label>
   
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-sw360docsdeploymentdeploy-requirements-li">
   <input type="checkbox" id="m-sw360docsdeploymentdeploy-requirements-check"/>
@@ -512,10 +537,10 @@
           <aside class="d-none d-xl-block col-xl-2 td-sidebar-toc d-print-none">
             
 <div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
-<a href="https://github.com/eclipse/sw360.website/tree/main/content/en/docs/Deployment/Deploy-Docker.md" class="td-page-meta--view" target="_blank" rel="noopener"><i class="fa fa-file-alt fa-fw"></i> View page source</a>
-  <a href="https://github.com/eclipse/sw360.website/edit/main/content/en/docs/Deployment/Deploy-Docker.md" class="td-page-meta--edit" target="_blank" rel="noopener"><i class="fa fa-edit fa-fw"></i> Edit this page</a>
-  <a href="https://github.com/eclipse/sw360.website/new/main/content/en/docs/Deployment/Deploy-Docker.md?filename=change-me.md&amp;value=---%0Atitle%3A&#43;%22Long&#43;Page&#43;Title%22%0AlinkTitle%3A&#43;%22Short&#43;Nav&#43;Title%22%0Aweight%3A&#43;100%0Adescription%3A&#43;%3E-%0A&#43;&#43;&#43;&#43;&#43;Page&#43;description&#43;for&#43;heading&#43;and&#43;indexes.%0A---%0A%0A%23%23&#43;Heading%0A%0AEdit&#43;this&#43;template&#43;to&#43;create&#43;your&#43;new&#43;page.%0A%0A%2A&#43;Give&#43;it&#43;a&#43;good&#43;name%2C&#43;ending&#43;in&#43;%60.md%60&#43;-&#43;e.g.&#43;%60getting-started.md%60%0A%2A&#43;Edit&#43;the&#43;%22front&#43;matter%22&#43;section&#43;at&#43;the&#43;top&#43;of&#43;the&#43;page&#43;%28weight&#43;controls&#43;how&#43;its&#43;ordered&#43;amongst&#43;other&#43;pages&#43;in&#43;the&#43;same&#43;directory%3B&#43;lowest&#43;number&#43;first%29.%0A%2A&#43;Add&#43;a&#43;good&#43;commit&#43;message&#43;at&#43;the&#43;bottom&#43;of&#43;the&#43;page&#43;%28%3C80&#43;characters%3B&#43;use&#43;the&#43;extended&#43;description&#43;field&#43;for&#43;more&#43;detail%29.%0A%2A&#43;Create&#43;a&#43;new&#43;branch&#43;so&#43;you&#43;can&#43;preview&#43;your&#43;new&#43;file&#43;and&#43;request&#43;a&#43;review&#43;via&#43;Pull&#43;Request.%0A" class="td-page-meta--child" target="_blank" rel="noopener"><i class="fa fa-edit fa-fw"></i> Create child page</a>
-  <a href="https://github.com/eclipse/sw360.website/issues/new?title=Docker%20Deployment" class="td-page-meta--issue" target="_blank" rel="noopener"><i class="fas fa-tasks fa-fw"></i> Create documentation issue</a>
+<a href="https://github.com/eclipse/sw360.website/tree/main/content/en/docs/Deployment/Upgrading/Upgrade_Version_SW360_17_To_18.md" class="td-page-meta--view" target="_blank" rel="noopener"><i class="fa fa-file-alt fa-fw"></i> View page source</a>
+  <a href="https://github.com/eclipse/sw360.website/edit/main/content/en/docs/Deployment/Upgrading/Upgrade_Version_SW360_17_To_18.md" class="td-page-meta--edit" target="_blank" rel="noopener"><i class="fa fa-edit fa-fw"></i> Edit this page</a>
+  <a href="https://github.com/eclipse/sw360.website/new/main/content/en/docs/Deployment/Upgrading/Upgrade_Version_SW360_17_To_18.md?filename=change-me.md&amp;value=---%0Atitle%3A&#43;%22Long&#43;Page&#43;Title%22%0AlinkTitle%3A&#43;%22Short&#43;Nav&#43;Title%22%0Aweight%3A&#43;100%0Adescription%3A&#43;%3E-%0A&#43;&#43;&#43;&#43;&#43;Page&#43;description&#43;for&#43;heading&#43;and&#43;indexes.%0A---%0A%0A%23%23&#43;Heading%0A%0AEdit&#43;this&#43;template&#43;to&#43;create&#43;your&#43;new&#43;page.%0A%0A%2A&#43;Give&#43;it&#43;a&#43;good&#43;name%2C&#43;ending&#43;in&#43;%60.md%60&#43;-&#43;e.g.&#43;%60getting-started.md%60%0A%2A&#43;Edit&#43;the&#43;%22front&#43;matter%22&#43;section&#43;at&#43;the&#43;top&#43;of&#43;the&#43;page&#43;%28weight&#43;controls&#43;how&#43;its&#43;ordered&#43;amongst&#43;other&#43;pages&#43;in&#43;the&#43;same&#43;directory%3B&#43;lowest&#43;number&#43;first%29.%0A%2A&#43;Add&#43;a&#43;good&#43;commit&#43;message&#43;at&#43;the&#43;bottom&#43;of&#43;the&#43;page&#43;%28%3C80&#43;characters%3B&#43;use&#43;the&#43;extended&#43;description&#43;field&#43;for&#43;more&#43;detail%29.%0A%2A&#43;Create&#43;a&#43;new&#43;branch&#43;so&#43;you&#43;can&#43;preview&#43;your&#43;new&#43;file&#43;and&#43;request&#43;a&#43;review&#43;via&#43;Pull&#43;Request.%0A" class="td-page-meta--child" target="_blank" rel="noopener"><i class="fa fa-edit fa-fw"></i> Create child page</a>
+  <a href="https://github.com/eclipse/sw360.website/issues/new?title=Upgrade%20SW360%20from%2017.00%20to%2018.1.0" class="td-page-meta--issue" target="_blank" rel="noopener"><i class="fas fa-tasks fa-fw"></i> Create documentation issue</a>
   <a href="https://github.com/eclipse/sw360/issues/new" class="td-page-meta--project-issue" target="_blank" rel="noopener"><i class="fas fa-tasks fa-fw"></i> Create project issue</a>
   
 </div>
@@ -525,22 +550,12 @@
 
 <div class="td-toc"><nav id="TableOfContents">
   <ul>
-    <li><a href="#requirements">Requirements</a>
-      <ul>
-        <li><a href="#platform-requirements">Platform Requirements</a></li>
-        <li><a href="#sw360chores-requirements">sw360chores Requirements</a></li>
-        <li><a href="#sw360-requirements">Sw360 Requirements</a></li>
-      </ul>
-    </li>
-    <li><a href="#cloning-the-repos">Cloning the repos</a>
-      <ul>
-        <li><a href="#generating-an-ssh-key-pair-for-your-machine">Generating an ssh key-pair for your machine</a></li>
-        <li><a href="#cloning-sw360-chores">Cloning sw360 chores</a></li>
-        <li><a href="#cloning-eclipsesw360">Cloning eclipse/sw360</a></li>
-      </ul>
-    </li>
-    <li><a href="#compiling-and-deploying-sw360-code">Compiling and deploying SW360 Code</a></li>
-    <li><a href="#launching-the-containers">Launching the containers</a></li>
+    <li><a href="#ref1">Version of libraries</a></li>
+    <li><a href="#ref2">Prepare source code to use release 18.1.0</a></li>
+    <li><a href="#ref3">Config Couchdb Lucene</a></li>
+    <li><a href="#ref4">Build and deploy</a></li>
+    <li><a href="#ref5">Start and Configure Liferay</a></li>
+    <li><a href="#ref6">Setup SW360 for Liferay: Import *.lar Files</a></li>
   </ul>
 </nav></div>
 
@@ -577,15 +592,17 @@
     </li>
   <li class="breadcrumb-item"><a href="https://www.eclipse.org/sw360/docs/deployment/">Deployment</a>
     </li>
+  <li class="breadcrumb-item"><a href="https://www.eclipse.org/sw360/docs/deployment/upgrading/">Upgrade</a>
+    </li>
   <li class="breadcrumb-item active">
-      <span>Docker Deployment</span>
+      <span>Upgrade SW360 from 17.0 to 18.1.0</span>
     </li>
   </ol>
 </nav>
             
 <div class="td-content">
-	<h1>Docker Deployment</h1>
-	<div class="lead">Deploy SW360 with Docker</div>
+	<h1>Upgrade SW360 from 17.00 to 18.1.0</h1>
+	
 	<header class="article-meta">
 		
 
@@ -601,79 +618,126 @@
 
 		
 	</header>    
-	<h1 id="a-quick-how-to-for-testing-sw360">A quick how-to for testing SW360</h1>
-<h2 id="requirements">Requirements</h2>
-<h3 id="platform-requirements">Platform Requirements</h3>
-<p>As you need Apache Thrift 0.11.0 (see <a href="https://github.com/eclipse/sw360#required-software">https://github.com/eclipse/sw360#required-software</a> ), using the latest Ubuntu LTS (18.04) won&rsquo;t work, so we start on Ubuntu 19.10 if you want to install from packages. As an alternative, consider the following script from the sw360 repository:</p>
-<p><a href="https://github.com/eclipse/sw360/blob/master/scripts/install-thrift.sh">https://github.com/eclipse/sw360/blob/master/scripts/install-thrift.sh</a></p>
-<p>We&rsquo;ll go the Docker way and follow the instructions of the <a href="https://github.com/sw360/sw360chores">sw360chores project</a>. There is a nice diagram there, explaining the rather complex setup.</p>
-<h3 id="sw360chores-requirements">sw360chores Requirements</h3>
-<blockquote>
-<p>the perl interpreter to run ./sw360chores.pl</p>
-</blockquote>
-<p>You should already have it in your default, even if minimal, installation</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>$ which perl 
-</span></span><span style="display:flex;"><span>/usr/bin/perl
-</span></span></code></pre></div><blockquote>
-<p>git which is used in some prepare scripts</p>
-</blockquote>
-<p><code>sudo apt install git</code></p>
-<blockquote>
-<p>a current version of docker (min 1.30) [https://docs.docker.com/]</p>
-</blockquote>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>sudo apt install docker.io
-</span></span></code></pre></div><blockquote>
-<p>docker-compose (min 1.21) [https://docs.docker.com/compose/install/]</p>
-</blockquote>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>sudo apt install docker-compose
-</span></span></code></pre></div><p>And you actually also need curl,</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>sudo apt install curl
-</span></span></code></pre></div><h3 id="sw360-requirements">Sw360 Requirements</h3>
-<p>From the <a href="https://github.com/eclipse/sw360#required-software">sw360 Readme</a>:</p>
-<blockquote>
-<p>Java 1.8.X</p>
-</blockquote>
-<p>And when they say &ldquo;1.8.X&rdquo;, they mean it: it won&rsquo;t work with a later version. So it&rsquo;s better to uninstall the potential other versions of Java (/!\ this is expected to break other things on your environment if you depend on Java for anything), and then install the required version</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span> sudo apt install openjdk-8-jdk openjdk-8-jre
-</span></span></code></pre></div><blockquote>
-<p>In order to build you will need:</p>
-<ul>
-<li>A git client</li>
-<li>Apache Maven 3.6.X</li>
-<li>Apache Thrift 0.11.0</li>
-</ul>
-</blockquote>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>sudo apt install maven
-</span></span></code></pre></div><p>That will install maven Apache Maven 3.6.1 but you need to have installed the correct version (8) of Java <em>before hand</em> otherwise it will install a too recent one.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>sudo apt install thrift-compiler
-</span></span></code></pre></div><p>That will install Thrift version 0.11.0, if you have not installed thrift using the script above.</p>
-<h2 id="cloning-the-repos">Cloning the repos</h2>
-<h3 id="generating-an-ssh-key-pair-for-your-machine">Generating an ssh key-pair for your machine</h3>
-<p>If you don&rsquo;t already have one, generate a key pair with no passphrase, in default location:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>ssh-keygen -t rsa -b 4096 -C &#34;your_email@example.com&#34;
-</span></span></code></pre></div><p>Not 100% sure, but not having one may create problems, so&hellip;</p>
-<h3 id="cloning-sw360-chores">Cloning sw360 chores</h3>
-<p>I created a <code>code</code> folder at the root of the user&rsquo;s directory, just to make things simple.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>~$ cd code
-</span></span><span style="display:flex;"><span>~/code$ git clone https://github.com/sw360/sw360chores.git
-</span></span></code></pre></div><h3 id="cloning-eclipsesw360">Cloning eclipse/sw360</h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>~/code$ git clone https://github.com/eclipse/sw360.git
-</span></span></code></pre></div><h2 id="compiling-and-deploying-sw360-code">Compiling and deploying SW360 Code</h2>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#a00;background-color:#faa">~$</span> cd code<span style="color:#555">/</span>sw360<span style="color:#555">/</span>
-</span></span><span style="display:flex;"><span><span style="color:#a00;background-color:#faa">~</span><span style="color:#555">/</span>code<span style="color:#555">/</span>sw360<span style="color:#a00;background-color:#faa">$</span> mvn <span style="color:#069;font-weight:bold">package</span> <span style="color:#555">-</span>P deploy <span style="color:#555">-</span>Dbase.deploy.dir=<span style="color:#555">/</span>home<span style="color:#555">/</span>inno3<span style="color:#555">/</span>code<span style="color:#555">/</span>sw360chores<span style="color:#555">/</span>_deploy <span style="color:#555">-</span>DskipTests
-</span></span></code></pre></div><h2 id="launching-the-containers">Launching the containers</h2>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>$ cd ~/code/sw360chores/
-</span></span><span style="display:flex;"><span>~/code/sw360chores$ ./sw360chores.pl --build -- up
-</span></span></code></pre></div><p>And yes, there is a space between <code>--</code> and <code>up</code>.</p>
-<p>If everything goes fine, you should see a line like</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>sw360_1                | 15-Jan-2020 12:33:38.480 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [144,475] milliseconds 
-</span></span></code></pre></div><p>You should be able to login at <a href="https://localhost:8443">https://localhost:8443</a> with the default credentials <code>setup@sw360.org</code> and the password <code>sw360fossy</code> (found <a href="https://github.com/eclipse/sw360/wiki/Deploy-Liferay#liferay-administrator-steps">here</a>).</p>
-<p>Please go ahead now with the setup of the Liferay - links can be found in the main wiki page.</p>
+	<p><a href="#ref1">Version of libraries</a></p>
+<p><a href="#ref2">Checkout source code SW360 to Tag Version 18.1.0</a></p>
+<p><a href="#ref3">Config Couchdb Lucene</a></p>
+<p><a href="#ref4">Build and deploy</a></p>
+<p><a href="#ref5">Start and Configure Liferay</a></p>
+<p><a href="#ref6">Setup SW360 for Liferay: Import *.lar Files</a></p>
+<h2 id="ref1">Version of libraries</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Package Name</th>
+<th style="text-align:center">Version</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Liferay</td>
+<td style="text-align:center">7.4.3</td>
+</tr>
+<tr>
+<td style="text-align:left">Tomcat</td>
+<td style="text-align:center">9.0.56</td>
+</tr>
+<tr>
+<td style="text-align:left">Couchdb</td>
+<td style="text-align:center">3.2.2</td>
+</tr>
+<tr>
+<td style="text-align:left">Open JDK</td>
+<td style="text-align:center">11.0.15</td>
+</tr>
+<tr>
+<td style="text-align:left">Thrift</td>
+<td style="text-align:center">0.16.0</td>
+</tr>
+</tbody>
+</table>
+<p>To check couchdb version: run <code>curl http://localhost_or_yourcouchdbserver:5984 | json_pp</code></p>
+<h2 id="ref2">Prepare source code to use release 18.1.0</h2>
+<p>Link contains source: <a href="https://github.com/eclipse/sw360.git">https://github.com/eclipse/sw360.git</a></p>
+<p>Create folder to store new source code of version 18.1.0:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ mkdir /home/user/work17to18
+</span></span></code></pre></div><p>Clone source code from github:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ git clone https://github.com/eclipse/sw360.git
+</span></span></code></pre></div><p>Checkout to tag Version 18.1.0</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ git checkout sw360-18.1.0-M1
+</span></span></code></pre></div><p>Set Environment for <code>${LIFERAY_INSTALL_7_4}</code></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ <span style="color:#366">export</span> <span style="color:#033">LIFERAY_INSTALL_7_4</span><span style="color:#555">=</span>/opt/liferay-ce-portal-7.4.3.18-ga18
+</span></span></code></pre></div><p>Move folder <code>/home/user/work17to18/sw360</code> run command</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ mvn clean install -DskipTests
+</span></span></code></pre></div><p>Copy dependencies from folder <strong>/home/user/work17to18/sw360/deploy/jars</strong> to <strong>${LIFERAY_INSTALL_7_4}/osgi/modules</strong></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ <span style="color:#366">cd</span> /home/user/work17to18/sw360/utils/jars
+</span></span><span style="display:flex;"><span>$ sudo cp *.jar /opt/liferay-ce-portal-7.4.3.18-ga18/osgi/modules/
+</span></span></code></pre></div><h2 id="ref3">Config Couchdb Lucene</h2>
+<p>Run following commands to config Couchdb Lucene (remember to replace <strong>COUCHDB_USER</strong> and <strong>COUCHDB_PASSWORD</strong> by username and password of couchdb):</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ <span style="color:#366">cd</span> /home/user/work17to18/sw360/third-party/couchdb-lucene/
+</span></span><span style="display:flex;"><span>$ sed -i <span style="color:#c30">&#34;s/allowLeadingWildcard=false/allowLeadingWildcard=true/&#34;</span> ./src/main/resources/couchdb-lucene.ini
+</span></span><span style="display:flex;"><span>$ sed -i <span style="color:#c30">&#34;s/localhost:5984/COUCHDB_USER:COUCHDB_USER@localhost:5984/&#34;</span> ./src/main/resources/couchdb-lucene.ini
+</span></span><span style="display:flex;"><span>$ mvn clean install war:war
+</span></span><span style="display:flex;"><span>$ cp target/couchdb-lucene-*.war /opt/liferay-ce-portal-7.4.3.18-ga18/tomcat-9.0.56/webapps/couchdb-lucene.war
+</span></span></code></pre></div><h2 id="ref4">Build and deploy</h2>
+<p>Set Environment for <code>${LIFERAY_INSTALL_7_4}</code></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ <span style="color:#366">cd</span> /home/user/work17to18/sw360
+</span></span><span style="display:flex;"><span>$ <span style="color:#366">export</span> <span style="color:#033">LIFERAY_INSTALL_7_4</span><span style="color:#555">=</span>/opt/liferay-ce-portal-7.4.3.18-ga18
+</span></span></code></pre></div><p>To clean everything and install without running the tests</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ mvn clean install -DskipTests
+</span></span></code></pre></div><p>For deployment run the command</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ mvn package -P deploy -Dbase.deploy.dir<span style="color:#555">=</span>. -Dliferay.deploy.dir<span style="color:#555">=</span><span style="color:#a00">${</span><span style="color:#033">LIFERAY_INSTALL_7_4</span><span style="color:#a00">}</span>/deploy -Dbackend.deploy.dir<span style="color:#555">=</span><span style="color:#a00">${</span><span style="color:#033">LIFERAY_INSTALL_7_4</span><span style="color:#a00">}</span>/tomcat-9.0.56/webapps -Drest.deploy.dir<span style="color:#555">=</span><span style="color:#a00">${</span><span style="color:#033">LIFERAY_INSTALL_7_4</span><span style="color:#a00">}</span>/tomcat-9.0.56/webapps -Dtest<span style="color:#555">=</span>org/eclipse/sw360/rest/resourceserver/restdocs/* -Dsurefire.failIfNoSpecifiedTests<span style="color:#555">=</span><span style="color:#366">false</span> -DRunRestIntegrationTest<span style="color:#555">=</span><span style="color:#366">true</span>
+</span></span></code></pre></div><h2 id="ref5">Start and Configure Liferay</h2>
+<p>Set Environment for <code>${LIFERAY_INSTALL_7_4}</code></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ <span style="color:#366">export</span> <span style="color:#033">LIFERAY_INSTALL_7_4</span><span style="color:#555">=</span>/opt/liferay-ce-portal-7.4.3.18-ga18<span style="color:#c30">`</span>
+</span></span></code></pre></div><p>Start liferay</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ <span style="color:#a00">${</span><span style="color:#033">LIFERAY_INSTALL_7_4</span><span style="color:#a00">}</span>/tomcat-9.0.56/bin/startup.sh
+</span></span></code></pre></div><p>Log</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ tail -f <span style="color:#a00">${</span><span style="color:#033">LIFERAY_INSTALL_7_4</span><span style="color:#a00">}</span>/tomcat-9.0.56/logs/catalina.out
+</span></span></code></pre></div><p>SW360 url : <a href="https://localhost:8080">https://localhost:8080</a></p>
+<h2 id="ref6">Setup SW360 for Liferay: Import *.lar Files</h2>
+<p><strong>You need over-import lar files to the portet can show the sw360 icons/images</strong></p>
+<p>For the setup of SW360 in Liferay, the portal description files, <code>*.lar</code> files need not be imported. There is no way except from doing this in the UI. If we are wrong with this, please let us know, because it is very annoying that these ever occurring steps cannot be automated with Liferay.</p>
+
+<figure>
+    <img src="/sw360/img/sw360screenshots/deploy73/2020-01-24_14.49.41.png"/> 
+</figure>
+
+<p>The go into &gt; <code>Publishing</code> &gt; <code>Import</code> which shows like this:</p>
+
+<figure>
+    <img src="/sw360/img/sw360screenshots/deploy74/13.png"/> 
+</figure>
+
+<p>Then, click on the plus sign in order to import the *.lar file for public pages. You will find the lar files in the <a href="https://github.com/eclipse/sw360/tree/master/frontend/configuration">frontend/configuration</a> folder of the sw360 repository.</p>
+
+<figure>
+    <img src="/sw360/img/sw360screenshots/deploy74/14.png"/> 
+</figure>
+
+<p>As for import settings, follow the selection as shown on the screenshot. It is very important that for the <code>Public_Pages_7_4_3_18_GA18.lar</code> file the selection <code>Public_Pages_7_4_3_18_GA18.lar</code> is made.</p>
+
+<figure>
+    <img src="/sw360/img/sw360screenshots/deploy74/15.png"/> 
+</figure>
+
+<p>Importing permission makes sure that pages are visible according to users rights. For public pages, it is irrelevant_the moment. Overwriting and the write as current user needs to be selected.</p>
+<p>After successful importing, the same steps shall be repeated for the <code>Private_Pages_7_4_3_18_GA18.lar</code> file.</p>
+
+<figure>
+    <img src="/sw360/img/sw360screenshots/deploy74/16.png"/> 
+</figure>
+
+<p>Make sure that <code>Private_Pages_7_4_3_18_GA18.lar </code> is selected. Follow the other selections made as shown on the screenshot &hellip; importing permissions &hellip; mirror with overwriting, use the current author &hellip;</p>
+
+<figure>
+    <img src="/sw360/img/sw360screenshots/deploy74/17.png"/> 
+</figure>
+
 
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified June 22, 2022: <a href="https://github.com/eclipse/sw360.website/commit/032e0f60817fa17b0036ac6db37d09342a714890">SW360 website remodeling (#9) (032e0f6)</a>
+  Last modified February 28, 2024: <a href="https://github.com/eclipse/sw360.website/commit/b3cb567cdd1ef985f6b9efbbd1d5c6ce455bee9a">feat(Upgrade version): Add upgrade version doc from 17.0.0 to 18.1.0 (b3cb567)</a>
 </div>
 
 </div>
@@ -722,24 +786,24 @@
               width="100"
               alt="Siemens"
           /></a>
-          <a href="https://www.bosch-si.com/">
+          <a href="https://www.global.toshiba/ww/top.html">
             <img
-              src="https://www.eclipse.org/sw360//img/clients/BoschSI.png"
+              src="https://www.eclipse.org/sw360//img/clients/Toshiba.png"
               class="footer-img"
-              width="100"
-              alt="Bosch Software Innovation"
+              width="120"
+              alt="Toshiba"
           /></a>
-          <a href="https://verifa.io/">
+          <a href="https://cariad.technology">
             <img
-              src="https://www.eclipse.org/sw360//img/clients/Verifa.png"
+              src="https://www.eclipse.org/sw360//img/clients/Cariad.png"
               class="footer-img"
-              width="100"
-              alt="Bosch Software Innovation"
+              width="140"
+              alt="Cariad"
           /></a>
         </p>
 
         
-        <small>&copy; 2023 The Eclipse Foundation All Rights Reserved</small>
+        <small>&copy; 2024 The Eclipse Foundation All Rights Reserved</small>
          
         <div style="margin-top: 10px"><a href="http://www.eclipse.org/">
           <img

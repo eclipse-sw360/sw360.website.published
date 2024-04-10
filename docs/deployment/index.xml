@@ -53,19 +53,6 @@
     </item>
     
     <item>
-      <title>Docs: Native Install</title>
-      <link>https://www.eclipse.org/sw360/docs/deployment/nativeinstall/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.eclipse.org/sw360/docs/deployment/nativeinstall/</guid>
-      <description>
-        
-        
-        
-      </description>
-    </item>
-    
-    <item>
       <title>Docs: Authorization Concept</title>
       <link>https://www.eclipse.org/sw360/docs/deployment/deploy-authorization-concept/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -737,87 +724,6 @@ You can configure them by using the sw360.properties.&lt;/p&gt;
     </item>
     
     <item>
-      <title>Docs: Docker Deployment</title>
-      <link>https://www.eclipse.org/sw360/docs/deployment/deploy-docker/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.eclipse.org/sw360/docs/deployment/deploy-docker/</guid>
-      <description>
-        
-        
-        &lt;h1 id=&#34;a-quick-how-to-for-testing-sw360&#34;&gt;A quick how-to for testing SW360&lt;/h1&gt;
-&lt;h2 id=&#34;requirements&#34;&gt;Requirements&lt;/h2&gt;
-&lt;h3 id=&#34;platform-requirements&#34;&gt;Platform Requirements&lt;/h3&gt;
-&lt;p&gt;As you need Apache Thrift 0.11.0 (see &lt;a href=&#34;https://github.com/eclipse/sw360#required-software&#34;&gt;https://github.com/eclipse/sw360#required-software&lt;/a&gt; ), using the latest Ubuntu LTS (18.04) won&amp;rsquo;t work, so we start on Ubuntu 19.10 if you want to install from packages. As an alternative, consider the following script from the sw360 repository:&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://github.com/eclipse/sw360/blob/master/scripts/install-thrift.sh&#34;&gt;https://github.com/eclipse/sw360/blob/master/scripts/install-thrift.sh&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;We&amp;rsquo;ll go the Docker way and follow the instructions of the &lt;a href=&#34;https://github.com/sw360/sw360chores&#34;&gt;sw360chores project&lt;/a&gt;. There is a nice diagram there, explaining the rather complex setup.&lt;/p&gt;
-&lt;h3 id=&#34;sw360chores-requirements&#34;&gt;sw360chores Requirements&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;the perl interpreter to run ./sw360chores.pl&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;You should already have it in your default, even if minimal, installation&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ which perl 
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/usr/bin/perl
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
-&lt;p&gt;git which is used in some prepare scripts&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;code&gt;sudo apt install git&lt;/code&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;a current version of docker (min 1.30) [https://docs.docker.com/]&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo apt install docker.io
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
-&lt;p&gt;docker-compose (min 1.21) [https://docs.docker.com/compose/install/]&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo apt install docker-compose
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;And you actually also need curl,&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo apt install curl
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;sw360-requirements&#34;&gt;Sw360 Requirements&lt;/h3&gt;
-&lt;p&gt;From the &lt;a href=&#34;https://github.com/eclipse/sw360#required-software&#34;&gt;sw360 Readme&lt;/a&gt;:&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Java 1.8.X&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;And when they say &amp;ldquo;1.8.X&amp;rdquo;, they mean it: it won&amp;rsquo;t work with a later version. So it&amp;rsquo;s better to uninstall the potential other versions of Java (/!\ this is expected to break other things on your environment if you depend on Java for anything), and then install the required version&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; sudo apt install openjdk-8-jdk openjdk-8-jre
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
-&lt;p&gt;In order to build you will need:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;A git client&lt;/li&gt;
-&lt;li&gt;Apache Maven 3.6.X&lt;/li&gt;
-&lt;li&gt;Apache Thrift 0.11.0&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/blockquote&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo apt install maven
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;That will install maven Apache Maven 3.6.1 but you need to have installed the correct version (8) of Java &lt;em&gt;before hand&lt;/em&gt; otherwise it will install a too recent one.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo apt install thrift-compiler
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;That will install Thrift version 0.11.0, if you have not installed thrift using the script above.&lt;/p&gt;
-&lt;h2 id=&#34;cloning-the-repos&#34;&gt;Cloning the repos&lt;/h2&gt;
-&lt;h3 id=&#34;generating-an-ssh-key-pair-for-your-machine&#34;&gt;Generating an ssh key-pair for your machine&lt;/h3&gt;
-&lt;p&gt;If you don&amp;rsquo;t already have one, generate a key pair with no passphrase, in default location:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ssh-keygen -t rsa -b 4096 -C &amp;#34;your_email@example.com&amp;#34;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Not 100% sure, but not having one may create problems, so&amp;hellip;&lt;/p&gt;
-&lt;h3 id=&#34;cloning-sw360-chores&#34;&gt;Cloning sw360 chores&lt;/h3&gt;
-&lt;p&gt;I created a &lt;code&gt;code&lt;/code&gt; folder at the root of the user&amp;rsquo;s directory, just to make things simple.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;~$ cd code
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;~/code$ git clone https://github.com/sw360/sw360chores.git
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;cloning-eclipsesw360&#34;&gt;Cloning eclipse/sw360&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;~/code$ git clone https://github.com/eclipse/sw360.git
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;compiling-and-deploying-sw360-code&#34;&gt;Compiling and deploying SW360 Code&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;~$&lt;/span&gt; cd code&lt;span style=&#34;color:#555&#34;&gt;/&lt;/span&gt;sw360&lt;span style=&#34;color:#555&#34;&gt;/&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;~&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;/&lt;/span&gt;code&lt;span style=&#34;color:#555&#34;&gt;/&lt;/span&gt;sw360&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;$&lt;/span&gt; mvn &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;package&lt;/span&gt; &lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;P deploy &lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;Dbase.deploy.dir=&lt;span style=&#34;color:#555&#34;&gt;/&lt;/span&gt;home&lt;span style=&#34;color:#555&#34;&gt;/&lt;/span&gt;inno3&lt;span style=&#34;color:#555&#34;&gt;/&lt;/span&gt;code&lt;span style=&#34;color:#555&#34;&gt;/&lt;/span&gt;sw360chores&lt;span style=&#34;color:#555&#34;&gt;/&lt;/span&gt;_deploy &lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;DskipTests
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;launching-the-containers&#34;&gt;Launching the containers&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ cd ~/code/sw360chores/
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;~/code/sw360chores$ ./sw360chores.pl --build -- up
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;And yes, there is a space between &lt;code&gt;--&lt;/code&gt; and &lt;code&gt;up&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;If everything goes fine, you should see a line like&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sw360_1                | 15-Jan-2020 12:33:38.480 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [144,475] milliseconds 
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;You should be able to login at &lt;a href=&#34;https://localhost:8443&#34;&gt;https://localhost:8443&lt;/a&gt; with the default credentials &lt;code&gt;setup@sw360.org&lt;/code&gt; and the password &lt;code&gt;sw360fossy&lt;/code&gt; (found &lt;a href=&#34;https://github.com/eclipse/sw360/wiki/Deploy-Liferay#liferay-administrator-steps&#34;&gt;here&lt;/a&gt;).&lt;/p&gt;
-&lt;p&gt;Please go ahead now with the setup of the Liferay - links can be found in the main wiki page.&lt;/p&gt;
-
-      </description>
-    </item>
-    
-    <item>
       <title>Docs: Export and Import</title>
       <link>https://www.eclipse.org/sw360/docs/deployment/deploy-export-and-import/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -957,10 +863,8 @@ Nevertheless this scenario is not intended and maybe there are unforeseen side e
 &lt;li&gt;Lifearay&lt;/li&gt;
 &lt;li&gt;Tomcat&lt;/li&gt;
 &lt;li&gt;Couchdb&lt;/li&gt;
-&lt;li&gt;Vagrant&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;For vagrant it is important to understand how to close the provisioning users and not keep default usernames and passwords open.&lt;/p&gt;
-&lt;p&gt;Then for the applications, the following very first line measure should be considered:&lt;/p&gt;
+&lt;p&gt;For the applications, the following very first line measure should be considered:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;Change password of Liferay administrator user or check if that is appropriately secure.&lt;/p&gt;
@@ -987,10 +891,9 @@ Nevertheless this scenario is not intended and maybe there are unforeseen side e
 &lt;p&gt;Add https access to couchdb&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;check that sw360 eyecuting user does not have sudo rights and config files for sw360 are &lt;code&gt;600&lt;/code&gt; only for the executing user.&lt;/p&gt;
+&lt;p&gt;check that sw360 runtime user does not have sudo rights and config files for sw360 are &lt;code&gt;600&lt;/code&gt; only.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Note that the Linux vagrant scripts applies somesecurity measures already on the OS level.&lt;/p&gt;
 
       </description>
     </item>
@@ -1008,6 +911,170 @@ Nevertheless this scenario is not intended and maybe there are unforeseen side e
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://qiita.com/K-Hama/items/1582b4e1bf248025eabb&#34;&gt;Comprehensive blog post on SW360 Installation in Japanese&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: SW360 18.x.x Series Initial Setup</title>
+      <link>https://www.eclipse.org/sw360/docs/deployment/deploy-initial-setup18/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/sw360/docs/deployment/deploy-initial-setup18/</guid>
+      <description>
+        
+        
+        &lt;p&gt;After successful , Then if you open the server with the URL &lt;code&gt;https://localhost:8080/&lt;/code&gt; the following screen should appear:&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/1.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;p&gt;Note that the actual image changes with every liferay version. If there is weird html output without images and plain text, then likely some port settings did not work and the pages generated have wrong URLs inside.&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/2.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;p&gt;After login the sw360 is not setup, thus the server does not display much, but a screen like the following:&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/3.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;h2 id=&#34;user-and-login-settings-in-liferay&#34;&gt;User and Login Settings in Liferay&lt;/h2&gt;
+&lt;p&gt;Go into the control panel area by clicking the items icon (nine small cubes) in the upper right corner and select the control panel tab:&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/4.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;p&gt;Edit this password policy and disable &lt;code&gt;change Required&lt;/code&gt; if you wish to do so. Click on Save_the bottom of the page to save the selection.&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/6.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;p&gt;Then, go: in &lt;code&gt;Configuration&lt;/code&gt; &amp;gt;  &lt;code&gt;Instance Settings&lt;/code&gt; &amp;gt; &lt;code&gt;Users&lt;/code&gt; &amp;gt;&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/7.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;p&gt;In this area, select &lt;code&gt;Default User Associations&lt;/code&gt; to enter SW360 and apply it also to existing users. Click on Save to save the selection:&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/8.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;p&gt;Then, in &lt;code&gt;Configuration&lt;/code&gt; &amp;gt;  &lt;code&gt;Instance Settings&lt;/code&gt; &amp;gt; &lt;code&gt;User Authentication&lt;/code&gt; &amp;gt; &lt;code&gt;General&lt;/code&gt; to disable all kind of auto login to make sure only authenticated users can log in. You may want to switch off the e-mail verification, because for most of the development times it will not be of much value.&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/9.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;p&gt;Finally, sice Liferay 7.4 some of the bundled modules need to be activated:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;jquery&lt;/li&gt;
+&lt;li&gt;font awesome&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In oder to do this, please select from the &lt;code&gt;Configuration&lt;/code&gt; &amp;gt;  &lt;code&gt;System Settings&lt;/code&gt; &amp;gt; &lt;code&gt;Third Party&lt;/code&gt; and go to jquery, select the enablement and click on Update:&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/10.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;p&gt;Do the same for Font Awesome:&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/11.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;p&gt;Note that you need to reload the browser or load a new browser window to take changes to effect.&lt;/p&gt;
+&lt;h2 id=&#34;setup-sw360-for-liferay-import-lar-files&#34;&gt;Setup SW360 for Liferay: Import *.lar Files&lt;/h2&gt;
+&lt;p&gt;For the setup of SW360 in Liferay, the portal description files, &lt;code&gt;*.lar&lt;/code&gt; files need not be imported. there is no way except from doing this in the UI. If we are wrong with this, please let us know, because it is very annoying that these ever occurring steps cannot be automated with Liferay.&lt;/p&gt;
+&lt;p&gt;In order to go ahead, switch to the &lt;code&gt;SW360&lt;/code&gt; area where you can apply site settings:&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/12.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;p&gt;The go into &amp;gt;  &lt;code&gt;Publishing&lt;/code&gt; &amp;gt; &lt;code&gt;Import&lt;/code&gt; which shows like this:&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/13.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;p&gt;Then, click on the plus sign in order to import the *.lar file for public pages. You will find the lar files in the &lt;a href=&#34;https://github.com/eclipse/sw360/tree/master/frontend/configuration&#34;&gt;frontend/configuration&lt;/a&gt; folder of the sw360 repository.&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/14.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;p&gt;As for import settings, follow the selection as shown on the screenshot. It is very important that for the &lt;code&gt;Public_Pages_7_4_3_18_GA18.lar&lt;/code&gt; file the selection &lt;code&gt;Public_Pages_7_4_3_18_GA18.lar&lt;/code&gt; is made.&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/15.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;p&gt;Importing permission makes sure that pages are visible according to users rights. For public pages, it is irrelevant_the moment. Overwriting and the write as current user needs to be selected.&lt;/p&gt;
+&lt;p&gt;After successful importing, the same steps shall be repeated for the &lt;code&gt;Private_Pages_7_4_3_18_GA18.lar&lt;/code&gt; file.&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/16.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;p&gt;Make sure that &lt;code&gt;Private_Pages_7_4_3_18_GA18.lar &lt;/code&gt; is selected. Follow the other selections made as shown on the screenshot &amp;hellip; importing permissions &amp;hellip; mirror with overwriting, use the current author &amp;hellip;&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/17.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;p&gt;If you click then the liferay logo_the upper left corner where the SW360 is, you will return to the application and the following screen should appear:&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/18.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;p&gt;You can close the left menu area by clicking on the upper left icon:&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/19.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;p&gt;Click &lt;code&gt;Start&lt;/code&gt; to open the private pages. You are still logged in, so the setup account is used to view the pages.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Important&lt;/strong&gt; The setup account does not belong to a group. Thus, not all view are functional because they require a group membership to work correctly.&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/20.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;h2 id=&#34;create-user-accounts-for-test&#34;&gt;Create User Accounts for Test&lt;/h2&gt;
+&lt;p&gt;Click the SW360 &lt;code&gt;Admin&lt;/code&gt; menu which is_the right and selection the &lt;code&gt;User&lt;/code&gt; item.&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/21.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;p&gt;Create at least one user with Admin properties. Example:&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/26.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;h2 id=&#34;real-login&#34;&gt;Real Login&lt;/h2&gt;
+&lt;p&gt;One example user is &lt;code&gt;user@sw360.org&lt;/code&gt; with the password &lt;code&gt;12345&lt;/code&gt;. Note that in the import file with the example accounts, the password is provided with a hash. If you would like to generate new (salted) hashes, you can change your password and export the user list using the same portlet where you have imported the users. This functionality can be also used to migrate accounts between servers.&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/24.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;p&gt;After the successful login, SW360 will look as follows.&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.eclipse.org/sw360/sw360/img/sw360screenshots/deploy74/25.png&#34;/&gt; 
+&lt;/figure&gt;
+
 
       </description>
     </item>

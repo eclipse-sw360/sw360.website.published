@@ -28,10 +28,9 @@
 &lt;p&gt;The installation consists of quite some tasks, as an overview:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Java 11&lt;/li&gt;
-&lt;li&gt;Postgresql &amp;gt;= 9.x&lt;/li&gt;
-&lt;li&gt;CouchDB &amp;gt;= 3.x&lt;/li&gt;
-&lt;li&gt;CouchDB-Lucene 2.1&lt;/li&gt;
-&lt;li&gt;Thrift 0.16&lt;/li&gt;
+&lt;li&gt;Postgresql &amp;gt;= 15.x&lt;/li&gt;
+&lt;li&gt;CouchDB &amp;gt;= 3.2.x&lt;/li&gt;
+&lt;li&gt;Thrift 0.18.1&lt;/li&gt;
 &lt;li&gt;Liferay CE 7.4.3 GA18&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;initial-steps&#34;&gt;Initial steps&lt;/h2&gt;

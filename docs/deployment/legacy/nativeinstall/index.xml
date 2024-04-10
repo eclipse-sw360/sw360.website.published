@@ -1,11 +1,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Eclipse SW360 – Native Install</title>
-    <link>https://www.eclipse.org/sw360/docs/deployment/nativeinstall/</link>
+    <link>https://www.eclipse.org/sw360/docs/deployment/legacy/nativeinstall/</link>
     <description>Recent content in Native Install on Eclipse SW360</description>
     <generator>Hugo -- gohugo.io</generator>
     
-	  <atom:link href="https://www.eclipse.org/sw360/docs/deployment/nativeinstall/index.xml" rel="self" type="application/rss+xml" />
+	  <atom:link href="https://www.eclipse.org/sw360/docs/deployment/legacy/nativeinstall/index.xml" rel="self" type="application/rss+xml" />
     
     
       
@@ -15,10 +15,10 @@
     
     <item>
       <title>Docs: Native Install v14 and v16</title>
-      <link>https://www.eclipse.org/sw360/docs/deployment/nativeinstall/native-install-sw360-version-14.0.0-and-16.0.0/</link>
+      <link>https://www.eclipse.org/sw360/docs/deployment/legacy/nativeinstall/native-install-sw360-version-14.0.0-and-16.0.0/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://www.eclipse.org/sw360/docs/deployment/nativeinstall/native-install-sw360-version-14.0.0-and-16.0.0/</guid>
+      <guid>https://www.eclipse.org/sw360/docs/deployment/legacy/nativeinstall/native-install-sw360-version-14.0.0-and-16.0.0/</guid>
       <description>
         
         
@@ -1360,10 +1360,10 @@ beginning and click &lt;code&gt;Upload Users&lt;/code&gt; on the right side. &lt
     
     <item>
       <title>Docs: Native Install v17</title>
-      <link>https://www.eclipse.org/sw360/docs/deployment/nativeinstall/native-install-sw360-version-17.0.0/</link>
+      <link>https://www.eclipse.org/sw360/docs/deployment/legacy/nativeinstall/native-install-sw360-version-17.0.0/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://www.eclipse.org/sw360/docs/deployment/nativeinstall/native-install-sw360-version-17.0.0/</guid>
+      <guid>https://www.eclipse.org/sw360/docs/deployment/legacy/nativeinstall/native-install-sw360-version-17.0.0/</guid>
       <description>
         
         
