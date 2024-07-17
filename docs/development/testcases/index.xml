@@ -789,126 +789,7 @@
 &lt;/tr>
 &lt;/tbody>
 &lt;/table></description></item><item><title>Docs: Licenses</title><link>https://www.eclipse.org/sw360/docs/development/testcases/test-cases-licenses/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.eclipse.org/sw360/docs/development/testcases/test-cases-licenses/</guid><description>
-&lt;h2 id="create-edit-and-delete-license">Create, edit and delete license&lt;/h2>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th style="text-align:right">Step&lt;/th>
-&lt;th style="text-align:left">Action&lt;/th>
-&lt;th style="text-align:left">Result&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td style="text-align:right">1&lt;/td>
-&lt;td style="text-align:left">Sign In with a known &lt;em>clearing admin&lt;/em> user&lt;/td>
-&lt;td style="text-align:left">User successfully signed in and &lt;em>Home&lt;/em> page is displayed&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align:right">2&lt;/td>
-&lt;td style="text-align:left">Click on &lt;em>Licenses&lt;/em> tab&lt;/td>
-&lt;td style="text-align:left">&lt;em>Licenses&lt;/em> page is displayed&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align:right">3&lt;/td>
-&lt;td style="text-align:left">Click on &lt;em>Add License&lt;/em>&lt;/td>
-&lt;td style="text-align:left">&lt;em>New License&lt;/em> page is displayed&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align:right">4&lt;/td>
-&lt;td style="text-align:left">Fill in &lt;em>Fullname&lt;/em> and &lt;em>Shortname&lt;/em> fields and press &lt;em>Add License&lt;/em>&lt;/td>
-&lt;td style="text-align:left">&lt;em>License added successfully!&lt;/em> message is displayed&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align:right">5&lt;/td>
-&lt;td style="text-align:left">Write the license or part of newly created license name in &lt;em>Keyword Search&lt;/em> field&lt;/td>
-&lt;td style="text-align:left">License is filtered successfully&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align:right">6&lt;/td>
-&lt;td style="text-align:left">Click on license name and then on &lt;em>Edit License Details and Text&lt;/em>&lt;/td>
-&lt;td style="text-align:left">License page is displayed&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align:right">7&lt;/td>
-&lt;td style="text-align:left">Modify some fields and click &lt;em>Update License&lt;/em>&lt;/td>
-&lt;td style="text-align:left">&lt;em>License updated successfully!&lt;/em> message is displayed&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align:right">8&lt;/td>
-&lt;td style="text-align:left">Check all fields on &lt;em>Details&lt;/em> and &lt;em>Text&lt;/em> pages&lt;/td>
-&lt;td style="text-align:left">Values are filled in correctly&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align:right">9&lt;/td>
-&lt;td style="text-align:left">Click on &lt;em>Edit License Details and Text&lt;/em>&lt;/td>
-&lt;td style="text-align:left">License page is displayed&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align:right">10&lt;/td>
-&lt;td style="text-align:left">Click o &lt;em>Delete&lt;/em> license name&lt;/td>
-&lt;td style="text-align:left">&lt;em>License removed successfully!&lt;/em> message is displayed&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
-&lt;h2 id="edit-license-todos-and-obligations">Edit license TODOs and Obligations&lt;/h2>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th style="text-align:right">Step&lt;/th>
-&lt;th style="text-align:left">Action&lt;/th>
-&lt;th style="text-align:left">Result&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td style="text-align:right">1&lt;/td>
-&lt;td style="text-align:left">Sign In with a known &lt;em>clearing admin&lt;/em> user&lt;/td>
-&lt;td style="text-align:left">User successfully signed in and &lt;em>Home&lt;/em> page is displayed&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align:right">2&lt;/td>
-&lt;td style="text-align:left">Click on previously created license name&lt;/td>
-&lt;td style="text-align:left">&lt;em>License Details&lt;/em> page is displayed&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align:right">3&lt;/td>
-&lt;td style="text-align:left">Click on &lt;em>Add a Todo&lt;/em>&lt;/td>
-&lt;td style="text-align:left">Todo page displayed successfully&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align:right">4&lt;/td>
-&lt;td style="text-align:left">Enter a Todo text (e.g. &amp;ldquo;First todo text&amp;rdquo;), click &lt;em>Applies to development&lt;/em>, and click &lt;em>Submit&lt;/em>&lt;/td>
-&lt;td style="text-align:left">&lt;em>License updated successfully!&lt;/em> message is displayed&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align:right">5&lt;/td>
-&lt;td style="text-align:left">Click &lt;em>TODOs and Obligations&lt;/em>&lt;/td>
-&lt;td style="text-align:left">The previously entered Todo is listed on the page with &lt;em>No obligations&lt;/em>&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align:right">6&lt;/td>
-&lt;td style="text-align:left">Click on &lt;em>Add a Todo&lt;/em>&lt;/td>
-&lt;td style="text-align:left">Todo page displayed successfully&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align:right">7&lt;/td>
-&lt;td style="text-align:left">Enter a Todo text (e.g. &amp;ldquo;Second todo text&amp;rdquo;), click on some Obligations and click Submit&lt;/td>
-&lt;td style="text-align:left">&lt;em>License updated successfully!&lt;/em> message is displayed&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align:right">8&lt;/td>
-&lt;td style="text-align:left">Click TODOs and Obligations&lt;/td>
-&lt;td style="text-align:left">The previously entered Todo is listed on the page together with chosen obligations&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align:right">9&lt;/td>
-&lt;td style="text-align:left">Click on &lt;em>Edit WhiteList&lt;/em>, deselect first Todo and click &lt;em>Submit&lt;/em>&lt;/td>
-&lt;td style="text-align:left">The deselected Todo is not displayed anymore on &lt;em>TODOs and Obligations&lt;/em> page&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
-&lt;h2 id="check-export-licenses">Check Export Licenses&lt;/h2>
+&lt;h2 id="tc01-create-a-license-with-mandatory-fields-then-edit-external-link">TC01: Create a license with mandatory fields then edit External link&lt;/h2>
 &lt;table>
 &lt;thead>
 &lt;tr>
@@ -925,18 +806,263 @@
 &lt;/tr>
 &lt;tr>
 &lt;td style="text-align:right">2&lt;/td>
-&lt;td style="text-align:left">Click on &lt;em>Licenses&lt;/em> tab&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Licenses&lt;/em> tab&lt;/td>
 &lt;td style="text-align:left">&lt;em>Licenses&lt;/em> page is displayed&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td style="text-align:right">3&lt;/td>
-&lt;td style="text-align:left">Click on &lt;em>Export Licenses&lt;/em>&lt;/td>
-&lt;td style="text-align:left">A dialog for opening &lt;em>Licenses.xlsx&lt;/em> is displayed&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Add License&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">&lt;em>New License&lt;/em> page is displayed&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td style="text-align:right">4&lt;/td>
-&lt;td style="text-align:left">Open the xlsx file and compare the number of rows with total number of entries from &lt;em>Licenses&lt;/em> tab&lt;/td>
-&lt;td style="text-align:left">All licenses names are exported successfully.&lt;/td>
+&lt;td style="text-align:left">Fill in &lt;em>Fullname&lt;/em> and &lt;em>Shortname&lt;/em> fields&lt;br>&lt;em>Eg:&lt;/em>&lt;br> - Fullname: Open Logistics Foundation License v1.3 &lt;br> - Shortname: OLFL-1.3&lt;/td>
+&lt;td style="text-align:left">Values are entered in the fields&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">5&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Create License&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">- Navigate to the license list page and the message &amp;ldquo;Success:License added successfully!&amp;rdquo; is displayed &lt;br> - The new license should be added to the licenses list&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">6&lt;/td>
+&lt;td style="text-align:left">At &lt;em>Details&lt;/em> tab, update &lt;em>External link for more information&lt;/em> field &lt;br> &lt;em>Eg:&lt;/em> &lt;a href="https://eclipse.dev/sw360/docs/development/testcases/test-cases-licenses/">https://eclipse.dev/sw360/docs/development/testcases/test-cases-licenses/&lt;/a> &lt;br> Click &lt;em>Save&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">- The page remains the same and the message &lt;em>&amp;ldquo;Success:SUCCESS&amp;rdquo;&lt;/em> is displayed &lt;br> - Data of the &lt;em>&amp;ldquo;External link for more information&amp;rdquo;&lt;/em> field is updated correctly&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="tc02-create-a-license-with-all-fields">TC02: Create a license with all fields&lt;/h2>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:right">Step&lt;/th>
+&lt;th style="text-align:left">Action&lt;/th>
+&lt;th style="text-align:left">Result&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:right">1&lt;/td>
+&lt;td style="text-align:left">Sign in with a known &lt;em>clearing admin&lt;/em> user &lt;br> Click &lt;em>Licenses&lt;/em> tab &lt;br> Click &lt;em>Add License&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">&lt;em>New License&lt;/em> page is displayed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">2&lt;/td>
+&lt;td style="text-align:left">Fill in all editable fields &lt;br> &lt;em>Eg:&lt;/em> &lt;br> - Fullname: JAM License &lt;br> - Shortname: Jam &lt;br> - License Type: select a license type &lt;br> - OSI Approved?: Yes &lt;br> - Note: take a note! &lt;br> - License Text: Copyright (C) YEAR by AUTHOR EMAIL Permission to use, copy and modify.&lt;/td>
+&lt;td style="text-align:left">Values are entered in the fields&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">3&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Linked Obligation&lt;/em> tab&lt;/td>
+&lt;td style="text-align:left">&lt;em>Linked Obligation&lt;/em> page is displayed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">4&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Add Obligation&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">Screen display a dialog: &lt;em>&amp;ldquo;Select License Obligations to be added.&amp;rdquo;&lt;/em>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">5&lt;/td>
+&lt;td style="text-align:left">Select some obligations and click &lt;em>Add&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">The selected obligations have been added to the obligation table&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">6&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Create License&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">- Navigate to the license portlet and the message &lt;em>&amp;ldquo;Success:License added successfully!&amp;quot;&lt;/em> is displayed &lt;br> - The new license should be added to the licenses list&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">7&lt;/td>
+&lt;td style="text-align:left">Click the newly created license name hyperlink&lt;/td>
+&lt;td style="text-align:left">The details page of license is displayed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">8&lt;/td>
+&lt;td style="text-align:left">Check data of License in &lt;em>Details&lt;/em> tab &lt;br> Click &lt;em>Text&lt;/em> tab and check data of License in &lt;em>Text&lt;/em> tab &lt;br> Click &lt;em>Obligations&lt;/em> tab and check data of License in &lt;em>Obligations&lt;/em> tab&lt;/td>
+&lt;td style="text-align:left">The displayed data matches the input data&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="tc03-create-a-license-with-linked-obligations-then-edit-whitelist">TC03: Create a license with linked obligations then edit whitelist&lt;/h2>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:right">Step&lt;/th>
+&lt;th style="text-align:left">Action&lt;/th>
+&lt;th style="text-align:left">Result&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:right">1&lt;/td>
+&lt;td style="text-align:left">Sign in with a known &lt;em>clearing admin&lt;/em> user &lt;br> Click &lt;em>Licenses&lt;/em> tab &lt;br> Click &lt;em>Add License&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">&lt;em>New License&lt;/em> page is displayed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">2&lt;/td>
+&lt;td style="text-align:left">Fill in &lt;em>Fullname&lt;/em> and &lt;em>Shortname&lt;/em> &lt;br>&lt;em>Eg:&lt;/em>&lt;br> - Fullname: Apache License 2.0 &lt;br> - Shortname: Apache-2.0&lt;/td>
+&lt;td style="text-align:left">Values are entered in the fields&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">3&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Linked Obligation&lt;/em> tab&lt;/td>
+&lt;td style="text-align:left">&lt;em>Linked Obligation&lt;/em> page is displayed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">4&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Add Obligation&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">Screen display a dialog: &lt;em>&amp;ldquo;Select License Obligations to be added&amp;rdquo;&lt;/em>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">5&lt;/td>
+&lt;td style="text-align:left">Select some obligations and click &lt;em>Add&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">The selected obligations have been added to the obligation table&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">6&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Create License&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">- Navigate to the license list screen &lt;br> - The new license should be added to the licenses list&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">7&lt;/td>
+&lt;td style="text-align:left">Search for new created license, then click &lt;em>hyper link of new created license&lt;/em>&lt;/td>
+&lt;td style="text-align:left">The details page of license is displayed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">8&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Obligations&lt;/em> tab&lt;/td>
+&lt;td style="text-align:left">&lt;em>Obligation&lt;/em> page is displayed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">9&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Edit Whitelist&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">&lt;em>Update whitelist&lt;/em> page is displayed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">10&lt;/td>
+&lt;td style="text-align:left">Unselect the first obligation then click &lt;em>Update Whitelist&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">- Redirect to view license page with the message &lt;em>&amp;ldquo;Success:License updated successfully!&amp;rdquo;&lt;/em> is displayed &lt;br> - The unselected obligation is not displayed anymore on obligations table&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="tc04-edit-license-and-remove-add-obligations">TC04: Edit License and remove/ add Obligations&lt;/h2>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:right">Step&lt;/th>
+&lt;th style="text-align:left">Action&lt;/th>
+&lt;th style="text-align:left">Result&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:right">1&lt;/td>
+&lt;td style="text-align:left">Sign In with a known user&lt;/td>
+&lt;td style="text-align:left">User successfully signed in and &lt;em>Home&lt;/em> page is displayed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">2&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Licenses&lt;/em> tab &lt;br> At &lt;em>Quick Filter&lt;/em> area, input existed license with obligations. E.g: &lt;em>JAM License&lt;/em> in the textbox &lt;br> Click &lt;em>JAM License&lt;/em> license name &lt;br> Click &lt;em>Edit License&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">The update license page is displayed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">3&lt;/td>
+&lt;td style="text-align:left">Edit some editable fields &lt;br> &lt;em>Eg:&lt;/em> &lt;br> - Fullname: JAM License 2.0 &lt;br> - OSI Approved?: (n/a) &lt;br> - FSF Free/Libre?: Yes &lt;br> - License Text: &lt;blank>&lt;/td>
+&lt;td style="text-align:left">Values are entered in the fields&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">4&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Linked Obligation&lt;/em> tab &lt;br> Click &lt;em>Delete&lt;/em> icon of the first obligation in &lt;em>Action&lt;/em> column&lt;/td>
+&lt;td style="text-align:left">The &lt;em>&amp;ldquo;Delete Obligation?&amp;rdquo;&lt;/em> dialog is displayed with message: &lt;em>&amp;ldquo;Do you really want to delete the obligation {deleted obligation name}?&amp;rdquo;&lt;/em>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">5&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>&amp;ldquo;Delete Obligation&amp;rdquo;&lt;/em> button in the dialog&lt;/td>
+&lt;td style="text-align:left">The chosen obligation is removed from the obligations table&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">6&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Add Obligation&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">Screen display a dialog: &lt;em>&amp;ldquo;Select License Obligations to be added.&amp;rdquo;&lt;/em>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">7&lt;/td>
+&lt;td style="text-align:left">Select some obligations and click &lt;em>Add&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">The selected obligations have been added to the obligation table&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">8&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Update License&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">- Navigate to the license details page &lt;br> - Data of the obligation is updated successfully&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">9&lt;/td>
+&lt;td style="text-align:left">Click the edited license name (&lt;em>JAM License 2.0&lt;/em>)&lt;/td>
+&lt;td style="text-align:left">The details page of license is displayed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">10&lt;/td>
+&lt;td style="text-align:left">Check data of License in &lt;em>Details&lt;/em> tab, &lt;em>Text&lt;/em> tab and &lt;em>Obligation&lt;/em> tab&lt;/td>
+&lt;td style="text-align:left">The displayed data matches the input data&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="tc05-delete-an-existing-license">TC05: Delete an existing license&lt;/h2>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:right">Step&lt;/th>
+&lt;th style="text-align:left">Action&lt;/th>
+&lt;th style="text-align:left">Result&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:right">1&lt;/td>
+&lt;td style="text-align:left">Sign in with a known &lt;em>clearing admin&lt;/em> user &lt;br> Click &lt;em>Licenses&lt;/em> tab &lt;br> At &lt;em>Quick Filter&lt;/em> area, input existing license in the textbox &lt;br>   &lt;em>Eg:&lt;/em> &amp;ldquo;License_delete&amp;rdquo; &lt;br> Click &lt;em>&amp;ldquo;License_delete&amp;rdquo;&lt;/em> license name in the result table &lt;br> Click &lt;em>Edit License&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">The update license page is displayed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">2&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Delete License&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">Screen display dialog with message: &lt;em>&amp;ldquo;Do you really want to delete the license {licenseFullName ({licenseShortName})}?&amp;rdquo;&lt;/em>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">3&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Delete License&lt;/em> button in the dialog&lt;/td>
+&lt;td style="text-align:left">- Navigate to the license portlet and the message &lt;em>&amp;ldquo;Success:License removed successfully!&amp;quot;&lt;/em> is displayed &lt;br> - The removed license has been removed to the license table&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="tc06-check-export-licenses">TC06: Check Export Licenses&lt;/h2>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:right">Step&lt;/th>
+&lt;th style="text-align:left">Action&lt;/th>
+&lt;th style="text-align:left">Result&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:right">1&lt;/td>
+&lt;td style="text-align:left">Sign In with a known user&lt;/td>
+&lt;td style="text-align:left">User successfully signed in and &lt;em>Home&lt;/em> page is displayed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">2&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Licenses&lt;/em> tab&lt;/td>
+&lt;td style="text-align:left">&lt;em>Licenses&lt;/em> page is displayed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">3&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Export Spreadsheet&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">A dialog for opening &lt;em>Licenses.xlsx&lt;/em> is displayed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">4&lt;/td>
+&lt;td style="text-align:left">Open the newly downloaded &lt;em>Licenses.xlsx&lt;/em> file in the local &lt;br> Compare the number of rows with total number of entries from &lt;em>Licenses&lt;/em> tab&lt;/td>
+&lt;td style="text-align:left">All licenses names are exported successfully&lt;/td>
 &lt;/tr>
 &lt;/tbody>
 &lt;/table></description></item><item><title>Docs: Moderation</title><link>https://www.eclipse.org/sw360/docs/development/testcases/test-cases-moderations/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.eclipse.org/sw360/docs/development/testcases/test-cases-moderations/</guid><description>
