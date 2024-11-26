@@ -1066,7 +1066,7 @@
 &lt;/tr>
 &lt;/tbody>
 &lt;/table></description></item><item><title>Docs: Moderation</title><link>https://www.eclipse.org/sw360/docs/development/testcases/test-cases-moderations/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.eclipse.org/sw360/docs/development/testcases/test-cases-moderations/</guid><description>
-&lt;h2 id="accept-moderation-request-for-visible-projects-by-other-users">Accept moderation request, for visible projects by other users&lt;/h2>
+&lt;h2 id="tc01-accept-moderation-request-for-visible-projects-by-other-users">TC01: Accept moderation request, for visible projects by other users&lt;/h2>
 &lt;table>
 &lt;thead>
 &lt;tr>
@@ -1078,12 +1078,12 @@
 &lt;tbody>
 &lt;tr>
 &lt;td style="text-align:right">1&lt;/td>
-&lt;td style="text-align:left">Open first browser instance ((e.g. &amp;ldquo;firefox.exe -p &amp;ldquo;profile1&amp;rdquo; -no-remote&amp;rdquo;) and sign in with a known &lt;em>First&lt;/em> user&lt;/td>
+&lt;td style="text-align:left">Open a first browser instance (Eg: &amp;ldquo;firefox.exe -p &amp;ldquo;profile1&amp;rdquo; -no-remote&amp;rdquo;) and sign in with a known &lt;em>First&lt;/em> user&lt;/td>
 &lt;td style="text-align:left">User successfully signed in and &lt;em>Home&lt;/em> page is displayed&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td style="text-align:right">2&lt;/td>
-&lt;td style="text-align:left">Open a second browser instance ((e.g. &amp;ldquo;firefox.exe -p &amp;ldquo;profile2&amp;rdquo; -no-remote&amp;rdquo;) and sign in with a known &lt;em>Second&lt;/em> user&lt;/td>
+&lt;td style="text-align:left">Open a second browser instance (Eg: &amp;ldquo;firefox.exe -p &amp;ldquo;profile2&amp;rdquo; -no-remote&amp;rdquo;) and sign in with a known &lt;em>Second&lt;/em> user&lt;/td>
 &lt;td style="text-align:left">User successfully signed in and &lt;em>Home&lt;/em> page is displayed&lt;/td>
 &lt;/tr>
 &lt;tr>
@@ -1093,7 +1093,7 @@
 &lt;/tr>
 &lt;tr>
 &lt;td style="text-align:right">4&lt;/td>
-&lt;td style="text-align:left">Create a new project visible for &lt;em>Second&lt;/em> user (e.g. &lt;em>Me and Moderators&lt;/em>, &lt;em>Group and Moderators&lt;/em>, &lt;em>Everyone&lt;/em>)&lt;/td>
+&lt;td style="text-align:left">Create a new project visible for &lt;em>Second&lt;/em> user &lt;br> Eg: &lt;br> - Name: Project is created by First user &lt;br> - Project visibility: Everyone&lt;/td>
 &lt;td style="text-align:left">Project is created successfully&lt;/td>
 &lt;/tr>
 &lt;tr>
@@ -1103,67 +1103,77 @@
 &lt;/tr>
 &lt;tr>
 &lt;td style="text-align:right">6&lt;/td>
-&lt;td style="text-align:left">Search for the above created project and click &lt;em>Edit&lt;/em>&lt;/td>
-&lt;td style="text-align:left">&lt;em>You will create a moderation request if you update.&lt;/em> message is displayed&lt;/td>
+&lt;td style="text-align:left">Search for the above created project and click &lt;em>Edit&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">&lt;em>&amp;ldquo;Success: You will create a moderation request if you update&amp;rdquo;&lt;/em> message is displayed&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td style="text-align:right">7&lt;/td>
-&lt;td style="text-align:left">Edit Description field or other fields and click &lt;em>Update Project&lt;/em>&lt;/td>
-&lt;td style="text-align:left">&lt;em>Moderation request was sent to update the Project name!&lt;/em> message is displayed.&lt;/td>
+&lt;td style="text-align:left">Edit &lt;em>Description&lt;/em> field or other fields &lt;br> Eg: &lt;br> Description: &amp;ldquo;Update description to create a moderation request!!&amp;rdquo; &lt;br> Click &lt;em>Update Project&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">Create moderation request dialog is displayed&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td style="text-align:right">8&lt;/td>
+&lt;td style="text-align:left">Fill in &lt;em>Please comment your changes&lt;/em> field &lt;br> Eg: I want to update this project. Please accept for me. Thanks @@. &lt;br> Click &lt;em>Send moderation request&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">Show message: &lt;em>&amp;ldquo;Success: Moderation request was sent to update the Project {nameProject} {(version)}!&amp;rdquo;&lt;/em>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">9&lt;/td>
 &lt;td style="text-align:left">Activate &lt;em>First&lt;/em> browser instance&lt;/td>
 &lt;td style="text-align:left">Instance is active&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align:right">9&lt;/td>
-&lt;td style="text-align:left">Check &lt;em>My Task Assignments&lt;/em> on &lt;em>Home&lt;/em> page&lt;/td>
-&lt;td style="text-align:left">The above project that needs moderation is displayed with status &lt;em>PENDING&lt;/em>&lt;/td>
-&lt;/tr>
-&lt;tr>
 &lt;td style="text-align:right">10&lt;/td>
-&lt;td style="text-align:left">Click on &lt;em>Moderation&lt;/em> page&lt;/td>
-&lt;td style="text-align:left">The moderation request of &lt;em>Second&lt;/em> user is displayed with state &lt;em>Pending&lt;/em>&lt;/td>
+&lt;td style="text-align:left">Check status of project in the &lt;em>MY TASK ASSIGNMENTS&lt;/em> table on &lt;em>Home&lt;/em> page&lt;/td>
+&lt;td style="text-align:left">The above project that needs moderation is displayed with status &lt;em>Pending&lt;/em>&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td style="text-align:right">11&lt;/td>
-&lt;td style="text-align:left">Click on moderation request&lt;/td>
-&lt;td style="text-align:left">&lt;em>Moderation Change Project&lt;/em> page is displayed, with proposed changes from step 7 listed&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Requests&lt;/em> page&lt;/td>
+&lt;td style="text-align:left">The moderation request of &lt;em>Second&lt;/em> user is displayed with state &lt;em>Pending&lt;/em>&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td style="text-align:right">12&lt;/td>
-&lt;td style="text-align:left">Click on &lt;em>Accept Request&lt;/em>&lt;/td>
-&lt;td style="text-align:left">&lt;em>You have accepted the previous moderation request.&lt;/em> message is displayed, and State changes to &lt;em>Approved&lt;/em>&lt;/td>
+&lt;td style="text-align:left">Click the project name in the &lt;em>Document Name&lt;/em> column&lt;/td>
+&lt;td style="text-align:left">- &lt;em>&amp;ldquo;Success: You have assigned yourself to this moderation request.&amp;rdquo;&lt;/em> message is displayed &lt;br> - &lt;em>Moderation Request Information&lt;/em> page is displayed, with proposed changes from step 7 listed&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td style="text-align:right">13&lt;/td>
-&lt;td style="text-align:left">Check &lt;em>My Task Assignments&lt;/em> on &lt;em>Home&lt;/em> page&lt;/td>
-&lt;td style="text-align:left">Status is &lt;em>APPROVED&lt;/em>&lt;/td>
+&lt;td style="text-align:left">Input a comment in the &lt;em>Comment on Moderation Decision&lt;/em> box. Eg: &lt;em>The request is approved&lt;/em> &lt;br> Click &lt;em>Accept Request&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">Request page display and show message: &lt;em>&amp;ldquo;Success: You have accepted the moderation request&amp;rdquo;&lt;/em>&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td style="text-align:right">14&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Closed Moderation Requests&lt;/em> tab &lt;br> Check state of &lt;em>Project is created by First user&lt;/em> project&lt;/td>
+&lt;td style="text-align:left">State changed to &lt;em>Approved&lt;/em>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">15&lt;/td>
+&lt;td style="text-align:left">Check status of project in the &lt;em>MY TASK ASSIGNMENTS&lt;/em> table on &lt;em>Home&lt;/em> page&lt;/td>
+&lt;td style="text-align:left">The request is removed from the table&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">16&lt;/td>
 &lt;td style="text-align:left">Activate &lt;em>Second&lt;/em> browser instance&lt;/td>
 &lt;td style="text-align:left">Instance is active&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align:right">15&lt;/td>
-&lt;td style="text-align:left">Check _My Task Submissions on &lt;em>Home&lt;/em> page&lt;/td>
-&lt;td style="text-align:left">Status is &lt;em>APPROVED&lt;/em>&lt;/td>
+&lt;td style="text-align:right">17&lt;/td>
+&lt;td style="text-align:left">Check status of project in the &lt;em>MY TASK SUBMISSIONS&lt;/em> table on &lt;em>Home&lt;/em> page&lt;/td>
+&lt;td style="text-align:left">Status is &lt;em>Approved&lt;/em>&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align:right">16&lt;/td>
-&lt;td style="text-align:left">Open the &lt;em>Projects&lt;/em> tab and click on previously modified project on step 7&lt;/td>
+&lt;td style="text-align:right">18&lt;/td>
+&lt;td style="text-align:left">Open the &lt;em>Projects&lt;/em> page and click on previously modified project on step 7&lt;/td>
 &lt;td style="text-align:left">Project &lt;em>Summary&lt;/em> page displayed successfully&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align:right">17&lt;/td>
+&lt;td style="text-align:right">19&lt;/td>
 &lt;td style="text-align:left">Check the moderation requested changes&lt;/td>
-&lt;td style="text-align:left">Changes are visible in the corresponding fields&lt;/td>
+&lt;td style="text-align:left">Changes are visible in the corresponding fields: &lt;em>Description&lt;/em> field was changed to &lt;em>&amp;ldquo;Update description to create a moderation request!!&amp;rdquo;&lt;/em>&lt;/td>
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>
-&lt;h2 id="decline-moderation-request-for-visible-projects-by-other-users">Decline moderation request, for visible projects by other users&lt;/h2>
+&lt;h2 id="tc02-decline-moderation-request-for-visible-projects-by-other-users">TC02: Decline moderation request, for visible projects by other users&lt;/h2>
 &lt;table>
 &lt;thead>
 &lt;tr>
@@ -1180,37 +1190,42 @@
 &lt;/tr>
 &lt;tr>
 &lt;td style="text-align:right">12&lt;/td>
-&lt;td style="text-align:left">Click on &lt;em>Decline Request&lt;/em>&lt;/td>
-&lt;td style="text-align:left">&lt;em>You have declined the previous moderation request&lt;/em> message is displayed, and State changes to &lt;em>Rejected&lt;/em>&lt;/td>
+&lt;td style="text-align:left">Input a comment in the &lt;em>Comment on Moderation Decision&lt;/em> box. Eg: &lt;em>The request is declined&lt;/em> &lt;br> Click &lt;em>Decline Request&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">Requests page display and show message: &lt;em>&amp;ldquo;Success: You have rejected the moderation request&amp;rdquo;&lt;/em>&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td style="text-align:right">13&lt;/td>
-&lt;td style="text-align:left">Check &lt;em>My Task Assignments&lt;/em> on &lt;em>Home&lt;/em> page&lt;/td>
-&lt;td style="text-align:left">Status is &lt;em>REJECTED&lt;/em>&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Closed Moderation Requests&lt;/em> tab &lt;br> Check state of the above rejected project&lt;/td>
+&lt;td style="text-align:left">State changed to &lt;em>Rejected&lt;/em>&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td style="text-align:right">14&lt;/td>
+&lt;td style="text-align:left">Check status of project in the &lt;em>MY TASK ASSIGNMENTS&lt;/em> table on &lt;em>Home&lt;/em> page&lt;/td>
+&lt;td style="text-align:left">The request is removed from the table&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">15&lt;/td>
 &lt;td style="text-align:left">Activate &lt;em>Second&lt;/em> browser instance&lt;/td>
 &lt;td style="text-align:left">Instance is active&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align:right">15&lt;/td>
-&lt;td style="text-align:left">Check _My Task Submissions on &lt;em>Home&lt;/em> page&lt;/td>
-&lt;td style="text-align:left">Status is &lt;em>REJECTED&lt;/em>&lt;/td>
-&lt;/tr>
-&lt;tr>
 &lt;td style="text-align:right">16&lt;/td>
-&lt;td style="text-align:left">Open the &lt;em>Projects&lt;/em> tab and click on previously modified project on step 7&lt;/td>
-&lt;td style="text-align:left">Project &lt;em>Summary&lt;/em> page displayed successfully&lt;/td>
+&lt;td style="text-align:left">Check status of project in the &lt;em>MY TASK SUBMISSIONS&lt;/em> table on &lt;em>Home&lt;/em> page&lt;/td>
+&lt;td style="text-align:left">Status is &lt;em>Rejected&lt;/em>&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td style="text-align:right">17&lt;/td>
+&lt;td style="text-align:left">Open the &lt;em>Projects&lt;/em> page and click on previously modified project on step 7&lt;/td>
+&lt;td style="text-align:left">Project &lt;em>Summary&lt;/em> page displayed successfully&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">18&lt;/td>
 &lt;td style="text-align:left">Check the moderation requested changes&lt;/td>
-&lt;td style="text-align:left">Changes are not visible in the corresponding fields&lt;/td>
+&lt;td style="text-align:left">Changes are not visible in the corresponding fields: data of the project is not changed.&lt;/td>
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>
-&lt;h2 id="remove-me-from-moderators-for-moderation-request-for-visible-projects-by-other-users">Remove Me from Moderators for moderation request, for visible projects by other users&lt;/h2>
+&lt;h2 id="tc03-remove-me-from-moderators-for-moderation-request-for-visible-projects-by-other-users">TC03: Remove Me from Moderators for moderation request, for visible projects by other users&lt;/h2>
 &lt;table>
 &lt;thead>
 &lt;tr>
@@ -1227,18 +1242,18 @@
 &lt;/tr>
 &lt;tr>
 &lt;td style="text-align:right">12&lt;/td>
-&lt;td style="text-align:left">Click on &lt;em>Remove Me from Moderators&lt;/em>&lt;/td>
-&lt;td style="text-align:left">&lt;em>You are the last moderator for this request - you are not allowed to unsubscribe.&lt;/em> message is displayed (assuming only &lt;em>First&lt;/em> user was listed under &lt;em>Moderators&lt;/em> column in step 10)&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Remove Me from Moderators&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">- &lt;em>&amp;ldquo;Warning: You are the last moderator for this request, you are not allowed to unsubscribe !&amp;rdquo;&lt;/em> message is displayed (assuming only &lt;em>First&lt;/em> user was listed under &lt;em>Moderators&lt;/em> column in step 10) &lt;br> - Can&amp;rsquo;t remove from Moderators. Nothing to change&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td style="text-align:right">13&lt;/td>
-&lt;td style="text-align:left">Click on &lt;em>Decline Request&lt;/em>&lt;/td>
-&lt;td style="text-align:left">&lt;em>You have declined the previous moderation request&lt;/em> message is displayed, and State changes to &lt;em>Rejected&lt;/em>&lt;/td>
+&lt;td style="text-align:left">Input a comment in the &lt;em>Comment on Moderation Decision&lt;/em> box. Eg: &lt;em>Decline the request.&lt;/em> &lt;br> Click &lt;em>Decline Request&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">Requests page display and show message: &lt;em>&amp;ldquo;Success: You have rejected the moderation request&amp;rdquo;&lt;/em>&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td style="text-align:right">14&lt;/td>
-&lt;td style="text-align:left">Edit the project and add a new moderator (e.g. &lt;em>Third&lt;/em> user) under &lt;em>Moderators&lt;/em> field&lt;/td>
-&lt;td style="text-align:left">Project updated successfully.&lt;/td>
+&lt;td style="text-align:left">Edit the project and add a new moderator (Eg: &lt;em>Third&lt;/em> user) under &lt;em>Moderators&lt;/em> field&lt;/td>
+&lt;td style="text-align:left">Project updated successfully&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td style="text-align:right">15&lt;/td>
@@ -1257,27 +1272,27 @@
 &lt;/tr>
 &lt;tr>
 &lt;td style="text-align:right">18&lt;/td>
-&lt;td style="text-align:left">Click on &lt;em>Moderation&lt;/em> page&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Moderation&lt;/em> page&lt;/td>
 &lt;td style="text-align:left">The moderation request of &lt;em>Second&lt;/em> user is displayed with state &lt;em>Pending&lt;/em>&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td style="text-align:right">19&lt;/td>
-&lt;td style="text-align:left">Click on moderation request&lt;/td>
-&lt;td style="text-align:left">&lt;em>Moderation Change Project&lt;/em> page is displayed, with proposed changes from step 7 listed&lt;/td>
+&lt;td style="text-align:left">Click the project name which the moderation was created in step 16&lt;/td>
+&lt;td style="text-align:left">- &lt;em>&amp;ldquo;Success: You have assigned yourself to this moderation request.&amp;rdquo;&lt;/em> is displayed &lt;br> - &lt;em>Moderation Request Information&lt;/em> page is displayed, with proposed changes from step 16 listed&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td style="text-align:right">20&lt;/td>
-&lt;td style="text-align:left">Click on &lt;em>Remove Me from Moderators&lt;/em>&lt;/td>
-&lt;td style="text-align:left">&lt;em>You are removed from the list of moderators for the previous moderation request. You have no open Requests.&lt;/em> message is displayed. Also the document is deleted from moderation list.&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Remove Me from Moderators&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">&lt;em>&amp;ldquo;Success: You have unassigned yourself from the moderation request&amp;rdquo;&lt;/em> message is displayed. Also the document is deleted from moderation list.&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td style="text-align:right">21&lt;/td>
-&lt;td style="text-align:left">Login with the &lt;em>Third&lt;/em> user and check the &lt;em>Moderation&lt;/em> tab&lt;/td>
+&lt;td style="text-align:left">Login with the &lt;em>Third&lt;/em> user and check the &lt;em>Moderation request&lt;/em> in &lt;em>Request&lt;/em> page&lt;/td>
 &lt;td style="text-align:left">The moderation request of &lt;em>Second&lt;/em> user is displayed with state &lt;em>Pending&lt;/em>&lt;/td>
 &lt;/tr>
 &lt;/tbody>
-&lt;/table></description></item><item><title>Docs: Projects</title><link>https://www.eclipse.org/sw360/docs/development/testcases/test-cases-projects/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.eclipse.org/sw360/docs/development/testcases/test-cases-projects/</guid><description>
-&lt;h2 id="add-a-simple-project-with-no-relations-and-no-releases">Add a simple project with no relations and no releases&lt;/h2>
+&lt;/table></description></item><item><title>Docs: Packages</title><link>https://www.eclipse.org/sw360/docs/development/testcases/test-cases-packages/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.eclipse.org/sw360/docs/development/testcases/test-cases-packages/</guid><description>
+&lt;h2 id="tc01-create-a-package-with-required-fields">TC01: Create a package with required fields&lt;/h2>
 &lt;table>
 &lt;thead>
 &lt;tr>
@@ -1294,37 +1309,32 @@
 &lt;/tr>
 &lt;tr>
 &lt;td style="text-align:right">2&lt;/td>
-&lt;td style="text-align:left">Click on &lt;em>Projects&lt;/em> tab&lt;/td>
-&lt;td style="text-align:left">&lt;em>Projects&lt;/em> page is displayed&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Packages&lt;/em> tab &lt;br> Click &lt;em>Add Package&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">The &lt;em>Create Package&lt;/em> page is displayed&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td style="text-align:right">3&lt;/td>
-&lt;td style="text-align:left">Click &lt;em>Add Project&lt;/em>&lt;/td>
-&lt;td style="text-align:left">&lt;em>New Project&lt;/em> page is displayed with mandatory fields marked with red star&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align:right">4&lt;/td>
-&lt;td style="text-align:left">Fill mandatory &lt;em>Name&lt;/em> with a project name, change other fields if needed&lt;/td>
+&lt;td style="text-align:left">Input valid data into required fields &lt;br> &lt;em>Eg:&lt;/em> &lt;br> - Name: package1 &lt;br> - Version: 1.0.0 &lt;br> - Package Type: Framework &lt;br> - PURL (Package URL): pkg:npm/angular-sanitize@1.8.2&lt;/td>
 &lt;td style="text-align:left">Values are entered in the fields&lt;/td>
 &lt;/tr>
 &lt;tr>
+&lt;td style="text-align:right">4&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Create Package&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">- The message: &lt;em>&amp;ldquo;Success: Package created successfully&amp;rdquo;&lt;/em> is displayed at the left corner &lt;br> - Redirect to the &lt;em>Package list&lt;/em> page &lt;br> - The new package is added to the package list&lt;/td>
+&lt;/tr>
+&lt;tr>
 &lt;td style="text-align:right">5&lt;/td>
-&lt;td style="text-align:left">Click &lt;em>Add Project&lt;/em>&lt;/td>
-&lt;td style="text-align:left">The page remain the same and the message &lt;em>You are editing the original document.&lt;/em> is displayed&lt;/td>
+&lt;td style="text-align:left">Search for the new project then click the hyperlink of the newly created package name&lt;/td>
+&lt;td style="text-align:left">Redirect to view page of the created package&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td style="text-align:right">6&lt;/td>
-&lt;td style="text-align:left">Click &lt;em>Cancel&lt;/em> button&lt;/td>
-&lt;td style="text-align:left">New project &lt;em>Summary&lt;/em> page is displayed&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align:right">7&lt;/td>
-&lt;td style="text-align:left">Click on &lt;em>Projects&lt;/em> tab&lt;/td>
-&lt;td style="text-align:left">The new project should be added to the projects list&lt;/td>
+&lt;td style="text-align:left">Check data of all fields&lt;/td>
+&lt;td style="text-align:left">Data in all fields match with input values&lt;/td>
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>
-&lt;h2 id="add-a-full-project-with-relations-releases-and-send-to-clearing-process">Add a full project with relations, releases and send to clearing process&lt;/h2>
+&lt;h2 id="tc02-create-a-package-with-all-fields">TC02: Create a package with all fields&lt;/h2>
 &lt;table>
 &lt;thead>
 &lt;tr>
@@ -1336,134 +1346,32 @@
 &lt;tbody>
 &lt;tr>
 &lt;td style="text-align:right">1&lt;/td>
-&lt;td style="text-align:left">Click on &lt;em>Projects&lt;/em> tab&lt;/td>
-&lt;td style="text-align:left">&lt;em>Projects&lt;/em> page is displayed&lt;/td>
+&lt;td style="text-align:left">Sign In with a known user &lt;br> Click &lt;em>Packages&lt;/em> tab &lt;br> Click &lt;em>Add Package&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">The &lt;em>Create Package&lt;/em> page is displayed&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td style="text-align:right">2&lt;/td>
-&lt;td style="text-align:left">Click &lt;em>Add Project&lt;/em>&lt;/td>
-&lt;td style="text-align:left">&lt;em>New Project&lt;/em> page is displayed with mandatory fields marked with red star&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align:right">3&lt;/td>
-&lt;td style="text-align:left">Fill mandatory &lt;em>Name&lt;/em> with a project name, change other fields if needed&lt;/td>
+&lt;td style="text-align:left">Input valid data into all editable fields&lt;/td>
 &lt;td style="text-align:left">Values are entered in the fields&lt;/td>
 &lt;/tr>
 &lt;tr>
+&lt;td style="text-align:right">3&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Create Package&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">- The message: &lt;em>&amp;ldquo;Success: Package created successfully&amp;rdquo;&lt;/em> is displayed at the left corner &lt;br> - Redirect to the &lt;em>Package list&lt;/em> page &lt;br> - The new package is added to the package list&lt;/td>
+&lt;/tr>
+&lt;tr>
 &lt;td style="text-align:right">4&lt;/td>
-&lt;td style="text-align:left">Click &lt;em>Click to add linked Projects&lt;/em>&lt;/td>
-&lt;td style="text-align:left">&lt;em>Search Project&lt;/em> dialog is displayed&lt;/td>
+&lt;td style="text-align:left">Search for the new package then click the hyperlink of the newly created package name&lt;/td>
+&lt;td style="text-align:left">Redirect to view page of the created package&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td style="text-align:right">5&lt;/td>
-&lt;td style="text-align:left">Click &lt;em>Search&lt;/em> and &lt;em>Select&lt;/em> the project to be linked (e.g. created in TC01)&lt;/td>
-&lt;td style="text-align:left">Dialog is closed and selected project is displayed under &lt;em>Linked Projects&lt;/em> section&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align:right">6&lt;/td>
-&lt;td style="text-align:left">Click &lt;em>Click to add Releases&lt;/em>&lt;/td>
-&lt;td style="text-align:left">&lt;em>Search Release&lt;/em> dialog is displayed&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align:right">7&lt;/td>
-&lt;td style="text-align:left">Click &lt;em>Search by name&lt;/em> and &lt;em>Select&lt;/em> a release to be added&lt;/td>
-&lt;td style="text-align:left">Dialog is closed and selected release is displayed under &lt;em>Linked Releases&lt;/em> section&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align:right">8&lt;/td>
-&lt;td style="text-align:left">Click &lt;em>Add Project&lt;/em>&lt;/td>
-&lt;td style="text-align:left">The page remain the same and the message &lt;em>You are editing the original document.&lt;/em> is displayed&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align:right">9&lt;/td>
-&lt;td style="text-align:left">Click &lt;em>Cancel&lt;/em> button&lt;/td>
-&lt;td style="text-align:left">New project &lt;em>Summary&lt;/em> page is displayed&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align:right">10&lt;/td>
-&lt;td style="text-align:left">Click on &lt;em>Projects&lt;/em> tab&lt;/td>
-&lt;td style="text-align:left">The new project should be added to the projects list&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align:right">11&lt;/td>
-&lt;td style="text-align:left">Check &lt;em>Clearing Status&lt;/em> by hovering mouse over the numbers.&lt;/td>
-&lt;td style="text-align:left">The message should be &lt;em>new release, under clearing&amp;hellip;&lt;/em>&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align:right">12&lt;/td>
-&lt;td style="text-align:left">Send open release to clearing by clicking the button &lt;em>Send to fossology&lt;/em>, under &lt;em>Actions&lt;/em> column&lt;/td>
-&lt;td style="text-align:left">&lt;em>Fossology Clearing&lt;/em> dialog is displayed&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align:right">13&lt;/td>
-&lt;td style="text-align:left">Select the release to be sent for clearing and click &lt;em>Send&lt;/em>&lt;/td>
-&lt;td style="text-align:left">&lt;em>Sent&lt;/em> message is displayed near the &lt;em>Send to fossology&lt;/em> button&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align:right">14&lt;/td>
-&lt;td style="text-align:left">Click on project name and check &lt;em>Summary&lt;/em> page&lt;/td>
-&lt;td style="text-align:left">&lt;em>Clearing details&lt;/em> should have 1 for &lt;em>Under clearing&lt;/em>&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align:right">15&lt;/td>
-&lt;td style="text-align:left">Click on &lt;em>Clearing Status&lt;/em>&lt;/td>
-&lt;td style="text-align:left">The &amp;ldquo;Release Clearing State_ should be &lt;em>Sent to Fossology&lt;/em>&lt;/td>
+&lt;td style="text-align:left">Check data of all fields&lt;/td>
+&lt;td style="text-align:left">Data in all fields match with input values&lt;/td>
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>
-&lt;h2 id="add-a-project-with-releases-no-relations-remove-a-release-and-send-to-clearing-process">Add a project with releases, no relations, remove a release, and send to clearing process&lt;/h2>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th style="text-align:right">Step&lt;/th>
-&lt;th style="text-align:left">Action&lt;/th>
-&lt;th style="text-align:left">Result&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td style="text-align:right">1-5&lt;/td>
-&lt;td style="text-align:left">Same as in TC02&lt;/td>
-&lt;td>&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align:right">5a&lt;/td>
-&lt;td style="text-align:left">Click on &lt;em>Delete&lt;/em> icon to delete the linked project&lt;/td>
-&lt;td style="text-align:left">&lt;em>Do you really want to remove the link to this project?&lt;/em> message is displayed&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align:right">5b&lt;/td>
-&lt;td style="text-align:left">Click &lt;em>OK&lt;/em>&lt;/td>
-&lt;td style="text-align:left">The project is removed from the list of &lt;em>Linked Projects&lt;/em>&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align:right">6&lt;/td>
-&lt;td style="text-align:left">Click &lt;em>Click to add Releases&lt;/em>&lt;/td>
-&lt;td style="text-align:left">&lt;em>Search Release&lt;/em> dialog is displayed&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align:right">7&lt;/td>
-&lt;td style="text-align:left">Click &lt;em>Search by name&lt;/em> and &lt;em>Select&lt;/em> more than one release to be added&lt;/td>
-&lt;td style="text-align:left">Dialog is closed and selected releases are displayed under &lt;em>Linked Releases&lt;/em> section&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align:right">7a&lt;/td>
-&lt;td style="text-align:left">Click on &lt;em>Delete&lt;/em> icon to delete one of the linked release&lt;/td>
-&lt;td style="text-align:left">&lt;em>Do you really want to remove the link to this release?&lt;/em> message is displayed&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align:right">7b&lt;/td>
-&lt;td style="text-align:left">Click &lt;em>OK&lt;/em>&lt;/td>
-&lt;td style="text-align:left">The release is removed from the list of &lt;em>Linked Releases&lt;/em>&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align:right">8-15&lt;/td>
-&lt;td style="text-align:left">Same as in TC02&lt;/td>
-&lt;td>&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
-&lt;p>##TC04: Delete a project that is first linked to another project and then not linked&lt;/p>
+&lt;h2 id="tc03-update-some-fields-for-package">TC03: Update some fields for package&lt;/h2>
 &lt;table>
 &lt;thead>
 &lt;tr>
@@ -1475,47 +1383,89 @@
 &lt;tbody>
 &lt;tr>
 &lt;td style="text-align:right">1&lt;/td>
-&lt;td style="text-align:left">Create a new project&lt;/td>
+&lt;td style="text-align:left">Sign In with a known user &lt;br> Click &lt;em>Component&lt;/em> tab &lt;br> Create a component with name is &lt;em>ComponentA&lt;/em> &lt;br> Create a release with name is &lt;em>ComponentA (1.0.1)&lt;/em>&lt;/td>
+&lt;td style="text-align:left">Release &lt;em>ComponentA (1.0.1)&lt;/em> is created successfully&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">2&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Packages&lt;/em> tab &lt;br> Create a new package with name and version are &lt;em>Package1 (1.0.1)&lt;/em>&lt;/td>
+&lt;td style="text-align:left">Package &lt;em>Package1 (1.0.1)&lt;/em> is created successfully&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">3&lt;/td>
+&lt;td style="text-align:left">At advanced Search, search for newly created package &lt;br> &lt;em>Eg:&lt;/em> Package1 (1.0.1) &lt;br> Click &lt;em>Edit Package&lt;/em> icon at &lt;em>Actions&lt;/em> column&lt;/td>
+&lt;td style="text-align:left">&lt;em>Update Package&lt;/em> page is displayed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">4&lt;/td>
+&lt;td style="text-align:left">Update data of some fields &lt;br> &lt;em>Eg:&lt;/em> &lt;br> - Version: 1.0.2 &lt;br> - Homepage URL: pkg:npm/@microsoft/applicationinsights-web@2.5.11 &lt;br> - Release: ComponentA (1.0.1)&lt;/td>
+&lt;td style="text-align:left">Data is filled in fields match with input values&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">5&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Update Package&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">- The message: &lt;em>&amp;ldquo;Success: Package updated successfully&amp;rdquo;&lt;/em> is displayed at the left corner &lt;br> - Redirect to the package list page&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">6&lt;/td>
+&lt;td style="text-align:left">Search for the updated project then click the hyperlink of the package name&lt;/td>
+&lt;td style="text-align:left">Redirect to view page of the updated package&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">7&lt;/td>
+&lt;td style="text-align:left">Check data of all fields&lt;/td>
+&lt;td style="text-align:left">Data in all fields match with data at update page&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="tc04-link-package-to-project-with-release-of-the-package-has-not-linked-to-the-project-yet">TC04: Link package to project with release of the package has not linked to the project yet&lt;/h2>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:right">Step&lt;/th>
+&lt;th style="text-align:left">Action&lt;/th>
+&lt;th style="text-align:left">Result&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:right">1&lt;/td>
+&lt;td style="text-align:left">Create Component with name is &lt;em>ComponentA&lt;/em> &lt;br> Create a release with name is &lt;em>ComponentA (1.0.1)&lt;/em>&lt;/td>
+&lt;td style="text-align:left">Release is created successfully&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">2&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Packages&lt;/em> tab &lt;br> Click &lt;em>Add Package&lt;/em> button &lt;br>Create a new package with: &lt;br> - Name: &lt;em>PackageA&lt;/em> &lt;br> - Version: &lt;em>(1.0.1)&lt;/em> &lt;br> - Release: &lt;em>ComponentA (1.0.1)&lt;/em>&lt;/td>
+&lt;td style="text-align:left">Package is created successfully&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">3&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Project&lt;/em> tab &lt;br> Create project with name is &lt;em>ProjectA&lt;/em>&lt;/td>
 &lt;td style="text-align:left">Project is created successfully&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align:right">2&lt;/td>
-&lt;td style="text-align:left">Create another project and add first created one as linked project&lt;/td>
-&lt;td style="text-align:left">Projects are linked successfully&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align:right">3&lt;/td>
-&lt;td style="text-align:left">Go to first created project in the projects table and try to delete it&lt;/td>
-&lt;td style="text-align:left">Message &lt;em>Do you want to delete project name?&lt;/em> is displayed&lt;/td>
-&lt;/tr>
-&lt;tr>
 &lt;td style="text-align:right">4&lt;/td>
-&lt;td style="text-align:left">Click &lt;em>OK&lt;/em>&lt;/td>
-&lt;td style="text-align:left">Message &lt;em>The project is used by another project!&lt;/em> is displayed&lt;/td>
+&lt;td style="text-align:left">In &lt;em>Edit ProjectA project&lt;/em> page then click &lt;em>Linked Packages&lt;/em> tab &lt;br> Click &lt;em>Add Packages&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">Dialog &lt;em>Link Packages&lt;/em> is displayed&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td style="text-align:right">5&lt;/td>
-&lt;td style="text-align:left">Click &lt;em>OK&lt;/em>&lt;/td>
-&lt;td style="text-align:left">Project is not deleted (e.g. refresh the page by clicking Projects tab)&lt;/td>
+&lt;td style="text-align:left">Input &lt;em>PackageA&lt;/em> in textbox then click &lt;em>Search&lt;/em> button &lt;br> Choose &lt;em>PackageA&lt;/em> package then click &lt;em>Link Packages&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">Information of the &lt;em>PackageA&lt;/em> package is displayed correctly in the table&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td style="text-align:right">6&lt;/td>
-&lt;td style="text-align:left">Go to second created project in the projects table and delete it&lt;/td>
-&lt;td style="text-align:left">Message &lt;em>Do you want to delete project name?&lt;/em> is displayed&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Update Project&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">- Redirect to the &lt;em>ProjectA&lt;/em> project view screen &lt;br> - Information of &lt;em>Linked Package&lt;/em> tab is correct with input data&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td style="text-align:right">7&lt;/td>
-&lt;td style="text-align:left">Click &lt;em>OK&lt;/em>&lt;/td>
-&lt;td style="text-align:left">Project is deleted successfully&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align:right">8&lt;/td>
-&lt;td style="text-align:left">Go to first created project in the table (not linked anymore to second project) and delete it&lt;/td>
-&lt;td style="text-align:left">Project is deleted successfully&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>License Clearing&lt;/em> tab, check information of the table&lt;/td>
+&lt;td style="text-align:left">Display data of &lt;em>ComponentA (1.0.1)&lt;/em> release with correctly information&lt;/td>
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>
-&lt;h2 id="modify-an-existing-project-with-relations-releases-and-send-to-clearing-process">Modify an existing project with relations, releases and send to clearing process&lt;/h2>
+&lt;h2 id="tc05-unlink-package-from-the-project">TC05: Unlink package from the project&lt;/h2>
 &lt;table>
 &lt;thead>
 &lt;tr>
@@ -1527,17 +1477,27 @@
 &lt;tbody>
 &lt;tr>
 &lt;td style="text-align:right">1&lt;/td>
-&lt;td style="text-align:left">Search for a simple project (e.g. created in TC01) and click &lt;em>Edit&lt;/em>&lt;/td>
-&lt;td style="text-align:left">&lt;em>You are editing the original document&lt;/em> message is displayed&lt;/td>
+&lt;td style="text-align:left">Sign In with a known user &lt;br> Click &lt;em>Packages&lt;/em> tab &lt;br> Create a new package with name and version are &lt;em>PackageA (1.0.1)&lt;/em>&lt;/td>
+&lt;td style="text-align:left">Package is created successfully&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td style="text-align:right">2&lt;/td>
-&lt;td style="text-align:left">Execute steps 5-16 from TC02&lt;/td>
-&lt;td>&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Project&lt;/em> tab &lt;br> Create a project with name is &lt;em>ProjectA&lt;/em> and then add &lt;em>PackageA&lt;/em> newly created as linked package of &lt;em>ProjectA&lt;/em> project&lt;/td>
+&lt;td style="text-align:left">Project is created successfully&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">3&lt;/td>
+&lt;td style="text-align:left">In edit project page, click &lt;em>Linked Packages&lt;/em> tab &lt;br> Click &lt;em>Delete&lt;/em> icon of PackageA (1.0.1) package &lt;br> Click &lt;em>Delete Link&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">Data of &lt;em>PackageA (1.0.1)&lt;/em> package is removed from package table&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">4&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Update Project&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">- Redirect to view &lt;em>ProjectA&lt;/em> page &lt;br> - Project &lt;em>ProjectA&lt;/em> is updated successfully &lt;br> - Data in the &lt;em>Linked Packages&lt;/em> tab: &lt;em>PackageA (1.0.1)&lt;/em> package information is removed&lt;/td>
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>
-&lt;h2 id="add-and-modify-a-project-with-all-project-fields-filled-in">Add and modify a project with all project fields filled in&lt;/h2>
+&lt;h2 id="tc06-delete-a-package-that-is-first-linked-to-a-project-and-then-not">TC06: Delete a package that is first linked to a project and then not&lt;/h2>
 &lt;table>
 &lt;thead>
 &lt;tr>
@@ -1549,42 +1509,454 @@
 &lt;tbody>
 &lt;tr>
 &lt;td style="text-align:right">1&lt;/td>
-&lt;td style="text-align:left">Click on &lt;em>Projects&lt;/em> tab&lt;/td>
+&lt;td style="text-align:left">Sign In with a known user &lt;br> Click &lt;em>Packages&lt;/em> tab &lt;br> Create a new package with name and version are &lt;em>PackageA (1.0.1)&lt;/em>&lt;/td>
+&lt;td style="text-align:left">Package is created successfully&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">2&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Projects&lt;/em> tab &lt;br> Create a project with name is &lt;em>ProjectA&lt;/em> and then add &lt;em>PackageA&lt;/em> newly created as linked package of &lt;em>ProjectA&lt;/em> project&lt;/td>
+&lt;td style="text-align:left">Project is created successfully&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">3&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Packages&lt;/em> tab &lt;br> At advanced Search, search for newly created package &lt;br> &lt;em>Eg:&lt;/em> PackageA(1.0.1) &lt;br> Click &lt;em>Delete Package&lt;/em> icon in &lt;em>Actions&lt;/em> column of this package&lt;/td>
+&lt;td style="text-align:left">Dialog &lt;em>&amp;ldquo;Delete Package?&amp;rdquo;&lt;/em> display with message: &lt;em>&amp;ldquo;Do you really want to delete the package {packageName} ({package version})?&amp;rdquo;&lt;/em>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">4&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Delete Package&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">Error message is displayed: &lt;em>&amp;ldquo;Package cannot be deleted!&amp;rdquo;&lt;/em>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">5&lt;/td>
+&lt;td style="text-align:left">Unlink &lt;em>PackageA&lt;/em> package from &lt;em>ProjectA&lt;/em> project&lt;br> Re-delete &lt;em>PackageA(1.0.1)&lt;/em> package follow steps from 3-4&lt;/td>
+&lt;td style="text-align:left">- Delete &lt;em>PackageA&lt;/em> package successfully with message &amp;ldquo;Deleted successfully!&amp;rdquo; in the dialog &lt;br> - Package &lt;em>PackageA(1.0.1)&lt;/em> is not display in the package list table&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table></description></item><item><title>Docs: Projects</title><link>https://www.eclipse.org/sw360/docs/development/testcases/test-cases-projects/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.eclipse.org/sw360/docs/development/testcases/test-cases-projects/</guid><description>
+&lt;h2 id="tc01-add-a-simple-project-with-no-relations-and-no-releases">TC01: Add a simple project with no relations and no releases&lt;/h2>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:right">Step&lt;/th>
+&lt;th style="text-align:left">Action&lt;/th>
+&lt;th style="text-align:left">Result&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:right">1&lt;/td>
+&lt;td style="text-align:left">Sign In with a known user&lt;/td>
+&lt;td style="text-align:left">User successfully signed in and &lt;em>Home&lt;/em> page is displayed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">2&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Projects&lt;/em> tab&lt;/td>
+&lt;td style="text-align:left">&lt;em>Projects&lt;/em> page is displayed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">3&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Add Project&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">&lt;em>New Project&lt;/em> page is displayed with mandatory fields marked with red star: &lt;br> - Summary tab: Name, Visibility, Project Type, Group &lt;br> - Administration tab: Project State&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">4&lt;/td>
+&lt;td style="text-align:left">Fill mandatory &lt;em>Name&lt;/em> with a project name, change other fields if needed &lt;br> Eg: &lt;br> - Name: PROJECT_REQUIRED_FIELDS&lt;/td>
+&lt;td style="text-align:left">Values are entered in the fields&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">5&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Create Project&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">- Navigate to the new project&amp;rsquo;s viewing screen with the message &lt;em>&amp;ldquo;Success: Your project is created&amp;rdquo;&lt;/em> is displayed &lt;br> - New project &lt;em>Summary&lt;/em> page is displayed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">6&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Projects&lt;/em> tab&lt;/td>
+&lt;td style="text-align:left">- The new project &lt;em>&amp;ldquo;PROJECT_REQUIRED_FIELDS&amp;rdquo;&lt;/em> should be added to the projects list &lt;br> - Data of the project correctly, matches with input data&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="tc02-add-a-full-project-with-relations-releases-and-send-to-clearing-process">TC02: Add a full project with relations, releases and send to clearing process&lt;/h2>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:right">Step&lt;/th>
+&lt;th style="text-align:left">Action&lt;/th>
+&lt;th style="text-align:left">Result&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:right">1&lt;/td>
+&lt;td style="text-align:left">Sign In with a known user &lt;br> Click &lt;em>Projects&lt;/em> tab &lt;br> Click &lt;em>Add Project&lt;/em> button &lt;br> Input Name as &amp;ldquo;A_FULL_PROJECTS&amp;rdquo; &lt;br> Fill in all editable fields in &lt;em>Summary&lt;/em> and &lt;em>Administration&lt;/em> links&lt;/td>
+&lt;td style="text-align:left">Values are entered in the fields&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">2&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Linked Releases And Projects&lt;/em> link&lt;/td>
+&lt;td style="text-align:left">&lt;em>Linked Releases And Projects&lt;/em> page is displayed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">3&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Add Projects&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">&lt;em>Search Project&lt;/em> dialog is displayed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">4&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Search&lt;/em> button then select a project to be linked (Eg: created in TC01 &amp;ldquo;PROJECT_REQUIRED_FIELDS&amp;rdquo;) &lt;br> Click &lt;em>Link Projects&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">Dialog is closed and selected project is displayed under &lt;em>Linked Projects&lt;/em> section&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">5&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Add Releases&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">&lt;em>Search Release&lt;/em> dialog is displayed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">6&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Search&lt;/em> button &lt;br> Select releases to be linked &lt;br> Click &lt;em>Link Releases&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">Dialog is closed and selected release is displayed under &lt;em>Linked Releases&lt;/em> section&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">7&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Linked Packages&lt;/em> link&lt;/td>
+&lt;td style="text-align:left">&lt;em>Linked Packages&lt;/em> page is displayed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">8&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Add Packages&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">&lt;em>Search Package&lt;/em> dialog is displayed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">9&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Search&lt;/em> button in the dialog &lt;br> Select an orphan package to be added then click &lt;em>Link Packages&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">Dialog is closed and selected release is displayed under &lt;em>Linked Packages&lt;/em> section&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">10&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Create Project&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">- Navigate to the new project&amp;rsquo;s viewing screen with the message &lt;em>&amp;ldquo;Success: Your project is created&amp;rdquo;&lt;/em> is displayed &lt;br> - New project &lt;em>Summary&lt;/em> page is displayed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">11&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Projects&lt;/em> tab &lt;br> At &lt;em>Advanced Search&lt;/em> area, input &lt;em>&amp;ldquo;A_FULL_PROJECTS&amp;rdquo;&lt;/em> in the &lt;em>&amp;ldquo;Project Name&amp;rdquo;&lt;/em> textbox &lt;br> Click &lt;em>Search&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">The new project should be added to the projects list with data correctly, matches with input data&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">12&lt;/td>
+&lt;td style="text-align:left">In new project, check &lt;em>Clearing Status&lt;/em> by hovering mouse over the numbers&lt;/td>
+&lt;td style="text-align:left">The message should be &lt;em>{number} Releases out of {total number} have approved clearing reports (including sub-projects).&lt;/em>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">13&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Create Clearing Request&lt;/em> icon under &lt;em>Actions&lt;/em> column&lt;/td>
+&lt;td style="text-align:left">The dialog &lt;em>Create Clearing Request&lt;/em> is displayed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">14&lt;/td>
+&lt;td style="text-align:left">Choose clearing team email id, &lt;em>Clearing Type&lt;/em> and &lt;em>Preferred Clearing Date&lt;/em>&lt;/td>
+&lt;td style="text-align:left">The data in the fields is displayed as the selected data&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">15&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Create Request&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">The message: &lt;br> &lt;em>Clearing Request {clearing request id} created successfully! &lt;br> Clearing team will confirm on the agreed clearing date.&lt;/em> &lt;br> is displayed in the dialog&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">16&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Close&lt;/em> button in the dialog&lt;/td>
+&lt;td style="text-align:left">The dialog is closed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">17&lt;/td>
+&lt;td style="text-align:left">Re-click the &lt;em>Create Clearing Request&lt;/em> icon under &lt;em>Actions&lt;/em> column&lt;/td>
+&lt;td style="text-align:left">The &lt;em>View Clearing Request&lt;/em> dialog is displayed with: &lt;br> - Requesting User: {requested user} &lt;br> - Created on: {created request date} &lt;br> - Preferred Clearing Date: {displayed as input data} &lt;br> - Clearing Team: {email of chosen clearing team} &lt;br> - Priority: LOW &lt;br> - Request Status: NEW&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">18&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Close&lt;/em> button in the dialog&lt;/td>
+&lt;td style="text-align:left">The dialog is closed&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="tc03-add-a-project-with-releases-no-relations-remove-a-release">TC03: Add a project with releases, no relations, remove a release&lt;/h2>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:right">Step&lt;/th>
+&lt;th style="text-align:left">Action&lt;/th>
+&lt;th style="text-align:left">Result&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:right">1&lt;/td>
+&lt;td style="text-align:left">Sign In with a known user &lt;br> Click &lt;em>Projects&lt;/em> tab &lt;br> Click &lt;em>Add Project&lt;/em> button &lt;br> Fill mandatory Name with a project name, change other fields if needed &lt;br> Click &lt;em>Linked Releases And Projects&lt;/em> link &lt;br> Click &lt;em>Add Projects&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">&lt;em>Search Project&lt;/em> dialog is displayed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">2&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Search&lt;/em> and select the project to be linked (Eg: created in TC01 &amp;ldquo;PROJECT_REQUIRED_FIELDS&amp;rdquo;) &lt;br> Click &lt;em>Link Projects&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">Dialog is closed and selected project is displayed under &lt;em>Linked Projects&lt;/em> section&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">3&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Delete&lt;/em> icon to delete the linked project&lt;/td>
+&lt;td style="text-align:left">Message is displayed: &lt;em>&amp;ldquo;Do you really want to remove the link to project {linked project name}?&amp;rdquo;&lt;/em>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">4&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Delete Link&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">The project is removed from the list of &lt;em>Linked Projects&lt;/em>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">5&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Add Releases&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">&lt;em>Search Release&lt;/em> dialog is displayed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">6&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Search&lt;/em> by name and select a release to be added then click &lt;em>Link Releases&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">Dialog is closed and selected release is displayed under &lt;em>Linked Releases&lt;/em> section&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">7&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Delete&lt;/em> icon to delete the linked release&lt;/td>
+&lt;td style="text-align:left">Message is displayed: &lt;em>&amp;ldquo;Do you really want to remove the link to release {linked release name}?&amp;rdquo;&lt;/em>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">8&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Delete Link&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">The release is removed from the list of &lt;em>Linked Releases&lt;/em>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">9&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Linked Packages&lt;/em> link &lt;br> Click &lt;em>Add Packages&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">Search Release dialog is displayed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">10&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Search&lt;/em> button in the dialog &lt;br> Select an orphan package to be added then click &lt;em>Link Packages&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">Dialog is closed and selected release is displayed under &lt;em>Linked Packages&lt;/em> section&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">11&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Delete&lt;/em> icon to delete the linked package&lt;/td>
+&lt;td style="text-align:left">Message is displayed: &lt;em>&amp;ldquo;Do you really want to remove the link to package {linked package name}?&amp;rdquo;&lt;/em>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">12&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Delete Link&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">The release is removed from the list of &lt;em>Linked Packages&lt;/em>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">13&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Create Project&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">Navigate to the new project&amp;rsquo;s viewing screen with the message &lt;em>&amp;ldquo;Success: Your project is created&amp;rdquo;&lt;/em> is displayed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">14&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Projects&lt;/em> tab&lt;/td>
+&lt;td style="text-align:left">The new project should be added to the projects list&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">15&lt;/td>
+&lt;td style="text-align:left">In newly created project, check &lt;em>Clearing Status&lt;/em> by hovering mouse over the numbers of the project&lt;/td>
+&lt;td style="text-align:left">The message should be 0 Releases out of 0 have approved clearing reports (including sub-projects)&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="tc04-delete-a-project-that-is-first-linked-to-another-project-and-then-not-linked">TC04: Delete a project that is first linked to another project and then not linked&lt;/h2>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:right">Step&lt;/th>
+&lt;th style="text-align:left">Action&lt;/th>
+&lt;th style="text-align:left">Result&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:right">1&lt;/td>
+&lt;td style="text-align:left">Create a new project with name is &lt;em>Child Project&lt;/em>&lt;/td>
+&lt;td style="text-align:left">&lt;em>Child Project&lt;/em> project is created successfully&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">2&lt;/td>
+&lt;td style="text-align:left">Create another project with name is &lt;em>Parent Project&lt;/em> and add previously created &lt;em>Child Project&lt;/em> as linked project of &lt;em>Parent Project&lt;/em>&lt;/td>
+&lt;td style="text-align:left">&lt;em>Parent Project&lt;/em> project is created successfully with linked project is &lt;em>Child Project&lt;/em> project&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">3&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Projects&lt;/em> tab &lt;br> At &lt;em>Advanced Search&lt;/em> area, input &lt;em>Child Project&lt;/em> in the &lt;em>Project Name&lt;/em> textbox &lt;br> Click &lt;em>Search&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">&lt;em>Child Project&lt;/em> project display in the result table&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">4&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Delete&lt;/em> icon to delete &lt;em>Child Project&lt;/em> project&lt;/td>
+&lt;td style="text-align:left">Screen display dialog with message: &lt;em>&amp;ldquo;Do you really want to delete the project Child Project?&amp;rdquo;&lt;/em>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">5&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Delete Project&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">Display message in the dialog: &lt;em>&amp;ldquo;The project cannot be deleted, since it is used by another project!&amp;rdquo;&lt;/em>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">6&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Cancel&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">Dialog is closed and &lt;em>Child Project&lt;/em> project wasn&amp;rsquo;t deleted in the table&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">7&lt;/td>
+&lt;td style="text-align:left">Go to &lt;em>Parent Project&lt;/em> project in the project table and delete it &lt;br> Click &lt;em>Delete&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">&lt;em>Parent Project&lt;/em> project is deleted successfully&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">8&lt;/td>
+&lt;td style="text-align:left">Go to &lt;em>Child Project&lt;/em> project in the project table and re-delete it&lt;/td>
+&lt;td style="text-align:left">&lt;em>Child Project&lt;/em> project is deleted successfully&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="tc05-modify-an-existing-project-with-relations-releases-and-send-to-clearing-process">TC05: Modify an existing project with relations, releases and send to clearing process&lt;/h2>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:right">Step&lt;/th>
+&lt;th style="text-align:left">Action&lt;/th>
+&lt;th style="text-align:left">Result&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:right">1&lt;/td>
+&lt;td style="text-align:left">Create a new project. Eg: &lt;em>PROJECT_REQUIRED_FIELDS&lt;/em>&lt;/td>
+&lt;td style="text-align:left">The project is created successfully&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">2&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Project&lt;/em> tab &lt;br> At &lt;em>Advanced Search&lt;/em> area, search for a simple project &lt;br> Eg: project created in TC01: input &amp;ldquo;PROJECT_REQUIRED_FIELDS&amp;rdquo; in the &amp;ldquo;Project Name&amp;rdquo; textbox &lt;br> Click &lt;em>Search&lt;/em> button &lt;br> Click &lt;em>Edit&lt;/em> icon of &amp;ldquo;PROJECT_REQUIRED_FIELDS&amp;rdquo; project&lt;/td>
+&lt;td style="text-align:left">&lt;em>Summary&lt;/em> page is displayed &lt;br> Screen display message: &lt;em>&amp;ldquo;Success: You are editing the original document.&amp;rdquo;&lt;/em>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">3&lt;/td>
+&lt;td style="text-align:left">Update project name to &lt;em>PROJECT_REQUIRED_FIELDS_updated&lt;/em>&lt;/td>
+&lt;td style="text-align:left">Values are entered in the field&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">4&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Linked Releases And Projects&lt;/em> link&lt;/td>
+&lt;td style="text-align:left">&lt;em>Linked Releases And Projects&lt;/em> page is displayed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">5&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Add Projects&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">&lt;em>Search Project&lt;/em> dialog is displayed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">6&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Search&lt;/em> and select the project to be linked (Eg: created in TC02 &amp;ldquo;A_FULL_PROJECTS&amp;rdquo;) &lt;br> Click &lt;em>Link Projects&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">Dialog is closed and selected project is displayed under &lt;em>Linked Projects&lt;/em> section&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">7&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Add Releases&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">&lt;em>Search Release&lt;/em> dialog is displayed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">8&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Search&lt;/em> button &lt;br> Select an release to be added then click &amp;ldquo;Link Releases&amp;rdquo; button&lt;/td>
+&lt;td style="text-align:left">Dialog is closed and selected release is displayed under &lt;em>Linked Releases&lt;/em> section&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">9&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Linked Packages&lt;/em> link&lt;/td>
+&lt;td style="text-align:left">&lt;em>Linked Packages&lt;/em> page is displayed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">10&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Add Packages&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">&lt;em>Search Release&lt;/em> dialog is displayed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">11&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Search&lt;/em> button in the dialog &lt;br> Select an orphan package to be added then Click &lt;em>Link Packages&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">Dialog is closed and selected release is displayed under &lt;em>Linked Packages&lt;/em> section&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">12&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Update Project&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">- Navigate to the project&amp;rsquo;s viewing screen with the message &lt;em>&amp;ldquo;Success: Project {project name} updated successfully!&amp;rdquo;&lt;/em> is displayed &lt;br> - The project is updated according to the input data&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">13&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Projects&lt;/em> tab &lt;br> At &lt;em>Advanced Search&lt;/em> area, input &amp;ldquo;PROJECT_REQUIRED_FIELDS_updated&amp;rdquo; in the &lt;em>Project Name&lt;/em> textbox &lt;br> Click &lt;em>Search&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">The project name &lt;em>PROJECT_REQUIRED_FIELDS_updated&lt;/em> is displayed in the project list table&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">14&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Create Clearing Request&lt;/em> icon under &lt;em>Actions&lt;/em> column&lt;/td>
+&lt;td style="text-align:left">The dialog &lt;em>Create Clearing Request&lt;/em> is displayed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">15&lt;/td>
+&lt;td style="text-align:left">Choose clearing team emaild id, &lt;em>Clearing Type&lt;/em> and &lt;em>Preferred Clearing Date&lt;/em>&lt;/td>
+&lt;td style="text-align:left">The data in the fields is displayed as the selected data&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">16&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Create Request&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">The message: &lt;br> &lt;em>Clearing Request {clearing request id} created successfully! &lt;br> Clearing team will confirm on the agreed clearing date.&lt;/em> &lt;br> is displayed in the dialog&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">17&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Close&lt;/em> button in the dialog&lt;/td>
+&lt;td style="text-align:left">The dialog is closed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">18&lt;/td>
+&lt;td style="text-align:left">Re-click the &lt;em>Create Clearing Request&lt;/em> icon under &lt;em>Actions&lt;/em> column&lt;/td>
+&lt;td style="text-align:left">The &lt;em>View Clearing Request&lt;/em> dialog is displayed with: &lt;br> - Requesting User: {requested user} &lt;br> - Created on: {created request date} &lt;br> - Preferred Clearing Date: {displayed as input data} &lt;br> - Clearing Team: {email of chosen clearing team} &lt;br> - Priority: LOW &lt;br> - Request Status: NEW&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">19&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Close&lt;/em> button in the dialog&lt;/td>
+&lt;td style="text-align:left">The dialog is closed&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="tc06-add-and-modify-a-project-with-all-project-fields-filled-in">TC06: Add and modify a project with all project fields filled in&lt;/h2>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:right">Step&lt;/th>
+&lt;th style="text-align:left">Action&lt;/th>
+&lt;th style="text-align:left">Result&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:right">1&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Projects&lt;/em> tab &lt;br> Click &lt;em>Add Project&lt;/em> button &lt;br> Input Name as &lt;em>A_FULL_BASIC_PROJECT&lt;/em> &lt;br> Fill in all editable fields in &lt;em>Summary&lt;/em> and &lt;em>Administration&lt;/em> links&lt;/td>
 &lt;td style="text-align:left">&lt;em>Projects&lt;/em> page is displayed&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td style="text-align:right">2&lt;/td>
-&lt;td style="text-align:left">Click &lt;em>Add Project&lt;/em>&lt;/td>
-&lt;td style="text-align:left">&lt;em>New Project&lt;/em> page is displayed with mandatory fields marked with red star&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Create Project&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">Navigate to the new project&amp;rsquo;s viewing screen with the message &lt;em>&amp;ldquo;Success: Your project is created&amp;rdquo;&lt;/em> is displayed&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td style="text-align:right">3&lt;/td>
-&lt;td style="text-align:left">Fill in all editable fields under &lt;em>Basic Information&lt;/em>, &lt;em>User Information&lt;/em> and &lt;em>Admin Information&lt;/em>&lt;/td>
-&lt;td style="text-align:left">Values are entered in the fields&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align:right">4&lt;/td>
-&lt;td style="text-align:left">Click &lt;em>Add Project&lt;/em>&lt;/td>
-&lt;td style="text-align:left">The page remain the same and the message &lt;em>You are editing the original document.&lt;/em> is displayed&lt;/td>
+&lt;td style="text-align:left">Click &lt;em>Edit Project&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">Summary page is displayed with message: &lt;em>&amp;ldquo;Success: You are editing the original document.&amp;rdquo;&lt;/em>&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td style="text-align:right">5&lt;/td>
-&lt;td style="text-align:left">Click &lt;em>Cancel&lt;/em> button&lt;/td>
-&lt;td style="text-align:left">New project &lt;em>Summary&lt;/em> page is displayed&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align:right">6&lt;/td>
-&lt;td style="text-align:left">Check all fields on &lt;em>Summary&lt;/em> page&lt;/td>
-&lt;td style="text-align:left">Values are filled in correctly&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align:right">7&lt;/td>
-&lt;td style="text-align:left">Click &lt;em>Edit&lt;/em> button, modify some fields and &lt;em>Update Project&lt;/em>&lt;/td>
-&lt;td style="text-align:left">Values are updated successfully&lt;/td>
+&lt;td style="text-align:left">Modify some fields &lt;br> Eg: &lt;br> - Name: A_FULL_BASIC_PROJECT_changed &lt;br> - Clearing state (in Administration tab): In Progress &lt;br> Click &lt;em>Update Project&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">- Screen is display view page and the message &lt;em>&amp;ldquo;Success: Project A_FULL_BASIC_PROJECT_changed updated successfully!.&amp;rdquo;&lt;/em> is displayed &lt;br> - Values are updated successfully&lt;/td>
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>
-&lt;h2 id="duplicate-an-existing-project">Duplicate an existing project&lt;/h2>
+&lt;h2 id="tc07-duplicate-an-existing-project">TC07: Duplicate an existing project&lt;/h2>
 &lt;table>
 &lt;thead>
 &lt;tr>
@@ -1596,28 +1968,23 @@
 &lt;tbody>
 &lt;tr>
 &lt;td style="text-align:right">1&lt;/td>
-&lt;td style="text-align:left">Search for an existing project with all fields filled in (e.g. created in TC06) and click &lt;em>Duplicate&lt;/em> button under &lt;em>Actions&lt;/em> column&lt;/td>
+&lt;td style="text-align:left">Search for an existing project with all fields filled in (Eg: created in TC02 A_FULL_PROJECTS project) and click &lt;em>Duplicate&lt;/em> button under &lt;em>Actions&lt;/em> column&lt;/td>
 &lt;td style="text-align:left">Project &lt;em>Information&lt;/em> page is displayed&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td style="text-align:right">2&lt;/td>
 &lt;td style="text-align:left">Check all fields from copied project&lt;/td>
-&lt;td style="text-align:left">All fields are unchanged, including &lt;em>Linked Projects&lt;/em> and &lt;em>Linked Releases&lt;/em>&lt;/td>
+&lt;td style="text-align:left">- In the Administration tab, the default for the &lt;em>Clearing State&lt;/em> field is &lt;em>Open&lt;/em>&lt;br> - Other fields are duplicated, including &lt;em>Linked Projects&lt;/em>, &lt;em>Linked Releases&lt;/em> and &lt;em>Linked Packages&lt;/em>&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td style="text-align:right">3&lt;/td>
-&lt;td style="text-align:left">Fill mandatory &lt;em>Name&lt;/em> with a project name and click &lt;em>Add Project&lt;/em>&lt;/td>
-&lt;td style="text-align:left">The page remain the same and the message &lt;em>You are editing the original document.&lt;/em> is displayed&lt;/td>
+&lt;td style="text-align:left">Change version. Eg: 1.0.5-duplicate &lt;br> Click &lt;em>Create Project&lt;/em> button&lt;/td>
+&lt;td style="text-align:left">Navigate to the new project&amp;rsquo;s viewing screen with the message &lt;em>&amp;ldquo;Success: Your project is created&amp;rdquo;&lt;/em> is displayed&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td style="text-align:right">4&lt;/td>
-&lt;td style="text-align:left">Click &lt;em>Cancel&lt;/em> button&lt;/td>
-&lt;td style="text-align:left">New project &lt;em>Summary&lt;/em> page is displayed&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align:right">5&lt;/td>
 &lt;td style="text-align:left">Check all fields&lt;/td>
-&lt;td style="text-align:left">All fields were copied successfully, except the new name of the project&lt;/td>
+&lt;td style="text-align:left">All fields were copied successfully, except the new name and &lt;em>Project Clearing State&lt;/em> of the project&lt;/td>
 &lt;/tr>
 &lt;/tbody>
 &lt;/table></description></item></channel></rss>
