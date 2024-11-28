@@ -672,9 +672,11 @@ The following classes are needed:&lt;/p>
 &lt;h3 id="policy">Policy&lt;/h3>
 &lt;ul>
 &lt;li>Review points should involve one person from another angle (not just the person you were sitting together with anyways)&lt;/li>
+&lt;li>No self merging of pull requests&lt;/li>
 &lt;li>Limit items in review to 5, try to coordinate&lt;/li>
 &lt;li>Using Github assignments to issues or pull requests&lt;/li>
 &lt;li>Open review items require conversation&lt;/li>
+&lt;li>Every change must be proposed in the form of a pull request (no commits to main without review)&lt;/li>
 &lt;/ul>
 &lt;h1 id="definition-of-done">Definition of Done&lt;/h1>
 &lt;ul>
@@ -697,7 +699,7 @@ The following classes are needed:&lt;/p>
 &lt;ul>
 &lt;li>Squash your commits into one or more logical units of work. No dozens of hourly/daily commits in your pull request, please&lt;/li>
 &lt;li>Rebase onto current master so that a fast forward merge is possible&lt;/li>
-&lt;li>That means that merge to master is prepared&lt;/li>
+&lt;li>That means that merge to main is prepared&lt;/li>
 &lt;/ul>
 &lt;/li>
 &lt;li>
@@ -716,7 +718,7 @@ The following classes are needed:&lt;/p>
 &lt;li>
 &lt;p>Documentation&lt;/p>
 &lt;ul>
-&lt;li>in the Githuib Wiki-Section, if you have done something new&lt;/li>
+&lt;li>In the GitHub Wiki-Section, if you have done something new&lt;/li>
 &lt;li>At least a technical note for newly added functionality&lt;/li>
 &lt;/ul>
 &lt;/li>
@@ -731,29 +733,26 @@ The following classes are needed:&lt;/p>
 &lt;h1 id="review">Review&lt;/h1>
 &lt;p>Review basically checks for the D-o-D items, in particular&lt;/p>
 &lt;ul>
-&lt;li>Code style, not really formatting, but issues like style attributes in HTML tags or exception handling useful&lt;/li>
+&lt;li>Code style, not really formatting, but issues like style attributes in HTML tags or exception handling useful.&lt;/li>
 &lt;li>Design / architecture issues&lt;/li>
 &lt;li>Community contribution suitability&lt;/li>
 &lt;li>Issue coverage (does it actually solve the problem?)&lt;/li>
-&lt;li>Add to commit message of merge commit explicitly:&lt;/li>
 &lt;/ul>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-fallback" data-lang="fallback">&lt;span style="display:flex;">&lt;span>review-by:email@domain.com
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>and&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-fallback" data-lang="fallback">&lt;span style="display:flex;">&lt;span>tested-by:email@domain.com
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="licensing-and-file-header">Licensing and File Header&lt;/h1>
-&lt;p>All files contributed require headers - this will ensure the license and copyright clearing at the end. Also, all contributions must have the same license as the original source.&lt;/p>
+&lt;h1 id="licensing-and-file-header">Licensing and File Header&lt;/h1>
+&lt;p>All files contributed require headers - this will ensure the license and copyright clearing at the end. Also, all
+contributions must have the same license as the original source.&lt;/p>
 &lt;p>If a file has relevant functionality, note that we should move to Eclipse 2.0&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-Java" data-lang="Java">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#09f;font-style:italic">/*
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#09f;font-style:italic"> * Copyright COPYRIGHT HOLDER, 2017.
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#09f;font-style:italic"> * Copyright NEXT COPYRIGHT HOLDER, 2017.
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#09f;font-style:italic"> * Part of the SW360 Portal Project.
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#09f;font-style:italic"> *
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#09f;font-style:italic"> * SPDX-License-Identifier: EPL-1.0
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#09f;font-style:italic"> * SPDX-License-Identifier: EPL-2.0
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#09f;font-style:italic"> *
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#09f;font-style:italic"> * All rights reserved. This program and the accompanying materials
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#09f;font-style:italic"> * are made available under the terms of the Eclipse Public License v1.0
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#09f;font-style:italic"> * are made available under the terms of the Eclipse Public License v2.0
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#09f;font-style:italic"> * which accompanies this distribution, and is available at
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#09f;font-style:italic"> * http://www.eclipse.org/legal/epl-v10.html
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#09f;font-style:italic"> * http://www.eclipse.org/legal/epl-v20.html
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#09f;font-style:italic"> */&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>(please adapt comment characters usage)&lt;/p>
 &lt;p>For small files such as property files, configuration files or standard XML files:&lt;/p>
@@ -764,7 +763,8 @@ The following classes are needed:&lt;/p>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#09f;font-style:italic"># accompanies this distribution, and is available at&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#09f;font-style:italic"># http://www.eclipse.org/org/documents/edl-v10.php&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="code-style">Code style&lt;/h1>
-&lt;p>Just use the standard Java formatting rules of your IDE and &lt;strong>do not reformat&lt;/strong> code from others, because you like to correct formatting of other&amp;rsquo;s code.&lt;/p></description></item><item><title>Docs: Filtering in Portlets</title><link>https://www.eclipse.org/sw360/docs/development/dev-filtering-in-portlets/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.eclipse.org/sw360/docs/development/dev-filtering-in-portlets/</guid><description>
+&lt;p>Just use the standard Java formatting rules of your IDE and &lt;strong>do not reformat&lt;/strong> code from others, because you like to
+correct formatting of other&amp;rsquo;s code.&lt;/p></description></item><item><title>Docs: Filtering in Portlets</title><link>https://www.eclipse.org/sw360/docs/development/dev-filtering-in-portlets/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.eclipse.org/sw360/docs/development/dev-filtering-in-portlets/</guid><description>
 &lt;p>For the filters that are shown for components and listings, there are some options:&lt;/p>
 &lt;ol>
 &lt;li>
@@ -962,7 +962,7 @@ On selecting the moderation requests, both documents (original and the updated o
 &lt;ul>
 &lt;li>MAJOR version when you make incompatible API changes,&lt;/li>
 &lt;li>MINOR version when you add functionality in a backwards-compatible manner, and&lt;/li>
-&lt;li>PATCH version when you make backwards-compatible bug fixes.&lt;/li>
+&lt;li>PATCH version when you make backwards-compatible bug fixes or security fixes.&lt;/li>
 &lt;/ul>
 &lt;p>Additional labels for pre-release and build metadata are available as extensions to the MAJOR.MINOR.PATCH format.&lt;/p>
 &lt;/blockquote>
@@ -970,27 +970,63 @@ On selecting the moderation requests, both documents (original and the updated o
 &lt;h3 id="major-version">Major Version&lt;/h3>
 &lt;ul>
 &lt;li>API breaking changes are considered for the upcoming REST API.&lt;/li>
-&lt;li>Breaking change is &lt;em>also&lt;/em> if a migration script is required for the data base.&lt;/li>
+&lt;li>Breaking change is &lt;em>also&lt;/em> if a migration script is required for the database.&lt;/li>
 &lt;li>Thrift API is not considered a public API anymore.&lt;/li>
-&lt;li>Therefore milestones cannot correspond to our versions like &lt;code>1.4&lt;/code>, &lt;code>1.5&lt;/code>, etc. anymore: we do not know which feature or issue will cause a version jump according to semantic versioning guidelines.&lt;/li>
+&lt;li>Therefore, milestones cannot correspond to our versions like &lt;code>1.4&lt;/code>, &lt;code>1.5&lt;/code>, etc. anymore: we do not know which feature
+or issue will cause a version jump according to semantic versioning guidelines.&lt;/li>
+&lt;li>While preparing for a new major release, the repository should go into freeze mode:
+&lt;ul>
+&lt;li>No new features can be merged.&lt;/li>
+&lt;li>No dependency updates.&lt;/li>
+&lt;li>Add decided bug fixes/issues closed.&lt;/li>
+&lt;li>The main branch is stable and tested.&lt;/li>
+&lt;li>&lt;strong>Only exception&lt;/strong> for the freeze are security vulnerability fixes.&lt;/li>
+&lt;/ul>
+&lt;/li>
 &lt;/ul>
 &lt;h3 id="minor-version">Minor Version&lt;/h3>
 &lt;ul>
-&lt;li>Changes to the thrift API will cause minor version increment.&lt;/li>
 &lt;li>Larger new functionality which is backwards compatible, maybe one pull requests or maybe a group of pull requests.&lt;/li>
+&lt;li>New functionality should come with appropriate test cases either in code (unit or functional) or in the
+&lt;a href="https://www.eclipse.org/sw360/sw360/docs/development/testcases/">TestCases document&lt;/a>.&lt;/li>
 &lt;li>Minor versions requires also tagging in the repo.&lt;/li>
 &lt;/ul>
 &lt;h3 id="patch-level">Patch Level&lt;/h3>
 &lt;ul>
-&lt;li>Every push (merged pull request) to master shall generate &lt;em>at least&lt;/em> (not there yet) a new patch level version, in order to allow for (clean) deployments at this level.&lt;/li>
-&lt;li>Could e also minor improvements like adding a button with some functionality&lt;/li>
-&lt;li>Patch level is not tagged.&lt;/li>
+&lt;li>Minor improvements which are backwards compatible and does not require a migration (qualifies as a breaking change).&lt;/li>
+&lt;li>A group of pull requests updating outdated dependencies (at least a minor version update of dependency).&lt;/li>
+&lt;li>Pull request merge which closes a GitHub issue.&lt;/li>
+&lt;/ul>
+&lt;h3 id="release-code-freeze-cycle">Release code freeze cycle&lt;/h3>
+&lt;ul>
+&lt;li>&lt;strong>Major release:&lt;/strong> A strict code freeze cycle to be followed with an expected release date.
+&lt;ul>
+&lt;li>During the freeze cycle, no other pull request to be merged unless it fixes/closes decided issue.&lt;/li>
+&lt;li>New test cases can always be merged.&lt;/li>
+&lt;li>Dependencies are frozen at the announcement of expected release date.&lt;/li>
+&lt;li>Exceptions to update a dependency:
+&lt;ul>
+&lt;li>&lt;strong>Major vulnerability:&lt;/strong> Must be updated even if the release date needs to be shifted.&lt;/li>
+&lt;li>&lt;strong>Medium vulnerability:&lt;/strong> Test the update, if validated, merge. If it can&amp;rsquo;t be validated in reasonable period, the
+decision on what to do goes to core team.&lt;/li>
+&lt;li>&lt;strong>Minor vulnerability:&lt;/strong> Can be merged only if it does not break compatibility, otherwise not be updated.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>Minor release:&lt;/strong> The code freeze can be relaxed and a release date is not expected.
+&lt;ul>
+&lt;li>No new &lt;strong>major&lt;/strong> feature to be added or changed.&lt;/li>
+&lt;li>Minor bug fixes/patches can be merged.&lt;/li>
+&lt;li>Dependencies can be updated.&lt;/li>
+&lt;li>If a dependency update breaks a minor release, a patch release to be created with the fix.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>Patch release:&lt;/strong> No code freeze for patch release.&lt;/li>
 &lt;/ul>
 &lt;h2 id="naming-and-meaning-of-milestones">Naming and Meaning of Milestones&lt;/h2>
 &lt;ul>
-&lt;li>Milestones cannot correspond to versions (releases) anymore, because in general the version designator is determined by the level of change.&lt;/li>
-&lt;li>We use milestones as work packages. We see them as work packages from an organizational point of view. However, it is not a milestone to release a version, because - again in general - the version is determined by the level of change.&lt;/li>
-&lt;li>However, If the last merged pull quest of a work package, a completing merge: If it is not causing a major or minor version increment, still, this would lead to a minor version increment.&lt;/li>
+&lt;li>We are no longer following milestones in favour of simple semantic versioning.&lt;/li>
 &lt;/ul>
 &lt;h2 id="technical-implementation">Technical Implementation&lt;/h2>
 &lt;ul>
@@ -998,34 +1034,27 @@ On selecting the moderation requests, both documents (original and the updated o
 &lt;li>Currently, the versioning is &amp;ldquo;manual maven based&amp;rdquo;, we look for a cleaner more automated approach.&lt;/li>
 &lt;/ul>
 &lt;h1 id="technical-maven-universe-how-to-maketag-a-release">Technical: Maven Universe How to make/tag a release⁽¹⁾:&lt;/h1>
-&lt;p>The following information refers to the existing maven-based versioning scheme, as of now we are looking into a system which is not leading to a temporary change in the repo, commit, and then reverting changes.&lt;/p>
-&lt;p>Let us assume, that we want to tag the version &lt;strong>1.2.0&lt;/strong> and that the current version in the pom&amp;rsquo;s is &lt;strong>1.2.0-SNAPSHOT&lt;/strong>.&lt;/p>
+&lt;p>The following information refers to the existing maven-based versioning scheme, as of now we are looking into a system
+which is not leading to a temporary change in the repo, commit, and then reverting changes.&lt;/p>
+&lt;p>Let us assume, that we want to tag the version &lt;strong>1.2.0&lt;/strong> and that the current version in the pom.xml is &lt;strong>1.1.13&lt;/strong>.&lt;/p>
 &lt;h3 id="0-work-in-a-clean-environment">0. Work in a clean environment&lt;/h3>
-&lt;p>Especially should all poms be without uncommitted changes. The safe way is to start with:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-Bash" data-lang="Bash">&lt;span style="display:flex;">&lt;span>$ &lt;span style="color:#366">cd&lt;/span> /tmp/
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ git clone https://github.com/eclipse/sw360.git
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ &lt;span style="color:#366">cd&lt;/span> sw360portal
+&lt;p>Especially all poms should be without uncommitted changes. The safe way is to start with:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>$ &lt;span style="color:#366">cd&lt;/span> /tmp/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ git clone https://github.com/eclipse-sw360/sw360.git
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ &lt;span style="color:#366">cd&lt;/span> sw360
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="1-write-the-version-of-the-release-into-the-poms">1. Write the version of the release into the poms&lt;/h3>
 &lt;pre>
 $ mvn versions:set -DnewVersion=&lt;b>1.2.0&lt;/b>
-$ git add pom.xml \*\*/pom.xml
-$ git commit -m "set version to &lt;b>1.2.0&lt;/b>"
+$ git add pom.xml **/pom.xml
+$ git commit -sS -m "chore(release): set version to &lt;b>1.2.0&lt;/b>"
 &lt;/pre>
-&lt;p>This will actually edit all pom.xml files and change the versions to &lt;strong>1.2.0&lt;/strong>, i.e. remove the SNAPSHOT.&lt;/p>
+&lt;p>This will actually edit all pom.xml files and change the versions to &lt;strong>1.2.0&lt;/strong>.&lt;/p>
 &lt;h3 id="2-test-the-project">2. Test the project&lt;/h3>
-&lt;pre>
-$ mvn install
-&lt;/pre>
-&lt;p>or even better: use vagrant.&lt;/p>
-&lt;h3 id="3-create-and-push-the-tag">3. Create and push the tag&lt;/h3>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-Bash" data-lang="Bash">&lt;span style="display:flex;">&lt;span>$ mvn scm:tag
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>This creates the tag and &lt;strong>pushes it to github&lt;/strong>.&lt;/p>
-&lt;h3 id="4-write-the-new-incremented-snapshot-version-into-the-poms">4. Write the new incremented SNAPSHOT-version into the poms&lt;/h3>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-Bash" data-lang="Bash">&lt;span style="display:flex;">&lt;span>$ mvn versions:set -DnewVersion&lt;span style="color:#555">=&lt;/span>&amp;lt;b&amp;gt;1.3.0-SNAPSHOT&amp;lt;/b&amp;gt;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ git add pom.xml &lt;span style="color:#c30;font-weight:bold">\*\*&lt;/span>/pom.xml
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ git commit -m &lt;span style="color:#c30">&amp;#34;set version to &amp;lt;b&amp;gt;1.3.0-SNAPSHOT&amp;lt;/b&amp;gt;&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ git push origin master
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&amp;ndash;
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>$ mvn install
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="3-create-and-push-the-tag">3. Create and push the tag&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>$ mvn scm:tag
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>This creates the tag and &lt;strong>pushes it to GitHub&lt;/strong>.&lt;/p>
+&lt;p>&amp;ndash;
 ⁽¹⁾ based on: &lt;a href="https://axelfontaine.com/blog/final-nail.html">https://axelfontaine.com/blog/final-nail.html&lt;/a>&lt;/p></description></item><item><title>Docs: Roles and Authorization</title><link>https://www.eclipse.org/sw360/docs/development/dev-role-authorisation-model/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.eclipse.org/sw360/docs/development/dev-role-authorisation-model/</guid><description>
 &lt;p>Like any other system, SW360 allows for setting different levels of access for different users. Technically, the decision when user should be able to see or to do something happens (generally) on the backend server. This ensures consistency between the REST API and the portal application.&lt;/p>
 &lt;p>For setting roles of a user, the Liferay control panel is being used (Admin menu -&amp;gt; Control Panel -&amp;gt; Users and Organisations -&amp;gt; Users -&amp;gt; select one user and Edit -&amp;gt; Roles). Setting access at individual records happens in the edit view of that record.&lt;/p>
@@ -1258,8 +1287,10 @@ In contrast, the contributor cannot delete data items.&lt;/li>
 &lt;li>simple navigation through git history (e.g. ignoring style changes)&lt;/li>
 &lt;/ul>
 &lt;h2 id="semantic-commit-message-structure">Semantic commit message structure&lt;/h2>
-&lt;p>&lt;code>&amp;lt;type&amp;gt;(&amp;lt;scope&amp;gt;): &amp;lt;commit message&amp;gt;&lt;/code>&lt;/p>
-&lt;h2 id="the-following-types-are-supported">The following &lt;types> are supported&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-fallback" data-lang="fallback">&lt;span style="display:flex;">&lt;span>&amp;lt;type&amp;gt;(&amp;lt;scope&amp;gt;): &amp;lt;commit message&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Signed-off-by: Name &amp;lt;email address&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="the-following-types-are-supported">The following &lt;types> are supported&lt;/h2>
 &lt;ul>
 &lt;li>feat (new feature for the user, not a new feature for build script)&lt;/li>
 &lt;li>fix (bug fix for the user, not a fix to a build script)&lt;/li>
@@ -1280,12 +1311,26 @@ In contrast, the contributor cannot delete data items.&lt;/li>
 &lt;li>etc.&lt;/li>
 &lt;/ul>
 &lt;h2 id="example-of-semantic-commit-message">Example of semantic commit message&lt;/h2>
-&lt;p>&lt;code>fix(rest): change maven plugin order to generate the documentation correctly&lt;/code>&lt;/p>
-&lt;p>&lt;code>&amp;lt;type&amp;gt;(&amp;lt;scope&amp;gt;): &amp;lt;commit message&amp;gt;&lt;/code>&lt;/p>
-&lt;h2 id="referencing-issues">Referencing issues&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-fallback" data-lang="fallback">&lt;span style="display:flex;">&lt;span>fix(rest): change maven plugin order to generate the documentation correctly
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Signed-off-by: John Doe &amp;lt;john.doe@example.com&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="referencing-issues">Referencing issues&lt;/h2>
 &lt;p>Please reference in the pull request to the open issue&lt;/p>
 &lt;p>&lt;code>closes eclipse/sw360#&amp;lt;issue-number&amp;gt;&lt;/code>&lt;/p>
-&lt;p>&lt;code>closes eclipse/sw360#758&lt;/code>&lt;/p></description></item><item><title>Docs: Testing Frameworks</title><link>https://www.eclipse.org/sw360/docs/development/dev-testing-frameworks/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.eclipse.org/sw360/docs/development/dev-testing-frameworks/</guid><description>
+&lt;p>&lt;code>closes eclipse/sw360#758&lt;/code>&lt;/p>
+&lt;h2 id="breaking-changes">Breaking changes&lt;/h2>
+&lt;p>If a commit is introducing a breaking change in a functionality or an endpoint,
+it must be documented in the commit message by adding an exclamation &lt;code>!&lt;/code> after
+the commit type. Additional documentation for the break can be added to the
+commit footer with a &lt;code>BREAKING CHANGE:&lt;/code> message.&lt;/p>
+&lt;h3 id="example-of-commit-with-breaking-change">Example of commit with breaking change&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-fallback" data-lang="fallback">&lt;span style="display:flex;">&lt;span>fix(rest)!: migrate health endpoint
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>BREAKING CHANGE: Move the health endpoint from `/resource/health` to
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>`/resource/api/health`.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Signed-off-by: John Doe &amp;lt;john.doe@example.com&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: Testing Frameworks</title><link>https://www.eclipse.org/sw360/docs/development/dev-testing-frameworks/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.eclipse.org/sw360/docs/development/dev-testing-frameworks/</guid><description>
 &lt;p>The implementation of complicated rules is not always easy to read.
 A good way to document and explain the behaviour of rule engines are natural language tests.
 A frame work we use for that is &lt;a href="http://jgiven.org/">jgiven&lt;/a>.

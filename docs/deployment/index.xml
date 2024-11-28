@@ -885,4 +885,367 @@ Nevertheless this scenario is not intended and maybe there are unforeseen side e
 &lt;li>openjdk 11&lt;/li>
 &lt;li>ubuntu 18.04 LTS&lt;/li>
 &lt;/ul>
-&lt;p>More information about requirements can be found here: &lt;a href="https://github.com/sw360/sw360vagrant/wiki">https://github.com/sw360/sw360vagrant/wiki&lt;/a>&lt;/p></description></item></channel></rss>
+&lt;p>More information about requirements can be found here: &lt;a href="https://github.com/sw360/sw360vagrant/wiki">https://github.com/sw360/sw360vagrant/wiki&lt;/a>&lt;/p></description></item><item><title>Docs: Keycloak based authentication</title><link>https://www.eclipse.org/sw360/docs/deployment/deploy-keycloak-authentication/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.eclipse.org/sw360/docs/deployment/deploy-keycloak-authentication/</guid><description>
+&lt;h2 id="install-java-21">Install Java 21&lt;/h2>
+&lt;ul>
+&lt;li>Update the package index: &lt;code>sudo apt update&lt;/code>&lt;/li>
+&lt;li>Install OpenJDK 21: &lt;code>sudo apt install openjdk-21-jdk&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;h2 id="set-java_home">Set JAVA_HOME&lt;/h2>
+&lt;ul>
+&lt;li>Edit the &lt;code>~/.bashrc&lt;/code> file: &lt;code>vim ~/.bashrc&lt;/code>&lt;/li>
+&lt;li>Add the following line at the end of the file: &lt;code>export JAVA_HOME=/usr/lib/jvm/java-21-openjdk-amd64&lt;/code>&lt;/li>
+&lt;li>Save and exit the editor.&lt;/li>
+&lt;li>Update the environment variables: &lt;code>source ~/.bashrc&lt;/code>&lt;/li>
+&lt;li>Or you can set environment variable in &lt;code>/etc/environment&lt;/code> file&lt;/li>
+&lt;/ul>
+&lt;h2 id="install-postgresql">Install PostgreSQL&lt;/h2>
+&lt;ul>
+&lt;li>Install PostgreSQL 14 or higher.&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-fallback" data-lang="fallback">&lt;span style="display:flex;">&lt;span>sudo apt update &amp;amp;&amp;amp; sudo apt upgrade -y
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo apt install postgresql-14
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="set-username-and-password-in-postgresql">Set Username and Password in PostgreSQL&lt;/h2>
+&lt;ul>
+&lt;li>Switch to the PostgreSQL user: &lt;code>sudo su postgres&lt;/code>&lt;/li>
+&lt;li>Access the PostgreSQL console: &lt;code>psql&lt;/code>&lt;/li>
+&lt;li>Execute the following SQL commands:&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-fallback" data-lang="fallback">&lt;span style="display:flex;">&lt;span>CREATE USER keycloak WITH ENCRYPTED PASSWORD &amp;#39;mystrongandsecurepassword&amp;#39;;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>CREATE DATABASE keycloak;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>GRANT ALL PRIVILEGES ON DATABASE keycloak TO keycloak;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="install-keycloak">Install Keycloak&lt;/h2>
+&lt;ul>
+&lt;li>Download Keycloak 26.0.6 from the official repository.&lt;/li>
+&lt;li>Or download the tar file &lt;code>wget https://github.com/keycloak/keycloak/releases/download/26.0.6/keycloak-26.0.6.tar.gz&lt;/code>&lt;/li>
+&lt;li>Extract the downloaded file to the /opt folder, &lt;code>sudo tar -xvf myfiles.tar -C /opt&lt;/code>&lt;/li>
+&lt;li>Goto &lt;code>/opt/keycloak-26.x.x/conf&lt;/code> folder and setup the following in &lt;code>keycloak.conf&lt;/code> file:&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-fallback" data-lang="fallback">&lt;span style="display:flex;">&lt;span># Database
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span># The database vendor.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>db=postgres
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span># The username of the database user.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>db-username=keycloak
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span># The password of the database user.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>db-password=mystrongandsecurepassword
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span># The full database JDBC URL. If not provided, a default URL is set based on the selected database vendor.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>db-url=jdbc:postgresql://localhost/keycloak
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span># Changes for SW360
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>keycloak-admin=admin
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>keycloak-admin-password=admin
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>log=console,file
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span># Should be true for productive
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>hostname-strict-backchannel=false
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>hostname-strict-https=false
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span># Should be false for productive
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>http-enabled=true
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>http-port=8083
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>https-port=8533
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="start-keycloak">Start Keycloak&lt;/h2>
+&lt;ul>
+&lt;li>Navigate to the Keycloak directory, &lt;code>cd /opt/keycloak-26.x.x/bin&lt;/code>&lt;/li>
+&lt;li>Run the start-dev command for development (with HTTP):&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-fallback" data-lang="fallback">&lt;span style="display:flex;">&lt;span>./kc.sh start-dev
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>Run the start command for productive (with HTTPS):&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-fallback" data-lang="fallback">&lt;span style="display:flex;">&lt;span>./kc.sh start
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>Run the start command with the necessary parameters(with debug mode):&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-fallback" data-lang="fallback">&lt;span style="display:flex;">&lt;span>sudo ./kc.sh start-dev --log=&amp;#34;console,file&amp;#34; --debug --log-level=INFO,org.eclipse.sw360.keycloak.spi:debug,org.eclipse.sw360.keycloak.event.listener:debug
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="build-the-backend">Build the Backend&lt;/h2>
+&lt;ul>
+&lt;li>Build the SW360 backend code using Maven,
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>mvn clean install -DskipTests -Dbase.deploy.dir&lt;span style="color:#555">=&lt;/span>/opt/apache-tomcat-11.x.x/ -Dlistener.deploy.dir&lt;span style="color:#555">=&lt;/span>/opt/keycloak-26.x.x/providers -P deploy
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>Start the Apache Tomcat server.&lt;/li>
+&lt;/ul>
+&lt;h2 id="keycloak-providers-and-libraries">Keycloak Providers and Libraries&lt;/h2>
+&lt;p>Providers are used to read users from SW360 DB and register users from keycloak to SW360 DB.&lt;/p>
+&lt;ul>
+&lt;li>After building the backend with deploy profile, following files should be
+copied and available at &lt;code>/opt/keycloak-26.x.x/providers/&lt;/code>:&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-fallback" data-lang="fallback">&lt;span style="display:flex;">&lt;span>commonIO-19.0.0.jar
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>datahandler-19.0.0.jar
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>httpcore5-5.2.5.jar
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>libthrift-0.20.0.jar
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>spring-security-crypto-6.3.3.jar
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sw360-keycloak-event-listener.jar
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sw360-keycloak-user-storage-provider.jar
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="keycloak-admin-console">Keycloak Admin Console&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;p>Login to Keycloak admin console.&lt;/p>
+&lt;figure>
+&lt;img src="https://www.eclipse.org/sw360/sw360/img/keycloak/keycloak-signin.png"/>
+&lt;/figure>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-fallback" data-lang="fallback">&lt;span style="display:flex;">&lt;span>username: admin
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>password: admin
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>
+&lt;p>Create Realm and name it sw360.&lt;/p>
+&lt;figure>
+&lt;img src="https://www.eclipse.org/sw360/sw360/img/keycloak/keycloak-realm.png"/>
+&lt;/figure>
+&lt;/li>
+&lt;li>
+&lt;p>Get the JWT issuer and key set for realm and update the backend file at
+&lt;code>rest/resource-server/src/main/resources/application.yml&lt;/code> and reinstall the
+backend. Restart the Tomcat server.&lt;/p>
+&lt;ul>
+&lt;li>Select &amp;ldquo;OpenID Endpoint Configuration&amp;rdquo; from the &amp;ldquo;Realm Settings&amp;rdquo; and copy
+&lt;code>jwks_uri&lt;/code>. It will look something like
+&lt;code>http://localhost:8083/realms/sw360/protocol/openid-connect/certs&lt;/code>
+&lt;figure>
+&lt;img src="https://www.eclipse.org/sw360/sw360/img/keycloak/keycloak-jwks.png"/>
+&lt;/figure>
+&lt;/li>
+&lt;li>Update the &lt;code>issuer-uri&lt;/code> and &lt;code>jwk-set-uri&lt;/code> in the &lt;code>application.yml&lt;/code> file
+with this copied &lt;code>jwks_uri&lt;/code>.&lt;/li>
+&lt;li>Build and install the backend one more time.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>Create Client in Keycloak.&lt;/p>
+&lt;figure>
+&lt;img src="https://www.eclipse.org/sw360/sw360/img/keycloak/keycloak-client.png"/>
+&lt;/figure>
+&lt;ul>
+&lt;li>Follow the below steps for client creation:
+&lt;ul>
+&lt;li>
+&lt;p>Under &lt;em>General settings&lt;/em>, enter Client ID which will be used in &lt;code>.env&lt;/code>
+file (SW360 Frontend Repo) as well as in rest.&lt;/p>
+&lt;figure>
+&lt;img src="https://www.eclipse.org/sw360/sw360/img/keycloak/keycloak-create-client.png"/>
+&lt;/figure>
+&lt;/li>
+&lt;li>
+&lt;p>In &lt;em>Capability config&lt;/em> enable Client authentication.&lt;/p>
+&lt;figure>
+&lt;img src="https://www.eclipse.org/sw360/sw360/img/keycloak/keycloak-client-authentication.png"/>
+&lt;/figure>
+&lt;/li>
+&lt;li>
+&lt;p>Goto &lt;em>Login settings&lt;/em> and enter below fields:&lt;/p>
+&lt;figure>
+&lt;img src="https://www.eclipse.org/sw360/sw360/img/keycloak/keycloak-client-settings.png"/>
+&lt;/figure>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-fallback" data-lang="fallback">&lt;span style="display:flex;">&lt;span>Home URL: http://localhost:3000
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Valid redirect URIs: http://localhost:3000/api/auth/callback/keycloak, https://oauth.pstmn.io/v1/callback
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Valid post logout redirect URIs: +
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Web origins: *
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>Create Client Scopes.&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>Create &lt;code>READ&lt;/code> scope by clicking on &lt;em>Create client scope&lt;/em> button.&lt;/p>
+&lt;figure>
+&lt;img src="https://www.eclipse.org/sw360/sw360/img/keycloak/keycloak-client-scope.png"/>
+&lt;/figure>
+&lt;/li>
+&lt;li>
+&lt;p>Similarly create &lt;code>WRITE&lt;/code> scope.&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>Add Scopes to our Client.&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>Goto Clients, then select your newly created client in &lt;em>Client lists&lt;/em>
+page.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Goto &lt;em>Client scopes&lt;/em> page, click on Add client scope and there you will
+see your &lt;em>READ&lt;/em> and &lt;em>WRITE&lt;/em> scopes that you need to add.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Select both scopes and then click on Add (default).&lt;/p>
+&lt;figure>
+&lt;img src="https://www.eclipse.org/sw360/sw360/img/keycloak/keycloak-client-scope-add.png"/>
+&lt;/figure>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>Create Groups.&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>Goto &lt;em>Groups&lt;/em> and create different groups that we are going to use in
+sw360.&lt;/p>
+&lt;figure>
+&lt;img src="https://www.eclipse.org/sw360/sw360/img/keycloak/keycloak-groups.png"/>
+&lt;/figure>
+&lt;/li>
+&lt;li>
+&lt;p>Create 7 groups: &lt;code>ADMIN&lt;/code>, &lt;code>CLEARING_ADMIN&lt;/code>, &lt;code>CLEARING_EXPERT&lt;/code>,
+&lt;code>ECC_ADMIN&lt;/code>, &lt;code>SECURITY_ADMIN&lt;/code>, &lt;code>SW360_ADMIN&lt;/code>, &lt;code>USER&lt;/code>.&lt;/p>
+&lt;figure>
+&lt;img src="https://www.eclipse.org/sw360/sw360/img/keycloak/keycloak-groups-create.png"/>
+&lt;/figure>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>Create an Attribute.&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>Goto Realm settings then click on &lt;em>User profile&lt;/em> page where we can create
+a new attribute.&lt;/p>
+&lt;figure>
+&lt;img src="https://www.eclipse.org/sw360/sw360/img/keycloak/keycloak-attribute.png"/>
+&lt;/figure>
+&lt;/li>
+&lt;li>
+&lt;p>Create a new attribute by the name &lt;code>Department&lt;/code> and give the required
+permissions as shown in screenshot.&lt;/p>
+&lt;figure>
+&lt;img src="https://www.eclipse.org/sw360/sw360/img/keycloak/keycloak-attribute-settings.png"/>
+&lt;/figure>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>Add Event Listener.&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>Goto &lt;em>Events&lt;/em> page in Realm settings.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Click on event listeners dropdown and select &lt;em>sw360-add-user-to-couchdb&lt;/em>.&lt;/p>
+&lt;figure>
+&lt;img src="https://www.eclipse.org/sw360/sw360/img/keycloak/keycloak-event-listener.png"/>
+&lt;/figure>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>Access to external Databases.&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>Goto User federation and select &lt;em>sw360-user-storage-jpa providers&lt;/em>.&lt;/p>
+&lt;figure>
+&lt;img src="https://www.eclipse.org/sw360/sw360/img/keycloak/keycloak-providers.png"/>
+&lt;/figure>
+&lt;/li>
+&lt;li>
+&lt;p>Give proper name and create the custom provider.&lt;/p>
+&lt;figure>
+&lt;img src="https://www.eclipse.org/sw360/sw360/img/keycloak/keycloak-providers-create.png"/>
+&lt;/figure>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>Check Authentication Settings&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>Goto Authentication and apply the permissions in &lt;em>Required actions&lt;/em> as
+shown in screenshot.&lt;/p>
+&lt;figure>
+&lt;img src="https://www.eclipse.org/sw360/sw360/img/keycloak/keycloak-authentication-settings.png"/>
+&lt;/figure>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>Create Users&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>To create a new user one can goto Users section.&lt;/p>
+&lt;figure>
+&lt;img src="https://www.eclipse.org/sw360/sw360/img/keycloak/keycloak-users-create.png"/>
+&lt;/figure>
+&lt;/li>
+&lt;li>
+&lt;p>Also check whether user is created in CouchDB or not.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Set password for the newly created user by selecting the user and going to
+the &lt;em>Credentials&lt;/em> page.&lt;/p>
+&lt;figure>
+&lt;img src="https://www.eclipse.org/sw360/sw360/img/keycloak/keycloak-users-password.png"/>
+&lt;/figure>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="clone-sw360-frontend-repository">Clone SW360 Frontend Repository&lt;/h2>
+&lt;ul>
+&lt;li>Run the git clone command,
+&lt;code>git clone git@github.com:eclipse-sw360/sw360-frontend.git&lt;/code>&lt;/li>
+&lt;li>Create &lt;code>.env&lt;/code> file inside the repository and add the following data:&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-fallback" data-lang="fallback">&lt;span style="display:flex;">&lt;span>NEXTAUTH_SECRET = &amp;#39;secret&amp;#39;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>NEXT_PUBLIC_SW360_API_URL = &amp;#39;http://localhost:8080&amp;#39;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>NEXTAUTH_URL=&amp;#39;http://localhost:3000&amp;#39;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>NEXT_PUBLIC_SW360_REST_CLIENT_ID=&amp;#39;trusted-sw360-client&amp;#39;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>NEXT_PUBLIC_SW360_REST_CLIENT_SECRET=&amp;#39;sw360-secret&amp;#39;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>NEXT_PUBLIC_ENABLE_SW360_OAUTH_PROVIDER=&amp;#39;true&amp;#39;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>#possible values are sw360basic, sw360oauth, keycloak
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>NEXT_PUBLIC_SW360_AUTH_PROVIDER=&amp;#39;keycloak&amp;#39;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>SW360_KEYCLOAK_CLIENT_ID=
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>SW360_KEYCLOAK_CLIENT_SECRET=
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>AUTH_ISSUER=http://localhost:8083/realms/sw360
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>Get &lt;code>SW360_KEYCLOAK_CLIENT_ID&lt;/code> and &lt;code>SW360_KEYCLOAK_CLIENT_SECRET&lt;/code> from
+Keycloak console
+&lt;ul>
+&lt;li>&lt;code>SW360_KEYCLOAK_CLIENT_ID&lt;/code> will be present in your client&amp;rsquo;s &lt;em>Settings&lt;/em> page.&lt;/li>
+&lt;li>&lt;code>SW360_KEYCLOAK_CLIENT_SECRET&lt;/code> will be present in your client&amp;rsquo;s
+&lt;em>Credentials&lt;/em> page&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="install-nvm">Install NVM&lt;/h2>
+&lt;ul>
+&lt;li>Installs NVM (Node Version Manager)
+&lt;code>curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.4/install.sh | bash&lt;/code>&lt;/li>
+&lt;li>Download and Install Node.js
+&lt;code>nvm install 20.5.1&lt;/code>&lt;/li>
+&lt;li>Verifies the right Node.js version is in the environment
+&lt;code>node -v&lt;/code> # should print &lt;code>v20.5.1&lt;/code>&lt;/li>
+&lt;li>Verifies the right NPM version is in the environment
+&lt;code>npm -v&lt;/code> # should print &lt;code>10.2.4&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;h2 id="build-the-frontend">Build the Frontend&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-fallback" data-lang="fallback">&lt;span style="display:flex;">&lt;span>npm install
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>npm run build
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>npm run start
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>/usr/bin/google-chrome-stable --disable-web-security --user-data-dir=&amp;#34;/home/${USER}/cors&amp;#34; --allow-file-access-from-files
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="token-creation-for-rest">Token Creation for REST&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;p>Type of authorization will be OAuth 2.0.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Enter the below details while creating a new Bearer token:&lt;/p>
+&lt;figure>
+&lt;img src="https://www.eclipse.org/sw360/sw360/img/keycloak/keycloak-postman.png"/>
+&lt;/figure>
+&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-fallback" data-lang="fallback">&lt;span style="display:flex;">&lt;span>Clallback URL: https://oauth.pstmn.io/v1/callback
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Auth URL: http://localhost:8083/realms/sw360/protocol/openid-connect/auth
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Access Token URL: http://localhost:8083/realms/sw360/protocol/openid-connect/token
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Get Client Id and Client Secret from Keycloak client
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Scope: openid READ WRITE
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item></channel></rss>
