@@ -22,8 +22,8 @@
 &lt;h2 id="couchdb">CouchDB&lt;/h2>
 &lt;p>CouchDB is not part of the Ubuntu package management anymore. Thus, you need to add the Apache CouchDB package repository to install it, first the key for signing:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>apt install curl gpg
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>curl https://couchdb.apache.org/repo/keys.asc | sudo gpg –dearmor -o /etc/apt/trusted.gpg.d/couchdb-archive-keyring.gpg
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#366">echo&lt;/span> “deb https://apache.jfrog.io/artifactory/couchdb-deb/ &lt;span style="color:#069;font-weight:bold">$(&lt;/span>awk -F&lt;span style="color:#555">=&lt;/span> &lt;span style="color:#c30">&amp;#39;/^VERSION_CODENAME/{print$2}&amp;#39;&lt;/span> /etc/os-release&lt;span style="color:#069;font-weight:bold">)&lt;/span> main” | sudo tee /etc/apt/sources.list.d/couchdb.list &amp;gt;/dev/null
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>curl https://couchdb.apache.org/repo/keys.asc | sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/couchdb-archive-keyring.gpg
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#366">echo&lt;/span> &lt;span style="color:#c30">&amp;#34;deb https://apache.jfrog.io/artifactory/couchdb-deb/ &lt;/span>&lt;span style="color:#069;font-weight:bold">$(&lt;/span>awk -F&lt;span style="color:#555">=&lt;/span> &lt;span style="color:#c30">&amp;#39;/^VERSION_CODENAME/{print$2}&amp;#39;&lt;/span> /etc/os-release&lt;span style="color:#069;font-weight:bold">)&lt;/span>&lt;span style="color:#c30"> main&amp;#34;&lt;/span> | sudo tee /etc/apt/sources.list.d/couchdb.list &amp;gt;/dev/null
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo apt-get update -y
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo apt-get install -y couchdb
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>The installer will ask a couple of questions:&lt;/p>
