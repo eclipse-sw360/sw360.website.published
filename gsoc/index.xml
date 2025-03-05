@@ -21,8 +21,9 @@
 &lt;li>Check &lt;a href="https://github.com/eclipse-sw360/sw360/discussions/2868">https://github.com/eclipse-sw360/sw360/discussions/2868&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="intro">Intro&lt;/h2>
-&lt;p>We, from the SW360 project, would like to apply for GSoC 2025. Please see two
-main resources for finding out more SW360 in general:&lt;/p>
+&lt;p>SW360 project has been selected as a mentoring Org with GSoC 2025. Thank you,
+Google!&lt;/p>
+&lt;p>Please see two main resources for finding out more SW360 in general:&lt;/p>
 &lt;ul>
 &lt;li>Check &lt;a href="https://eclipse.dev/sw360/">https://eclipse.dev/sw360/&lt;/a> and development and deployment section.&lt;/li>
 &lt;li>Try to install SW360 from source or your can try the &lt;a href="https://github.com/eclipse-sw360/sw360/blob/main/docker-compose.yml">Docker&lt;/a>&lt;/li>
@@ -51,12 +52,14 @@ further steps.&lt;/li>
 &lt;p>Interested in becoming a mentor? Please reach out to us!&lt;/p>
 &lt;h4 id="volunteers-so-far">Volunteers so far:&lt;/h4>
 &lt;ul>
+&lt;li>&lt;a href="https://github.com/akshitjoshii">Akshit Joshi&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://github.com/amritkv">Amrit Kumar Verma&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://github.com/arunazhakesan">Arun Azhakesan&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://github.com/GMishx">Gaurav Mishra&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://github.com/heliocastro">Helio Chissini de Castro&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://github.com/EttingerK">Katharina Ettinger&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://github.com/keerthi-bl">Keerthi BL&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/KoukiHama">Kouki Hama&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://github.com/rudra-superrr">Rudra Chopra&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="topic-proposals">Topic Proposals&lt;/h2>
