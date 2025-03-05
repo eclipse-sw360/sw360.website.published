@@ -7390,7 +7390,7 @@ authentication of the &lt;code>authorization-server&lt;/code> properly:&lt;/p>
 &lt;/tbody>
 &lt;/table>
 &lt;h3 id="couchdbproperties-etcsw360couchdbproperties">couchdb.properties (/etc/sw360/couchdb.properties)&lt;/h3>
-&lt;p>CouchDB and Lucene serach configuration properties.&lt;/p>
+&lt;p>CouchDB and Lucene search configuration properties.&lt;/p>
 &lt;table>
 &lt;thead>
 &lt;tr>
