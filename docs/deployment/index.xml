@@ -1188,6 +1188,51 @@ the &lt;em>Credentials&lt;/em> page.&lt;/p>
 &lt;/ul>
 &lt;/li>
 &lt;/ul>
+&lt;h2 id="adding-identity-providers-in-keycloak-for-azure-ad-integration">Adding Identity Providers in Keycloak for Azure AD Integration&lt;/h2>
+&lt;h3 id="prerequisites">Prerequisites&lt;/h3>
+&lt;ul>
+&lt;li>Keycloak 26.0.5 installed and running&lt;/li>
+&lt;li>Azure AD tenant with necessary permissions&lt;/li>
+&lt;/ul>
+&lt;h3 id="step-1-create-an-application-in-azure-ad">Step 1: Create an Application in Azure AD&lt;/h3>
+&lt;h3 id="step-2-configure-the-application">Step 2: Configure the Application&lt;/h3>
+&lt;h3 id="step-3-configure-keycloak">Step 3: Configure Keycloak&lt;/h3>
+&lt;ol>
+&lt;li>Log in to the Keycloak admin console.&lt;/li>
+&lt;li>Select the realm sw360 to add the identity provider.&lt;/li>
+&lt;li>Go to &lt;strong>Identity Providers&lt;/strong> and select &lt;strong>OpenID Connect v1.0&lt;/strong> from the dropdown.&lt;/li>
+&lt;li>Fill in the following details:
+&lt;ul>
+&lt;li>&lt;strong>Alias&lt;/strong>: &lt;code>azure-foss360&lt;/code>&lt;/li>
+&lt;li>&lt;strong>Display Name&lt;/strong>: &lt;code>Login with AzureAD&lt;/code>&lt;/li>
+&lt;li>&lt;strong>Authorization URL&lt;/strong>: &lt;code>https://login.microsoftonline.com/&amp;lt;your-tenant-id&amp;gt;/oauth2/v2.0/authorize&lt;/code>&lt;/li>
+&lt;li>&lt;strong>Token URL&lt;/strong>: &lt;code>https://login.microsoftonline.com/&amp;lt;your-tenant-id&amp;gt;/oauth2/v2.0/token&lt;/code>&lt;/li>
+&lt;li>&lt;strong>Logout URL&lt;/strong>: &lt;code>https://login.microsoftonline.com/&amp;lt;your-tenant-id&amp;gt;/oauth2/v2.0/logout&lt;/code>&lt;/li>
+&lt;li>&lt;strong>User Info URL&lt;/strong>: &lt;code>https://graph.microsoft.com/oidc/userinfo&lt;/code>&lt;/li>
+&lt;li>&lt;strong>Issuer&lt;/strong>: &lt;code>https://login.microsoftonline.com/&amp;lt;your-tenant-id&amp;gt;/v2.0&lt;/code>&lt;/li>
+&lt;li>&lt;strong>JWKS URL&lt;/strong>: &lt;code>https://login.microsoftonline.com/&amp;lt;your-tenant-id&amp;gt;/discovery/v2.0/keys&lt;/code>&lt;/li>
+&lt;li>&lt;strong>Validate Signatures&lt;/strong>: ON&lt;/li>
+&lt;li>&lt;strong>Use JWKS URL&lt;/strong>: ON&lt;/li>
+&lt;li>&lt;strong>Trust Email&lt;/strong>: ON&lt;/li>
+&lt;li>&lt;strong>Client ID&lt;/strong>: The Application (client) ID from Azure AD&lt;/li>
+&lt;li>&lt;strong>Client Secret&lt;/strong>: The client secret you created in Azure AD&lt;/li>
+&lt;li>&lt;strong>Default Scopes&lt;/strong>: &lt;code>openid profile email&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Click &lt;strong>Save&lt;/strong>.&lt;/li>
+&lt;/ol>
+&lt;h3 id="step-4-test-the-integration">Step 4: Test the Integration&lt;/h3>
+&lt;ol>
+&lt;li>Click on Authentication from Left hand Configure Group section&lt;/li>
+&lt;li>Click on Browser Flow&lt;/li>
+&lt;li>Click config of Identity Provider Redirector
+&lt;figure>
+&lt;img src="https://www.eclipse.org/sw360/sw360/img/keycloak/keycloak-browser-flow-identity-provider-redirector-config.png"/>
+&lt;/figure>
+&lt;/li>
+&lt;li>Provide Default Identity Provider as the value which was given in Identity Providers Alias ( e.g. &lt;code>azure-foss360&lt;/code> in previous section) and click on save.&lt;/li>
+&lt;li>With this configuration update now access http://localhost:8080 and verify the automatic login with Azure ID redirect.&lt;/li>
+&lt;/ol>
 &lt;h2 id="clone-sw360-frontend-repository">Clone SW360 Frontend Repository&lt;/h2>
 &lt;ul>
 &lt;li>Run the git clone command,
