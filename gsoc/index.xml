@@ -74,7 +74,7 @@ further steps.&lt;/li>
 &lt;li>&lt;a href="#improve-tests-for-all-rest-api-endpoints">Improve tests for all REST API endpoints&lt;/a>&lt;/li>
 &lt;li>&lt;a href="#sbom-based-recommendation">SBOM based recommendation&lt;/a>&lt;/li>
 &lt;li>&lt;a href="#creating-project-as-a-service">Creating Project as a Service&lt;/a>&lt;/li>
-&lt;li>[]&lt;/li>
+&lt;li>&lt;a href="#update-official-documentation-page">Update Official Documentation Page&lt;/a>&lt;/li>
 &lt;/ol>
 &lt;h3 id="license-change-detection">License Change Detection&lt;/h3>
 &lt;p>&lt;strong>Goal:&lt;/strong> Understand the changes in licensing between two versions of a
