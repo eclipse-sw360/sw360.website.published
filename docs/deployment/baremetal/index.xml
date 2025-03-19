@@ -168,13 +168,33 @@ offload to KeyCloak. Thus, this step is optional.&lt;/p>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>or whatever package version is suitable here, for example version 15 for Debian 12.&lt;/p>
 &lt;p>Follow the &lt;a href="../Deploy-Keycloak-Authentication.md">Keycloak based authentication&lt;/a>
 guide to set up KeyCloak for SW360 after the installation from 1.8 is done.&lt;/p>
-&lt;h3 id="17-clone-and-build-sw360-version-19x">1.7. Clone and build sw360 version 19.x&lt;/h3>
+&lt;h3 id="17-clone-sw360-backend-and-create-default-user">1.7. Clone SW360 backend and create default user&lt;/h3>
 &lt;ul>
 &lt;li>Clone sw360 source code to folder
 &lt;ul>
 &lt;li>&lt;code>$ git clone https://github.com/eclipse-sw360/sw360.git&lt;/code>&lt;/li>
 &lt;/ul>
 &lt;/li>
+&lt;li>Create default user
+&lt;ul>
+&lt;li>Run &lt;code>./scripts/addUnsafeDefaultClient.sh [OPTIONS]&lt;/code>
+&lt;ul>
+&lt;li>&lt;strong>Options&lt;/strong>
+&lt;ul>
+&lt;li>&lt;code>-d&lt;/code> : Should delete default client&lt;/li>
+&lt;li>&lt;code>-du&lt;/code> : Should delete default user&lt;/li>
+&lt;li>&lt;code>--host&lt;/code> : To change host from &lt;code>http://127.0.0.1:5984&lt;/code>&lt;/li>
+&lt;li>&lt;code>--user&lt;/code> : To change username from &lt;code>admin&lt;/code>&lt;/li>
+&lt;li>&lt;code>--pass&lt;/code> : To change password from &lt;code>admin&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="18-build-sw360-version-19x">1.8. Build sw360 version 19.x&lt;/h3>
+&lt;ul>
 &lt;li>Create config properties
 &lt;ul>
 &lt;li>&lt;code>$ sudo mkdir -p /etc/sw360 /etc/sw360/autorization /etc/sw360/rest&lt;/code>&lt;/li>
@@ -188,7 +208,7 @@ guide to set up KeyCloak for SW360 after the installation from 1.8 is done.&lt;/
 &lt;/li>
 &lt;/ul>
 &lt;p>This will install the jar and war files at appropriate locations.&lt;/p>
-&lt;h3 id="18-start-backend-service">1.8. Start backend service&lt;/h3>
+&lt;h3 id="19-start-backend-service">1.9. Start backend service&lt;/h3>
 &lt;ul>
 &lt;li>Start tomcat server
 &lt;ul>
