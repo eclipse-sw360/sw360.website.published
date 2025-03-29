@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>User Guides on Eclipse SW360</title><link>https://www.eclipse.org/sw360/docs/userguide/</link><description>Recent content in User Guides on Eclipse SW360</description><generator>Hugo</generator><language>en</language><atom:link href="https://www.eclipse.org/sw360/docs/userguide/index.xml" rel="self" type="application/rss+xml"/><item><title>Login</title><link>https://www.eclipse.org/sw360/docs/userguide/login/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.eclipse.org/sw360/docs/userguide/login/</guid><description>&lt;p>You need a username and a password to access the software. After reaching the SW360 site you will be in the public area of your account. Liferay distinguishes between public and private area, where the private area is protected by login.&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>User Guides on Eclipse SW360</title><link>https://eclipse.dev/sw360/docs/userguide/</link><description>Recent content in User Guides on Eclipse SW360</description><generator>Hugo</generator><language>en</language><atom:link href="https://eclipse.dev/sw360/docs/userguide/index.xml" rel="self" type="application/rss+xml"/><item><title>Login</title><link>https://eclipse.dev/sw360/docs/userguide/login/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/userguide/login/</guid><description>&lt;p>You need a username and a password to access the software. After reaching the SW360 site you will be in the public area of your account. Liferay distinguishes between public and private area, where the private area is protected by login.&lt;/p>
 &lt;p>You will see a &amp;ldquo;Welcome to SW360!&amp;rdquo; homepage which is a public area with &lt;strong>Sign In&lt;/strong> and &lt;strong>Create Account&lt;/strong> buttons.
-The Sign In button will redirect to the private area in order to work with the portal.&lt;/p></description></item><item><title>Home Page</title><link>https://www.eclipse.org/sw360/docs/userguide/sw360-homepage/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.eclipse.org/sw360/docs/userguide/sw360-homepage/</guid><description>&lt;h1 id="home-page">Home Page&lt;/h1>
+The Sign In button will redirect to the private area in order to work with the portal.&lt;/p></description></item><item><title>Home Page</title><link>https://eclipse.dev/sw360/docs/userguide/sw360-homepage/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/userguide/sw360-homepage/</guid><description>&lt;h1 id="home-page">Home Page&lt;/h1>
 &lt;p>The private area of the home page contains an overview of projects and components which are specific to you and other general information.&lt;/p>
 
 &lt;figure>
- &lt;img src="https://www.eclipse.org/sw360/img/ImagesBasic/Home_Page.png"/> 
+ &lt;img src="https://eclipse.dev/sw360/img/ImagesBasic/Home_Page.png"/> 
 &lt;/figure>
 
 &lt;table>
@@ -67,12 +67,12 @@ The Sign In button will redirect to the private area in order to work with the p
  &lt;td style="text-align: left">Displays a list of recent releases which are added to SW360.&lt;/td>
  &lt;/tr>
  &lt;/tbody>
-&lt;/table></description></item><item><title>Project</title><link>https://www.eclipse.org/sw360/docs/userguide/project/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.eclipse.org/sw360/docs/userguide/project/</guid><description>&lt;h1 id="10-project-page">1.0 Project Page&lt;/h1>
+&lt;/table></description></item><item><title>Project</title><link>https://eclipse.dev/sw360/docs/userguide/project/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/userguide/project/</guid><description>&lt;h1 id="10-project-page">1.0 Project Page&lt;/h1>
 &lt;h2 id="101-introduction">1.01 Introduction&lt;/h2>
 &lt;p>Navigate to your project overview by clicking the menu item Projects. Here you can find the list of projects with description and other related details. On the left side of project list you can find a advanced filters to filter out specific project.&lt;/p>
 
 &lt;figure>
- &lt;img src="https://www.eclipse.org/sw360/img/ImagesBasic/Project_Page/Projectpage.png"/> 
+ &lt;img src="https://eclipse.dev/sw360/img/ImagesBasic/Project_Page/Projectpage.png"/> 
 &lt;/figure>
 
 &lt;table>
@@ -85,35 +85,35 @@ The Sign In button will redirect to the private area in order to work with the p
  &lt;tbody>
  &lt;tr>
  &lt;td style="text-align: center">1&lt;/td>
- &lt;td style="text-align: left">&lt;a href="https://www.eclipse.org/sw360/docs/userguide/project/#103-project-search">Advanced Search&lt;/a>&lt;/td>
+ &lt;td style="text-align: left">&lt;a href="https://eclipse.dev/sw360/docs/userguide/project/#103-project-search">Advanced Search&lt;/a>&lt;/td>
  &lt;/tr>
  &lt;tr>
  &lt;td style="text-align: center">2&lt;/td>
- &lt;td style="text-align: left">&lt;a href="https://www.eclipse.org/sw360/docs/userguide/project/#104-add-project">Add Project&lt;/a>&lt;/td>
+ &lt;td style="text-align: left">&lt;a href="https://eclipse.dev/sw360/docs/userguide/project/#104-add-project">Add Project&lt;/a>&lt;/td>
  &lt;/tr>
  &lt;tr>
  &lt;td style="text-align: center">3&lt;/td>
- &lt;td style="text-align: left">&lt;a href="https://www.eclipse.org/sw360/docs/userguide/project/#105-import-sbom">Import SPDX BOM&lt;/a>&lt;/td>
+ &lt;td style="text-align: left">&lt;a href="https://eclipse.dev/sw360/docs/userguide/project/#105-import-sbom">Import SPDX BOM&lt;/a>&lt;/td>
  &lt;/tr>
  &lt;tr>
  &lt;td style="text-align: center">4&lt;/td>
- &lt;td style="text-align: left">&lt;a href="https://www.eclipse.org/sw360/docs/userguide/project/#113-export-spreadsheet">Export Spreadsheet&lt;/a>&lt;/td>
+ &lt;td style="text-align: left">&lt;a href="https://eclipse.dev/sw360/docs/userguide/project/#113-export-spreadsheet">Export Spreadsheet&lt;/a>&lt;/td>
  &lt;/tr>
  &lt;tr>
  &lt;td style="text-align: center">5&lt;/td>
- &lt;td style="text-align: left">&lt;a href="https://www.eclipse.org/sw360/docs/userguide/project/#102-project-list">Project List&lt;/a>&lt;/td>
+ &lt;td style="text-align: left">&lt;a href="https://eclipse.dev/sw360/docs/userguide/project/#102-project-list">Project List&lt;/a>&lt;/td>
  &lt;/tr>
  &lt;/tbody>
 &lt;/table>
 &lt;h2 id="102-project-list">1.02 Project List&lt;/h2>
-&lt;p>The Project List lists all the relevant projects with the following information:&lt;/p></description></item><item><title>Components</title><link>https://www.eclipse.org/sw360/docs/userguide/components/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.eclipse.org/sw360/docs/userguide/components/</guid><description>&lt;h1 id="20-components">2.0 Components&lt;/h1>
+&lt;p>The Project List lists all the relevant projects with the following information:&lt;/p></description></item><item><title>Components</title><link>https://eclipse.dev/sw360/docs/userguide/components/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/userguide/components/</guid><description>&lt;h1 id="20-components">2.0 Components&lt;/h1>
 &lt;h2 id="201-introduction">2.01 Introduction&lt;/h2>
 &lt;p>The components page displays the list of components and releases that are available in SW360. A component is a list of releases with metadata. A release is a specific version of a component.&lt;/p>
 &lt;p>To open a component page, click &lt;strong>Components&lt;/strong> tab from the main menu.
 You can find a particular component with Advanced Search, you can also add and edit components in this page.&lt;/p>
 
 &lt;figure>
- &lt;img src="https://www.eclipse.org/sw360/img/ImagesBasic/Componentpage/ComponentPage.png"/> 
+ &lt;img src="https://eclipse.dev/sw360/img/ImagesBasic/Componentpage/ComponentPage.png"/> 
 &lt;/figure>
 
 &lt;table>
@@ -126,32 +126,32 @@ You can find a particular component with Advanced Search, you can also add and e
  &lt;tbody>
  &lt;tr>
  &lt;td style="text-align: center">1&lt;/td>
- &lt;td style="text-align: left">&lt;a href="https://www.eclipse.org/sw360/docs/userguide/components/#203-component-search">Advanced Search&lt;/a>&lt;/td>
+ &lt;td style="text-align: left">&lt;a href="https://eclipse.dev/sw360/docs/userguide/components/#203-component-search">Advanced Search&lt;/a>&lt;/td>
  &lt;/tr>
  &lt;tr>
  &lt;td style="text-align: center">2&lt;/td>
- &lt;td style="text-align: left">&lt;a href="https://www.eclipse.org/sw360/docs/userguide/components/#204-add-component">Add Component&lt;/a>&lt;/td>
+ &lt;td style="text-align: left">&lt;a href="https://eclipse.dev/sw360/docs/userguide/components/#204-add-component">Add Component&lt;/a>&lt;/td>
  &lt;/tr>
  &lt;tr>
  &lt;td style="text-align: center">3&lt;/td>
- &lt;td style="text-align: left">&lt;a href="https://www.eclipse.org/sw360/docs/userguide/components/#207-import-spdx-bom">Import SPDX BOM&lt;/a>&lt;/td>
+ &lt;td style="text-align: left">&lt;a href="https://eclipse.dev/sw360/docs/userguide/components/#207-import-spdx-bom">Import SPDX BOM&lt;/a>&lt;/td>
  &lt;/tr>
  &lt;tr>
  &lt;td style="text-align: center">4&lt;/td>
- &lt;td style="text-align: left">&lt;a href="https://www.eclipse.org/sw360/docs/userguide/components/#208-export-spreadsheet">Export Spreadsheet&lt;/a>&lt;/td>
+ &lt;td style="text-align: left">&lt;a href="https://eclipse.dev/sw360/docs/userguide/components/#208-export-spreadsheet">Export Spreadsheet&lt;/a>&lt;/td>
  &lt;/tr>
  &lt;tr>
  &lt;td style="text-align: center">5&lt;/td>
- &lt;td style="text-align: left">&lt;a href="https://www.eclipse.org/sw360/docs/userguide/components/#202-component-list">Component List&lt;/a>&lt;/td>
+ &lt;td style="text-align: left">&lt;a href="https://eclipse.dev/sw360/docs/userguide/components/#202-component-list">Component List&lt;/a>&lt;/td>
  &lt;/tr>
  &lt;/tbody>
 &lt;/table>
 &lt;h2 id="202-component-list">2.02 Component List&lt;/h2>
-&lt;p>On the component page, you can view all the components that are relevant to you. The components are listed with the following information:&lt;/p></description></item><item><title>Licenses</title><link>https://www.eclipse.org/sw360/docs/userguide/licenses/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.eclipse.org/sw360/docs/userguide/licenses/</guid><description>&lt;h1 id="30-licenses">3.0 Licenses&lt;/h1>
+&lt;p>On the component page, you can view all the components that are relevant to you. The components are listed with the following information:&lt;/p></description></item><item><title>Licenses</title><link>https://eclipse.dev/sw360/docs/userguide/licenses/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/userguide/licenses/</guid><description>&lt;h1 id="30-licenses">3.0 Licenses&lt;/h1>
 &lt;h2 id="31-introduction">3.1 Introduction&lt;/h2>
 &lt;p>A software license is a document that provides legally binding guidelines for the use and distribution of software. Licenses page lists all the available licenses in SW360.&lt;/p>
 &lt;p>To open the License page, click on the &lt;strong>License tab&lt;/strong> from the main menu bar. You can also add licenses in this page.&lt;/p>
-&lt;p>&lt;img src="https://www.eclipse.org/sw360/img/ImagesBasic/LicensePage/License_Page.png" alt="">&lt;/p>
+&lt;p>&lt;img src="https://eclipse.dev/sw360/img/ImagesBasic/LicensePage/License_Page.png" alt="">&lt;/p>
 &lt;table>
  &lt;thead>
  &lt;tr>
@@ -162,24 +162,24 @@ You can find a particular component with Advanced Search, you can also add and e
  &lt;tbody>
  &lt;tr>
  &lt;td style="text-align: center">1&lt;/td>
- &lt;td style="text-align: left">&lt;a href="https://www.eclipse.org/sw360/docs/userguide/licenses/#32-quick-filter">Quick Filter&lt;/a>&lt;/td>
+ &lt;td style="text-align: left">&lt;a href="https://eclipse.dev/sw360/docs/userguide/licenses/#32-quick-filter">Quick Filter&lt;/a>&lt;/td>
  &lt;/tr>
  &lt;tr>
  &lt;td style="text-align: center">2&lt;/td>
- &lt;td style="text-align: left">&lt;a href="https://www.eclipse.org/sw360/docs/userguide/licenses/#34-add-license">Add License&lt;/a>&lt;/td>
+ &lt;td style="text-align: left">&lt;a href="https://eclipse.dev/sw360/docs/userguide/licenses/#34-add-license">Add License&lt;/a>&lt;/td>
  &lt;/tr>
  &lt;tr>
  &lt;td style="text-align: center">3&lt;/td>
- &lt;td style="text-align: left">&lt;a href="https://www.eclipse.org/sw360/docs/userguide/project/#113-export-spreadsheet">Export Spreadsheet, refer to Project Page&lt;/a>&lt;/td>
+ &lt;td style="text-align: left">&lt;a href="https://eclipse.dev/sw360/docs/userguide/project/#113-export-spreadsheet">Export Spreadsheet, refer to Project Page&lt;/a>&lt;/td>
  &lt;/tr>
  &lt;tr>
  &lt;td style="text-align: center">4&lt;/td>
- &lt;td style="text-align: left">&lt;a href="https://www.eclipse.org/sw360/docs/userguide/licenses/#33-license-list">License List&lt;/a>&lt;/td>
+ &lt;td style="text-align: left">&lt;a href="https://eclipse.dev/sw360/docs/userguide/licenses/#33-license-list">License List&lt;/a>&lt;/td>
  &lt;/tr>
  &lt;/tbody>
 &lt;/table>
 &lt;h2 id="32-quick-filter">3.2 Quick Filter&lt;/h2>
-&lt;p>You can use the Quick Filter to search for a License. To search for a particular license, use the type field.&lt;/p></description></item><item><title>Requests</title><link>https://www.eclipse.org/sw360/docs/userguide/requests/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.eclipse.org/sw360/docs/userguide/requests/</guid><description>&lt;h1 id="6-requests">6. Requests&lt;/h1>
+&lt;p>You can use the Quick Filter to search for a License. To search for a particular license, use the type field.&lt;/p></description></item><item><title>Requests</title><link>https://eclipse.dev/sw360/docs/userguide/requests/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/userguide/requests/</guid><description>&lt;h1 id="6-requests">6. Requests&lt;/h1>
 &lt;p>Requests page lists all the requests that are generated by the users in SW360. There are two kind of requests:&lt;/p>
 &lt;ol>
 &lt;li>Moderation Requests: The requests that are created when a user with limited rights requests a change in a Project/Component/Release. These requests need to be approved by another user with higher rights (Project Owner/ Project Responsible) for the changes to appear in a particular Project/Component/Release. You can also view these requests as tasks in your home page. &lt;/br>
@@ -188,11 +188,11 @@ You can find a particular component with Advanced Search, you can also add and e
 &lt;li>My Task Submissions: Moderation requests that are created by you.&lt;/li>
 &lt;/ul>
 &lt;/li>
-&lt;li>Clearing Request: For more information on clearing requests, refer to &lt;a href="https://www.eclipse.org/sw360/docs/userguide/project/#112-clearing-requests">1.12 Clearing Requests, Project Page&lt;/a>.&lt;/li>
+&lt;li>Clearing Request: For more information on clearing requests, refer to &lt;a href="https://eclipse.dev/sw360/docs/userguide/project/#112-clearing-requests">1.12 Clearing Requests, Project Page&lt;/a>.&lt;/li>
 &lt;/ol>
-&lt;p>To open the Requests page, click on the &lt;strong>Requests tab&lt;/strong> from the main menu.&lt;/p></description></item><item><title>Search</title><link>https://www.eclipse.org/sw360/docs/userguide/search/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.eclipse.org/sw360/docs/userguide/search/</guid><description>&lt;h1 id="7-search">7. Search&lt;/h1>
+&lt;p>To open the Requests page, click on the &lt;strong>Requests tab&lt;/strong> from the main menu.&lt;/p></description></item><item><title>Search</title><link>https://eclipse.dev/sw360/docs/userguide/search/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/userguide/search/</guid><description>&lt;h1 id="7-search">7. Search&lt;/h1>
 &lt;p>On the search page, you can search for Projects, Components, Licenses, Releases, Obligations, Users, Vendors, etc. in SW360.&lt;/p>
-&lt;p>&lt;img src="https://www.eclipse.org/sw360/img/ImagesBasic/Search_Page.png" alt="">&lt;/p>
+&lt;p>&lt;img src="https://eclipse.dev/sw360/img/ImagesBasic/Search_Page.png" alt="">&lt;/p>
 &lt;p>To search for a particular (object), click on Search tab and follow the procedure:&lt;/p>
 &lt;ol>
 &lt;li>Type the &lt;strong>keyword&lt;/strong> in the text field.&lt;/li>
@@ -201,10 +201,10 @@ You can find a particular component with Advanced Search, you can also add and e
 &lt;li>Click on the component/project/license/obligation/user/vendor/release to be redirected to their respective page.&lt;/li>
 &lt;/ol>
 &lt;h3 id="wildcards">Wildcards&lt;/h3>
-&lt;p>The user can search with wildcards. A wildcard is a character which substitue for zero or more characters in a string. For a single character users can use &amp;lsquo;?&amp;rsquo; and for multiple character wildcard he can use &amp;lsquo;*&amp;rsquo;. The Wildcard can stand in the middle of characters or at the end, but not at the beginning.&lt;/p></description></item><item><title>Preferences</title><link>https://www.eclipse.org/sw360/docs/userguide/preferrences/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.eclipse.org/sw360/docs/userguide/preferrences/</guid><description>&lt;h1 id="8-preferences">8. Preferences&lt;/h1>
+&lt;p>The user can search with wildcards. A wildcard is a character which substitue for zero or more characters in a string. For a single character users can use &amp;lsquo;?&amp;rsquo; and for multiple character wildcard he can use &amp;lsquo;*&amp;rsquo;. The Wildcard can stand in the middle of characters or at the end, but not at the beginning.&lt;/p></description></item><item><title>Preferences</title><link>https://eclipse.dev/sw360/docs/userguide/preferrences/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/userguide/preferrences/</guid><description>&lt;h1 id="8-preferences">8. Preferences&lt;/h1>
 &lt;p>The Preferences page allows you to modify the E-mail notification preferences for changes that occur to project/component/release/license.
 To open the Preferences page, click on the &lt;strong>Preference&lt;/strong> tab from the main menu.&lt;/p>
-&lt;p>&lt;img src="https://www.eclipse.org/sw360/img/ImagesBasic/Preferences%20Page/Preferences_Page.png" alt="">&lt;/p>
+&lt;p>&lt;img src="https://eclipse.dev/sw360/img/ImagesBasic/Preferences%20Page/Preferences_Page.png" alt="">&lt;/p>
 &lt;table>
  &lt;thead>
  &lt;tr>
@@ -215,15 +215,15 @@ To open the Preferences page, click on the &lt;strong>Preference&lt;/strong> tab
  &lt;tbody>
  &lt;tr>
  &lt;td style="text-align: center">1&lt;/td>
- &lt;td style="text-align: left">&lt;a href="https://www.eclipse.org/sw360/docs/userguide/preferrences/#82-email-notification-preferences">Email Notification Preferences&lt;/a>&lt;/td>
+ &lt;td style="text-align: left">&lt;a href="https://eclipse.dev/sw360/docs/userguide/preferrences/#82-email-notification-preferences">Email Notification Preferences&lt;/a>&lt;/td>
  &lt;/tr>
  &lt;tr>
  &lt;td style="text-align: center">2&lt;/td>
- &lt;td style="text-align: left">&lt;a href="https://www.eclipse.org/sw360/docs/userguide/preferrences/#81-sw360-user-information">SW360 User Information&lt;/a>&lt;/td>
+ &lt;td style="text-align: left">&lt;a href="https://eclipse.dev/sw360/docs/userguide/preferrences/#81-sw360-user-information">SW360 User Information&lt;/a>&lt;/td>
  &lt;/tr>
  &lt;tr>
  &lt;td style="text-align: center">3&lt;/td>
- &lt;td style="text-align: left">&lt;a href="https://www.eclipse.org/sw360/docs/userguide/preferrences/#83-rest-api-tokens">REST API Token &lt;/a>&lt;/td>
+ &lt;td style="text-align: left">&lt;a href="https://eclipse.dev/sw360/docs/userguide/preferrences/#83-rest-api-tokens">REST API Token &lt;/a>&lt;/td>
  &lt;/tr>
  &lt;/tbody>
 &lt;/table>
@@ -238,10 +238,10 @@ To open the Preferences page, click on the &lt;strong>Preference&lt;/strong> tab
 &lt;li>&lt;strong>Secondary Departments and Roles&lt;/strong>: Any other roles which are assigned.&lt;/li>
 &lt;/ul>
 &lt;h2 id="82-email-notification-preferences">8.2 Email Notification preferences&lt;/h2>
-&lt;p>To modify your email notifications, follow the procedure:&lt;/p></description></item><item><title>SW360 User Frequently Asked Questions</title><link>https://www.eclipse.org/sw360/docs/userguide/faq/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.eclipse.org/sw360/docs/userguide/faq/</guid><description>&lt;h5 id="q-who-should-be-listed-as-moderator">&lt;strong>Q&lt;/strong>: Who should be listed as Moderator?&lt;/h5>
+&lt;p>To modify your email notifications, follow the procedure:&lt;/p></description></item><item><title>SW360 User Frequently Asked Questions</title><link>https://eclipse.dev/sw360/docs/userguide/faq/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/userguide/faq/</guid><description>&lt;h5 id="q-who-should-be-listed-as-moderator">&lt;strong>Q&lt;/strong>: Who should be listed as Moderator?&lt;/h5>
 &lt;p>&lt;strong>A&lt;/strong>: Moderator are persons who need to review changes done on certain items (project, component, release or attachment) by persons who do not have the user right to actually do these changes. For BT moderators are the persons with the role &amp;lsquo;Software Clearing Site Representative&amp;rsquo;.&lt;/p>
 &lt;h5 id="q-who-should-be-listed-as-contributor">&lt;strong>Q&lt;/strong>: Who should be listed as Contributor?&lt;/h5>
-&lt;p>&lt;strong>A&lt;/strong>: By default only the owner (or creator) of an item (project, component, release) is allowed to modify this item. Often it is useful that additional people are allowed to edit an item. These additional people (software architects, developers, additional experts) should get listed as contributors.&lt;/p></description></item><item><title>Dependency Network Feature</title><link>https://www.eclipse.org/sw360/docs/userguide/dependency_network/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.eclipse.org/sw360/docs/userguide/dependency_network/</guid><description>&lt;h1 id="how-to-enable-this-feature">&lt;strong>How to enable this feature&lt;/strong>&lt;/h1>
+&lt;p>&lt;strong>A&lt;/strong>: By default only the owner (or creator) of an item (project, component, release) is allowed to modify this item. Often it is useful that additional people are allowed to edit an item. These additional people (software architects, developers, additional experts) should get listed as contributors.&lt;/p></description></item><item><title>Dependency Network Feature</title><link>https://eclipse.dev/sw360/docs/userguide/dependency_network/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/userguide/dependency_network/</guid><description>&lt;h1 id="how-to-enable-this-feature">&lt;strong>How to enable this feature&lt;/strong>&lt;/h1>
 &lt;p>To use this function, please:&lt;/p>
 &lt;ol>
 &lt;li>
@@ -257,7 +257,7 @@ To open the Preferences page, click on the &lt;strong>Preference&lt;/strong> tab
 &lt;/ol>
 &lt;p>Before you run the script, please change two places in the script:&lt;/p>
 &lt;p>(1) Line 30: &lt;code>DRY_RUN = True&lt;/code> -&amp;gt; &lt;code>DRY_RUN = False&lt;/code>&lt;/p>
-&lt;p>(2) Line 32: &lt;code>COUCHSERVER = 'http://localhost:5984/'&lt;/code> -&amp;gt; &lt;code>COUCHSERVER = 'http://admin:password@localhost:5984/'&lt;/code>&lt;/p></description></item><item><title>SPDX Document</title><link>https://www.eclipse.org/sw360/docs/userguide/spdx_document/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.eclipse.org/sw360/docs/userguide/spdx_document/</guid><description>&lt;h1 id="how-to-enable-this-feature">&lt;strong>How to enable this feature&lt;/strong>&lt;/h1>
+&lt;p>(2) Line 32: &lt;code>COUCHSERVER = 'http://localhost:5984/'&lt;/code> -&amp;gt; &lt;code>COUCHSERVER = 'http://admin:password@localhost:5984/'&lt;/code>&lt;/p></description></item><item><title>SPDX Document</title><link>https://eclipse.dev/sw360/docs/userguide/spdx_document/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/userguide/spdx_document/</guid><description>&lt;h1 id="how-to-enable-this-feature">&lt;strong>How to enable this feature&lt;/strong>&lt;/h1>
 &lt;p>To use this function, please:&lt;/p>
 &lt;ol>
 &lt;li>
@@ -295,37 +295,37 @@ To open the Preferences page, click on the &lt;strong>Preference&lt;/strong> tab
 &lt;h5 id="tab-spdx-document---full-page-of-release-glibc2111">Tab SPDX Document - Full Page of Release Glibc(2.11.1)&lt;/h5>
 
 &lt;figure>
- &lt;img src="https://www.eclipse.org/sw360/img/sw360screenshots/spdx_document/Full_Page_of_Release_Glibc.png"/> 
+ &lt;img src="https://eclipse.dev/sw360/img/sw360screenshots/spdx_document/Full_Page_of_Release_Glibc.png"/> 
 &lt;/figure>
 
 &lt;h5 id="tab-spdx-document---lite-page-of-release-glibc2111">Tab SPDX Document - Lite Page of Release Glibc(2.11.1)&lt;/h5>
 
 &lt;figure>
- &lt;img src="https://www.eclipse.org/sw360/img/sw360screenshots/spdx_document/Lite_Page_of_Release_Glibc%282.11.1%29.png"/> 
+ &lt;img src="https://eclipse.dev/sw360/img/sw360screenshots/spdx_document/Lite_Page_of_Release_Glibc%282.11.1%29.png"/> 
 &lt;/figure>
 
 &lt;h5 id="tab-spdx-document----full-page-of-release-jena-3120">Tab SPDX Document - Full Page of Release Jena (3.12.0)&lt;/h5>
 
 &lt;figure>
- &lt;img src="https://www.eclipse.org/sw360/img/sw360screenshots/spdx_document/Full_Page_of_Release_Jena_%283.12.0%29.png"/> 
+ &lt;img src="https://eclipse.dev/sw360/img/sw360screenshots/spdx_document/Full_Page_of_Release_Jena_%283.12.0%29.png"/> 
 &lt;/figure>
 
 &lt;h5 id="tab-spdx-document---lite-page-of-release--jena-3120">Tab SPDX Document - Lite Page of Release Jena (3.12.0)&lt;/h5>
 
 &lt;figure>
- &lt;img src="https://www.eclipse.org/sw360/img/sw360screenshots/spdx_document/Lite_Page_of_Release_Jena_%283.12.0%29.png"/> 
+ &lt;img src="https://eclipse.dev/sw360/img/sw360screenshots/spdx_document/Lite_Page_of_Release_Jena_%283.12.0%29.png"/> 
 &lt;/figure>
 
 &lt;h5 id="tab-spdx-document----full-page-of-release-saxon-88">Tab SPDX Document - Full Page of Release Saxon (8.8)&lt;/h5>
 
 &lt;figure>
- &lt;img src="https://www.eclipse.org/sw360/img/sw360screenshots/spdx_document/Full_Page_of_Release_Saxon_%288.8%29.png"/> 
+ &lt;img src="https://eclipse.dev/sw360/img/sw360screenshots/spdx_document/Full_Page_of_Release_Saxon_%288.8%29.png"/> 
 &lt;/figure>
 
 &lt;h5 id="tab-spdx-document---lite-page-of-release--saxon-88">Tab SPDX Document - Lite Page of Release Saxon (8.8)&lt;/h5>
 
 &lt;figure>
- &lt;img src="https://www.eclipse.org/sw360/img/sw360screenshots/spdx_document/Lite_Page_of_Release_Saxon_%288.8%29.png"/> 
+ &lt;img src="https://eclipse.dev/sw360/img/sw360screenshots/spdx_document/Lite_Page_of_Release_Saxon_%288.8%29.png"/> 
 &lt;/figure>
 
 &lt;p>&lt;strong>3. Feature: Edit , Add tab SPDX Document in Release&lt;/strong>&lt;/p></description></item></channel></rss>

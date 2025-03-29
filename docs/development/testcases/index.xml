@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Test Cases on Eclipse SW360</title><link>https://www.eclipse.org/sw360/docs/development/testcases/</link><description>Recent content in Test Cases on Eclipse SW360</description><generator>Hugo</generator><language>en</language><atom:link href="https://www.eclipse.org/sw360/docs/development/testcases/index.xml" rel="self" type="application/rss+xml"/><item><title>Component / Release</title><link>https://www.eclipse.org/sw360/docs/development/testcases/test-cases-components/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.eclipse.org/sw360/docs/development/testcases/test-cases-components/</guid><description>&lt;h2 id="tc01-add-a-component-and-release-with-vendor-present">TC01: Add a component and release with vendor present&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Test Cases on Eclipse SW360</title><link>https://eclipse.dev/sw360/docs/development/testcases/</link><description>Recent content in Test Cases on Eclipse SW360</description><generator>Hugo</generator><language>en</language><atom:link href="https://eclipse.dev/sw360/docs/development/testcases/index.xml" rel="self" type="application/rss+xml"/><item><title>Component / Release</title><link>https://eclipse.dev/sw360/docs/development/testcases/test-cases-components/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/development/testcases/test-cases-components/</guid><description>&lt;h2 id="tc01-add-a-component-and-release-with-vendor-present">TC01: Add a component and release with vendor present&lt;/h2>
 &lt;table>
  &lt;thead>
  &lt;tr>
@@ -787,7 +787,7 @@
  &lt;td style="text-align: left">A new file is listed in &lt;em>Attachments&lt;/em> page with name&amp;rsquo;s format &lt;em>{component name}-{version}-{yyyymmdd}-{hhmm}-SPDX.rdf&lt;/em>&lt;/td>
  &lt;/tr>
  &lt;/tbody>
-&lt;/table></description></item><item><title>Licenses</title><link>https://www.eclipse.org/sw360/docs/development/testcases/test-cases-licenses/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.eclipse.org/sw360/docs/development/testcases/test-cases-licenses/</guid><description>&lt;h2 id="tc01-create-a-license-with-mandatory-fields-then-edit-external-link">TC01: Create a license with mandatory fields then edit External link&lt;/h2>
+&lt;/table></description></item><item><title>Licenses</title><link>https://eclipse.dev/sw360/docs/development/testcases/test-cases-licenses/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/development/testcases/test-cases-licenses/</guid><description>&lt;h2 id="tc01-create-a-license-with-mandatory-fields-then-edit-external-link">TC01: Create a license with mandatory fields then edit External link&lt;/h2>
 &lt;table>
  &lt;thead>
  &lt;tr>
@@ -1063,7 +1063,7 @@
  &lt;td style="text-align: left">All licenses names are exported successfully&lt;/td>
  &lt;/tr>
  &lt;/tbody>
-&lt;/table></description></item><item><title>Moderation</title><link>https://www.eclipse.org/sw360/docs/development/testcases/test-cases-moderations/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.eclipse.org/sw360/docs/development/testcases/test-cases-moderations/</guid><description>&lt;h2 id="tc01-accept-moderation-request-for-visible-projects-by-other-users">TC01: Accept moderation request, for visible projects by other users&lt;/h2>
+&lt;/table></description></item><item><title>Moderation</title><link>https://eclipse.dev/sw360/docs/development/testcases/test-cases-moderations/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/development/testcases/test-cases-moderations/</guid><description>&lt;h2 id="tc01-accept-moderation-request-for-visible-projects-by-other-users">TC01: Accept moderation request, for visible projects by other users&lt;/h2>
 &lt;table>
  &lt;thead>
  &lt;tr>
@@ -1288,7 +1288,7 @@
  &lt;td style="text-align: left">The moderation request of &lt;em>Second&lt;/em> user is displayed with state &lt;em>Pending&lt;/em>&lt;/td>
  &lt;/tr>
  &lt;/tbody>
-&lt;/table></description></item><item><title>Packages</title><link>https://www.eclipse.org/sw360/docs/development/testcases/test-cases-packages/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.eclipse.org/sw360/docs/development/testcases/test-cases-packages/</guid><description>&lt;h2 id="tc01-create-a-package-with-required-fields">TC01: Create a package with required fields&lt;/h2>
+&lt;/table></description></item><item><title>Packages</title><link>https://eclipse.dev/sw360/docs/development/testcases/test-cases-packages/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/development/testcases/test-cases-packages/</guid><description>&lt;h2 id="tc01-create-a-package-with-required-fields">TC01: Create a package with required fields&lt;/h2>
 &lt;table>
  &lt;thead>
  &lt;tr>
@@ -1529,7 +1529,7 @@
  &lt;td style="text-align: left">- Delete &lt;em>PackageA&lt;/em> package successfully with message &amp;ldquo;Deleted successfully!&amp;rdquo; in the dialog &lt;br> - Package &lt;em>PackageA(1.0.1)&lt;/em> is not display in the package list table&lt;/td>
  &lt;/tr>
  &lt;/tbody>
-&lt;/table></description></item><item><title>Projects</title><link>https://www.eclipse.org/sw360/docs/development/testcases/test-cases-projects/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.eclipse.org/sw360/docs/development/testcases/test-cases-projects/</guid><description>&lt;h2 id="tc01-add-a-simple-project-with-no-relations-and-no-releases">TC01: Add a simple project with no relations and no releases&lt;/h2>
+&lt;/table></description></item><item><title>Projects</title><link>https://eclipse.dev/sw360/docs/development/testcases/test-cases-projects/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/development/testcases/test-cases-projects/</guid><description>&lt;h2 id="tc01-add-a-simple-project-with-no-relations-and-no-releases">TC01: Add a simple project with no relations and no releases&lt;/h2>
 &lt;table>
  &lt;thead>
  &lt;tr>

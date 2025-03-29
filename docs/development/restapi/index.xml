@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SW360 RESTful API on Eclipse SW360</title><link>https://www.eclipse.org/sw360/docs/development/restapi/</link><description>Recent content in SW360 RESTful API on Eclipse SW360</description><generator>Hugo</generator><language>en</language><atom:link href="https://www.eclipse.org/sw360/docs/development/restapi/index.xml" rel="self" type="application/rss+xml"/><item><title>API Access</title><link>https://www.eclipse.org/sw360/docs/development/restapi/access/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.eclipse.org/sw360/docs/development/restapi/access/</guid><description>&lt;h2 id="how-to-get-access">How to get Access&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SW360 RESTful API on Eclipse SW360</title><link>https://eclipse.dev/sw360/docs/development/restapi/</link><description>Recent content in SW360 RESTful API on Eclipse SW360</description><generator>Hugo</generator><language>en</language><atom:link href="https://eclipse.dev/sw360/docs/development/restapi/index.xml" rel="self" type="application/rss+xml"/><item><title>API Access</title><link>https://eclipse.dev/sw360/docs/development/restapi/access/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/development/restapi/access/</guid><description>&lt;h2 id="how-to-get-access">How to get Access&lt;/h2>
 &lt;p>There are the following steps&lt;/p>
 &lt;ol>
 &lt;li>
@@ -29,7 +29,7 @@ console&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>To manipulate an existing client, do the same but add the clientid to
-the data object&lt;/p></description></item><item><title>SW360 Rest API</title><link>https://www.eclipse.org/sw360/docs/development/restapi/dev-rest-api/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.eclipse.org/sw360/docs/development/restapi/dev-rest-api/</guid><description>&lt;p>The sw360 REST API provides access to sw360 resources for external clients. It consists currently of three Maven modules aggregated in one parent module &lt;code>rest&lt;/code> in the sw360 distribution.&lt;/p>
+the data object&lt;/p></description></item><item><title>SW360 Rest API</title><link>https://eclipse.dev/sw360/docs/development/restapi/dev-rest-api/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/development/restapi/dev-rest-api/</guid><description>&lt;p>The sw360 REST API provides access to sw360 resources for external clients. It consists currently of three Maven modules aggregated in one parent module &lt;code>rest&lt;/code> in the sw360 distribution.&lt;/p>
 &lt;h1 id="module-structure">Module Structure&lt;/h1>
 &lt;p>The &lt;code>rest&lt;/code> module provides a REST API infrastructure for sw360 including:&lt;/p>
 &lt;ul>
