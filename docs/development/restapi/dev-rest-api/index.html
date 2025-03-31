@@ -202,7 +202,7 @@ The following example shows some ideas of the REST API. It can be obtained by</p
 </span></span></code></pre></div><p>The client must pass its credentials via basic authentication. Though a user authentication is not necessary.
 If you are authentication your users on a proxy, you have to configure that proxy in a way that it does not block requests to the above url. As marker the &lsquo;grant_type=refresh_token&rsquo; query parameter may be used.</p><h2 id=example-apache-configuration>Example Apache configuration</h2><p>The following example shows the relevant part for an Apache proxy to configure
 authentication of the <code>authorization-server</code> properly:</p><div class=highlight><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-apache data-lang=apache><span style=display:flex><span><span style=color:#309;font-weight:700>&lt;Location</span> <span style=color:#c30>/authorization/oauth/token</span><span style=color:#309;font-weight:700>&gt;</span>
-</span></span><span style=display:flex><span>    <span style=color:#a00;background-color:#faa>O</span><span style=color:#366>rder</span> allow,deny
+</span></span><span style=display:flex><span>    <span style=color:#366>Order</span> allow,deny
 </span></span><span style=display:flex><span>    <span style=color:#366>Allow</span> from <span style=color:#069;font-weight:700>all</span>
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>    <span style=color:#309;font-weight:700>&lt;If</span> <span style=color:#c30>&#34;%{QUERY_STRING} =~ /^grant_type=refresh_token\&amp;/&#34;</span><span style=color:#309;font-weight:700>&gt;</span>
