@@ -62,7 +62,7 @@
 &lt;h2 id="how-to-create-vendors">How to Create Vendors&lt;/h2>
 &lt;p>In order to have a vendor record in the sw360, then choosing a name is important. The vendor in SW360 is the real &amp;ldquo;manufacturer&amp;rdquo; independently from where you download it.&lt;/p></description></item><item><title>License Naming</title><link>https://eclipse.dev/sw360/docs/userguide/bestpractices/license-naming/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/userguide/bestpractices/license-naming/</guid><description>&lt;h2 id="guidelines">Guidelines&lt;/h2>
 &lt;p>Generally the license naming should conform with the SPDX Spec and the SPDX License List&lt;/p>
-&lt;p>Please see the &amp;ldquo;License List Fields&amp;rdquo; from &lt;a href="https://spdx.org/spdx-license-list/license-list-overview#fields">&lt;span style="color:red">↗&lt;/span> https://spdx.org/spdx-license-list/license-list-overview#fields&lt;/a>&lt;/p>
+&lt;p>Please see the &amp;ldquo;License List Fields&amp;rdquo; from &lt;a href="https://github.com/spdx/license-list-XML/blob/main/DOCS/license-fields.md">&lt;span style="color:red">↗&lt;/span> https://github.com/spdx/license-list-XML/blob/main/DOCS/license-fields.md&lt;/a>&lt;/p>
 &lt;p>where there is especially for identifier:&lt;/p>
 &lt;h4 id="license-or-exception-identifier-aka-spdx-short-identifier">License or Exception Identifier (aka &amp;ldquo;SPDX Short Identifier&amp;rdquo;)&lt;/h4>
 &lt;p>Short identifier to be used to identify a license or exception match to licenses or exceptions contained on the SPDX License List in the context of an SPDX file, in source file, or elsewhere&lt;/p></description></item></channel></rss>
