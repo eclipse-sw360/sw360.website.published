@@ -6,7 +6,7 @@
 &lt;li>Add implementation&lt;/li>
 &lt;li>Add tests&lt;/li>
 &lt;/ol>
-&lt;h4 id="thrift">Thrift&lt;/h4>
+&lt;h2 id="thrift">Thrift&lt;/h2>
 &lt;p>First we add some methods to the thrift files, components.thrift&lt;/p></description></item><item><title>How to add a frontend portlet to sw360</title><link>https://eclipse.dev/sw360/docs/development/dev-adding-a-new-portlet-frontend/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/development/dev-adding-a-new-portlet-frontend/</guid><description>&lt;p>We create a class in&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-fallback" data-lang="fallback">&lt;span style="display:flex;">&lt;span>sw360/src/frontend/sw360-portlets/src/main/java/com/siemens/sw360/portal/portlets/admin/
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>called&lt;/p>
@@ -64,7 +64,7 @@ In such cases an external document might be the better model. For example the at
 &lt;p>&lt;a href="https://github.com/eclipse/sw360/tree/master/scripts/migrations">https://github.com/eclipse/sw360/tree/master/scripts/migrations&lt;/a>&lt;/p>&lt;/blockquote>
 &lt;p>keeping the following page because Costco might be useful for development / testing / quick adaptations.&lt;/p>
 &lt;h3 id="problem">Problem&lt;/h3>
-&lt;p>The main problem with changing field names in thrift is that existing documents in the couchdb need adjustments. Unfortunately, the futon interface of the couchdb does not offer bulk edits. As a consequence, looking into every document is tedious, for more than 100 documents, maybe unfeasible.&lt;/p></description></item><item><title>Definition of Done</title><link>https://eclipse.dev/sw360/docs/development/dev-dod-and-style/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/development/dev-dod-and-style/</guid><description>&lt;h3 id="policy">Policy&lt;/h3>
+&lt;p>The main problem with changing field names in thrift is that existing documents in the couchdb need adjustments. Unfortunately, the futon interface of the couchdb does not offer bulk edits. As a consequence, looking into every document is tedious, for more than 100 documents, maybe unfeasible.&lt;/p></description></item><item><title>Definition of Done</title><link>https://eclipse.dev/sw360/docs/development/dev-dod-and-style/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/development/dev-dod-and-style/</guid><description>&lt;h2 id="policy">Policy&lt;/h2>
 &lt;ul>
 &lt;li>Review points should involve one person from another angle (not just the person you were sitting together with anyways)&lt;/li>
 &lt;li>No self merging of pull requests&lt;/li>
@@ -73,7 +73,7 @@ In such cases an external document might be the better model. For example the at
 &lt;li>Open review items require conversation&lt;/li>
 &lt;li>Every change must be proposed in the form of a pull request (no commits to main without review)&lt;/li>
 &lt;/ul>
-&lt;h1 id="definition-of-done">Definition of Done&lt;/h1>
+&lt;h2 id="definition-of-done">Definition of Done&lt;/h2>
 &lt;ul>
 &lt;li>
 &lt;p>File headers in file OK&lt;/p></description></item><item><title>Filtering in Portlets</title><link>https://eclipse.dev/sw360/docs/development/dev-filtering-in-portlets/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/development/dev-filtering-in-portlets/</guid><description>&lt;p>For the filters that are shown for components and listings, there are some options:&lt;/p>

@@ -300,7 +300,7 @@ To open the Preferences page, click on the &lt;strong>Preference&lt;/strong> tab
 &lt;li>Add implementation&lt;/li>
 &lt;li>Add tests&lt;/li>
 &lt;/ol>
-&lt;h4 id="thrift">Thrift&lt;/h4>
+&lt;h2 id="thrift">Thrift&lt;/h2>
 &lt;p>First we add some methods to the thrift files, components.thrift&lt;/p></description></item><item><title>How to add a frontend portlet to sw360</title><link>https://eclipse.dev/sw360/docs/development/dev-adding-a-new-portlet-frontend/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/development/dev-adding-a-new-portlet-frontend/</guid><description>&lt;p>We create a class in&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-fallback" data-lang="fallback">&lt;span style="display:flex;">&lt;span>sw360/src/frontend/sw360-portlets/src/main/java/com/siemens/sw360/portal/portlets/admin/
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>called&lt;/p>
@@ -1178,7 +1178,7 @@ In such cases an external document might be the better model. For example the at
 &lt;p>&lt;a href="https://github.com/eclipse/sw360/tree/master/scripts/migrations">https://github.com/eclipse/sw360/tree/master/scripts/migrations&lt;/a>&lt;/p>&lt;/blockquote>
 &lt;p>keeping the following page because Costco might be useful for development / testing / quick adaptations.&lt;/p>
 &lt;h3 id="problem">Problem&lt;/h3>
-&lt;p>The main problem with changing field names in thrift is that existing documents in the couchdb need adjustments. Unfortunately, the futon interface of the couchdb does not offer bulk edits. As a consequence, looking into every document is tedious, for more than 100 documents, maybe unfeasible.&lt;/p></description></item><item><title>Definition of Done</title><link>https://eclipse.dev/sw360/docs/development/dev-dod-and-style/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/development/dev-dod-and-style/</guid><description>&lt;h3 id="policy">Policy&lt;/h3>
+&lt;p>The main problem with changing field names in thrift is that existing documents in the couchdb need adjustments. Unfortunately, the futon interface of the couchdb does not offer bulk edits. As a consequence, looking into every document is tedious, for more than 100 documents, maybe unfeasible.&lt;/p></description></item><item><title>Definition of Done</title><link>https://eclipse.dev/sw360/docs/development/dev-dod-and-style/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/development/dev-dod-and-style/</guid><description>&lt;h2 id="policy">Policy&lt;/h2>
 &lt;ul>
 &lt;li>Review points should involve one person from another angle (not just the person you were sitting together with anyways)&lt;/li>
 &lt;li>No self merging of pull requests&lt;/li>
@@ -1187,7 +1187,7 @@ In such cases an external document might be the better model. For example the at
 &lt;li>Open review items require conversation&lt;/li>
 &lt;li>Every change must be proposed in the form of a pull request (no commits to main without review)&lt;/li>
 &lt;/ul>
-&lt;h1 id="definition-of-done">Definition of Done&lt;/h1>
+&lt;h2 id="definition-of-done">Definition of Done&lt;/h2>
 &lt;ul>
 &lt;li>
 &lt;p>File headers in file OK&lt;/p></description></item><item><title>Filtering in Portlets</title><link>https://eclipse.dev/sw360/docs/development/dev-filtering-in-portlets/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/development/dev-filtering-in-portlets/</guid><description>&lt;p>For the filters that are shown for components and listings, there are some options:&lt;/p>
@@ -5936,7 +5936,7 @@ e.g.&lt;/p>
 &lt;p>This part describes how to setup a new liferay instance after you went through the initial Liferay setup: create an admin account, confirm the license and terms and fill out your personal details. Alternatively in the &lt;a href="https://github.com/sw360/sw360vagrant">sw360vagrant&lt;/a> or the &lt;a href="https://github.com/sw360/sw360chores">sw360chores&lt;/a> deployment, the default setup user credentials are &lt;code>setup@sw360.org&lt;/code> with the unsafe password &lt;code>sw360fossy&lt;/code>.&lt;/p>
 &lt;ol>
 &lt;li>
-&lt;p>Login as setup administrator (if you are using the default unsafe password, you should replace it on productive instances)&lt;/p></description></item><item><title>Initial Setup of Liferay 7.2 and sw360</title><link>https://eclipse.dev/sw360/docs/deployment/legacy/deploy-liferay7/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/deployment/legacy/deploy-liferay7/</guid><description>&lt;h1 id="starting-sw360-for-the-first-time">Starting SW360 for the First Time&lt;/h1>
+&lt;p>Login as setup administrator (if you are using the default unsafe password, you should replace it on productive instances)&lt;/p></description></item><item><title>Initial Setup of Liferay 7.2 and sw360</title><link>https://eclipse.dev/sw360/docs/deployment/legacy/deploy-liferay7/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/deployment/legacy/deploy-liferay7/</guid><description>&lt;h2 id="starting-sw360-for-the-first-time">Starting SW360 for the First Time&lt;/h2>
 &lt;p>So, the vagrant setup has deployed sw360, but unfortunately, there is some major issue: With Liferay, certain configuration need to be applied manually in the UI. If you would know how to import *.lar files and apply some setting from the command line (without implementing an approach based on HTML testing frameworks, like selenium), please let us know.&lt;/p>
 &lt;p>Until then, some tasks need to be done manually, after everything has been built up:&lt;/p></description></item><item><title>Initial Setup of Liferay 7.3 and sw360</title><link>https://eclipse.dev/sw360/docs/deployment/legacy/deploy-liferay7.3/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/deployment/legacy/deploy-liferay7.3/</guid><description>&lt;p>After successful installation, the vagrant ends like the following terminal output:&lt;/p>
 
@@ -5977,7 +5977,7 @@ It includes installation of all dependencies manually, which will not use docker
 &lt;p>Change password of Liferay administrator user or check if that is appropriately secure.&lt;/p>
 &lt;/li>
 &lt;li>
-&lt;p>You should check the permissions of the involved users in the user management in Liferay.&lt;/p></description></item><item><title>SPDX Document</title><link>https://eclipse.dev/sw360/docs/userguide/spdx_document/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/userguide/spdx_document/</guid><description>&lt;h1 id="how-to-enable-this-feature">&lt;strong>How to enable this feature&lt;/strong>&lt;/h1>
+&lt;p>You should check the permissions of the involved users in the user management in Liferay.&lt;/p></description></item><item><title>SPDX Document</title><link>https://eclipse.dev/sw360/docs/userguide/spdx_document/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/userguide/spdx_document/</guid><description>&lt;h2 id="how-to-enable-this-feature">How to enable this feature&lt;/h2>
 &lt;p>To use this function, please:&lt;/p>
 &lt;ol>
 &lt;li>
@@ -5988,11 +5988,12 @@ It includes installation of all dependencies manually, which will not use docker
 &lt;/li>
 &lt;/ol>
 &lt;p>The following changes will work when &lt;strong>spdx.document.enabled = true&lt;/strong> only.&lt;/p>
-&lt;h1 id="1-introduction">&lt;strong>1. Introduction&lt;/strong>&lt;/h1>
+&lt;h2 id="introduction">Introduction&lt;/h2>
 &lt;p>SPDX Document manages Document Creation Information, Package Information, Other Licensing Information Detected, Relationships between SPDX Elements, Annotations&lt;/p>
-&lt;h1 id="2-how-to-use">&lt;strong>2. How to use?&lt;/strong>&lt;/h1>
-&lt;p>&lt;strong>1. File Test Import&lt;/strong>: &lt;a href="https://github.com/spdx/tools-java/blob/master/testResources/SPDXRdfExample-v2.3.spdx.rdf">https://github.com/spdx/tools-java/blob/master/testResources/SPDXRdfExample-v2.3.spdx.rdf&lt;/a>&lt;/p>
-&lt;p>&lt;strong>2. Import SPDX in Page Component&lt;/strong>&lt;/p>
+&lt;h2 id="how-to-use">How to use?&lt;/h2>
+&lt;h3 id="file-test-import">File Test Import&lt;/h3>
+&lt;p>&lt;a href="https://github.com/spdx/tools-java/blob/master/testResources/SPDXRdfExample-v2.3.spdx.rdf">https://github.com/spdx/tools-java/blob/master/testResources/SPDXRdfExample-v2.3.spdx.rdf&lt;/a>&lt;/p>
+&lt;h3 id="import-spdx-in-page-component">Import SPDX in Page Component&lt;/h3>
 &lt;h4 id="import">Import&lt;/h4>
 &lt;ul>
 &lt;li>Support RDF/XML, SPDX.&lt;/li>
@@ -6048,7 +6049,24 @@ It includes installation of all dependencies manually, which will not use docker
  &lt;img src="https://eclipse.dev/sw360/img/sw360screenshots/spdx_document/Lite_Page_of_Release_Saxon_%288.8%29.png"/> 
 &lt;/figure>
 
-&lt;p>&lt;strong>3. Feature: Edit , Add tab SPDX Document in Release&lt;/strong>&lt;/p></description></item><item><title>Special Deployment Guides</title><link>https://eclipse.dev/sw360/docs/deployment/deploy-specialdeployment/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/deployment/deploy-specialdeployment/</guid><description>&lt;h3 id="general-deployment-guides">General Deployment Guides&lt;/h3>
+&lt;h3 id="feature-edit-add-tab-spdx-document-in-release">Feature: Edit, Add tab SPDX Document in Release&lt;/h3>
+&lt;h5 id="edit-tab-spdx-document---full-page">Edit tab SPDX Document - Full Page&lt;/h5>
+
+&lt;figure>
+ &lt;img src="https://eclipse.dev/sw360/img/sw360screenshots/spdx_document/Edit_tab_SPDX_Document_Full_Page.png"/> 
+&lt;/figure>
+
+&lt;h5 id="edit-tab-spdx-document---lite-page">Edit tab SPDX Document - Lite Page&lt;/h5>
+
+&lt;figure>
+ &lt;img src="https://eclipse.dev/sw360/img/sw360screenshots/spdx_document/Edit_tab_SPDX_Document_Lite_Page.png"/> 
+&lt;/figure>
+
+&lt;h5 id="add-tab-spdx-document">Add tab SPDX Document&lt;/h5>
+
+&lt;figure>
+ &lt;img src="https://eclipse.dev/sw360/img/sw360screenshots/spdx_document/Add_tab_SPDX_Document.png"/> 
+&lt;/figure></description></item><item><title>Special Deployment Guides</title><link>https://eclipse.dev/sw360/docs/deployment/deploy-specialdeployment/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/deployment/deploy-specialdeployment/</guid><description>&lt;h3 id="general-deployment-guides">General Deployment Guides&lt;/h3>
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/K-Hama/items/1582b4e1bf248025eabb">Comprehensive blog post on SW360 Installation in Japanese&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>System Requirements</title><link>https://eclipse.dev/sw360/docs/deployment/deploy-requirements/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/deployment/deploy-requirements/</guid><description>&lt;p>For deploying the SW360, there are the following hardware requirements below. Please note that the main memory consumer is the tomcat application container. Accordingly, this requires different settings (see &lt;code>$TOMCAT_HOME/bin/setenv.sh&lt;/code>).&lt;/p>

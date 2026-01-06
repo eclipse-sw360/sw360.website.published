@@ -260,7 +260,7 @@ To open the Preferences page, click on the &lt;strong>Preference&lt;/strong> tab
 &lt;/ol>
 &lt;p>Before you run the script, please change two places in the script:&lt;/p>
 &lt;p>(1) Line 30: &lt;code>DRY_RUN = True&lt;/code> -&amp;gt; &lt;code>DRY_RUN = False&lt;/code>&lt;/p>
-&lt;p>(2) Line 32: &lt;code>COUCHSERVER = 'http://localhost:5984/'&lt;/code> -&amp;gt; &lt;code>COUCHSERVER = 'http://admin:password@localhost:5984/'&lt;/code>&lt;/p></description></item><item><title>SPDX Document</title><link>https://eclipse.dev/sw360/docs/userguide/spdx_document/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/userguide/spdx_document/</guid><description>&lt;h1 id="how-to-enable-this-feature">&lt;strong>How to enable this feature&lt;/strong>&lt;/h1>
+&lt;p>(2) Line 32: &lt;code>COUCHSERVER = 'http://localhost:5984/'&lt;/code> -&amp;gt; &lt;code>COUCHSERVER = 'http://admin:password@localhost:5984/'&lt;/code>&lt;/p></description></item><item><title>SPDX Document</title><link>https://eclipse.dev/sw360/docs/userguide/spdx_document/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/userguide/spdx_document/</guid><description>&lt;h2 id="how-to-enable-this-feature">How to enable this feature&lt;/h2>
 &lt;p>To use this function, please:&lt;/p>
 &lt;ol>
 &lt;li>
@@ -271,11 +271,12 @@ To open the Preferences page, click on the &lt;strong>Preference&lt;/strong> tab
 &lt;/li>
 &lt;/ol>
 &lt;p>The following changes will work when &lt;strong>spdx.document.enabled = true&lt;/strong> only.&lt;/p>
-&lt;h1 id="1-introduction">&lt;strong>1. Introduction&lt;/strong>&lt;/h1>
+&lt;h2 id="introduction">Introduction&lt;/h2>
 &lt;p>SPDX Document manages Document Creation Information, Package Information, Other Licensing Information Detected, Relationships between SPDX Elements, Annotations&lt;/p>
-&lt;h1 id="2-how-to-use">&lt;strong>2. How to use?&lt;/strong>&lt;/h1>
-&lt;p>&lt;strong>1. File Test Import&lt;/strong>: &lt;a href="https://github.com/spdx/tools-java/blob/master/testResources/SPDXRdfExample-v2.3.spdx.rdf">https://github.com/spdx/tools-java/blob/master/testResources/SPDXRdfExample-v2.3.spdx.rdf&lt;/a>&lt;/p>
-&lt;p>&lt;strong>2. Import SPDX in Page Component&lt;/strong>&lt;/p>
+&lt;h2 id="how-to-use">How to use?&lt;/h2>
+&lt;h3 id="file-test-import">File Test Import&lt;/h3>
+&lt;p>&lt;a href="https://github.com/spdx/tools-java/blob/master/testResources/SPDXRdfExample-v2.3.spdx.rdf">https://github.com/spdx/tools-java/blob/master/testResources/SPDXRdfExample-v2.3.spdx.rdf&lt;/a>&lt;/p>
+&lt;h3 id="import-spdx-in-page-component">Import SPDX in Page Component&lt;/h3>
 &lt;h4 id="import">Import&lt;/h4>
 &lt;ul>
 &lt;li>Support RDF/XML, SPDX.&lt;/li>
@@ -331,4 +332,21 @@ To open the Preferences page, click on the &lt;strong>Preference&lt;/strong> tab
  &lt;img src="https://eclipse.dev/sw360/img/sw360screenshots/spdx_document/Lite_Page_of_Release_Saxon_%288.8%29.png"/> 
 &lt;/figure>
 
-&lt;p>&lt;strong>3. Feature: Edit , Add tab SPDX Document in Release&lt;/strong>&lt;/p></description></item></channel></rss>
+&lt;h3 id="feature-edit-add-tab-spdx-document-in-release">Feature: Edit, Add tab SPDX Document in Release&lt;/h3>
+&lt;h5 id="edit-tab-spdx-document---full-page">Edit tab SPDX Document - Full Page&lt;/h5>
+
+&lt;figure>
+ &lt;img src="https://eclipse.dev/sw360/img/sw360screenshots/spdx_document/Edit_tab_SPDX_Document_Full_Page.png"/> 
+&lt;/figure>
+
+&lt;h5 id="edit-tab-spdx-document---lite-page">Edit tab SPDX Document - Lite Page&lt;/h5>
+
+&lt;figure>
+ &lt;img src="https://eclipse.dev/sw360/img/sw360screenshots/spdx_document/Edit_tab_SPDX_Document_Lite_Page.png"/> 
+&lt;/figure>
+
+&lt;h5 id="add-tab-spdx-document">Add tab SPDX Document&lt;/h5>
+
+&lt;figure>
+ &lt;img src="https://eclipse.dev/sw360/img/sw360screenshots/spdx_document/Add_tab_SPDX_Document.png"/> 
+&lt;/figure></description></item></channel></rss>
