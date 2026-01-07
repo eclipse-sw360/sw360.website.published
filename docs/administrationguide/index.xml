@@ -22,7 +22,8 @@
 &lt;li>The clearing admins of the same group in SW360.&lt;/li>
 &lt;/ul>
 &lt;p>Then, the proposed changes can be approved by them.&lt;/p></description></item><item><title>CVE-Search Scheduling</title><link>https://eclipse.dev/sw360/docs/administrationguide/user-scheduling-cve-search-by-admins/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/administrationguide/user-scheduling-cve-search-by-admins/</guid><description>&lt;p>SW360 gets vulnerability information from an external provider of Common Vulnerability Enumeration (CVE) data. By default SW360 can connect to cve-search [https://www.circl.lu/services/cve-search/] which is either available as an online service [http://cve.circl.lu] or can be installed locally. For security and privacy reasons it is strongly advised to install a local cve-search service.&lt;/p>
-&lt;p>In what follows the synchronization between SW360 and the external CVE provider is described.&lt;/p>
+&lt;h2 id="synchronization-between-sw360-and-cve-provider">Synchronization between SW360 and CVE Provider&lt;/h2>
+&lt;h3 id="automatic-scheduling">Automatic Scheduling&lt;/h3>
 &lt;p>&lt;code>CveSearch-updates&lt;/code> can either be scheduled automatically when launching the &lt;code>schedule-service&lt;/code> (e.g. when re/starting SW360) or it can be scheduled or unscheduled manually by an &lt;code>SW360 admin&lt;/code>.
 It is automatically scheduled with the start of the scheduling service, if in the &lt;code>/resources/sw360.properties&lt;/code> file of the &lt;code>schedule-service&lt;/code> in the backend, &lt;code>cvesearchService&lt;/code> is mentioned in the &lt;code>autostart&lt;/code>-property:&lt;/p></description></item><item><title>Enumerations</title><link>https://eclipse.dev/sw360/docs/administrationguide/user-data-model-enumerations/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/administrationguide/user-data-model-enumerations/</guid><description>&lt;p>SW360 thrift API is comprised of the following methods:&lt;/p>
 &lt;ul>
@@ -150,7 +151,8 @@ It is automatically scheduled with the start of the scheduling service, if in th
  &lt;/tbody>
 &lt;/table>
 &lt;h2 id="codescoop-thrift-file">CodeScoop Thrift File&lt;/h2>
-&lt;p>&lt;a href="https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/codescoop.thrift">https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/codescoop.thrift&lt;/a>&lt;/p></description></item><item><title>Properties</title><link>https://eclipse.dev/sw360/docs/administrationguide/properties/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/administrationguide/properties/</guid><description>&lt;p>&lt;strong>Frontend Properties&lt;/strong>: All the sw360 frontend properties are mentioned in &lt;a href="https://github.com/eclipse-sw360/sw360/blob/main/libraries/datahandler/src/main/resources/sw360.properties">sw360.properties&lt;/a> file.
+&lt;p>&lt;a href="https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/codescoop.thrift">https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/codescoop.thrift&lt;/a>&lt;/p></description></item><item><title>Properties</title><link>https://eclipse.dev/sw360/docs/administrationguide/properties/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/administrationguide/properties/</guid><description>&lt;h2 id="frontend-properties">Frontend Properties&lt;/h2>
+&lt;p>All the sw360 frontend properties are mentioned in &lt;a href="https://github.com/eclipse-sw360/sw360/blob/main/libraries/datahandler/src/main/resources/sw360.properties">sw360.properties&lt;/a> file.
 For example;
 &lt;a href="https://github.com/eclipse/sw360/wiki/">https://github.com/eclipse/sw360/wiki/&lt;/a>&lt;/p>
 &lt;ul>
@@ -170,4 +172,5 @@ For example;
 &lt;p>Activation of portlets and components&lt;/p>
 &lt;/li>
 &lt;/ul>
-&lt;p>&lt;strong>Backend Properties&lt;/strong>: This, &lt;a href="https://github.com/eclipse-sw360/sw360/blob/main/backend/common/src/main/resources/sw360.properties">sw360.properties&lt;/a> file contains the sw360 backend properties. This file contains the common properties for the backend services and also holds the setting for the mail utility.&lt;/p></description></item></channel></rss>
+&lt;h2 id="backend-properties">Backend Properties&lt;/h2>
+&lt;p>This &lt;a href="https://github.com/eclipse-sw360/sw360/blob/main/backend/common/src/main/resources/sw360.properties">sw360.properties&lt;/a> file contains the sw360 backend properties. This file contains the common properties for the backend services and also holds the setting for the mail utility.&lt;/p></description></item></channel></rss>

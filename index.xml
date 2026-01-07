@@ -2646,7 +2646,7 @@ Recommended is IntelliJ IDEA or NetBeans.&lt;/p></description></item><item><titl
 &lt;li>The clearing admins of the same group in SW360.&lt;/li>
 &lt;/ul>
 &lt;p>Then, the proposed changes can be approved by them.&lt;/p></description></item><item><title>Using RequireJS fro Javascript Modules</title><link>https://eclipse.dev/sw360/docs/development/dev-using-requirejs-for-javascript-modules/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/development/dev-using-requirejs-for-javascript-modules/</guid><description>&lt;p>Today most of the javascript code runs in the global namespace. This increases the risk of overwriting symbols in the global namespace due to different libraries and snippets.&lt;/p>
-&lt;h1 id="goal">Goal&lt;/h1>
+&lt;h2 id="goal">Goal&lt;/h2>
 &lt;p>We want to use RequireJS (&lt;a href="http://requirejs.org/">http://requirejs.org/&lt;/a>) to modularize our code and to have clear namespaces for each component. In addition some of the code may be reused more easily. Other advantages:&lt;/p>
 &lt;ul>
 &lt;li>libraries like jquery or datatables can be imported by name but without a specified version&lt;/li>
@@ -2654,9 +2654,10 @@ Recommended is IntelliJ IDEA or NetBeans.&lt;/p></description></item><item><titl
 &lt;li>it is very easy to only load needed dependencies&lt;/li>
 &lt;li>good support of webjars due to webjars-locator. Webjars a are automatically accessible through RequireJS.&lt;/li>
 &lt;/ul>
-&lt;h1 id="how-to-use---example">How to use - example&lt;/h1>
+&lt;h2 id="how-to-use---example">How to use - Example&lt;/h2>
 &lt;p>There is a new jspf-file to be included in jsps to enable RequireJS support:&lt;/p></description></item><item><title>CVE-Search Scheduling</title><link>https://eclipse.dev/sw360/docs/administrationguide/user-scheduling-cve-search-by-admins/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/administrationguide/user-scheduling-cve-search-by-admins/</guid><description>&lt;p>SW360 gets vulnerability information from an external provider of Common Vulnerability Enumeration (CVE) data. By default SW360 can connect to cve-search [https://www.circl.lu/services/cve-search/] which is either available as an online service [http://cve.circl.lu] or can be installed locally. For security and privacy reasons it is strongly advised to install a local cve-search service.&lt;/p>
-&lt;p>In what follows the synchronization between SW360 and the external CVE provider is described.&lt;/p>
+&lt;h2 id="synchronization-between-sw360-and-cve-provider">Synchronization between SW360 and CVE Provider&lt;/h2>
+&lt;h3 id="automatic-scheduling">Automatic Scheduling&lt;/h3>
 &lt;p>&lt;code>CveSearch-updates&lt;/code> can either be scheduled automatically when launching the &lt;code>schedule-service&lt;/code> (e.g. when re/starting SW360) or it can be scheduled or unscheduled manually by an &lt;code>SW360 admin&lt;/code>.
 It is automatically scheduled with the start of the scheduling service, if in the &lt;code>/resources/sw360.properties&lt;/code> file of the &lt;code>schedule-service&lt;/code> in the backend, &lt;code>cvesearchService&lt;/code> is mentioned in the &lt;code>autostart&lt;/code>-property:&lt;/p></description></item><item><title>Enumerations</title><link>https://eclipse.dev/sw360/docs/administrationguide/user-data-model-enumerations/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/administrationguide/user-data-model-enumerations/</guid><description>&lt;p>SW360 thrift API is comprised of the following methods:&lt;/p>
 &lt;ul>
@@ -2784,7 +2785,8 @@ It is automatically scheduled with the start of the scheduling service, if in th
  &lt;/tbody>
 &lt;/table>
 &lt;h2 id="codescoop-thrift-file">CodeScoop Thrift File&lt;/h2>
-&lt;p>&lt;a href="https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/codescoop.thrift">https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/codescoop.thrift&lt;/a>&lt;/p></description></item><item><title>Properties</title><link>https://eclipse.dev/sw360/docs/administrationguide/properties/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/administrationguide/properties/</guid><description>&lt;p>&lt;strong>Frontend Properties&lt;/strong>: All the sw360 frontend properties are mentioned in &lt;a href="https://github.com/eclipse-sw360/sw360/blob/main/libraries/datahandler/src/main/resources/sw360.properties">sw360.properties&lt;/a> file.
+&lt;p>&lt;a href="https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/codescoop.thrift">https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/codescoop.thrift&lt;/a>&lt;/p></description></item><item><title>Properties</title><link>https://eclipse.dev/sw360/docs/administrationguide/properties/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/administrationguide/properties/</guid><description>&lt;h2 id="frontend-properties">Frontend Properties&lt;/h2>
+&lt;p>All the sw360 frontend properties are mentioned in &lt;a href="https://github.com/eclipse-sw360/sw360/blob/main/libraries/datahandler/src/main/resources/sw360.properties">sw360.properties&lt;/a> file.
 For example;
 &lt;a href="https://github.com/eclipse/sw360/wiki/">https://github.com/eclipse/sw360/wiki/&lt;/a>&lt;/p>
 &lt;ul>
@@ -2804,7 +2806,8 @@ For example;
 &lt;p>Activation of portlets and components&lt;/p>
 &lt;/li>
 &lt;/ul>
-&lt;p>&lt;strong>Backend Properties&lt;/strong>: This, &lt;a href="https://github.com/eclipse-sw360/sw360/blob/main/backend/common/src/main/resources/sw360.properties">sw360.properties&lt;/a> file contains the sw360 backend properties. This file contains the common properties for the backend services and also holds the setting for the mail utility.&lt;/p></description></item><item><title>Projects Page</title><link>https://eclipse.dev/sw360/docs/development/completiontests/projects-main/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/development/completiontests/projects-main/</guid><description>&lt;h2 id="sw360-main-projects-page-test-cases">SW360 Main Projects Page Test Cases&lt;/h2>
+&lt;h2 id="backend-properties">Backend Properties&lt;/h2>
+&lt;p>This &lt;a href="https://github.com/eclipse-sw360/sw360/blob/main/backend/common/src/main/resources/sw360.properties">sw360.properties&lt;/a> file contains the sw360 backend properties. This file contains the common properties for the backend services and also holds the setting for the mail utility.&lt;/p></description></item><item><title>Projects Page</title><link>https://eclipse.dev/sw360/docs/development/completiontests/projects-main/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/development/completiontests/projects-main/</guid><description>&lt;h2 id="sw360-main-projects-page-test-cases">SW360 Main Projects Page Test Cases&lt;/h2>
 &lt;h3 id="advance-search-on-the-left-hand">Advance Search on the Left Hand&lt;/h3>
 &lt;h4 id="search-fields">Search Fields&lt;/h4>
 &lt;ul>
@@ -3353,7 +3356,7 @@ For example;
 &lt;/li>
 &lt;li>&lt;strong>Expected Result:&lt;/strong> The project is saved, and the user is redirected to the project edit page for the newly created project.&lt;/li>
 &lt;/ul></description></item><item><title>SW360 Rest API</title><link>https://eclipse.dev/sw360/docs/development/restapi/dev-rest-api/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/development/restapi/dev-rest-api/</guid><description>&lt;p>The sw360 REST API provides access to sw360 resources for external clients. It consists currently of three Maven modules aggregated in one parent module &lt;code>rest&lt;/code> in the sw360 distribution.&lt;/p>
-&lt;h1 id="module-structure">Module Structure&lt;/h1>
+&lt;h2 id="module-structure">Module Structure&lt;/h2>
 &lt;p>The &lt;code>rest&lt;/code> module provides a REST API infrastructure for sw360 including:&lt;/p>
 &lt;ul>
 &lt;li>Module &lt;code>authorization-server&lt;/code> - OAuth2 Authorization Server, offering typical authorization steps of an OAuth2 workflow.&lt;/li>
@@ -5907,7 +5910,7 @@ You can configure them by using the sw360.properties.&lt;/p>
 &lt;p>SW360 gets vulnerability information from Common Vulnerability Enumeration (CVE) data. SW360 can connect to your local cve-search server.&lt;br>
 &lt;em>Few years ago, sw360 was able to get vulnerability information from online CVE serverr, but it is not active.&lt;/em>&lt;/p>
 &lt;h2 id="install-cve-search">Install CVE-search&lt;/h2>
-&lt;p>cve-search is a tool to import CVE (Common Vulnerabilities and Exposures) and CPE (Common Platform Enumeration) into a MongoDB to facilitate search and processing of CVEs. You can choose Docker install or Native install.&lt;/p></description></item><item><title>Dependency Network Feature</title><link>https://eclipse.dev/sw360/docs/userguide/dependency_network/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/userguide/dependency_network/</guid><description>&lt;h1 id="how-to-enable-this-feature">&lt;strong>How to enable this feature&lt;/strong>&lt;/h1>
+&lt;p>cve-search is a tool to import CVE (Common Vulnerabilities and Exposures) and CPE (Common Platform Enumeration) into a MongoDB to facilitate search and processing of CVEs. You can choose Docker install or Native install.&lt;/p></description></item><item><title>Dependency Network Feature</title><link>https://eclipse.dev/sw360/docs/userguide/dependency_network/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/userguide/dependency_network/</guid><description>&lt;h2 id="how-to-enable-this-feature">How to enable this feature&lt;/h2>
 &lt;p>To use this function, please:&lt;/p>
 &lt;ol>
 &lt;li>

@@ -30,7 +30,7 @@ console&lt;/p>
 &lt;li>
 &lt;p>To manipulate an existing client, do the same but add the clientid to
 the data object&lt;/p></description></item><item><title>SW360 Rest API</title><link>https://eclipse.dev/sw360/docs/development/restapi/dev-rest-api/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/development/restapi/dev-rest-api/</guid><description>&lt;p>The sw360 REST API provides access to sw360 resources for external clients. It consists currently of three Maven modules aggregated in one parent module &lt;code>rest&lt;/code> in the sw360 distribution.&lt;/p>
-&lt;h1 id="module-structure">Module Structure&lt;/h1>
+&lt;h2 id="module-structure">Module Structure&lt;/h2>
 &lt;p>The &lt;code>rest&lt;/code> module provides a REST API infrastructure for sw360 including:&lt;/p>
 &lt;ul>
 &lt;li>Module &lt;code>authorization-server&lt;/code> - OAuth2 Authorization Server, offering typical authorization steps of an OAuth2 workflow.&lt;/li>

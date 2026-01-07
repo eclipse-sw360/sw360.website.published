@@ -156,7 +156,7 @@ This is basically a runner that allows to use parametrized tests.&lt;/p>
 &lt;h3 id="development-problems-using-eclipse">Development: problems using Eclipse?&lt;/h3>
 &lt;p>Please do not use Eclipse, because the integration of Apache Thrift is an open issue and we found no plugin for Eclipse to solve the shown compiler errors.
 Recommended is IntelliJ IDEA or NetBeans.&lt;/p></description></item><item><title>Using RequireJS fro Javascript Modules</title><link>https://eclipse.dev/sw360/docs/development/dev-using-requirejs-for-javascript-modules/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/development/dev-using-requirejs-for-javascript-modules/</guid><description>&lt;p>Today most of the javascript code runs in the global namespace. This increases the risk of overwriting symbols in the global namespace due to different libraries and snippets.&lt;/p>
-&lt;h1 id="goal">Goal&lt;/h1>
+&lt;h2 id="goal">Goal&lt;/h2>
 &lt;p>We want to use RequireJS (&lt;a href="http://requirejs.org/">http://requirejs.org/&lt;/a>) to modularize our code and to have clear namespaces for each component. In addition some of the code may be reused more easily. Other advantages:&lt;/p>
 &lt;ul>
 &lt;li>libraries like jquery or datatables can be imported by name but without a specified version&lt;/li>
@@ -164,5 +164,5 @@ Recommended is IntelliJ IDEA or NetBeans.&lt;/p></description></item><item><titl
 &lt;li>it is very easy to only load needed dependencies&lt;/li>
 &lt;li>good support of webjars due to webjars-locator. Webjars a are automatically accessible through RequireJS.&lt;/li>
 &lt;/ul>
-&lt;h1 id="how-to-use---example">How to use - example&lt;/h1>
+&lt;h2 id="how-to-use---example">How to use - Example&lt;/h2>
 &lt;p>There is a new jspf-file to be included in jsps to enable RequireJS support:&lt;/p></description></item></channel></rss>
