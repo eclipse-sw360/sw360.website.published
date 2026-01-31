@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SW360 on Eclipse SW360</title><link>https://eclipse.dev/sw360/</link><description>Recent content in SW360 on Eclipse SW360</description><generator>Hugo</generator><language>en</language><atom:link href="https://eclipse.dev/sw360/index.xml" rel="self" type="application/rss+xml"/><item><title>GSoC Idea List - 2025</title><link>https://eclipse.dev/sw360/gsoc/gsoc-projects-2025/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/gsoc/gsoc-projects-2025/</guid><description>&lt;section id="td-cover-block-0" class="row td-cover-block td-cover-block--height-sm js-td-cover td-overlay td-overlay--dark -bg-primary">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SW360 on Eclipse SW360</title><link>https://eclipse.dev/sw360/</link><description>Recent content in SW360 on Eclipse SW360</description><generator>Hugo</generator><language>en</language><atom:link href="https://eclipse.dev/sw360/index.xml" rel="self" type="application/rss+xml"/><item><title>AI Policy</title><link>https://eclipse.dev/sw360/gsoc/ai-policy/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/gsoc/ai-policy/</guid><description>&lt;section id="td-cover-block-0" class="row td-cover-block td-cover-block--height-sm js-td-cover td-overlay td-overlay--dark -bg-primary">
  &lt;div class="col-12">
  &lt;div class="container td-overlay__inner">
  &lt;div class="text-center">
@@ -7,7 +7,7 @@
  &lt;div class="pt-3 lead">
  
  &lt;div class="text-left">
- &lt;h1 class="display-1 mb-5">GSoC Idea List - 2025&lt;/h1>&lt;/div>
+ &lt;h1 class="display-1 mb-5">AI Policy&lt;/h1>&lt;/div>
 
  
  &lt;/div>
@@ -20,21 +20,52 @@
 &lt;div class="container l-container--padded">
 &lt;div class="row">
 &lt;div class="col-12 col-lg-8">
-&lt;p>Welcome to the idea page for all GSoC 2025 related information.&lt;/p>
+&lt;p>Starting 2026, Google has strong advice about the usage of Generative AI in the
+GSoC program. Please check them at:&lt;/p>
 &lt;ul>
-&lt;li>Check &lt;a href="https://github.com/eclipse-sw360/sw360/discussions/2868">https://github.com/eclipse-sw360/sw360/discussions/2868&lt;/a>&lt;/li>
+&lt;li>For Mentoring Orgs: &lt;a href="https://docs.google.com/document/d/1jglptdn_DovOxjwuhzORn3QhYoeBcToS7ymk3IIWHKY/edit?usp=sharing">Usage of AI tooling in Google Summer of Code 2026 (for
+Mentoring Orgs)&lt;/a>&lt;/li>
+&lt;li>For Contributors: &lt;a href="https://docs.google.com/document/d/1t9GcIBnNXPNO6klRQvU8pL8-uV6afzLo6JUAM299suA/edit?usp=sharing">Guidance for GSoC Contributors using AI tooling in GSoC
+2026 doc&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>Based on the suggestions from Google, SW360 has the following guidelines for
+GSoC contributors:&lt;/p></description></item><item><title>Login</title><link>https://eclipse.dev/sw360/docs/userguide/login/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/userguide/login/</guid><description>&lt;p>You need a username and a password to access the software. After reaching the SW360 site you will be in the public area of your account. Liferay distinguishes between public and private area, where the private area is protected by login.&lt;/p>
+&lt;p>You will see a &amp;ldquo;Welcome to SW360!&amp;rdquo; homepage which is a public area with &lt;strong>Sign In&lt;/strong> and &lt;strong>Create Account&lt;/strong> buttons.
+The Sign In button will redirect to the private area in order to work with the portal.&lt;/p></description></item><item><title>GSoC Idea List - 2026</title><link>https://eclipse.dev/sw360/gsoc/gsoc-projects-2026/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/gsoc/gsoc-projects-2026/</guid><description>&lt;section id="td-cover-block-0" class="row td-cover-block td-cover-block--height-sm js-td-cover td-overlay td-overlay--dark -bg-primary">
+ &lt;div class="col-12">
+ &lt;div class="container td-overlay__inner">
+ &lt;div class="text-center">
+ 
+ 
+ &lt;div class="pt-3 lead">
+ 
+ &lt;div class="text-left">
+ &lt;h1 class="display-1 mb-5">GSoC Idea List - 2026&lt;/h1>&lt;/div>
+
+ 
+ &lt;/div>
+ &lt;/div>
+ &lt;/div>
+ &lt;/div>
+ 
+&lt;/section>
+
+&lt;div class="container l-container--padded">
+&lt;div class="row">
+&lt;div class="col-12 col-lg-8">
+&lt;p>Welcome to the idea page for all GSoC 2026 related information.&lt;/p>
+&lt;ul>
+&lt;li>Check &lt;a href="https://github.com/eclipse-sw360/sw360/discussions/3631">https://github.com/eclipse-sw360/sw360/discussions/3631&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="intro">Intro&lt;/h2>
-&lt;p>SW360 project has been selected as a mentoring Org with GSoC 2025. Thank you,
-Google!&lt;/p>
+&lt;p>SW360 is applying as a mentoring org again in GSoC 2026 with the ambition to
+make it as awesome as the GSoC 2025!&lt;/p>
 &lt;p>Please see two main resources for finding out more SW360 in general:&lt;/p>
 &lt;ul>
 &lt;li>Check &lt;a href="https://eclipse.dev/sw360/">https://eclipse.dev/sw360/&lt;/a> and development and deployment section.&lt;/li>
 &lt;li>Try to install SW360 from source or your can try the &lt;a href="https://github.com/eclipse-sw360/sw360/blob/main/docker-compose.yml">Docker&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;p>Meetings: Checkout the &lt;a href="https://eclipse.dev/sw360/gsoc/#meetings-table">Meetings table&lt;/a>&lt;/p></description></item><item><title>Login</title><link>https://eclipse.dev/sw360/docs/userguide/login/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/userguide/login/</guid><description>&lt;p>You need a username and a password to access the software. After reaching the SW360 site you will be in the public area of your account. Liferay distinguishes between public and private area, where the private area is protected by login.&lt;/p>
-&lt;p>You will see a &amp;ldquo;Welcome to SW360!&amp;rdquo; homepage which is a public area with &lt;strong>Sign In&lt;/strong> and &lt;strong>Create Account&lt;/strong> buttons.
-The Sign In button will redirect to the private area in order to work with the portal.&lt;/p></description></item><item><title>Home Page</title><link>https://eclipse.dev/sw360/docs/userguide/sw360-homepage/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/userguide/sw360-homepage/</guid><description>&lt;h1 id="home-page">Home Page&lt;/h1>
+&lt;p>Meetings: Checkout the &lt;a href="https://eclipse.dev/sw360/gsoc/#meetings-table">Meetings table&lt;/a>&lt;/p></description></item><item><title>Home Page</title><link>https://eclipse.dev/sw360/docs/userguide/sw360-homepage/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/userguide/sw360-homepage/</guid><description>&lt;h1 id="home-page">Home Page&lt;/h1>
 &lt;p>The private area of the home page contains an overview of projects and components which are specific to you and other general information.&lt;/p>
 
 &lt;figure>
@@ -101,7 +132,41 @@ The Sign In button will redirect to the private area in order to work with the p
  &lt;td style="text-align: left">Displays a list of recent releases which are added to SW360.&lt;/td>
  &lt;/tr>
  &lt;/tbody>
-&lt;/table></description></item><item><title>Project</title><link>https://eclipse.dev/sw360/docs/userguide/project/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/userguide/project/</guid><description>&lt;h1 id="10-project-page">1.0 Project Page&lt;/h1>
+&lt;/table></description></item><item><title>GSoC Idea List - 2025</title><link>https://eclipse.dev/sw360/gsoc/gsoc-projects-2025/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/gsoc/gsoc-projects-2025/</guid><description>&lt;section id="td-cover-block-0" class="row td-cover-block td-cover-block--height-sm js-td-cover td-overlay td-overlay--dark -bg-primary">
+ &lt;div class="col-12">
+ &lt;div class="container td-overlay__inner">
+ &lt;div class="text-center">
+ 
+ 
+ &lt;div class="pt-3 lead">
+ 
+ &lt;div class="text-left">
+ &lt;h1 class="display-1 mb-5">GSoC Idea List - 2025&lt;/h1>&lt;/div>
+
+ 
+ &lt;/div>
+ &lt;/div>
+ &lt;/div>
+ &lt;/div>
+ 
+&lt;/section>
+
+&lt;div class="container l-container--padded">
+&lt;div class="row">
+&lt;div class="col-12 col-lg-8">
+&lt;p>Welcome to the idea page for all GSoC 2025 related information.&lt;/p>
+&lt;ul>
+&lt;li>Check &lt;a href="https://github.com/eclipse-sw360/sw360/discussions/2868">https://github.com/eclipse-sw360/sw360/discussions/2868&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="intro">Intro&lt;/h2>
+&lt;p>SW360 project has been selected as a mentoring Org with GSoC 2025. Thank you,
+Google!&lt;/p>
+&lt;p>Please see two main resources for finding out more SW360 in general:&lt;/p>
+&lt;ul>
+&lt;li>Check &lt;a href="https://eclipse.dev/sw360/">https://eclipse.dev/sw360/&lt;/a> and development and deployment section.&lt;/li>
+&lt;li>Try to install SW360 from source or your can try the &lt;a href="https://github.com/eclipse-sw360/sw360/blob/main/docker-compose.yml">Docker&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>Meetings: Checkout the &lt;a href="https://eclipse.dev/sw360/gsoc/#meetings-table">Meetings table&lt;/a>&lt;/p></description></item><item><title>Project</title><link>https://eclipse.dev/sw360/docs/userguide/project/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/userguide/project/</guid><description>&lt;h1 id="10-project-page">1.0 Project Page&lt;/h1>
 &lt;h2 id="101-introduction">1.01 Introduction&lt;/h2>
 &lt;p>Navigate to your project overview by clicking the menu item Projects. Here you can find the list of projects with description and other related details. On the left side of project list you can find a advanced filters to filter out specific project.&lt;/p>
 
