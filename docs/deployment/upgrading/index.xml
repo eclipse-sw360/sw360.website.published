@@ -1,85 +1,85 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Upgrade from previous instances on Eclipse SW360</title><link>https://eclipse.dev/sw360/docs/deployment/upgrading/</link><description>Recent content in Upgrade from previous instances on Eclipse SW360</description><generator>Hugo</generator><language>en</language><atom:link href="https://eclipse.dev/sw360/docs/deployment/upgrading/index.xml" rel="self" type="application/rss+xml"/><item><title>Liferay 7.3 and Java 11</title><link>https://eclipse.dev/sw360/docs/deployment/upgrading/deploy-upgrade-to-liferay-7.3-and-java-11/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/deployment/upgrading/deploy-upgrade-to-liferay-7.3-and-java-11/</guid><description>&lt;h2 id="introduction">Introduction&lt;/h2>
-&lt;p>We are covering the update for ubuntu here, because that is our main / agreed base system for running sw360. sw360 may run on a varienty of other linux distributions or OSes such as macosx, but in order to avoid problem we agreed on having a reference OS, which are the ubuntu long term releases.&lt;/p>
-&lt;p>With the update to Java 11, we upgraded from Ubuntu 16.04 to Ubuntu 18.04, both LTS version. This OS is used for example by the &lt;a href="https://github.com/sw360/sw360vagrant">https://github.com/sw360/sw360vagrant&lt;/a> project.&lt;/p></description></item><item><title>Upgrade Sw360 from 14.0 to 15.0</title><link>https://eclipse.dev/sw360/docs/deployment/upgrading/upgrade-sw360-from-14.0.0-to-15.0.0/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/deployment/upgrading/upgrade-sw360-from-14.0.0-to-15.0.0/</guid><description>&lt;h1 id="upgrade-sw360-version-150">Upgrade SW360 version 15.0&lt;/h1>
-&lt;h2 id="1-upgrade-sw360-from-140-to-150">1. Upgrade sw360 from 14.0 to 15.0&lt;/h2>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-fallback" data-lang="fallback">&lt;span style="display:flex;">&lt;span>1.1 Checkout source code SW360 to Tag Version 15
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>1.2 Version of libraries
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>1.3 Migrate database
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>1.4 Build and deploy Sw360 Version 15.0
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="11-checkout-source-code-sw360-to-tag-version-15">1.1 Checkout source code SW360 to Tag Version 15&lt;/h3>
-&lt;p>Link contains source: &lt;a href="https://github.com/eclipse/sw360.git">https://github.com/eclipse/sw360.git&lt;/a>&lt;/p>
-&lt;ul>
-&lt;li>
-&lt;p>Path &lt;code>SW360_REPOSITORY&lt;/code> = &lt;code>/home/user/work/sw360&lt;/code>&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>Source code sw360 is in master branch with commit version 14.0 . User into &lt;code>${SW360_REPOSITORY}&lt;/code> use git checkout to tag version 15 on the master branch of SW360&lt;/p></description></item><item><title>Upgrade Sw360 from 15.0 to 16.0</title><link>https://eclipse.dev/sw360/docs/deployment/upgrading/upgrade_version_sw360_15_to_16/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/deployment/upgrading/upgrade_version_sw360_15_to_16/</guid><description>&lt;h1 id="upgrade-sw360-version-160">Upgrade SW360 version 16.0&lt;/h1>
-&lt;h2 id="1-upgrade-sw360-from-150-to-160">1. Upgrade sw360 from 15.0 to 16.0&lt;/h2>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-fallback" data-lang="fallback">&lt;span style="display:flex;">&lt;span>1.1 Checkout source code SW360 to Tag Version 16
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>1.2 Version of libraries
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>1.3 Migrate database
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>1.4 Build and deploy Sw360 Version 16
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>1.5 Start and Configure Liferay 
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="11-create-folder-contains-source-code-sw360-to-tag-version-16">1.1 Create Folder contains source code SW360 to Tag Version 16&lt;/h3>
-&lt;p>Link contains source: &lt;a href="https://github.com/eclipse/sw360.git">https://github.com/eclipse/sw360.git&lt;/a>&lt;/p>
-&lt;ul>
-&lt;li>
-&lt;p>Path &lt;code>SW360_REPOSITORY&lt;/code> = &lt;code>/home/user/work15to16/sw360&lt;/code>&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>Source code sw360 is in main branch with commit version 14.0 . User into &lt;code>${SW360_REPOSITORY}&lt;/code> use git checkout to tag version 16 on the main branch of SW360&lt;/p></description></item><item><title>Upgrade SW360 from 16.0 to 17.0</title><link>https://eclipse.dev/sw360/docs/deployment/upgrading/upgrade_version_sw360_16_to_17/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/deployment/upgrading/upgrade_version_sw360_16_to_17/</guid><description>&lt;p>&lt;a href="https://eclipse.dev/sw360/docs/deployment/upgrading/upgrade_version_sw360_16_to_17/#ref1">Checkout source code SW360 to Tag Version 17&lt;/a>&lt;/p>
-&lt;p>&lt;a href="https://eclipse.dev/sw360/docs/deployment/upgrading/upgrade_version_sw360_16_to_17/#ref2">Version of libraries&lt;/a>&lt;/p>
-&lt;p>&lt;a href="https://eclipse.dev/sw360/docs/deployment/upgrading/upgrade_version_sw360_16_to_17/#ref3">Migrate Database&lt;/a>&lt;/p>
-&lt;p>&lt;a href="https://eclipse.dev/sw360/docs/deployment/upgrading/upgrade_version_sw360_16_to_17/#ref4">Build and deploy SW360 Version 17&lt;/a>&lt;/p>
-&lt;p>&lt;a href="https://eclipse.dev/sw360/docs/deployment/upgrading/upgrade_version_sw360_16_to_17/#ref5">Start and Configure Liferay&lt;/a>&lt;/p>
-&lt;h2 id="ref1">Prepare source code to use release 17&lt;/h2>
-&lt;p>Link contains source: &lt;a href="https://github.com/eclipse/sw360.git">https://github.com/eclipse/sw360.git&lt;/a>&lt;/p>
-&lt;ul>
-&lt;li>
-&lt;p>Path &lt;code>SW360_REPOSITORY&lt;/code> = &lt;code>/home/user/work16to17/sw360&lt;/code>&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>Source code sw360 is in main branch with commit version 16.0.0 . User into &lt;code>${SW360_REPOSITORY}&lt;/code> use git checkout to tag version 16 on the main branch of SW360&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>Checkout to tag Version 17.0.0&lt;/p></description></item><item><title>Upgrade SW360 from 17.00 to 18.1.0</title><link>https://eclipse.dev/sw360/docs/deployment/upgrading/upgrade_version_sw360_17_to_18/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/deployment/upgrading/upgrade_version_sw360_17_to_18/</guid><description>&lt;p>&lt;a href="https://eclipse.dev/sw360/docs/deployment/upgrading/upgrade_version_sw360_17_to_18/#ref1">Version of libraries&lt;/a>&lt;/p>
-&lt;p>&lt;a href="https://eclipse.dev/sw360/docs/deployment/upgrading/upgrade_version_sw360_17_to_18/#ref2">Checkout source code SW360 to Tag Version 18.1.0&lt;/a>&lt;/p>
-&lt;p>&lt;a href="https://eclipse.dev/sw360/docs/deployment/upgrading/upgrade_version_sw360_17_to_18/#ref3">Config Couchdb Lucene&lt;/a>&lt;/p>
-&lt;p>&lt;a href="https://eclipse.dev/sw360/docs/deployment/upgrading/upgrade_version_sw360_17_to_18/#ref4">Build and deploy&lt;/a>&lt;/p>
-&lt;p>&lt;a href="https://eclipse.dev/sw360/docs/deployment/upgrading/upgrade_version_sw360_17_to_18/#ref5">Start and Configure Liferay&lt;/a>&lt;/p>
-&lt;p>&lt;a href="https://eclipse.dev/sw360/docs/deployment/upgrading/upgrade_version_sw360_17_to_18/#ref6">Setup SW360 for Liferay: Import *.lar Files&lt;/a>&lt;/p>
-&lt;h2 id="ref1">Version of libraries&lt;/h2>
-&lt;table>
- &lt;thead>
- &lt;tr>
- &lt;th style="text-align: left">Package Name&lt;/th>
- &lt;th style="text-align: center">Version&lt;/th>
- &lt;/tr>
- &lt;/thead>
- &lt;tbody>
- &lt;tr>
- &lt;td style="text-align: left">Liferay&lt;/td>
- &lt;td style="text-align: center">7.4.3&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td style="text-align: left">Tomcat&lt;/td>
- &lt;td style="text-align: center">9.0.56&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td style="text-align: left">Couchdb&lt;/td>
- &lt;td style="text-align: center">3.2.2&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td style="text-align: left">Open JDK&lt;/td>
- &lt;td style="text-align: center">11.0.15&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td style="text-align: left">Thrift&lt;/td>
- &lt;td style="text-align: center">0.16.0&lt;/td>
- &lt;/tr>
- &lt;/tbody>
-&lt;/table>
-&lt;p>To check couchdb version: run &lt;code>curl http://localhost_or_yourcouchdbserver:5984 | json_pp&lt;/code>&lt;/p>
-&lt;h2 id="ref2">Prepare source code to use release 18.1.0&lt;/h2>
-&lt;p>Link contains source: &lt;a href="https://github.com/eclipse/sw360.git">https://github.com/eclipse/sw360.git&lt;/a>&lt;/p>
-&lt;p>Create folder to store new source code of version 18.1.0:&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Upgrade from previous instances on Eclipse SW360</title><link>https://eclipse.dev/sw360/docs/deployment/upgrading/</link><description>Recent content in Upgrade from previous instances on Eclipse SW360</description><generator>Hugo</generator><language>en</language><atom:link href="https://eclipse.dev/sw360/docs/deployment/upgrading/index.xml" rel="self" type="application/rss+xml"/><item><title>Liferay 7.3 and Java 11</title><link>https://eclipse.dev/sw360/docs/deployment/upgrading/deploy-upgrade-to-liferay-7.3-and-java-11/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/deployment/upgrading/deploy-upgrade-to-liferay-7.3-and-java-11/</guid><description>&lt;h2 id="introduction"&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;We are covering the update for ubuntu here, because that is our main / agreed base system for running sw360. sw360 may run on a varienty of other linux distributions or OSes such as macosx, but in order to avoid problem we agreed on having a reference OS, which are the ubuntu long term releases.&lt;/p&gt;
+&lt;p&gt;With the update to Java 11, we upgraded from Ubuntu 16.04 to Ubuntu 18.04, both LTS version. This OS is used for example by the &lt;a href="https://github.com/sw360/sw360vagrant"&gt;https://github.com/sw360/sw360vagrant&lt;/a&gt; project.&lt;/p&gt;</description></item><item><title>Upgrade Sw360 from 14.0 to 15.0</title><link>https://eclipse.dev/sw360/docs/deployment/upgrading/upgrade-sw360-from-14.0.0-to-15.0.0/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/deployment/upgrading/upgrade-sw360-from-14.0.0-to-15.0.0/</guid><description>&lt;h1 id="upgrade-sw360-version-150"&gt;Upgrade SW360 version 15.0&lt;/h1&gt;
+&lt;h2 id="1-upgrade-sw360-from-140-to-150"&gt;1. Upgrade sw360 from 14.0 to 15.0&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;1.1 Checkout source code SW360 to Tag Version 15
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;1.2 Version of libraries
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;1.3 Migrate database
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;1.4 Build and deploy Sw360 Version 15.0
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="11-checkout-source-code-sw360-to-tag-version-15"&gt;1.1 Checkout source code SW360 to Tag Version 15&lt;/h3&gt;
+&lt;p&gt;Link contains source: &lt;a href="https://github.com/eclipse/sw360.git"&gt;https://github.com/eclipse/sw360.git&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Path &lt;code&gt;SW360_REPOSITORY&lt;/code&gt; = &lt;code&gt;/home/user/work/sw360&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Source code sw360 is in master branch with commit version 14.0 . User into &lt;code&gt;${SW360_REPOSITORY}&lt;/code&gt; use git checkout to tag version 15 on the master branch of SW360&lt;/p&gt;</description></item><item><title>Upgrade Sw360 from 15.0 to 16.0</title><link>https://eclipse.dev/sw360/docs/deployment/upgrading/upgrade_version_sw360_15_to_16/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/deployment/upgrading/upgrade_version_sw360_15_to_16/</guid><description>&lt;h1 id="upgrade-sw360-version-160"&gt;Upgrade SW360 version 16.0&lt;/h1&gt;
+&lt;h2 id="1-upgrade-sw360-from-150-to-160"&gt;1. Upgrade sw360 from 15.0 to 16.0&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;1.1 Checkout source code SW360 to Tag Version 16
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;1.2 Version of libraries
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;1.3 Migrate database
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;1.4 Build and deploy Sw360 Version 16
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;1.5 Start and Configure Liferay 
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="11-create-folder-contains-source-code-sw360-to-tag-version-16"&gt;1.1 Create Folder contains source code SW360 to Tag Version 16&lt;/h3&gt;
+&lt;p&gt;Link contains source: &lt;a href="https://github.com/eclipse/sw360.git"&gt;https://github.com/eclipse/sw360.git&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Path &lt;code&gt;SW360_REPOSITORY&lt;/code&gt; = &lt;code&gt;/home/user/work15to16/sw360&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Source code sw360 is in main branch with commit version 14.0 . User into &lt;code&gt;${SW360_REPOSITORY}&lt;/code&gt; use git checkout to tag version 16 on the main branch of SW360&lt;/p&gt;</description></item><item><title>Upgrade SW360 from 16.0 to 17.0</title><link>https://eclipse.dev/sw360/docs/deployment/upgrading/upgrade_version_sw360_16_to_17/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/deployment/upgrading/upgrade_version_sw360_16_to_17/</guid><description>&lt;p&gt;&lt;a href="https://eclipse.dev/sw360/docs/deployment/upgrading/upgrade_version_sw360_16_to_17/#ref1"&gt;Checkout source code SW360 to Tag Version 17&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://eclipse.dev/sw360/docs/deployment/upgrading/upgrade_version_sw360_16_to_17/#ref2"&gt;Version of libraries&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://eclipse.dev/sw360/docs/deployment/upgrading/upgrade_version_sw360_16_to_17/#ref3"&gt;Migrate Database&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://eclipse.dev/sw360/docs/deployment/upgrading/upgrade_version_sw360_16_to_17/#ref4"&gt;Build and deploy SW360 Version 17&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://eclipse.dev/sw360/docs/deployment/upgrading/upgrade_version_sw360_16_to_17/#ref5"&gt;Start and Configure Liferay&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id="ref1"&gt;Prepare source code to use release 17&lt;/h2&gt;
+&lt;p&gt;Link contains source: &lt;a href="https://github.com/eclipse/sw360.git"&gt;https://github.com/eclipse/sw360.git&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Path &lt;code&gt;SW360_REPOSITORY&lt;/code&gt; = &lt;code&gt;/home/user/work16to17/sw360&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Source code sw360 is in main branch with commit version 16.0.0 . User into &lt;code&gt;${SW360_REPOSITORY}&lt;/code&gt; use git checkout to tag version 16 on the main branch of SW360&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Checkout to tag Version 17.0.0&lt;/p&gt;</description></item><item><title>Upgrade SW360 from 17.00 to 18.1.0</title><link>https://eclipse.dev/sw360/docs/deployment/upgrading/upgrade_version_sw360_17_to_18/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/deployment/upgrading/upgrade_version_sw360_17_to_18/</guid><description>&lt;p&gt;&lt;a href="https://eclipse.dev/sw360/docs/deployment/upgrading/upgrade_version_sw360_17_to_18/#ref1"&gt;Version of libraries&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://eclipse.dev/sw360/docs/deployment/upgrading/upgrade_version_sw360_17_to_18/#ref2"&gt;Checkout source code SW360 to Tag Version 18.1.0&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://eclipse.dev/sw360/docs/deployment/upgrading/upgrade_version_sw360_17_to_18/#ref3"&gt;Config Couchdb Lucene&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://eclipse.dev/sw360/docs/deployment/upgrading/upgrade_version_sw360_17_to_18/#ref4"&gt;Build and deploy&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://eclipse.dev/sw360/docs/deployment/upgrading/upgrade_version_sw360_17_to_18/#ref5"&gt;Start and Configure Liferay&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://eclipse.dev/sw360/docs/deployment/upgrading/upgrade_version_sw360_17_to_18/#ref6"&gt;Setup SW360 for Liferay: Import *.lar Files&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id="ref1"&gt;Version of libraries&lt;/h2&gt;
+&lt;table&gt;
+ &lt;thead&gt;
+ &lt;tr&gt;
+ &lt;th style="text-align: left"&gt;Package Name&lt;/th&gt;
+ &lt;th style="text-align: center"&gt;Version&lt;/th&gt;
+ &lt;/tr&gt;
+ &lt;/thead&gt;
+ &lt;tbody&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;Liferay&lt;/td&gt;
+ &lt;td style="text-align: center"&gt;7.4.3&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;Tomcat&lt;/td&gt;
+ &lt;td style="text-align: center"&gt;9.0.56&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;Couchdb&lt;/td&gt;
+ &lt;td style="text-align: center"&gt;3.2.2&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;Open JDK&lt;/td&gt;
+ &lt;td style="text-align: center"&gt;11.0.15&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;Thrift&lt;/td&gt;
+ &lt;td style="text-align: center"&gt;0.16.0&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;To check couchdb version: run &lt;code&gt;curl http://localhost_or_yourcouchdbserver:5984 | json_pp&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id="ref2"&gt;Prepare source code to use release 18.1.0&lt;/h2&gt;
+&lt;p&gt;Link contains source: &lt;a href="https://github.com/eclipse/sw360.git"&gt;https://github.com/eclipse/sw360.git&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Create folder to store new source code of version 18.1.0:&lt;/p&gt;</description></item></channel></rss>

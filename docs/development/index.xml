@@ -1,168 +1,170 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Development on Eclipse SW360</title><link>https://eclipse.dev/sw360/docs/development/</link><description>Recent content in Development on Eclipse SW360</description><generator>Hugo</generator><language>en</language><atom:link href="https://eclipse.dev/sw360/docs/development/index.xml" rel="self" type="application/rss+xml"/><item><title>How to add a backend portlet to sw360</title><link>https://eclipse.dev/sw360/docs/development/dev-adding-a-new-portlet-backend/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/development/dev-adding-a-new-portlet-backend/</guid><description>&lt;p>This page how to add some operations / service calls on the backend for the portlet writing on the page that covers the front end. Note that this page does not create a new (thrift service), but just explains how to add more operations.&lt;/p>
-&lt;p>This explanation follows bottom up approach where we first add the backend methods and then call them later in the frontend. Quick summary:&lt;/p>
-&lt;ol>
-&lt;li>Add methods to the thrift idl definition&lt;/li>
-&lt;li>Add methods to the data handler interface&lt;/li>
-&lt;li>Add implementation&lt;/li>
-&lt;li>Add tests&lt;/li>
-&lt;/ol>
-&lt;h2 id="thrift">Thrift&lt;/h2>
-&lt;p>First we add some methods to the thrift files, components.thrift&lt;/p></description></item><item><title>How to add a frontend portlet to sw360</title><link>https://eclipse.dev/sw360/docs/development/dev-adding-a-new-portlet-frontend/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/development/dev-adding-a-new-portlet-frontend/</guid><description>&lt;p>We create a class in&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-fallback" data-lang="fallback">&lt;span style="display:flex;">&lt;span>sw360/src/frontend/sw360-portlets/src/main/java/com/siemens/sw360/portal/portlets/admin/
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>called&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-fallback" data-lang="fallback">&lt;span style="display:flex;">&lt;span>DatabaseSanitation.java
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Here are some code snippets that are important:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-java" data-lang="java">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#069;font-weight:bold">public&lt;/span>&lt;span style="color:#bbb"> &lt;/span>&lt;span style="color:#069;font-weight:bold">class&lt;/span> &lt;span style="color:#0a8;font-weight:bold">DatabaseSanitation&lt;/span>&lt;span style="color:#bbb"> &lt;/span>&lt;span style="color:#069;font-weight:bold">extends&lt;/span>&lt;span style="color:#bbb"> &lt;/span>Sw360Portlet&lt;span style="color:#bbb"> 
-&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>the base class Sw360Portlet adds some convenience methods to render the most common return values of functions into messages.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-java" data-lang="java">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#99f">@Override&lt;/span>&lt;span style="color:#bbb">
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#bbb">&lt;/span>&lt;span style="color:#069;font-weight:bold">public&lt;/span>&lt;span style="color:#bbb"> &lt;/span>&lt;span style="color:#078;font-weight:bold">void&lt;/span>&lt;span style="color:#bbb"> &lt;/span>&lt;span style="color:#c0f">doView&lt;/span>(RenderRequest&lt;span style="color:#bbb"> &lt;/span>request,&lt;span style="color:#bbb"> &lt;/span>RenderResponse&lt;span style="color:#bbb"> &lt;/span>response)&lt;span style="color:#bbb"> &lt;/span>&lt;span style="color:#069;font-weight:bold">throws&lt;/span>&lt;span style="color:#bbb"> &lt;/span>IOException,&lt;span style="color:#bbb"> &lt;/span>PortletException&lt;span style="color:#bbb"> &lt;/span>{&lt;span style="color:#bbb">
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#bbb"> &lt;/span>&lt;span style="color:#09f;font-style:italic">// Proceed with page rendering&lt;/span>&lt;span style="color:#bbb">
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#bbb"> &lt;/span>&lt;span style="color:#069;font-weight:bold">super&lt;/span>.&lt;span style="color:#309">doView&lt;/span>(request,&lt;span style="color:#bbb"> &lt;/span>response);&lt;span style="color:#bbb">
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#bbb">&lt;/span>}&lt;span style="color:#bbb">
-&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>This method is used to render different pages, a common pattern would be to have if/else tree like&lt;/p></description></item><item><title>SW360 Development Branches</title><link>https://eclipse.dev/sw360/docs/development/dev-branches/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/development/dev-branches/</guid><description>&lt;h2 id="branches-structure">Branches structure&lt;/h2>
-&lt;p>&lt;code>&amp;lt;github-nickname&amp;gt;/&amp;lt;issue&amp;gt;/&amp;lt;description&amp;gt;&lt;/code>&lt;/p>
-&lt;h3 id="examples">Examples:&lt;/h3>
-&lt;ul>
-&lt;li>maierthomas/#1/fix-dowload-bundle&lt;/li>
-&lt;li>maierthomas/#3/sw360portal-specific-links&lt;/li>
-&lt;/ul></description></item><item><title>How to add fields to an existing class</title><link>https://eclipse.dev/sw360/docs/development/dev-adding-new-fields-to-existing-classes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/development/dev-adding-new-fields-to-existing-classes/</guid><description>&lt;p>The license portlet is different from the other portlets as there is no Details/Edit page for each element. There is only a combined edit/view page.
-We will add the license text to licenses in the thrift file:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-thrift" data-lang="thrift">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f60">13&lt;/span>:&lt;span style="color:#bbb"> &lt;/span>&lt;span style="color:#069;font-weight:bold">optional&lt;/span>&lt;span style="color:#bbb"> &lt;/span>&lt;span style="color:#078;font-weight:bold">string&lt;/span>&lt;span style="color:#bbb"> &lt;/span>text;&lt;span style="color:#bbb">
-&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>To update the text we write a liferay Action in the LicensesPortlet:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-java" data-lang="java">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#bbb"> &lt;/span>&lt;span style="color:#99f">@UsedAsLiferayAction&lt;/span>&lt;span style="color:#bbb">
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#bbb"> &lt;/span>&lt;span style="color:#069;font-weight:bold">public&lt;/span>&lt;span style="color:#bbb"> &lt;/span>&lt;span style="color:#078;font-weight:bold">void&lt;/span>&lt;span style="color:#bbb"> &lt;/span>&lt;span style="color:#c0f">changeText&lt;/span>(ActionRequest&lt;span style="color:#bbb"> &lt;/span>request,&lt;span style="color:#bbb"> &lt;/span>ActionResponse&lt;span style="color:#bbb"> &lt;/span>response)&lt;span style="color:#bbb"> &lt;/span>&lt;span style="color:#069;font-weight:bold">throws&lt;/span>&lt;span style="color:#bbb"> &lt;/span>PortletException,&lt;span style="color:#bbb"> &lt;/span>IOException&lt;span style="color:#bbb"> &lt;/span>{&lt;span style="color:#bbb">
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#bbb"> &lt;/span>String&lt;span style="color:#bbb"> &lt;/span>licenseId&lt;span style="color:#bbb"> &lt;/span>&lt;span style="color:#555">=&lt;/span>&lt;span style="color:#bbb"> &lt;/span>request.&lt;span style="color:#309">getParameter&lt;/span>(LICENSE_ID);&lt;span style="color:#bbb">
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#bbb"> &lt;/span>String&lt;span style="color:#bbb"> &lt;/span>text&lt;span style="color:#bbb"> &lt;/span>&lt;span style="color:#555">=&lt;/span>&lt;span style="color:#bbb"> &lt;/span>request.&lt;span style="color:#309">getParameter&lt;/span>(License.&lt;span style="color:#309">_Fields&lt;/span>.&lt;span style="color:#309">TEXT&lt;/span>.&lt;span style="color:#309">name&lt;/span>());&lt;span style="color:#bbb">
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#bbb">
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#bbb"> &lt;/span>&lt;span style="color:#069;font-weight:bold">if&lt;/span>(&lt;span style="color:#555">!&lt;/span>Strings.&lt;span style="color:#309">isNullOrEmpty&lt;/span>(licenseId))&lt;span style="color:#bbb"> &lt;/span>{&lt;span style="color:#bbb">
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#bbb">
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#bbb"> &lt;/span>&lt;span style="color:#069;font-weight:bold">try&lt;/span>&lt;span style="color:#bbb"> &lt;/span>{&lt;span style="color:#bbb">
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#bbb"> &lt;/span>User&lt;span style="color:#bbb"> &lt;/span>user&lt;span style="color:#bbb"> &lt;/span>&lt;span style="color:#555">=&lt;/span>&lt;span style="color:#bbb"> &lt;/span>UserCacheHolder.&lt;span style="color:#309">getUserFromRequest&lt;/span>(request);&lt;span style="color:#bbb">
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#bbb"> &lt;/span>LicenseService.&lt;span style="color:#309">Iface&lt;/span>&lt;span style="color:#bbb"> &lt;/span>client&lt;span style="color:#bbb"> &lt;/span>&lt;span style="color:#555">=&lt;/span>&lt;span style="color:#bbb"> &lt;/span>thriftClients.&lt;span style="color:#309">makeLicenseClient&lt;/span>();&lt;span style="color:#bbb">
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#bbb"> &lt;/span>&lt;span style="color:#069;font-weight:bold">final&lt;/span>&lt;span style="color:#bbb"> &lt;/span>License&lt;span style="color:#bbb"> &lt;/span>license&lt;span style="color:#bbb"> &lt;/span>&lt;span style="color:#555">=&lt;/span>&lt;span style="color:#bbb"> &lt;/span>client.&lt;span style="color:#309">getFromID&lt;/span>(licenseId);&lt;span style="color:#bbb">
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#bbb">
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#bbb"> &lt;/span>license.&lt;span style="color:#309">setText&lt;/span>(CommonUtils.&lt;span style="color:#309">nullToEmptyString&lt;/span>(text));&lt;span style="color:#bbb">
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#bbb"> &lt;/span>&lt;span style="color:#069;font-weight:bold">final&lt;/span>&lt;span style="color:#bbb"> &lt;/span>RequestStatus&lt;span style="color:#bbb"> &lt;/span>requestStatus&lt;span style="color:#bbb"> &lt;/span>&lt;span style="color:#555">=&lt;/span>&lt;span style="color:#bbb"> &lt;/span>client.&lt;span style="color:#309">updateLicense&lt;/span>(license,&lt;span style="color:#bbb"> &lt;/span>user);&lt;span style="color:#bbb">
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#bbb">
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#bbb"> &lt;/span>renderRequestStatus(request,response,requestStatus);&lt;span style="color:#bbb">
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#bbb"> &lt;/span>}&lt;span style="color:#bbb"> &lt;/span>&lt;span style="color:#069;font-weight:bold">catch&lt;/span>&lt;span style="color:#bbb"> &lt;/span>(TException&lt;span style="color:#bbb"> &lt;/span>e)&lt;span style="color:#bbb"> &lt;/span>{&lt;span style="color:#bbb">
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#bbb"> &lt;/span>log.&lt;span style="color:#309">error&lt;/span>(&lt;span style="color:#c30">&amp;#34;Error updating license&amp;#34;&lt;/span>,&lt;span style="color:#bbb"> &lt;/span>e);&lt;span style="color:#bbb">
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#bbb"> &lt;/span>}&lt;span style="color:#bbb">
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#bbb"> &lt;/span>}&lt;span style="color:#bbb">
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#bbb">
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#bbb"> &lt;/span>response.&lt;span style="color:#309">setRenderParameter&lt;/span>(LICENSE_ID,&lt;span style="color:#bbb"> &lt;/span>licenseId);&lt;span style="color:#bbb">
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#bbb"> &lt;/span>response.&lt;span style="color:#309">setRenderParameter&lt;/span>(PAGENAME,&lt;span style="color:#bbb"> &lt;/span>PAGENAME_DETAIL);&lt;span style="color:#bbb">
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#bbb"> &lt;/span>response.&lt;span style="color:#309">setRenderParameter&lt;/span>(SELECTED_TAB,&lt;span style="color:#bbb"> &lt;/span>&lt;span style="color:#c30">&amp;#34;LicenseText&amp;#34;&lt;/span>);&lt;span style="color:#bbb">
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#bbb"> &lt;/span>}&lt;span style="color:#bbb">
-&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>To integrate it in the jsp we make the according changes, important to note is the ActionUrl that we define:&lt;/p></description></item><item><title>CouchDB External Documents</title><link>https://eclipse.dev/sw360/docs/development/dev-external-documents-with-couchdb/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/development/dev-external-documents-with-couchdb/</guid><description>&lt;h2 id="motivation">Motivation&lt;/h2>
-&lt;p>In some cases inline documents are not sufficient for storing extended information to a document. This is especially the case if these information might be relevant from outside as well.
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Development on Eclipse SW360</title><link>https://eclipse.dev/sw360/docs/development/</link><description>Recent content in Development on Eclipse SW360</description><generator>Hugo</generator><language>en</language><atom:link href="https://eclipse.dev/sw360/docs/development/index.xml" rel="self" type="application/rss+xml"/><item><title>How to add a backend portlet to sw360</title><link>https://eclipse.dev/sw360/docs/development/dev-adding-a-new-portlet-backend/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/development/dev-adding-a-new-portlet-backend/</guid><description>&lt;p&gt;This page how to add some operations / service calls on the backend for the portlet writing on the page that covers the front end. Note that this page does not create a new (thrift service), but just explains how to add more operations.&lt;/p&gt;
+&lt;p&gt;This explanation follows bottom up approach where we first add the backend methods and then call them later in the frontend. Quick summary:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Add methods to the thrift idl definition&lt;/li&gt;
+&lt;li&gt;Add methods to the data handler interface&lt;/li&gt;
+&lt;li&gt;Add implementation&lt;/li&gt;
+&lt;li&gt;Add tests&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="thrift"&gt;Thrift&lt;/h2&gt;
+&lt;p&gt;First we add some methods to the thrift files, components.thrift&lt;/p&gt;</description></item><item><title>How to add a frontend portlet to sw360</title><link>https://eclipse.dev/sw360/docs/development/dev-adding-a-new-portlet-frontend/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/development/dev-adding-a-new-portlet-frontend/</guid><description>&lt;p&gt;We create a class in&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sw360/src/frontend/sw360-portlets/src/main/java/com/siemens/sw360/portal/portlets/admin/
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;called&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;DatabaseSanitation.java
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Here are some code snippets that are important:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-java" data-lang="java"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#069;font-weight:bold"&gt;public&lt;/span&gt;&lt;span style="color:#bbb"&gt; &lt;/span&gt;&lt;span style="color:#069;font-weight:bold"&gt;class&lt;/span&gt; &lt;span style="color:#0a8;font-weight:bold"&gt;DatabaseSanitation&lt;/span&gt;&lt;span style="color:#bbb"&gt; &lt;/span&gt;&lt;span style="color:#069;font-weight:bold"&gt;extends&lt;/span&gt;&lt;span style="color:#bbb"&gt; &lt;/span&gt;Sw360Portlet&lt;span style="color:#bbb"&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;the base class Sw360Portlet adds some convenience methods to render the most common return values of functions into messages.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-java" data-lang="java"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#99f"&gt;@Override&lt;/span&gt;&lt;span style="color:#bbb"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#069;font-weight:bold"&gt;public&lt;/span&gt;&lt;span style="color:#bbb"&gt; &lt;/span&gt;&lt;span style="color:#078;font-weight:bold"&gt;void&lt;/span&gt;&lt;span style="color:#bbb"&gt; &lt;/span&gt;&lt;span style="color:#c0f"&gt;doView&lt;/span&gt;(RenderRequest&lt;span style="color:#bbb"&gt; &lt;/span&gt;request,&lt;span style="color:#bbb"&gt; &lt;/span&gt;RenderResponse&lt;span style="color:#bbb"&gt; &lt;/span&gt;response)&lt;span style="color:#bbb"&gt; &lt;/span&gt;&lt;span style="color:#069;font-weight:bold"&gt;throws&lt;/span&gt;&lt;span style="color:#bbb"&gt; &lt;/span&gt;IOException,&lt;span style="color:#bbb"&gt; &lt;/span&gt;PortletException&lt;span style="color:#bbb"&gt; &lt;/span&gt;{&lt;span style="color:#bbb"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#bbb"&gt; &lt;/span&gt;&lt;span style="color:#09f;font-style:italic"&gt;// Proceed with page rendering&lt;/span&gt;&lt;span style="color:#bbb"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#bbb"&gt; &lt;/span&gt;&lt;span style="color:#069;font-weight:bold"&gt;super&lt;/span&gt;.&lt;span style="color:#309"&gt;doView&lt;/span&gt;(request,&lt;span style="color:#bbb"&gt; &lt;/span&gt;response);&lt;span style="color:#bbb"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}&lt;span style="color:#bbb"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This method is used to render different pages, a common pattern would be to have if/else tree like&lt;/p&gt;</description></item><item><title>SW360 Development Branches</title><link>https://eclipse.dev/sw360/docs/development/dev-branches/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/development/dev-branches/</guid><description>&lt;h2 id="branches-structure"&gt;Branches structure&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;&amp;lt;github-nickname&amp;gt;/&amp;lt;issue&amp;gt;/&amp;lt;description&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id="examples"&gt;Examples:&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;maierthomas/#1/fix-dowload-bundle&lt;/li&gt;
+&lt;li&gt;maierthomas/#3/sw360portal-specific-links&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>How to add fields to an existing class</title><link>https://eclipse.dev/sw360/docs/development/dev-adding-new-fields-to-existing-classes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/development/dev-adding-new-fields-to-existing-classes/</guid><description>&lt;p&gt;The license portlet is different from the other portlets as there is no Details/Edit page for each element. There is only a combined edit/view page.
+We will add the license text to licenses in the thrift file:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-thrift" data-lang="thrift"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f60"&gt;13&lt;/span&gt;:&lt;span style="color:#bbb"&gt; &lt;/span&gt;&lt;span style="color:#069;font-weight:bold"&gt;optional&lt;/span&gt;&lt;span style="color:#bbb"&gt; &lt;/span&gt;&lt;span style="color:#078;font-weight:bold"&gt;string&lt;/span&gt;&lt;span style="color:#bbb"&gt; &lt;/span&gt;text;&lt;span style="color:#bbb"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;To update the text we write a liferay Action in the LicensesPortlet:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-java" data-lang="java"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#bbb"&gt; &lt;/span&gt;&lt;span style="color:#99f"&gt;@UsedAsLiferayAction&lt;/span&gt;&lt;span style="color:#bbb"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#bbb"&gt; &lt;/span&gt;&lt;span style="color:#069;font-weight:bold"&gt;public&lt;/span&gt;&lt;span style="color:#bbb"&gt; &lt;/span&gt;&lt;span style="color:#078;font-weight:bold"&gt;void&lt;/span&gt;&lt;span style="color:#bbb"&gt; &lt;/span&gt;&lt;span style="color:#c0f"&gt;changeText&lt;/span&gt;(ActionRequest&lt;span style="color:#bbb"&gt; &lt;/span&gt;request,&lt;span style="color:#bbb"&gt; &lt;/span&gt;ActionResponse&lt;span style="color:#bbb"&gt; &lt;/span&gt;response)&lt;span style="color:#bbb"&gt; &lt;/span&gt;&lt;span style="color:#069;font-weight:bold"&gt;throws&lt;/span&gt;&lt;span style="color:#bbb"&gt; &lt;/span&gt;PortletException,&lt;span style="color:#bbb"&gt; &lt;/span&gt;IOException&lt;span style="color:#bbb"&gt; &lt;/span&gt;{&lt;span style="color:#bbb"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#bbb"&gt; &lt;/span&gt;String&lt;span style="color:#bbb"&gt; &lt;/span&gt;licenseId&lt;span style="color:#bbb"&gt; &lt;/span&gt;&lt;span style="color:#555"&gt;=&lt;/span&gt;&lt;span style="color:#bbb"&gt; &lt;/span&gt;request.&lt;span style="color:#309"&gt;getParameter&lt;/span&gt;(LICENSE_ID);&lt;span style="color:#bbb"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#bbb"&gt; &lt;/span&gt;String&lt;span style="color:#bbb"&gt; &lt;/span&gt;text&lt;span style="color:#bbb"&gt; &lt;/span&gt;&lt;span style="color:#555"&gt;=&lt;/span&gt;&lt;span style="color:#bbb"&gt; &lt;/span&gt;request.&lt;span style="color:#309"&gt;getParameter&lt;/span&gt;(License.&lt;span style="color:#309"&gt;_Fields&lt;/span&gt;.&lt;span style="color:#309"&gt;TEXT&lt;/span&gt;.&lt;span style="color:#309"&gt;name&lt;/span&gt;());&lt;span style="color:#bbb"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#bbb"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#bbb"&gt; &lt;/span&gt;&lt;span style="color:#069;font-weight:bold"&gt;if&lt;/span&gt;(&lt;span style="color:#555"&gt;!&lt;/span&gt;Strings.&lt;span style="color:#309"&gt;isNullOrEmpty&lt;/span&gt;(licenseId))&lt;span style="color:#bbb"&gt; &lt;/span&gt;{&lt;span style="color:#bbb"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#bbb"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#bbb"&gt; &lt;/span&gt;&lt;span style="color:#069;font-weight:bold"&gt;try&lt;/span&gt;&lt;span style="color:#bbb"&gt; &lt;/span&gt;{&lt;span style="color:#bbb"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#bbb"&gt; &lt;/span&gt;User&lt;span style="color:#bbb"&gt; &lt;/span&gt;user&lt;span style="color:#bbb"&gt; &lt;/span&gt;&lt;span style="color:#555"&gt;=&lt;/span&gt;&lt;span style="color:#bbb"&gt; &lt;/span&gt;UserCacheHolder.&lt;span style="color:#309"&gt;getUserFromRequest&lt;/span&gt;(request);&lt;span style="color:#bbb"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#bbb"&gt; &lt;/span&gt;LicenseService.&lt;span style="color:#309"&gt;Iface&lt;/span&gt;&lt;span style="color:#bbb"&gt; &lt;/span&gt;client&lt;span style="color:#bbb"&gt; &lt;/span&gt;&lt;span style="color:#555"&gt;=&lt;/span&gt;&lt;span style="color:#bbb"&gt; &lt;/span&gt;thriftClients.&lt;span style="color:#309"&gt;makeLicenseClient&lt;/span&gt;();&lt;span style="color:#bbb"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#bbb"&gt; &lt;/span&gt;&lt;span style="color:#069;font-weight:bold"&gt;final&lt;/span&gt;&lt;span style="color:#bbb"&gt; &lt;/span&gt;License&lt;span style="color:#bbb"&gt; &lt;/span&gt;license&lt;span style="color:#bbb"&gt; &lt;/span&gt;&lt;span style="color:#555"&gt;=&lt;/span&gt;&lt;span style="color:#bbb"&gt; &lt;/span&gt;client.&lt;span style="color:#309"&gt;getFromID&lt;/span&gt;(licenseId);&lt;span style="color:#bbb"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#bbb"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#bbb"&gt; &lt;/span&gt;license.&lt;span style="color:#309"&gt;setText&lt;/span&gt;(CommonUtils.&lt;span style="color:#309"&gt;nullToEmptyString&lt;/span&gt;(text));&lt;span style="color:#bbb"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#bbb"&gt; &lt;/span&gt;&lt;span style="color:#069;font-weight:bold"&gt;final&lt;/span&gt;&lt;span style="color:#bbb"&gt; &lt;/span&gt;RequestStatus&lt;span style="color:#bbb"&gt; &lt;/span&gt;requestStatus&lt;span style="color:#bbb"&gt; &lt;/span&gt;&lt;span style="color:#555"&gt;=&lt;/span&gt;&lt;span style="color:#bbb"&gt; &lt;/span&gt;client.&lt;span style="color:#309"&gt;updateLicense&lt;/span&gt;(license,&lt;span style="color:#bbb"&gt; &lt;/span&gt;user);&lt;span style="color:#bbb"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#bbb"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#bbb"&gt; &lt;/span&gt;renderRequestStatus(request,response,requestStatus);&lt;span style="color:#bbb"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#bbb"&gt; &lt;/span&gt;}&lt;span style="color:#bbb"&gt; &lt;/span&gt;&lt;span style="color:#069;font-weight:bold"&gt;catch&lt;/span&gt;&lt;span style="color:#bbb"&gt; &lt;/span&gt;(TException&lt;span style="color:#bbb"&gt; &lt;/span&gt;e)&lt;span style="color:#bbb"&gt; &lt;/span&gt;{&lt;span style="color:#bbb"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#bbb"&gt; &lt;/span&gt;log.&lt;span style="color:#309"&gt;error&lt;/span&gt;(&lt;span style="color:#c30"&gt;&amp;#34;Error updating license&amp;#34;&lt;/span&gt;,&lt;span style="color:#bbb"&gt; &lt;/span&gt;e);&lt;span style="color:#bbb"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#bbb"&gt; &lt;/span&gt;}&lt;span style="color:#bbb"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#bbb"&gt; &lt;/span&gt;}&lt;span style="color:#bbb"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#bbb"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#bbb"&gt; &lt;/span&gt;response.&lt;span style="color:#309"&gt;setRenderParameter&lt;/span&gt;(LICENSE_ID,&lt;span style="color:#bbb"&gt; &lt;/span&gt;licenseId);&lt;span style="color:#bbb"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#bbb"&gt; &lt;/span&gt;response.&lt;span style="color:#309"&gt;setRenderParameter&lt;/span&gt;(PAGENAME,&lt;span style="color:#bbb"&gt; &lt;/span&gt;PAGENAME_DETAIL);&lt;span style="color:#bbb"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#bbb"&gt; &lt;/span&gt;response.&lt;span style="color:#309"&gt;setRenderParameter&lt;/span&gt;(SELECTED_TAB,&lt;span style="color:#bbb"&gt; &lt;/span&gt;&lt;span style="color:#c30"&gt;&amp;#34;LicenseText&amp;#34;&lt;/span&gt;);&lt;span style="color:#bbb"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#bbb"&gt; &lt;/span&gt;}&lt;span style="color:#bbb"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;To integrate it in the jsp we make the according changes, important to note is the ActionUrl that we define:&lt;/p&gt;</description></item><item><title>CouchDB External Documents</title><link>https://eclipse.dev/sw360/docs/development/dev-external-documents-with-couchdb/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/development/dev-external-documents-with-couchdb/</guid><description>&lt;h2 id="motivation"&gt;Motivation&lt;/h2&gt;
+&lt;p&gt;In some cases inline documents are not sufficient for storing extended information to a document. This is especially the case if these information might be relevant from outside as well.
 Projects, components and releases contain attachments. The metadata of these attachments are stored as inline documents inside its parent document (which is the project, component or release).
 However these attachments may be used by other documents as well, e.g. license info files which are attached to releases are used by projects to generate the overall license information for that project.
-In such cases an external document might be the better model. For example the attachment usage can be stored along the metadata without touching the owner document on update.&lt;/p></description></item><item><title>Database migration using Costco</title><link>https://eclipse.dev/sw360/docs/development/dev-database-migration-using-costco/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/development/dev-database-migration-using-costco/</guid><description>&lt;h3 id="praeamble">Praeamble&lt;/h3>
-&lt;p>Please note that database migrations are done now in python scripts at&lt;/p>
-&lt;blockquote>
-&lt;p>&lt;a href="https://github.com/eclipse/sw360/tree/master/scripts/migrations">https://github.com/eclipse/sw360/tree/master/scripts/migrations&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>keeping the following page because Costco might be useful for development / testing / quick adaptations.&lt;/p>
-&lt;h3 id="problem">Problem&lt;/h3>
-&lt;p>The main problem with changing field names in thrift is that existing documents in the couchdb need adjustments. Unfortunately, the futon interface of the couchdb does not offer bulk edits. As a consequence, looking into every document is tedious, for more than 100 documents, maybe unfeasible.&lt;/p></description></item><item><title>Definition of Done</title><link>https://eclipse.dev/sw360/docs/development/dev-dod-and-style/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/development/dev-dod-and-style/</guid><description>&lt;h2 id="policy">Policy&lt;/h2>
-&lt;ul>
-&lt;li>Review points should involve one person from another angle (not just the person you were sitting together with anyways)&lt;/li>
-&lt;li>No self merging of pull requests&lt;/li>
-&lt;li>Limit items in review to 5, try to coordinate&lt;/li>
-&lt;li>Using Github assignments to issues or pull requests&lt;/li>
-&lt;li>Open review items require conversation&lt;/li>
-&lt;li>Every change must be proposed in the form of a pull request (no commits to main without review)&lt;/li>
-&lt;/ul>
-&lt;h2 id="definition-of-done">Definition of Done&lt;/h2>
-&lt;ul>
-&lt;li>
-&lt;p>File headers in file OK&lt;/p></description></item><item><title>Filtering in Portlets</title><link>https://eclipse.dev/sw360/docs/development/dev-filtering-in-portlets/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/development/dev-filtering-in-portlets/</guid><description>&lt;p>For the filters that are shown for components and listings, there are some options:&lt;/p>
-&lt;ol>
-&lt;li>
-&lt;p>The &lt;strong>Keyword search&lt;/strong> works directly on the table shown on the main right area. For example in the components portlet, this is in components/view.jsp.&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>The &lt;strong>filters&lt;/strong> actually result in a new search request, when hitting apply filters button. The project portlet reads the fields and creates a map. Then, &lt;code>ProjectPortlet&lt;/code> calls the thrift service &lt;code>refineSearch()&lt;/code>, which is handled in &lt;code>ProjectHandler&lt;/code>. This method takes the map and the user as input. The search service has a server-side JavaScript function (LuceneSearchView) defined for this particular filter in &lt;code>ProjectSearchHandler.java&lt;/code>. This is called with the &lt;code>LuceneAwareDatabaseConnector.java&lt;/code>. After filtering, the visibility constraints for the requesting user are applied.&lt;/p></description></item><item><title>Fossology Integration</title><link>https://eclipse.dev/sw360/docs/development/dev-fossology-integration/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/development/dev-fossology-integration/</guid><description>&lt;p>Basic communication with the FOSSology server is done over an SSH connection: the fossology service of SW360 executes remote commands on the FOSSology server.&lt;/p>
-&lt;p>The commands that are executed are the bash scripts found inside &lt;code>src-fossology/src/main/resources/scripts/&lt;/code>, they are copied into the home directory of the ssh user (either manually or through the admin portlet).
-See &lt;a href="Fossology-Setup">Setup of connection with Fossology&lt;/a> for configuration details.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-gdscript3" data-lang="gdscript3">&lt;span style="display:flex;">&lt;span>\&lt;span style="color:#555">-&lt;/span> src&lt;span style="color:#555">-&lt;/span>fossology&lt;span style="color:#555">/&lt;/span>src&lt;span style="color:#555">/&lt;/span>main&lt;span style="color:#555">/&lt;/span>resources&lt;span style="color:#555">/&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> \&lt;span style="color:#555">-&lt;/span> scripts&lt;span style="color:#555">/&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#555">|-&lt;/span> duplicateUpload
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#555">|-&lt;/span> folderManager
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#555">|-&lt;/span> getStatusOfUpload
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#555">|-&lt;/span> uploadFromSW360
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> \&lt;span style="color:#555">-&lt;/span> utilsSW360
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>These scripts utilize the standard command line tools to interact natively with FOSSology (these are the tools found in the src/cli folder of FOSSology, such as &lt;code>cp2foss fossjobs fossupload_status fo_usergroup fo_chmod fo_folder ...&lt;/code>).&lt;/p></description></item><item><title>Liferay Friendly</title><link>https://eclipse.dev/sw360/docs/development/dev-liferay-friendly-url/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/development/dev-liferay-friendly-url/</guid><description>&lt;p>The normal generated portlet URLs containing a set of internal Liferay request parameters. &lt;br>
-These long URLs of links or forms are mostly not readable and its not easy to share it somewhere else.&lt;/p>
-&lt;p>General Liferay portlet URL: &lt;br>&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-fallback" data-lang="fallback">&lt;span style="display:flex;">&lt;span>http://localhost:8080/web/guest/examples?p_p_id=example_WAR_ExamplePortlet&amp;amp;p_p_lifecycle=1&amp;amp;p_p_state=normal&amp;amp;p_p_mode=view&amp;amp;p_p_col_id=column-1&amp;amp;p_p_col_count=1&amp;amp;_example_WAR_ExamplePortlet_javax.portlet.action=new
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Explanation of the Liferay request parameters: &lt;br>
-&lt;strong>p_p_id:&lt;/strong> The portlet ID (example_WAR_ExamplePortlet)&lt;br>
-&lt;strong>p_p_state:&lt;/strong> Liferay windows pages state - 1 (normal) 2 (maximize) 3 (minimize) &lt;br>
-&lt;strong>p_p_mode&lt;/strong>: Mode of the portlet look like - (view) (edit) (help) &lt;br>
-&lt;strong>p_p_lifecycle:&lt;/strong> This is life cycle of portlet - 0 (render) 1 (action) 2 (server) &lt;br>
-&lt;strong>p_p_col_id:&lt;/strong> The reference ID of the column in Liferay template &lt;br>
-&lt;strong>p_p_col_pos:&lt;/strong> Specifiy the column position if the the layout having more than one columns &lt;br>
-&lt;strong>p_p_col_count:&lt;/strong> Shows the no of columns in the current layout&lt;/p></description></item><item><title>Moderation Requests</title><link>https://eclipse.dev/sw360/docs/development/dev-moderation-requests/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/development/dev-moderation-requests/</guid><description>&lt;p>The concept of moderation is good for two things:&lt;/p>
-&lt;ul>
-&lt;li>to cope with a large number of potential edits on documents.&lt;/li>
-&lt;li>to allow every user to propose edits.&lt;/li>
-&lt;/ul>
-&lt;p>Allowing every user to edit opposed to propose edits would lad to a large number of changes, potentially, not making everyone happy. As such, the changes should be reviewed by an experienced person and can be then approved.&lt;/p>
-&lt;h2 id="application-flow">Application Flow&lt;/h2>
-&lt;p>A user changes a moderated document, which are component, release, project and todo&amp;rsquo;s of licenses (and the white list):&lt;/p></description></item><item><title>Release and Versioning</title><link>https://eclipse.dev/sw360/docs/development/dev-releasing-sw360/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/development/dev-releasing-sw360/</guid><description>&lt;p>We have the following main principles for versioning and releases. We consider &lt;a href="http://semver.org/">semantic versioning&lt;/a>:&lt;/p>
-&lt;blockquote>
-&lt;p>Given a version number MAJOR.MINOR.PATCH, increment the:&lt;/p>
-&lt;ul>
-&lt;li>MAJOR version when you make incompatible API changes,&lt;/li>
-&lt;li>MINOR version when you add functionality in a backwards-compatible manner, and&lt;/li>
-&lt;li>PATCH version when you make backwards-compatible bug fixes or security fixes.&lt;/li>
-&lt;/ul>
-&lt;p>Additional labels for pre-release and build metadata are available as extensions to the MAJOR.MINOR.PATCH format.&lt;/p>&lt;/blockquote>
-&lt;p>with the following implementation in our project:&lt;/p></description></item><item><title>Roles and Authorization</title><link>https://eclipse.dev/sw360/docs/development/dev-role-authorisation-model/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/development/dev-role-authorisation-model/</guid><description>&lt;p>Like any other system, SW360 allows for setting different levels of access for different users. Technically, the decision when user should be able to see or to do something happens (generally) on the backend server. This ensures consistency between the REST API and the portal application.&lt;/p>
-&lt;p>For setting roles of a user, the Liferay control panel is being used (Admin menu -&amp;gt; Control Panel -&amp;gt; Users and Organisations -&amp;gt; Users -&amp;gt; select one user and Edit -&amp;gt; Roles). Setting access at individual records happens in the edit view of that record.&lt;/p></description></item><item><title>Semantic Commits</title><link>https://eclipse.dev/sw360/docs/development/dev-semantic-commits/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/development/dev-semantic-commits/</guid><description>&lt;h2 id="the-reason-and-benefit-of-semantic-commit-messages">The reason and benefit of semantic commit messages&lt;/h2>
-&lt;ul>
-&lt;li>automatic generating of the changelog&lt;/li>
-&lt;li>simple navigation through git history (e.g. ignoring style changes)&lt;/li>
-&lt;/ul>
-&lt;h2 id="semantic-commit-message-structure">Semantic commit message structure&lt;/h2>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-fallback" data-lang="fallback">&lt;span style="display:flex;">&lt;span>&amp;lt;type&amp;gt;(&amp;lt;scope&amp;gt;): &amp;lt;commit message&amp;gt;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Signed-off-by: Name &amp;lt;email address&amp;gt;
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="the-following--are-supported">The following &lt;types> are supported&lt;/h2>
-&lt;ul>
-&lt;li>feat (new feature for the user, not a new feature for build script)&lt;/li>
-&lt;li>fix (bug fix for the user, not a fix to a build script)&lt;/li>
-&lt;li>docs (changes to the documentation)&lt;/li>
-&lt;li>style (formatting, missing semi colons, etc; no production code change)&lt;/li>
-&lt;li>refactor (refactoring production code, eg. renaming a variable)&lt;/li>
-&lt;li>test (adding missing tests, refactoring tests; no production code change)&lt;/li>
-&lt;li>chore (updating grunt tasks etc; no production code change)&lt;/li>
-&lt;/ul>
-&lt;p>Example &lt;scope> values:&lt;/p></description></item><item><title>Testing Frameworks</title><link>https://eclipse.dev/sw360/docs/development/dev-testing-frameworks/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/development/dev-testing-frameworks/</guid><description>&lt;p>The implementation of complicated rules is not always easy to read.
+In such cases an external document might be the better model. For example the attachment usage can be stored along the metadata without touching the owner document on update.&lt;/p&gt;</description></item><item><title>Database migration using Costco</title><link>https://eclipse.dev/sw360/docs/development/dev-database-migration-using-costco/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/development/dev-database-migration-using-costco/</guid><description>&lt;h3 id="praeamble"&gt;Praeamble&lt;/h3&gt;
+&lt;p&gt;Please note that database migrations are done now in python scripts at&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href="https://github.com/eclipse/sw360/tree/master/scripts/migrations"&gt;https://github.com/eclipse/sw360/tree/master/scripts/migrations&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;keeping the following page because Costco might be useful for development / testing / quick adaptations.&lt;/p&gt;
+&lt;h3 id="problem"&gt;Problem&lt;/h3&gt;
+&lt;p&gt;The main problem with changing field names in thrift is that existing documents in the couchdb need adjustments. Unfortunately, the futon interface of the couchdb does not offer bulk edits. As a consequence, looking into every document is tedious, for more than 100 documents, maybe unfeasible.&lt;/p&gt;</description></item><item><title>Definition of Done</title><link>https://eclipse.dev/sw360/docs/development/dev-dod-and-style/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/development/dev-dod-and-style/</guid><description>&lt;h2 id="policy"&gt;Policy&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Review points should involve one person from another angle (not just the person you were sitting together with anyways)&lt;/li&gt;
+&lt;li&gt;No self merging of pull requests&lt;/li&gt;
+&lt;li&gt;Limit items in review to 5, try to coordinate&lt;/li&gt;
+&lt;li&gt;Using Github assignments to issues or pull requests&lt;/li&gt;
+&lt;li&gt;Open review items require conversation&lt;/li&gt;
+&lt;li&gt;Every change must be proposed in the form of a pull request (no commits to main without review)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="definition-of-done"&gt;Definition of Done&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;File headers in file OK&lt;/p&gt;</description></item><item><title>Filtering in Portlets</title><link>https://eclipse.dev/sw360/docs/development/dev-filtering-in-portlets/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/development/dev-filtering-in-portlets/</guid><description>&lt;p&gt;For the filters that are shown for components and listings, there are some options:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;The &lt;strong&gt;Keyword search&lt;/strong&gt; works directly on the table shown on the main right area. For example in the components portlet, this is in components/view.jsp.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The &lt;strong&gt;filters&lt;/strong&gt; actually result in a new search request, when hitting apply filters button. The project portlet reads the fields and creates a map. Then, &lt;code&gt;ProjectPortlet&lt;/code&gt; calls the thrift service &lt;code&gt;refineSearch()&lt;/code&gt;, which is handled in &lt;code&gt;ProjectHandler&lt;/code&gt;. This method takes the map and the user as input. The search service has a server-side JavaScript function (LuceneSearchView) defined for this particular filter in &lt;code&gt;ProjectSearchHandler.java&lt;/code&gt;. This is called with the &lt;code&gt;LuceneAwareDatabaseConnector.java&lt;/code&gt;. After filtering, the visibility constraints for the requesting user are applied.&lt;/p&gt;</description></item><item><title>Fossology Integration</title><link>https://eclipse.dev/sw360/docs/development/dev-fossology-integration/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/development/dev-fossology-integration/</guid><description>&lt;p&gt;Basic communication with the FOSSology server is done over an SSH connection: the fossology service of SW360 executes remote commands on the FOSSology server.&lt;/p&gt;
+&lt;p&gt;The commands that are executed are the bash scripts found inside &lt;code&gt;src-fossology/src/main/resources/scripts/&lt;/code&gt;, they are copied into the home directory of the ssh user (either manually or through the admin portlet).
+See &lt;a href="Fossology-Setup"&gt;Setup of connection with Fossology&lt;/a&gt; for configuration details.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-gdscript3" data-lang="gdscript3"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;\&lt;span style="color:#555"&gt;-&lt;/span&gt; src&lt;span style="color:#555"&gt;-&lt;/span&gt;fossology&lt;span style="color:#555"&gt;/&lt;/span&gt;src&lt;span style="color:#555"&gt;/&lt;/span&gt;main&lt;span style="color:#555"&gt;/&lt;/span&gt;resources&lt;span style="color:#555"&gt;/&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; \&lt;span style="color:#555"&gt;-&lt;/span&gt; scripts&lt;span style="color:#555"&gt;/&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#555"&gt;|-&lt;/span&gt; duplicateUpload
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#555"&gt;|-&lt;/span&gt; folderManager
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#555"&gt;|-&lt;/span&gt; getStatusOfUpload
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#555"&gt;|-&lt;/span&gt; uploadFromSW360
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; \&lt;span style="color:#555"&gt;-&lt;/span&gt; utilsSW360
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;These scripts utilize the standard command line tools to interact natively with FOSSology (these are the tools found in the src/cli folder of FOSSology, such as &lt;code&gt;cp2foss fossjobs fossupload_status fo_usergroup fo_chmod fo_folder ...&lt;/code&gt;).&lt;/p&gt;</description></item><item><title>Liferay Friendly</title><link>https://eclipse.dev/sw360/docs/development/dev-liferay-friendly-url/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/development/dev-liferay-friendly-url/</guid><description>&lt;p&gt;The normal generated portlet URLs containing a set of internal Liferay request parameters. &lt;br&gt;
+These long URLs of links or forms are mostly not readable and its not easy to share it somewhere else.&lt;/p&gt;
+&lt;p&gt;General Liferay portlet URL: &lt;br&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;http://localhost:8080/web/guest/examples?p_p_id=example_WAR_ExamplePortlet&amp;amp;p_p_lifecycle=1&amp;amp;p_p_state=normal&amp;amp;p_p_mode=view&amp;amp;p_p_col_id=column-1&amp;amp;p_p_col_count=1&amp;amp;_example_WAR_ExamplePortlet_javax.portlet.action=new
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Explanation of the Liferay request parameters: &lt;br&gt;
+&lt;strong&gt;p_p_id:&lt;/strong&gt; The portlet ID (example_WAR_ExamplePortlet)&lt;br&gt;
+&lt;strong&gt;p_p_state:&lt;/strong&gt; Liferay windows pages state - 1 (normal) 2 (maximize) 3 (minimize) &lt;br&gt;
+&lt;strong&gt;p_p_mode&lt;/strong&gt;: Mode of the portlet look like - (view) (edit) (help) &lt;br&gt;
+&lt;strong&gt;p_p_lifecycle:&lt;/strong&gt; This is life cycle of portlet - 0 (render) 1 (action) 2 (server) &lt;br&gt;
+&lt;strong&gt;p_p_col_id:&lt;/strong&gt; The reference ID of the column in Liferay template &lt;br&gt;
+&lt;strong&gt;p_p_col_pos:&lt;/strong&gt; Specifiy the column position if the the layout having more than one columns &lt;br&gt;
+&lt;strong&gt;p_p_col_count:&lt;/strong&gt; Shows the no of columns in the current layout&lt;/p&gt;</description></item><item><title>Moderation Requests</title><link>https://eclipse.dev/sw360/docs/development/dev-moderation-requests/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/development/dev-moderation-requests/</guid><description>&lt;p&gt;The concept of moderation is good for two things:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;to cope with a large number of potential edits on documents.&lt;/li&gt;
+&lt;li&gt;to allow every user to propose edits.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Allowing every user to edit opposed to propose edits would lad to a large number of changes, potentially, not making everyone happy. As such, the changes should be reviewed by an experienced person and can be then approved.&lt;/p&gt;
+&lt;h2 id="application-flow"&gt;Application Flow&lt;/h2&gt;
+&lt;p&gt;A user changes a moderated document, which are component, release, project and todo&amp;rsquo;s of licenses (and the white list):&lt;/p&gt;</description></item><item><title>Release and Versioning</title><link>https://eclipse.dev/sw360/docs/development/dev-releasing-sw360/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/development/dev-releasing-sw360/</guid><description>&lt;p&gt;We have the following main principles for versioning and releases. We consider &lt;a href="http://semver.org/"&gt;semantic versioning&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Given a version number MAJOR.MINOR.PATCH, increment the:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;MAJOR version when you make incompatible API changes,&lt;/li&gt;
+&lt;li&gt;MINOR version when you add functionality in a backwards-compatible manner, and&lt;/li&gt;
+&lt;li&gt;PATCH version when you make backwards-compatible bug fixes or security fixes.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Additional labels for pre-release and build metadata are available as extensions to the MAJOR.MINOR.PATCH format.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;with the following implementation in our project:&lt;/p&gt;</description></item><item><title>Roles and Authorization</title><link>https://eclipse.dev/sw360/docs/development/dev-role-authorisation-model/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/development/dev-role-authorisation-model/</guid><description>&lt;p&gt;Like any other system, SW360 allows for setting different levels of access for different users. Technically, the decision when user should be able to see or to do something happens (generally) on the backend server. This ensures consistency between the REST API and the portal application.&lt;/p&gt;
+&lt;p&gt;For setting roles of a user, the Liferay control panel is being used (Admin menu -&amp;gt; Control Panel -&amp;gt; Users and Organisations -&amp;gt; Users -&amp;gt; select one user and Edit -&amp;gt; Roles). Setting access at individual records happens in the edit view of that record.&lt;/p&gt;</description></item><item><title>Semantic Commits</title><link>https://eclipse.dev/sw360/docs/development/dev-semantic-commits/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/development/dev-semantic-commits/</guid><description>&lt;h2 id="the-reason-and-benefit-of-semantic-commit-messages"&gt;The reason and benefit of semantic commit messages&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;automatic generating of the changelog&lt;/li&gt;
+&lt;li&gt;simple navigation through git history (e.g. ignoring style changes)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="semantic-commit-message-structure"&gt;Semantic commit message structure&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&amp;lt;type&amp;gt;(&amp;lt;scope&amp;gt;): &amp;lt;commit message&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Signed-off-by: Name &amp;lt;email address&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="the-following--are-supported"&gt;The following &lt;types&gt; are supported&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;feat (new feature for the user, not a new feature for build script)&lt;/li&gt;
+&lt;li&gt;fix (bug fix for the user, not a fix to a build script)&lt;/li&gt;
+&lt;li&gt;docs (changes to the documentation)&lt;/li&gt;
+&lt;li&gt;style (formatting, missing semi colons, etc; no production code change)&lt;/li&gt;
+&lt;li&gt;refactor (refactoring production code, eg. renaming a variable)&lt;/li&gt;
+&lt;li&gt;test (adding missing tests, refactoring tests; no production code change)&lt;/li&gt;
+&lt;li&gt;chore (updating grunt tasks etc; no production code change)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Example &lt;scope&gt; values:&lt;/p&gt;</description></item><item><title>Testing Frameworks</title><link>https://eclipse.dev/sw360/docs/development/dev-testing-frameworks/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/development/dev-testing-frameworks/</guid><description>&lt;p&gt;The implementation of complicated rules is not always easy to read.
 A good way to document and explain the behaviour of rule engines are natural language tests.
-A frame work we use for that is &lt;a href="http://jgiven.org/">jgiven&lt;/a>.
-We write the tests using the [dataprovider] (&lt;a href="https://github.com/TNG/junit-dataprovider">https://github.com/TNG/junit-dataprovider&lt;/a>) runner.
-This is basically a runner that allows to use parametrized tests.&lt;/p>
-&lt;p>The basic testing frame work is still &lt;a href="http://junit.org/">JUnit4&lt;/a>, assertions are made using &lt;a href="https://code.google.com/p/hamcrest/wiki/Tutorial">hamcrest&lt;/a> and we mock complicated input classes with &lt;a href="http://mockito.org/">mockito&lt;/a>.&lt;/p></description></item><item><title>Troubleshooting</title><link>https://eclipse.dev/sw360/docs/development/dev-troubleshooting/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/development/dev-troubleshooting/</guid><description>&lt;h3 id="development-problems-building-sw360portal-with-maven">Development: problems building sw360portal with maven?&lt;/h3>
-&lt;p>Before building the sw360portal with maven, ensure that the following components are installed in the development environment:&lt;/p>
-&lt;ul>
-&lt;li>A git client&lt;/li>
-&lt;li>Apache Maven 3.0.X&lt;/li>
-&lt;li>Apache Thrift 0.9.3&lt;/li>
-&lt;li>Java 1.8.X&lt;/li>
-&lt;li>CouchDB, at least 1.5 (only if the tests will be executed locally)&lt;/li>
-&lt;/ul>
-&lt;h3 id="development-problems-using-eclipse">Development: problems using Eclipse?&lt;/h3>
-&lt;p>Please do not use Eclipse, because the integration of Apache Thrift is an open issue and we found no plugin for Eclipse to solve the shown compiler errors.
-Recommended is IntelliJ IDEA or NetBeans.&lt;/p></description></item><item><title>Using RequireJS fro Javascript Modules</title><link>https://eclipse.dev/sw360/docs/development/dev-using-requirejs-for-javascript-modules/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/development/dev-using-requirejs-for-javascript-modules/</guid><description>&lt;p>Today most of the javascript code runs in the global namespace. This increases the risk of overwriting symbols in the global namespace due to different libraries and snippets.&lt;/p>
-&lt;h2 id="goal">Goal&lt;/h2>
-&lt;p>We want to use RequireJS (&lt;a href="http://requirejs.org/">http://requirejs.org/&lt;/a>) to modularize our code and to have clear namespaces for each component. In addition some of the code may be reused more easily. Other advantages:&lt;/p>
-&lt;ul>
-&lt;li>libraries like jquery or datatables can be imported by name but without a specified version&lt;/li>
-&lt;li>if necessary, specific versions can be imported for parts of the page&lt;/li>
-&lt;li>it is very easy to only load needed dependencies&lt;/li>
-&lt;li>good support of webjars due to webjars-locator. Webjars a are automatically accessible through RequireJS.&lt;/li>
-&lt;/ul>
-&lt;h2 id="how-to-use---example">How to use - Example&lt;/h2>
-&lt;p>There is a new jspf-file to be included in jsps to enable RequireJS support:&lt;/p></description></item></channel></rss>
+A frame work we use for that is &lt;a href="http://jgiven.org/"&gt;jgiven&lt;/a&gt;.
+We write the tests using the [dataprovider] (&lt;a href="https://github.com/TNG/junit-dataprovider"&gt;https://github.com/TNG/junit-dataprovider&lt;/a&gt;) runner.
+This is basically a runner that allows to use parametrized tests.&lt;/p&gt;
+&lt;p&gt;The basic testing frame work is still &lt;a href="http://junit.org/"&gt;JUnit4&lt;/a&gt;, assertions are made using &lt;a href="https://code.google.com/p/hamcrest/wiki/Tutorial"&gt;hamcrest&lt;/a&gt; and we mock complicated input classes with &lt;a href="http://mockito.org/"&gt;mockito&lt;/a&gt;.&lt;/p&gt;</description></item><item><title>Troubleshooting</title><link>https://eclipse.dev/sw360/docs/development/dev-troubleshooting/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/development/dev-troubleshooting/</guid><description>&lt;h3 id="development-problems-building-sw360portal-with-maven"&gt;Development: problems building sw360portal with maven?&lt;/h3&gt;
+&lt;p&gt;Before building the sw360portal with maven, ensure that the following components are installed in the development environment:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A git client&lt;/li&gt;
+&lt;li&gt;Apache Maven 3.0.X&lt;/li&gt;
+&lt;li&gt;Apache Thrift 0.9.3&lt;/li&gt;
+&lt;li&gt;Java 1.8.X&lt;/li&gt;
+&lt;li&gt;CouchDB, at least 1.5 (only if the tests will be executed locally)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="development-problems-using-eclipse"&gt;Development: problems using Eclipse?&lt;/h3&gt;
+&lt;p&gt;Please do not use Eclipse, because the integration of Apache Thrift is an open issue and we found no plugin for Eclipse to solve the shown compiler errors.
+Recommended is IntelliJ IDEA or NetBeans.&lt;/p&gt;</description></item><item><title>Using RequireJS fro Javascript Modules</title><link>https://eclipse.dev/sw360/docs/development/dev-using-requirejs-for-javascript-modules/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/development/dev-using-requirejs-for-javascript-modules/</guid><description>&lt;p&gt;Today most of the javascript code runs in the global namespace. This increases the risk of overwriting symbols in the global namespace due to different libraries and snippets.&lt;/p&gt;
+&lt;h2 id="goal"&gt;Goal&lt;/h2&gt;
+&lt;p&gt;We want to use RequireJS (&lt;a href="http://requirejs.org/"&gt;http://requirejs.org/&lt;/a&gt;) to modularize our code and to have clear namespaces for each component. In addition some of the code may be reused more easily. Other advantages:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;libraries like jquery or datatables can be imported by name but without a specified version&lt;/li&gt;
+&lt;li&gt;if necessary, specific versions can be imported for parts of the page&lt;/li&gt;
+&lt;li&gt;it is very easy to only load needed dependencies&lt;/li&gt;
+&lt;li&gt;good support of webjars due to webjars-locator. Webjars a are automatically accessible through RequireJS.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="how-to-use---example"&gt;How to use - Example&lt;/h2&gt;
+&lt;p&gt;There is a new jspf-file to be included in jsps to enable RequireJS support:&lt;/p&gt;</description></item></channel></rss>

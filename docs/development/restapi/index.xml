@@ -1,17 +1,17 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SW360 RESTful API on Eclipse SW360</title><link>https://eclipse.dev/sw360/docs/development/restapi/</link><description>Recent content in SW360 RESTful API on Eclipse SW360</description><generator>Hugo</generator><language>en</language><atom:link href="https://eclipse.dev/sw360/docs/development/restapi/index.xml" rel="self" type="application/rss+xml"/><item><title>API Access</title><link>https://eclipse.dev/sw360/docs/development/restapi/access/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/development/restapi/access/</guid><description>&lt;h2 id="how-to-get-access">How to get Access&lt;/h2>
-&lt;p>There are the following steps&lt;/p>
-&lt;ol>
-&lt;li>
-&lt;p>Open a browser with developer tools&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>Go to
-&lt;code>https://&amp;lt;my_sw360_server&amp;gt;/authorization/client-management&lt;/code>&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>To add a new client, enter the following javascript in the dev tools
-console&lt;/p>
-&lt;pre>&lt;code> xmlHttpRequest = new XMLHttpRequest();
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SW360 RESTful API on Eclipse SW360</title><link>https://eclipse.dev/sw360/docs/development/restapi/</link><description>Recent content in SW360 RESTful API on Eclipse SW360</description><generator>Hugo</generator><language>en</language><atom:link href="https://eclipse.dev/sw360/docs/development/restapi/index.xml" rel="self" type="application/rss+xml"/><item><title>API Access</title><link>https://eclipse.dev/sw360/docs/development/restapi/access/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/development/restapi/access/</guid><description>&lt;h2 id="how-to-get-access"&gt;How to get Access&lt;/h2&gt;
+&lt;p&gt;There are the following steps&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Open a browser with developer tools&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Go to
+&lt;code&gt;https://&amp;lt;my_sw360_server&amp;gt;/authorization/client-management&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;To add a new client, enter the following javascript in the dev tools
+console&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt; xmlHttpRequest = new XMLHttpRequest();
  xmlHttpRequest.open('POST', '/authorization/client-management', false);
  xmlHttpRequest.setRequestHeader('Content-Type', 'application/json');
  xmlHttpRequest.setRequestHeader('Accept', 'application/json');
@@ -25,16 +25,16 @@ console&lt;/p>
  }
  ));
  console.log(xmlHttpRequest.responseText);
-&lt;/code>&lt;/pre>
-&lt;/li>
-&lt;li>
-&lt;p>To manipulate an existing client, do the same but add the clientid to
-the data object&lt;/p></description></item><item><title>SW360 Rest API</title><link>https://eclipse.dev/sw360/docs/development/restapi/dev-rest-api/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/development/restapi/dev-rest-api/</guid><description>&lt;p>The sw360 REST API provides access to sw360 resources for external clients. It consists currently of three Maven modules aggregated in one parent module &lt;code>rest&lt;/code> in the sw360 distribution.&lt;/p>
-&lt;h2 id="module-structure">Module Structure&lt;/h2>
-&lt;p>The &lt;code>rest&lt;/code> module provides a REST API infrastructure for sw360 including:&lt;/p>
-&lt;ul>
-&lt;li>Module &lt;code>authorization-server&lt;/code> - OAuth2 Authorization Server, offering typical authorization steps of an OAuth2 workflow.&lt;/li>
-&lt;li>Module &lt;code>resource-server&lt;/code> - REST API Gateway, providing access to the data for authenticated and authorized users / clients.&lt;/li>
-&lt;li>Module &lt;code>rest-common&lt;/code> - only library code that is shared between the other rest modules.&lt;/li>
-&lt;/ul>
-&lt;p>The REST API implementation uses:&lt;/p></description></item></channel></rss>
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;To manipulate an existing client, do the same but add the clientid to
+the data object&lt;/p&gt;</description></item><item><title>SW360 Rest API</title><link>https://eclipse.dev/sw360/docs/development/restapi/dev-rest-api/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/development/restapi/dev-rest-api/</guid><description>&lt;p&gt;The sw360 REST API provides access to sw360 resources for external clients. It consists currently of three Maven modules aggregated in one parent module &lt;code&gt;rest&lt;/code&gt; in the sw360 distribution.&lt;/p&gt;
+&lt;h2 id="module-structure"&gt;Module Structure&lt;/h2&gt;
+&lt;p&gt;The &lt;code&gt;rest&lt;/code&gt; module provides a REST API infrastructure for sw360 including:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Module &lt;code&gt;authorization-server&lt;/code&gt; - OAuth2 Authorization Server, offering typical authorization steps of an OAuth2 workflow.&lt;/li&gt;
+&lt;li&gt;Module &lt;code&gt;resource-server&lt;/code&gt; - REST API Gateway, providing access to the data for authenticated and authorized users / clients.&lt;/li&gt;
+&lt;li&gt;Module &lt;code&gt;rest-common&lt;/code&gt; - only library code that is shared between the other rest modules.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The REST API implementation uses:&lt;/p&gt;</description></item></channel></rss>

@@ -1,176 +1,174 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Administration Guides on Eclipse SW360</title><link>https://eclipse.dev/sw360/docs/administrationguide/</link><description>Recent content in Administration Guides on Eclipse SW360</description><generator>Hugo</generator><language>en</language><atom:link href="https://eclipse.dev/sw360/docs/administrationguide/index.xml" rel="self" type="application/rss+xml"/><item><title>Administrator Menu</title><link>https://eclipse.dev/sw360/docs/administrationguide/menu/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/administrationguide/menu/</guid><description>&lt;p>The &lt;strong>admin menu&lt;/strong> consists of the following items:&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Administration Guides on Eclipse SW360</title><link>https://eclipse.dev/sw360/docs/administrationguide/</link><description>Recent content in Administration Guides on Eclipse SW360</description><generator>Hugo</generator><language>en</language><atom:link href="https://eclipse.dev/sw360/docs/administrationguide/index.xml" rel="self" type="application/rss+xml"/><item><title>Administrator Menu</title><link>https://eclipse.dev/sw360/docs/administrationguide/menu/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/administrationguide/menu/</guid><description>&lt;p&gt;The &lt;strong&gt;admin menu&lt;/strong&gt; consists of the following items:&lt;/p&gt;
+&lt;figure&gt;&lt;img src="https://eclipse.dev/sw360/img/ImagesBasic/admin_menu.png"&gt;
+&lt;/figure&gt;
 
-&lt;figure>
- &lt;img src="https://eclipse.dev/sw360/img/ImagesBasic/admin_menu.png"/> 
-&lt;/figure>
-
-&lt;ul>
-&lt;li>
-&lt;p>&lt;strong>User&lt;/strong>: Displays the list of &lt;strong>Liferay Users&lt;/strong>. One can also download or upload new users in this section&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;strong>Vendors&lt;/strong>: Displays the list of the &lt;strong>Vendors&lt;/strong> that can be managed by the admin&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;strong>Bulk License Edit&lt;/strong>: List of licenses can be edited together in this section&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;strong>Licenses&lt;/strong>: Functions such as Download License Archive, Upload License Archive, Import SPDX Information and Delete License Information can be done in this section&lt;/p></description></item><item><title>User Management Roles</title><link>https://eclipse.dev/sw360/docs/administrationguide/user-management-roles/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/administrationguide/user-management-roles/</guid><description>&lt;p>Every user can create records and edit own created records. However, to change records of others, approval is required. Approval in SW360 is a so called moderation request. A moderation request is a set of proposed changed not applied to record immediately, but will be routed to;&lt;/p>
-&lt;ul>
-&lt;li>The creator of the record&lt;/li>
-&lt;li>The moderators for a record&lt;/li>
-&lt;li>The clearing admins of the same group in SW360.&lt;/li>
-&lt;/ul>
-&lt;p>Then, the proposed changes can be approved by them.&lt;/p></description></item><item><title>CVE-Search Scheduling</title><link>https://eclipse.dev/sw360/docs/administrationguide/user-scheduling-cve-search-by-admins/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/administrationguide/user-scheduling-cve-search-by-admins/</guid><description>&lt;p>SW360 gets vulnerability information from an external provider of Common Vulnerability Enumeration (CVE) data. By default SW360 can connect to cve-search [https://www.circl.lu/services/cve-search/] which is either available as an online service [http://cve.circl.lu] or can be installed locally. For security and privacy reasons it is strongly advised to install a local cve-search service.&lt;/p>
-&lt;h2 id="synchronization-between-sw360-and-cve-provider">Synchronization between SW360 and CVE Provider&lt;/h2>
-&lt;h3 id="automatic-scheduling">Automatic Scheduling&lt;/h3>
-&lt;p>&lt;code>CveSearch-updates&lt;/code> can either be scheduled automatically when launching the &lt;code>schedule-service&lt;/code> (e.g. when re/starting SW360) or it can be scheduled or unscheduled manually by an &lt;code>SW360 admin&lt;/code>.
-It is automatically scheduled with the start of the scheduling service, if in the &lt;code>/resources/sw360.properties&lt;/code> file of the &lt;code>schedule-service&lt;/code> in the backend, &lt;code>cvesearchService&lt;/code> is mentioned in the &lt;code>autostart&lt;/code>-property:&lt;/p></description></item><item><title>Enumerations</title><link>https://eclipse.dev/sw360/docs/administrationguide/user-data-model-enumerations/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/administrationguide/user-data-model-enumerations/</guid><description>&lt;p>SW360 thrift API is comprised of the following methods:&lt;/p>
-&lt;ul>
-&lt;li>attachments&lt;/li>
-&lt;li>codescoop&lt;/li>
-&lt;li>components&lt;/li>
-&lt;li>cvesearch&lt;/li>
-&lt;li>fossology&lt;/li>
-&lt;li>importstatus&lt;/li>
-&lt;li>licenseinfo&lt;/li>
-&lt;li>licenses&lt;/li>
-&lt;li>moderation&lt;/li>
-&lt;li>projectimport&lt;/li>
-&lt;li>projects&lt;/li>
-&lt;li>schedule&lt;/li>
-&lt;li>search&lt;/li>
-&lt;li>sw360&lt;/li>
-&lt;li>users&lt;/li>
-&lt;li>vendors&lt;/li>
-&lt;li>vulnerabilities&lt;/li>
-&lt;/ul>
-&lt;p>Reference: &lt;a href="https://github.com/eclipse-sw360/sw360/tree/main/libraries/datahandler/src/main/thrift">https://github.com/eclipse-sw360/sw360/tree/main/libraries/datahandler/src/main/thrift&lt;/a>&lt;/p>
-&lt;h2 id="attachments">Attachments&lt;/h2>
-&lt;p>&lt;a href="https://github.com/eclipse-sw360/sw360/blob/main/libraries/datahandler/src/main/thrift/attachments.thrift">https://github.com/eclipse-sw360/sw360/blob/main/libraries/datahandler/src/main/thrift/attachments.thrift&lt;/a>&lt;/p>
-&lt;h3 id="attachmenttype">AttachmentType&lt;/h3>
-&lt;table>
- &lt;thead>
- &lt;tr>
- &lt;th>Value&lt;/th>
- &lt;th>Description.&lt;/th>
- &lt;/tr>
- &lt;/thead>
- &lt;tbody>
- &lt;tr>
- &lt;td>DOCUMENT&lt;/td>
- &lt;td>justa document&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>SOURCE&lt;/td>
- &lt;td>original course code&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>DESIGN&lt;/td>
- &lt;td>design document&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>REQUIREMENT&lt;/td>
- &lt;td>requirements document&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>CLEARING_REPORT&lt;/td>
- &lt;td>OSS licensing reporting&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>COMPONENT_LICENSE_INFO_XML&lt;/td>
- &lt;td>XML document with licenseing information - e.g. SPDX&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>COMPONENT_LICENSE_INFO_COMBINED&lt;/td>
- &lt;td>XML document with licensing information covering multiple componnts at once - e.g. SPDX&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>SCAN_RESULT_REPORT&lt;/td>
- &lt;td>Output what a scanner for licenses has found&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>SCAN_RESULT_REPORT_XML&lt;/td>
- &lt;td>Output what a scanner for licenses has found this time in XML&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>SOURCE_SELF&lt;/td>
- &lt;td>Self assembled source code distribution&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>BINARY&lt;/td>
- &lt;td>Binary of component from vendor&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>BINARY_SELF&lt;/td>
- &lt;td>Self built binary&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>DECISION_REPORT&lt;/td>
- &lt;td>documenting importing decisions for using this item&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>LEGAL_EVALUATION&lt;/td>
- &lt;td>Some legal evaluation created for this item&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>LICENSE_AGREEMENT&lt;/td>
- &lt;td>A ruling license agreement for this item, note that this could be for commercial software for example&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>SCREENSHOT&lt;/td>
- &lt;td>Screenshot, usually screenshot of the Website with licensing information&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>OTHER&lt;/td>
- &lt;td>anything that dos not match to the given above&lt;/td>
- &lt;/tr>
- &lt;/tbody>
-&lt;/table>
-&lt;h3 id="checkstatus">CheckStatus&lt;/h3>
-&lt;table>
- &lt;thead>
- &lt;tr>
- &lt;th>Value&lt;/th>
- &lt;th>Description.&lt;/th>
- &lt;/tr>
- &lt;/thead>
- &lt;tbody>
- &lt;tr>
- &lt;td>NOTCHECKED&lt;/td>
- &lt;td>Default value after upload.&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>ACCEPTED&lt;/td>
- &lt;td>Reviewed and confirmed attachment.&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>REJECTED&lt;/td>
- &lt;td>Document or attachment cannot be used.&lt;/td>
- &lt;/tr>
- &lt;/tbody>
-&lt;/table>
-&lt;h2 id="codescoop-thrift-file">CodeScoop Thrift File&lt;/h2>
-&lt;p>&lt;a href="https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/codescoop.thrift">https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/codescoop.thrift&lt;/a>&lt;/p></description></item><item><title>Properties</title><link>https://eclipse.dev/sw360/docs/administrationguide/properties/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/administrationguide/properties/</guid><description>&lt;h2 id="frontend-properties">Frontend Properties&lt;/h2>
-&lt;p>All the sw360 frontend properties are mentioned in &lt;a href="https://github.com/eclipse-sw360/sw360/blob/main/libraries/datahandler/src/main/resources/sw360.properties">sw360.properties&lt;/a> file.
-For example;
-&lt;a href="https://github.com/eclipse/sw360/wiki/">https://github.com/eclipse/sw360/wiki/&lt;/a>&lt;/p>
-&lt;ul>
-&lt;li>
-&lt;p>Different categories for components,&lt;/p>
-&lt;p>component.categories=[ &amp;ldquo;framework&amp;rdquo;, &amp;ldquo;SDK&amp;rdquo;, &amp;ldquo;big-data&amp;rdquo;, &amp;ldquo;build-management&amp;rdquo;, &amp;ldquo;cloud&amp;rdquo;, &amp;ldquo;content&amp;rdquo;, &amp;ldquo;database&amp;rdquo;, &amp;ldquo;graphics&amp;rdquo;, &amp;ldquo;http&amp;rdquo;, &amp;ldquo;javaee&amp;rdquo;, &amp;ldquo;library&amp;rdquo;, &amp;ldquo;mail&amp;rdquo;, &amp;ldquo;mobile&amp;rdquo;, &amp;ldquo;network-client&amp;rdquo;, &amp;ldquo;network-server&amp;rdquo;, &amp;ldquo;osgi&amp;rdquo;, &amp;ldquo;security&amp;rdquo;, &amp;ldquo;testing&amp;rdquo;, &amp;ldquo;virtual-machine&amp;rdquo;, &amp;ldquo;web-framework&amp;rdquo;, &amp;ldquo;xml&amp;rdquo;]&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>Dropdown for project type,&lt;/p>
-&lt;p>project.type=[ &amp;ldquo;Customer Project&amp;rdquo;, &amp;ldquo;Internal Project&amp;rdquo;, &amp;ldquo;Product&amp;rdquo;, &amp;ldquo;Service&amp;rdquo;, &amp;ldquo;Inner Source&amp;rdquo; ]&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>API Token generation,&lt;/p>
-&lt;p>rest.apitoken.generator.enable=false&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>Activation of portlets and components&lt;/p>
-&lt;/li>
-&lt;/ul>
-&lt;h2 id="backend-properties">Backend Properties&lt;/h2>
-&lt;p>This &lt;a href="https://github.com/eclipse-sw360/sw360/blob/main/backend/common/src/main/resources/sw360.properties">sw360.properties&lt;/a> file contains the sw360 backend properties. This file contains the common properties for the backend services and also holds the setting for the mail utility.&lt;/p></description></item></channel></rss>
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;User&lt;/strong&gt;: Displays the list of &lt;strong&gt;Liferay Users&lt;/strong&gt;. One can also download or upload new users in this section&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Vendors&lt;/strong&gt;: Displays the list of the &lt;strong&gt;Vendors&lt;/strong&gt; that can be managed by the admin&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Bulk License Edit&lt;/strong&gt;: List of licenses can be edited together in this section&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Licenses&lt;/strong&gt;: Functions such as Download License Archive, Upload License Archive, Import SPDX Information and Delete License Information can be done in this section&lt;/p&gt;</description></item><item><title>User Management Roles</title><link>https://eclipse.dev/sw360/docs/administrationguide/user-management-roles/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/administrationguide/user-management-roles/</guid><description>&lt;p&gt;Every user can create records and edit own created records. However, to change records of others, approval is required. Approval in SW360 is a so called moderation request. A moderation request is a set of proposed changed not applied to record immediately, but will be routed to;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The creator of the record&lt;/li&gt;
+&lt;li&gt;The moderators for a record&lt;/li&gt;
+&lt;li&gt;The clearing admins of the same group in SW360.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Then, the proposed changes can be approved by them.&lt;/p&gt;</description></item><item><title>CVE-Search Scheduling</title><link>https://eclipse.dev/sw360/docs/administrationguide/user-scheduling-cve-search-by-admins/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/administrationguide/user-scheduling-cve-search-by-admins/</guid><description>&lt;p&gt;SW360 gets vulnerability information from an external provider of Common Vulnerability Enumeration (CVE) data. By default SW360 can connect to cve-search [https://www.circl.lu/services/cve-search/] which is either available as an online service [http://cve.circl.lu] or can be installed locally. For security and privacy reasons it is strongly advised to install a local cve-search service.&lt;/p&gt;
+&lt;h2 id="synchronization-between-sw360-and-cve-provider"&gt;Synchronization between SW360 and CVE Provider&lt;/h2&gt;
+&lt;h3 id="automatic-scheduling"&gt;Automatic Scheduling&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;CveSearch-updates&lt;/code&gt; can either be scheduled automatically when launching the &lt;code&gt;schedule-service&lt;/code&gt; (e.g. when re/starting SW360) or it can be scheduled or unscheduled manually by an &lt;code&gt;SW360 admin&lt;/code&gt;.
+It is automatically scheduled with the start of the scheduling service, if in the &lt;code&gt;/resources/sw360.properties&lt;/code&gt; file of the &lt;code&gt;schedule-service&lt;/code&gt; in the backend, &lt;code&gt;cvesearchService&lt;/code&gt; is mentioned in the &lt;code&gt;autostart&lt;/code&gt;-property:&lt;/p&gt;</description></item><item><title>Enumerations</title><link>https://eclipse.dev/sw360/docs/administrationguide/user-data-model-enumerations/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/administrationguide/user-data-model-enumerations/</guid><description>&lt;p&gt;SW360 thrift API is comprised of the following methods:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;attachments&lt;/li&gt;
+&lt;li&gt;codescoop&lt;/li&gt;
+&lt;li&gt;components&lt;/li&gt;
+&lt;li&gt;cvesearch&lt;/li&gt;
+&lt;li&gt;fossology&lt;/li&gt;
+&lt;li&gt;importstatus&lt;/li&gt;
+&lt;li&gt;licenseinfo&lt;/li&gt;
+&lt;li&gt;licenses&lt;/li&gt;
+&lt;li&gt;moderation&lt;/li&gt;
+&lt;li&gt;projectimport&lt;/li&gt;
+&lt;li&gt;projects&lt;/li&gt;
+&lt;li&gt;schedule&lt;/li&gt;
+&lt;li&gt;search&lt;/li&gt;
+&lt;li&gt;sw360&lt;/li&gt;
+&lt;li&gt;users&lt;/li&gt;
+&lt;li&gt;vendors&lt;/li&gt;
+&lt;li&gt;vulnerabilities&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Reference: &lt;a href="https://github.com/eclipse-sw360/sw360/tree/main/libraries/datahandler/src/main/thrift"&gt;https://github.com/eclipse-sw360/sw360/tree/main/libraries/datahandler/src/main/thrift&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id="attachments"&gt;Attachments&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://github.com/eclipse-sw360/sw360/blob/main/libraries/datahandler/src/main/thrift/attachments.thrift"&gt;https://github.com/eclipse-sw360/sw360/blob/main/libraries/datahandler/src/main/thrift/attachments.thrift&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id="attachmenttype"&gt;AttachmentType&lt;/h3&gt;
+&lt;table&gt;
+ &lt;thead&gt;
+ &lt;tr&gt;
+ &lt;th&gt;Value&lt;/th&gt;
+ &lt;th&gt;Description.&lt;/th&gt;
+ &lt;/tr&gt;
+ &lt;/thead&gt;
+ &lt;tbody&gt;
+ &lt;tr&gt;
+ &lt;td&gt;DOCUMENT&lt;/td&gt;
+ &lt;td&gt;justa document&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;SOURCE&lt;/td&gt;
+ &lt;td&gt;original course code&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;DESIGN&lt;/td&gt;
+ &lt;td&gt;design document&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;REQUIREMENT&lt;/td&gt;
+ &lt;td&gt;requirements document&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;CLEARING_REPORT&lt;/td&gt;
+ &lt;td&gt;OSS licensing reporting&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;COMPONENT_LICENSE_INFO_XML&lt;/td&gt;
+ &lt;td&gt;XML document with licenseing information - e.g. SPDX&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;COMPONENT_LICENSE_INFO_COMBINED&lt;/td&gt;
+ &lt;td&gt;XML document with licensing information covering multiple componnts at once - e.g. SPDX&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;SCAN_RESULT_REPORT&lt;/td&gt;
+ &lt;td&gt;Output what a scanner for licenses has found&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;SCAN_RESULT_REPORT_XML&lt;/td&gt;
+ &lt;td&gt;Output what a scanner for licenses has found this time in XML&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;SOURCE_SELF&lt;/td&gt;
+ &lt;td&gt;Self assembled source code distribution&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;BINARY&lt;/td&gt;
+ &lt;td&gt;Binary of component from vendor&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;BINARY_SELF&lt;/td&gt;
+ &lt;td&gt;Self built binary&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;DECISION_REPORT&lt;/td&gt;
+ &lt;td&gt;documenting importing decisions for using this item&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;LEGAL_EVALUATION&lt;/td&gt;
+ &lt;td&gt;Some legal evaluation created for this item&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;LICENSE_AGREEMENT&lt;/td&gt;
+ &lt;td&gt;A ruling license agreement for this item, note that this could be for commercial software for example&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;SCREENSHOT&lt;/td&gt;
+ &lt;td&gt;Screenshot, usually screenshot of the Website with licensing information&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;OTHER&lt;/td&gt;
+ &lt;td&gt;anything that dos not match to the given above&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id="checkstatus"&gt;CheckStatus&lt;/h3&gt;
+&lt;table&gt;
+ &lt;thead&gt;
+ &lt;tr&gt;
+ &lt;th&gt;Value&lt;/th&gt;
+ &lt;th&gt;Description.&lt;/th&gt;
+ &lt;/tr&gt;
+ &lt;/thead&gt;
+ &lt;tbody&gt;
+ &lt;tr&gt;
+ &lt;td&gt;NOTCHECKED&lt;/td&gt;
+ &lt;td&gt;Default value after upload.&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;ACCEPTED&lt;/td&gt;
+ &lt;td&gt;Reviewed and confirmed attachment.&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;REJECTED&lt;/td&gt;
+ &lt;td&gt;Document or attachment cannot be used.&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id="codescoop-thrift-file"&gt;CodeScoop Thrift File&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/codescoop.thrift"&gt;https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/codescoop.thrift&lt;/a&gt;&lt;/p&gt;</description></item><item><title>Properties</title><link>https://eclipse.dev/sw360/docs/administrationguide/properties/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/administrationguide/properties/</guid><description>&lt;h2 id="frontend-properties"&gt;Frontend Properties&lt;/h2&gt;
+&lt;p&gt;All the sw360 frontend properties are mentioned in &lt;a href="https://github.com/eclipse-sw360/sw360/blob/main/libraries/datahandler/src/main/resources/sw360.properties"&gt;sw360.properties&lt;/a&gt; file.
+For example;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/eclipse/sw360/wiki/"&gt;https://github.com/eclipse/sw360/wiki/&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Different categories for components,&lt;/p&gt;
+&lt;p&gt;component.categories=[ &amp;ldquo;framework&amp;rdquo;, &amp;ldquo;SDK&amp;rdquo;, &amp;ldquo;big-data&amp;rdquo;, &amp;ldquo;build-management&amp;rdquo;, &amp;ldquo;cloud&amp;rdquo;, &amp;ldquo;content&amp;rdquo;, &amp;ldquo;database&amp;rdquo;, &amp;ldquo;graphics&amp;rdquo;, &amp;ldquo;http&amp;rdquo;, &amp;ldquo;javaee&amp;rdquo;, &amp;ldquo;library&amp;rdquo;, &amp;ldquo;mail&amp;rdquo;, &amp;ldquo;mobile&amp;rdquo;, &amp;ldquo;network-client&amp;rdquo;, &amp;ldquo;network-server&amp;rdquo;, &amp;ldquo;osgi&amp;rdquo;, &amp;ldquo;security&amp;rdquo;, &amp;ldquo;testing&amp;rdquo;, &amp;ldquo;virtual-machine&amp;rdquo;, &amp;ldquo;web-framework&amp;rdquo;, &amp;ldquo;xml&amp;rdquo;]&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Dropdown for project type,&lt;/p&gt;
+&lt;p&gt;project.type=[ &amp;ldquo;Customer Project&amp;rdquo;, &amp;ldquo;Internal Project&amp;rdquo;, &amp;ldquo;Product&amp;rdquo;, &amp;ldquo;Service&amp;rdquo;, &amp;ldquo;Inner Source&amp;rdquo; ]&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;API Token generation,&lt;/p&gt;
+&lt;p&gt;rest.apitoken.generator.enable=false&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Activation of portlets and components&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="backend-properties"&gt;Backend Properties&lt;/h2&gt;
+&lt;p&gt;This &lt;a href="https://github.com/eclipse-sw360/sw360/blob/main/backend/common/src/main/resources/sw360.properties"&gt;sw360.properties&lt;/a&gt; file contains the sw360 backend properties. This file contains the common properties for the backend services and also holds the setting for the mail utility.&lt;/p&gt;</description></item></channel></rss>
