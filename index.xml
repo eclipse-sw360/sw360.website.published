@@ -1216,7 +1216,20 @@ We will add the license text to licenses in the thrift file:&lt;/p&gt;
  &lt;td style="text-align: left"&gt;A new file is listed in &lt;em&gt;Attachments&lt;/em&gt; page with name&amp;rsquo;s format &lt;em&gt;{component name}-{version}-{yyyymmdd}-{hhmm}-SPDX.rdf&lt;/em&gt;&lt;/td&gt;
  &lt;/tr&gt;
  &lt;/tbody&gt;
-&lt;/table&gt;</description></item><item><title>CouchDB External Documents</title><link>https://eclipse.dev/sw360/docs/development/dev-external-documents-with-couchdb/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/development/dev-external-documents-with-couchdb/</guid><description>&lt;h2 id="motivation"&gt;Motivation&lt;/h2&gt;
+&lt;/table&gt;</description></item><item><title>Version 20.x with Containers</title><link>https://eclipse.dev/sw360/docs/deployment/containers/deploy-20-containers/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/deployment/containers/deploy-20-containers/</guid><description>&lt;h2 id="introduction"&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;This guide details how to deploy SW360 version 20 using containers. The
+deployment stack is designed to be generic and can be run with either &lt;strong&gt;Docker
+(Compose V2)&lt;/strong&gt; or &lt;strong&gt;Podman (&lt;code&gt;podman-compose&lt;/code&gt;)&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Using containers isolates the SW360 components and simplifies deploying the full
+stack (backend, frontend, databases, and authentication server) consistently.&lt;/p&gt;
+&lt;h2 id="prerequisites"&gt;Prerequisites&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Docker (with Compose V2) OR Podman (with &lt;code&gt;podman-compose&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;Basic understanding of container networking and persistent volumes&lt;/li&gt;
+&lt;li&gt;Terraform OR OpenTofu (required only if configuring Keycloak via automation)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="architecture--containers-utilized"&gt;Architecture / Containers Utilized&lt;/h2&gt;
+&lt;p&gt;The full-stack deployment consists of several interconnected containers:&lt;/p&gt;</description></item><item><title>CouchDB External Documents</title><link>https://eclipse.dev/sw360/docs/development/dev-external-documents-with-couchdb/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/development/dev-external-documents-with-couchdb/</guid><description>&lt;h2 id="motivation"&gt;Motivation&lt;/h2&gt;
 &lt;p&gt;In some cases inline documents are not sufficient for storing extended information to a document. This is especially the case if these information might be relevant from outside as well.
 Projects, components and releases contain attachments. The metadata of these attachments are stored as inline documents inside its parent document (which is the project, component or release).
 However these attachments may be used by other documents as well, e.g. license info files which are attached to releases are used by projects to generate the overall license information for that project.
@@ -2689,7 +2702,17 @@ This is basically a runner that allows to use parametrized tests.&lt;/p&gt;
 &lt;/ul&gt;
 &lt;h3 id="development-problems-using-eclipse"&gt;Development: problems using Eclipse?&lt;/h3&gt;
 &lt;p&gt;Please do not use Eclipse, because the integration of Apache Thrift is an open issue and we found no plugin for Eclipse to solve the shown compiler errors.
-Recommended is IntelliJ IDEA or NetBeans.&lt;/p&gt;</description></item><item><title>User Management Roles</title><link>https://eclipse.dev/sw360/docs/administrationguide/user-management-roles/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/administrationguide/user-management-roles/</guid><description>&lt;p&gt;Every user can create records and edit own created records. However, to change records of others, approval is required. Approval in SW360 is a so called moderation request. A moderation request is a set of proposed changed not applied to record immediately, but will be routed to;&lt;/p&gt;
+Recommended is IntelliJ IDEA or NetBeans.&lt;/p&gt;</description></item><item><title>Upgrading from Version 18 to Version 20</title><link>https://eclipse.dev/sw360/docs/deployment/upgrading/upgrade-18-to-20/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/deployment/upgrading/upgrade-18-to-20/</guid><description>&lt;h2 id="overview-and-major-architectural-changes"&gt;Overview and Major Architectural Changes&lt;/h2&gt;
+&lt;p&gt;Upgrading from SW360 Version 18 to Version 20 introduces several major
+architectural shifts. Please read the following notices carefully before
+beginning the upgrade process:&lt;/p&gt;
+&lt;div class="td-alert td-alert--md alert alert-warning" role="alert"&gt;&lt;div class="td-alert-heading alert-heading" role="heading"&gt;Warning&lt;/div&gt;
+ &lt;div class="td-alert-body"&gt;
+ &lt;p&gt;&lt;strong&gt;New Frontend Architecture:&lt;/strong&gt; The legacy Liferay UI has been unequivocally
+removed. SW360 v20 is entirely powered by a modern React/Next.js frontend.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Search &amp;amp; Indexing Engine Changes:&lt;/strong&gt; The search engine has been heavily
+redesigned to support full-text search. You &lt;strong&gt;must&lt;/strong&gt; upgrade CouchDB to
+version &amp;gt;= 3.5 &lt;strong&gt;and&lt;/strong&gt; install the new &lt;code&gt;couchdb-nouveau&lt;/code&gt; package alongside it.&lt;/p&gt;</description></item><item><title>User Management Roles</title><link>https://eclipse.dev/sw360/docs/administrationguide/user-management-roles/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/administrationguide/user-management-roles/</guid><description>&lt;p&gt;Every user can create records and edit own created records. However, to change records of others, approval is required. Approval in SW360 is a so called moderation request. A moderation request is a set of proposed changed not applied to record immediately, but will be routed to;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;The creator of the record&lt;/li&gt;
 &lt;li&gt;The moderators for a record&lt;/li&gt;
@@ -3405,7 +3428,20 @@ For example;&lt;/p&gt;
 &lt;/ol&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Expected Result:&lt;/strong&gt; The project is saved, and the user is redirected to the project edit page for the newly created project.&lt;/li&gt;
-&lt;/ul&gt;</description></item><item><title>SW360 Rest API</title><link>https://eclipse.dev/sw360/docs/development/restapi/dev-rest-api/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/development/restapi/dev-rest-api/</guid><description>&lt;p&gt;The sw360 REST API provides access to sw360 resources for external clients. It consists currently of three Maven modules aggregated in one parent module &lt;code&gt;rest&lt;/code&gt; in the sw360 distribution.&lt;/p&gt;
+&lt;/ul&gt;</description></item><item><title>Data Backup Strategy</title><link>https://eclipse.dev/sw360/docs/deployment/deploy-data-backup/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/deployment/deploy-data-backup/</guid><description>&lt;h2 id="introduction"&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;(Placeholder: Explain the importance of regular backups for SW360 environments.)&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id="container-deployments"&gt;Container Deployments&lt;/h2&gt;
+&lt;h3 id="backing-up-docker-volumes"&gt;Backing Up Docker Volumes&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;(Placeholder: Instructions on tar-balling the &lt;code&gt;couchdb&lt;/code&gt; and &lt;code&gt;postgres_storage&lt;/code&gt; volumes.)&lt;/em&gt;&lt;/p&gt;
+&lt;h3 id="restoring-docker-volumes"&gt;Restoring Docker Volumes&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;(Placeholder: Instructions on restoring data to fresh Docker volumes.)&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id="bare-metal-deployments"&gt;Bare Metal Deployments&lt;/h2&gt;
+&lt;h3 id="postgresql-database-keycloak"&gt;PostgreSQL Database (Keycloak)&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;(Placeholder: Instructions for &lt;code&gt;pg_dump&lt;/code&gt; and &lt;code&gt;pg_restore&lt;/code&gt;.)&lt;/em&gt;&lt;/p&gt;
+&lt;h3 id="couchdb-database"&gt;CouchDB Database&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;(Placeholder: Instructions for replicating or backing up CouchDB &lt;code&gt;.couch&lt;/code&gt; files.)&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id="file-system-backups"&gt;File System Backups&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;(Placeholder: Instructions on backing up &lt;code&gt;/etc/sw360&lt;/code&gt; and other configuration files.)&lt;/em&gt;&lt;/p&gt;</description></item><item><title>SW360 Rest API</title><link>https://eclipse.dev/sw360/docs/development/restapi/dev-rest-api/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/development/restapi/dev-rest-api/</guid><description>&lt;p&gt;The sw360 REST API provides access to sw360 resources for external clients. It consists currently of three Maven modules aggregated in one parent module &lt;code&gt;rest&lt;/code&gt; in the sw360 distribution.&lt;/p&gt;
 &lt;h2 id="module-structure"&gt;Module Structure&lt;/h2&gt;
 &lt;p&gt;The &lt;code&gt;rest&lt;/code&gt; module provides a REST API infrastructure for sw360 including:&lt;/p&gt;
 &lt;ul&gt;
@@ -6105,19 +6141,7 @@ It includes installation of all dependencies manually, which will not use docker
 &lt;h2 id="hardware-and-infrastructure"&gt;Hardware and Infrastructure&lt;/h2&gt;
 &lt;h3 id="cd-based-test-instances"&gt;CD-based test instances&lt;/h3&gt;
 &lt;p&gt;When there is a continuous deployment and continuous delivery directly deployed to machine the following machine is recommended:&lt;/p&gt;</description></item><item><title>Ubuntu 18.04 LTS, Java 11</title><link>https://eclipse.dev/sw360/docs/deployment/legacy/deploy-natively-11/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/deployment/legacy/deploy-natively-11/</guid><description>&lt;h2 id="introduction"&gt;Introduction&lt;/h2&gt;
-&lt;p&gt;We are covering the update for Ubuntu 18.04 LTS here because it is our main and agreed-upon base system for running SW360. While SW360 may run on a variety of other Linux distributions or operating systems such as macOS, we have agreed to use Ubuntu Long-Term Releases as a reference OS to avoid compatibility issues. The author of this guide also uses macOS with Homebrew, which works fairly well.&lt;/p&gt;</description></item><item><title>Ubuntu 22.04 / Debian 11</title><link>https://eclipse.dev/sw360/docs/deployment/baremetal/deploy-natively/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/deployment/baremetal/deploy-natively/</guid><description>&lt;h2 id="introduction"&gt;Introduction&lt;/h2&gt;
-&lt;p&gt;We are covering the update for Debian based Linux distros, because that is our main / agreed base system for running sw360. sw360 may run on a variety of other linux distributions or OSes such as Mac OSX (amd64 only).&lt;/p&gt;
-&lt;h2 id="requirements"&gt;Requirements&lt;/h2&gt;
-&lt;p&gt;The installation consists of quite some tasks, as an overview:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Java 11&lt;/li&gt;
-&lt;li&gt;Postgresql &amp;gt;= 15.x&lt;/li&gt;
-&lt;li&gt;CouchDB &amp;gt;= 3.2.x&lt;/li&gt;
-&lt;li&gt;Thrift 0.18.1&lt;/li&gt;
-&lt;li&gt;Liferay CE 7.4.3 GA18&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id="initial-steps"&gt;Initial steps&lt;/h2&gt;
-&lt;p&gt;In order to &amp;ldquo;calibrate the system&amp;rdquo; just run the update / upgrade cycle once:&lt;/p&gt;</description></item><item><title>Upgrade Sw360 from 14.0 to 15.0</title><link>https://eclipse.dev/sw360/docs/deployment/upgrading/upgrade-sw360-from-14.0.0-to-15.0.0/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/deployment/upgrading/upgrade-sw360-from-14.0.0-to-15.0.0/</guid><description>&lt;h1 id="upgrade-sw360-version-150"&gt;Upgrade SW360 version 15.0&lt;/h1&gt;
+&lt;p&gt;We are covering the update for Ubuntu 18.04 LTS here because it is our main and agreed-upon base system for running SW360. While SW360 may run on a variety of other Linux distributions or operating systems such as macOS, we have agreed to use Ubuntu Long-Term Releases as a reference OS to avoid compatibility issues. The author of this guide also uses macOS with Homebrew, which works fairly well.&lt;/p&gt;</description></item><item><title>Upgrade Sw360 from 14.0 to 15.0</title><link>https://eclipse.dev/sw360/docs/deployment/upgrading/upgrade-sw360-from-14.0.0-to-15.0.0/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/deployment/upgrading/upgrade-sw360-from-14.0.0-to-15.0.0/</guid><description>&lt;h1 id="upgrade-sw360-version-150"&gt;Upgrade SW360 version 15.0&lt;/h1&gt;
 &lt;h2 id="1-upgrade-sw360-from-140-to-150"&gt;1. Upgrade sw360 from 14.0 to 15.0&lt;/h2&gt;
 &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;1.1 Checkout source code SW360 to Tag Version 15
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;1.2 Version of libraries
@@ -6199,7 +6223,15 @@ It includes installation of all dependencies manually, which will not use docker
 &lt;p&gt;To check couchdb version: run &lt;code&gt;curl http://localhost_or_yourcouchdbserver:5984 | json_pp&lt;/code&gt;&lt;/p&gt;
 &lt;h2 id="ref2"&gt;Prepare source code to use release 18.1.0&lt;/h2&gt;
 &lt;p&gt;Link contains source: &lt;a href="https://github.com/eclipse/sw360.git"&gt;https://github.com/eclipse/sw360.git&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Create folder to store new source code of version 18.1.0:&lt;/p&gt;</description></item><item><title>Vulnerabilities</title><link>https://eclipse.dev/sw360/docs/administrationguide/vulnerabilitymanagement/vulnerabilities/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/administrationguide/vulnerabilitymanagement/vulnerabilities/</guid><description>&lt;h1 id="50-vulnerabilities"&gt;5.0 Vulnerabilities&lt;/h1&gt;
+&lt;p&gt;Create folder to store new source code of version 18.1.0:&lt;/p&gt;</description></item><item><title>Version 20.x on Debian 12</title><link>https://eclipse.dev/sw360/docs/deployment/baremetal/deploy-20-natively/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/deployment/baremetal/deploy-20-natively/</guid><description>&lt;h2 id="introduction"&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;We are covering the installation for Debian based Linux distros. sw360 may run
+on a variety of other linux distributions or OSes such as Mac OSX (amd64 only).&lt;/p&gt;
+&lt;p&gt;This is a guide with detailed explanation of how to install and run SW360
+natively on you local machine. It includes installation of all dependencies
+manually, and will not use docker or other container system during the
+installation or run.&lt;/p&gt;
+&lt;h2 id="requirements"&gt;Requirements&lt;/h2&gt;
+&lt;p&gt;The installation consists of quite some tasks, as an overview:&lt;/p&gt;</description></item><item><title>Vulnerabilities</title><link>https://eclipse.dev/sw360/docs/administrationguide/vulnerabilitymanagement/vulnerabilities/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/administrationguide/vulnerabilitymanagement/vulnerabilities/</guid><description>&lt;h1 id="50-vulnerabilities"&gt;5.0 Vulnerabilities&lt;/h1&gt;
 &lt;p&gt;A vulnerability is a security flaw, glitch, or weakness found in software code that could be exploited by an attacker (threat source). The Vulnerabilities page lists all the vulnerabilities that are available in SW360. The Vulnerabilities are typically synced from SVM tools but can also be manually managed. They are listed independently without any relation to their linked projects/components/releases initially.&lt;/p&gt;
 &lt;p&gt;To open the Vulnerabilities page, click on the &lt;strong&gt;Vulnerabilities tab&lt;/strong&gt; from the main menu.&lt;/p&gt;</description></item><item><title>Keycloak based authentication</title><link>https://eclipse.dev/sw360/docs/deployment/deploy-keycloak-authentication/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/deployment/deploy-keycloak-authentication/</guid><description>&lt;h2 id="install-java-21"&gt;Install Java 21&lt;/h2&gt;
 &lt;ul&gt;
@@ -6300,7 +6332,19 @@ natively on you local machine. It includes installation of all dependencies
 manually, and will not use docker or other container system during the
 installation or run.&lt;/p&gt;
 &lt;h2 id="requirements"&gt;Requirements&lt;/h2&gt;
-&lt;p&gt;The installation consists of quite some tasks, as an overview:&lt;/p&gt;</description></item><item><title>Edit Release</title><link>https://eclipse.dev/sw360/docs/development/completiontests/release-edit/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/development/completiontests/release-edit/</guid><description>&lt;h2 id="sw360-edit-release-page-test-cases"&gt;SW360 &amp;ldquo;Edit Release&amp;rdquo; Page Test Cases&lt;/h2&gt;
+&lt;p&gt;The installation consists of quite some tasks, as an overview:&lt;/p&gt;</description></item><item><title>Legacy (v18.x) on Ubuntu / Debian</title><link>https://eclipse.dev/sw360/docs/deployment/legacy/deploy-natively/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/deployment/legacy/deploy-natively/</guid><description>&lt;h2 id="introduction"&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;We are covering the update for Debian based Linux distros, because that is our main / agreed base system for running sw360. sw360 may run on a variety of other linux distributions or OSes such as Mac OSX (amd64 only).&lt;/p&gt;
+&lt;h2 id="requirements"&gt;Requirements&lt;/h2&gt;
+&lt;p&gt;The installation consists of quite some tasks, as an overview:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Java 11&lt;/li&gt;
+&lt;li&gt;Postgresql &amp;gt;= 15.x&lt;/li&gt;
+&lt;li&gt;CouchDB &amp;gt;= 3.2.x&lt;/li&gt;
+&lt;li&gt;Thrift 0.18.1&lt;/li&gt;
+&lt;li&gt;Liferay CE 7.4.3 GA18&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="initial-steps"&gt;Initial steps&lt;/h2&gt;
+&lt;p&gt;In order to &amp;ldquo;calibrate the system&amp;rdquo; just run the update / upgrade cycle once:&lt;/p&gt;</description></item><item><title>Edit Release</title><link>https://eclipse.dev/sw360/docs/development/completiontests/release-edit/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/development/completiontests/release-edit/</guid><description>&lt;h2 id="sw360-edit-release-page-test-cases"&gt;SW360 &amp;ldquo;Edit Release&amp;rdquo; Page Test Cases&lt;/h2&gt;
 &lt;h3 id="summary-tab"&gt;Summary Tab&lt;/h3&gt;
 &lt;h4 id="release-summary-section"&gt;Release Summary Section&lt;/h4&gt;
 &lt;ul&gt;

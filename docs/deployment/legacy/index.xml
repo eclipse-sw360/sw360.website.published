@@ -14,4 +14,16 @@
 
 &lt;p&gt;Note that the actual image changes with every liferay version. If there is weird html output without images and plain text, then likely some port settings did not work and the pages generated have wrong URLs inside.&lt;/p&gt;
 &lt;p&gt;Sign in_the icon_the upper left corner. If you did not change the values in &lt;code&gt;configuration.rb&lt;/code&gt;the default login is &lt;code&gt;setup@sw360.org&lt;/code&gt; and &lt;code&gt;sw360fossy&lt;/code&gt;.&lt;/p&gt;</description></item><item><title>Ubuntu 18.04 LTS, Java 11</title><link>https://eclipse.dev/sw360/docs/deployment/legacy/deploy-natively-11/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/deployment/legacy/deploy-natively-11/</guid><description>&lt;h2 id="introduction"&gt;Introduction&lt;/h2&gt;
-&lt;p&gt;We are covering the update for Ubuntu 18.04 LTS here because it is our main and agreed-upon base system for running SW360. While SW360 may run on a variety of other Linux distributions or operating systems such as macOS, we have agreed to use Ubuntu Long-Term Releases as a reference OS to avoid compatibility issues. The author of this guide also uses macOS with Homebrew, which works fairly well.&lt;/p&gt;</description></item></channel></rss>
+&lt;p&gt;We are covering the update for Ubuntu 18.04 LTS here because it is our main and agreed-upon base system for running SW360. While SW360 may run on a variety of other Linux distributions or operating systems such as macOS, we have agreed to use Ubuntu Long-Term Releases as a reference OS to avoid compatibility issues. The author of this guide also uses macOS with Homebrew, which works fairly well.&lt;/p&gt;</description></item><item><title>Legacy (v18.x) on Ubuntu / Debian</title><link>https://eclipse.dev/sw360/docs/deployment/legacy/deploy-natively/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/deployment/legacy/deploy-natively/</guid><description>&lt;h2 id="introduction"&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;We are covering the update for Debian based Linux distros, because that is our main / agreed base system for running sw360. sw360 may run on a variety of other linux distributions or OSes such as Mac OSX (amd64 only).&lt;/p&gt;
+&lt;h2 id="requirements"&gt;Requirements&lt;/h2&gt;
+&lt;p&gt;The installation consists of quite some tasks, as an overview:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Java 11&lt;/li&gt;
+&lt;li&gt;Postgresql &amp;gt;= 15.x&lt;/li&gt;
+&lt;li&gt;CouchDB &amp;gt;= 3.2.x&lt;/li&gt;
+&lt;li&gt;Thrift 0.18.1&lt;/li&gt;
+&lt;li&gt;Liferay CE 7.4.3 GA18&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="initial-steps"&gt;Initial steps&lt;/h2&gt;
+&lt;p&gt;In order to &amp;ldquo;calibrate the system&amp;rdquo; just run the update / upgrade cycle once:&lt;/p&gt;</description></item></channel></rss>

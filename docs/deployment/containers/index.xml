@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Containers on Eclipse SW360</title><link>https://eclipse.dev/sw360/docs/deployment/containers/</link><description>Recent content in Containers on Eclipse SW360</description><generator>Hugo</generator><language>en</language><atom:link href="https://eclipse.dev/sw360/docs/deployment/containers/index.xml" rel="self" type="application/rss+xml"/><item><title>Version 20.x with Containers</title><link>https://eclipse.dev/sw360/docs/deployment/containers/deploy-20-containers/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/deployment/containers/deploy-20-containers/</guid><description>&lt;h2 id="introduction"&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;This guide details how to deploy SW360 version 20 using containers. The
+deployment stack is designed to be generic and can be run with either &lt;strong&gt;Docker
+(Compose V2)&lt;/strong&gt; or &lt;strong&gt;Podman (&lt;code&gt;podman-compose&lt;/code&gt;)&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Using containers isolates the SW360 components and simplifies deploying the full
+stack (backend, frontend, databases, and authentication server) consistently.&lt;/p&gt;
+&lt;h2 id="prerequisites"&gt;Prerequisites&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Docker (with Compose V2) OR Podman (with &lt;code&gt;podman-compose&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;Basic understanding of container networking and persistent volumes&lt;/li&gt;
+&lt;li&gt;Terraform OR OpenTofu (required only if configuring Keycloak via automation)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="architecture--containers-utilized"&gt;Architecture / Containers Utilized&lt;/h2&gt;
+&lt;p&gt;The full-stack deployment consists of several interconnected containers:&lt;/p&gt;</description></item></channel></rss>
