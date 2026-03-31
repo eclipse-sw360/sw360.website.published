@@ -1730,7 +1730,19 @@ These long URLs of links or forms are mostly not readable and its not easy to sh
 &lt;strong&gt;p_p_lifecycle:&lt;/strong&gt; This is life cycle of portlet - 0 (render) 1 (action) 2 (server) &lt;br&gt;
 &lt;strong&gt;p_p_col_id:&lt;/strong&gt; The reference ID of the column in Liferay template &lt;br&gt;
 &lt;strong&gt;p_p_col_pos:&lt;/strong&gt; Specifiy the column position if the the layout having more than one columns &lt;br&gt;
-&lt;strong&gt;p_p_col_count:&lt;/strong&gt; Shows the no of columns in the current layout&lt;/p&gt;</description></item><item><title>Moderation</title><link>https://eclipse.dev/sw360/docs/development/testcases/test-cases-moderations/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/development/testcases/test-cases-moderations/</guid><description>&lt;h2 id="tc01-accept-moderation-request-for-visible-projects-by-other-users"&gt;TC01: Accept moderation request, for visible projects by other users&lt;/h2&gt;
+&lt;strong&gt;p_p_col_count:&lt;/strong&gt; Shows the no of columns in the current layout&lt;/p&gt;</description></item><item><title>Manual Keycloak Configuration (Legacy)</title><link>https://eclipse.dev/sw360/docs/deployment/legacy/deploy-keycloak-manual/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/deployment/legacy/deploy-keycloak-manual/</guid><description>&lt;div class="td-alert td-alert--md alert alert-important" role="alert"&gt;&lt;div class="td-alert-heading alert-heading" role="heading"&gt;Important&lt;/div&gt;
+ &lt;div class="td-alert-body"&gt;
+ &lt;p&gt;This document is provided for &lt;strong&gt;historical purposes&lt;/strong&gt; and to help developers
+understand the logic behind the automated Terraform/OpenTofu scripts. For all
+modern installations of SW360 v20+, please refer to the
+&lt;a href="https://eclipse.dev/sw360/docs/deployment/deploy-keycloak-authentication/"&gt;Keycloak Authentication&lt;/a&gt; guide.&lt;/p&gt;
+ &lt;/div&gt;
+&lt;/div&gt;
+&lt;h2 id="legacy--manual-configuration-keycloak-admin-console"&gt;Legacy / Manual Configuration (Keycloak Admin Console)&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;(Not Recommended for production environments. Use the Terraform instructions if
+possible.)&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;These guides are here for understanding the Keycloak configuration. But the most
+up-to-date and recommended way to configure Keycloak is using Terraform/OpenTofu.&lt;/p&gt;</description></item><item><title>Moderation</title><link>https://eclipse.dev/sw360/docs/development/testcases/test-cases-moderations/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/development/testcases/test-cases-moderations/</guid><description>&lt;h2 id="tc01-accept-moderation-request-for-visible-projects-by-other-users"&gt;TC01: Accept moderation request, for visible projects by other users&lt;/h2&gt;
 &lt;table&gt;
  &lt;thead&gt;
  &lt;tr&gt;
@@ -3085,7 +3097,26 @@ For example;&lt;/p&gt;
 &lt;/ol&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Expected Result:&lt;/strong&gt; Pagination components are present at the bottom of the table.&lt;/li&gt;
-&lt;/ul&gt;</description></item><item><title>Workflows</title><link>https://eclipse.dev/sw360/docs/userguide/bestpractices/workflows/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/userguide/bestpractices/workflows/</guid><description>&lt;p&gt;This page is one of the basic user workflow documentation pages. It can give orientation how the sw360 can be used - as guidance or orientation. There is no particular need to follow these workflows, it is just one way. Workflows are shown as flow charts.&lt;/p&gt;
+&lt;/ul&gt;</description></item><item><title>System Requirements</title><link>https://eclipse.dev/sw360/docs/deployment/deploy-requirements/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/deployment/deploy-requirements/</guid><description>&lt;p&gt;For deploying SW360 v20, the following hardware and software requirements apply.
+Note that the architecture has shifted from a monolithic Liferay setup to a
+microservices-based stack (Spring Boot Backend, Next.js Frontend, Keycloak
+Authentication).&lt;/p&gt;
+&lt;p&gt;Recommended deployment method is &lt;a href="https://eclipse.dev/sw360/docs/deployment/containers/"&gt;container-based&lt;/a&gt; for
+ease of management.&lt;/p&gt;
+&lt;h2 id="hardware-and-infrastructure"&gt;Hardware and Infrastructure&lt;/h2&gt;
+&lt;h3 id="development--test-instances"&gt;Development / Test instances&lt;/h3&gt;
+&lt;p&gt;For personal development or small test instances with minimal data:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;CPU&lt;/strong&gt;: 2 cores&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;RAM&lt;/strong&gt;: 8GB (4GB for Tomcat/Backend, 1GB for Keycloak, 1GB for Frontend,
+2GB for OS/CouchDB)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Storage&lt;/strong&gt;: 40GB SSD&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Network&lt;/strong&gt;: 10Mbit Ethernet link&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="staging-instances"&gt;Staging instances&lt;/h3&gt;
+&lt;p&gt;Testing and working with medium data sets for staging and pre-productive
+testing. Requires enough RAM to run a full stack including Keycloak and
+monitoring services.&lt;/p&gt;</description></item><item><title>Workflows</title><link>https://eclipse.dev/sw360/docs/userguide/bestpractices/workflows/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/userguide/bestpractices/workflows/</guid><description>&lt;p&gt;This page is one of the basic user workflow documentation pages. It can give orientation how the sw360 can be used - as guidance or orientation. There is no particular need to follow these workflows, it is just one way. Workflows are shown as flow charts.&lt;/p&gt;
 &lt;h3 id="create-component-and-release"&gt;Create Component and Release&lt;/h3&gt;
 &lt;p&gt;So, the user would like to create an entry for zlib-1.2.8 for example in sw360. The main thing to know (see page basic concepts)is that sw360 separates releases from components: the release is the zlib-1.2.8 but the component is the zlib. By this approach, components as a kind of container type in sw360, holding several releases.&lt;/p&gt;</description></item><item><title>SW360 User Frequently Asked Questions</title><link>https://eclipse.dev/sw360/docs/userguide/faq/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/userguide/faq/</guid><description>&lt;h5 id="q-who-should-be-listed-as-moderator"&gt;&lt;strong&gt;Q&lt;/strong&gt;: Who should be listed as Moderator?&lt;/h5&gt;
 &lt;p&gt;&lt;strong&gt;A&lt;/strong&gt;: Moderator are persons who need to review changes done on certain items (project, component, release or attachment) by persons who do not have the user right to actually do these changes. For BT moderators are the persons with the role &amp;lsquo;Software Clearing Site Representative&amp;rsquo;.&lt;/p&gt;
@@ -3428,20 +3459,7 @@ For example;&lt;/p&gt;
 &lt;/ol&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Expected Result:&lt;/strong&gt; The project is saved, and the user is redirected to the project edit page for the newly created project.&lt;/li&gt;
-&lt;/ul&gt;</description></item><item><title>Data Backup Strategy</title><link>https://eclipse.dev/sw360/docs/deployment/deploy-data-backup/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/deployment/deploy-data-backup/</guid><description>&lt;h2 id="introduction"&gt;Introduction&lt;/h2&gt;
-&lt;p&gt;&lt;em&gt;(Placeholder: Explain the importance of regular backups for SW360 environments.)&lt;/em&gt;&lt;/p&gt;
-&lt;h2 id="container-deployments"&gt;Container Deployments&lt;/h2&gt;
-&lt;h3 id="backing-up-docker-volumes"&gt;Backing Up Docker Volumes&lt;/h3&gt;
-&lt;p&gt;&lt;em&gt;(Placeholder: Instructions on tar-balling the &lt;code&gt;couchdb&lt;/code&gt; and &lt;code&gt;postgres_storage&lt;/code&gt; volumes.)&lt;/em&gt;&lt;/p&gt;
-&lt;h3 id="restoring-docker-volumes"&gt;Restoring Docker Volumes&lt;/h3&gt;
-&lt;p&gt;&lt;em&gt;(Placeholder: Instructions on restoring data to fresh Docker volumes.)&lt;/em&gt;&lt;/p&gt;
-&lt;h2 id="bare-metal-deployments"&gt;Bare Metal Deployments&lt;/h2&gt;
-&lt;h3 id="postgresql-database-keycloak"&gt;PostgreSQL Database (Keycloak)&lt;/h3&gt;
-&lt;p&gt;&lt;em&gt;(Placeholder: Instructions for &lt;code&gt;pg_dump&lt;/code&gt; and &lt;code&gt;pg_restore&lt;/code&gt;.)&lt;/em&gt;&lt;/p&gt;
-&lt;h3 id="couchdb-database"&gt;CouchDB Database&lt;/h3&gt;
-&lt;p&gt;&lt;em&gt;(Placeholder: Instructions for replicating or backing up CouchDB &lt;code&gt;.couch&lt;/code&gt; files.)&lt;/em&gt;&lt;/p&gt;
-&lt;h2 id="file-system-backups"&gt;File System Backups&lt;/h2&gt;
-&lt;p&gt;&lt;em&gt;(Placeholder: Instructions on backing up &lt;code&gt;/etc/sw360&lt;/code&gt; and other configuration files.)&lt;/em&gt;&lt;/p&gt;</description></item><item><title>SW360 Rest API</title><link>https://eclipse.dev/sw360/docs/development/restapi/dev-rest-api/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/development/restapi/dev-rest-api/</guid><description>&lt;p&gt;The sw360 REST API provides access to sw360 resources for external clients. It consists currently of three Maven modules aggregated in one parent module &lt;code&gt;rest&lt;/code&gt; in the sw360 distribution.&lt;/p&gt;
+&lt;/ul&gt;</description></item><item><title>SW360 Rest API</title><link>https://eclipse.dev/sw360/docs/development/restapi/dev-rest-api/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/development/restapi/dev-rest-api/</guid><description>&lt;p&gt;The sw360 REST API provides access to sw360 resources for external clients. It consists currently of three Maven modules aggregated in one parent module &lt;code&gt;rest&lt;/code&gt; in the sw360 distribution.&lt;/p&gt;
 &lt;h2 id="module-structure"&gt;Module Structure&lt;/h2&gt;
 &lt;p&gt;The &lt;code&gt;rest&lt;/code&gt; module provides a REST API infrastructure for sw360 including:&lt;/p&gt;
 &lt;ul&gt;
@@ -4443,7 +4461,19 @@ SHA1, Uploaded On, Uploaded Comment, Checked On, and Checked Comment.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Expected Result:&lt;/strong&gt; The table with the specified columns is present.&lt;/li&gt;
-&lt;/ul&gt;</description></item><item><title>Project - Attachment Usages</title><link>https://eclipse.dev/sw360/docs/development/completiontests/projects-attachmentusage/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/development/completiontests/projects-attachmentusage/</guid><description>&lt;h2 id="sw360-attachment-usages-page-test-cases"&gt;SW360 &amp;ldquo;Attachment Usages&amp;rdquo; Page Test Cases&lt;/h2&gt;
+&lt;/ul&gt;</description></item><item><title>SW360 Configurations</title><link>https://eclipse.dev/sw360/docs/deployment/deploy-configuration-files/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/deployment/deploy-configuration-files/</guid><description>&lt;h2 id="introduction"&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;SW360 configurations are divided into two main categories: &lt;strong&gt;Non-changeable (File-based)&lt;/strong&gt; and &lt;strong&gt;Changeable (Database-backed)&lt;/strong&gt;.&lt;/p&gt;
+&lt;h4 id="applicable-property-files"&gt;Applicable Property Files:&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;sw360.properties&lt;/code&gt; (Core configurations)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;couchdb.properties&lt;/code&gt; (CouchDB and Lucene connectivity)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;orgmapping.properties&lt;/code&gt; (Organization mapping features)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;couchdb-test.properties&lt;/code&gt; (CouchDB test purpose)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;authorization/application.yml&lt;/code&gt; (Authorization server settings)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;rest/application.yml&lt;/code&gt; (Resource server settings)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id="database-configurations"&gt;Database Configurations:&lt;/h4&gt;
+&lt;p&gt;Most of the SW360-related properties (UI settings and backend features) are now moved to a database and are accessible via a REST endpoint. These are divided into two containers:&lt;/p&gt;</description></item><item><title>Project - Attachment Usages</title><link>https://eclipse.dev/sw360/docs/development/completiontests/projects-attachmentusage/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/development/completiontests/projects-attachmentusage/</guid><description>&lt;h2 id="sw360-attachment-usages-page-test-cases"&gt;SW360 &amp;ldquo;Attachment Usages&amp;rdquo; Page Test Cases&lt;/h2&gt;
 &lt;h3 id="general-page-behavior"&gt;General Page Behavior&lt;/h3&gt;
 &lt;h4 id="availability-as-a-tab"&gt;Availability as a Tab&lt;/h4&gt;
 &lt;ul&gt;
@@ -4875,7 +4905,16 @@ SHA1, Uploaded On, Uploaded Comment, Checked On, and Checked Comment.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Expected Result:&lt;/strong&gt; The bundle is generated, and the attachment usage of the current page is saved.&lt;/li&gt;
-&lt;/ul&gt;</description></item><item><title>Components Page</title><link>https://eclipse.dev/sw360/docs/development/completiontests/components-main/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/development/completiontests/components-main/</guid><description>&lt;h2 id="sw360-main-components-page-test-cases"&gt;SW360 &amp;ldquo;Main Components&amp;rdquo; Page Test Cases&lt;/h2&gt;
+&lt;/ul&gt;</description></item><item><title>Authorization Concept</title><link>https://eclipse.dev/sw360/docs/deployment/deploy-authorization-concept/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/deployment/deploy-authorization-concept/</guid><description>&lt;p&gt;SW360 uses a tiered authorization model that balances global roles with
+granular, record-level access. In v20, the architecture clearly separates
+&lt;strong&gt;Authentication&lt;/strong&gt; (handled by &lt;strong&gt;Keycloak&lt;/strong&gt; or an OIDC provider) from
+&lt;strong&gt;Authorization&lt;/strong&gt; (handled by the &lt;strong&gt;SW360 Backend&lt;/strong&gt; using CouchDB as the
+source of truth).&lt;/p&gt;
+&lt;h2 id="role-management"&gt;Role Management&lt;/h2&gt;
+&lt;p&gt;Role management is performed through the SW360 Frontend in the &lt;strong&gt;Admin &amp;gt; Users&lt;/strong&gt;
+section. An administrator can search for users and modify their primary and
+secondary roles. These changes are stored in CouchDB and synchronized to Keycloak
+(if enabled) via federation.&lt;/p&gt;</description></item><item><title>Components Page</title><link>https://eclipse.dev/sw360/docs/development/completiontests/components-main/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/development/completiontests/components-main/</guid><description>&lt;h2 id="sw360-main-components-page-test-cases"&gt;SW360 &amp;ldquo;Main Components&amp;rdquo; Page Test Cases&lt;/h2&gt;
 &lt;h3 id="advance-search-on-the-left-hand"&gt;Advance Search on the Left Hand&lt;/h3&gt;
 &lt;h4 id="search-fields"&gt;Search Fields&lt;/h4&gt;
 &lt;ul&gt;
@@ -5174,7 +5213,26 @@ SHA1, Uploaded On, Uploaded Comment, Checked On, and Checked Comment.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Expected Result:&lt;/strong&gt; The component is saved, and the user is redirected to the component edit page for the newly created component.&lt;/li&gt;
-&lt;/ul&gt;</description></item><item><title>Edit Component</title><link>https://eclipse.dev/sw360/docs/development/completiontests/components-edit/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/development/completiontests/components-edit/</guid><description>&lt;h2 id="sw360-edit-component-page-test-cases"&gt;SW360 &amp;ldquo;Edit Component&amp;rdquo; Page Test Cases&lt;/h2&gt;
+&lt;/ul&gt;</description></item><item><title>Keycloak Authentication</title><link>https://eclipse.dev/sw360/docs/deployment/deploy-keycloak-authentication/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/deployment/deploy-keycloak-authentication/</guid><description>&lt;p&gt;This guide covers the installation and configuration of Keycloak for SW360.
+While manual configuration is possible, &lt;strong&gt;using the provided Terraform scripts
+is the highy recommended approach&lt;/strong&gt; to maintain a modern, version-controlled
+authentication setup.&lt;/p&gt;
+&lt;h2 id="installation-brief"&gt;Installation (Brief)&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Prerequisites:&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Java 21&lt;/strong&gt;: Ensure OpenJDK 21 is installed and &lt;code&gt;JAVA_HOME&lt;/code&gt; is set.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;PostgreSQL&lt;/strong&gt;: Install PostgreSQL 14 or higher and create a database/user
+for Keycloak:
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sql" data-lang="sql"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#069;font-weight:bold"&gt;CREATE&lt;/span&gt;&lt;span style="color:#bbb"&gt; &lt;/span&gt;&lt;span style="color:#069;font-weight:bold"&gt;USER&lt;/span&gt;&lt;span style="color:#bbb"&gt; &lt;/span&gt;keycloak&lt;span style="color:#bbb"&gt; &lt;/span&gt;&lt;span style="color:#069;font-weight:bold"&gt;WITH&lt;/span&gt;&lt;span style="color:#bbb"&gt; &lt;/span&gt;&lt;span style="color:#069;font-weight:bold"&gt;ENCRYPTED&lt;/span&gt;&lt;span style="color:#bbb"&gt; &lt;/span&gt;PASSWORD&lt;span style="color:#bbb"&gt; &lt;/span&gt;&lt;span style="color:#c30"&gt;&amp;#39;mystrongpassword&amp;#39;&lt;/span&gt;;&lt;span style="color:#bbb"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#069;font-weight:bold"&gt;CREATE&lt;/span&gt;&lt;span style="color:#bbb"&gt; &lt;/span&gt;&lt;span style="color:#069;font-weight:bold"&gt;DATABASE&lt;/span&gt;&lt;span style="color:#bbb"&gt; &lt;/span&gt;keycloak;&lt;span style="color:#bbb"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#069;font-weight:bold"&gt;GRANT&lt;/span&gt;&lt;span style="color:#bbb"&gt; &lt;/span&gt;&lt;span style="color:#069;font-weight:bold"&gt;ALL&lt;/span&gt;&lt;span style="color:#bbb"&gt; &lt;/span&gt;&lt;span style="color:#069;font-weight:bold"&gt;PRIVILEGES&lt;/span&gt;&lt;span style="color:#bbb"&gt; &lt;/span&gt;&lt;span style="color:#069;font-weight:bold"&gt;ON&lt;/span&gt;&lt;span style="color:#bbb"&gt; &lt;/span&gt;&lt;span style="color:#069;font-weight:bold"&gt;DATABASE&lt;/span&gt;&lt;span style="color:#bbb"&gt; &lt;/span&gt;keycloak&lt;span style="color:#bbb"&gt; &lt;/span&gt;&lt;span style="color:#069;font-weight:bold"&gt;TO&lt;/span&gt;&lt;span style="color:#bbb"&gt; &lt;/span&gt;keycloak;&lt;span style="color:#bbb"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Keycloak&lt;/strong&gt;: Download the latest Keycloak (e.g., v26+) and extract it
+to &lt;code&gt;/opt/keycloak&lt;/code&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="keycloak-configuration-keycloakconf"&gt;Keycloak Configuration (&lt;code&gt;keycloak.conf&lt;/code&gt;)&lt;/h2&gt;
+&lt;p&gt;For a development setup, you can use the following &lt;code&gt;keycloak.conf&lt;/code&gt;. For
+production, refer to the &lt;a href="https://eclipse.dev/sw360/docs/deployment/deploy-keycloak-authentication/#production-deployment-tips"&gt;Production Tips&lt;/a&gt; below.&lt;/p&gt;</description></item><item><title>Edit Component</title><link>https://eclipse.dev/sw360/docs/development/completiontests/components-edit/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/development/completiontests/components-edit/</guid><description>&lt;h2 id="sw360-edit-component-page-test-cases"&gt;SW360 &amp;ldquo;Edit Component&amp;rdquo; Page Test Cases&lt;/h2&gt;
 &lt;h3 id="general-page-behavior"&gt;General Page Behavior&lt;/h3&gt;
 &lt;h4 id="info-message-on-page-load"&gt;Info Message on Page Load&lt;/h4&gt;
 &lt;ul&gt;
@@ -5320,7 +5378,17 @@ SHA1, Uploaded On, Uploaded Comment, Checked On, and Checked Comment.&lt;/li&gt;
 &lt;h4 id="attachments-table"&gt;Attachments Table&lt;/h4&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Test Case ID:&lt;/strong&gt; /sw360/docs/development/completiontests/projects-edit/#attachments-table&lt;/li&gt;
-&lt;/ul&gt;</description></item><item><title>Component Details</title><link>https://eclipse.dev/sw360/docs/development/completiontests/components-details/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/development/completiontests/components-details/</guid><description>&lt;h2 id="sw360-component-details-page-test-cases"&gt;SW360 &amp;ldquo;Component Details&amp;rdquo; Page Test Cases&lt;/h2&gt;
+&lt;/ul&gt;</description></item><item><title>Security Best Practices</title><link>https://eclipse.dev/sw360/docs/deployment/deploy-secure-deployment/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/deployment/deploy-secure-deployment/</guid><description>&lt;p&gt;Securing an SW360 deployment involves multiple layers, from the infrastructure
+and container orchestration to the application and identity management. For v20,
+the architecture relies on a microservices stack (Spring Boot, Next.js, Keycloak)
+which necessitates new security patterns.&lt;/p&gt;
+&lt;h2 id="recommended-container-based-security"&gt;Recommended: Container-Based Security&lt;/h2&gt;
+&lt;p&gt;The easiest way to manage a secure SW360 instance is through &lt;strong&gt;container-based
+deployments&lt;/strong&gt; using Docker or Podman. This allows for clear service isolation and
+centralized secret management.&lt;/p&gt;
+&lt;h3 id="1-secret-management"&gt;1. Secret Management&lt;/h3&gt;
+&lt;p&gt;Never store plain-text passwords in environment variables if possible. Use &lt;strong&gt;Docker
+Secrets&lt;/strong&gt; for sensitive data:&lt;/p&gt;</description></item><item><title>Component Details</title><link>https://eclipse.dev/sw360/docs/development/completiontests/components-details/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/development/completiontests/components-details/</guid><description>&lt;h2 id="sw360-component-details-page-test-cases"&gt;SW360 &amp;ldquo;Component Details&amp;rdquo; Page Test Cases&lt;/h2&gt;
 &lt;h3 id="general-page-behavior"&gt;General Page Behavior&lt;/h3&gt;
 &lt;h4 id="top-buttons"&gt;Top Buttons&lt;/h4&gt;
 &lt;ul&gt;
@@ -5567,257 +5635,38 @@ SHA1, Uploaded On, Uploaded Comment, Checked On, and Checked Comment.&lt;/li&gt;
 &lt;a href="https://eclipse.dev/sw360/docs/development/completiontests/projects-details/#basic-info-section"&gt;PROJ-DTL-024&lt;/a&gt;,
 &lt;a href="https://eclipse.dev/sw360/docs/development/completiontests/projects-details/#changed-fields-table"&gt;PROJ-DTL-025&lt;/a&gt; and
 &lt;a href="https://eclipse.dev/sw360/docs/development/completiontests/projects-details/#returning-to-list"&gt;PROJ-DTL-026&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</description></item><item><title>Authorization Concept</title><link>https://eclipse.dev/sw360/docs/deployment/deploy-authorization-concept/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/deployment/deploy-authorization-concept/</guid><description>&lt;p&gt;The authorization concept describes the different roles of the solution - mainly for documentation of the authorization of different roles of the sw360. It is not focusing for the roles like being a moderator, it is described on a separate page for users: &lt;a href="https://github.com/eclipse/sw360/wiki/Dev-Role-Authorisation-Model"&gt;role and access model&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id="roles-overview"&gt;Roles Overview&lt;/h2&gt;
-&lt;p&gt;SW360 offers two choices for doing the roles: one is setting access rights at every record individually. Another are general roles that can be set for every user. An admin of SW360 can set user roles at the Liferay Users and Roles UI.&lt;/p&gt;</description></item><item><title>Configurable Property Keys</title><link>https://eclipse.dev/sw360/docs/deployment/deploy-configuration-files/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/deployment/deploy-configuration-files/</guid><description>&lt;h3 id="introduction"&gt;Introduction&lt;/h3&gt;
-&lt;p&gt;List of all applicable property files in sw360:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;sw360.properties&lt;/li&gt;
-&lt;li&gt;fossology.properties&lt;/li&gt;
-&lt;li&gt;couchdb.properties&lt;/li&gt;
-&lt;li&gt;search.properties&lt;/li&gt;
-&lt;li&gt;orgmapping.properties&lt;/li&gt;
-&lt;li&gt;databasetest.properties&lt;/li&gt;
-&lt;li&gt;authorization/application.yml&lt;/li&gt;
-&lt;li&gt;rest/application.yml&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id="sw360properties-etcsw360sw360properties"&gt;SW360.properties (/etc/sw360/sw360.properties)&lt;/h3&gt;
-&lt;p&gt;The following table shall give an overview about the general sw360 configuration settings.&lt;/p&gt;
+&lt;/ul&gt;</description></item><item><title>Data Backup Strategy</title><link>https://eclipse.dev/sw360/docs/deployment/deploy-data-backup/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/deployment/deploy-data-backup/</guid><description>&lt;p&gt;Regular backups are critical for maintaining the integrity and availability of
+your SW360 instance. Given the importance of compliance data, a robust backup
+strategy ensures that you can recover from hardware failures, data corruption,
+or accidental deletions.&lt;/p&gt;
+&lt;h2 id="backup-frequency--retention-policy"&gt;Backup Frequency &amp;amp; Retention Policy&lt;/h2&gt;
+&lt;p&gt;For production environments, the following retention policy is recommended as a
+baseline:&lt;/p&gt;
 &lt;table&gt;
  &lt;thead&gt;
  &lt;tr&gt;
- &lt;th style="text-align: left"&gt;Property Key&lt;/th&gt;
- &lt;th style="text-align: left"&gt;Default&lt;/th&gt;
+ &lt;th style="text-align: left"&gt;Backup Type&lt;/th&gt;
+ &lt;th style="text-align: left"&gt;Frequency&lt;/th&gt;
+ &lt;th style="text-align: left"&gt;Retention Period&lt;/th&gt;
  &lt;/tr&gt;
  &lt;/thead&gt;
  &lt;tbody&gt;
  &lt;tr&gt;
- &lt;td style="text-align: left"&gt;licenseinfo.spdxparser.use-license-info-from-files&lt;/td&gt;
- &lt;td style="text-align: left"&gt;true/false&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&lt;strong&gt;High-Frequency&lt;/strong&gt;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;Every 24 hours&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;14 days&lt;/td&gt;
  &lt;/tr&gt;
  &lt;tr&gt;
- &lt;td style="text-align: left"&gt;mainline.state.enabled.for.user&lt;/td&gt;
- &lt;td style="text-align: left"&gt;true/false&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td style="text-align: left"&gt;key.auth.email&lt;/td&gt;
- &lt;td style="text-align: left"&gt;EMAIL&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td style="text-align: left"&gt;key.auth.extid&lt;/td&gt;
- &lt;td style="text-align: left"&gt;EXTID&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td style="text-align: left"&gt;key.auth.givenname&lt;/td&gt;
- &lt;td style="text-align: left"&gt;GIVENNAME&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td style="text-align: left"&gt;key.auth.surname&lt;/td&gt;
- &lt;td style="text-align: left"&gt;SURNAME&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td style="text-align: left"&gt;key.auth.department&lt;/td&gt;
- &lt;td style="text-align: left"&gt;DEPARTMENT&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td style="text-align: left"&gt;backend.url&lt;/td&gt;
- &lt;td style="text-align: left"&gt;http://127.0.0.1:8080&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td style="text-align: left"&gt;cvesearch.vendor.threshold&lt;/td&gt;
- &lt;td style="text-align: left"&gt;1&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td style="text-align: left"&gt;cvesearch.product.threshold&lt;/td&gt;
- &lt;td style="text-align: left"&gt;0&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td style="text-align: left"&gt;cvesearch.cutoff&lt;/td&gt;
- &lt;td style="text-align: left"&gt;6&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td style="text-align: left"&gt;combined.cli.parser.external.id.correlation.key&lt;/td&gt;
- &lt;td style="text-align: left"&gt;-&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td style="text-align: left"&gt;schedule.cvesearch.firstOffset.seconds&lt;/td&gt;
- &lt;td style="text-align: left"&gt;0&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td style="text-align: left"&gt;schedule.cvesearch.interval.seconds&lt;/td&gt;
- &lt;td style="text-align: left"&gt;&amp;ldquo;(24&lt;em&gt;60&lt;/em&gt;60)&amp;rdquo;&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td style="text-align: left"&gt;autostart&lt;/td&gt;
- &lt;td style="text-align: left"&gt;-&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td style="text-align: left"&gt;rest.write.access.usergroup&lt;/td&gt;
- &lt;td style="text-align: left"&gt;SW360_ADMIN&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td style="text-align: left"&gt;rest.access.token.validity.seconds&lt;/td&gt;
- &lt;td style="text-align: left"&gt;3600&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td style="text-align: left"&gt;rest.security.client.id&lt;/td&gt;
- &lt;td style="text-align: left"&gt;sw360-trusted-client&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td style="text-align: left"&gt;rest.security.client.secret&lt;/td&gt;
- &lt;td style="text-align: left"&gt;sw360-secret&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td style="text-align: left"&gt;programming.languages&lt;/td&gt;
- &lt;td style="text-align: left"&gt;ActionScript,AppleScript, Asp,Bash,BASIC, C,C++,C#,Cocoa,Clojure, COBOL,ColdFusion,D, Delphi,Erlang,Fortran, Go,Groovy,Haskell, JSP,Java,JavaScript,Objective-C, Ocaml,Lisp,Perl, PHP,Python,Ruby,SQL ,SVG,Scala,SmallTalk Scheme,Tcl,XML, Node.js,JSON&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td style="text-align: left"&gt;software.platforms&lt;/td&gt;
- &lt;td style="text-align: left"&gt;Adobe AIR,Adobe Flash, Adobe Shockwave,Binary Runtime Environment for Wireless,Cocoa (API),Cocoa Touch,Java (software platform)&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td style="text-align: left"&gt;operating.systems&lt;/td&gt;
- &lt;td style="text-align: left"&gt;Android,BSD,iOS, Linux,OS X,QNX, Microsoft Windows,Windows Phone,IBM z/OS&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td style="text-align: left"&gt;clearing.teams&lt;/td&gt;
- &lt;td style="text-align: left"&gt;org1,org2,org3&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td style="text-align: left"&gt;state&lt;/td&gt;
- &lt;td style="text-align: left"&gt;Active,Phase out,Unknown&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td style="text-align: left"&gt;project.type&lt;/td&gt;
- &lt;td style="text-align: left"&gt;Customer Project,Internal Project,Product,Service,Inner Source&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td style="text-align: left"&gt;project.externalkeys&lt;/td&gt;
- &lt;td style="text-align: left"&gt;internal.id&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td style="text-align: left"&gt;license.identifiers&lt;/td&gt;
- &lt;td style="text-align: left"&gt;-&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td style="text-align: left"&gt;component.categories&lt;/td&gt;
- &lt;td style="text-align: left"&gt;framework,SDK,big-data, build-management,cloud,content, database,graphics,http, javaee,library,mail,mobile, security,testing,virtual-machine, web-framework,xml&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td style="text-align: left"&gt;component.externalkeys&lt;/td&gt;
- &lt;td style="text-align: left"&gt;com.github.id,com.gitlab.id,purl.id&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td style="text-align: left"&gt;custommap.project.roles&lt;/td&gt;
- &lt;td style="text-align: left"&gt;Stakeholder,Analyst,Contributor,Accountant,End user,Quality manager,Test manager,Technical writer,Key user&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td style="text-align: left"&gt;custommap.component.roles&lt;/td&gt;
- &lt;td style="text-align: left"&gt;Committer,Contributor,Expert&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td style="text-align: left"&gt;custommap.release.roles&lt;/td&gt;
- &lt;td style="text-align: left"&gt;Committer,Contributor,Expert&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td style="text-align: left"&gt;custommap.release.externalIds&lt;/td&gt;
- &lt;td style="text-align: left"&gt;-&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td style="text-align: left"&gt;release.externalkeys&lt;/td&gt;
- &lt;td style="text-align: left"&gt;org.maven.id,com.github.id,com.gitlab.id,purl.id&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td style="text-align: left"&gt;projectimport.hosts&lt;/td&gt;
- &lt;td style="text-align: left"&gt;-&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td style="text-align: left"&gt;preferred.country.codes&lt;/td&gt;
- &lt;td style="text-align: left"&gt;DE,AT,CH,US&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td style="text-align: left"&gt;MailUtil_from&lt;/td&gt;
- &lt;td style="text-align: left"&gt;_&lt;a href="mailto:No_Reply__@sw360.org"&gt;No_Reply__@sw360.org&lt;/a&gt;&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td style="text-align: left"&gt;MailUtil_host&lt;/td&gt;
- &lt;td style="text-align: left"&gt;-&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td style="text-align: left"&gt;MailUtil_port&lt;/td&gt;
- &lt;td style="text-align: left"&gt;25&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td style="text-align: left"&gt;MailUtil_enableStarttls&lt;/td&gt;
- &lt;td style="text-align: left"&gt;false&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td style="text-align: left"&gt;MailUtil_enableSsl&lt;/td&gt;
- &lt;td style="text-align: left"&gt;false&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td style="text-align: left"&gt;MailUtil_isAuthenticationNecessary&lt;/td&gt;
- &lt;td style="text-align: left"&gt;true&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td style="text-align: left"&gt;MailUtil_login&lt;/td&gt;
- &lt;td style="text-align: left"&gt;-&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td style="text-align: left"&gt;MailUtil_password&lt;/td&gt;
- &lt;td style="text-align: left"&gt;-&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td style="text-align: left"&gt;MailUtil_enableDebug&lt;/td&gt;
- &lt;td style="text-align: left"&gt;false&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td style="text-align: left"&gt;MailUtil_supportMailAddress&lt;/td&gt;
- &lt;td style="text-align: left"&gt;-&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td style="text-align: left"&gt;defaultBegin&lt;/td&gt;
- &lt;td style="text-align: left"&gt;-&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td style="text-align: left"&gt;defaultEnd&lt;/td&gt;
- &lt;td style="text-align: left"&gt;-&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td style="text-align: left"&gt;unsubscribeNoticeBefore&lt;/td&gt;
- &lt;td style="text-align: left"&gt;-&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td style="text-align: left"&gt;unsubscribeNoticeAfter&lt;/td&gt;
- &lt;td style="text-align: left"&gt;-&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&lt;strong&gt;Long-Term&lt;/strong&gt;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;Every 30 days&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;1 year&lt;/td&gt;
  &lt;/tr&gt;
  &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h3 id="fossologyproperties-etcsw360fossologyproperties"&gt;fossology.properties (/etc/sw360/fossology.properties)&lt;/h3&gt;
-&lt;p&gt;These configuration parameters are necessary to connect to a fossology server.&lt;/p&gt;</description></item><item><title>Configuring Country Codes</title><link>https://eclipse.dev/sw360/docs/deployment/deploy-configuration-country-codes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/deployment/deploy-configuration-country-codes/</guid><description>&lt;p&gt;This feature is available on:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;projects / Owner Country&lt;/li&gt;
-&lt;li&gt;components / Owner Country&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;img src="https://user-images.githubusercontent.com/29916928/36796378-551cf572-1c9d-11e8-96aa-85ce98e97ff3.jpg" alt="Country Code List"&gt;&lt;/p&gt;
-&lt;p&gt;Its supports preferred country codes, which are shown at the top of the country list. &lt;br&gt;
-You can configure them by using the sw360.properties.&lt;/p&gt;
-&lt;table&gt;
- &lt;thead&gt;
- &lt;tr&gt;
- &lt;th style="text-align: center"&gt;sw360 properties key&lt;/th&gt;
- &lt;th style="text-align: center"&gt;value&lt;/th&gt;
- &lt;th style="text-align: center"&gt;default&lt;/th&gt;
- &lt;/tr&gt;
- &lt;/thead&gt;
- &lt;tbody&gt;
- &lt;tr&gt;
- &lt;td style="text-align: center"&gt;preferred.country.codes&lt;/td&gt;
- &lt;td style="text-align: center"&gt;(ISO 3166-1 alpha-2)&lt;/td&gt;
- &lt;td style="text-align: center"&gt;DE,AT,CH,US&lt;/td&gt;
- &lt;/tr&gt;
- &lt;/tbody&gt;
-&lt;/table&gt;</description></item><item><title>Create Release</title><link>https://eclipse.dev/sw360/docs/development/completiontests/release-create/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/development/completiontests/release-create/</guid><description>&lt;h2 id="sw360-add-releases-page-test-cases"&gt;SW360 &amp;ldquo;Add Releases&amp;rdquo; Page Test Cases&lt;/h2&gt;
+&lt;h2 id="recommended-offline-backups"&gt;Recommended: Offline Backups&lt;/h2&gt;
+&lt;p&gt;For SW360 v20+, &lt;strong&gt;offline backups&lt;/strong&gt; are the recommended method for ensuring
+maximum data consistency. This involves briefly stopping the services to capture
+a point-in-time snapshot of the underlying databases and configuration files.&lt;/p&gt;</description></item><item><title>Create Release</title><link>https://eclipse.dev/sw360/docs/development/completiontests/release-create/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/development/completiontests/release-create/</guid><description>&lt;h2 id="sw360-add-releases-page-test-cases"&gt;SW360 &amp;ldquo;Add Releases&amp;rdquo; Page Test Cases&lt;/h2&gt;
 &lt;h3 id="general-page-behavior"&gt;General Page Behavior&lt;/h3&gt;
 &lt;h4 id="button-visibility"&gt;Button Visibility&lt;/h4&gt;
 &lt;ul&gt;
@@ -5992,11 +5841,7 @@ You can configure them by using the sw360.properties.&lt;/p&gt;
 &lt;/ol&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Expected Result:&lt;/strong&gt; The release is created, and the user is redirected to the &amp;ldquo;Edit Release&amp;rdquo; page of the created release.&lt;/li&gt;
-&lt;/ul&gt;</description></item><item><title>CVE Scheduler</title><link>https://eclipse.dev/sw360/docs/deployment/deploy-cve-search/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/deployment/deploy-cve-search/</guid><description>&lt;h1 id="how-to-use-sw360-cve-schedule"&gt;How to use SW360 CVE schedule&lt;/h1&gt;
-&lt;p&gt;SW360 gets vulnerability information from Common Vulnerability Enumeration (CVE) data. SW360 can connect to your local cve-search server.&lt;br&gt;
-&lt;em&gt;Few years ago, sw360 was able to get vulnerability information from online CVE serverr, but it is not active.&lt;/em&gt;&lt;/p&gt;
-&lt;h2 id="install-cve-search"&gt;Install CVE-search&lt;/h2&gt;
-&lt;p&gt;cve-search is a tool to import CVE (Common Vulnerabilities and Exposures) and CPE (Common Platform Enumeration) into a MongoDB to facilitate search and processing of CVEs. You can choose Docker install or Native install.&lt;/p&gt;</description></item><item><title>Dependency Network Feature</title><link>https://eclipse.dev/sw360/docs/userguide/dependency_network/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/userguide/dependency_network/</guid><description>&lt;h2 id="how-to-enable-this-feature"&gt;How to enable this feature&lt;/h2&gt;
+&lt;/ul&gt;</description></item><item><title>Dependency Network Feature</title><link>https://eclipse.dev/sw360/docs/userguide/dependency_network/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/userguide/dependency_network/</guid><description>&lt;h2 id="how-to-enable-this-feature"&gt;How to enable this feature&lt;/h2&gt;
 &lt;p&gt;To use this function, please:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;
@@ -6050,19 +5895,7 @@ It includes installation of all dependencies manually, which will not use docker
 &lt;p&gt;These instructions worked on Ubuntu 20.04 and has detailed explanations for newcomers.&lt;/p&gt;
 &lt;p&gt;This is a guide with detailed explanation of how to install and run SW360 natively on you local machine.
 It includes installation of all dependencies manually, which will not use docker or other container system during the installation or run.&lt;/p&gt;
-&lt;p&gt;SW360 is an Open Source project. The &lt;a href="https://www.eclipse.org/sw360/docs/"&gt;SW360&lt;/a&gt; repository and &lt;a href="https://github.com/eclipse/sw360.website"&gt;SW360 website&lt;/a&gt; repositories are published on GitHub.&lt;/p&gt;</description></item><item><title>Security</title><link>https://eclipse.dev/sw360/docs/deployment/deploy-secure-deployment/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/deployment/deploy-secure-deployment/</guid><description>&lt;p&gt;After the basic installation, there are some following steps that should be considered for securing the deployment. The main issue that can be done upfront is the documentation of the involved components:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Lifearay&lt;/li&gt;
-&lt;li&gt;Tomcat&lt;/li&gt;
-&lt;li&gt;Couchdb&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;For the applications, the following very first line measure should be considered:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Change password of Liferay administrator user or check if that is appropriately secure.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;You should check the permissions of the involved users in the user management in Liferay.&lt;/p&gt;</description></item><item><title>SPDX Document</title><link>https://eclipse.dev/sw360/docs/userguide/spdx_document/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/userguide/spdx_document/</guid><description>&lt;h2 id="how-to-enable-this-feature"&gt;How to enable this feature&lt;/h2&gt;
+&lt;p&gt;SW360 is an Open Source project. The &lt;a href="https://www.eclipse.org/sw360/docs/"&gt;SW360&lt;/a&gt; repository and &lt;a href="https://github.com/eclipse/sw360.website"&gt;SW360 website&lt;/a&gt; repositories are published on GitHub.&lt;/p&gt;</description></item><item><title>SPDX Document</title><link>https://eclipse.dev/sw360/docs/userguide/spdx_document/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/userguide/spdx_document/</guid><description>&lt;h2 id="how-to-enable-this-feature"&gt;How to enable this feature&lt;/h2&gt;
 &lt;p&gt;To use this function, please:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;
@@ -6133,14 +5966,7 @@ It includes installation of all dependencies manually, which will not use docker
 
 &lt;h5 id="add-tab-spdx-document"&gt;Add tab SPDX Document&lt;/h5&gt;
 &lt;figure&gt;&lt;img src="https://eclipse.dev/sw360/img/sw360screenshots/spdx_document/Add_tab_SPDX_Document.png"&gt;
-&lt;/figure&gt;</description></item><item><title>Special Deployment Guides</title><link>https://eclipse.dev/sw360/docs/deployment/deploy-specialdeployment/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/deployment/deploy-specialdeployment/</guid><description>&lt;h3 id="general-deployment-guides"&gt;General Deployment Guides&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="https://qiita.com/K-Hama/items/1582b4e1bf248025eabb"&gt;Comprehensive blog post on SW360 Installation in Japanese&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</description></item><item><title>System Requirements</title><link>https://eclipse.dev/sw360/docs/deployment/deploy-requirements/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/deployment/deploy-requirements/</guid><description>&lt;p&gt;For deploying the SW360, there are the following hardware requirements below. Please note that the main memory consumer is the tomcat application container. Accordingly, this requires different settings (see &lt;code&gt;$TOMCAT_HOME/bin/setenv.sh&lt;/code&gt;).&lt;/p&gt;
-&lt;p&gt;Please note that you can review the current memory situation of the application in the liferay administration section as well (see &lt;code&gt;Configuration&lt;/code&gt;-&amp;gt; &lt;code&gt;Server Administration&lt;/code&gt;).&lt;/p&gt;
-&lt;h2 id="hardware-and-infrastructure"&gt;Hardware and Infrastructure&lt;/h2&gt;
-&lt;h3 id="cd-based-test-instances"&gt;CD-based test instances&lt;/h3&gt;
-&lt;p&gt;When there is a continuous deployment and continuous delivery directly deployed to machine the following machine is recommended:&lt;/p&gt;</description></item><item><title>Ubuntu 18.04 LTS, Java 11</title><link>https://eclipse.dev/sw360/docs/deployment/legacy/deploy-natively-11/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/deployment/legacy/deploy-natively-11/</guid><description>&lt;h2 id="introduction"&gt;Introduction&lt;/h2&gt;
+&lt;/figure&gt;</description></item><item><title>Ubuntu 18.04 LTS, Java 11</title><link>https://eclipse.dev/sw360/docs/deployment/legacy/deploy-natively-11/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/deployment/legacy/deploy-natively-11/</guid><description>&lt;h2 id="introduction"&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;We are covering the update for Ubuntu 18.04 LTS here because it is our main and agreed-upon base system for running SW360. While SW360 may run on a variety of other Linux distributions or operating systems such as macOS, we have agreed to use Ubuntu Long-Term Releases as a reference OS to avoid compatibility issues. The author of this guide also uses macOS with Homebrew, which works fairly well.&lt;/p&gt;</description></item><item><title>Upgrade Sw360 from 14.0 to 15.0</title><link>https://eclipse.dev/sw360/docs/deployment/upgrading/upgrade-sw360-from-14.0.0-to-15.0.0/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/deployment/upgrading/upgrade-sw360-from-14.0.0-to-15.0.0/</guid><description>&lt;h1 id="upgrade-sw360-version-150"&gt;Upgrade SW360 version 15.0&lt;/h1&gt;
 &lt;h2 id="1-upgrade-sw360-from-140-to-150"&gt;1. Upgrade sw360 from 14.0 to 15.0&lt;/h2&gt;
 &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;1.1 Checkout source code SW360 to Tag Version 15
@@ -6233,93 +6059,7 @@ installation or run.&lt;/p&gt;
 &lt;h2 id="requirements"&gt;Requirements&lt;/h2&gt;
 &lt;p&gt;The installation consists of quite some tasks, as an overview:&lt;/p&gt;</description></item><item><title>Vulnerabilities</title><link>https://eclipse.dev/sw360/docs/administrationguide/vulnerabilitymanagement/vulnerabilities/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/administrationguide/vulnerabilitymanagement/vulnerabilities/</guid><description>&lt;h1 id="50-vulnerabilities"&gt;5.0 Vulnerabilities&lt;/h1&gt;
 &lt;p&gt;A vulnerability is a security flaw, glitch, or weakness found in software code that could be exploited by an attacker (threat source). The Vulnerabilities page lists all the vulnerabilities that are available in SW360. The Vulnerabilities are typically synced from SVM tools but can also be manually managed. They are listed independently without any relation to their linked projects/components/releases initially.&lt;/p&gt;
-&lt;p&gt;To open the Vulnerabilities page, click on the &lt;strong&gt;Vulnerabilities tab&lt;/strong&gt; from the main menu.&lt;/p&gt;</description></item><item><title>Keycloak based authentication</title><link>https://eclipse.dev/sw360/docs/deployment/deploy-keycloak-authentication/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/deployment/deploy-keycloak-authentication/</guid><description>&lt;h2 id="install-java-21"&gt;Install Java 21&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Update the package index: &lt;code&gt;sudo apt update&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Install OpenJDK 21: &lt;code&gt;sudo apt install openjdk-21-jdk&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id="set-java_home"&gt;Set JAVA_HOME&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Edit the &lt;code&gt;~/.bashrc&lt;/code&gt; file: &lt;code&gt;vim ~/.bashrc&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Add the following line at the end of the file: &lt;code&gt;export JAVA_HOME=/usr/lib/jvm/java-21-openjdk-amd64&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Save and exit the editor.&lt;/li&gt;
-&lt;li&gt;Update the environment variables: &lt;code&gt;source ~/.bashrc&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Or you can set environment variable in &lt;code&gt;/etc/environment&lt;/code&gt; file&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id="install-postgresql"&gt;Install PostgreSQL&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Install PostgreSQL 14 or higher.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo apt update &amp;amp;&amp;amp; sudo apt upgrade -y
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo apt install postgresql-14
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="set-username-and-password-in-postgresql"&gt;Set Username and Password in PostgreSQL&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Switch to the PostgreSQL user: &lt;code&gt;sudo su postgres&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Access the PostgreSQL console: &lt;code&gt;psql&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Execute the following SQL commands:&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;CREATE USER keycloak WITH ENCRYPTED PASSWORD &amp;#39;mystrongandsecurepassword&amp;#39;;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;CREATE DATABASE keycloak;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;GRANT ALL PRIVILEGES ON DATABASE keycloak TO keycloak;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="install-keycloak"&gt;Install Keycloak&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Download Keycloak 26.0.6 from the official repository.&lt;/li&gt;
-&lt;li&gt;Or download the tar file &lt;code&gt;wget https://github.com/keycloak/keycloak/releases/download/26.0.6/keycloak-26.0.6.tar.gz&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Extract the downloaded file to the /opt folder, &lt;code&gt;sudo tar -xvf myfiles.tar -C /opt&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Goto &lt;code&gt;/opt/keycloak-26.x.x/conf&lt;/code&gt; folder and setup the following in &lt;code&gt;keycloak.conf&lt;/code&gt; file:&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;# Database
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;# The database vendor.
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;db=postgres
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;# The username of the database user.
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;db-username=keycloak
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;# The password of the database user.
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;db-password=mystrongandsecurepassword
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;# The full database JDBC URL. If not provided, a default URL is set based on the selected database vendor.
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;db-url=jdbc:postgresql://localhost/keycloak
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;# Changes for SW360
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;keycloak-admin=admin
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;keycloak-admin-password=admin
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;log=console,file
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;# Should be true for productive
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;hostname-strict-backchannel=false
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;hostname-strict-https=false
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;# Should be false for productive
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;http-enabled=true
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;http-port=8083
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;https-port=8533
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="start-keycloak"&gt;Start Keycloak&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Navigate to the Keycloak directory, &lt;code&gt;cd /opt/keycloak-26.x.x/bin&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Run the start-dev command for development (with HTTP):&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;./kc.sh start-dev
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
-&lt;li&gt;Run the start command for productive (with HTTPS):&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;./kc.sh start
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
-&lt;li&gt;Run the start command with the necessary parameters(with debug mode):&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo ./kc.sh start-dev --log=&amp;#34;console,file&amp;#34; --debug --log-level=INFO,org.eclipse.sw360.keycloak.spi:debug,org.eclipse.sw360.keycloak.event.listener:debug
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="build-the-backend"&gt;Build the Backend&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Build the SW360 backend code using Maven,
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;mvn clean install -DskipTests -Dbase.deploy.dir&lt;span style="color:#555"&gt;=&lt;/span&gt;/opt/apache-tomcat-11.x.x/ -Dlistener.deploy.dir&lt;span style="color:#555"&gt;=&lt;/span&gt;/opt/keycloak-26.x.x/providers -P deploy
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;li&gt;Start the Apache Tomcat server.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id="keycloak-providers-and-libraries"&gt;Keycloak Providers and Libraries&lt;/h2&gt;
-&lt;p&gt;Providers are used to read users from SW360 DB and register users from keycloak to SW360 DB.&lt;/p&gt;</description></item><item><title>Search Vulnerabilities</title><link>https://eclipse.dev/sw360/docs/administrationguide/vulnerabilitymanagement/user-check-vulnerabilities-for-your-project/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/administrationguide/vulnerabilitymanagement/user-check-vulnerabilities-for-your-project/</guid><description>&lt;p&gt;The CVE-Search service of SW360 checks for vulnerabilities that affect releases present in SW360.
+&lt;p&gt;To open the Vulnerabilities page, click on the &lt;strong&gt;Vulnerabilities tab&lt;/strong&gt; from the main menu.&lt;/p&gt;</description></item><item><title>Search Vulnerabilities</title><link>https://eclipse.dev/sw360/docs/administrationguide/vulnerabilitymanagement/user-check-vulnerabilities-for-your-project/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/administrationguide/vulnerabilitymanagement/user-check-vulnerabilities-for-your-project/</guid><description>&lt;p&gt;The CVE-Search service of SW360 checks for vulnerabilities that affect releases present in SW360.
 The CVE-search service runs automatically at the time that has been scheduled by one of the &lt;code&gt;SW360-admins&lt;/code&gt;.
 Typically, this will happen at night. So, in the beginning, SW360 does not know any vulnerabilities for your project.&lt;/p&gt;
 &lt;h2 id="vulnerabilites-in-the-project-portlet"&gt;Vulnerabilites in the Project Portlet&lt;/h2&gt;
@@ -6344,7 +6084,11 @@ installation or run.&lt;/p&gt;
 &lt;li&gt;Liferay CE 7.4.3 GA18&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id="initial-steps"&gt;Initial steps&lt;/h2&gt;
-&lt;p&gt;In order to &amp;ldquo;calibrate the system&amp;rdquo; just run the update / upgrade cycle once:&lt;/p&gt;</description></item><item><title>Edit Release</title><link>https://eclipse.dev/sw360/docs/development/completiontests/release-edit/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/development/completiontests/release-edit/</guid><description>&lt;h2 id="sw360-edit-release-page-test-cases"&gt;SW360 &amp;ldquo;Edit Release&amp;rdquo; Page Test Cases&lt;/h2&gt;
+&lt;p&gt;In order to &amp;ldquo;calibrate the system&amp;rdquo; just run the update / upgrade cycle once:&lt;/p&gt;</description></item><item><title>CVE Scheduler</title><link>https://eclipse.dev/sw360/docs/deployment/deploy-cve-search/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/deployment/deploy-cve-search/</guid><description>&lt;h1 id="how-to-use-sw360-cve-schedule"&gt;How to use SW360 CVE schedule&lt;/h1&gt;
+&lt;p&gt;SW360 gets vulnerability information from Common Vulnerability Enumeration (CVE) data. SW360 can connect to your local cve-search server.&lt;br&gt;
+&lt;em&gt;Few years ago, sw360 was able to get vulnerability information from online CVE serverr, but it is not active.&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id="install-cve-search"&gt;Install CVE-search&lt;/h2&gt;
+&lt;p&gt;cve-search is a tool to import CVE (Common Vulnerabilities and Exposures) and CPE (Common Platform Enumeration) into a MongoDB to facilitate search and processing of CVEs. You can choose Docker install or Native install.&lt;/p&gt;</description></item><item><title>Edit Release</title><link>https://eclipse.dev/sw360/docs/development/completiontests/release-edit/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/development/completiontests/release-edit/</guid><description>&lt;h2 id="sw360-edit-release-page-test-cases"&gt;SW360 &amp;ldquo;Edit Release&amp;rdquo; Page Test Cases&lt;/h2&gt;
 &lt;h3 id="summary-tab"&gt;Summary Tab&lt;/h3&gt;
 &lt;h4 id="release-summary-section"&gt;Release Summary Section&lt;/h4&gt;
 &lt;ul&gt;
@@ -7077,6 +6821,9 @@ installation or run.&lt;/p&gt;
 &lt;/ol&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Expected Result:&lt;/strong&gt; The page navigates back to the &amp;ldquo;Merge data&amp;rdquo; section.&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>Special Deployment Guides</title><link>https://eclipse.dev/sw360/docs/deployment/deploy-specialdeployment/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/deployment/deploy-specialdeployment/</guid><description>&lt;h3 id="general-deployment-guides"&gt;General Deployment Guides&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://qiita.com/K-Hama/items/1582b4e1bf248025eabb"&gt;Comprehensive blog post on SW360 Installation in Japanese&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</description></item><item><title>Split Components</title><link>https://eclipse.dev/sw360/docs/development/completiontests/components-split/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/development/completiontests/components-split/</guid><description>&lt;h2 id="sw360-split-component-page-test-cases"&gt;SW360 &amp;ldquo;Split Component&amp;rdquo; Page Test Cases&lt;/h2&gt;
 &lt;h3 id="general-page-behavior"&gt;General Page Behavior&lt;/h3&gt;
 &lt;h4 id="accessing-the-split-component-page"&gt;Accessing the Split Component Page&lt;/h4&gt;
