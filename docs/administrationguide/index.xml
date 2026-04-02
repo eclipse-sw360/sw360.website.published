@@ -1,29 +1,59 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Administration Guides on Eclipse SW360</title><link>https://eclipse.dev/sw360/docs/administrationguide/</link><description>Recent content in Administration Guides on Eclipse SW360</description><generator>Hugo</generator><language>en</language><atom:link href="https://eclipse.dev/sw360/docs/administrationguide/index.xml" rel="self" type="application/rss+xml"/><item><title>Administrator Menu</title><link>https://eclipse.dev/sw360/docs/administrationguide/menu/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/administrationguide/menu/</guid><description>&lt;p&gt;The &lt;strong&gt;admin menu&lt;/strong&gt; consists of the following items:&lt;/p&gt;
-&lt;figure&gt;&lt;img src="https://eclipse.dev/sw360/img/ImagesBasic/admin_menu.png"&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Administration Guides on Eclipse SW360</title><link>https://eclipse.dev/sw360/docs/administrationguide/</link><description>Recent content in Administration Guides on Eclipse SW360</description><generator>Hugo</generator><language>en</language><atom:link href="https://eclipse.dev/sw360/docs/administrationguide/index.xml" rel="self" type="application/rss+xml"/><item><title>Administrator Menu</title><link>https://eclipse.dev/sw360/docs/administrationguide/menu/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/administrationguide/menu/</guid><description>&lt;p&gt;The &lt;strong&gt;Administrator Menu&lt;/strong&gt; provides centralized access to system management
+tools and settings. The menu consists of the following sections:&lt;/p&gt;
+&lt;figure&gt;&lt;img src="https://eclipse.dev/sw360/img/sw360screenshots/administration/Admin-menu.png"&gt;
 &lt;/figure&gt;
 
 &lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;User&lt;/strong&gt;: Displays the list of &lt;strong&gt;Liferay Users&lt;/strong&gt;. One can also download or upload new users in this section&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Vendors&lt;/strong&gt;: Displays the list of the &lt;strong&gt;Vendors&lt;/strong&gt; that can be managed by the admin&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Bulk License Edit&lt;/strong&gt;: List of licenses can be edited together in this section&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Licenses&lt;/strong&gt;: Functions such as Download License Archive, Upload License Archive, Import SPDX Information and Delete License Information can be done in this section&lt;/p&gt;</description></item><item><title>User Management Roles</title><link>https://eclipse.dev/sw360/docs/administrationguide/user-management-roles/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/administrationguide/user-management-roles/</guid><description>&lt;p&gt;Every user can create records and edit own created records. However, to change records of others, approval is required. Approval in SW360 is a so called moderation request. A moderation request is a set of proposed changed not applied to record immediately, but will be routed to;&lt;/p&gt;
+&lt;li&gt;&lt;strong&gt;User&lt;/strong&gt;: Manage system users, including role assignments and bulk
+import/export.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Department&lt;/strong&gt;: Manage organizational departments for visibility and access
+control.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Vendors&lt;/strong&gt;: Maintain the global list of component and software vendors.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Bulk Release Edit&lt;/strong&gt;: Batch-update attributes across multiple releases
+simultaneously.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Licenses&lt;/strong&gt;: Manage the software licenses.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;License Types&lt;/strong&gt;: Define and categorize different types of licenses.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Obligations&lt;/strong&gt;: Define and manage legal and compliance obligations for specific
+licenses.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Schedule&lt;/strong&gt;: Manage automated background tasks, such as CVE vulnerability
+searches.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Fossology&lt;/strong&gt;: Configure and monitor the connection to the FOSSology scanning
+server.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Import &amp;amp; Export&lt;/strong&gt;: Bulk manage component, release, and license information
+via data transfer.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Database Sanitation&lt;/strong&gt;: Clean up the database and resolve duplicate or
+inconsistent identifiers.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Attachment Cleanup&lt;/strong&gt;: Manage and purge orphaned or redundant attachments to
+save storage.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;OAuth Client&lt;/strong&gt;: Manage and configure external application clients for API
+access.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Configurations&lt;/strong&gt;: Fine-tune application behavior and manage feature toggles.&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>Configurations</title><link>https://eclipse.dev/sw360/docs/administrationguide/configurations/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/administrationguide/configurations/</guid><description>&lt;p&gt;In SW360 v20, system administrators can manage most application settings
+directly through the user interface. This eliminates the need for manual
+configuration file edits for many standard adjustments.&lt;/p&gt;
+&lt;h2 id="admin--configurations"&gt;Admin &amp;gt; Configurations&lt;/h2&gt;
+&lt;p&gt;The primary interface for application settings is found under &lt;strong&gt;Admin &amp;gt;
+Configurations&lt;/strong&gt;.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Update Persistence&lt;/strong&gt;: Changes made here are stored in the database and
+typically take effect immediately across the application.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Toggles &amp;amp; Parameters&lt;/strong&gt;: Most features can be activated or deactivated using
+simple toggles, some are available as text fields and some with comma separted
+pills for generating dropdowns.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;All the configurations are arranged in 3 columns, Name, Value and Description.
+Name being a human friendly name of the property, Value holding the current
+value of the property and Description being a human friendly description for the
+property. They are divided accross two sections:&lt;/p&gt;</description></item><item><title>User Management Roles</title><link>https://eclipse.dev/sw360/docs/administrationguide/user-management-roles/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/administrationguide/user-management-roles/</guid><description>&lt;p&gt;Every user can create records and edit their own records. However, to change
+records owned by others, approval is required. This is handled through a
+&lt;strong&gt;Moderation Request&lt;/strong&gt; — a set of proposed changes that are not applied
+immediately, but are routed to:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;The creator of the record&lt;/li&gt;
-&lt;li&gt;The moderators for a record&lt;/li&gt;
-&lt;li&gt;The clearing admins of the same group in SW360.&lt;/li&gt;
+&lt;li&gt;The moderators defined for that record&lt;/li&gt;
+&lt;li&gt;The Clearing Admin(s) of the same department&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Then, the proposed changes can be approved by them.&lt;/p&gt;</description></item><item><title>CVE-Search Scheduling</title><link>https://eclipse.dev/sw360/docs/administrationguide/user-scheduling-cve-search-by-admins/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/administrationguide/user-scheduling-cve-search-by-admins/</guid><description>&lt;p&gt;SW360 gets vulnerability information from an external provider of Common Vulnerability Enumeration (CVE) data. By default SW360 can connect to cve-search [https://www.circl.lu/services/cve-search/] which is either available as an online service [http://cve.circl.lu] or can be installed locally. For security and privacy reasons it is strongly advised to install a local cve-search service.&lt;/p&gt;
-&lt;h2 id="synchronization-between-sw360-and-cve-provider"&gt;Synchronization between SW360 and CVE Provider&lt;/h2&gt;
-&lt;h3 id="automatic-scheduling"&gt;Automatic Scheduling&lt;/h3&gt;
-&lt;p&gt;&lt;code&gt;CveSearch-updates&lt;/code&gt; can either be scheduled automatically when launching the &lt;code&gt;schedule-service&lt;/code&gt; (e.g. when re/starting SW360) or it can be scheduled or unscheduled manually by an &lt;code&gt;SW360 admin&lt;/code&gt;.
-It is automatically scheduled with the start of the scheduling service, if in the &lt;code&gt;/resources/sw360.properties&lt;/code&gt; file of the &lt;code&gt;schedule-service&lt;/code&gt; in the backend, &lt;code&gt;cvesearchService&lt;/code&gt; is mentioned in the &lt;code&gt;autostart&lt;/code&gt;-property:&lt;/p&gt;</description></item><item><title>Enumerations</title><link>https://eclipse.dev/sw360/docs/administrationguide/user-data-model-enumerations/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/administrationguide/user-data-model-enumerations/</guid><description>&lt;p&gt;SW360 thrift API is comprised of the following methods:&lt;/p&gt;
+&lt;p&gt;The proposed changes can then be approved or rejected by any of the above.&lt;/p&gt;</description></item><item><title>Enumerations</title><link>https://eclipse.dev/sw360/docs/administrationguide/user-data-model-enumerations/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/administrationguide/user-data-model-enumerations/</guid><description>&lt;p&gt;SW360 thrift API is comprised of the following methods:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;attachments&lt;/li&gt;
 &lt;li&gt;codescoop&lt;/li&gt;
@@ -149,26 +179,8 @@ It is automatically scheduled with the start of the scheduling service, if in th
  &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;h2 id="codescoop-thrift-file"&gt;CodeScoop Thrift File&lt;/h2&gt;
-&lt;p&gt;&lt;a href="https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/codescoop.thrift"&gt;https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/codescoop.thrift&lt;/a&gt;&lt;/p&gt;</description></item><item><title>Properties</title><link>https://eclipse.dev/sw360/docs/administrationguide/properties/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/administrationguide/properties/</guid><description>&lt;h2 id="frontend-properties"&gt;Frontend Properties&lt;/h2&gt;
-&lt;p&gt;All the sw360 frontend properties are mentioned in &lt;a href="https://github.com/eclipse-sw360/sw360/blob/main/libraries/datahandler/src/main/resources/sw360.properties"&gt;sw360.properties&lt;/a&gt; file.
-For example;&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://github.com/eclipse/sw360/wiki/"&gt;https://github.com/eclipse/sw360/wiki/&lt;/a&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Different categories for components,&lt;/p&gt;
-&lt;p&gt;component.categories=[ &amp;ldquo;framework&amp;rdquo;, &amp;ldquo;SDK&amp;rdquo;, &amp;ldquo;big-data&amp;rdquo;, &amp;ldquo;build-management&amp;rdquo;, &amp;ldquo;cloud&amp;rdquo;, &amp;ldquo;content&amp;rdquo;, &amp;ldquo;database&amp;rdquo;, &amp;ldquo;graphics&amp;rdquo;, &amp;ldquo;http&amp;rdquo;, &amp;ldquo;javaee&amp;rdquo;, &amp;ldquo;library&amp;rdquo;, &amp;ldquo;mail&amp;rdquo;, &amp;ldquo;mobile&amp;rdquo;, &amp;ldquo;network-client&amp;rdquo;, &amp;ldquo;network-server&amp;rdquo;, &amp;ldquo;osgi&amp;rdquo;, &amp;ldquo;security&amp;rdquo;, &amp;ldquo;testing&amp;rdquo;, &amp;ldquo;virtual-machine&amp;rdquo;, &amp;ldquo;web-framework&amp;rdquo;, &amp;ldquo;xml&amp;rdquo;]&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Dropdown for project type,&lt;/p&gt;
-&lt;p&gt;project.type=[ &amp;ldquo;Customer Project&amp;rdquo;, &amp;ldquo;Internal Project&amp;rdquo;, &amp;ldquo;Product&amp;rdquo;, &amp;ldquo;Service&amp;rdquo;, &amp;ldquo;Inner Source&amp;rdquo; ]&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;API Token generation,&lt;/p&gt;
-&lt;p&gt;rest.apitoken.generator.enable=false&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Activation of portlets and components&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id="backend-properties"&gt;Backend Properties&lt;/h2&gt;
-&lt;p&gt;This &lt;a href="https://github.com/eclipse-sw360/sw360/blob/main/backend/common/src/main/resources/sw360.properties"&gt;sw360.properties&lt;/a&gt; file contains the sw360 backend properties. This file contains the common properties for the backend services and also holds the setting for the mail utility.&lt;/p&gt;</description></item></channel></rss>
+&lt;p&gt;&lt;a href="https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/codescoop.thrift"&gt;https://github.com/eclipse/sw360/blob/master/libraries/lib-datahandler/src/main/thrift/codescoop.thrift&lt;/a&gt;&lt;/p&gt;</description></item><item><title>CVE-Search Scheduling</title><link>https://eclipse.dev/sw360/docs/administrationguide/user-scheduling-cve-search-by-admins/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/administrationguide/user-scheduling-cve-search-by-admins/</guid><description>&lt;p&gt;SW360 gets vulnerability information from an external provider of Common Vulnerability Enumeration (CVE) data. By default SW360 can connect to cve-search [https://www.circl.lu/services/cve-search/] which is either available as an online service [http://cve.circl.lu] or can be installed locally. For security and privacy reasons it is strongly advised to install a local cve-search service.&lt;/p&gt;
+&lt;h2 id="synchronization-between-sw360-and-cve-provider"&gt;Synchronization between SW360 and CVE Provider&lt;/h2&gt;
+&lt;h3 id="automatic-scheduling"&gt;Automatic Scheduling&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;CveSearch-updates&lt;/code&gt; can either be scheduled automatically when launching the &lt;code&gt;schedule-service&lt;/code&gt; (e.g. when re/starting SW360) or it can be scheduled or unscheduled manually by an &lt;code&gt;SW360 admin&lt;/code&gt;.
+It is automatically scheduled with the start of the scheduling service, if in the &lt;code&gt;/resources/sw360.properties&lt;/code&gt; file of the &lt;code&gt;schedule-service&lt;/code&gt; in the backend, &lt;code&gt;cvesearchService&lt;/code&gt; is mentioned in the &lt;code&gt;autostart&lt;/code&gt;-property:&lt;/p&gt;</description></item></channel></rss>
