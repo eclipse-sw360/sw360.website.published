@@ -5227,7 +5227,18 @@ secondary roles. These changes are stored in CouchDB and synchronized to Keycloa
 &lt;/ol&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Expected Result:&lt;/strong&gt; Pagination components are present at the bottom of the table.&lt;/li&gt;
-&lt;/ul&gt;</description></item><item><title>Add Component</title><link>https://eclipse.dev/sw360/docs/development/completiontests/components-create/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/development/completiontests/components-create/</guid><description>&lt;h2 id="sw360-add-component-page-test-cases"&gt;SW360 &amp;ldquo;Add Component&amp;rdquo; Page Test Cases&lt;/h2&gt;
+&lt;/ul&gt;</description></item><item><title>Release Signing</title><link>https://eclipse.dev/sw360/docs/development/dev-release-signing/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/development/dev-release-signing/</guid><description>&lt;h1 id="release-signing-and-verification"&gt;Release Signing and Verification&lt;/h1&gt;
+&lt;p&gt;To ensure the integrity and authenticity of SW360 deliverables, we use
+cryptographic signing for both our container images and source code tags.&lt;/p&gt;
+&lt;h2 id="container-image-signing-cosign"&gt;Container Image Signing (Cosign)&lt;/h2&gt;
+&lt;p&gt;All Docker images published to the GitHub Container Registry (GHCR) are signed
+using &lt;strong&gt;Sigstore/Cosign&lt;/strong&gt; with keyless signing (OIDC). This process links the
+image to the specific GitHub Action workflow that built it.&lt;/p&gt;
+&lt;h3 id="how-to-verify"&gt;How to Verify&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Install Cosign&lt;/strong&gt;: Follow the &lt;a href="https://docs.sigstore.dev/cosign/system_config/installation/"&gt;official installation
+guide&lt;/a&gt;.&lt;/p&gt;</description></item><item><title>Add Component</title><link>https://eclipse.dev/sw360/docs/development/completiontests/components-create/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/development/completiontests/components-create/</guid><description>&lt;h2 id="sw360-add-component-page-test-cases"&gt;SW360 &amp;ldquo;Add Component&amp;rdquo; Page Test Cases&lt;/h2&gt;
 &lt;h3 id="general-page-behavior"&gt;General Page Behavior&lt;/h3&gt;
 &lt;h4 id="new-page-opening"&gt;New Page Opening&lt;/h4&gt;
 &lt;ul&gt;

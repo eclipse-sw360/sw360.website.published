@@ -281,4 +281,15 @@ CouchDB database.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2 id="2-secure-design-application"&gt;2. Secure Design Application&lt;/h2&gt;
 &lt;p&gt;As detailed in &lt;a href="https://eclipse.dev/sw360/docs/development/dev-secure-design/"&gt;Secure Design&lt;/a&gt;, the project strictly
-follows:&lt;/p&gt;</description></item></channel></rss>
+follows:&lt;/p&gt;</description></item><item><title>Release Signing</title><link>https://eclipse.dev/sw360/docs/development/dev-release-signing/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/development/dev-release-signing/</guid><description>&lt;h1 id="release-signing-and-verification"&gt;Release Signing and Verification&lt;/h1&gt;
+&lt;p&gt;To ensure the integrity and authenticity of SW360 deliverables, we use
+cryptographic signing for both our container images and source code tags.&lt;/p&gt;
+&lt;h2 id="container-image-signing-cosign"&gt;Container Image Signing (Cosign)&lt;/h2&gt;
+&lt;p&gt;All Docker images published to the GitHub Container Registry (GHCR) are signed
+using &lt;strong&gt;Sigstore/Cosign&lt;/strong&gt; with keyless signing (OIDC). This process links the
+image to the specific GitHub Action workflow that built it.&lt;/p&gt;
+&lt;h3 id="how-to-verify"&gt;How to Verify&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Install Cosign&lt;/strong&gt;: Follow the &lt;a href="https://docs.sigstore.dev/cosign/system_config/installation/"&gt;official installation
+guide&lt;/a&gt;.&lt;/p&gt;</description></item></channel></rss>
