@@ -167,4 +167,118 @@ Recommended is IntelliJ IDEA or NetBeans.&lt;/p&gt;</description></item><item><t
 &lt;li&gt;good support of webjars due to webjars-locator. Webjars a are automatically accessible through RequireJS.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id="how-to-use---example"&gt;How to use - Example&lt;/h2&gt;
-&lt;p&gt;There is a new jspf-file to be included in jsps to enable RequireJS support:&lt;/p&gt;</description></item></channel></rss>
+&lt;p&gt;There is a new jspf-file to be included in jsps to enable RequireJS support:&lt;/p&gt;</description></item><item><title>Architecture</title><link>https://eclipse.dev/sw360/docs/development/dev-architecture/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/development/dev-architecture/</guid><description>&lt;h1 id="sw360-architecture-documentation"&gt;SW360 Architecture Documentation&lt;/h1&gt;
+&lt;p&gt;This document describes the high-level architecture of the SW360 project, its
+major components, and how they interact.&lt;/p&gt;
+&lt;h2 id="system-overview"&gt;System Overview&lt;/h2&gt;
+&lt;p&gt;SW360 is a web-based application designed to manage software components,
+licenses, and security vulnerabilities. It follows a multi-tier architecture
+consisting of a React-based frontend, a Spring Boot-based REST API
+(Authorization and Resource Servers), a Thrift-based backend service layer, and
+a CouchDB database. Integration with Keycloak is supported for enterprise-grade
+Identity and Access Management.&lt;/p&gt;</description></item><item><title>Testing Policy</title><link>https://eclipse.dev/sw360/docs/development/dev-testing-policy/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/development/dev-testing-policy/</guid><description>&lt;h1 id="sw360-testing-policy"&gt;SW360 Testing Policy&lt;/h1&gt;
+&lt;p&gt;To ensure the reliability, maintainability, and security of the SW360 portal,
+this policy mandates automated testing for all code contributions.&lt;/p&gt;
+&lt;h2 id="policy-requirements"&gt;Policy Requirements&lt;/h2&gt;
+&lt;h3 id="1-new-functionality"&gt;1. New Functionality&lt;/h3&gt;
+&lt;p&gt;Every new feature or major enhancement MUST be accompanied by automated tests.
+This includes:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Unit Tests&lt;/strong&gt;: For individual components and business logic.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Integration Tests&lt;/strong&gt;: For service interactions and data handling layers.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;API Tests&lt;/strong&gt;: For new REST endpoints.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="2-bug-fixes"&gt;2. Bug Fixes&lt;/h3&gt;
+&lt;p&gt;All bug fixes MUST include one or more regression tests that demonstrate the bug
+being fixed and prevent it from recurring.&lt;/p&gt;</description></item><item><title>Secure Design</title><link>https://eclipse.dev/sw360/docs/development/dev-secure-design/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/development/dev-secure-design/</guid><description>&lt;h1 id="sw360-secure-design-principles"&gt;SW360 Secure Design Principles&lt;/h1&gt;
+&lt;p&gt;This document outlines how the SW360 project incorporates fundamental security
+design principles into its architecture and development processes.&lt;/p&gt;
+&lt;h2 id="1-fail-safe-defaults"&gt;1. Fail-safe Defaults&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;In-depth Authorization&lt;/strong&gt;: By default, any new API endpoint or UI action
+requires authentication. Access is denied unless explicitly permitted by the
+user&amp;rsquo;s roles.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Secure Configuration&lt;/strong&gt;: The system is designed to run in a secure state
+out-of-the-box. Environment variables are used for sensitive configurations,
+ensuring that secrets are never hardcoded in the repository.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="2-complete-mediation"&gt;2. Complete Mediation&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Centralized Authentication&lt;/strong&gt;: Every access request is mediated through the
+core &lt;strong&gt;Authorization Server&lt;/strong&gt; (OIDC/OAuth2). No resource can be accessed
+without a valid, verified token. Integration with &lt;strong&gt;Keycloak&lt;/strong&gt; is supported
+for enhanced IAM features.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;REST Interceptors&lt;/strong&gt;: Spring Security and customized filters serve as
+mediators for all REST traffic, ensuring that every request is checked
+against the user&amp;rsquo;s authority before being processed.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="3-least-privilege"&gt;3. Least Privilege&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Role-Based Access Control (RBAC)&lt;/strong&gt;: SW360 uses granular roles (e.g., USER,
+ADMIN, MAINTAINER). Users are granted only the minimum permissions necessary
+for their tasks.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Record-Level Permissions&lt;/strong&gt;: Visibility and edit rights are enforced at the
+data handler level, ensuring that users can only interact with projects and
+components they have specific rights to view.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="4-defense-in-depth"&gt;4. Defense in Depth&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Multi-layer Validation&lt;/strong&gt;: Input validation is performed at both the frontend
+(Next.js) and the backend (Spring Boot/Data Handler) to prevent malformed or
+malicious data from reaching the database.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Network Security&lt;/strong&gt;: The architecture separation of frontend, backend, and
+database provides multiple layers where security controls can be applied
+(e.g., CSP on the frontend, TLS between services).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="5-economy-of-mechanism-keep-it-simple"&gt;5. Economy of Mechanism (Keep it Simple)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Standardized Frameworks&lt;/strong&gt;: By utilizing established frameworks like Spring
+Security and Next.js, the project avoids the complexities and vulnerabilities
+associated with &amp;ldquo;rolling your own&amp;rdquo; security solutions.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Clean Architecture&lt;/strong&gt;: The modular separation of concerns ensures that
+security logic is isolated and easy to audit.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="6-open-design"&gt;6. Open Design&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Open Standards&lt;/strong&gt;: The project relies on open, widely-scrutinized standards
+such as OIDC and OAuth2 for security, rather than proprietary or &amp;ldquo;hidden&amp;rdquo;
+mechanisms.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Public Auditability&lt;/strong&gt;: As an open-source project, the security policy,
+source code, and design are public, allowing for continuous community review
+and transparency.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="7-psychological-acceptability"&gt;7. Psychological Acceptability&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;SSO Integration&lt;/strong&gt;: By using Keycloak for Single Sign-On, we minimize
+&amp;ldquo;password fatigue&amp;rdquo; for users while maintaining robust security controls.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Intuitive UI&lt;/strong&gt;: Security-related states (e.g., read-only vs. edit mode) are
+clearly reflected in the UI, making it easy for users to understand their
+current permission level.&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>Assurance Case</title><link>https://eclipse.dev/sw360/docs/development/dev-assurance-case/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/development/dev-assurance-case/</guid><description>&lt;h1 id="sw360-security-assurance-case"&gt;SW360 Security Assurance Case&lt;/h1&gt;
+&lt;p&gt;This document provides a formal justification for why the SW360 project&amp;rsquo;s
+security requirements are met. It serves as a comprehensive &amp;ldquo;argument for
+security&amp;rdquo; based on design, tools, and processes.&lt;/p&gt;
+&lt;h2 id="1-threat-model--trust-boundaries"&gt;1. Threat Model &amp;amp; Trust Boundaries&lt;/h2&gt;
+&lt;h3 id="assets-to-protect"&gt;Assets to Protect&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Intellectual Property&lt;/strong&gt;: Component data, license information, and project
+metadata.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;System Integrity&lt;/strong&gt;: The correctness of moderation requests and project
+status, ensured through &lt;strong&gt;audit trails and changelogs&lt;/strong&gt; for all records.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Availability&lt;/strong&gt;: Continuous access for organizational software compliance.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="trust-boundaries"&gt;Trust Boundaries&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;User/System Boundary&lt;/strong&gt;: The point where external users (or automated
+clients) interact with the SW360 Frontend or REST layer (Authorization and
+Resource Servers).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Frontend/Backend Boundary&lt;/strong&gt;: The interaction between the Next.js
+application and the REST layer services.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Internal service Boundary&lt;/strong&gt;: Communication between the REST layer and the
+business logic (Thrift).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Data layer Boundary&lt;/strong&gt;: Interaction between the backend services and the
+CouchDB database.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="2-secure-design-application"&gt;2. Secure Design Application&lt;/h2&gt;
+&lt;p&gt;As detailed in &lt;a href="https://eclipse.dev/sw360/docs/development/dev-secure-design/"&gt;Secure Design&lt;/a&gt;, the project strictly
+follows:&lt;/p&gt;</description></item></channel></rss>
