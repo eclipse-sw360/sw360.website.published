@@ -4600,7 +4600,35 @@ SHA1, Uploaded On, Uploaded Comment, Checked On, and Checked Comment.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Expected Result:&lt;/strong&gt; The table with the specified columns is present.&lt;/li&gt;
-&lt;/ul&gt;</description></item><item><title>SW360 Configurations</title><link>https://eclipse.dev/sw360/docs/deployment/deploy-configuration-files/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/deployment/deploy-configuration-files/</guid><description>&lt;h2 id="introduction"&gt;Introduction&lt;/h2&gt;
+&lt;/ul&gt;</description></item><item><title>SVM SSL/TLS Configuration</title><link>https://eclipse.dev/sw360/docs/administrationguide/vulnerabilitymanagement/svm-ssl-configuration/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/administrationguide/vulnerabilitymanagement/svm-ssl-configuration/</guid><description>&lt;p&gt;SW360 communicates with the SVM service over HTTPS.
+Two JKS files can be configured in &lt;code&gt;/etc/sw360/sw360.properties&lt;/code&gt;:&lt;/p&gt;
+&lt;table&gt;
+ &lt;thead&gt;
+ &lt;tr&gt;
+ &lt;th&gt;File&lt;/th&gt;
+ &lt;th&gt;Purpose&lt;/th&gt;
+ &lt;th&gt;Property&lt;/th&gt;
+ &lt;/tr&gt;
+ &lt;/thead&gt;
+ &lt;tbody&gt;
+ &lt;tr&gt;
+ &lt;td&gt;Trust store&lt;/td&gt;
+ &lt;td&gt;Trust the SVM server&amp;rsquo;s CA certificate&lt;/td&gt;
+ &lt;td&gt;&lt;code&gt;svm.sw360.truststore.filename&lt;/code&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;Client key store&lt;/td&gt;
+ &lt;td&gt;Authenticate SW360 to the SVM server (mutual TLS)&lt;/td&gt;
+ &lt;td&gt;&lt;code&gt;svm.sw360.certificate.filename&lt;/code&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Both files are resolved by SW360&amp;rsquo;s &lt;code&gt;CommonUtils.loadResource&lt;/code&gt;, which searches
+&lt;code&gt;/etc/sw360/&amp;lt;filename&amp;gt;&lt;/code&gt; first and then falls back to the classpath.
+Set only the &lt;strong&gt;filename&lt;/strong&gt; (e.g. &lt;code&gt;svm-truststore.jks&lt;/code&gt;), not an absolute path.&lt;/p&gt;
+&lt;h2 id="trust-store-lookup-order"&gt;Trust-store lookup order&lt;/h2&gt;
+&lt;p&gt;For SSL connections to the SVM API be trusted, the CA certificate should be
+present in the JVM default cacerts or provide them via a custom JKS trust store.&lt;/p&gt;</description></item><item><title>SW360 Configurations</title><link>https://eclipse.dev/sw360/docs/deployment/deploy-configuration-files/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/deployment/deploy-configuration-files/</guid><description>&lt;h2 id="introduction"&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;SW360 configurations are divided into two main categories: &lt;strong&gt;Non-changeable (File-based)&lt;/strong&gt; and &lt;strong&gt;Changeable (Database-backed)&lt;/strong&gt;.&lt;/p&gt;
 &lt;h4 id="applicable-property-files"&gt;Applicable Property Files:&lt;/h4&gt;
 &lt;ul&gt;
