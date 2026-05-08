@@ -3427,7 +3427,24 @@ immediately, but are routed to:&lt;/p&gt;
 &lt;li&gt;The moderators defined for that record&lt;/li&gt;
 &lt;li&gt;The Clearing Admin(s) of the same department&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;The proposed changes can then be approved or rejected by any of the above.&lt;/p&gt;</description></item><item><title>Edit Project</title><link>https://eclipse.dev/sw360/docs/development/completiontests/projects-edit/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/development/completiontests/projects-edit/</guid><description>&lt;h2 id="sw360-edit-project-page-test-cases"&gt;SW360 &amp;ldquo;Edit Project&amp;rdquo; Page Test Cases&lt;/h2&gt;
+&lt;p&gt;The proposed changes can then be approved or rejected by any of the above.&lt;/p&gt;</description></item><item><title>Generate a Keycloak Token for REST API</title><link>https://eclipse.dev/sw360/docs/userguide/keycloak-token/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/userguide/keycloak-token/</guid><description>&lt;p&gt;This guide explains how to generate a Keycloak access token for SW360 REST API
+usage with the &lt;code&gt;client_credentials&lt;/code&gt; flow.&lt;/p&gt;
+&lt;h2 id="before-you-generate-a-token-create-a-client"&gt;Before you generate a token: create a client&lt;/h2&gt;
+&lt;p&gt;For SW360 deployments, first create a dedicated Keycloak client and obtain
+its &lt;code&gt;client_id&lt;/code&gt; and &lt;code&gt;client_secret&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Follow the existing deployment guide:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://eclipse.dev/sw360/docs/deployment/deploy-keycloak-authentication/#user-client-management"&gt;Keycloak Authentication - User Client Management&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;After that step, come back here with:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Keycloak base URL (for example &lt;code&gt;https://&amp;lt;keycloak-host&amp;gt;&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;Realm name (for example &lt;code&gt;sw360&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;client_id&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;client_secret&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="token-endpoint-and-discovery"&gt;Token endpoint and discovery&lt;/h2&gt;
+&lt;p&gt;You can discover the token endpoint from OIDC metadata:&lt;/p&gt;</description></item><item><title>Edit Project</title><link>https://eclipse.dev/sw360/docs/development/completiontests/projects-edit/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/development/completiontests/projects-edit/</guid><description>&lt;h2 id="sw360-edit-project-page-test-cases"&gt;SW360 &amp;ldquo;Edit Project&amp;rdquo; Page Test Cases&lt;/h2&gt;
 &lt;h3 id="summary-tab"&gt;Summary Tab&lt;/h3&gt;
 &lt;h4 id="general-information-section"&gt;General Information Section&lt;/h4&gt;
 &lt;ul&gt;

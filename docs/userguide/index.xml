@@ -238,7 +238,24 @@ To open the Preferences page, click on the &lt;strong&gt;Preference&lt;/strong&g
 &lt;p&gt;To modify your email notifications, follow the procedure:&lt;/p&gt;</description></item><item><title>SW360 User Frequently Asked Questions</title><link>https://eclipse.dev/sw360/docs/userguide/faq/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/userguide/faq/</guid><description>&lt;h5 id="q-who-should-be-listed-as-moderator"&gt;&lt;strong&gt;Q&lt;/strong&gt;: Who should be listed as Moderator?&lt;/h5&gt;
 &lt;p&gt;&lt;strong&gt;A&lt;/strong&gt;: Moderator are persons who need to review changes done on certain items (project, component, release or attachment) by persons who do not have the user right to actually do these changes. For BT moderators are the persons with the role &amp;lsquo;Software Clearing Site Representative&amp;rsquo;.&lt;/p&gt;
 &lt;h5 id="q-who-should-be-listed-as-contributor"&gt;&lt;strong&gt;Q&lt;/strong&gt;: Who should be listed as Contributor?&lt;/h5&gt;
-&lt;p&gt;&lt;strong&gt;A&lt;/strong&gt;: By default only the owner (or creator) of an item (project, component, release) is allowed to modify this item. Often it is useful that additional people are allowed to edit an item. These additional people (software architects, developers, additional experts) should get listed as contributors.&lt;/p&gt;</description></item><item><title>Dependency Network Feature</title><link>https://eclipse.dev/sw360/docs/userguide/dependency_network/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/userguide/dependency_network/</guid><description>&lt;h2 id="how-to-enable-this-feature"&gt;How to enable this feature&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;A&lt;/strong&gt;: By default only the owner (or creator) of an item (project, component, release) is allowed to modify this item. Often it is useful that additional people are allowed to edit an item. These additional people (software architects, developers, additional experts) should get listed as contributors.&lt;/p&gt;</description></item><item><title>Generate a Keycloak Token for REST API</title><link>https://eclipse.dev/sw360/docs/userguide/keycloak-token/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/userguide/keycloak-token/</guid><description>&lt;p&gt;This guide explains how to generate a Keycloak access token for SW360 REST API
+usage with the &lt;code&gt;client_credentials&lt;/code&gt; flow.&lt;/p&gt;
+&lt;h2 id="before-you-generate-a-token-create-a-client"&gt;Before you generate a token: create a client&lt;/h2&gt;
+&lt;p&gt;For SW360 deployments, first create a dedicated Keycloak client and obtain
+its &lt;code&gt;client_id&lt;/code&gt; and &lt;code&gt;client_secret&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Follow the existing deployment guide:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://eclipse.dev/sw360/docs/deployment/deploy-keycloak-authentication/#user-client-management"&gt;Keycloak Authentication - User Client Management&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;After that step, come back here with:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Keycloak base URL (for example &lt;code&gt;https://&amp;lt;keycloak-host&amp;gt;&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;Realm name (for example &lt;code&gt;sw360&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;client_id&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;client_secret&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="token-endpoint-and-discovery"&gt;Token endpoint and discovery&lt;/h2&gt;
+&lt;p&gt;You can discover the token endpoint from OIDC metadata:&lt;/p&gt;</description></item><item><title>Dependency Network Feature</title><link>https://eclipse.dev/sw360/docs/userguide/dependency_network/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/userguide/dependency_network/</guid><description>&lt;h2 id="how-to-enable-this-feature"&gt;How to enable this feature&lt;/h2&gt;
 &lt;p&gt;To use this function, please:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;
