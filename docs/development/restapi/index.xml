@@ -1,40 +1,65 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SW360 RESTful API on Eclipse SW360</title><link>https://eclipse.dev/sw360/docs/development/restapi/</link><description>Recent content in SW360 RESTful API on Eclipse SW360</description><generator>Hugo</generator><language>en</language><atom:link href="https://eclipse.dev/sw360/docs/development/restapi/index.xml" rel="self" type="application/rss+xml"/><item><title>API Access</title><link>https://eclipse.dev/sw360/docs/development/restapi/access/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/development/restapi/access/</guid><description>&lt;h2 id="how-to-get-access"&gt;How to get Access&lt;/h2&gt;
-&lt;p&gt;There are the following steps&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;Open a browser with developer tools&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Go to
-&lt;code&gt;https://&amp;lt;my_sw360_server&amp;gt;/authorization/client-management&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;To add a new client, enter the following javascript in the dev tools
-console&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt; xmlHttpRequest = new XMLHttpRequest();
- xmlHttpRequest.open('POST', '/authorization/client-management', false);
- xmlHttpRequest.setRequestHeader('Content-Type', 'application/json');
- xmlHttpRequest.setRequestHeader('Accept', 'application/json');
- xmlHttpRequest.send(JSON.stringify(
- {
- &amp;quot;description&amp;quot; : &amp;quot;my first test client&amp;quot;,
- &amp;quot;authorities&amp;quot; : [ &amp;quot;BASIC&amp;quot; ],
- &amp;quot;scope&amp;quot; : [ &amp;quot;READ&amp;quot; ],
- &amp;quot;access_token_validity&amp;quot; : 3600,
- &amp;quot;refresh_token_validity&amp;quot; : 3600
- }
- ));
- console.log(xmlHttpRequest.responseText);
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;To manipulate an existing client, do the same but add the clientid to
-the data object&lt;/p&gt;</description></item><item><title>SW360 Rest API</title><link>https://eclipse.dev/sw360/docs/development/restapi/dev-rest-api/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/development/restapi/dev-rest-api/</guid><description>&lt;p&gt;The sw360 REST API provides access to sw360 resources for external clients. It consists currently of three Maven modules aggregated in one parent module &lt;code&gt;rest&lt;/code&gt; in the sw360 distribution.&lt;/p&gt;
-&lt;h2 id="module-structure"&gt;Module Structure&lt;/h2&gt;
-&lt;p&gt;The &lt;code&gt;rest&lt;/code&gt; module provides a REST API infrastructure for sw360 including:&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SW360 RESTful API on Eclipse SW360</title><link>https://eclipse.dev/sw360/docs/development/restapi/</link><description>Recent content in SW360 RESTful API on Eclipse SW360</description><generator>Hugo</generator><language>en</language><atom:link href="https://eclipse.dev/sw360/docs/development/restapi/index.xml" rel="self" type="application/rss+xml"/><item><title>API Access</title><link>https://eclipse.dev/sw360/docs/development/restapi/access/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/development/restapi/access/</guid><description>&lt;p&gt;This page describes the current SW360 REST API authentication options and the
+runtime authorization behavior in the &lt;code&gt;resource-server&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 id="authentication-mechanisms-current"&gt;Authentication Mechanisms (Current)&lt;/h2&gt;
+&lt;p&gt;SW360 supports four mechanisms for REST API access:&lt;/p&gt;
+&lt;table&gt;
+ &lt;thead&gt;
+ &lt;tr&gt;
+ &lt;th&gt;Mechanism&lt;/th&gt;
+ &lt;th&gt;Header / Credential&lt;/th&gt;
+ &lt;th&gt;Typical Use&lt;/th&gt;
+ &lt;/tr&gt;
+ &lt;/thead&gt;
+ &lt;tbody&gt;
+ &lt;tr&gt;
+ &lt;td&gt;Basic Auth&lt;/td&gt;
+ &lt;td&gt;&lt;code&gt;Authorization: Basic &amp;lt;base64(user:password)&amp;gt;&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;Human/admin tools and simple scripts&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;API Token&lt;/td&gt;
+ &lt;td&gt;&lt;code&gt;Authorization: Token &amp;lt;api-token&amp;gt;&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;Long-lived personal or service integration&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;OAuth2 Authorization Server&lt;/td&gt;
+ &lt;td&gt;&lt;code&gt;Authorization: Bearer &amp;lt;jwt&amp;gt;&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;OAuth client flow with &lt;code&gt;/authorization/oauth2/token&lt;/code&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;Keycloak&lt;/td&gt;
+ &lt;td&gt;&lt;code&gt;Authorization: Bearer &amp;lt;jwt&amp;gt;&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;OIDC/OAuth2 from external IAM&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id="authorization-model-in-resource-server"&gt;Authorization Model in &lt;code&gt;resource-server&lt;/code&gt;&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;Module &lt;code&gt;authorization-server&lt;/code&gt; - OAuth2 Authorization Server, offering typical authorization steps of an OAuth2 workflow.&lt;/li&gt;
-&lt;li&gt;Module &lt;code&gt;resource-server&lt;/code&gt; - REST API Gateway, providing access to the data for authenticated and authorized users / clients.&lt;/li&gt;
-&lt;li&gt;Module &lt;code&gt;rest-common&lt;/code&gt; - only library code that is shared between the other rest modules.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;GET /api/**&lt;/code&gt; requires &lt;code&gt;TOKEN_READ&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;POST&lt;/code&gt;, &lt;code&gt;PUT&lt;/code&gt;, &lt;code&gt;PATCH&lt;/code&gt;, &lt;code&gt;DELETE /api/**&lt;/code&gt; require &lt;code&gt;TOKEN_WRITE&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Common read-only endpoints such as &lt;code&gt;/health&lt;/code&gt;, &lt;code&gt;/version&lt;/code&gt;, and report download
+can be exposed separately from the write-protected resource endpoints.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;The REST API implementation uses:&lt;/p&gt;</description></item></channel></rss>
+&lt;p&gt;SW360 merges user group authorities (for example &lt;code&gt;READ&lt;/code&gt;, &lt;code&gt;WRITE&lt;/code&gt;, &lt;code&gt;ADMIN&lt;/code&gt;) with
+token capability authorities (&lt;code&gt;TOKEN_READ&lt;/code&gt;, &lt;code&gt;TOKEN_WRITE&lt;/code&gt;) before endpoint checks.&lt;/p&gt;</description></item><item><title>SW360 Rest API</title><link>https://eclipse.dev/sw360/docs/development/restapi/dev-rest-api/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/development/restapi/dev-rest-api/</guid><description>&lt;p&gt;The sw360 REST API provides access to sw360 resources for external clients. It consists currently of three Maven modules aggregated in one parent module &lt;code&gt;rest&lt;/code&gt; in the sw360 distribution.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;For access setup and request examples, see &lt;a href="https://eclipse.dev/sw360/docs/development/restapi/access/"&gt;API Access&lt;/a&gt;.
+Legacy workflows are kept in &lt;a href="https://eclipse.dev/sw360/docs/development/restapi/legacy/"&gt;Legacy REST API Guides&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="resource-server-authentication-and-authorization-flow"&gt;Resource Server Authentication and Authorization Flow&lt;/h2&gt;
+&lt;p&gt;This section describes how &lt;code&gt;resource-server&lt;/code&gt; identifies the principal and
+evaluates effective permissions.&lt;/p&gt;
+&lt;h3 id="security-pipeline-high-level"&gt;Security Pipeline (High-Level)&lt;/h3&gt;
+&lt;pre class="mermaid"&gt;flowchart TD
+ A[Incoming HTTP request] --&amp;gt; B{Authorization header}
+ B --&amp;gt;|Basic ...| C[Basic Authentication Provider]
+ B --&amp;gt;|Token ...| D[API Token Filter &amp;#43; Provider]
+ B --&amp;gt;|Bearer ...| E[JWT Authentication Provider &amp;#43; JWT Converter]
+ C --&amp;gt; F[Authenticated principal &amp;#43; authorities]
+ D --&amp;gt; F
+ E --&amp;gt; F
+ F --&amp;gt; G[Resolve SW360 user in RestControllerHelper]
+ G --&amp;gt; H[Endpoint &amp;#43; method authorization checks]&lt;/pre&gt;
+&lt;h3 id="how-principal-identity-is-resolved"&gt;How principal identity is resolved&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;RestControllerHelper.getSw360UserFromAuthentication()&lt;/code&gt; resolves the SW360 user
+from authentication context using this order:&lt;/p&gt;</description></item></channel></rss>
