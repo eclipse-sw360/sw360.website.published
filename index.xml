@@ -2784,7 +2784,39 @@ lists all the vulnerabilities that are available in SW360. The Vulnerabilities
 are typically synced from SVM tools but can also be manually managed. They are
 listed independently without any relation to their linked projects/components/releases initially.&lt;/p&gt;
 &lt;p&gt;To open the Vulnerabilities page, click on the &lt;strong&gt;Vulnerabilities tab&lt;/strong&gt; from the
-main menu.&lt;/p&gt;</description></item><item><title>Architecture</title><link>https://eclipse.dev/sw360/docs/development/dev-architecture/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/development/dev-architecture/</guid><description>&lt;h1 id="sw360-architecture-documentation"&gt;SW360 Architecture Documentation&lt;/h1&gt;
+main menu.&lt;/p&gt;</description></item><item><title>Backend Logging</title><link>https://eclipse.dev/sw360/docs/development/dev-backend-logging/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/development/dev-backend-logging/</guid><description>&lt;h2 id="overview"&gt;Overview&lt;/h2&gt;
+&lt;p&gt;SW360&amp;rsquo;s backend runs two kinds of applications on the same Tomcat instance:&lt;/p&gt;
+&lt;table&gt;
+ &lt;thead&gt;
+ &lt;tr&gt;
+ &lt;th&gt;Kind&lt;/th&gt;
+ &lt;th&gt;Examples&lt;/th&gt;
+ &lt;th&gt;Framework&lt;/th&gt;
+ &lt;th&gt;Logging stack&lt;/th&gt;
+ &lt;/tr&gt;
+ &lt;/thead&gt;
+ &lt;tbody&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;strong&gt;Thrift servlet WARs&lt;/strong&gt;&lt;/td&gt;
+ &lt;td&gt;&lt;code&gt;vmcomponents.war&lt;/code&gt;, &lt;code&gt;components.war&lt;/code&gt;, &lt;code&gt;schedule.war&lt;/code&gt;, &lt;code&gt;licenses.war&lt;/code&gt;, …&lt;/td&gt;
+ &lt;td&gt;Plain Java servlets (&lt;code&gt;web.xml&lt;/code&gt;)&lt;/td&gt;
+ &lt;td&gt;Log4j2, via &lt;code&gt;log4j-1.2-api&lt;/code&gt; bridge&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;strong&gt;Spring Boot WARs&lt;/strong&gt;&lt;/td&gt;
+ &lt;td&gt;&lt;code&gt;resource.war&lt;/code&gt; (REST API), &lt;code&gt;authorization.war&lt;/code&gt; (OAuth)&lt;/td&gt;
+ &lt;td&gt;Spring Boot (&lt;code&gt;@SpringBootApplication&lt;/code&gt;)&lt;/td&gt;
+ &lt;td&gt;Log4j2, via &lt;code&gt;spring-boot-starter-log4j2&lt;/code&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Both use &lt;strong&gt;Log4j2&lt;/strong&gt; under the hood, but they are configured differently.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="spring-boot-applications-rest-api--authorization-server"&gt;Spring Boot applications (REST API &amp;amp; Authorization Server)&lt;/h2&gt;
+&lt;p&gt;The REST resource-server (&lt;code&gt;resource.war&lt;/code&gt;) and authorization-server
+(&lt;code&gt;authorization.war&lt;/code&gt;) are full Spring Boot applications deployed as WARs.
+Spring Boot&amp;rsquo;s &lt;code&gt;LoggingSystem&lt;/code&gt; manages Log4j2 and reads log levels from
+&lt;code&gt;application.yml&lt;/code&gt;.&lt;/p&gt;</description></item><item><title>Architecture</title><link>https://eclipse.dev/sw360/docs/development/dev-architecture/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/development/dev-architecture/</guid><description>&lt;h1 id="sw360-architecture-documentation"&gt;SW360 Architecture Documentation&lt;/h1&gt;
 &lt;p&gt;This document describes the high-level architecture of the SW360 project, its
 major components, and how they interact.&lt;/p&gt;
 &lt;h2 id="system-overview"&gt;System Overview&lt;/h2&gt;
