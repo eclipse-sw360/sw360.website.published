@@ -1,4 +1,47 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Administration Guides on Eclipse SW360</title><link>https://eclipse.dev/sw360/docs/administrationguide/</link><description>Recent content in Administration Guides on Eclipse SW360</description><generator>Hugo</generator><language>en</language><atom:link href="https://eclipse.dev/sw360/docs/administrationguide/index.xml" rel="self" type="application/rss+xml"/><item><title>Administrator Menu</title><link>https://eclipse.dev/sw360/docs/administrationguide/menu/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/administrationguide/menu/</guid><description>&lt;p&gt;The &lt;strong&gt;Administrator Menu&lt;/strong&gt; provides centralized access to system management
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Administration Guide on Eclipse SW360</title><link>https://eclipse.dev/sw360/docs/administrationguide/</link><description>Recent content in Administration Guide on Eclipse SW360</description><generator>Hugo</generator><language>en</language><atom:link href="https://eclipse.dev/sw360/docs/administrationguide/index.xml" rel="self" type="application/rss+xml"/><item><title>Securing SW360</title><link>https://eclipse.dev/sw360/docs/administrationguide/securing-sw360/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/administrationguide/securing-sw360/</guid><description>&lt;p&gt;This page is the single reference for securing an SW360 installation. It
+covers application-level authentication and credential management. For
+infrastructure-level hardening (TLS, network isolation, file permissions,
+reverse proxy) see
+&lt;a href="https://eclipse.dev/sw360/docs/deployment/deploy-secure-deployment/"&gt;Security Best Practices&lt;/a&gt;.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="1-authentication-modes"&gt;1. Authentication Modes&lt;/h2&gt;
+&lt;p&gt;SW360 v20 supports four authentication methods, selectable per deployment.
+Both bare-metal and container setups configure the same properties, just in
+different files.&lt;/p&gt;
+&lt;table&gt;
+ &lt;thead&gt;
+ &lt;tr&gt;
+ &lt;th&gt;Mode&lt;/th&gt;
+ &lt;th&gt;Frontend provider&lt;/th&gt;
+ &lt;th&gt;When to use&lt;/th&gt;
+ &lt;/tr&gt;
+ &lt;/thead&gt;
+ &lt;tbody&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;code&gt;sw360basic&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;HTTP Basic username/password&lt;/td&gt;
+ &lt;td&gt;Local development only&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;code&gt;sw360oauth&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;Built-in OAuth2 Authorization Server&lt;/td&gt;
+ &lt;td&gt;Internal / automation-heavy setups&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;code&gt;keycloak&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;External Keycloak OIDC&lt;/td&gt;
+ &lt;td&gt;&lt;strong&gt;Recommended for production&lt;/strong&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;code&gt;api-token&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;Personal Bearer API key (REST API token)&lt;/td&gt;
+ &lt;td&gt;CI, automation, service scripts&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id="11-built-in-basic-auth-sw360basic"&gt;1.1. Built-in Basic Auth (&lt;code&gt;sw360basic&lt;/code&gt;)&lt;/h3&gt;
+&lt;p&gt;The default mode. No extra configuration is required; the frontend sends an
+&lt;code&gt;Authorization: Basic …&lt;/code&gt; header on every request.&lt;/p&gt;</description></item><item><title>Administrator Menu</title><link>https://eclipse.dev/sw360/docs/administrationguide/menu/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/administrationguide/menu/</guid><description>&lt;p&gt;The &lt;strong&gt;Administrator Menu&lt;/strong&gt; provides centralized access to system management
 tools and settings. The menu consists of the following sections:&lt;/p&gt;
 &lt;figure&gt;&lt;img src="https://eclipse.dev/sw360/img/sw360screenshots/administration/Admin-menu.png"&gt;
 &lt;/figure&gt;
