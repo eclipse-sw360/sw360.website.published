@@ -288,7 +288,42 @@
 &lt;strong&gt;Reference:&lt;/strong&gt; &lt;a href="https://github.com/eclipse-sw360/sw360/pull/4054"&gt;eclipse-sw360/sw360#4054&lt;/a&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id="1-context-and-problem-statement"&gt;1. Context and Problem Statement&lt;/h2&gt;
-&lt;p&gt;Spring Boot 3.x, while still supported, is approaching its maintenance window end. Spring Boot 4.x (based on Spring Framework 7.x and Spring Security 7.x) introduces performance improvements, modern Java alignment, and security enhancements. However, the upgrade involves breaking changes in package relocations, removed deprecated APIs, and module restructuring.&lt;/p&gt;</description></item><item><title>ADR Template (DAR/SWOT)</title><link>https://eclipse.dev/sw360/docs/architecture/decisions/adr-template/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/architecture/decisions/adr-template/</guid><description>&lt;h1 id="adr-template-decision-analysis-and-resolution-dar"&gt;ADR Template: Decision Analysis and Resolution (DAR)&lt;/h1&gt;
+&lt;p&gt;Spring Boot 3.x, while still supported, is approaching its maintenance window end. Spring Boot 4.x (based on Spring Framework 7.x and Spring Security 7.x) introduces performance improvements, modern Java alignment, and security enhancements. However, the upgrade involves breaking changes in package relocations, removed deprecated APIs, and module restructuring.&lt;/p&gt;</description></item><item><title>ADR-009: Modernize Nouveau Search Architecture</title><link>https://eclipse.dev/sw360/docs/architecture/decisions/adr-009-nouveau-search/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/architecture/decisions/adr-009-nouveau-search/</guid><description>&lt;h1 id="decision-analysis-and-resolution-couchdb-nouveau-search-architecture-modernization"&gt;Decision Analysis and Resolution: CouchDB Nouveau Search Architecture Modernization&lt;/h1&gt;
+&lt;p&gt;&lt;strong&gt;Created by:&lt;/strong&gt; SW360 Architecture Team
+&lt;strong&gt;Decision Date:&lt;/strong&gt; July 2026
+&lt;strong&gt;Status:&lt;/strong&gt; Proposed&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="table-of-contents"&gt;Table of Contents&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href="https://eclipse.dev/sw360/docs/architecture/decisions/adr-009-nouveau-search/#1-context-and-problem-statement"&gt;Context and Problem Statement&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://eclipse.dev/sw360/docs/architecture/decisions/adr-009-nouveau-search/#2-goal"&gt;Goal&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://eclipse.dev/sw360/docs/architecture/decisions/adr-009-nouveau-search/#3-key-principles"&gt;Key Principles&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://eclipse.dev/sw360/docs/architecture/decisions/adr-009-nouveau-search/#4-options-analysis"&gt;Options Analysis&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://eclipse.dev/sw360/docs/architecture/decisions/adr-009-nouveau-search/#41-status-quo"&gt;Status Quo&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://eclipse.dev/sw360/docs/architecture/decisions/adr-009-nouveau-search/#42-edge-n-gram-indexing-with-tiered-conjunction-querying"&gt;Edge N-Gram Indexing with Tiered Conjunction Querying&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://eclipse.dev/sw360/docs/architecture/decisions/adr-009-nouveau-search/#5-criteria-for-making-a-decision"&gt;Criteria for Making a Decision&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://eclipse.dev/sw360/docs/architecture/decisions/adr-009-nouveau-search/#51-positive-consequences"&gt;Positive Consequences&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://eclipse.dev/sw360/docs/architecture/decisions/adr-009-nouveau-search/#52-negative-consequences"&gt;Negative Consequences&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://eclipse.dev/sw360/docs/architecture/decisions/adr-009-nouveau-search/#6-technical-specification"&gt;Technical Specification&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://eclipse.dev/sw360/docs/architecture/decisions/adr-009-nouveau-search/#61-couchdb-nouveau-design-document-definition"&gt;CouchDB Nouveau Design Document Definition&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://eclipse.dev/sw360/docs/architecture/decisions/adr-009-nouveau-search/#62-reference-java-implementation"&gt;Reference Java Implementation&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://eclipse.dev/sw360/docs/architecture/decisions/adr-009-nouveau-search/#63-native-nouveau-sorting-matrix"&gt;Native Nouveau Sorting Matrix&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2 id="1-context-and-problem-statement"&gt;1. Context and Problem Statement&lt;/h2&gt;
+&lt;p&gt;The current SW360 search mechanism constructs queries by appending trailing
+wildcards to every input token (&lt;code&gt;term1* OR term2* OR term3*&lt;/code&gt;). While this
+maximizes recall for unknown terms, it causes severe issues in production
+environments:&lt;/p&gt;</description></item><item><title>ADR Template (DAR/SWOT)</title><link>https://eclipse.dev/sw360/docs/architecture/decisions/adr-template/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/architecture/decisions/adr-template/</guid><description>&lt;h1 id="adr-template-decision-analysis-and-resolution-dar"&gt;ADR Template: Decision Analysis and Resolution (DAR)&lt;/h1&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;Template Version:&lt;/strong&gt; 1.0&lt;br&gt;
 &lt;strong&gt;Based on:&lt;/strong&gt; ABT UI Technology Stack Decision Framework&lt;br&gt;
