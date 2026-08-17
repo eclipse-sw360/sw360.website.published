@@ -199,15 +199,7 @@ Recommended is IntelliJ IDEA or NetBeans.&lt;/p&gt;</description></item><item><t
 &lt;p&gt;The REST resource-server (&lt;code&gt;resource.war&lt;/code&gt;) and authorization-server
 (&lt;code&gt;authorization.war&lt;/code&gt;) are full Spring Boot applications deployed as WARs.
 Spring Boot&amp;rsquo;s &lt;code&gt;LoggingSystem&lt;/code&gt; manages Log4j2 and reads log levels from
-&lt;code&gt;application.yml&lt;/code&gt;.&lt;/p&gt;</description></item><item><title>Committer Pathway &amp; Community Governance</title><link>https://eclipse.dev/sw360/docs/development/dev-committer-pathway/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/development/dev-committer-pathway/</guid><description>&lt;h2 id="overview"&gt;Overview&lt;/h2&gt;
-&lt;p&gt;The &lt;strong&gt;Eclipse SW360&lt;/strong&gt; project is an open source community operating under the
-&lt;a href="https://www.eclipse.org/projects/dev_process/"&gt;Eclipse Development Process (EDP)&lt;/a&gt;.
-We follow an open, merit-based governance model where any active contributor
-from any organization can become a Committer or Project Lead.&lt;/p&gt;
-&lt;p&gt;We warmly welcome and invite contributors, maintainers, and adopters from
-diverse organizations (such as Siemens, Toshiba, CARIAD, Bosch, and wider open
-source community members) to participate and take active roles in project
-stewardship.&lt;/p&gt;</description></item><item><title>Architecture</title><link>https://eclipse.dev/sw360/docs/development/dev-architecture/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/development/dev-architecture/</guid><description>&lt;h1 id="sw360-architecture-documentation"&gt;SW360 Architecture Documentation&lt;/h1&gt;
+&lt;code&gt;application.yml&lt;/code&gt;.&lt;/p&gt;</description></item><item><title>Architecture</title><link>https://eclipse.dev/sw360/docs/development/dev-architecture/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/development/dev-architecture/</guid><description>&lt;h1 id="sw360-architecture-documentation"&gt;SW360 Architecture Documentation&lt;/h1&gt;
 &lt;p&gt;This document describes the high-level architecture of the SW360 project, its
 major components, and how they interact.&lt;/p&gt;
 &lt;h2 id="system-overview"&gt;System Overview&lt;/h2&gt;
