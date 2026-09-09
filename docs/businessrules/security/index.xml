@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Security Domain Business Rules on Eclipse SW360</title><link>https://eclipse.dev/sw360/docs/businessrules/security/</link><description>Recent content in Security Domain Business Rules on Eclipse SW360</description><generator>Hugo</generator><language>en</language><atom:link href="https://eclipse.dev/sw360/docs/businessrules/security/index.xml" rel="self" type="application/rss+xml"/><item><title>BR-SEC-001: Security User Role &amp; Token Scope REST Filter Restrictions</title><link>https://eclipse.dev/sw360/docs/businessrules/security/br-sec-001-security-user-role-restrictions/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/businessrules/security/br-sec-001-security-user-role-restrictions/</guid><description>&lt;h1 id="br-sec-001-security-user-role--token-scope-rest-filter-restrictions"&gt;BR-SEC-001: Security User Role &amp;amp; Token Scope REST Filter Restrictions&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Standard Classification:&lt;/strong&gt; Role Definition &amp;amp; Behavioral Constraint / Access Control&lt;br&gt;
+&lt;strong&gt;Target Entity:&lt;/strong&gt; &lt;code&gt;User&lt;/code&gt; (Role: &lt;code&gt;SECURITY_USER&lt;/code&gt;), &lt;code&gt;Token&lt;/code&gt; (Scopes: &lt;code&gt;READ&lt;/code&gt;, &lt;code&gt;WRITE&lt;/code&gt;), &lt;code&gt;Project&lt;/code&gt;, &lt;code&gt;Vulnerability&lt;/code&gt;, REST Endpoints&lt;br&gt;
+&lt;strong&gt;Status:&lt;/strong&gt; Approved&lt;br&gt;
+&lt;strong&gt;Enforcement Points:&lt;/strong&gt; Backend Permissions (&lt;code&gt;PermissionUtils&lt;/code&gt;, &lt;code&gt;ProjectPermissions&lt;/code&gt;) and Resource Server (&lt;code&gt;EndpointsFilter&lt;/code&gt;)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2 id="1-executive-summary--formal-statements"&gt;1. Executive Summary &amp;amp; Formal Statements&lt;/h2&gt;
+&lt;h3 id="11-formal-statement-rulespeak--ears"&gt;1.1 Formal Statement (RuleSpeak® / EARS)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;While&lt;/strong&gt; an authenticated user has the role &lt;code&gt;SECURITY_USER&lt;/code&gt;:
+&lt;ul&gt;
+&lt;li&gt;The system &lt;strong&gt;shall grant read access&lt;/strong&gt; to &lt;strong&gt;all&lt;/strong&gt; projects (including &lt;code&gt;PRIVATE&lt;/code&gt; projects of any department or owner), but &lt;strong&gt;only&lt;/strong&gt; to their &lt;strong&gt;Summary&lt;/strong&gt; and &lt;strong&gt;Vulnerabilities&lt;/strong&gt; information.&lt;/li&gt;
+&lt;li&gt;The system &lt;strong&gt;shall deny access&lt;/strong&gt; to clearing, ECC (Export Control and Customs), compliance, attachments, and license obligations details for those projects.&lt;/li&gt;
+&lt;li&gt;The system &lt;strong&gt;shall not allow&lt;/strong&gt; the user to create, modify, or delete core catalog entities across the system (strictly read-only role).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;While&lt;/strong&gt; an incoming REST API request is authenticated via an API Token or initiated by a &lt;code&gt;SECURITY_USER&lt;/code&gt;:
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;If&lt;/strong&gt; the token possesses &lt;code&gt;READ&lt;/code&gt; scope (or the authenticated user is &lt;code&gt;SECURITY_USER&lt;/code&gt;):
+&lt;ul&gt;
+&lt;li&gt;The REST API Gateway (&lt;code&gt;EndpointsFilter&lt;/code&gt;) &lt;strong&gt;shall intercept and block&lt;/strong&gt; all HTTP &lt;code&gt;POST&lt;/code&gt;, &lt;code&gt;PUT&lt;/code&gt;, &lt;code&gt;PATCH&lt;/code&gt;, and &lt;code&gt;DELETE&lt;/code&gt; requests with HTTP &lt;code&gt;503 Service Unavailable&lt;/code&gt; / &lt;code&gt;403 Forbidden&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Otherwise&lt;/strong&gt;, the gateway &lt;strong&gt;shall allow&lt;/strong&gt; safe non-mutating query endpoints and self-service token lifecycle operations:
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;POST /api/releases/batch-summary&lt;/code&gt; (Batch data retrieval requiring a JSON request payload).&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;POST /api/users/tokens&lt;/code&gt; (Self-service generation of &lt;code&gt;READ&lt;/code&gt; or &lt;code&gt;WRITE&lt;/code&gt; scoped user API tokens from the UI/client).&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;DELETE /api/users/tokens&lt;/code&gt; (Self-service revocation and cleanup of the user&amp;rsquo;s own API tokens).&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;If&lt;/strong&gt; the token possesses &lt;code&gt;WRITE&lt;/code&gt; scope and the user is not &lt;code&gt;SECURITY_USER&lt;/code&gt;, the system &lt;strong&gt;shall permit&lt;/strong&gt; standard HTTP mutation verbs (&lt;code&gt;POST&lt;/code&gt;, &lt;code&gt;PUT&lt;/code&gt;, &lt;code&gt;PATCH&lt;/code&gt;, &lt;code&gt;DELETE&lt;/code&gt;) subject to standard domain permission checks.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="12-purpose--risk-mitigated"&gt;1.2 Purpose &amp;amp; Risk Mitigated&lt;/h3&gt;
+&lt;p&gt;The &lt;code&gt;SECURITY_USER&lt;/code&gt; role and &lt;code&gt;READ&lt;/code&gt; token scopes allow automated security scanners, audit tools, and read-only integrations global visibility into vulnerabilities and security posture across the entire organization&amp;rsquo;s software catalog without exposure to proprietary project internals, compliance data, or the ability to alter database records. Enforcing strict read-only behavior at the HTTP filter level guarantees defense-in-depth against unauthorized mutation attempts while explicitly allowing batch query POST requests and self-service token generation and revocation (to ensure users can manage their own security credentials and immediately invalidate compromised tokens).&lt;/p&gt;</description></item></channel></rss>
