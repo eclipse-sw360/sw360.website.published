@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Clearing Workflows Business Rules on Eclipse SW360</title><link>https://eclipse.dev/sw360/docs/businessrules/clearing/</link><description>Recent content in Clearing Workflows Business Rules on Eclipse SW360</description><generator>Hugo</generator><language>en</language><atom:link href="https://eclipse.dev/sw360/docs/businessrules/clearing/index.xml" rel="self" type="application/rss+xml"/><item><title>BR-CLR-001: Release Clearing State Determination &amp; Manual Transitions</title><link>https://eclipse.dev/sw360/docs/businessrules/clearing/br-clr-001-release-clearing-state-determination/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/businessrules/clearing/br-clr-001-release-clearing-state-determination/</guid><description>&lt;h1 id="br-clr-001-release-clearing-state-determination--manual-transitions"&gt;BR-CLR-001: Release Clearing State Determination &amp;amp; Manual Transitions&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Standard Classification:&lt;/strong&gt; State Machine / Behavioral Invariant &amp;amp; Lifecycle Constraint&lt;br&gt;
+&lt;strong&gt;Target Entity:&lt;/strong&gt; &lt;code&gt;Release&lt;/code&gt;, &lt;code&gt;Attachment&lt;/code&gt; (&lt;code&gt;CLEARING_REPORT&lt;/code&gt;, &lt;code&gt;INTERNAL_USE_SCAN_REPORT&lt;/code&gt;, &lt;code&gt;INITIAL_SCAN_REPORT&lt;/code&gt;), Integration Actions (&lt;code&gt;Send to FOSSology&lt;/code&gt;)&lt;br&gt;
+&lt;strong&gt;Status:&lt;/strong&gt; Approved&lt;br&gt;
+&lt;strong&gt;Enforcement Points:&lt;/strong&gt; Backend Domain Services (&lt;code&gt;ReleaseService.autosetReleaseClearingState&lt;/code&gt;, &lt;code&gt;ComponentDatabaseHandler.evaluateClearingStateForScanAvailable&lt;/code&gt;)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2 id="1-executive-summary--formal-statements"&gt;1. Executive Summary &amp;amp; Formal Statements&lt;/h2&gt;
+&lt;h3 id="11-formal-statement-rulespeak--ears"&gt;1.1 Formal Statement (RuleSpeak® / EARS)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;While&lt;/strong&gt; updating a &lt;code&gt;Release&lt;/code&gt;:
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;If&lt;/strong&gt; the user manually sets &lt;code&gt;clearingState&lt;/code&gt; to &lt;code&gt;UNDER_CLEARING&lt;/code&gt; &lt;strong&gt;and&lt;/strong&gt; the prior &lt;code&gt;clearingState&lt;/code&gt; is either &lt;code&gt;NEW_CLEARING&lt;/code&gt; or &lt;code&gt;REPORT_AVAILABLE&lt;/code&gt;, &lt;strong&gt;then&lt;/strong&gt; the system &lt;strong&gt;shall preserve the manual state&lt;/strong&gt; and skip automatic recalculation based on attachments.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Otherwise&lt;/strong&gt;, the system &lt;strong&gt;shall automatically determine and assign&lt;/strong&gt; the &lt;code&gt;clearingState&lt;/code&gt; according to the following evaluation precedence:
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;If&lt;/strong&gt; a Clearing Report (&lt;code&gt;BestClearingReport&lt;/code&gt;) is attached:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;If&lt;/strong&gt; its &lt;code&gt;checkStatus&lt;/code&gt; is &lt;code&gt;ACCEPTED&lt;/code&gt;, &lt;strong&gt;then&lt;/strong&gt; &lt;code&gt;clearingState&lt;/code&gt; shall be &lt;code&gt;APPROVED&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Otherwise&lt;/strong&gt; (&lt;code&gt;checkStatus&lt;/code&gt; is not &lt;code&gt;ACCEPTED&lt;/code&gt;), &lt;strong&gt;then&lt;/strong&gt; &lt;code&gt;clearingState&lt;/code&gt; shall be &lt;code&gt;REPORT_AVAILABLE&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start="2"&gt;
+&lt;li&gt;&lt;strong&gt;Else if&lt;/strong&gt; an Internal Use Scan Report (&lt;code&gt;BestInternalUseScanReport&lt;/code&gt;) is attached with &lt;code&gt;checkStatus&lt;/code&gt; equal to &lt;code&gt;ACCEPTED&lt;/code&gt;, &lt;strong&gt;then&lt;/strong&gt; &lt;code&gt;clearingState&lt;/code&gt; shall be &lt;code&gt;INTERNAL_USE_SCAN_AVAILABLE&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Else if&lt;/strong&gt; an Initial Scan Report (&lt;code&gt;INITIAL_SCAN_REPORT&lt;/code&gt;) is attached (evaluated via &lt;code&gt;evaluateClearingStateForScanAvailable &amp;gt; 0&lt;/code&gt;), &lt;strong&gt;then&lt;/strong&gt; &lt;code&gt;clearingState&lt;/code&gt; shall be &lt;code&gt;SCAN_AVAILABLE&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Otherwise&lt;/strong&gt; (no qualifying scan, internal use, or clearing reports exist), &lt;code&gt;clearingState&lt;/code&gt; shall default to &lt;code&gt;NEW_CLEARING&lt;/code&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;When&lt;/strong&gt; a user triggers the action &lt;strong&gt;&amp;ldquo;Send to FOSSology&amp;rdquo;&lt;/strong&gt; on a &lt;code&gt;Release&lt;/code&gt;:
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Then&lt;/strong&gt; the system &lt;strong&gt;shall transition&lt;/strong&gt; the release &lt;code&gt;clearingState&lt;/code&gt; to &lt;code&gt;SENT_TO_CLEARING_TOOL&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="12-purpose--risk-mitigated"&gt;1.2 Purpose &amp;amp; Risk Mitigated&lt;/h3&gt;
+&lt;p&gt;Automating the &lt;code&gt;Release&lt;/code&gt; clearing lifecycle based on verified attachment artifacts eliminates human error and status drift, ensuring that releases are never marked &lt;code&gt;APPROVED&lt;/code&gt; without an accepted clearing report. Allowing an explicit manual transition to &lt;code&gt;UNDER_CLEARING&lt;/code&gt; from unverified or draft states (&lt;code&gt;NEW_CLEARING&lt;/code&gt;, &lt;code&gt;REPORT_AVAILABLE&lt;/code&gt;) enables clearing specialists to explicitly indicate active work on a release, preventing duplicate clearing efforts across distributed teams.&lt;/p&gt;</description></item></channel></rss>

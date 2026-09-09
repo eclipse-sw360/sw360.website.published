@@ -3460,7 +3460,51 @@ licenses, and security vulnerabilities. It follows a multi-tier architecture
 consisting of a React-based frontend, a Spring Boot-based REST API
 (Authorization and Resource Servers), a Thrift-based backend service layer, and
 a CouchDB database. Integration with Keycloak is supported for enterprise-grade
-Identity and Access Management.&lt;/p&gt;</description></item><item><title>Configurations</title><link>https://eclipse.dev/sw360/docs/administrationguide/configurations/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/administrationguide/configurations/</guid><description>&lt;p&gt;In SW360 v20, system administrators can manage most application settings
+Identity and Access Management.&lt;/p&gt;</description></item><item><title>BR-PROJ-002: License Clearing Tab Status Badges &amp; Color Representation</title><link>https://eclipse.dev/sw360/docs/businessrules/projects/br-proj-002-license-clearing-tab-badges/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/businessrules/projects/br-proj-002-license-clearing-tab-badges/</guid><description>&lt;h1 id="br-proj-002-license-clearing-tab-status-badges--color-representation"&gt;BR-PROJ-002: License Clearing Tab Status Badges &amp;amp; Color Representation&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Standard Classification:&lt;/strong&gt; Definitional Rule / UI Presentation Invariant&lt;br&gt;
+&lt;strong&gt;Target Entity:&lt;/strong&gt; &lt;code&gt;Project&lt;/code&gt;, &lt;code&gt;Release&lt;/code&gt;, Project Details UI (&lt;code&gt;License Clearing&lt;/code&gt; Tab)&lt;br&gt;
+&lt;strong&gt;Status:&lt;/strong&gt; Approved&lt;br&gt;
+&lt;strong&gt;Enforcement Points:&lt;/strong&gt; Frontend UI Views (&lt;code&gt;ListView.tsx&lt;/code&gt;, &lt;code&gt;TreeView.tsx&lt;/code&gt;)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2 id="1-executive-summary--formal-statements"&gt;1. Executive Summary &amp;amp; Formal Statements&lt;/h2&gt;
+&lt;h3 id="11-formal-statement-rulespeak--ears"&gt;1.1 Formal Statement (RuleSpeak® / EARS)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;While&lt;/strong&gt; an authenticated user is viewing an accessible &lt;code&gt;Project&lt;/code&gt; in details mode under the &lt;strong&gt;License Clearing&lt;/strong&gt; tab:
+&lt;ul&gt;
+&lt;li&gt;The system &lt;strong&gt;shall render&lt;/strong&gt; a hierarchical table displaying all linked releases (direct and transitive sub-project releases).&lt;/li&gt;
+&lt;li&gt;The system &lt;strong&gt;shall display&lt;/strong&gt; state indicator badges with abbreviations:
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;(PS)&lt;/code&gt; for &lt;strong&gt;Project Clearing State&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;(CS)&lt;/code&gt; for &lt;strong&gt;Release Clearing State&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;When&lt;/strong&gt; rendering the &lt;code&gt;(PS)&lt;/code&gt; badge for a project row, the system &lt;strong&gt;shall apply&lt;/strong&gt; the exact background color mapped to the project clearing state:
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;Closed&lt;/code&gt; $\rightarrow$ &lt;strong&gt;Green&lt;/strong&gt; (&lt;code&gt;#68C17C&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;In-progress&lt;/code&gt; $\rightarrow$ &lt;strong&gt;Yellow&lt;/strong&gt; (&lt;code&gt;#FFD351&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Open&lt;/code&gt; $\rightarrow$ &lt;strong&gt;Red&lt;/strong&gt; (&lt;code&gt;#E6717C&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Not Applicable&lt;/code&gt; / &lt;code&gt;Unknown&lt;/code&gt; $\rightarrow$ &lt;strong&gt;Grey&lt;/strong&gt; (&lt;code&gt;#DEE2E6&lt;/code&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;When&lt;/strong&gt; rendering the &lt;code&gt;(CS)&lt;/code&gt; badge for a release row, the system &lt;strong&gt;shall apply&lt;/strong&gt; the exact background color mapped to the release clearing state:
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;NEW_CLEARING&lt;/code&gt; $\rightarrow$ &lt;strong&gt;Red&lt;/strong&gt; (&lt;code&gt;#E6717C&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;UNDER_CLEARING&lt;/code&gt; $\rightarrow$ &lt;strong&gt;Yellow&lt;/strong&gt; (&lt;code&gt;#FFD350&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;SENT_TO_CLEARING_TOOL&lt;/code&gt; or &lt;code&gt;SCAN_AVAILABLE&lt;/code&gt; $\rightarrow$ &lt;strong&gt;Orange&lt;/strong&gt; (&lt;code&gt;#F7941E&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;REPORT_AVAILABLE&lt;/code&gt; $\rightarrow$ &lt;strong&gt;Blue&lt;/strong&gt; (&lt;code&gt;#0D6EFD&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;INTERNAL_USE_SCAN_AVAILABLE&lt;/code&gt; $\rightarrow$ &lt;strong&gt;Purple&lt;/strong&gt; (&lt;code&gt;#9370DB&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;APPROVED&lt;/code&gt; $\rightarrow$ &lt;strong&gt;Green&lt;/strong&gt; (&lt;code&gt;#69C17D&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;null&lt;/code&gt;, &lt;code&gt;undefined&lt;/code&gt;, or unmapped $\rightarrow$ &lt;strong&gt;Grey&lt;/strong&gt; (&lt;code&gt;#DEE2E6&lt;/code&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;When&lt;/strong&gt; a user hovers over any &lt;code&gt;(PS)&lt;/code&gt; or &lt;code&gt;(CS)&lt;/code&gt; badge, the system &lt;strong&gt;shall render a tooltip&lt;/strong&gt; displaying the full, human-readable state name.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="12-purpose--risk-mitigated"&gt;1.2 Purpose &amp;amp; Risk Mitigated&lt;/h3&gt;
+&lt;p&gt;Compact color-coded badge representations allow project managers, architects, and clearing officers to assess compliance and clearing readiness across deeply nested dependency trees at a single glance. Standardizing the color mappings prevents misinterpretation of clearing risk across different pages and ensures accessibility via hover tooltips.&lt;/p&gt;</description></item><item><title>Configurations</title><link>https://eclipse.dev/sw360/docs/administrationguide/configurations/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/administrationguide/configurations/</guid><description>&lt;p&gt;In SW360 v20, system administrators can manage most application settings
 directly through the user interface. This eliminates the need for manual
 configuration file edits for many standard adjustments.&lt;/p&gt;
 &lt;h2 id="admin--configurations"&gt;Admin &amp;gt; Configurations&lt;/h2&gt;
