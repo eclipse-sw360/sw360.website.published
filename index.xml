@@ -3548,7 +3548,34 @@ Identity and Access Management.&lt;/p&gt;</description></item><item><title>BR-PR
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id="12-purpose--risk-mitigated"&gt;1.2 Purpose &amp;amp; Risk Mitigated&lt;/h3&gt;
-&lt;p&gt;Compact color-coded badge representations allow project managers, architects, and clearing officers to assess compliance and clearing readiness across deeply nested dependency trees at a single glance. Standardizing the color mappings prevents misinterpretation of clearing risk across different pages and ensures accessibility via hover tooltips.&lt;/p&gt;</description></item><item><title>Configurations</title><link>https://eclipse.dev/sw360/docs/administrationguide/configurations/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/administrationguide/configurations/</guid><description>&lt;p&gt;In SW360 v20, system administrators can manage most application settings
+&lt;p&gt;Compact color-coded badge representations allow project managers, architects, and clearing officers to assess compliance and clearing readiness across deeply nested dependency trees at a single glance. Standardizing the color mappings prevents misinterpretation of clearing risk across different pages and ensures accessibility via hover tooltips.&lt;/p&gt;</description></item><item><title>BR-SEC-002: ECC Admin Role Privileges &amp; Moderation Bypass</title><link>https://eclipse.dev/sw360/docs/businessrules/security/br-sec-002-security-admin-privileges/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/businessrules/security/br-sec-002-security-admin-privileges/</guid><description>&lt;h1 id="br-sec-002-ecc-admin-role-privileges--moderation-bypass"&gt;BR-SEC-002: ECC Admin Role Privileges &amp;amp; Moderation Bypass&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Standard Classification:&lt;/strong&gt; Role Definition &amp;amp; Authorization Invariant&lt;br&gt;
+&lt;strong&gt;Target Entity:&lt;/strong&gt; &lt;code&gt;User&lt;/code&gt; (Role: &lt;code&gt;ECC_ADMIN&lt;/code&gt;), &lt;code&gt;Component&lt;/code&gt;, &lt;code&gt;Release&lt;/code&gt;, &lt;code&gt;Attachment&lt;/code&gt;, &lt;code&gt;ModerationRequest&lt;/code&gt;&lt;br&gt;
+&lt;strong&gt;Status:&lt;/strong&gt; Approved&lt;br&gt;
+&lt;strong&gt;Enforcement Points:&lt;/strong&gt; Backend Permissions (&lt;code&gt;PermissionUtils&lt;/code&gt;, &lt;code&gt;ComponentPermissions&lt;/code&gt;, &lt;code&gt;ReleasePermissions&lt;/code&gt;) and Moderation Layer (&lt;code&gt;ModerationService&lt;/code&gt;)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2 id="1-executive-summary--formal-statements"&gt;1. Executive Summary &amp;amp; Formal Statements&lt;/h2&gt;
+&lt;h3 id="11-formal-statement-rulespeak--ears"&gt;1.1 Formal Statement (RuleSpeak® / EARS)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;While&lt;/strong&gt; an authenticated user possesses the role &lt;code&gt;ECC_ADMIN&lt;/code&gt;:
+&lt;ul&gt;
+&lt;li&gt;The system &lt;strong&gt;shall allow&lt;/strong&gt; the user to update Export Control and Customs (ECC) metadata fields on &lt;strong&gt;any&lt;/strong&gt; &lt;code&gt;Release&lt;/code&gt; across the entire catalog, regardless of project/release ownership, visibility, or restriction states.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;When&lt;/strong&gt; the user uploads an &lt;code&gt;Attachment&lt;/code&gt; to any &lt;code&gt;Component&lt;/code&gt; or &lt;code&gt;Release&lt;/code&gt;:
+&lt;ul&gt;
+&lt;li&gt;The system &lt;strong&gt;shall persist&lt;/strong&gt; the attachment directly to the target entity.&lt;/li&gt;
+&lt;li&gt;The system &lt;strong&gt;shall bypass&lt;/strong&gt; the moderation workflow (no &lt;code&gt;ModerationRequest&lt;/code&gt; shall be generated or required for attachment additions).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Otherwise&lt;/strong&gt; (for non-ECC field updates on components or releases where the user is not an owner or moderator), the system &lt;strong&gt;shall continue to enforce&lt;/strong&gt; standard moderation or access constraints.&lt;/li&gt;
+&lt;li&gt;The system &lt;strong&gt;shall prohibit&lt;/strong&gt; the &lt;code&gt;ECC_ADMIN&lt;/code&gt; from modifying the verification status (&lt;code&gt;checkStatus&lt;/code&gt; -&amp;gt; &lt;code&gt;ACCEPTED&lt;/code&gt; / &lt;code&gt;REJECTED&lt;/code&gt;) of any uploaded attachment.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="12-purpose--risk-mitigated"&gt;1.2 Purpose &amp;amp; Risk Mitigated&lt;/h3&gt;
+&lt;p&gt;ECC (Export Control and Customs) officers require unhindered authority to inspect, classify, and certify compliance data and technical documentation (e.g., ECCN classification sheets, cryptographic questionnaires, export licenses)
+across all software components and releases. Granting direct attachment upload rights without moderation overhead eliminates operational bottlenecks during compliance audits while maintaining data integrity by scoping write privileges strictly to ECC data and audit-supporting artifacts.&lt;/p&gt;</description></item><item><title>Configurations</title><link>https://eclipse.dev/sw360/docs/administrationguide/configurations/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/administrationguide/configurations/</guid><description>&lt;p&gt;In SW360 v20, system administrators can manage most application settings
 directly through the user interface. This eliminates the need for manual
 configuration file edits for many standard adjustments.&lt;/p&gt;
 &lt;h2 id="admin--configurations"&gt;Admin &amp;gt; Configurations&lt;/h2&gt;
