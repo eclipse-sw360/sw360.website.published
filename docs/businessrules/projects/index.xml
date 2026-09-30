@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Project Business Rules on Eclipse SW360</title><link>https://eclipse.dev/sw360/docs/businessrules/projects/</link><description>Recent content in Project Business Rules on Eclipse SW360</description><generator>Hugo</generator><language>en</language><atom:link href="https://eclipse.dev/sw360/docs/businessrules/projects/index.xml" rel="self" type="application/rss+xml"/><item><title>BR-PROJ-001: Closed Project Update Restrictions</title><link>https://eclipse.dev/sw360/docs/businessrules/projects/br-proj-001-closed-project-restrictions/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/businessrules/projects/br-proj-001-closed-project-restrictions/</guid><description>&lt;h1 id="br-proj-001-closed-project-update-restrictions"&gt;BR-PROJ-001: Closed Project Update Restrictions&lt;/h1&gt;
 &lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;Standard Classification:&lt;/strong&gt; Behavioral Constraint / Access Control&lt;br&gt;
-&lt;strong&gt;Target Entity:&lt;/strong&gt; &lt;code&gt;Project&lt;/code&gt;&lt;br&gt;
-&lt;strong&gt;Status:&lt;/strong&gt; Approved&lt;br&gt;
+&lt;p&gt;&lt;strong&gt;Standard Classification:&lt;/strong&gt; Behavioral Constraint / Access Control
+&lt;strong&gt;Target Entity:&lt;/strong&gt; &lt;code&gt;Project&lt;/code&gt;
+&lt;strong&gt;Status:&lt;/strong&gt; Approved
 &lt;strong&gt;Governing Configuration:&lt;/strong&gt; &lt;code&gt;projects.closed.update.strict&lt;/code&gt; (Default: &lt;code&gt;false&lt;/code&gt;)&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;hr&gt;
@@ -11,25 +11,46 @@
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;While&lt;/strong&gt; a Project has clearing state &lt;code&gt;CLOSED&lt;/code&gt; (&lt;code&gt;project.clearingState == ProjectClearingState.CLOSED&lt;/code&gt;):
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;If&lt;/strong&gt; &lt;code&gt;projects.closed.update.strict&lt;/code&gt; is &lt;code&gt;false&lt;/code&gt;, &lt;strong&gt;then&lt;/strong&gt; the system &lt;strong&gt;shall allow&lt;/strong&gt; users with role &lt;code&gt;CLEARING_ADMIN&lt;/code&gt; (or above) as well as the project team (Creator, Project Responsible, Moderators, Contributors, and Lead Architects) to modify all fields of the project.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;If&lt;/strong&gt; &lt;code&gt;projects.closed.update.strict&lt;/code&gt; is &lt;code&gt;true&lt;/code&gt;, &lt;strong&gt;then&lt;/strong&gt; the system &lt;strong&gt;shall allow&lt;/strong&gt; only &lt;code&gt;CLEARING_ADMIN&lt;/code&gt; (or above) to modify all fields. The project team (Creator, Project Responsible, Moderators, Contributors, and Lead Architects) &lt;strong&gt;shall only be allowed&lt;/strong&gt; to modify the allowlisted maintenance fields:
+&lt;li&gt;&lt;strong&gt;If&lt;/strong&gt; &lt;code&gt;projects.closed.update.strict&lt;/code&gt; is &lt;code&gt;false&lt;/code&gt;:
+&lt;ul&gt;
+&lt;li&gt;The system &lt;strong&gt;shall allow&lt;/strong&gt; users with role &lt;code&gt;CLEARING_ADMIN&lt;/code&gt; (or above) as well as the project team (Creator, Project Responsible, Project Owner, Moderators, Contributors, and Lead Architects) to modify project fields.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;If&lt;/strong&gt; &lt;code&gt;projects.closed.update.strict&lt;/code&gt; is &lt;code&gt;true&lt;/code&gt;:
+&lt;ul&gt;
+&lt;li&gt;The system &lt;strong&gt;shall allow only&lt;/strong&gt; users with role &lt;code&gt;ADMIN&lt;/code&gt; (or &lt;code&gt;SW360_ADMIN&lt;/code&gt;) to modify any field across the project without restriction.&lt;/li&gt;
+&lt;li&gt;The system &lt;strong&gt;shall allow&lt;/strong&gt; project team members (Creator, Project Responsible, Project Owner, Lead Architect, Moderators, Contributors) to modify &lt;strong&gt;only&lt;/strong&gt; the following 11 allowlisted operational maintenance fields:
 &lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;Project State&lt;/strong&gt; (&lt;code&gt;state&lt;/code&gt;, project status, not clearing state)&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Project Responsibles&lt;/strong&gt; (&lt;code&gt;projectResponsible&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Enable Security Monitoring&lt;/strong&gt; (&lt;code&gt;enableSvm&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Enable Displaying Vulnerabilities&lt;/strong&gt; (&lt;code&gt;enableVulnerabilitiesDisplay&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Project Responsible&lt;/strong&gt; (&lt;code&gt;projectResponsible&lt;/code&gt;)&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Project Owner&lt;/strong&gt; (&lt;code&gt;projectOwner&lt;/code&gt;)&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Security Responsible&lt;/strong&gt; (&lt;code&gt;securityResponsible&lt;/code&gt;)&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Enable Security Vulnerability Monitoring&lt;/strong&gt; (&lt;code&gt;securityVulnerabilitiesMonitoring&lt;/code&gt;)&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Display Vulnerabilities&lt;/strong&gt; (&lt;code&gt;displayVulnerabilities&lt;/code&gt;)&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Phase-out date&lt;/strong&gt; (&lt;code&gt;phaseOutDate&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Lead Architect&lt;/strong&gt; (&lt;code&gt;leadArchitect&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Moderators&lt;/strong&gt; (&lt;code&gt;moderators&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Contributors&lt;/strong&gt; (&lt;code&gt;contributors&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Security Responsibles&lt;/strong&gt; (&lt;code&gt;securityResponsibles&lt;/code&gt;)&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;External IDs&lt;/strong&gt; (&lt;code&gt;externalIds&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Project State&lt;/strong&gt; (&lt;code&gt;state&lt;/code&gt;, e.g., Active, Phase-out)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Phase-out Date&lt;/strong&gt; (&lt;code&gt;phaseOutSince&lt;/code&gt;)&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;If&lt;/strong&gt; any other user attempts an update, or if a restricted user attempts to modify non-allowlisted fields in strict mode, the system &lt;strong&gt;shall reject&lt;/strong&gt; the request with HTTP &lt;code&gt;403 Forbidden&lt;/code&gt; and &lt;strong&gt;shall not&lt;/strong&gt; generate any moderation request.&lt;/li&gt;
+&lt;li&gt;The system &lt;strong&gt;shall strictly prohibit&lt;/strong&gt; project team members and non-admin users from modifying linked releases (&lt;code&gt;linkedReleases&lt;/code&gt;), linked sub-projects (&lt;code&gt;linkedProjects&lt;/code&gt;), or linked packages (&lt;code&gt;packages&lt;/code&gt;).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Otherwise&lt;/strong&gt; (unauthorized users or attempts by team members to modify non-allowlisted fields in strict mode), the system &lt;strong&gt;shall reject&lt;/strong&gt; the update request with HTTP &lt;code&gt;403 Forbidden&lt;/code&gt; and &lt;strong&gt;shall not&lt;/strong&gt; generate any moderation request.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id="12-purpose--risk-mitigated"&gt;1.2 Purpose &amp;amp; Risk Mitigated&lt;/h3&gt;
-&lt;p&gt;This restriction is enforced strictly for &lt;strong&gt;audit and compliance purposes&lt;/strong&gt;. A project is transitioned into the &lt;strong&gt;CLOSED&lt;/strong&gt; clearing state only after its license clearing process is fully completed and approved. Once in the closed state, no changes that could result in a &lt;strong&gt;drift of license clearing&lt;/strong&gt; (such as unauthorized modifications, additions, or removals of components, releases, attachments, or license obligations) shall be allowed. This guarantees that the cleared and certified baseline remains immutable and audit-compliant, while still permitting non-clearing operational lifecycle maintenance (e.g., updating security contacts, phase-out dates, or project ownership).&lt;/p&gt;</description></item><item><title>BR-PROJ-002: License Clearing Tab Status Badges &amp; Color Representation</title><link>https://eclipse.dev/sw360/docs/businessrules/projects/br-proj-002-license-clearing-tab-badges/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/businessrules/projects/br-proj-002-license-clearing-tab-badges/</guid><description>&lt;h1 id="br-proj-002-license-clearing-tab-status-badges--color-representation"&gt;BR-PROJ-002: License Clearing Tab Status Badges &amp;amp; Color Representation&lt;/h1&gt;
+&lt;p&gt;This restriction is enforced strictly for &lt;strong&gt;audit and compliance purposes&lt;/strong&gt;.
+A project transitions into the &lt;strong&gt;CLOSED&lt;/strong&gt; clearing state only after its
+open-source license clearing is certified and signed off. Once closed, any
+addition, removal, or modification of linked releases, sub-projects, packages,
+or clearing data creates &lt;strong&gt;license clearing drift&lt;/strong&gt;, invalidating the audited
+compliance baseline. Enforcing strict closed mode prevents audit violations
+while permitting project teams to maintain operational lifecycle details (such
+as vulnerability monitoring, security contacts, team ownership, and
+phase-out milestones).&lt;/p&gt;</description></item><item><title>BR-PROJ-002: License Clearing Tab Status Badges &amp; Color Representation</title><link>https://eclipse.dev/sw360/docs/businessrules/projects/br-proj-002-license-clearing-tab-badges/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/businessrules/projects/br-proj-002-license-clearing-tab-badges/</guid><description>&lt;h1 id="br-proj-002-license-clearing-tab-status-badges--color-representation"&gt;BR-PROJ-002: License Clearing Tab Status Badges &amp;amp; Color Representation&lt;/h1&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;Standard Classification:&lt;/strong&gt; Definitional Rule / UI Presentation Invariant&lt;br&gt;
 &lt;strong&gt;Target Entity:&lt;/strong&gt; &lt;code&gt;Project&lt;/code&gt;, &lt;code&gt;Release&lt;/code&gt;, Project Details UI (&lt;code&gt;License Clearing&lt;/code&gt; Tab)&lt;br&gt;
