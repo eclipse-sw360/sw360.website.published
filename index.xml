@@ -4187,7 +4187,40 @@ monitoring services.&lt;/p&gt;</description></item><item><title>Workflows</title
 &lt;/ol&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Expected Result:&lt;/strong&gt; The project is saved, and the user is redirected to the project edit page for the newly created project.&lt;/li&gt;
-&lt;/ul&gt;</description></item><item><title>SW360 Rest API</title><link>https://eclipse.dev/sw360/docs/development/restapi/dev-rest-api/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/development/restapi/dev-rest-api/</guid><description>&lt;p&gt;The sw360 REST API provides access to sw360 resources for external clients. It consists currently of three Maven modules aggregated in one parent module &lt;code&gt;rest&lt;/code&gt; in the sw360 distribution.&lt;/p&gt;
+&lt;/ul&gt;</description></item><item><title>BR-PROJ-003: Clearing Admin Group-Scoped Project Modification Privileges</title><link>https://eclipse.dev/sw360/docs/businessrules/projects/br-proj-003-clearing-admin-project-modification/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/businessrules/projects/br-proj-003-clearing-admin-project-modification/</guid><description>&lt;h1 id="br-proj-003-clearing-admin-group-scoped-project-modification-privileges"&gt;BR-PROJ-003: Clearing Admin Group-Scoped Project Modification Privileges&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Standard Classification:&lt;/strong&gt; Role Definition &amp;amp; Authorization Invariant
+&lt;strong&gt;Target Entity:&lt;/strong&gt; &lt;code&gt;Project&lt;/code&gt;, &lt;code&gt;User&lt;/code&gt; (Role: &lt;code&gt;CLEARING_ADMIN&lt;/code&gt;), &lt;code&gt;ModerationRequest&lt;/code&gt;
+&lt;strong&gt;Status:&lt;/strong&gt; Approved
+&lt;strong&gt;Governing Configuration:&lt;/strong&gt; &lt;code&gt;none&lt;/code&gt; (Interacts with &lt;code&gt;projects.closed.update.strict&lt;/code&gt; via &lt;a href="https://eclipse.dev/sw360/docs/businessrules/projects/br-proj-001-closed-project-restrictions/"&gt;BR-PROJ-001&lt;/a&gt;)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2 id="1-executive-summary--formal-statements"&gt;1. Executive Summary &amp;amp; Formal Statements&lt;/h2&gt;
+&lt;h3 id="11-formal-statement-rulespeak--ears"&gt;1.1 Formal Statement (RuleSpeak® / EARS)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;While&lt;/strong&gt; an authenticated user holds the &lt;code&gt;CLEARING_ADMIN&lt;/code&gt; role for a group &lt;code&gt;DEPT&lt;/code&gt; (either via their primary department and primary user group, or via an entry in &lt;code&gt;secondaryDepartmentsAndRoles&lt;/code&gt; whose derived Business Unit prefix matches &lt;code&gt;DEPT&lt;/code&gt;):
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;When&lt;/strong&gt; the user modifies an &lt;strong&gt;open&lt;/strong&gt; Project (&lt;code&gt;project.clearingState != ProjectClearingState.CLOSED&lt;/code&gt;) belonging to the same group &lt;code&gt;DEPT&lt;/code&gt; (&lt;code&gt;project.businessUnit == DEPT&lt;/code&gt;):
+&lt;ul&gt;
+&lt;li&gt;The system &lt;strong&gt;shall allow&lt;/strong&gt; the user to directly modify the project and its attachments regardless of whether the user holds any project-level role (such as Creator, Project Owner, Project Responsible, Lead Architect, Moderator, or Contributor).&lt;/li&gt;
+&lt;li&gt;The system &lt;strong&gt;shall bypass&lt;/strong&gt; the moderation workflow (no &lt;code&gt;ModerationRequest&lt;/code&gt; shall be created, and no moderation comment shall be required).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;When&lt;/strong&gt; the user modifies a &lt;strong&gt;closed&lt;/strong&gt; Project (&lt;code&gt;project.clearingState == ProjectClearingState.CLOSED&lt;/code&gt;) belonging to the same group &lt;code&gt;DEPT&lt;/code&gt; (&lt;code&gt;project.businessUnit == DEPT&lt;/code&gt;):
+&lt;ul&gt;
+&lt;li&gt;The system &lt;strong&gt;shall allow&lt;/strong&gt; the user to modify the project directly without generating a &lt;code&gt;ModerationRequest&lt;/code&gt;, regardless of whether the user holds any project-level role, &lt;strong&gt;subject to&lt;/strong&gt; the field and dependency restrictions defined in &lt;a href="https://eclipse.dev/sw360/docs/businessrules/projects/br-proj-001-closed-project-restrictions/"&gt;BR-PROJ-001&lt;/a&gt; (i.e., all fields when &lt;code&gt;projects.closed.update.strict == false&lt;/code&gt;, or only the 11 allowlisted operational maintenance fields when &lt;code&gt;projects.closed.update.strict == true&lt;/code&gt;).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Otherwise&lt;/strong&gt; (when the user holds &lt;code&gt;CLEARING_ADMIN&lt;/code&gt; only for groups other than the project&amp;rsquo;s &lt;code&gt;businessUnit&lt;/code&gt; and is not a member of the project team):
+&lt;ul&gt;
+&lt;li&gt;For an &lt;strong&gt;open&lt;/strong&gt; Project, the system &lt;strong&gt;shall not&lt;/strong&gt; grant direct write privileges and &lt;strong&gt;shall route&lt;/strong&gt; any modification through a &lt;code&gt;ModerationRequest&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;For a &lt;strong&gt;closed&lt;/strong&gt; Project, the system &lt;strong&gt;shall reject&lt;/strong&gt; the modification and &lt;strong&gt;shall not&lt;/strong&gt; generate any &lt;code&gt;ModerationRequest&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Existing visibility checks and separately authorized ECC/security operations remain unchanged. These statements assume no other independent authorization, such as an administrator role or project-team membership. The existing Clearing Expert role hierarchy is preserved; this rule does not redefine it.&lt;/p&gt;</description></item><item><title>SW360 Rest API</title><link>https://eclipse.dev/sw360/docs/development/restapi/dev-rest-api/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eclipse.dev/sw360/docs/development/restapi/dev-rest-api/</guid><description>&lt;p&gt;The sw360 REST API provides access to sw360 resources for external clients. It consists currently of three Maven modules aggregated in one parent module &lt;code&gt;rest&lt;/code&gt; in the sw360 distribution.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;For access setup and request examples, see &lt;a href="https://eclipse.dev/sw360/docs/development/restapi/access/"&gt;API Access&lt;/a&gt;.
 Legacy workflows are kept in &lt;a href="https://eclipse.dev/sw360/docs/development/restapi/legacy/"&gt;Legacy REST API Guides&lt;/a&gt;.&lt;/p&gt;
